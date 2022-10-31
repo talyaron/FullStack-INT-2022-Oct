@@ -23,7 +23,7 @@
     margin-left: 4px;
 }
 
-h2{
+news-block-text h2{
     line-height: 10px;
 }
 
@@ -35,4 +35,20 @@ p{
     color: white;
     padding-left: 4px;
     font-family: 'News Cycle', sans-serif;
+}
+
+#news-block-virus-img{
+    width: 400px;
+    height: 250px;
+}
+
+.news-block-video{
+    opacity: 70%;
+}
+
+#news-block-video-icon{
+    width: 30px;
+    position:absolute;
+    top: 220px;
+    margin-left: 4px;
 }
