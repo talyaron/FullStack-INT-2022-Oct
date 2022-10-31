@@ -12,11 +12,12 @@ body {
 }
 
 .container {
-    width: 600px;
-    height: 60%;
-    /* outline: 5px solid black; */
+    width: 500px;
+    height: 500px;
+    outline: 5px solid black;
     display: flex;
     flex-direction: column;
+    position: absolute;
 }
 
 #red-box {
@@ -24,8 +25,8 @@ body {
     width: 200px;
     height: 40px;
     position: fixed;
-    right: 15%;
-    top: 58%;
+    margin-top: 255px;
+    margin-left: 300px;
     text-align: center;
     font-size: 30px;
     font-weight: bold;
@@ -36,13 +37,12 @@ body {
 .photos-grid {
     /* border: 3px solid blue; */
     display: flex;
-    height: 70%;
+    height: 60%;
 }
 
 .photo {
-    /* border: 3px solid white; */
+    outline: 5px solid white;
     width: 50%;
-    display: flex;
 }
 
 .photo img {
@@ -51,8 +51,8 @@ body {
 }
 
 .text-container {
-    border: 3px solid green;
-    height: 30%;
+    /* border: 3px solid green; */
+    height: 40%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
