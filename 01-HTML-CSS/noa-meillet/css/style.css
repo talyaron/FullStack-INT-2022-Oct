@@ -1,0 +1,54 @@
+.news-block {
+    background-color: black;
+    width: 400px;
+    position: relative;
+}
+
+.news-block-img{
+    width: 48%;
+    height: 250px;
+    padding-left: 4px;
+}
+
+.news-block-red-header {
+    background-color: red;
+    color: white;
+    text-align: center;
+    font-family: 'News Cycle', sans-serif;
+    width: 35%;
+    height: fit-content;
+    line-height: 0px;
+    position:absolute;
+    top: 213px;
+    margin-left: 4px;
+}
+
+news-block-text h2{
+    line-height: 10px;
+}
+
+p{
+   line-height: 18px;
+}
+
+.news-block-text{
+    color: white;
+    padding-left: 4px;
+    font-family: 'News Cycle', sans-serif;
+}
+
+#news-block-virus-img{
+    width: 400px;
+    height: 250px;
+}
+
+.news-block-video{
+    opacity: 70%;
+}
+
+#news-block-video-icon{
+    width: 30px;
+    position:absolute;
+    top: 220px;
+    margin-left: 4px;
+}
