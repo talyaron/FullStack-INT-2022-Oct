@@ -12,6 +12,8 @@
    .dropdown{
     border: 10px solid rgb(8, 8, 8);
     background-color: aqua;
+    position: absolute;
+    top: 825px;
    }
 
    /* figcaption{
