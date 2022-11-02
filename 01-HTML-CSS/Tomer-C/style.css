@@ -1,0 +1,26 @@
+
+.border{
+    border: 20px solid blue;
+    float: left;
+    height: 27.7rem;
+}
+.pic{
+    display: inline;
+    background-color: red;
+    margin-left: 220px;
+}
+div{
+    width: 250px;
+    height: 450px;
+}
+.text{
+   background-image: url("/01-HTML-CSS/Tomer-C/photo-1588421357574-87938a86fa28.jpg");
+   width: 580px;
+   height: 100px;
+   position: absolute;
+   top: 491px;
+}
+#idtext{
+    position: relative;
+}
+ 
