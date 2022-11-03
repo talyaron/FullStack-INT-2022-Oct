@@ -1,0 +1,84 @@
+html {
+  background: linear-gradient(
+    to bottom right,
+    rgba(15, 15, 15, 1),
+    rgba(136, 136, 137, 0.5),
+    rgba(237, 240, 242, 0.1)
+  );
+}
+
+body {
+  background: linear-gradient(
+    to bottom right,
+    rgba(15, 15, 15, 1),
+    rgba(136, 136, 137, 0.5),
+    rgba(237, 240, 242, 0.1)
+  );
+  background-repeat: no-repeat;
+}
+h1 {
+  font-family: "Rubik Maze", cursive;
+}
+
+.external-title {
+  text-align: center;
+}
+.news-container {
+  border: solid 3px black;
+  width: 420px;
+  height: 420px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: rgb(59, 60, 60);
+  position: relative;
+}
+.img-news {
+  width: 202px;
+  height: 202px;
+  border: 2px solid black;
+}
+span {
+  color: red;
+}
+.text-img {
+  color: rgb(216, 228, 239);
+}
+.news-block-red-header {
+  color: white;
+  text-align: center;
+  font-family: "News Cycle", sans-serif;
+  position: absolute;
+  top: 183px;
+  right: 2px;
+}
+#news-block-red-heade-h {
+  background-color: red;
+}
+
+h3 {
+  color: aliceblue;
+  display: inline;
+  font-size: large;
+  background-color: rgb(39, 40, 40);
+}
+p {
+  font-style: italic;
+  font-size: 105%;
+}
+#p-end {
+  font-size: x-large;
+}
+#link {
+  color: white;
+  background-color: black;
+  font-size: 150%;
+  font-style: oblique;
+}
+#link:hover {
+  background-color: rgb(241, 6, 6);
+  border: solid 2px black;
+}
+#detalis-paragraph{
+  color: aliceblue;
+  font-size: smaller;
+}
