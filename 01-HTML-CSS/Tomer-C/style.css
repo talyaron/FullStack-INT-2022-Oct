@@ -4,7 +4,7 @@
     float: left;
     height: 27.7rem;
 }
-.pic{
+.pictxt{
     display: inline;
     background-color: red;
     margin-left: 220px;
@@ -16,7 +16,7 @@ div{
 .text{
    background-image: url("/01-HTML-CSS/Tomer-C/photo-1588421357574-87938a86fa28.jpg");
    width: 580px;
-   height: 100px;
+   height: 200px;
    position: absolute;
    top: 491px;
 }
