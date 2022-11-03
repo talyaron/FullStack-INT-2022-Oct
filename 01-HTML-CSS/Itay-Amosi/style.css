@@ -21,16 +21,20 @@
     font-size: 50px;
    }
 
-   #par1{
-   border: 0px solid red;
+   .bigbox{
+   border: 0px solid white;
    width: 1808px;
    height: 1229px;
    position: relative;
    bottom: -35rem;
+   margin-top: 145px;
    }
 
    .figcaption{
    float: inline-end;
     font-size: 30px;
     float:right;
+   }
+   .br{
+
    }
