@@ -1,8 +1,8 @@
 
 .border{
     border: 20px solid blue;
-    float: left;
     height: 27.7rem;
+
 }
 .pictxt{
     display: inline;
@@ -13,14 +13,15 @@ div{
     width: 250px;
     height: 450px;
 }
-.text{
+#text{
    background-image: url("/01-HTML-CSS/Tomer-C/photo-1588421357574-87938a86fa28.jpg");
-   width: 580px;
+   width: 554px;
    height: 200px;
    position: absolute;
    top: 491px;
 }
-#idtext{
-    position: relative;
+#balls{
+    position: absolute;
+    left: 270px;
+    bottom: 448px;
 }
- 
