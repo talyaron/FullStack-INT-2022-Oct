@@ -1,3 +1,0 @@
-Create a news div dupe
-the div containes an img, a header and a pharagraph
-the div must look like the img sent in whatsaspp

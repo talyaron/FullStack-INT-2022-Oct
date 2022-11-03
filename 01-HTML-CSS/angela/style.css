@@ -1,0 +1,39 @@
+.wrap{
+    border: 5px solid black;
+    width:50rem;
+    height: 40rem;
+    margin-left: 27%;
+    background-color: white;
+}
+.wrap:hover{
+    box-shadow: 0 0 100px rgb(248, 248, 248);
+}
+.wrap img{
+    width: 50%;
+    height: 20rem;
+    float: right;
+}
+.header{
+    background-color: blanchedalmond;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    text-align: center;
+}
+.para{
+    font-family:fantasy;
+    
+}
+span{
+    color: red;
+}
+
+body{
+    background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'); 
+    background-attachment: fixed;  
+    background-size: cover;
+}
+
+a:hover{
+    color: rgb(0, 72, 27);
+}

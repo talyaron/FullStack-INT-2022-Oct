@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body{
+    background: black;
+  }
+  
+  .bgImage {
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    position: fixed;
+    filter: blur(15px);
+  }
+  
+.mainBox {
+    top: 180px;
+    margin: auto;
+    width: 500px;
+    height: 650px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.569), 0 6px 20px 0 rgba(0, 0, 0, 0.983);
+    position: relative;
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgb(0, 179, 255) 0%, rgb(15, 15, 71) 50%, rgb(0, 0, 33) 100%);
+}
+
+.image1 {
+    width: 50%;
+    padding: 0px 2px 0 2px;
+}
+.image2 {
+    width: 50%;
+    padding: 0 2px 0px 2px;
+    float:right;
+}
+
+.topImage {
+    margin: auto;
+    width:100%;
+    padding: 2px 2px 0px 2px;
+    transition: transform 0.5s;
+}
+
+.topImage:hover {
+    transform: scale(1.3);
+}
+
+
+.titleH1 {
+    padding: 0px 0 0 10px;
+    color: white;
+    text-decoration: underline;
+    font-size: 30px;
+}
+
+.par1 {
+    padding: 0px 20px 20px 10px;
+    color: white;
+    font-size: 20px;
+}
+
+.par2 {
+    padding: 5px 10px 20px 10px;
+    color: white;
+    font-size: 13px;
+    text-align: right;
+}
+
+footer {
+    padding: 0px 20px 10px 10px;
+    color: white;
+    font-size: 14px;
+}
+
