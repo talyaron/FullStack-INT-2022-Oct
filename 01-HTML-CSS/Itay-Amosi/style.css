@@ -1,5 +1,5 @@
 .wrapper {
-    border: 10px solid red;
+    border: 0px solid red;
     background-color: aqua;
        width: 904px;
        height: 800px;
@@ -10,12 +10,27 @@
     height: 50rem;
    }
    .dropdown{
-    border: 10px solid rgb(8, 8, 8);
+    border: 0px solid rgb(8, 8, 8);
     background-color: aqua;
     position: absolute;
-    top: 825px;
+    top: 800px;
+    width: 1808px;
+    font-size: 3rem;
+   }
+   p{
+    font-size: 50px;
    }
 
-   /* figcaption{
-       background-color: black;
-   } */
+   #par1{
+   border: 0px solid red;
+   width: 1808px;
+   height: 1229px;
+   position: relative;
+   bottom: -35rem;
+   }
+
+   .figcaption{
+   float: inline-end;
+    font-size: 30px;
+    float:right;
+   }
