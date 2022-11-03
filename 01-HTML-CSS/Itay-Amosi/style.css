@@ -20,7 +20,6 @@
    p{
     font-size: 50px;
    }
-
    .bigbox{
    border: 0px solid white;
    width: 1808px;
@@ -29,12 +28,8 @@
    bottom: -35rem;
    margin-top: 145px;
    }
-
    .figcaption{
    float: inline-end;
     font-size: 30px;
     float:right;
-   }
-   .br{
-
    }
