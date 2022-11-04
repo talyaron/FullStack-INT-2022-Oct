@@ -1,0 +1,27 @@
+.container {
+    font-family: arial;
+    font-size: 14px;
+    margin: 25px;
+    width: 350px;
+    height: 400px;
+    outline: dashed 1px blue;
+  }
+.container2 {
+    margin: 25px;
+    width: 350px;
+    height: 500px;
+    outline: dashed 1px blue;
+}
+.vir {
+    width: 250px;
+}
+.elec2022 {
+    height: 55%;
+    width: 175px;
+    float: left;
+}
+.can1 {
+    height: 55%;
+    width: 175px;
+    float: right;
+}
