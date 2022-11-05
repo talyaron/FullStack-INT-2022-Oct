@@ -5,7 +5,7 @@
   
 }
 
-#Img {
+.img {
   height: 400px;
 }
 
@@ -19,7 +19,7 @@
   width: 90px;
 }
 
-#HeaderWrapper {
+#headerWrapper {
   padding-left: 10px;
   padding-right: 20px;
   background-color: rgb(167, 167, 167);
@@ -36,5 +36,11 @@
   font-size: 18px;
   margin-bottom: 10px;
 
+}
+
+#linkArrow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
