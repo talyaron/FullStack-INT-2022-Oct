@@ -1,5 +1,6 @@
 const btn = document.querySelector("#btn");
 const radioButtons = document.querySelectorAll('input[name="בחירות"]');
+
 btn.addEventListener("click", () => {
   let party;
   let mandates;
@@ -11,4 +12,5 @@ btn.addEventListener("click", () => {
     }
   }
   output.innerText = party ? `מפלגת ${party} עם ${mandates} מנדטים` : " ";
+
 });
