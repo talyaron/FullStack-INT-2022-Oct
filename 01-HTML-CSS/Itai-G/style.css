@@ -1,19 +1,27 @@
 .container {
-    font-family: arial;
+    font-family: 'Poor Story', cursive;
     font-size: 14px;
     margin: 25px;
     width: 350px;
     height: 400px;
-    outline: dashed 1px blue;
   }
 .container2 {
+    font-family: 'Oswald', sans-serif;
     margin: 25px;
     width: 350px;
     height: 500px;
-    outline: dashed 1px blue;
+    position: relative;
+}
+.container3 {
+    font-family: 'Michroma', sans-serif;
+    margin: 25px;
+    width: 450px;
 }
 .vir {
-    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    display: block;
 }
 .elec2022 {
     height: 55%;
@@ -24,4 +32,26 @@
     height: 55%;
     width: 175px;
     float: right;
+}
+.head3 {
+    width: 175px;
+    position: absolute;
+}
+.container3 {
+    background-color: black;
+}
+.adam {
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    display: block;
+}
+.head2 {
+    color: white;
+}
+.reviewbody {
+    color: white;
+}
+.virp {
+    font-size: large;
 }
