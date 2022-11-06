@@ -25,6 +25,7 @@ h1 {
 }
 .news-container {
   border: solid 3px black;
+  border-radius: 5px;
   width: 420px;
   height: 420px;
   margin-right: auto;
@@ -40,6 +41,12 @@ h1 {
 span {
   color: red;
 }
+label {
+  font-size: larger;
+}
+input {
+  accent-color: red;
+}
 .text-img {
   color: rgb(216, 228, 239);
 }
@@ -51,6 +58,7 @@ span {
   top: 183px;
   right: 2px;
 }
+
 #news-block-red-heade-h {
   background-color: red;
 }
@@ -65,6 +73,7 @@ p {
   font-style: italic;
   font-size: 105%;
 }
+
 #p-end {
   font-size: x-large;
 }
@@ -75,10 +84,31 @@ p {
   font-style: oblique;
 }
 #link:hover {
-  background-color: rgb(241, 6, 6);
+  background-color: rgb(152, 59, 59);
   border: solid 2px black;
 }
 #detalis-paragraph {
   color: aliceblue;
   font-size: smaller;
+}
+
+#btn {
+  background-color: black;
+  color: white;
+  border: solid 2px red;
+  border-radius: 50px;
+  font-size: medium;
+}
+#a {
+  text-decoration: underline rgb(0, 0, 0);
+}
+#output {
+  background: linear-gradient(
+    to left,
+    rgba(15, 15, 15, 1),
+    rgba(85, 85, 86, 1)
+  );
+
+  color: white;
+  display: inline;
 }

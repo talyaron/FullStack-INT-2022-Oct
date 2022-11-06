@@ -14,7 +14,7 @@ div{
     height: 450px;
 }
 #text{
-   background-image: url("/01-HTML-CSS/Tomer-C/photo-1588421357574-87938a86fa28.jpg");
+   background-image: url("/01-HTML-CSS/Tomer-C/hard1/photo-1588421357574-87938a86fa28.jpg");
    width: 554px;
    height: 200px;
    position: absolute;
@@ -23,5 +23,5 @@ div{
 #balls{
     position: absolute;
     left: 270px;
-    bottom: 448px;
+    bottom: 478px;
 }
