@@ -1,39 +1,89 @@
-.wrap{
-    border: 5px solid black;
-    width:50rem;
-    height: 40rem;
-    margin-left: 27%;
-    background-color: white;
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(7, 10rem);
+    grid-auto-rows: minmax(500px,auto);
+    grid-gap: 10px;
+    justify-content: center;
+    margin-left: 15%;
+    
 }
-.wrap:hover{
-    box-shadow: 0 0 100px rgb(248, 248, 248);
+.grid-item-1:hover{
+    box-shadow: 0 0 100px rgb(97, 90, 136);
 }
-.wrap img{
-    width: 50%;
-    height: 20rem;
+.grid-item-2:hover{
+    box-shadow: 0 0 100px rgb(97, 90, 136);
+}
+.grid-item-3:hover{
+    box-shadow: 0 0 100px rgb(97, 90, 136);
+}
+.grid-item-1{
+    border: 1px solid black;
+    grid-column-start: 1;
+    grid-column-end: 4; 
+}
+.grid-item-1 img{
+    width: 49%;
+    height: 100%;
     float: right;
+    border: 2px solid black;
+    border-bottom: 4px solid black;
+}
+.bottom{
+    
+    position: relative;
+    height: 50%;
+}
+#box{
+    background-color: rgb(0, 0, 0);
+    border: 5px double red;
+    color: beige;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
 }
 .header{
-    background-color: blanchedalmond;
-    font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
+    margin-top: 0;
+    font-family: fantasy;
     font-style: italic;
-    text-align: center;
+    background-color:rgb(145, 216, 254);
+    
 }
-.para{
-    font-family:fantasy;
+#winter{
+    color: blue;
+}
+p{
+    font-family: 'Yeseva One', cursive;
+}
+
+.grid-item-2{
+    border: 1px solid black;
+    grid-column-start: 4;
+    grid-column-end: 7;
+    
+       
+}
+.grid-item-2 img{
+    width: 100%;
+    height: 50%;
+    border-bottom: 5px solid black;
+    
     
 }
 span{
-    color: red;
+    color: rgba(115, 10, 10, 0.7);
 }
-
-body{
-    background-image: url('https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80'); 
-    background-attachment: fixed;  
-    background-size: cover;
+.grid-item-3{
+    border: 1px solid black;
+    grid-column-start: 2;
+    grid-column-end: 6;
+    
 }
-
-a:hover{
-    color: rgb(0, 72, 27);
+.grid-item-3 img{
+    width: 49%;
+    height: 99%;
+    float: right;
+    border: 2px solid black;
+    border-bottom: 4px solid black;
 }
