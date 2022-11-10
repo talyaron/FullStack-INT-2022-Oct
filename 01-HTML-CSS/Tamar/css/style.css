@@ -1,0 +1,50 @@
+h2 {
+    color: white;
+    margin: auto;
+}
+
+p {
+    color: white;
+    margin: auto;
+}
+
+.wrapper {
+    background-color: rgb(54, 54, 54);
+    height: 390px;
+    width: 430px;
+    border: 5px solid rgb(54, 54, 54);
+    color: white;
+    margin: auto;
+}
+
+.wrapper img {
+    width: 430px;
+}
+
+.wrapper-challenge {
+    background-color: rgb(54, 54, 54);
+    height: 400px;
+    width: 430px;
+    border: 5px solid rgb(54, 54, 54);
+    color: white;
+    margin: auto;
+    position: relative;
+}
+
+.wrapper-challenge img {
+    width: 213px;
+    height: 250px
+}
+
+span {
+    font-size: xx-small;
+}
+
+#tag {
+    background-color: red;
+    color: white;
+    width: 70px;
+    height: 20px;
+    position: absolute;
+    top: 230px;
+}
