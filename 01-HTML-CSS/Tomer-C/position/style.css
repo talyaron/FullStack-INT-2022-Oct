@@ -1,0 +1,14 @@
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    outline: 2px solid red;
+    margin: 0px 0px 30px 600px;
+}
+
+.top {
+   margin-left: 700px;
+}
+.mid{
+    margin-left: 450px;
+}

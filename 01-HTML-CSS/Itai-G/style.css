@@ -1,0 +1,57 @@
+.container {
+    font-family: 'Poor Story', cursive;
+    font-size: 14px;
+    margin: 25px;
+    width: 350px;
+    height: 400px;
+  }
+.container2 {
+    font-family: 'Oswald', sans-serif;
+    margin: 25px;
+    width: 350px;
+    height: 500px;
+    position: relative;
+}
+.container3 {
+    font-family: 'Michroma', sans-serif;
+    margin: 25px;
+    width: 450px;
+}
+.vir {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    display: block;
+}
+.elec2022 {
+    height: 55%;
+    width: 175px;
+    float: left;
+}
+.can1 {
+    height: 55%;
+    width: 175px;
+    float: right;
+}
+.head3 {
+    width: 175px;
+    position: absolute;
+}
+.container3 {
+    background-color: black;
+}
+.adam {
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+    display: block;
+}
+.head2 {
+    color: white;
+}
+.reviewbody {
+    color: white;
+}
+.virp {
+    font-size: large;
+}

@@ -1,0 +1,101 @@
+body {
+    background-color: aqua;
+}
+
+.Headline_deco {
+    color: white;
+    font-size: 1.1cm;
+    width: 400px;
+    height: 50px; 
+    position: relative;
+    bottom: 1.5cm;
+ 
+}
+
+
+.para_deco {
+    font-size: 1.5cm;   
+    color: white;
+    font-size: 0.4cm;
+    position: relative;
+    bottom: 3cm;
+}
+
+.wrapper {
+    background-color: black;
+    width: 346px;
+    height: 357px;
+    border: 3px solid black;
+}
+
+.wrapper img {
+    width: 100%;
+    height: 250px;
+
+}
+
+/*Exercise 2*/
+
+.wrapper2 {
+    background-color: black;
+    width: 346px;
+    height: 360px;
+  
+}
+
+.wrapper2 img {
+    width: 171px;
+    height: 235px;
+
+}
+
+.right {
+    position: relative;
+    bottom: 298px; 
+    left: 175px; 
+}
+
+.two_picture_white_lane {
+    background-color: white;
+    width: 346px;
+    height: 235px;
+}
+
+.Headline_deco2 {
+    color: white;
+    font-size: 1.1cm;
+    width: 400px;
+    height: 50px; 
+    position: relative;
+    bottom: 0cm;
+ 
+}
+
+.para_deco2 {
+    font-size: 1.5cm;   
+    color: white;
+    font-size: 0.4cm;
+    position: relative;
+    bottom: 0.5cm;
+}
+
+.wrapper3 {
+    background-color: black;
+    width: 346px;
+    height: 100px;
+}
+
+.winner_class {
+    position: relative;
+    bottom: 1.2cm;
+    color:white;
+    background-color: red;
+    width: 85px;
+}
+
+.para_deco3 {
+    color: white;
+    font-size: 0.3cm;
+    position: relative;
+    bottom: 0.8cm;
+}
