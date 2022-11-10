@@ -1,0 +1,18 @@
+.box {
+    background-color: aqua;
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+}
+.box1 {
+    margin-left: 170px;
+}
+.box2 {
+    margin-left: 250px;
+}
+.box3 {
+    margin-left: 170px;
+}
+.box4 {
+    margin-left: 90px;
+}
