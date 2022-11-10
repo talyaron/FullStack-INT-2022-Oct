@@ -1,0 +1,23 @@
+.box{
+    width: 150px;
+    height: 150px;
+    background-color: aquamarine;
+    border: 1px solid black;
+    margin: 20px 0;
+}
+
+.first-box{
+   margin-left: 170px;
+}
+
+.second-box{
+   margin-left: 75px;
+}
+
+.third-box{
+ margin-left: 20px;
+}
+
+.fourth-box{
+margin-left: 75px;
+}
