@@ -1,0 +1,23 @@
+.top {
+    width: 2000px;
+    height: 100px;
+    background-color: blue;
+    position: relative;
+}
+.header {
+    width: 2000px;
+    height: 100px;
+    background-color: brown;
+    position: sticky;
+    top: 50px;
+
+}
+.ex {
+    width: 2000px;
+    height: 4000px;
+    background-color:beige;
+}
+.logo img {
+    width: 200px;
+    height: 200px;
+}
