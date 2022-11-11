@@ -3,8 +3,12 @@
     height: 100px;
     background-color: blue;
     outline: 2px solid red;
-    margin: auto;
+    margin: 0px 0px 30px 600px;
 }
-.top{
-    
+
+.top {
+   margin-left: 700px;
+}
+.mid{
+    margin-left: 450px;
 }

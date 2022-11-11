@@ -1,0 +1,28 @@
+body{
+   margin: 0;
+   padding: 0;
+}
+
+.wrapper{
+   position: relative;
+}
+
+.red{
+   width: 100%;
+   background-color: red;
+   height: 100px;
+  position: fixed;
+  z-index: 1;
+} 
+
+.title{
+   width: 100%;
+   background-color: gray;
+   position: sticky;
+   padding: 50px;
+   top: 20px;
+}
+
+.text{
+   background-color: gainsboro;
+}
