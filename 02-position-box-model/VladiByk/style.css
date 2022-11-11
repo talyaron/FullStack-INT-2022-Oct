@@ -107,7 +107,7 @@ body {
     margin-top: 50px;
     display: flex;
     padding: 0.4rem;
-    overflow: hidden;
+    overflow-y: hidden;
 }
 
 .story>.indv-story {
@@ -151,7 +151,7 @@ body {
     /* outline: 3px solid blue; */
     display: flex;
     align-items: center;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 
 .feed-head img {
@@ -185,8 +185,8 @@ body {
     display: none;
     position: absolute;
     /* overflow: auto; */
-    right: 0;
-    top: 40;
+    right: -5rem;
+    top: 0;
     width: auto;
     height: auto;
 }
@@ -216,7 +216,11 @@ body {
     /* height: 5rem; */
 }
 
-.img img {
+.img > img {
+    width: 100%;
+}
+
+.img > video {
     width: 100%;
 }
 
@@ -244,6 +248,10 @@ body {
 
 .like-comments-time{
     margin-top:1rem;
+}
+
+.like-comments-time > span {
+    font-weight: bold;
 }
 
 .comment{
