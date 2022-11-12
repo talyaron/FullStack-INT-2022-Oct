@@ -1,0 +1,164 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(234, 234, 234);
+}
+
+/*story*/
+
+.story {
+    display: flex;
+    margin: 20px auto;
+    width: 400px;
+    overflow-x: scroll;
+    padding: 10px 0;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(189, 188, 188);
+    padding: 5px;
+}
+
+.story>div{
+    margin: 0 10px;
+}
+
+.story_pic h4 {
+    margin-top: 5px;
+}
+
+/*header*/
+
+.header {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: white;
+    width: 600px;
+    height: 50px;
+}
+
+input {
+    background-color: rgb(234, 234, 234);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.inside_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.instagram_logo {
+    height: 40px;
+}
+
+.heart {
+    margin-left: 5px;
+    height: 25px;
+}
+
+
+
+/*card*/
+
+.card {
+    position: relative;
+    width: 400px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(189, 188, 188);
+    padding: 5px;
+}
+
+.head {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+
+.head_opener {
+    display: flex;
+    align-items: center;
+}
+
+.instagram_logo_round{
+    width: 80px;
+    position: absolute;
+}
+
+.circul {
+    position: absolute;
+    width: 53px;
+    height: 53px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.profile_pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.pic {
+    display: grid;
+    place-items: center;
+    position: relative;
+    width: 75px;
+}
+
+.big_img {
+    width: 100%;
+    margin: 0;
+}
+
+.comments {
+    margin: 7px 5px;
+}
+
+.icons {
+    display: flex;
+}
+
+.icon_pic {
+    width: 20px;
+    margin: 7px 5px;
+}
+
+.gray {
+    color: gray;
+}
+
+.card h5, .card h6 {
+    margin: 7px 5px;
+}
+
+hr {
+    width: 100%;
+    margin: 7px 0px;
+}
+
+.add_comment {
+    display: flex;
+    align-items: center;
+}
+
+.post {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    color: rgba(49, 247, 247, 0.584);
+}
