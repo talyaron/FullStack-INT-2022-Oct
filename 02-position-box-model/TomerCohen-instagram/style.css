@@ -9,7 +9,7 @@ body{
     height: 50px;
 }
 #ins{
-    font-family: Miller Ban It;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     position: fixed;
     top: 1px;
     left: 3%;
@@ -17,7 +17,7 @@ body{
 .home{
     margin-left: 5px;
     position: fixed;
-    left: 70%;
+    left: 69%;
     top: 15px;
     width: 35px;
 
@@ -65,4 +65,13 @@ body{
     position: fixed ;
     left: 40%;
     top: 25px;
+}
+.story{
+    border: 2px solid black;
+    position: fixed;
+    top: 90px;
+    margin-left: 50%;
+}
+.story1{
+    width: 100px;
 }
