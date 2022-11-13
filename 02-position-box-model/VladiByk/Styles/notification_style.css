@@ -1,0 +1,88 @@
+*,
+::before,
+::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --border-color: #dbdbdb;
+    --story-color: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(242, 252, 69, 1) 100%);
+    --text-color: rgb(65, 63, 63);
+    --seconderyText-color: rgba(142, 142, 142);
+}
+
+header {
+    border-bottom: 1.5px solid var(--border-color);
+    width: 100%;
+    background-color: white;
+    display: flex;
+    padding: 0.7rem;
+    position: sticky;
+    top: 0;
+    /* z-index: 1; */
+}
+
+header>a {
+    color: black;
+    font-size: 1.3em;
+}
+
+header>a:hover {
+    color: var(--text-color);
+}
+
+h3{
+    margin: auto;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 400;
+}
+
+main{
+    padding: 1em;
+}
+
+section{
+    border-bottom: 1px solid var(--border-color);
+}
+
+#earlier{
+    border: none;
+}
+
+h4{
+    margin:1em 0;
+    font-weight: 200;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.notification-row{
+    /* border: 3px solid black; */
+    padding: 1em;
+    display: flex;
+    align-items:center;
+}
+
+.profile-img{
+    border-radius: 100px;
+    width: 40px;
+    margin-right: 0.3em;
+}
+
+.when{
+    color: var(--seconderyText-color);
+}
+
+.notification-row>button{
+    margin-left: auto;
+    padding: .5em 1em;
+    border: none;
+    background-color: rgb(70, 176, 181);
+    border-radius: 5px;
+}
+
+.commented-img{
+    width: 50px;
+    margin-left: auto;
+}
