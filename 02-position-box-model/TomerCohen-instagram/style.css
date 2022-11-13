@@ -57,9 +57,8 @@
     border: 2px solid black;
     width: 300px;
     height: 150px;
-    margin: auto;
-    margin-top: 70px;
-    position: absolute;
+    margin-left: 150px;
+    margin-top: 100px;
 
 }
 .story1{
@@ -92,9 +91,9 @@
 .all{
     width: 80%;
     max-width: 800px; 
-    position: relative; 
-    margin: 0 auto; 
+    position: relative;  
     background-color: aqua;
     height: 2000px;
     bottom: 4px;
+    top: 0 auto;
 }
