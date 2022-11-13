@@ -117,18 +117,18 @@ body {
 }
 
 .story>.indv-story>.story-wrapper {
-    height: 70px;
-    width: 70px;
+    height: 4.5rem;
+    width: 4.5rem;
     border-radius: 100px;
     background: var(--story-color);
 }
 
 .story>.indv-story>.story-wrapper>img {
-    height: 65px;
-    width: 65px;
+    height: 3.8rem;
+    width: 3.8rem;
     border-radius: 100px;
-    border: 3px solid var(--border-color);
-    margin: 2.5px;
+    outline: 3px solid white;
+    margin: 0.35rem;
 }
 
 .story>.indv-story>p {
