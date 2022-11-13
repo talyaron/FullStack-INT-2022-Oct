@@ -55,12 +55,6 @@ body {
     margin-left: 3%;
 }
 
-.search>button {
-    /* border: none; */
-    height: 100%;
-    width: 4rem;
-}
-
 .search {
     /* border: 3px solid red; */
     height: 100%;
@@ -96,7 +90,10 @@ body {
 .search input::placeholder {
     font-size: 1.5rem;
     opacity: .6;
+}
 
+.search>a {
+    color: black;
 }
 
 .story {
@@ -291,8 +288,8 @@ body {
 }
 
 .bot-menu>img {
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
     border-radius: 100px;
 }
 
