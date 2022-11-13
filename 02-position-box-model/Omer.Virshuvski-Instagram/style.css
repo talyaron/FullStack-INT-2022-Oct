@@ -11,11 +11,21 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+main {
+    margin-bottom: 60px;
+}
+
 /*story*/
 
 .story {
     display: flex;
-    margin: 20px auto;
+    margin-top: 60px;
+    margin-left: 50%;
+    transform: translate(-50%);
     width: 400px;
     overflow-x: scroll;
     padding: 10px 0;
@@ -29,14 +39,23 @@ body {
     margin: 0 10px;
 }
 
-.story_pic h4 {
-    margin-top: 5px;
+.story_pic h6 {
+    margin: 5px auto;
+}
+
+.story_pic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 /*header*/
 
 .header {
-    margin: auto;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -44,6 +63,9 @@ body {
     background-color: white;
     width: 600px;
     height: 50px;
+    z-index: 5;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 input {
@@ -75,11 +97,29 @@ input {
 .card {
     position: relative;
     width: 400px;
-    margin: 20px auto;
+    margin: 10px auto;
     background-color: white;
     border-radius: 5px;
     border: 1px solid rgb(189, 188, 188);
     padding: 5px;
+}
+
+#instagram_round {
+    width: 60px;
+}
+
+#white {
+    width: 39px;
+    height: 39px;
+}
+
+#profile {
+    width: 35px;
+    height: 35px;
+}
+
+#card_pic {
+    padding: 5px 0;
 }
 
 .head {
@@ -134,6 +174,7 @@ input {
 
 .icons {
     display: flex;
+    justify-content: space-between;
 }
 
 .icon_pic {
@@ -166,3 +207,36 @@ hr {
     bottom: 10px;
     color: rgba(49, 247, 247, 0.584);
 }
+
+
+/*footer*/
+
+footer {
+    width: 600px;
+    height: 50px;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    z-index: 5;
+}
+
+.footer_pic {
+    width: 30px;
+    border-radius: 50%;
+}
+
+
+/*hover*/
+
+footer:nth-child(1):hover, .instagram_logo:hover {
+    cursor: pointer;
+}
+
