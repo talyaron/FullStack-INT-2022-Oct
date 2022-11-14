@@ -1,0 +1,61 @@
+body {
+    background-color: beige ;
+}
+.red {
+    color:red;
+    
+}
+.span{
+    color: white;
+}
+
+.italic {
+    font-style: italic;
+}
+
+h1{
+    text-align: center;
+    background-color: black;
+
+}
+
+h2 {
+    text-align: center;
+    text-decoration:underline;
+}
+p{
+    font-size:xx-large;
+    text-align: center;
+    color: white;
+    font-size: larger;
+    background-color: black;
+}
+img {
+    width: 700px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  a{
+
+    text-align: center;
+    background-color: black;
+    display: block;
+    font-size: larger;
+    
+  }
+ .wrapper {
+    height: 500px;
+    width: 500px;
+    border: 5px solid black;
+    text-align: center;
+    align-content: center;
+    margin: 0 auto;
+    background-color: black;
+
+ }
+ .wrapper img{
+    width: 500px;
+    height: 292px;
+ }
