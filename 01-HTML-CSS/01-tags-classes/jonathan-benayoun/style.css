@@ -14,21 +14,19 @@ body {
 }
 
 h1{
-    text-align: center;
-    background-color: black;
-
-}
-
-h2 {
-    text-align: center;
-    text-decoration:underline;
-}
-p{
-    font-size:xx-large;
-    text-align: center;
     color: white;
-    font-size: larger;
-    background-color: black;
+    font-size: 1cm;
+    width: 400px;
+    height: 30px;
+
+    bottom: 1.5cm;
+
+}
+
+p{
+    font-size: 0.6cm;
+    color: white;
+    bottom: 2cm;
 }
 img {
     width: 700px;
@@ -38,24 +36,21 @@ img {
   }
 
   a{
-
-    text-align: center;
     background-color: black;
     display: block;
     font-size: larger;
+    color: white;
     
   }
  .wrapper {
     height: 500px;
     width: 500px;
-    border: 5px solid black;
-    text-align: center;
-    align-content: center;
+    border: 3px solid black;
     margin: 0 auto;
     background-color: black;
 
  }
  .wrapper img{
-    width: 500px;
+    width: 100%;
     height: 292px;
  }
