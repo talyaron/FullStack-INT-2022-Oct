@@ -1,0 +1,20 @@
+body{
+    margin: 0;
+}
+
+.wrapper{
+    background-color: aliceblue;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    
+    &__box{
+    width: 100px;
+    height: 100px;
+    background-color: cadetblue;
+    border: 1px solid black;
+    }
+}
+
+
+/*flex*/
