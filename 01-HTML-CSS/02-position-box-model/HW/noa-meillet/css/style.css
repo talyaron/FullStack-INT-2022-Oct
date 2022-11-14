@@ -1,5 +1,6 @@
 body{
     background-color: #e4e4e4;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
 }
 
 .top-container{
@@ -16,33 +17,45 @@ body{
 }
 
 #instagram-name{
-    margin: 1% 0 0 1%;
+    margin: 0 0 0 1%;
     width: 10%;
+}
+
+#search-img{
+    position: absolute;
+    z-index: 1;
+    width: 1%;
+    margin-left: 63.5%;
+    margin-top: -2.5%;
 }
 
 #search-input{
     position: absolute;
-    margin-left: 60%;
-    margin-top: -5%;
-    width: 25%;
-    height: 30%;
+    margin-left: 63%;
+    margin-top: -3%;
+    padding-left: 2%;
+    width: 20%;
+    height: 40%;
     border: 0.5px solid gainsboro;
     border-radius: 4px;  
     background-color: lightgray;
-    padding-left: 4%;
+}
+
+input:focus{
+    outline: none;
 }
 
 #like-icon{
     position: absolute; 
-    margin: -5.3% 0 0 93%;
-    width: 3%;
+    margin: -3% 0 0 91%;
+    width: 2%;
     height: 40%;
 }
 
 .middle-container{
     background-color: #f2f2f2;
     position: absolute;
-    width: 100%;
+    width: 98.9%;
 }
 
 .story-band{
@@ -75,14 +88,11 @@ figcaption{
     margin: 0.5% auto;
     width:40%;
     border: 1px solid gainsboro;
-    border-radius: 10px;
 }
 
 .band{
     background-color: white;
-    margin: 0 auto;
     width: 100%;
-    border-radius: 10px;
 }
 
 .profile-img{
@@ -129,5 +139,52 @@ h3{
 
 .save-icons{
     width: 50%;
-    margin: -1% 0 0 280%;
+    margin: -1% 0 0 260%;
+}
+
+h4{
+    margin: -1% 3%;
+}
+
+h5{
+    margin: 2% 3%; 
+    color: gray;
+}
+
+p{
+    margin: 0 3%;
+    padding-bottom: 1%;
+    color: rgb(196, 196, 196);
+    font-size: 0.7em;
+}
+
+hr{
+    border-top: 0.5px solid lightgray;
+    margin: 0;
+    padding: 0;
+}
+
+.bottom-band{
+    background-color: white;
+    margin: 0;
+}
+
+.emoji-img{
+    width: 10%;
+    margin-left: -10%;
+}
+
+.add-comment{
+    margin: 2% 0 0 -125%;
+    border: none;
+}
+
+.post-btn{
+    margin-left: 200%;
+    border: none;
+    color: cornflowerblue;
+    font-weight: bold;
+    font-size: 1em;
+    background-color: white;
+    cursor: pointer;
 }
