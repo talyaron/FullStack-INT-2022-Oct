@@ -6,9 +6,12 @@ body{
 .top-container{
     padding: 0;
     margin: 0;
+    top:0;
+    width: 97.8%;
     border: 1px solid gainsboro;
     background-color: white;
-    position: relative;
+    position: fixed;
+    z-index: 1;
 }
 
 .top-band-list{
@@ -54,15 +57,16 @@ input:focus{
 
 .middle-container{
     background-color: #f2f2f2;
-    position: absolute;
+    position: static;
     width: 98.9%;
+    padding-bottom: 3%;
 }
 
 .story-band{
     background-color: white;
     border: 1px solid gainsboro;
     border-radius: 10px;
-    margin: 0.5% auto;
+    margin: 5% auto 1% auto;
     width: 40%;
 }
 
@@ -85,7 +89,7 @@ figcaption{
 
 .post-block{
     position: relative;
-    margin: 0.5% auto;
+    margin: 0.5% auto 0 auto;
     width:40%;
     border: 1px solid gainsboro;
 }
@@ -159,7 +163,7 @@ p{
 }
 
 hr{
-    border-top: 0.5px solid lightgray;
+    border: 0.1px solid lightgray;
     margin: 0;
     padding: 0;
 }
@@ -187,4 +191,45 @@ hr{
     font-size: 1em;
     background-color: white;
     cursor: pointer;
+}
+
+.bottom-container{
+    position: fixed;
+    z-index: 1;
+    top: 92%;
+    padding: 0;
+    width: 97.8%;
+    border: 1px solid gainsboro;
+    background-color: white;
+}
+
+.menu-band-list{
+    list-style: none;
+    display: inline-flex;   
+    margin: 0 auto;
+}
+
+#home-icon {
+    width: 50%;
+    margin: 5% 0 0 70%;
+}
+
+#safari-icon {
+    width: 23%;
+    margin: 1% 0 0 140%;
+}
+
+#add-icon {
+    width: 55%;
+    margin: 4% 0 0 420%;
+}
+
+#messenger-icon {
+    width: 9%;
+    margin: 1% 0 0 110%;
+}
+
+#profile-icon {
+    width: 65%;
+    margin: 4% 0 0 500%;
 }
