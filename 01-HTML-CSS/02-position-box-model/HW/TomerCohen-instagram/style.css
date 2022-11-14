@@ -1,3 +1,6 @@
+body{
+    margin: 0;
+}
 .all{
     height: 2000px;
     border: 3px solid black;
@@ -14,9 +17,9 @@
     justify-content: space-between;
     background-color: rgb(255, 255, 255);
     align-items: center;
-    top: 3;
     position: fixed;
     margin: 0;
+    top: 0px;
 
 }
 ._ab6-{ 
@@ -24,8 +27,8 @@
 }
 .home{
     margin-left: 400px;
-    margin-top: auto;
-    width: 35px;
+    margin-top: 10px;
+    width: 29px;
 
 } 
 .massage{
@@ -47,8 +50,8 @@
 }
 .like{
     margin-left: 5px;
-    width: 25px;
-    height: 25px;
+    width: 22px;
+    height: 22px;
     margin-bottom: 7px;
 }
 .profile{
@@ -65,7 +68,7 @@
 .story{
     border: 2px solid black;
     width: 330px;
-    height: 150px;
+    height: 130px;
     margin-top: 100px;
     margin-left: 250px;
 
@@ -85,15 +88,28 @@
 .name1{
     position: relative;
     left: 24px;
+    font-size: 11px;
+    bottom: 23px;
 
 }
 .name2{
     position: relative;
     left: 124px;
-    bottom: 35px;
+    bottom: 47px;
+    font-size: 11px;
 }
 .name3{
     position: relative;
     left: 224px;
     bottom: 70px;
+    font-size: 11px;
+}
+.post1{
+
+}
+.postimg1 img{
+
+}
+.comment1{
+    
 }
