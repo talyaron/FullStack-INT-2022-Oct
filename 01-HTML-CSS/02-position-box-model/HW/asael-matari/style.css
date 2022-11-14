@@ -1,8 +1,8 @@
-.menu div{
+.menu{
     background-color: black;
     position: fixed;
-    top: 60px; ;
-      
+    top: 0px; ;
+    width: 100vw;
 }
 /* .menu img{
     width: 250px;
