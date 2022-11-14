@@ -1,0 +1,36 @@
+*{
+padding: 0;
+margin: 0;
+}
+
+.h1{
+    font-size: 15rem;
+    background-color: aqua;
+    position: fixed;
+    width: 10000px;
+    height:  500px;
+}
+.h2{
+    font-size: 15rem;
+    background-color: brown;
+    width: 40000px;
+    height:  2000px;
+    position: ;
+}
+
+.TopBox{
+
+}
+
+.img1{
+position: fixed;
+margin-left: 2500px;
+margin-top: 280px;
+}
+.reduce{
+
+}
+
+.lorem{
+    font-size: 13rem;
+}

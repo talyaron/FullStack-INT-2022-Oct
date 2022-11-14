@@ -1,0 +1,117 @@
+
+
+*{
+
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container{
+
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(../images/bg.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.row{
+
+    display: flex;
+    height: 88%;
+    align-items: center;
+}
+
+.col{
+
+    flex-basis: 50%;
+}
+
+h1{
+
+    color: #fff;
+    font-size: 100px;
+    margin-left: 5%;
+}
+
+p{
+
+    color: #fff;
+    font-size: 30px;
+    line-height: 15px;
+    margin-left: 35%;
+}
+
+.card1 p{
+
+    margin-top: 10%;
+    font-size: 20px;
+
+}
+
+.card2 p{
+
+    margin-top: 10%;
+    margin-left: 35%;
+    font-size: 20px;
+
+}
+
+.card h5{
+    font-size: 45px;
+    color: #fff;
+}
+
+.card{
+
+    width: 510px;
+    height: 240px;
+    display: inline-block;
+    border-radius: 12px;
+    padding: 15px 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 10px 15px;
+    background-position: center;
+    background-size: cover;
+}
+
+.card1{
+
+    background-image: url(../images/btc.jpg);
+}
+
+.card2{
+
+    background-image: url(../images/eth.jpg);
+}
+
+
+
+footer{
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20%;
+    
+}
+
+.mtneffect {
+    position: relative;
+  }
+  .mtneffect span {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    animation: flip 2s infinite;
+    animation-delay: calc(.2s * var(--i))
+  }
+  @keyframes flip {
+    0%,80% {
+      transform: rotateY(360deg) 
+    }
+  }

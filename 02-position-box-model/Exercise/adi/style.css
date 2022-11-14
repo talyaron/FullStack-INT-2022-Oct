@@ -1,0 +1,30 @@
+
+
+
+
+.main{
+
+    
+    background-color: black;
+    width: 500px;
+    margin: auto;
+    margin-top: 150px;
+}
+
+.box{
+
+    width: 150px;
+    height: 150px;
+    background-color: blue;
+    margin-top: 10px;
+    margin: auto;
+}
+
+ .main #one{
+    margin-right: 50px;
+}
+
+.two{
+
+    margin-left: 20px;
+}
