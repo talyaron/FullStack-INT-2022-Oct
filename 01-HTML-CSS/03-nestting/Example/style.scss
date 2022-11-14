@@ -1,3 +1,50 @@
 body {
     margin: 0%;
 }
+
+.wrapper {
+    background-color: aqua;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+
+
+    &__box {
+        background-color: purple;
+        height: 50px;
+        width: 50px;
+        border: 1px solid black;
+
+
+        &__header {
+            color: aqua;
+        }
+    }
+
+}
+
+#green {
+    background-color: green;
+}
+
+#red {
+    background-color: red;
+}
+
+#yellow {
+    background-color: yellow;
+    order: 4;
+}
+
+/*FLEX*/
+/* - display: flex
+flex-direction: row / column / row-reverse / column-reverse
+flex-wrap: האם יש לנו "אנטר" באמצע שורת הפלקס- מונע מעיכה
+flex-flow: direction + wrap
+align-content: ממקם את כל התוכן של הדיו לפי המיקום של הפלקס
+justify-content:
+align-items
+order: סידור לפי המיקום (רשימה)
+*/
