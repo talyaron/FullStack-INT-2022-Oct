@@ -1,9 +1,15 @@
+body{
+    margin: 0;
+    overflow-x: hidden;
+}
+
 .all{
-    width: 80%;
+    width: 90%;
     max-width: 800px;
     position: relative;
     margin: 0 auto;
-    height: 2000px;
+    height: 20000px;
+    border: 02px solid rgb(255, 255, 255);
 }
 .instagram-bar{
     outline: 1px solid black;
@@ -109,4 +115,38 @@ margin-left: 25rem;
     height: 60px;
     position: absolute;
     left: 42rem;
+}
+.picher1{
+    width: 50px;
+    height: 80px;
+    border: 2px solid black;
+    margin-top: 850px;
+    margin-right: 80px;
+}
+.ttx{
+    border: 2px solid black;
+    margin: 90px 20px 0px 120px;
+    width: 550px;
+    height: 150px;
+}
+.img1{
+    width: 90px;
+    float: left;
+    z-index: 1;
+
+}
+.img2{
+    width: 69px;
+    float: left;
+    z-index: 1;
+}
+.img3{
+    width: 80px;
+    float: left;
+    z-index: 1;
+}
+.divimg1{
+    margin-left: 50px;
+    
+
 }
