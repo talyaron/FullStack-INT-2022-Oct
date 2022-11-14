@@ -1,0 +1,61 @@
+
+
+
+ 
+
+   
+.box1{
+    width: 100%;
+height: 150px;
+background-color:red;
+position: fixed;
+
+
+}
+.logo{
+    
+    width: 150px;
+    height: 150px;
+    position: fixed;
+    left: 700px;
+    top: 80px
+}
+
+.box2{
+    width: 100%;
+    height: 250px;
+    background-color: grey;
+
+} 
+.box3{
+    width: 100%;
+height: 150px;
+background-color: grey;
+position: sticky;
+top: 150px;
+       }
+
+
+.box4{
+    background-color:gray;
+    width: 100%;
+    height: 100px; 
+   
+    top: 200px;
+    
+}
+
+
+
+
+.wrapper{
+   
+    background-color: lightgrey;
+    width: 100%;
+    height: 1600px;
+    position: relative;
+}
+
+body{
+    margin: 0;
+}
