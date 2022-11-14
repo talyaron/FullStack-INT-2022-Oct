@@ -1,0 +1,115 @@
+body{
+    margin: 0;
+}
+.all{
+    height: 2000px;
+    border: 3px solid black;
+    margin: auto;
+    max-width: 800px;
+    top: 0;
+    
+}
+.instgramtop{
+    width: 50rem;
+    height: 4rem;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    position: fixed;
+    margin: 0;
+    top: 0px;
+
+}
+._ab6-{ 
+    margin-bottom: 10px;
+}
+.home{
+    margin-left: 400px;
+    margin-top: 10px;
+    width: 29px;
+
+} 
+.massage{
+    margin-left: 5px;
+    margin-top: 20px;
+    width: 35px;
+}
+.add{
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 8px;
+}
+.explore{
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 8px;
+}
+.like{
+    margin-left: 5px;
+    width: 22px;
+    height: 22px;
+    margin-bottom: 7px;
+}
+.profile{
+    margin-left: 25px;
+    width: 45px;
+    height: 45px;
+}
+.search{
+    position: absolute;
+    left: 8rem;
+    border-radius: 10px;
+
+}
+.story{
+    border: 2px solid black;
+    width: 330px;
+    height: 130px;
+    margin-top: 100px;
+    margin-left: 250px;
+
+}
+.story1{
+    height: 100px;
+    
+}
+.story2{
+    height: 100px;
+    
+}
+.story3{
+    height: 100px;
+    
+}
+.name1{
+    position: relative;
+    left: 24px;
+    font-size: 11px;
+    bottom: 23px;
+
+}
+.name2{
+    position: relative;
+    left: 124px;
+    bottom: 47px;
+    font-size: 11px;
+}
+.name3{
+    position: relative;
+    left: 224px;
+    bottom: 70px;
+    font-size: 11px;
+}
+.post1{
+
+}
+.postimg1 img{
+
+}
+.comment1{
+    
+}
