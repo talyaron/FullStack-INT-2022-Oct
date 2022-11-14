@@ -1,0 +1,133 @@
+body{
+    background-color: #e4e4e4;
+}
+
+.top-container{
+    padding: 0;
+    margin: 0;
+    border: 1px solid gainsboro;
+    background-color: white;
+    position: relative;
+}
+
+.top-band-list{
+    list-style: none;
+    display: inline;   
+}
+
+#instagram-name{
+    margin: 1% 0 0 1%;
+    width: 10%;
+}
+
+#search-input{
+    position: absolute;
+    margin-left: 60%;
+    margin-top: -5%;
+    width: 25%;
+    height: 30%;
+    border: 0.5px solid gainsboro;
+    border-radius: 4px;  
+    background-color: lightgray;
+    padding-left: 4%;
+}
+
+#like-icon{
+    position: absolute; 
+    margin: -5.3% 0 0 93%;
+    width: 3%;
+    height: 40%;
+}
+
+.middle-container{
+    background-color: #f2f2f2;
+    position: absolute;
+    width: 100%;
+}
+
+.story-band{
+    background-color: white;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    margin: 0.5% auto;
+    width: 40%;
+}
+
+.story-list{
+    list-style: none;
+    display:inline-flex;
+    padding-left: 5%;
+}
+
+.story-img{
+    width: 70%;
+    border: 5px solid palevioletred;
+    border-radius: 100px;
+}
+
+figcaption{
+    margin-left: 10%;
+    color: gray;
+}
+
+.post-block{
+    position: relative;
+    margin: 0.5% auto;
+    width:40%;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+}
+
+.band{
+    background-color: white;
+    margin: 0 auto;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.profile-img{
+    width: 10%;
+    border-radius: 100px;
+    margin: 0.5% 0 0 2%;
+}
+
+.more-img{
+    width: 10%; 
+    position: absolute;
+    right: 5%;
+}
+
+h3{
+    position: absolute;
+    left: 15%;
+    top: 0;
+}
+
+.post-img{
+    width:100%;
+}
+
+.operations-list{
+    list-style: none;
+    display: inline-flex;   
+}
+
+.like-icons{
+    margin: 3.5% 0 0 -30%;
+    width: 56%;
+}
+
+.comment-icons{
+    width: 50%;
+    margin: 1% 0 0 -60%;
+}
+
+.send-icons{
+    width: 50%;
+    margin: 2.5% 0 0 -95%;
+}
+
+.save-icons{
+    width: 50%;
+    margin: -1% 0 0 280%;
+}
