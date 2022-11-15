@@ -2,11 +2,12 @@ body{
     margin: 0;
 }
 .all{
-    height: 2000px;
+    height: 2300px;
     border: 3px solid black;
     margin: auto;
-    max-width: 800px;
+    max-width:800px;
     top: 0;
+    
     
 }
 .instgramtop{
@@ -27,7 +28,7 @@ body{
 }
 .home{
     margin-left: 400px;
-    margin-top: 10px;
+    top: 20px;
     width: 29px;
 
 } 
@@ -105,11 +106,65 @@ body{
     font-size: 11px;
 }
 .post1{
-
+    border: 2px solid black;
+    width: 430px;
+    height: 550px;
+    margin-top: 100px;
+    margin-left: 190px;
+    border-radius: 10px;
 }
-.postimg1 img{
-
+.imgprofile1{
+    width: 50px;
 }
-.comment1{
+.profilename1{
+    float: right;
+    margin-right: 270px;
+    font-weight: bold;
     
 }
+.postimg1 img{
+    width: 430px;
+    height: 300px;
+}
+.icon1{
+    width: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2px;
+}
+.save{  
+    margin-left: 320px;
+    width: 25px;
+    height: 30px;
+}
+.text{
+    font-size: 10px;
+}
+.bottom_pic{
+
+height: 70px;
+}
+.search2{
+    width: 300px;
+    height: 40px;
+    margin-bottom: 100px;
+    margin-left: 20px;
+    border: 0;
+    outline: none;
+}
+.smile{
+    width: 40px;
+    height: 30px;
+    position: relative;
+    bottom: 115px;
+    
+}
+video{
+    width: 430px;
+    height: 300px;
+    background-color: rgba(127, 255, 212, 0.363);
+    
+}
+
+
