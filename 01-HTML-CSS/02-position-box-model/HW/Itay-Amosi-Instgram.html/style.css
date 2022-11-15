@@ -1,14 +1,15 @@
 body{
-    margin: 0;
+    margin: -1;
     overflow-x: hidden;
+    
 }
 
 .all{
     width: 90%;
     max-width: 800px;
     position: relative;
-    margin: 0 auto;
-    height: 20000px;
+    margin: auto;
+    height: 6000px;
     border: 02px solid rgb(255, 255, 255);
 }
 .instagram-bar{
@@ -20,7 +21,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    top: auto;
+    top: 0;
 }
 ._ab6-{
 margin-right: 25px;
@@ -119,34 +120,90 @@ margin-left: 25rem;
 .picher1{
     width: 50px;
     height: 80px;
-    border: 2px solid black;
+
     margin-top: 850px;
     margin-right: 80px;
 }
-.ttx{
+.insta-1{
+    width: 600px;
+    height: 900px;
     border: 2px solid black;
-    margin: 90px 20px 0px 120px;
-    width: 550px;
-    height: 150px;
+    margin-top: 150px;
+    margin-left: 90px;
 }
-.img1{
-    width: 90px;
-    float: left;
-    z-index: 1;
+.insta-1__bar{
+    width: 600px;
+    height: 60px;
+}
+.insta-img{
+    height: 60px;
+}
+.insta-1p{
+    float: right;
+    margin-right: 380px;
+}
+.dot{
+    float: right;
+    margin-top: 20px;
+    margin-right: 15px;
+}
+.insta-pic{width: 600px;
+height: 500px;
+}
+.icons{
+
+width: 600px;
+height: 50px;
+margin-top: 31.5rem;
+}
+.like{
+    height: 50px;
+}
+.comment{
+    height: 30px;
+    margin-bottom: 10px;
+}
+.share{
+    height: 40px;
+    margin-left: 7px;
+    margin-bottom: 3px;
+}
+.pin{
+    height: 40px;
+    margin-left: 400px;
+}
+.pic{
+width: 60px;
+
 
 }
-.img2{
-    width: 69px;
-    float: left;
-    z-index: 1;
-}
-.img3{
-    width: 80px;
-    float: left;
-    z-index: 1;
-}
-.divimg1{
-    margin-left: 50px;
-    
+.span{
 
+}
+.divlikes{
+
+width: 600px;
+height: 100px;
+
+}
+.post{
+    width: 600px;
+    height: 60px;
+    margin-top: 40px;
+    display: flex;
+
+}
+.input{
+    width: 700px;
+    height: 50px;
+    margin-left: 14px;
+
+}
+.icon{
+    width: 50px;
+    margin-left: 12px;
+}
+.button{
+    width: 150px;
+    margin-left: 60px;
 }
