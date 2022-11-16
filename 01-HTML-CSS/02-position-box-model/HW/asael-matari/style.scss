@@ -1,0 +1,9 @@
+.nav {
+    color: aliceblue;
+    &__hello {
+        display: flexbox;
+        &__Gili {
+            margin:auto;
+        }
+    }
+}

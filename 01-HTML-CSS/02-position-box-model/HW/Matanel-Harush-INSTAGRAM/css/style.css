@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,300&display=swap');
+*{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+
+}
+
+body{
+
+        background-color: rgb(18, 18, 18);
+
+}
+
+img{
+
+        width: 100%;
+        
+
+}
+
+.profile-image{
+        width: 30px;
+        border-radius: 30px;
+        overflow: hidden;
+        cursor: pointer;
+}
+
+.container{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        margin: 0 auto;
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        background-color: rgb(0, 0, 0);
+        z-index: 3;
+}
+
+.items-center-row{
+        display: flex;
+        align-items: center;
+
+}
+
+.fa-angle-down{
+        color: rgb(29, 29, 29);
+        margin-left: 5px;
+        margin-top: -10px;
+}
+
+._ab6-{
+        color: white;
+}
+
+.search-container{
+        background-color: rgb(82, 82, 82);
+        padding: 8px 20px;
+        overflow: hidden;
+        border-radius: 5px;
+}
+
+.search-container input{
+        border: none;
+        background-color: transparent;
+        outline: none;
+        color: rgb(49, 49, 49);
+        width: 230px;
+        font-size: 16px;
+}
+
+
+
+.fa-search{
+        color: rgb(58, 58, 58);
+}
+
+.fa-angle-down{
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+}
+
+.fa-home{
+        color: white;
+        cursor: pointer;
+}
+
+.fa-paper-plane{
+        color: white;
+        cursor: pointer;
+}
+
+.fa-square-plus{
+        color: white;
+        cursor: pointer;
+}
+
+.fa-compass{
+        color: white;
+        cursor: pointer;
+}
+
+.fa-heart{
+        color: white;
+        cursor: pointer;
+}
+
+.space-icon{
+        margin: 0 10px;
+        font-size: 20px;
+}
+
+nav{
+        border-bottom: 1px solid rgb(58, 58, 58);
+        background-color: rgb(0, 0, 0);
+}
+
+
+.story-grid{
+
+        min-height: 20vh;
+        display: grid;
+        align-content: center;
+        background-color: white;
+        justify-content: center;
+        place-items: center;
+        color: rgb(51, 51, 51);
+        background-color: rgb(18, 18, 18);
+        
+}
+
+
+.story{
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        border: 1px solid rgb(58, 58, 58);
+        background-color: rgb(0, 0, 0);
+        padding: 16px;
+        width: 100%;
+        border-radius: 20px;
+}
+
+
+.st-container{
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 5rem;
+        grid-gap: 2rem;
+        overflow: hidden;
+}
+
+.st-container .content{
+        display: grid;
+        grid-gap: 0.5rem;
+        margin: 0;
+        text-align: center;
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+        transition: all 0.2s ease-in;
+
+}
+
+.st-container .content:hover{
+        transform: scale(1.1);
+
+}
+
+.st-container .content .img-container{
+        display: inline-block;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background:
+        radial-gradient(rgba(0,0,0,0.15) 60% , transparent 0),
+        radial-gradient(rgb(0, 0, 0) 65% , transparent 0),
+        linear-gradient(to top right, orange, deeppink);
+}
+
+.st-container .content .img-container img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    clip-path: circle(42%);
+
+}
+
+.st-container .content:last-child::after{
+        content: '';
+        position: absolute;
+        width: 2rem;
+        height: 100%;
+        right: -2rem;
+
+}
+
+.st-container .content .text-story{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        display: flex;
+        font-size: 0.9rem;
+        color: rgb(255, 255, 255);
+        font-family: 'Montserrat', sans-serif;
+}
+
+.instacard{
+        border: 1px solid rgb(58, 58, 58);
+        border-radius: 20px;
+        background-color: black;
+        height: 1000px;
+        width: 490px;
+        margin: auto;
+        box-shadow: 15px 15px 60px rgba(0,0,0,0.15);
+}
+
+
+.card-header{
+        vertical-align: middle;
+        height: 60px;
+        padding: 16px;
+        margin: 0;
+        width: 100%;
+}
+
+.instacard-profile-img{
+        width: 35px;
+        height: 35px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        float: left;
+        cursor: pointer;
+}
+
+.insta-usrname{
+        color: white;
+        float: left;
+        margin-top: 0.5rem;
+        font-weight: bold;
+        margin-left: 1rem;
+        font-family: 'Montserrat', sans-serif;
+        cursor: pointer;
+}
+
+
+.instacard-optns{
+        color: white;
+        float: right;
+        margin-top: 0.5rem;
+        font-weight: bold;
+        cursor: pointer;
+}
+
+.v-tick{
+        width: 15px;
+        height: 15px;
+        float: left;
+        margin-top: 0.5rem;
+        margin-left: 0.5rem;
+}
+
+.card-img1{
+        width: 100%;
+        height: 70%;
+        margin: 10px 0 15px;
+        border: 1px solid rgb(41, 41, 41);
+}
+
+.card-img1 img{
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+       
+}
+
+
+.card-actions{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+}
+
+.card-actions img{
+        max-width: 24px;
+        cursor: pointer;
+}
+
+.card-actions .left-insta-actns img{
+        margin-right: 8px;
+}
+
+.left-insta-actns{
+        margin-left: 10px;
+}
+
+.right-insta-actns{
+        margin-right: 10px;
+}
+
+.card-likes h4{
+        color: white;
+        font-size: 13px;
+        margin-top: 5px;
+        margin-left: 12px;
+        font-family: 'Work Sans', sans-serif;
+        cursor: pointer;
+}
+
+.card-post-info h4{
+        color: white;
+        font-family: 'Work Sans', sans-serif;
+        font-style: normal;
+        font-size: 12px;
+        margin-top: 5px;
+        margin-left: 12px;
+        line-height: 1.5em;
+        cursor: pointer;
+}
+
+.card-post-info b{
+        cursor: default;
+        
+}
+
+.card-more-cmnts p{
+        color: rgb(142, 142, 142);
+        font-family: 'Work Sans', sans-serif;
+        margin-top: 5px;
+        margin-left: 12px;
+        font-size: 12px;
+        line-height: 1.5em;
+        cursor: pointer;
+}
+
+.card-cmnts h4{
+        color: white;
+        font-family: 'Work Sans', sans-serif;
+        font-style: normal;
+        font-size: 12px;
+        margin-top: 5px;
+        margin-left: 12px;
+        line-height: 1.5em;
+        cursor: pointer;
+}
+
+.card-cmnts b{
+        cursor: default;
+
+}
+
+.card-add-cmnts{
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        border-top: 1px solid rgb(36, 36, 36);
+        
+
+}
+
+.usrimg{
+        margin-right: 8px;
+        overflow: hidden;
+}
+
+
+.usrimg img{
+        min-width: 30px;
+        height: 30px;
+        border-radius: 20px;
+        margin-left: 3px;
+        margin-top: 7px;
+}
+
+.card-add-cmnts input{
+        margin-left: 5px;
+        width: 85%;
+        height: 25px;
+        border: none;
+        outline: none;
+        background-color: black;
+        color: white;
+        font-family: 'Work Sans', sans-serif;
+}
+
+.time-posted{
+        color: rgb(110, 110, 110);
+        font-family: 'Work Sans', sans-serif;
+        margin-left: 12px;
+        margin-top: 5px;
+        font-size: 12px;
+}
+
+footer{
+        margin-top: 50px;
+}
+
+footer p{
+        color: rgb(73, 73, 73);
+        font-family: 'Work Sans', sans-serif;
+        display: flex;
+        justify-content: center;
+}

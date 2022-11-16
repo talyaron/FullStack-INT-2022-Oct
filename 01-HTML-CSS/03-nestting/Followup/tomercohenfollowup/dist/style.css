@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+}
+
+.box {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}

@@ -11,18 +11,31 @@ body{
    width: 100%;
    background-color: red;
    height: 100px;
-  position: fixed;
-  z-index: 1;
+   position: fixed;
+   top: 0;
+   z-index: 1;
 } 
 
 .title{
-   width: 100%;
    background-color: gray;
+   margin-top: 100px;
+   padding: 60px 40% 20px 40%;
    position: sticky;
-   padding: 50px;
-   top: 20px;
+   top: 50px;
 }
 
 .text{
    background-color: gainsboro;
+   width: 100%;
+   margin-top: -20px;
+}
+
+img {
+   position: fixed;
+   margin-left: 80%;
+   top: 50px;
+   width: 100px;
+   height: 80px;
+   border-radius: 10px;
+   z-index: 1;
 }
