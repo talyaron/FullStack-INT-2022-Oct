@@ -28,31 +28,30 @@ body{
 }
 .home{
     margin-left: 400px;
-    top: 20px;
-    width: 29px;
+    width: 29px; 
 
 } 
 .massage{
     margin-left: 5px;
     margin-top: 20px;
-    width: 35px;
+    width: 38px;
 }
 .add{
     margin-left: 5px;
-    width: 20px;
-    height: 20px;
-    margin-bottom: 8px;
+    width: 22px;
+    height: 22px;
+    margin-bottom: 5px;
 }
 .explore{
     margin-left: 5px;
     width: 20px;
-    height: 20px;
+    height: 18px;
     margin-bottom: 8px;
 }
 .like{
     margin-left: 5px;
     width: 22px;
-    height: 22px;
+    height: 20px;
     margin-bottom: 7px;
 }
 .profile{
@@ -108,7 +107,7 @@ body{
 .post1{
     border: 2px solid black;
     width: 430px;
-    height: 550px;
+    height: 560px;
     margin-top: 100px;
     margin-left: 190px;
     border-radius: 10px;
@@ -149,15 +148,15 @@ body{
 .search2{
     width: 250px;
     height: 35px;
-    margin-left: 50px;
-    border: 1;
+    margin-top: 11px;
+    margin-left: 30px;
+    border: 0;
     outline: none;
 }
 .smile{
     width: 40px;
     height: 30px; 
-    
-    
+    ;
 }
 video{
     width: 430px;
