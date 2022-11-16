@@ -1,6 +1,6 @@
 .wrap{
     width: 50rem;
-    height: 40rem;
+    height: 43rem;
     margin: 10px auto;
     overflow-y: scroll;
     outline: 5px solid black;
@@ -153,7 +153,7 @@
     width: 51%;
     height: 5%;
     position: absolute;
-    bottom: 5.9rem;
+    bottom: 3rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
