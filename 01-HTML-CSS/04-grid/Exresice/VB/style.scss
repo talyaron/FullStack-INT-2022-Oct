@@ -15,8 +15,8 @@
     }
     .box-1{
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        // grid-template-columns: auto auto;
+        // grid-template-rows: repeat(2, 1fr);
         gap:5px;
         .small_box{
             background-color: blue;
@@ -25,8 +25,7 @@
             height: auto;
         }
         .three{
-            grid-column-start: 1;
-            grid-column-end: 3;
+            grid-column:1 / 3;
         }
     }
 }
