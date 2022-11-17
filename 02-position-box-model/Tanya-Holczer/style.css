@@ -11,19 +11,22 @@ box-sizing: border-box;
 background: #bfc9ca;
 margin:auto;
 width: 500px;
-height: 1500px;
+height: 1450px;
 }
 /* First bar */
 .navbar1 {
     position: fixed;
     display: flex;
-    padding: 15px 10px;
+    padding: 10px 10px;
     background: #f4f4f4;
     border: lightgrey;
     margin: 0px 10px ;
     height: 30px;
     width: 450px;
     z-index: 1;
+    top: 0px;
+    border-radius: 0px 0px 15px 15px;
+
 }
 #instagram_logo {
     display: flex;
@@ -58,6 +61,8 @@ height: 1500px;
     margin-top: 3px;
     box-sizing: border-box;
     top: 70px;
+    border-radius: 15px;
+
     }
 .images {
     display: flex;
@@ -104,6 +109,7 @@ height: 1500px;
         margin-top: 5px;
         box-sizing: border-box;
         top: 80px;
+        border-radius: 15px;
 }
 .top {
     display: flex;
@@ -217,9 +223,10 @@ display: flex;
     border: lightgrey;
     height: 30px;
     width: 450px;
-    bottom: 3px;
-    margin: 10px;
+    margin: 0px 10px;
     z-index: 1;
     align-items:center;
     justify-content: space-evenly;
+    bottom: 0px;
+    border-radius: 15px 15px 0px 0px;
 }
