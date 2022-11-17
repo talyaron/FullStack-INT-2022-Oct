@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  height: 90vh;
+  width: 90vw;
+  background-color: #0091ff;
+  display: grid;
+  grid-template-rows: repeat(9, 1fr);
+  grid-template-columns: repeat(9, 1fr);
+}
+.box .box__item-grid {
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+  background-color: white;
+  border: 1px solid black;
+}
