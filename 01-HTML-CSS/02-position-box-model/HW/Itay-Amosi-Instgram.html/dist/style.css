@@ -1,0 +1,215 @@
+body {
+  margin: -1;
+  overflow-x: hidden;
+}
+
+.all {
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+  margin: auto;
+  height: 5500px;
+  border: 2px solid white;
+}
+
+.instagram-bar {
+  outline: 1px solid black;
+  background-color: white;
+  position: fixed;
+  width: 800px;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+}
+
+._ab6- {
+  margin-right: 25px;
+}
+
+.heart {
+  height: 45px;
+  margin-left: 29px;
+  transform: scale(1.3);
+}
+
+body {
+  padding: 0;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-container {
+  background: #fff;
+  height: 30px;
+  border-radius: 30px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.8s;
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.3), -4px -4px 6px 0 rgba(116, 125, 136, 0.2), inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2), inset 4px 4px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.search-container:hover > .search-input {
+  width: 400px;
+}
+
+.search-container .search-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 0px;
+  font-weight: 500;
+  font-size: 16px;
+  transition: 0.8s;
+}
+
+.search-container .search-btn .fas {
+  color: #0b100f;
+}
+
+.search-container:hover {
+  animation: hoverShake 0.15s linear 3;
+}
+
+.bottom-bar {
+  outline: 1px solid #090909;
+  background-color: #fffefe;
+  position: fixed;
+  width: 800px;
+  height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 0;
+}
+
+.home {
+  height: 50px;
+  margin-left: 90px;
+}
+
+.explor {
+  height: 35px;
+  margin-right: 31rem;
+}
+
+.plus {
+  height: 50px;
+  position: absolute;
+  margin-left: 25rem;
+}
+
+.message {
+  height: 60px;
+  position: absolute;
+  left: 33rem;
+}
+
+.img {
+  height: 60px;
+  position: absolute;
+  left: 42rem;
+}
+
+.picher1 {
+  width: 50px;
+  height: 80px;
+  margin-top: 850px;
+  margin-right: 80px;
+}
+
+.insta-1 {
+  width: 600px;
+  height: 900px;
+  border: 2px solid black;
+  margin-top: 150px;
+  margin-left: 90px;
+}
+
+.insta-1__bar {
+  width: 600px;
+  height: 60px;
+}
+
+.insta-img {
+  height: 60px;
+}
+
+.insta-1p {
+  float: right;
+  margin-right: 380px;
+}
+
+.dot {
+  float: right;
+  margin-top: 20px;
+  margin-right: 15px;
+}
+
+.insta-pic {
+  width: 600px;
+  height: 500px;
+}
+
+.icons {
+  width: 600px;
+  height: 50px;
+  margin-top: 31.5rem;
+}
+
+.like {
+  height: 50px;
+}
+
+.comment {
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.share {
+  height: 40px;
+  margin-left: 7px;
+  margin-bottom: 3px;
+}
+
+.pin {
+  height: 40px;
+  margin-left: 400px;
+}
+
+.pic {
+  width: 60px;
+}
+
+.divlikes {
+  width: 600px;
+  height: 100px;
+}
+
+.post {
+  width: 600px;
+  height: 60px;
+  margin-top: 40px;
+  display: flex;
+}
+
+.input {
+  width: 700px;
+  height: 50px;
+  margin-left: 14px;
+}
+
+.icon {
+  width: 50px;
+  margin-left: 12px;
+}
+
+.button {
+  width: 150px;
+  margin-left: 60px;
+}
