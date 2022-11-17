@@ -1,0 +1,253 @@
+body {
+  background-color: whitesmoke;
+  margin: 0;
+}
+.title {
+  position: sticky;
+  top: 0;
+  border: solid 1px rgb(227, 227, 224);
+  background: white;
+  z-index: 1;
+}
+
+.text-title {
+  font-family: "Karantina", cursive;
+  font-family: "Yellowtail", cursive;
+  font-size: x-large;
+  position: relative;
+  margin-left: 15px;
+}
+
+#img-heart {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+}
+.circle-red {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  top: 32px;
+  right: 11px;
+}
+#text-input {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  border-color: aliceblue;
+}
+.search {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+}
+#search-icon {
+  position: absolute;
+  font-size: medium;
+  top: 33px;
+  right: 201px;
+  border: 30%;
+  background-color: rgb(218, 222, 222);
+}
+.container {
+  text-align: center;
+  width: 59%;
+  margin-right: 120px;
+  margin-left: 120px;
+  margin-top: 0px;
+}
+
+.story {
+  padding: 20px;
+  margin-top: 15px;
+  border-radius: 2%;
+  border: solid 1px rgb(227, 227, 224);
+  background: white;
+}
+
+.story-img {
+  width: 60px;
+  border-style: solid;
+  /*  top, right, bottom,left*/
+  border-color: palevioletred palevioletred rgb(247, 247, 141)
+    rgb(247, 247, 141);
+  border-radius: 50%;
+}
+#p-img-story-1 {
+  position: relative;
+  left: -46px;
+}
+#p-img-story-2 {
+  position: relative;
+  left: -27px;
+}
+#p-img-story-3 {
+  position: relative;
+  left: 5px;
+}
+#p-img-story-4 {
+  position: relative;
+  left: 25px;
+}
+#p-img-story-5 {
+  position: relative;
+  left: 37px;
+}
+#p-img-story-6 {
+  position: relative;
+  left: 53px;
+}
+.feed-1 {
+  margin-top: 20px;
+  margin-right: 120px;
+  margin-left: 120px;
+  height: 740px;
+  width: 59%;
+  background-color: white;
+  border: solid 1px rgb(227, 227, 224);
+}
+.title-1-feed {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+}
+.feed-img {
+  margin-top: 4px;
+  margin-left: 3px;
+  width: 30px;
+  border-style: solid;
+  /*  top, right, bottom,left*/
+  border-color: palevioletred palevioletred rgb(247, 247, 141)
+    rgb(247, 247, 141);
+  border-radius: 50%;
+}
+#eminem-span-f {
+  position: absolute;
+  top: 15px;
+  left: 60px;
+}
+.circle-gray {
+  position: absolute;
+  right: 15px;
+  font-size: xx-large;
+}
+
+#e-img {
+  width: 100%;
+  height: 400px;
+}
+.p_f_1 {
+  padding-left: 10px;
+  font-size: large;
+  font-style: oblique;
+}
+.heart {
+  margin-left: 10px;
+}
+
+.messags {
+  margin-left: 15px;
+}
+
+.t {
+  margin-left: 25px;
+}
+.p-like {
+  margin-left: 9px;
+}
+.p-like-2 {
+  margin-left: 9px;
+  font-size: 10px;
+}
+.commend_f {
+  width: 100%;
+}
+.smiley {
+  margin-left: 10px;
+}
+
+.input_text {
+  margin-right: 20px;
+  width: 87%;
+  position: relative;
+  bottom: 8px;
+  border-radius: 5px;
+  border-color: whitesmoke;
+  background-color: whitesmoke;
+}
+
+.menu_below {
+  margin-bottom: 10px;
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  z-index: 1;
+  border: solid 3px rgb(227, 227, 224);
+  background-color: whitesmoke;
+}
+.icon_bootom {
+  font-size: 35px;
+}
+.a {
+  position: absolute;
+  top: 7px;
+  left: 23px;
+}
+.b {
+  position: absolute;
+  top: 6px;
+  left: 178px;
+}
+.c {
+  position: absolute;
+  top: 6px;
+  left: 368px;
+}
+.d {
+  position: absolute;
+  top: 6px;
+  left: 569px;
+}
+
+.me {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  bottom: 8px;
+  right: 80px;
+  border-radius: 50%;
+}
+.circle-red-2 {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  top: 4px;
+  right: 293px;
+  color: white;
+}
+
+.feed-2 {
+  margin-top: 20px;
+  margin-right: 120px;
+  margin-left: 120px;
+  height: 740px;
+  width: 59%;
+  background-color: white;
+  border: solid 1px rgb(227, 227, 224);
+}
+.title-2-feed {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+}
+video {
+  width: 100%;
+  height: 400px;
+}
