@@ -1,0 +1,32 @@
+.grid_container{
+    background-color: coral;
+    height: 10rem;
+    width: 10rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap:0.5rem;
+    outline: 1px solid black;
+
+    &__grid_item{
+        background-color: black;
+        height: 100%;
+        width:100%;
+    }
+}
+.nine_grid{
+    background-color: coral;
+    height: 50rem;
+    width: 50rem;
+    display: grid;
+    grid-template-columns: repeat(9,1fr);
+    grid-template-rows: repeat(9,1fr);
+    gap:0.5rem;
+    outline: 1px solid black;
+
+    .nine_grid_item{
+        height: 5rem;
+        width:5rem;
+        outline: 1px solid black;
+    }
+}
