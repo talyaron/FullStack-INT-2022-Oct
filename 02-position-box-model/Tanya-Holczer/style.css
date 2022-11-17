@@ -17,13 +17,14 @@ height: 1500px;
 .navbar1 {
     position: fixed;
     display: flex;
-    padding: 15px 10px;
+    padding: 10px 10px;
     background: #f4f4f4;
     border: lightgrey;
     margin: 0px 10px ;
     height: 30px;
     width: 450px;
     z-index: 1;
+    top: 0px;
 }
 #instagram_logo {
     display: flex;
@@ -217,9 +218,9 @@ display: flex;
     border: lightgrey;
     height: 30px;
     width: 450px;
-    bottom: 3px;
-    margin: 10px;
+    margin: 0px 10px;
     z-index: 1;
     align-items:center;
     justify-content: space-evenly;
+    bottom: 0px;
 }
