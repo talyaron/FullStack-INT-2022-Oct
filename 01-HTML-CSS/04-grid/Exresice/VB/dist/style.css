@@ -1,6 +1,5 @@
 .wrapper {
   margin: auto;
-  background-color: aqua;
   width: 80vw;
   height: 80vh;
   display: grid;
@@ -13,4 +12,18 @@
   height: 100%;
   background-color: red;
   border: 3px solid black;
+}
+.wrapper .box-1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 5px;
+}
+.wrapper .box-1 .small_box {
+  background-color: blue;
+  border: 1px solid black;
+}
+.wrapper .box-1 .three {
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
