@@ -1,14 +1,15 @@
-.menu{
-    background-color: black;
-    position: fixed;
-    top: 0px; ;
-    width: 100vw;
+body{
+    margin: 0;
 }
-/* .menu img{
-    width: 250px;
+
+.menu{
+    background-color:white;
     position: fixed;
+    top: 0px;
+    width: 100vw;
     
-    
-    
-    
-} */
+}
+img{
+    width: 100;
+    height: 200;
+}
