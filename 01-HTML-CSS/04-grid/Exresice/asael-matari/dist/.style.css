@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+}
+
+.grid-container {
+  background-color: aqua;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto;
+  grid-template-columns: auto;
+  padding: 10px;
+}
+.grid-container__gride_items {
+  background-color: black;
+  width: 20px;
+  height: 20px;
+}
