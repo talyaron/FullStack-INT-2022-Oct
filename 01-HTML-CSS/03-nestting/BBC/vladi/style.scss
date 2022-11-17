@@ -64,34 +64,34 @@ body{
 }
 
 .grid{
-    border: 3px solid black;
+    // border: 3px solid black;
     width: 100%;
     height: 300px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    .box{
-        border: 1px solid black;
-    }
+    grid-template-areas: 
+    "box1 box1 box2 box3"
+    "box1 box1 box2 box3"
+    "box1 box1 box4 box5"
+    "box1 box1 box4 box5";
+    gap: 5px;
     .box1{
-        border: 1px solid black;
         background-color: aqua;
-        grid-area: 1 / 1 / 5/ 3;
+        grid-area: box1;
     }
     .box2{
-        grid-area: 1/ 3/ 3/ 3;
+        grid-area: box2;
         background-color: red;
     }
     .box3{
-        grid-area: 3/ 4/ 5/ 3;
+        grid-area: box3;
         background-color: black;
     }
     .box4{
-        grid-area: 3/ 4/ 5/ 5;
+        grid-area: box4;
         background-color: green;
     }
     .box5{
-        grid-area: 1/ 4/ 3/ 5;
+        grid-area: box5;
         background-color: blue;
     }
 }
