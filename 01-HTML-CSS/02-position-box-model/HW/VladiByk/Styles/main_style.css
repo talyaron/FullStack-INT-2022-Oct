@@ -14,9 +14,15 @@
 }
 
 body {
-    padding-top: 1rem;
+    padding-top: 2rem;
     overflow: hidden;
     width: 100vw;
+}
+
+.comment-for-user{
+    position: fixed;
+    top: 0;
+    left: 50%;
 }
 
 .container {
