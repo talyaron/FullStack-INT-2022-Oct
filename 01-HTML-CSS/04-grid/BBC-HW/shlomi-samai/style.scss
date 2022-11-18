@@ -1,0 +1,17 @@
+.body {
+    margin: 0%;
+}
+
+.black_headline {
+background-color: black;
+width: 100%;
+height: 100px;
+display: flex;
+flex-direction: row;
+
+    &__bbc_logo {
+    color: black;
+    background-color: white;
+    size: 100px;
+    }
+}
