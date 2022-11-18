@@ -11,19 +11,21 @@
         height: 100%;
         background-color: red;
         border: 3px solid black;
+        padding: 5px;
     }
     .box-1{
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        // grid-template-columns: auto auto;
+        // grid-template-rows: repeat(2, 1fr);
         gap:5px;
         .small_box{
             background-color: blue;
             border: 1px solid black;
+            width: auto;
+            height: auto;
         }
         .three{
-            grid-column-start: 1;
-            grid-column-end: 3;
+            grid-column:1 / 3;
         }
     }
 }
