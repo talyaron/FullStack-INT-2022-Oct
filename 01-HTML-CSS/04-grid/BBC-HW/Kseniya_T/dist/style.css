@@ -12,30 +12,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  &__left_icons {
-    padding-left: 2vh;
-    justify-content: center;
-
-    &___bbc_icon{
-        font-weight: bold;
-    }
-  }
-
-  &__elements {
-    justify-content: space-between;
-    padding-right: 2vh;
-  }
+}
+.navbar_container__left_icons {
+  padding-left: 2vh;
+  justify-content: center;
+}
+.navbar_container__left_icons___bbc_icon {
+  font-weight: bold;
+}
+.navbar_container__elements {
+  justify-content: space-between;
+  padding-right: 2vh;
 }
 
 .intro_container {
   color: black;
-}
-
-.center {
-  &__news {
-  }
-
-  &__sport {
-  }
 }
