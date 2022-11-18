@@ -12,6 +12,9 @@
 .black_headline__bbc_logo {
   color: black;
   background-color: white;
-  border: 1px solid black;
+  border: 4px solid black;
   font-size: 30px;
+  width: 36px;
+  font-weight: bold;
+  text-align: center;
 }
