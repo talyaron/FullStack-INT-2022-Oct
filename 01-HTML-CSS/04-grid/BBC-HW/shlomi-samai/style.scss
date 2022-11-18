@@ -9,9 +9,12 @@ height: 100px;
 display: flex;
 flex-direction: row;
 
-    &__bbc_logo {
+
+    .__bbc_logo {
     color: black;
     background-color: white;
-    size: 100px;
+    border: 10px solid black;
+    font-size: 100px;
+    font-size: 400px;
     }
 }
