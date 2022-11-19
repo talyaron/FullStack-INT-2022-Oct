@@ -1,0 +1,176 @@
+body {
+    background-color: rgb(263, 263, 263);
+    position: relative;
+  margin-right: 25%; 
+  margin-left: 25%; 
+    
+
+}
+
+.first-tab {
+    background-color: rgb(255, 249, 249);
+    position:fixed;
+    border: 1px solid rgb(190, 188, 188); 
+    z-index: 1;
+    
+}
+
+#search {
+    margin-left: 8cm ;
+    position: relative;
+    bottom: 25px;
+}
+
+.like {
+    height: 30px;
+    width: 30px;
+    padding-bottom: 12px;
+}
+
+ /*עד פה ראשון*/
+
+ .reka {
+    background-color: rgb(255, 249, 249);
+    width: 500px;
+    height: 350vh;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 11%;
+ }
+ 
+ .stories {
+    height: 100px;
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    
+ }
+
+ h4 {
+    padding-right: 11cm;
+ }
+
+ .profile {
+   width: 50px;
+   height: 50px;
+   margin-top: -28px;
+
+}
+
+.feed {
+    background-color: blanchedalmond;
+    width: 500px;
+    height: 650px;
+    margin-top: 1px;
+    border: 1px solid rgb(190, 188, 188);
+
+}
+
+
+.profile_feed {
+    display: flex;
+    width: 40px;
+    padding-left: 15px;
+    padding-top: 5px;
+
+}
+
+.profile_f_name {
+font-size: 15px;
+font-weight: bold;
+position: relative;
+top: -34px;
+left: 62px;
+
+}
+
+.profile_f_name_d{
+    position: relative;
+    left: 36px;
+    top: -16px;
+}
+
+.pic_feed {
+    width: 500px;
+    height: 350px;
+
+}
+
+
+.wrapper {
+    width: 22%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 8px;
+
+}
+
+.favorite {
+  
+    position: relative;
+    left: 380px;
+
+
+}
+
+.boldt {
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    left: 5px;
+}
+
+.text_f {
+    position: relative;
+    top: -32px;
+    left: 29px;
+}
+
+.comments {
+position: relative;
+top: -32px;
+left: 14px;
+color: rgb(148, 134, 134);
+}
+
+.hours {
+    position: relative;
+    top: -32px;
+    left: 14px;
+    color: rgb(148, 134, 134); 
+    font-size: 11px;    
+
+
+}
+
+
+
+
+.buttom_bar {
+   position:fixed;
+   background-color: rgba(152, 132, 125, 0.966);
+    border: 1px solid rgb(190, 188, 188);
+    width: 700px;
+    height: 35px;
+   bottom: 0px;
+   z-index: 1;
+   display: flex;
+   justify-content: space-evenly;
+   padding-top: 20px;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+ 
