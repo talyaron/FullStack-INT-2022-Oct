@@ -1,0 +1,82 @@
+body{
+margin: 0%;
+}
+.wrapper{
+
+
+
+
+    &__bar{
+        background-color: black;
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: space-around;
+        position: relative;
+        padding: 0;
+        list-style-type: none;
+        font-size: 13px;
+        font-weight: 700;
+        
+        
+
+        
+        
+
+
+
+
+
+
+
+        &__icons{
+            width: 100%;
+            height: 50px;
+            // display: inline;
+
+
+            img {
+                width: 50px;
+                height: 42px;
+            }
+
+        }
+
+
+    }
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
