@@ -1,0 +1,71 @@
+<div class="body__three-articles">
+            <div class="body__three-articles__item1">
+                <img src="https://thumbs.dreamstime.com/b/toyo-japen-april-area-famous-senso-ji-buddhist-temple-area-famous-senso-ji-buddhist-temple-151604014.jpg" alt="">
+                <h3>Lorem ipsum dolor sit amet.</h3>
+                <p></p>
+            </div>
+            <div class="body__three-articles__item2">
+                <img src="" alt="">
+                <h3></h3>
+                <p></p>
+            </div>
+            <div class="body__three-articles__item3">
+                <img src="" alt="">
+                <h3></h3>
+                <p></p>
+            </div>
+        </div>
+
+
+
+
+        .body__three-articles{
+    height: 20rem;
+    outline: 1px solid green;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+    column-gap: 3rem;
+    grid-template-areas:
+    'left center right'
+    'left center right'
+    ;
+    &__item1{
+        grid-area:left ;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(5,1fr);
+        grid-template-areas: 
+        'img img img' 'img img img'
+        'header header header'
+        'content content content'
+        'content content content'
+        ;
+        img{
+            grid-area: img;
+            background-color: yellow;
+            height: 100%;
+            width: 100%;
+            
+        }
+        h3{
+            grid-area: header;
+            background-color: pink;
+            
+        }
+        p{
+            grid-area: content;
+            background-color: black;
+        }
+
+    }
+    &__item2{
+        grid-area: center;
+        background-color: burlywood;
+    
+    }
+    &__item3{
+        grid-area: right;
+        background-color: red;
+    }
+}
