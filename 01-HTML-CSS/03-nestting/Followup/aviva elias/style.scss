@@ -1,0 +1,19 @@
+body{ 
+    margin: 0;
+
+}
+.wrapper{
+    height: 500px;
+    width: 500px;
+    background-color: antiquewhite;
+&__box{
+    height: 50px;
+    width: 50px;
+    background-color: purple;
+    border: 1px solid black;
+
+ &__header{
+        color: aqua;
+    }
+}
+}

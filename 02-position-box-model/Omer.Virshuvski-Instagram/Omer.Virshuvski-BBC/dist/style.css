@@ -1,0 +1,49 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__menu {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 800px;
+}
+.header__menu input {
+  background-color: gray;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+}
+.header__menu input::placeholder {
+  color: white;
+}
+.header__signIn {
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.header__logo {
+  display: flex;
+  justify-content: space-between;
+  width: 180px;
+}
+.header__logo__bigSquare {
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  display: grid;
+  place-items: center;
+  font-weight: bolder;
+}
