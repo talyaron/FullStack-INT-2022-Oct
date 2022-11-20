@@ -35,6 +35,7 @@ body {
 }
 
 body {
+  margin: 0px;
   padding: 0;
   height: 100vh;
   justify-content: center;
@@ -77,7 +78,7 @@ body {
 }
 
 .bottom-bar {
-  outline: 1px solid #090909;
+  outline: 1px solid black;
   background-color: #fffefe;
   position: fixed;
   width: 800px;
