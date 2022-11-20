@@ -1,0 +1,30 @@
+body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Quicksand", sans-serif;
+}
+
+.navbar_container {
+  background-color: black;
+  height: 10vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar_container__left_icons {
+  padding-left: 2vh;
+  justify-content: center;
+}
+.navbar_container__left_icons___bbc_icon {
+  font-weight: bold;
+}
+.navbar_container__elements {
+  justify-content: space-between;
+  padding-right: 2vh;
+}
+
+.intro_container {
+  color: black;
+}
