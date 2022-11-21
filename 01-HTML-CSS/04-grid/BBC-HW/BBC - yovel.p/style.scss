@@ -1,0 +1,425 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+// Header
+.Header{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 70px;
+    background: black;
+    align-items: center;
+
+
+.Header__box{    
+    display: flex;
+    text-align: center;
+    margin-left: 50px;
+    font-size: 30px;
+    .B, .C{
+        color: black;
+        background-color: white;
+        border: 2px solid black;
+        height: fit-content;
+        width: 30px;
+    }
+    .Header__box i{
+        color: white;
+    }
+
+}
+}
+.Header__box a{
+    text-decoration: none;
+}
+.UserIcon{
+    display: flex;
+    color: white;
+    font-size: 30px;
+    align-items: center;
+    margin-left: 10px;
+    margin-top: 3px;
+}
+.Signin{
+    display: flex;
+    color: white;
+    font-size: 20px;
+    align-items: center;
+    margin-left: 5px;
+}
+.navbar{
+    position:absolute;
+    display: flex;
+    color: white;
+    font-size: 17px;
+    margin-left: 500px;
+    .N, .S, .R, .W, .T, .F, .C{
+        margin-left: 30px;
+        color: white;
+    }
+    .N, .S, .R, .W, .T, .F, .C, a{
+        text-decoration: none;
+    }
+    .H{
+        color: white;
+    }
+    .H:hover{
+        border-bottom: 2px solid white;
+        padding-bottom: 10px;
+    }
+    .N:hover{
+        border-bottom: 2px solid red;
+        padding-bottom: 10px;
+    }
+    .S:hover{
+        border-bottom: 2px solid yellow;
+        padding-bottom: 10px;
+    }
+    .R:hover, .W:hover{
+        border-bottom: 2px solid rgb(0, 68, 255);
+        padding-bottom: 10px;
+    }
+    .T:hover{
+        border-bottom: 2px solid green;
+        padding-bottom: 10px;
+    }
+    .F:hover{
+        border-bottom: 2px solid rgb(0, 255, 179);
+        padding-bottom: 10px;
+    }
+    .C:hover{
+        border-bottom: 2px solid rgb(255, 0, 255);
+        padding-bottom: 10px;
+    }
+    .menu{
+        margin-left: 40px;
+        font-size: 20px;
+    }
+}
+.hr{
+margin-left: 200px;
+height: 50%;
+}
+.SearchBBC{
+    position: relative;
+    text-align: right;
+    margin-left: 30px;
+    color: #fff;
+
+    input{
+        position: absolute;
+        background-color: #313131;
+        width: 190px;
+        height: 35px;
+        margin-top: -12px;
+        text-align: center;
+        border: none;
+        color: #fff;
+    }
+    input::placeholder{
+        color: #fff;
+    }
+}
+.searchicon{
+    display: flex;
+    position: absolute;
+    margin-left: 101%;
+    top: -2px;
+}
+
+// Main events
+
+.grid-container{
+    position: relative;
+    width: 90%;
+    height: 400px;
+    display: grid;
+    margin-left: 5%;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 10px;
+    .grid-container__box1{
+    grid-row-start: 1;
+    grid-row-end: 3;
+    height: 100%;
+    width: 2fr;
+}
+.grid-container__box1 img{
+    position: absolute;
+    height:100%;
+    width: 48%;
+}
+.grid-container__box1 img:hover{
+    opacity: 0.8;
+}
+.grid-container__box2 img{
+    position: absolute;
+    height: 50%;
+    width: 25%;
+   
+}
+.grid-container__box2 img:hover{
+    opacity: 0.8;
+}
+.grid-container__box3 img{
+position: absolute;
+height: 50%;
+width: 25%;
+}
+.grid-container__box3 img:hover{
+    opacity: 0.8;
+}
+.grid-container__box4 img{
+    position: absolute;
+    height: 49%;
+    width: 25%; 
+}
+.grid-container__box4 img:hover{
+    opacity: 0.8;
+}
+.grid-container__box5 img{
+    position: absolute;
+    height: 49%;
+    width: 25%;
+}
+.grid-container__box5 img:hover{
+    opacity: 0.8;
+}
+
+.headline{
+    position: absolute;
+    color: white;
+    bottom: 20%;
+    text-align: left;
+    font-size: 14px;
+    left: 10px;
+}
+
+.Subtitle{
+    position:absolute;
+    color: white;
+    bottom: 10%;
+    font-size: 14.5px;
+    text-align: justify;
+    left: 10px;
+
+}
+.backgroundbox{
+    position: absolute;
+    background: rgba(54, 54, 54, 0.8);
+    height: 75px;
+    width: 48%;
+    bottom: 9%;
+}
+.headline a, .Subtitle a, .headline2 a{
+    text-decoration: none;
+    color: white;
+}
+.headline a:hover{
+    text-decoration: underline;
+}
+ .headline2{
+    position: absolute;
+    color: white;
+    text-align: left;
+    font-size: 14px;
+    bottom: 60%;
+    margin-left: 10px;
+}
+.headline2 a:hover{
+    text-decoration: underline;
+}
+.grid-container__box2 p{
+    position: absolute;
+    color: white;
+    bottom: 52%;
+    margin-left: 20px;
+}
+.grid-container__box2 hr{
+    position: absolute;
+    border:1px solid rgb(0, 162, 255);
+    width: 1.5%;
+    transform: rotate(90deg);
+    bottom: 54%;
+}
+.headline3{
+    position: absolute;
+    font-size: 20px;
+    bottom: 57%;
+    margin-left: 10px;
+}
+.headline3 a{
+    color: white;
+    text-decoration: none;
+}
+.headline3 a:hover{
+    text-decoration: underline;
+}
+.grid-container__box3 p{
+    position: absolute;
+    color: white;
+    bottom: 52%;
+    margin-left: 20px;
+}
+.grid-container__box3__hr{
+    position: absolute;
+    border: 1px solid red;
+    width: 1.5%;
+    transform: rotate(90deg);
+    bottom: 54%;
+}
+.headline4{
+    position: absolute;
+    font-size: 20px;
+    bottom: 8%;
+    margin-left: 10px;
+}
+.headline4 a{
+    text-decoration: none;
+    color: white;
+}
+.headline4 a:hover{
+    text-decoration: underline;
+}
+.grid-container__box4 p{
+    color: white;
+    position: absolute;
+    bottom: 2%;
+    margin-left: 20px;
+    font-size: 13px;
+}
+.grid-container__box4 hr{
+    position: absolute;
+    border: 1px solid rgb(157, 255, 0);
+    width: 1.5%;
+    transform: rotate(90deg);
+    bottom: 3.5%;  
+}
+.headline5{
+position: absolute;
+bottom: 8%;
+margin-left: 10px;
+}
+.headline5 a{
+    text-decoration: none;
+    color: white;
+}
+.headline5 a:hover{
+    text-decoration: underline;
+}
+.grid-container__box5 p{
+    position: absolute;
+    color: white;
+    bottom: 2%;
+    margin-left: 20px;
+    font-size: 13px;
+}
+.grid-container__box5 hr{
+    position: absolute;
+    border: 1px solid rgb(255, 0, 242);
+    width: 1.5%;
+    transform: rotate(90deg);
+    bottom: 3.5%;  
+}
+}
+
+// Main events
+
+.date{
+    color: grey;
+    margin-left: 85%;
+    display: inline-block;
+}
+.welcome-page{
+    position: absolute;
+    margin-left: 5%;
+    margin-top: 1%;
+    color: rgb(54, 54, 54);
+}
+.News-container{
+    width: 91%;
+    height: 500px;
+    margin-left: 70px;
+    // background: red;
+}
+.News-container__bixbox{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 330px;
+}
+.News-container__box1{
+    width: 30%;
+    height: 230px;
+    margin-bottom: 70px;
+ 
+}
+.News-container__box1 img{
+    width: fit-content;
+    height: 230px;
+  }
+.News-container__box2{
+    width: 30%;
+    height: 230px;
+    margin-bottom: 70px;
+}
+.News-container__box2 img{
+    width: fit-content;
+    height: 230px;
+  }
+.News-container__box3{
+    width: 30%;
+    height: 230px;
+    margin-bottom: 70px;
+}
+.News-container__box3 img{
+    width: fit-content;
+    height: 230px;
+  }
+  .News-container__bixbox img:hover{
+    opacity: 0.8;
+  }
+.NewsTitle{
+    font-size: 30px;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+.NewsTitle a{
+    color: black;
+    text-decoration: none;
+ }
+ .NewsTitle:hover{
+    font-weight: bold;
+ }
+.HRNews{
+    position: absolute;
+    width: 2.5%;
+    border: 1px solid red;
+    transform: rotate(90deg);
+    margin-top: 15px;
+    margin-left: 10px;
+}
+.footerbox{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 30px;
+    background: rgb(124, 124, 124);
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    font-family:'Times New Roman', Times, serif;
+}
+.footerbox h3{
+    color: white;
+    text-transform: uppercase;
+  animation: flip 3s infinite;
+  animation-delay: calc(.4s * var(--i))
+}
+@keyframes flip{
+    100%,80%{
+        transform: rotateY(360deg);
+    }
+}

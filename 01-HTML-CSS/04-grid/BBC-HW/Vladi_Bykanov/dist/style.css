@@ -51,10 +51,14 @@ nav .mid ul {
 nav .mid ul li {
   display: block;
 }
+nav .mid ul li a {
+  text-decoration: none;
+  color: inherit;
+}
 nav .right {
   width: 25%;
   padding: 0 5px;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 nav .right input {
   width: 80%;
@@ -64,6 +68,38 @@ nav .right input {
 }
 nav .right input::placeholder {
   text-align: center;
+}
+
+#dropdown-nav {
+  display: inline-block;
+  position: relative;
+}
+
+#hidden-nav {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+#hidden-nav li {
+  border: 1px solid white;
+  width: 12rem;
+  height: 5rem;
+  font-size: 2rem;
+  background-color: black;
+  display: flex;
+}
+#hidden-nav li a {
+  text-decoration: none;
+  color: inherit;
+  margin: auto;
+}
+
+#dropdown-nav:hover #hidden-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* height: 5rem; */
 }
 
 section {
