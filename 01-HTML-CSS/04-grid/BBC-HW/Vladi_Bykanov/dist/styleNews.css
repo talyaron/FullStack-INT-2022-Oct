@@ -19,6 +19,41 @@ body {
   display: flex;
   flex-direction: column;
 }
+.wrapper .grid-1 {
+  margin-top: 20%;
+  height: 300px;
+  display: flex;
+  gap: 10px;
+}
+.wrapper .grid-1 .box1 {
+  width: 50%;
+  display: flex;
+}
+.wrapper .grid-1 .box1 h2 {
+  width: 50%;
+}
+.wrapper .grid-1 .box1 .img {
+  width: 100%;
+  background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/AAE9/production/_127635734_murdoch1.jpg.webp");
+  background-size: cover;
+  background-position: center;
+}
+.wrapper .grid-1 .box2 {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.wrapper .grid-1 .box2 .img {
+  width: 100%;
+  height: 50%;
+  background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/AAE9/production/_127635734_murdoch1.jpg.webp");
+  background-size: cover;
+  background-position: center;
+}
+.wrapper .grid-1 .box2 .text h4 {
+  margin-bottom: 10px;
+}
 
 nav {
   width: 100%;
@@ -76,6 +111,8 @@ nav .right input::placeholder {
   padding: 5px;
   background-color: red;
   color: white;
+  position: absolute;
+  top: 12%;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -13,18 +13,85 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.navbar_container__left_icons {
-  padding-left: 2vh;
+
+.left_icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 30vh;
   justify-content: center;
 }
-.navbar_container__left_icons___bbc_icon {
+
+.bbc_icon {
   font-weight: bold;
-}
-.navbar_container__elements {
-  justify-content: space-between;
   padding-right: 2vh;
+}
+
+.account_icon {
+  padding-right: 2vh;
+}
+
+.navbar_elements {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-right: 30vh;
 }
 
 .intro_container {
   color: black;
+  padding-top: 2vh;
+  padding-left: 30vh;
+  padding-right: 30vh;
+}
+
+.center {
+  height: 89vh;
+  overflow-y: auto;
+}
+
+.intro_start {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 4vh;
+  padding-bottom: 3vh;
+}
+.intro_start__date {
+  color: grey;
+}
+
+.intro_articles_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 2vh;
+  grid-row-gap: 1vh;
+  height: 50vh;
+}
+
+.main_aritcle {
+  background-image: url("./imgs/flower.png");
+  grid-area: 1/1/5/3;
+  height: 50vh;
+}
+
+.item_1 {
+  background-image: url("./imgs/nasa.png");
+  grid-area: 1/3/3/4;
+}
+
+.item_2 {
+  background-image: url("./imgs/russia.png");
+  grid-area: 3/4/5/5;
+}
+
+.item_3 {
+  background-image: url("./imgs/space.png");
+  grid-area: 1/4/3/5;
+}
+
+.item_4 {
+  background-image: url();
+  grid-area: 3/3/5/4;
 }
