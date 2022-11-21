@@ -14,7 +14,7 @@ body{
 .wrapper{
     width: 95%;
     max-width: 1400px;
-    height: 200%;
+    height: auto;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -73,18 +73,24 @@ nav{
 }
 
 .sub-nav{
-    width: 100%;
+    width: 100vw;
     height: 5rem;
     padding: 5px;
     background-color: red;
     color: white;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    h1{
+        width: 95%;
+        max-width: 1400px;
+    }
     ul{
-        margin-top: auto;
+        margin: auto auto 0 auto;
         width: 100%;
+        max-width: 1400px;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
         li{
             display: block;
         }
