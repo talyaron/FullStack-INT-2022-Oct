@@ -112,7 +112,7 @@ nav .right input::placeholder {
   background-color: red;
   color: white;
   position: absolute;
-  top: 12%;
+  top: 8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
