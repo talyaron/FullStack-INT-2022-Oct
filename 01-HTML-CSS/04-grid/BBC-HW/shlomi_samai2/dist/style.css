@@ -1,0 +1,69 @@
+.body {
+  margin: 0%;
+}
+
+.frame {
+  width: 1000px;
+  margin: auto;
+}
+
+.navbar {
+  width: 1000px;
+  height: 60px;
+  background-color: black;
+}
+.navbar__logo_signin {
+  background-color: black;
+  width: 220px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+}
+.navbar__logo_signin__user_logo {
+  display: inline;
+  color: white;
+  font-size: 25px;
+}
+.navbar__logo_signin__bbc_logo {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  position: relative;
+  bottom: 25px;
+}
+.navbar__logo_signin__bbc_logo__letter {
+  color: black;
+  background-color: white;
+  border: 4px solid black;
+  font-size: 30px;
+  width: 36px;
+  font-weight: bold;
+  text-align: center;
+}
+
+p {
+  font-size: 20px;
+  position: relative;
+  left: 40px;
+}
+
+.material-icons {
+  position: relative;
+  top: 5px;
+  left: 40px;
+  font-size: 41px;
+  width: 38px;
+  height: 38px;
+}
+
+i {
+  position: relative;
+  left: 50px;
+}
+
+.location {
+  position: relative;
+  left: 35px;
+  bottom: 52px;
+  font-size: 20px;
+}
