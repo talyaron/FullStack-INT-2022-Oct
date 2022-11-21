@@ -85,12 +85,16 @@ body{
 }
 
 .grid_container{
-    background-color: aquamarine;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(3, 1fr);
 
-    &grid__welcome_bar{
+    .grid_welcome_bar{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        padding: 0 2%;
     }
     
     &grid__big_news{
