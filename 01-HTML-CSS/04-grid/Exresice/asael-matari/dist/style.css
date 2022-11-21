@@ -6,11 +6,11 @@ body {
   background-color: aqua;
   display: grid;
   gap: 10px;
-  grid-template-columns: auto;
-  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(9, auto);
   padding: 10px;
 }
-.grid-container__gride_items {
+.grid-container__grid-items {
   background-color: black;
   width: 20px;
   height: 20px;
