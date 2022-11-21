@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  font-family: "Open Sans", sans-serif;
+  font-family: "Quicksand", sans-serif;
+}
+
+.navbar_container {
+  background-color: black;
+  height: 10vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__left_icons {
+    padding-left: 2vh;
+    justify-content: center;
+
+    &___bbc_icon{
+        font-weight: bold;
+    }
+  }
+
+  &__elements {
+    justify-content: space-between;
+    padding-right: 2vh;
+  }
+}
+
+.intro_container {
+  color: black;
+}
+
+.center {
+  &__news {
+  }
+
+  &__sport {
+  }
+}

@@ -1,0 +1,58 @@
+.body {
+    margin: 0%;
+}
+
+.frame {
+    width: 1000px;
+    margin: auto;
+}
+
+.black_headline {
+background-color: black;
+width: 100%;
+height: 80px;
+
+
+
+    &__bbc_logo {
+
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    bottom: 25px;
+    
+    
+        &__letter {
+            color: black;
+            background-color: white;
+            border: 4px solid black;
+            font-size: 30px;
+            width: 36px;
+            font-weight: bold;
+            text-align: center;
+        }
+        &__icon {
+            color:white ;
+            font-size: 30px; 
+            z-index: 1; 
+            position: relative;
+            top: 200px;   
+        }
+    }
+    &__user_logo {
+        position: relative;
+        bottom: 100px; 
+        display: flex;
+        flex-direction: row; 
+        position: relative;
+        left: 150px;
+        color: white;
+        font-size: 25px;
+    }
+     
+}
+
+.icon {
+    color:white ;
+    height: 30px;
+}
