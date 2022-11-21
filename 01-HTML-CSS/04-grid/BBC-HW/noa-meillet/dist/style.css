@@ -73,12 +73,16 @@ body {
 }
 
 .grid_container {
-  background-color: aquamarine;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(3, 1fr);
 }
-.grid_containergrid__welcome_bar {
+.grid_container .grid_welcome_bar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 0 2%;
 }
 .grid_containergrid__big_news {
   background-color: aquamarine;
