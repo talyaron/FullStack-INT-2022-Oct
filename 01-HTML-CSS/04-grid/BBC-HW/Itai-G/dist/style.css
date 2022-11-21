@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+.navbar {
+  background-color: green;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 100px;
+  width: 100px;
+  z-index: 2;
+}
+
+.search_box {
+  height: 20px;
+=======
 body {
   margin: 0;
   overflow: hidden;
@@ -42,4 +60,5 @@ body {
   grid-column-end: 3;
   grid-row-start: 1;
   grid-column-end: 2;
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
 }

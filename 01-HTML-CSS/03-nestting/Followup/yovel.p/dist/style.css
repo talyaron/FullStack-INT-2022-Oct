@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row;
+  align-items: center;
+}
+.wrapper .wrapper__box {
+  color: white;
+}
+.wrapper .wrapper__box__titles {
+  display: flex;
+}

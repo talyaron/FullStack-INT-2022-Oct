@@ -2,6 +2,25 @@
     margin: 0%;
 }
 
+<<<<<<< HEAD
+.black_headline {
+background-color: black;
+width: 100%;
+height: 100px;
+display: flex;
+flex-direction: row;
+
+
+    &__bbc_logo {
+    color: black;
+    background-color: white;
+    border: 4px solid black;
+    font-size: 30px;
+    width: 36px;
+    font-weight: bold;
+    text-align: center;
+    }    
+=======
 .frame {
     width: 1000px;
     margin: auto;
@@ -55,4 +74,5 @@ height: 80px;
 .icon {
     color:white ;
     height: 30px;
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
 }
