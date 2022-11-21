@@ -55,7 +55,7 @@ nav{
     .right{
         width: 25%;
         padding: 0 5px;
-        justify-content: space-between;
+        justify-content: space-evenly;
         input{
             width: 80%;
             height: 70%;
@@ -67,6 +67,39 @@ nav{
         }
     }
 }
+
+#dropdown-nav {
+    display: inline-block;
+    position: relative;
+}
+
+#hidden-nav{
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    li{
+        border: 1px solid white;
+        width: 12rem;
+        height: 5rem;
+        font-size: 2rem;
+        background-color: black;
+        display: flex;
+        a{
+            text-decoration: none;
+            color: inherit;
+            margin: auto;
+        }
+    }
+}
+
+#dropdown-nav:hover #hidden-nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* height: 5rem; */
+}
+
 section{
     // border: 3px solid black;
     width: 100%;
