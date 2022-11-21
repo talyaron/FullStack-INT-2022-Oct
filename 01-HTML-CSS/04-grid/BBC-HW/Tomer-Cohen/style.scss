@@ -1,0 +1,83 @@
+body{
+    margin: 0;
+}
+.page{
+    
+    &__bar{
+        width: 100%;
+        height: 60px;
+        background-color: rgb(0, 0, 0);
+        display: flex;
+        justify-content: space-around;
+
+       &__icon{
+        width: 90px;
+        height: 60px;
+       }
+        &__login{
+            color: white;
+        }
+        &__search{
+            margin-left: 20px;
+        }
+        &__subtext{
+            margin-top: 20px;
+            margin-left: 10px;
+            color: white;
+            
+        }
+    }
+
+    
+}
+.news {
+    display: grid;
+    
+    grid-template-columns: auto auto auto ;
+    gap: 3px;
+    padding: 40px;  
+    width: 1000px;
+    height: 400px;
+    margin: auto;
+    
+  }
+  
+  .news > div {
+
+    padding: 10px ;
+    font-size: 30px;
+    
+
+  }
+.box1 {
+    grid-area: 1/1/3;
+    img{
+        width: 100%;
+        height: 100%;
+    }
+
+}
+.box2{
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
+.box3{
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
+.box4{
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
+.box5{
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
