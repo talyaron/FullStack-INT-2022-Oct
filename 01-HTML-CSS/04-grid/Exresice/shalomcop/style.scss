@@ -3,8 +3,8 @@
     width: 100vw;
     background-color: aqua;
     display: grid;
-    grid-template-columns: 1fr, 1fr, 1fr;
-    grid-template-rows: 1fr, 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 
     .grid-item {
         width: 50px;
