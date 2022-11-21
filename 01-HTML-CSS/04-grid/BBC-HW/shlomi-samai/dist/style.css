@@ -2,14 +2,23 @@
   margin: 0%;
 }
 
+.frame {
+  width: 1000px;
+  margin: auto;
+}
+
 .black_headline {
   background-color: black;
   width: 100%;
-  height: 100px;
-  display: flex;
-  flex-direction: row;
+  height: 80px;
 }
 .black_headline__bbc_logo {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  bottom: 25px;
+}
+.black_headline__bbc_logo__letter {
   color: black;
   background-color: white;
   border: 4px solid black;
@@ -17,4 +26,26 @@
   width: 36px;
   font-weight: bold;
   text-align: center;
+}
+.black_headline__bbc_logo__icon {
+  color: white;
+  font-size: 30px;
+  z-index: 1;
+  position: relative;
+  top: 200px;
+}
+.black_headline__user_logo {
+  position: relative;
+  bottom: 100px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  left: 150px;
+  color: white;
+  font-size: 25px;
+}
+
+.icon {
+  color: white;
+  height: 30px;
 }
