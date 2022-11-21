@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+}
+
+.grid-container {
+  height: 300px;
+  width: 100vw;
+  background-color: aqua;
+  /*display: flex;
+  justify-content: flex-end;*/
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+.grid-container .grid-item {
+  width: 100px;
+  width: 100px;
+  border: 1px solid;
+  background-color: beige;
+}
