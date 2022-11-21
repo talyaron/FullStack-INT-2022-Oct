@@ -8,6 +8,7 @@ body {
   width: 100vw;
   height: 100vh;
   padding: 2rem 0;
+<<<<<<< HEAD
 }
 
 .wrapper {
@@ -15,10 +16,20 @@ body {
   max-width: 1000px;
   height: 200%;
   overflow: scroll;
+=======
+  overflow-x: hidden;
+}
+
+.wrapper {
+  width: 95%;
+  max-width: 1400px;
+  height: 200%;
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
   margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
+<<<<<<< HEAD
 .wrapper h3 {
   margin-top: 2rem;
   color: #484747;
@@ -39,6 +50,10 @@ body {
 }
 
 .nav {
+=======
+
+nav {
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
   width: 100%;
   background-color: black;
   color: white;
@@ -46,11 +61,16 @@ body {
   display: flex;
   justify-content: space-between;
 }
+<<<<<<< HEAD
 .nav .nav-item {
+=======
+nav .nav-item {
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
   height: 100%;
   display: flex;
   align-items: center;
 }
+<<<<<<< HEAD
 .nav .left {
   width: 150px;
   justify-content: space-evenly;
@@ -62,24 +82,49 @@ body {
   width: 60%;
 }
 .nav .mid ul {
+=======
+nav .left {
+  width: 150px;
+  justify-content: space-evenly;
+}
+nav .left img {
+  height: 100%;
+}
+nav .mid {
+  width: 60%;
+}
+nav .mid ul {
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
   width: 100%;
   display: flex;
   justify-content: space-evenly;
 }
+<<<<<<< HEAD
 .nav .mid ul li {
   display: block;
 }
 .nav .right {
+=======
+nav .mid ul li {
+  display: block;
+}
+nav .right {
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
   width: 25%;
   padding: 0 5px;
   justify-content: space-between;
 }
+<<<<<<< HEAD
 .nav .right input {
+=======
+nav .right input {
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
   width: 80%;
   height: 70%;
   background-color: black;
   border: none;
 }
+<<<<<<< HEAD
 .nav .right input::placeholder {
   text-align: center;
 }
@@ -92,6 +137,43 @@ body {
   gap: 5px;
 }
 .grid .box {
+=======
+nav .right input::placeholder {
+  text-align: center;
+}
+
+section {
+  width: 100%;
+  height: 20%;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+section h3 {
+  color: #484747;
+  font-size: 2rem;
+  display: flex;
+}
+section h3 span {
+  height: 1.5rem;
+  width: 5px;
+  margin-top: 0.4rem;
+  margin-right: 0.5rem;
+}
+section h3 .n {
+  background-color: red;
+}
+section h3 .s {
+  background-color: yellow;
+}
+section .grid {
+  display: grid;
+  gap: 5px;
+  height: 85%;
+}
+section .grid .box {
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
   color: white;
   text-shadow: 1px 1px 5px black;
   display: flex;
@@ -100,6 +182,7 @@ body {
   padding: 5px;
   width: 100%;
 }
+<<<<<<< HEAD
 .grid .box .text {
   font-family: "Times New Roman", Times, serif;
 }
@@ -117,36 +200,75 @@ body {
   color: red;
 }
 .grid .box .text em span {
+=======
+section .grid .box .text {
+  font-family: "Times New Roman", Times, serif;
+}
+section .grid .box .text h5 {
+  font-size: 1.1rem;
+}
+section .grid .box .text h6 {
+  font-weight: 100;
+  margin: 5px 0;
+}
+section .grid .box .text em {
+  font-size: 0.7rem;
+  margin-left: 10px;
+}
+section .grid .box .text em span {
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
   color: red;
   font-weight: bold;
 }
 
+<<<<<<< HEAD
 .grid-1 {
   height: 30%;
   grid-template-areas: "box1 box1 box2 box3" "box1 box1 box2 box3" "box1 box1 box4 box5" "box1 box1 box4 box5";
 }
 .grid-1 .box1 {
+=======
+.welcome {
+  height: 30%;
+}
+.welcome .grid-1 {
+  grid-template-areas: "box1 box1 box2 box3" "box1 box1 box2 box3" "box1 box1 box4 box5" "box1 box1 box4 box5";
+}
+.welcome .grid-1 .box1 {
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
   grid-area: box1;
   background-image: url("https://ichef.bbci.co.uk/onesport/cps/976/cpsprodpb/2096/production/_126924380_gettyimages-71218828.jpg");
   background-position: center;
   background-size: cover;
 }
+<<<<<<< HEAD
 .grid-1 .box1 .text h5 {
   font-size: 3rem;
 }
 .grid-1 .box1 .text h6 {
+=======
+.welcome .grid-1 .box1 .text h5 {
+  font-size: 3rem;
+}
+.welcome .grid-1 .box1 .text h6 {
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
   color: white;
   font-size: 1rem;
   margin: 5px 0;
   text-align: justify;
   padding: 2px;
 }
+<<<<<<< HEAD
 .grid-1 .box2 {
+=======
+.welcome .grid-1 .box2 {
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
   grid-area: box2;
   background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/AAE9/production/_127635734_murdoch1.jpg.webp");
   background-size: cover;
   background-position: center;
 }
+<<<<<<< HEAD
 .grid-1 .box3 {
   grid-area: box3;
   background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/BF28/production/_127663984_gettyimages-936925706.jpg.webp");
@@ -162,10 +284,28 @@ body {
 .grid-1 .box5 {
   grid-area: box5;
   background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/BF28/production/_127663984_gettyimages-936925706.jpg.webp");
+=======
+.welcome .grid-1 .box3 {
+  grid-area: box3;
+  background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/A21C/production/_127700514_3e7c7d27496acf974e3e3a30157a1813a4df5f19.jpg.webp");
+  background-size: cover;
+  background-position: center;
+}
+.welcome .grid-1 .box4 {
+  grid-area: box4;
+  background-image: url("https://ichef.bbci.co.uk/live-experience/cps/1680/cpsprodpb/120A7/production/_127659837_protest_wide_getty2.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.welcome .grid-1 .box5 {
+  grid-area: box5;
+  background-image: url("https://ychef.files.bbci.co.uk/1600x900/p0dgctzb.webp");
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
   background-size: cover;
   background-position: center;
 }
 
+<<<<<<< HEAD
 .grid-2, .grid-3 {
   grid-template-columns: repeat(3, 1fr);
 }
@@ -187,10 +327,62 @@ body {
   display: flex;
 }
 .weather .box {
+=======
+.news .grid-2 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.news .grid-2 .box1 {
+  background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/59B7/production/_127676922_gettyimages-1181874775.jpg.webp");
+  background-size: cover;
+  background-position: center;
+}
+.news .grid-2 .box2 {
+  background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/59B7/production/_127676922_gettyimages-1181874775.jpg.webp");
+  background-size: cover;
+  background-position: center;
+}
+.news .grid-2 .box3 {
+  background-image: url("https://ichef.bbci.co.uk/news/976/cpsprodpb/59B7/production/_127676922_gettyimages-1181874775.jpg.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+.sport .grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.sport .grid-3 .box {
+  height: 100%;
+}
+.sport .grid-3 .box1 {
+  background-image: url("https://ichef.bbci.co.uk/onesport/cps/800/cpsprodpb/174DA/production/_127705459_karim_benzema_epa.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.sport .grid-3 .box2 {
+  background-image: url("https://ichef.bbci.co.uk/onesport/cps/800/cpsprodpb/174DA/production/_127705459_karim_benzema_epa.jpg");
+  background-size: cover;
+  background-position: center;
+}
+.sport .grid-3 .box3 {
+  background-image: url("https://ichef.bbci.co.uk/onesport/cps/800/cpsprodpb/174DA/production/_127705459_karim_benzema_epa.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.weather {
+  height: 10%;
+}
+.weather .weather-grid {
+  width: 100%;
+  display: flex;
+}
+.weather .weather-grid .box {
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
   height: 100px;
   width: 15%;
   display: flex;
 }
+<<<<<<< HEAD
 .weather .box .cloud {
   width: 50%;
   padding: 10% 0 0 5%;
@@ -199,21 +391,40 @@ body {
   font-size: 4rem;
 }
 .weather .box .deg {
+=======
+.weather .weather-grid .box .cloud {
+  width: 50%;
+  padding: 10% 0 0 5%;
+}
+.weather .weather-grid .box .cloud i {
+  font-size: 4rem;
+}
+.weather .weather-grid .box .deg {
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
   padding-top: 5%;
   padding-left: 10%;
   width: 50%;
   font-size: 1.5rem;
 }
+<<<<<<< HEAD
 .weather .box .deg p:nth-child(3) {
+=======
+.weather .weather-grid .box .deg p:nth-child(3) {
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
   color: gray;
 }
 
 @media screen and (max-width: 900px) {
+<<<<<<< HEAD
   .nav {
+=======
+  nav {
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
     font-size: 0.8rem;
     height: 3rem;
   }
 }
+<<<<<<< HEAD
 @media screen and (max-width: 700px) {
   .grid-1 {
     height: 40%;
@@ -226,6 +437,23 @@ body {
     font-size: 2rem;
   }
 
+=======
+@media screen and (max-width: 800px) {
+  .welcome {
+    height: 40%;
+  }
+  .welcome .grid-1 {
+    grid-template-areas: "box1 box1 box1 box1" "box1 box1 box1 box1" "box1 box1 box1 box1" "box1 box1 box1 box1" "box2 box2 box3 box3" "box4 box4 box5 box5";
+  }
+  .welcome .grid-1 .box {
+    background-position: top;
+  }
+  .welcome .grid-1 .box .text h5 {
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 700px) {
+>>>>>>> 62eda7de0e86057bc66d7dc846fc047e4c508867
   .mid ul li:last-child {
     display: none;
   }
