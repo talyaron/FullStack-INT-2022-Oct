@@ -1,15 +1,78 @@
-body{
-    margin: 0;
+body {
+  /* margin-left: 0vw;
+  margin-right: 0vw; */
+  margin: 0%;
+  overflow-x: hidden;
+  /* margin: -1; */
+  background-color: rgb(240, 237, 237);
+}
+.allin {
+  width: 100%;
+  display: flex;
+}
+.menu {
+  background-color: white;
+  position: fixed;
+  top: 0.1vw;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  outline: 1px solid rgb(196, 191, 191);
+  height: 4vw;
+}
+.logo {
+  width: 15vw;
+  height: 4vw;
+}
+input {
+  border-radius: 30vw;
+  margin-left: 50vw;
+  width: 10vw;
+  background-color: rgb(240, 237, 237);
 }
 
-.menu{
-    background-color:white;
-    position: fixed;
-    top: 0px;
-    width: 100vw;
-    
+.heart {
+  width: 3vw;
+  height: 2vw;
 }
-img{
-    width: 100;
-    height: 200;
+
+.bottomenu {
+  background-color: white;
+  position: fixed;
+  bottom: 0.5vw;
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 3vw;
+  
 }
+.home {
+  height: 3vw;
+}
+.plus {
+  height: 3vw;
+}
+.send {
+  height: 3vw;
+}
+.live{
+    height:3vw
+}
+.profile{
+    height: 3vw;
+    width: 3vw;
+    border-radius: 4vw; 
+}
+.stories{
+    background-color: blue;
+    width: 50vw;
+    display: flex;
+    align-items: center;
+}
+.contant {
+    background-color: black;
+    /* display: flex; */
+    /* align-items: center; */
+    margin-top: 5vw;
+  }
