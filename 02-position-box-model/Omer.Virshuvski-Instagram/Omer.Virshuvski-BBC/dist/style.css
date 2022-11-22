@@ -36,11 +36,15 @@
   color: white;
   display: flex;
   align-items: center;
+  margin: 0;
+}
+.header__signIn > img {
+  margin: 0px 5px;
 }
 .header__logo {
   display: flex;
   justify-content: space-between;
-  width: 180px;
+  width: 220px;
 }
 .header__logo__bigSquare {
   width: 35px;

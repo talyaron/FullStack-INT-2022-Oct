@@ -39,12 +39,16 @@
         color: white;
         display: flex;
         align-items: center;
+        margin: 0;
+    }
+    &__signIn > img {
+        margin: 0px 5px;
     }
 
     &__logo {
         display: flex;
         justify-content: space-between;
-        width: 180px;
+        width: 220px;
 
 
         &__bigSquare {
