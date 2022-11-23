@@ -142,7 +142,7 @@ p:hover {
     }
 
     &__top_news_grid{
-        height: 600px;
+        height: 363px;
         width: 1360px;
         display: grid;
         grid-template-areas: 'big big little_1 little_2' 'big big little_3 little_4' ;
@@ -150,6 +150,8 @@ p:hover {
         
         &__big{
             grid-area: big;
+            height: 364px;
+            width: 600px;
             
             &__image{
                 height: 100%;
@@ -176,6 +178,8 @@ p:hover {
         
         &__little_1{
             grid-area: little_1;
+            height: 172px;
+            width: 360px;
             
             &__image{
                 height: 100%;
@@ -209,14 +213,20 @@ p:hover {
         
         &__little_2{
             grid-area: little_2;
+            height: 172px;
+            width: 360px;
         }
         
         &__little_3{
             grid-area: little_3;
+            height: 172px;
+            width: 360px;
         }
         
         &__little_4{
             grid-area: little_4;
+            height: 172px;
+            width: 360px;
         }
     }
 
@@ -227,7 +237,7 @@ p:hover {
         grid-template-areas: 'news news news' 'article_1 article_2 article_3' 'sport sport sport' 'article_4 article_5 article_6';
         gap: 20px;
         position: relative;
-        top: 60px;
+        top: 20px;
         font-size: 30px;
         font-weight: 900;
         

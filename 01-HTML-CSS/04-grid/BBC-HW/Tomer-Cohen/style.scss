@@ -2,82 +2,326 @@ body{
     margin: 0;
 }
 .page{
-    
-    &__bar{
-        width: 100%;
-        height: 60px;
-        background-color: rgb(0, 0, 0);
-        display: flex;
-        justify-content: space-around;
-
-       &__icon{
-        width: 90px;
-        height: 60px;
-       }
-        &__login{
-            color: white;
-        }
-        &__search{
-            margin-left: 20px;
-        }
-        &__subtext{
-            margin-top: 20px;
-            margin-left: 10px;
-            color: white;
-            
-        }
-    }
-
-    
-}
-.news {
-    display: grid;
-    
-    grid-template-columns: auto auto auto ;
-    gap: 3px;
-    padding: 40px;  
-    width: 1000px;
-    height: 400px;
+    width: 70vw;
     margin: auto;
+    &__news {
+        display: grid;
+        grid-template-columns: auto auto auto ;
+        gap: 3px;
+        padding: 40px;  
+        width: 90%;
+        height: 70%;
+        margin: auto;
+        &__weather{
+            color: #8c8c8c;
+            margin-left: 5%;
+            img{
+                width: 500px;
+                height: 300px;
+            }
+        }
+        &__box1 {
+            grid-area: 1/1/3;
+           position: relative;
+            h3 {
+                position: absolute;
+                bottom: 10%;
+                color: white;
+                
+            }
+
+            p{
+                position: absolute;
+                bottom: 5%;
+                color: white;
+                font-size: 19px;
+            }
+            
+            img{
+                width: 100%;
+                height: 100%;
+            }
+
+        
+        }
+        &__box2{
+            position: relative;
+            h3 {
+                position: absolute;
+                bottom: 10%;
+                color: white;
+            }
+
+            p{
+                position: absolute;
+                bottom: 5%;
+                color: white;
+                font-size: 20px;
+            }
+
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        &__box3{
+            position: relative;
+            h3 {
+                position: absolute;
+                bottom: 10%;
+                color: white;
+            }
+
+            p{
+                position: absolute;
+                bottom: 5%;
+                color: white;
+                font-size: 20px;
+            }
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        &__box4{
+            position: relative;
+            h3 {
+                position: absolute;
+                bottom: 10%;
+                color: white;
+            }
+
+            p{
+                position: absolute;
+                bottom: 5%;
+                color: white;
+                font-size: 20px;
+            }
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        &__box5{
+            position: relative;
+            h3 {
+                position: absolute;
+                bottom: 10%;
+                color: white;
+            }
+
+            p{
+                position: absolute;
+                bottom: 5%;
+                color: white;
+                font-size: 20px;
+            }
+            img{
+               width: 100%;
+                height: 100%;
+            }
+        }
+        &__box6{
+            
+            h3 {
+                
+                bottom: 10%;
+                color: rgb(0, 0, 0);
+            }
+
+            p{
+                
+                bottom: 5%;
+                color: rgb(0, 0, 0);
+                font-size: 15px;
+            }
+            img{
+               width: 95%;
+                height: 60%;
+            }
+            .USA{
+                border-left: 3px solid rgb(0, 255, 42);
+                color: #8c8c8c;
+            }
+        }
+        &__box7{
+            h3 {
+                
+                bottom: 10%;
+                color: rgb(0, 0, 0);
+            }
+
+            p{
+                
+                bottom: 5%;
+                color: rgb(0, 0, 0);
+                font-size: 18px;
+            }
+            img{
+               width: 95%;
+                height: 60%;
+            }
+            .Qatar{
+                border-left: 3px solid rgb(185, 133, 245);
+                color: #8c8c8c;
+            }
+        }
+        &__box8{
+            h3 {
+                
+                bottom: 10%;
+                color: rgb(0, 0, 0);
+            }
+
+            p{
+                
+                bottom: 5%;
+                color: rgb(0, 0, 0);
+                font-size: 15px;
+            }
+            .argentina{
+                border-left: 3px solid red;
+                color: #8c8c8c;
+            }
+            img{
+               width: 95%;
+                height: 60%;
+            }
+        }
+        &__box9{
+            
+            h3 {
+                font-family: 'Oswald', sans-serif;
+                bottom: 10%;
+                color: rgb(0, 0, 0);
+                font-size: medium;
+            }
+
+            p{
+                
+                bottom: 5%;
+                color: rgb(0, 0, 0);
+                font-size: 20px;
+            }
+            .Samantha{
+                border-top: 2px solid rgb(68, 66, 66);
+                width: 50%;
+                font-family: 'BhuTuka Expanded One', cursive;
+                color: #8c8c8c;
+            }
+            img{
+                width: 95%;
+                height: 60%;
+            }
+        }
+        &__box10{
+            
+            h3 {
+                font-family: 'Oswald', sans-serif;
+                bottom: 10%;
+                color: rgb(0, 0, 0);
+                font-size: medium;
+            }
+
+            p{
+                
+                bottom: 5%;
+                color: rgb(0, 0, 0);
+                font-size: 20px;
+            }
+            .Claire{
+                border-top: 2px solid rgb(68, 66, 66);
+                width: 50%;
+                font-family: 'BhuTuka Expanded One', cursive;
+                color: #8c8c8c;
+
+            }
+            img{
+                width: 95%;
+                height: 60%;
+            }
+        }
+        &__box11{
+            
+            h3 {
+                font-family: 'Oswald', sans-serif;
+                bottom: 10%;
+                color: rgb(0, 0, 0);
+                font-size: medium;
+            }
+
+            p{
+                
+                bottom: 5%;
+                color: rgb(0, 0, 0);
+                font-size: 20px;
+            }
+            .anthon{
+                border-top: 2px solid rgb(68, 66, 66);
+                width: 50%;
+                font-family: 'BhuTuka Expanded One', cursive;
+                color: #8c8c8c;
+            }
+            img{
+                width: 95%;
+                height: 60%;
+            }
+         
+        }
+        
+      }
+      
+      &__news > div {
     
-  }
-  
-  .news > div {
-
-    padding: 10px ;
-    font-size: 30px;
+        padding: 10px ;
+        font-size: 30px;
+        
     
+      }
+      &__text{
+        display: flex;
+        
+        padding-top: 5%;
+        padding-left: 5%;
+        padding-right: 5%;
+        justify-content: space-between;
+        .date{
+            color: #8c8c8c;
+        }
+    }
+    &__text1{
+        margin-left: 6%;
+        border-left: 3px solid red;
+    }
+    &__text2{
+        margin-left: 6%;
+        border-left: 3px solid rgb(251, 255, 0);
+    }
+    
+    
+}
+.bar{
+    width: 100%;
+    height: 60px;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-around;
 
-  }
-.box1 {
-    grid-area: 1/1/3;
-    img{
-        width: 100%;
-        height: 100%;
+   &__icon{
+    width: 90px;
+    height: 60px;
+   }
+    &__login{
+        color: white;
+        
     }
-
-}
-.box2{
-    img{
-        width: 100%;
-        height: 100%;
+    &__search{
+        margin-left: 20px;
     }
-}
-.box3{
-    img{
-        width: 100%;
-        height: 100%;
-    }
-}
-.box4{
-    img{
-        width: 100%;
-        height: 100%;
-    }
-}
-.box5{
-    img{
-        width: 100%;
-        height: 100%;
+    &__subtext{
+        margin-top: 20px;
+        margin-left: 10px;
+        color: white;
+        
     }
 }
