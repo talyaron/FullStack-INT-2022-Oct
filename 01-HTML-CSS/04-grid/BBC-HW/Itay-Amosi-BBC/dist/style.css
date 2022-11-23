@@ -306,7 +306,6 @@ body {
 
 .sport {
   font-size: 5rem;
-  padding-top: 150px;
   font-family: ReithSans, Arial, Helvetica, freesans, sans-serif;
   margin-bottom: -150px;
 }
@@ -322,5 +321,7 @@ body {
 }
 
 .weather {
-  width: 1500px;
+  width: 760px;
+  margin-left: 500px;
+  margin-bottom: -150px;
 }
