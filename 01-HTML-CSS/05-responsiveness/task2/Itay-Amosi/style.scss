@@ -1,0 +1,76 @@
+body{
+position: relative;
+height: 100vh;
+}
+.card{
+width: 90vw;
+height: 20vh;
+border: 3px solid black;
+margin-left: 20px;
+background-color: brown;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding-left: 5px;
+padding-right: 5px;
+}
+
+.box1{
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgb(26, 0, 128);
+    background-color: rgb(26, 0, 128);
+}
+
+.box2{
+    width: 50px;
+    height: 50px;
+    border: 2px solid green;
+    background-color: green;
+}
+
+.box3{
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgb(206, 251, 8);
+    background-color: rgb(206, 251, 8);
+}
+
+@media only screen and (max-width: 600px) {
+    .card{
+        width: 50vw;
+        position: absolute;
+        bottom: 15px;
+        height: 30vh;
+        border: 3px solid black;
+        margin-left: 20px;
+        background-color: rgb(219, 48, 216);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 5px;
+        padding-right: 5px;
+        }
+    
+    
+    .box1{
+        width: 50px;
+        height: 50px;
+        border: 2px solid rgb(26, 0, 128);
+        background-color: rgb(26, 0, 128);
+    }
+    
+    .box2{
+        width: 50px;
+        height: 50px;
+        border: 2px solid green;
+        background-color: green;
+    }
+    
+    .box3{
+        width: 50px;
+        height: 50px;
+        border: 2px solid rgb(206, 251, 8);
+        background-color: rgb(206, 251, 8);
+    }
+}

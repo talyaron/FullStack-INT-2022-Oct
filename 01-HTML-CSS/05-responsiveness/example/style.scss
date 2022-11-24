@@ -4,10 +4,10 @@
 
 .material-symbols-outlined {
     font-variation-settings:
-    'FILL' 1,
-    'wght' 400,
-    'GRAD' 0,
-    'opsz' 48
+        'FILL'1,
+        'wght'400,
+        'GRAD'0,
+        'opsz'48
 }
 
 .fa-solid {
@@ -98,12 +98,52 @@ body {
 .card {
     background-color: #0099cc;
     border: 10px solid black;
+    display: inline;
     width: 100vw;
-    height: 50vh;
+    height: 70vh;
     /*vw vh em rem %*/
     font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     p {
-        font-size: 1.2rem; /* google chrome 16px*/
+        font-size: 2em;
+        /* google chrome 16px*/
+        background-color: #9933cc;
+        width:50%;
+    }
+}
+
+.box {
+    background-color: red;
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+}
+
+// @media only screen and (min-width: 600px) {
+//     .card {
+//         background-color: darkgreen;
+//     }
+// }
+
+// @media only screen and (min-width: 700px) {
+//     .card {
+//         background-color: rgb(173, 34, 50);
+//     }
+// }
+
+// עד 600 כחול בין 600 לבין 800 אדום ומעל 800 צהוב
+
+// @media only screen and (max-width: 600px){
+//    .card {
+//     background-color: rgb(0, 77, 128);
+//    }
+// }
+
+@media only screen and (min-width: 1800px){
+    .card {
+        background-color: red;
     }
 }
