@@ -84,12 +84,31 @@ body {
 .card {
   background-color: #0099cc;
   border: 10px solid black;
+  display: inline;
   width: 100vw;
-  height: 50vh;
+  height: 70vh;
   /*vw vh em rem %*/
   font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .card p {
-  font-size: 1.2rem;
+  font-size: 2em;
   /* google chrome 16px*/
+  background-color: #9933cc;
+  width: 50%;
+}
+
+.box {
+  background-color: red;
+  border: 1px solid black;
+  height: 50px;
+  width: 50px;
+}
+
+@media only screen and (min-width: 1800px) {
+  .card {
+    background-color: red;
+  }
 }
