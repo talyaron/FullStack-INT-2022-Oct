@@ -29,6 +29,10 @@ body{
     button:last-child{
         background-color: darkmagenta;
     }
+    button:hover{
+        cursor: pointer;
+    }
+
 }
 
 @media  screen and (max-width:800px) {
@@ -40,6 +44,7 @@ body{
             align-items: center;
             height: 50%;
             width: 30%;
+            padding: 1em;
         }
     }
 }

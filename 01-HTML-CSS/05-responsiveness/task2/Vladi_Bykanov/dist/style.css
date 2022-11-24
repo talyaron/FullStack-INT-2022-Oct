@@ -30,6 +30,9 @@ body {
 .nav button:last-child {
   background-color: darkmagenta;
 }
+.nav button:hover {
+  cursor: pointer;
+}
 
 @media screen and (max-width: 800px) {
   body {
@@ -41,5 +44,6 @@ body {
     align-items: center;
     height: 50%;
     width: 30%;
+    padding: 1em;
   }
 }
