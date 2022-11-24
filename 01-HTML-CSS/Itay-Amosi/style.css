@@ -1,0 +1,47 @@
+.wrapper {
+    width: 904px;
+    height: 800px;
+    float: left;
+}
+.wrapper img{
+ width: 100%;
+ height: 50rem;
+}
+.bigbox:hover{
+box-shadow: 0 0 100px rgba(11, 235, 30, 0.937);
+transform: scale(1.3);
+}
+.dropdown{
+ border: 0px solid rgb(8, 8, 8);
+
+ position: absolute;
+ top: 800px;
+ width: 1808px;
+ font-size: 3rem;
+}
+p{
+ font-size: 50px;
+ background-color:antiquewhite  ;
+}
+h1{
+ background-color: bisque;
+}
+.bigbox{
+width: 1808px;
+height: 1229px;
+position: relative;
+bottom: rem;
+margin-top: 145px;
+}
+.figcaption{
+float: inline-end;
+background-color: brown;
+ font-size: 30px;
+ float:right;
+}
+body{
+background-image: url(https://s3-eu-west-1.amazonaws.com/video.gallereplay.com/artistarea/Young+Woman%27s+Hands+Turning+Pages+of+a+Book_55b65088-b586-44fe-b7fe-df0ae6d4a8fb/Cinemagraph_watermark/1_small_files/cinemagraph.gif);
+background-attachment: fixed;
+background-size: cover;
+top: 100%;
+}

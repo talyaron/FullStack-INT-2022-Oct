@@ -1,0 +1,112 @@
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+
+ body{
+   direction: rtl; 
+    font-family: Arial, Helvetica, sans-serif;
+  
+ }
+
+.wrapper{
+    
+    
+    width: 100%;
+    max-width: 350px;
+   /* background-color: blueviolet;*/
+    height: 38vh;
+    margin: auto;
+    margin-top: 200px;
+    position: relative;
+    
+}
+
+.wrapper .main-wapper{
+    width: 100%;
+    height:25vh ;
+    background-color: white;
+    direction: ltr;
+
+}
+
+.warpper-pic-one{
+    width: 49.5%;
+    height: 25vh;
+    background-color: black; 
+
+   
+}
+
+
+.pic-tow{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.bottom{
+   
+    
+   background:linear-gradient(to right,#29344b,#111113);
+    width: 100%;
+    height: 34%;
+    padding: 5px;
+    box-sizing: border-box; /*מכניס לתוך גבולות הדיו*/
+}
+
+
+.wrapper .warpper-pic-one img, .wrapper .pic-tow img{
+    width:100%; /*מותך גבולות*/
+    height: 100%;/*מותך גבולות*/
+    object-fit: cover;/*מתאים לתמונה לתוך הדיו כאשר יש מתיכת גבולות ל100% רוחב ואורך*/
+    
+    
+}
+
+
+
+
+
+
+.bottom h2{
+    color: white;
+    font-size: 1.3vw;
+
+}
+
+.bottom p{
+    color: white;
+    margin-top: 2px;
+
+}
+
+
+.bottom .bottom-p{
+    
+    font-size: 0.59vw;
+    margin-top:4px;
+}
+
+
+.bottom .bottom-p span{
+    border-right: 0.1vw solid white;
+    margin-right: 2px;
+}
+
+
+.wrapper .pic-tow .red-marck{
+    display: inline-block;
+    padding:0px 5px;
+    color: white;
+    background-color: red;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    font-weight: bold;
+
+}
+
