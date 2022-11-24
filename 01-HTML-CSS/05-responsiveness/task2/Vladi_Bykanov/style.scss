@@ -8,12 +8,14 @@ body{
     padding: 3em;
     width: 100vw;
     height: 100vh;
+    display: flex;
 }
 
 .nav{
     background-color: black;
     padding: 2em;
     width: 100%;
+    height: 15%;
     display: flex;
     justify-content: space-around;
     button{
@@ -24,10 +26,15 @@ body{
 }
 
 @media  screen and (max-width:800px) {
-    .nav{
-        flex-direction: column;
-        align-items: center;
-        height: 80%;
-        width: 30%;
+    body{
+        justify-content: flex-start;
+        align-items: flex-end;
+        
+        .nav{
+            flex-direction: column;
+            align-items: center;
+            height: 50%;
+            width: 30%;
+        }
     }
 }
