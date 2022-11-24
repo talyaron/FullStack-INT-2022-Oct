@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+}
+
+.box {
+  border: 2px solid black;
+  width: 50vw;
+  height: 50vh;
+  margin: auto;
+  background-color: coral;
+}
+.box img {
+  width: 100%;
+  height: 50%;
+}
