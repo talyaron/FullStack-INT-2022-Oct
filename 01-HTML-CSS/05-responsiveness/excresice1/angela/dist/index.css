@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+}
+
+.container {
+  margin: 1rem auto;
+  width: 50vw;
+  height: 50vh;
+  background-color: #686dc0;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.container img {
+  height: 60%;
+  width: 100%;
+  margin-bottom: 0;
+}
+.container p {
+  margin-top: 0;
+  font-size: 1em;
+}
