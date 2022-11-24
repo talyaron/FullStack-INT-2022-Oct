@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    padding: 3em;
+    width: 100vw;
+    height: 100vh;
+}
+
+.nav{
+    background-color: black;
+    padding: 2em;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    button{
+        width: 100px;
+        height: 50px;
+        background-color: darkcyan;
+    }
+}
+
+@media  screen and (max-width:800px) {
+    .nav{
+        flex-direction: column;
+        align-items: center;
+        height: 80%;
+        width: 30%;
+    }
+}
