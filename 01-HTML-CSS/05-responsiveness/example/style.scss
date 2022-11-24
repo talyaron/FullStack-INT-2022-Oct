@@ -2,6 +2,22 @@
     box-sizing: border-box;
 }
 
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48
+}
+
+.fa-solid {
+    font-size: 4rem;
+}
+
+.red {
+    color: white;
+}
+
 
 [class*="col-"] {
     float: left;
@@ -72,5 +88,22 @@ html {
     /* For mobile phones: */
     [class*="col-"] {
         width: 100%;
+    }
+}
+
+body {
+    margin: 0%;
+}
+
+.card {
+    background-color: #0099cc;
+    border: 10px solid black;
+    width: 100vw;
+    height: 50vh;
+    /*vw vh em rem %*/
+    font-size: 20px;
+
+    p {
+        font-size: 1.2rem; /* google chrome 16px*/
     }
 }
