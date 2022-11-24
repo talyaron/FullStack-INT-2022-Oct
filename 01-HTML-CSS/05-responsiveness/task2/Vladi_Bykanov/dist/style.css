@@ -24,6 +24,12 @@ body {
   height: 50px;
   background-color: darkcyan;
 }
+.nav button:nth-child(2) {
+  background-color: darkgreen;
+}
+.nav button:last-child {
+  background-color: darkmagenta;
+}
 
 @media screen and (max-width: 800px) {
   body {
