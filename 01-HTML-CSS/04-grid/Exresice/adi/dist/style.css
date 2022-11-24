@@ -1,0 +1,14 @@
+.grid_container {
+  width: 100vw;
+  height: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  background-color: aquamarine;
+}
+.grid_container__grid_item {
+  width: 100px;
+  height: 100px;
+  background-color: beige;
+  border: 1px solid black;
+}

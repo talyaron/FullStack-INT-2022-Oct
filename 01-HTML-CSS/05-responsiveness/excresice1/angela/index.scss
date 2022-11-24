@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+}
+.container{
+    margin: 1rem auto;
+    width: 50vw;
+    height: 50vh;
+    background-color: rgb(104, 109, 192);
+    display: flex;
+    flex-flow: column ;
+    align-items: center;
+
+
+    img{
+        height: 60%;
+        width:100% ;
+        margin-bottom: 0;
+    }
+  
+    p{
+        margin-top: 0;
+        font-size: 1em;
+       
+    }
+
+}

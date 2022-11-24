@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 3em;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.nav {
+  background-color: black;
+  padding: 2em;
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: space-around;
+}
+.nav button {
+  width: 100px;
+  height: 50px;
+  background-color: darkcyan;
+}
+.nav button:nth-child(2) {
+  background-color: darkgreen;
+}
+.nav button:last-child {
+  background-color: darkmagenta;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+  body .nav {
+    flex-direction: column;
+    align-items: center;
+    height: 50%;
+    width: 30%;
+  }
+}
