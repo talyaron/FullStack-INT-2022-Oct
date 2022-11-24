@@ -14,6 +14,7 @@ body {
 }
 .container .img img {
   width: 100%;
+  height: 100%;
 }
 .container .text {
   padding: 1em;
