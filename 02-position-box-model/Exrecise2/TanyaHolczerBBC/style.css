@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+}
+/* black nav bar */
+.menu {
+    background-color: #000;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3vh;    
+}
+.menu_left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.center_menu {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#home, #news, #sport, #reel, #worklife, #travel, #future, #culture {
+    padding-left: 3vh;
+}
+.search #search {
+    color: #333;
+}
+.welcome {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: space-between;
+     padding: 3vh;    
+}
+h2 {
+    color: lightgray;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* first grid */
+.image_grid {
+    box-sizing: border-box;
+    padding: 1vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 25vh;
+    gap: 3vh;
+}
+.image_grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    display: block;
+}
+.first {
+    grid-column: span 2;
+    grid-row: span 2;
+    position: relative;
+    display: block;
+}
+.second {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article_tag {
+    font-weight: bold;
+    z-index: 1;
+    position: absolute;
+    bottom: 1vh;
+    left: 1vh;
+}
+.text {
+  z-index: 1;
+  position: absolute;
+  bottom: 5vh;
+  left: 1vh;
+}
+.image_grid2 {
+        box-sizing: border-box;
+        padding: 1vh;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 30vh;
+        gap: 3vh;
+        
+    }
+    .image_grid2 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+        display: block;
+    }
+    .third {
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        object-fit: cover;
+    }
+
+
+
+
+
+
+
+
+

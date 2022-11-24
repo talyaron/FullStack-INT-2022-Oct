@@ -304,7 +304,7 @@ section{
 }
 @media screen and (max-width:800px){
     .welcome{
-        height: 40%;
+        height: 80%;
         .grid-1{
             grid-template-areas: 
             "box1 box1 box1 box1"
@@ -322,6 +322,20 @@ section{
                 }
             }
             
+        }
+    }
+    .news{
+        height: 60%;
+        .grid-2{
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
+        }
+    }
+    .sport{
+        height: 60%;
+        .grid-3{
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
         }
     }
     

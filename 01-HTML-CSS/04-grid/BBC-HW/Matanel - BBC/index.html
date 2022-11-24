@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/dist/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.css" integrity="sha512-FA9cIbtlP61W0PRtX36P6CGRy0vZs0C2Uw26Q1cMmj3xwhftftymr0sj8/YeezDnRwL9wtWw8ZwtCiTDXlXGjQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>BBC TEST</title>
+</head>
+    <body>
+
+        <nav>
+            <div class="container">
+                <!--BBC\USER SECTION-->
+                    <div class="logo-container items-center-row">
+                        <div class="logo space-icon">
+                            <img class="logo-img" src="./images/bbc-logo.png">
+                            </svg>
+                        </div>
+                        
+                        <i class="fa-solid fa-user fa-2xl space-icon"></i>
+                        <a id="signin-effect">Sign in</a>
+                    </div>
+                    <!--Nav Section Bar-->
+                    <div class="navigation-container items-center-row">
+                        <ul id="home-effect">Home</ul>
+                        <ul id="news-effect">News</ul>
+                        <ul id="sport-effect">Sport</ul>
+                        <ul id="reel-effect">Reel</ul>
+                        <ul id="worklife-effect">Worklife</ul>
+                        <ul id="travel-effect">Travel</ul>
+                        <ul id="future-effect">Future</ul>
+                        <ul id="culture-effect">Culture</ul>
+
+                        <div class="more-info">
+                            <p id="menu-effect">…</p>
+                        </div>
+
+                    </div>
+               
+                
+                  <!--Search Bar-->
+                    <div class="search-container">
+                        <i class="fa-solid fa-search"></i>
+                        <input type="text" placeholder="Search BBC">
+                    </div>
+
+                
+            </div>
+        </nav>
+
+        <div class="welcome-text">
+            <h1>Welcome to BBC.com</h1>
+            <p id="date"></p>
+
+            <!--Date Script-->
+            <script>
+                const weekday = ["Sunday, 20 November","Monday, 21 November","Tuesday, 22 November","Wednesday, 23 November","Thursday, 24 November","Friday, 25 November","Saturday, 26 November"];
+                
+                const d = new Date();
+                let day = weekday[d.getDay()];
+                document.getElementById("date").innerHTML = day;
+            </script>
+
+        </div>
+
+        
+        <div class="band">
+            <div class="item-1">
+              <a href="#" class="card">
+                <div class="thumb" style="background-image: url(./images/1st-post.png);"></div>
+                <article>
+                  <h1>Lorem ipsum dolor sit amet.</h1>
+                  <span>INT PROJECT</span>
+                </article>
+              </a>
+            </div>
+            <div class="item-2">
+              <a href="#" class="card">
+                <div class="thumb" style="background-image: url(./images/2nd-post.png);"></div>
+                <article>
+                  <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, laborum nulla quia recusandae nam obcaecati.</h1>
+                  <span>INT PROJECT</span>
+                </article>
+              </a>
+            </div>
+            <div class="item-3">
+              <a href="#" class="card">
+                <div class="thumb" style="background-image: url(./images/3rd-post.jpg);"></div>
+                <article>
+                  <h1>Lorem ipsum dolor sit amet.</h1>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit eligendi asperiores deserunt minima ipsa distinctio numquam quos possimus nisi maxime eos illo magni, dolor sed. </p>
+                  <span>INT PROJECT</span>
+                </article>
+              </a>
+            </div>
+            <div class="item-4">
+              <a href="#" class="card">
+                <div class="thumb" style="background-image: url(./images/4th-post.jpg);"></div>
+                <article>
+                  <h1>Lorem ipsum dolor sit amet.</h1>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, nam! Impedit ipsum distinctio ipsa omnis quibusdam. Excepturi maiores aliquid dolore!</p>
+                  <span>INT PROJECT</span>
+                </article>
+              </a>
+            </div>
+            <div class="item-5">
+              <a href="#" class="card">
+                <div class="thumb" style="background-image: url(./images/5th-post.jpg);"></div>
+                <article>
+                  <h1>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere, quo!</h1>
+                  <span>INT PROJECT</span>
+                </article>
+              </a>
+            </div>
+            <div class="item-6">
+              <a href="#" class="card">
+                <div class="thumb" style="background-image: url(./images/6th-post.jpg);"></div>
+                <article>
+                  <h1>Lorem ipsum dolor sit amet.</h1>
+          
+                  <span>INT PROJECT</span>
+                </article>
+              </a>
+            </div>
+            <div class="item-7">
+              <a href="#" class="card">
+                <div class="thumb" style="background-image: url(./images/7th-post.jpg);"></div>
+                <article>
+                  <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci aspernatur voluptatibus commodi velit laborum rerum maiores excepturi? Sit, modi suscipit.</h1>
+                  <span>INT PROJECT</span>
+                </article>
+              </a>
+            </div>
+        </div>
+
+          <footer>
+            <div class="footer">
+            <div class="row">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+            
+            <div class="row">
+            <ul>
+            <li><a href="#">INT EXAMPLE</a></li>
+            <li><a href="#">INT EXAMPLE</a></li>
+            <li><a href="#">INT EXAMPLE</a></li>
+            <li><a href="#">INT EXAMPLE</a></li>
+            <li><a href="#">INT EXAMPLE</a></li>
+            </ul>
+            </div>
+            
+            <div class="row">
+            INT PROJECT By: Matanel Harush 
+            </div>
+            </div>
+            </footer>
+
+
+    </body>
+</html>
