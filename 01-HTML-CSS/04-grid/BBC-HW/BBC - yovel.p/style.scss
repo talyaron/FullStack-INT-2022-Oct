@@ -97,6 +97,55 @@
     .menu{
         margin-left: 40px;
         font-size: 20px;
+        cursor: pointer;
+    }
+        .submenu{
+            display: none;
+        }
+        .insubmenu hr{
+            position: relative;
+            width: 100%;
+        }
+        .menu:hover .submenu{
+            display: block;
+            position: absolute;
+            background: rgb(77, 77, 77);  
+            z-index: 1;
+            height: 180px;
+        }
+        .insubmenu .link1, .link2, .link3{
+            position: relative;
+            width: 100%;
+            height: 33%;
+        }
+        .menu a{
+            color: white;
+            text-decoration: none;
+        }
+    
+        .insubmenu{
+                display: flex;
+                flex-direction: column;
+                padding: 10px;
+                gap: 20px;
+                text-align: start;
+            }
+}
+// dropdown animation
+.submenu {
+    animation: growOut 300ms ease-in-out forwards;
+    transform-origin: top center;
+
+@keyframes growOut {
+     0% {
+        transform: scale(0)
+    }
+    80% {
+        transform: scale(1.1)
+    }
+    100% {
+        transform: scale(1)
+    }
     }
 }
 .hr{
@@ -122,8 +171,10 @@ height: 50%;
     input::placeholder{
         color: #fff;
     }
+    
 }
-.searchicon{
+// לא עובד בתוך הSearchBBC
+.searchicon{ 
     display: flex;
     position: absolute;
     margin-left: 101%;
@@ -145,6 +196,7 @@ height: 50%;
     grid-row-end: 3;
     height: 100%;
     width: 2fr;
+    
 }
 .grid-container__box1 img{
     position: absolute;
@@ -338,6 +390,7 @@ margin-left: 10px;
     margin-top: 1%;
     color: rgb(54, 54, 54);
 }
+// News 
 .News-container{
     width: 91%;
     height: 500px;
