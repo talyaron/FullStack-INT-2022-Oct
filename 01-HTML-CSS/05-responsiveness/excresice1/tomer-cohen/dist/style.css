@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+}
+
+.bar {
+  background-color: red;
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+}
+.bar__box {
+  background-color: aqua;
+  width: 10vw;
+  height: 10vh;
+  border: none;
+}
+.bar__box:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 700px) {
+  body {
+    position: relative;
+  }
+
+  .bar {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column-reverse;
+    background-color: red;
+    height: 40vh;
+    width: 10vw;
+    top: 400px;
+    left: 100px;
+  }
+  .bar__box {
+    background-color: aqua;
+    width: 10vw;
+    height: 5vh;
+  }
+}

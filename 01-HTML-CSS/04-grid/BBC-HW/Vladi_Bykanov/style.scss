@@ -1,0 +1,410 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width:100vw;
+    height: 100vh;
+    padding: 2rem 0;
+    overflow-x: hidden;
+}
+
+.wrapper{
+    width: 95%;
+    max-width: 1400px;
+    height: 200%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+nav{
+    width: 100%;
+    background-color: black;
+    color: white;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    .nav-item{
+        height: 100%;
+        // border: 2px dotted white;
+        display: flex;
+        align-items: center;
+    }
+    .left{
+        width: 150px;
+        justify-content: space-evenly;
+        img{
+            height: 100%;
+        }
+    }
+    .mid{
+        width: 60%;
+        ul{
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            li{
+                // border: 1px dotted white;
+                display: block;
+                a{
+                    text-decoration: none;
+                    color: inherit;
+                }
+            }
+        }
+    }
+    .right{
+        width: 25%;
+        padding: 0 5px;
+        justify-content: space-evenly;
+        input{
+            width: 80%;
+            height: 70%;
+            background-color: black;
+            border: none;
+        }
+        input::placeholder{
+            text-align: center;
+        }
+    }
+}
+
+#dropdown-nav {
+    display: inline-block;
+    position: relative;
+}
+
+#hidden-nav{
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    li{
+        border: 1px solid white;
+        width: 12rem;
+        height: 5rem;
+        font-size: 2rem;
+        background-color: black;
+        display: flex;
+        a{
+            text-decoration: none;
+            color: inherit;
+            margin: auto;
+        }
+    }
+}
+
+#dropdown-nav:hover #hidden-nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* height: 5rem; */
+}
+
+section{
+    // border: 3px solid black;
+    width: 100%;
+    height: 20%;
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h3{
+        color: rgb(72, 71, 71);
+        font-size: 2rem;
+        display: flex;
+        span{
+            height: 1.5rem;
+            width: 5px;
+            margin-top: 0.4rem;
+            margin-right: 0.5rem;
+        }
+        .n{
+            background-color: red;
+        }
+        .s{
+            background-color: yellow;
+        }
+    }
+    .grid{
+        display: grid;
+        gap: 5px;
+        height: 85%;
+        .box{
+            color: white;
+            text-shadow: 1px 1px 5px black;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 5px;
+            width: 100%;
+            .text{
+                font-family: 'Times New Roman', Times, serif;
+                h5{
+                    font-size: 1.1rem;
+                }
+                h6{
+                    font-weight: 100;
+                    margin: 5px 0;
+                }
+                em{
+                    font-size: 0.7rem;
+                    margin-left: 10px;
+                    span{
+                        color: red;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.welcome{
+    height: 30%;
+    .grid-1{
+        // height: 30%;
+        grid-template-areas: 
+        "box1 box1 box2 box3"
+        "box1 box1 box2 box3"
+        "box1 box1 box4 box5"
+        "box1 box1 box4 box5";
+        .box1{
+            grid-area: box1;
+            background-image: url('https://ichef.bbci.co.uk/onesport/cps/976/cpsprodpb/2096/production/_126924380_gettyimages-71218828.jpg');
+            background-position: center;
+            background-size: cover;
+            .text{
+                h5{
+                    font-size: 3rem;
+                }
+                h6{
+                    color: white;
+                    font-size: 1rem;
+                    // background-color: black;
+                    margin: 5px 0;
+                    text-align: justify;
+                    padding: 2px;
+                }
+            }
+        }
+        .box2{
+            grid-area: box2;
+            background-image: url('https://ichef.bbci.co.uk/news/976/cpsprodpb/AAE9/production/_127635734_murdoch1.jpg.webp');
+            background-size: cover;
+            background-position: center;
+        }
+        .box3{
+            grid-area: box3; 
+            background-image: url('https://ichef.bbci.co.uk/news/976/cpsprodpb/A21C/production/_127700514_3e7c7d27496acf974e3e3a30157a1813a4df5f19.jpg.webp');
+            background-size: cover;
+            background-position: center;
+        }
+        .box4{
+            grid-area: box4;
+            background-image: url('https://ichef.bbci.co.uk/live-experience/cps/1680/cpsprodpb/120A7/production/_127659837_protest_wide_getty2.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .box5{
+            grid-area: box5;
+            background-image: url('https://ychef.files.bbci.co.uk/1600x900/p0dgctzb.webp');
+            background-size: cover;
+            background-position: center;
+        }
+    }
+}
+
+.news{
+    .grid-2{
+        grid-template-columns: repeat(3, 1fr);
+        .box{
+            // height: 100%;
+            &1{
+                background-image: url('https://ichef.bbci.co.uk/news/976/cpsprodpb/59B7/production/_127676922_gettyimages-1181874775.jpg.webp');
+                background-size: cover;
+                background-position: center;
+            }
+            &2{
+                background-image: url('https://ichef.bbci.co.uk/news/976/cpsprodpb/59B7/production/_127676922_gettyimages-1181874775.jpg.webp');
+                background-size: cover;
+                background-position: center;
+            }
+            &3{
+                background-image: url('https://ichef.bbci.co.uk/news/976/cpsprodpb/59B7/production/_127676922_gettyimages-1181874775.jpg.webp');
+                background-size: cover;
+                background-position: center;
+            }
+        }
+    }
+}
+
+.sport{
+    .grid-3{
+        grid-template-columns: repeat(3, 1fr);
+        .box{
+            height: 100%;
+            &1{
+                background-image: url('https://ichef.bbci.co.uk/onesport/cps/800/cpsprodpb/174DA/production/_127705459_karim_benzema_epa.jpg');
+                background-size: cover;
+                background-position: center;
+            }
+            &2{
+                background-image: url('https://ichef.bbci.co.uk/onesport/cps/800/cpsprodpb/174DA/production/_127705459_karim_benzema_epa.jpg');
+                background-size: cover;
+                background-position: center;
+            }
+            &3{
+                background-image: url('https://ichef.bbci.co.uk/onesport/cps/800/cpsprodpb/174DA/production/_127705459_karim_benzema_epa.jpg');
+                background-size: cover;
+                background-position: center;
+            }
+        }
+    }
+}
+
+.weather{
+    height: 10%;
+    .weather-grid{
+        width: 100%;
+        display: flex;
+        .box{
+            // border: 1px solid black;
+            height: 100px;
+            width: 15%;
+            display: flex;
+            .cloud{
+                width: 50%;
+                padding: 10% 0 0 5%;
+                i{
+                    font-size: 4rem;
+                }
+            }
+            .deg{
+                padding-top: 5%;
+                padding-left: 10%;
+                width: 50%;
+                font-size: 1.5rem;
+                p:nth-child(3){
+                    color: gray;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:900px) {
+    nav{
+        font-size: 0.8rem;
+        height: 3rem;
+    }    
+}
+@media screen and (max-width:800px){
+    .welcome{
+        height: 80%;
+        .grid-1{
+            grid-template-areas: 
+            "box1 box1 box1 box1"
+            "box1 box1 box1 box1"
+            "box1 box1 box1 box1"
+            "box1 box1 box1 box1"
+            "box2 box2 box3 box3"
+            "box4 box4 box5 box5";
+            .box{
+                background-position: top;
+                .text{
+                    h5{
+                        font-size: 2rem;
+                    }
+                }
+            }
+            
+        }
+    }
+    .news{
+        height: 60%;
+        .grid-2{
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
+        }
+    }
+    .sport{
+        height: 60%;
+        .grid-3{
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
+        }
+    }
+    
+}
+
+@media screen and (max-width:700px) {
+    .mid{
+        ul{
+            li:last-child{
+                display: none;
+            }
+        }
+    }    
+}
+@media screen and (max-width:600px) {
+    .grid-1{
+        grid-template-areas: 
+        "box1 box1 box1 box1"
+        "box1 box1 box1 box1"
+        "box2 box2 box3 box3"
+        "box2 box2 box3 box3"
+        "box4 box4 box5 box5"
+        "box4 box4 box5 box5";
+        .box{
+            background-position: top;
+            .text{
+                h5{
+                    font-size: 1rem;
+                }
+            }
+        }
+        
+    }
+    .mid{
+        ul{
+            li:nth-last-child(2){
+                display: none;
+            }
+        }
+    }
+    .right{
+        i:last-child{
+            display: none;
+        }
+    }    
+}
+@media screen and (max-width:500px) {
+    .mid{
+        ul{
+            li:nth-last-child(3){
+                display: none;
+            }
+        }
+    }    
+}
+@media screen and (max-width:450px) {
+    .mid{
+        ul{
+            li:nth-last-child(4){
+                display: none;
+            }
+        }
+    }
+    .right{
+        input{
+            display: none;
+        }
+        i:last-child{
+            display: flex;
+        }
+    } 
+}
