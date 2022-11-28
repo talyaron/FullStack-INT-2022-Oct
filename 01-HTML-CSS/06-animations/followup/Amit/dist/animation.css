@@ -1,24 +1,20 @@
-.ball {
-  border-radius: 300px;
-  width: 300px;
-  height: 300px;
-  position: relative;
-  border: 10px solid black;
-  animation-name: bounce;
+.img1 {
+  height: 500px;
+  width: 500px;
+  display: none;
+}
+
+.img2 {
+  height: 500px;
+  width: 500px;
+  display: none;
+}
+
+.trash:hover {
+  animation-name: open;
   animation-duration: 1s;
   animation-direction: alternate;
   animation-iteration-count: infinite;
 }
 
-@keyframes bounce {
-  from {
-    background-color: white;
-    top: 0px;
-    left: 0px;
-  }
-  to {
-    background-color: #ee720c;
-    top: 300px;
-    left: 300px;
-  }
-}
+@keyframes open {}
