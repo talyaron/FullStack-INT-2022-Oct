@@ -4,34 +4,27 @@
   width: 100px;
   height: 100px;
   position: relative;
-
-  // preferd keyframe
   animation-name: bounce;
   animation-duration: 2s;
   animation-fill-mode: forwards;
   animation-iteration-count: infinite;
-  // animation-delay: 1s;
   animation-timing-function: ease-in-out;
 }
 
-//PROPERTIES OF SOME ANIMATION
 @keyframes bounce {
-  //from position a
   0% {
     background-color: pink;
     top: 0px;
     right: 0px;
   }
   50% {
-    background-color: rgb(34, 0, 255);
+    background-color: #2200ff;
     top: 100px;
     right: -10px;
   }
   100% {
-    background-color: rgb(81, 22, 218);
+    background-color: #5116da;
     top: 0px;
     right: 0px;
   }
-
-  //to position b
 }
