@@ -1,0 +1,27 @@
+div {
+  width: 100px;
+  height: 100px;
+  margin-top: 180px;
+  transform-origin: 200% center;
+  position: relative;
+  animation: rotate 3s linear infinite;
+}
+
+div:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 50px;
+  background: #7c1010;
+  animation: rotate 3s linear reverse infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+body {
+  background: #141414;
+}
