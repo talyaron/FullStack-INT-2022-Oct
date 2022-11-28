@@ -1,0 +1,46 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+}
+.wrapper__circle {
+  margin: 10px;
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  border: 3px solid black;
+  border-radius: 100%;
+  animation-name: bounce;
+  position: relative;
+  animation-duration: 2s;
+  animation-iteration-count: 5;
+}
+
+.wrapper2 {
+  display: flex;
+  flex-direction: row;
+  margin: 400px 0 0 400px;
+}
+.wrapper2__circle {
+  margin: 10px;
+  width: 100px;
+  height: 100px;
+  background-color: orange;
+  border: 3px solid black;
+  border-radius: 100%;
+  animation-name: bounce;
+  position: relative;
+  animation-duration: 2s;
+  animation-iteration-count: 5;
+}
+
+@keyframes bounce {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 50px;
+  }
+  100% {
+    top: 0;
+  }
+}
