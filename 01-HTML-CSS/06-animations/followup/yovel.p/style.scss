@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+
+}
+.circle{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+    // border: 10px solid black;
+    animation-name: bounce;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    // animation-fill-mode: backwards;
+    @keyframes bounce {
+        0%{
+            top: 650px;
+        }
+        50%{
+            left: 200px;
+            background-color: green;
+            border: 1px solid black;
+            border-radius: 0;
+        }
+        100%{
+            top: 650px;
+        }
+        
+    }
+    
+}
