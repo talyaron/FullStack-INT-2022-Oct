@@ -22,27 +22,26 @@ body {
 
 @keyframes slide {
   0% {
-    background-color: pink;
+    background-color: red;
     top: 0px;
     right: 0px;
   }
   20% {
-    background-color: #ff738a;
+    background-color: orange;
   }
   40% {
-    background-color: #ff47ff;
+    background-color: yellow;
     right: -80vw;
   }
   60% {
-    background-color: #a51a48;
+    background-color: green;
   }
   80% {
-    background-color: purple;
+    background-color: blue;
   }
   100% {
-    background-color: #3a003a;
+    background-color: purple;
     top: 0px;
     right: 0px;
-    color: white;
   }
 }
