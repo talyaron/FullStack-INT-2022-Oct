@@ -1,0 +1,48 @@
+body {
+  font-family: "Pacifico", cursive;
+  margin: 0;
+}
+
+.main_animation_wrapper {
+  display: flex;
+}
+
+.main_animation {
+  position: relative;
+  width: 40vh;
+  height: 10vh;
+  font-size: 4vh;
+  animation-name: slide;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes slide {
+  0% {
+    background-color: pink;
+    top: 0px;
+    right: 0px;
+  }
+  20% {
+    background-color: #ff738a;
+  }
+  40% {
+    background-color: #ff47ff;
+    right: -80vw;
+  }
+  60% {
+    background-color: #a51a48;
+  }
+  80% {
+    background-color: purple;
+  }
+  100% {
+    background-color: #3a003a;
+    top: 0px;
+    right: 0px;
+    color: white;
+  }
+}
