@@ -1,0 +1,59 @@
+.followup {
+  height: 2rem;
+  width: 2rem;
+  background-color: #de5d5d;
+  border-radius: 50%;
+  position: relative;
+  animation: follow 1s ease-in-out forwards;
+}
+@keyframes follow {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  50% {
+    top: 0;
+    left: 10rem;
+    background-color: blueviolet;
+  }
+  100% {
+    top: 0;
+    left: 0rem;
+    background-color: coral;
+  }
+}
+
+.circle-try-two {
+  margin-top: 2rem;
+  background-color: #4b123c;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  position: relative;
+  animation-name: circle;
+  animation-duration: 2s;
+  animation-delay: 20ms;
+  animation-timing-function: ease-in-out;
+}
+@keyframes circle {
+  0% {
+    top: 0rem;
+    left: 0rem;
+  }
+  25% {
+    top: 0;
+    left: 10rem;
+  }
+  50% {
+    top: 10rem;
+    left: 10rem;
+  }
+  75% {
+    top: 10rem;
+    left: 0rem;
+  }
+  100% {
+    top: 0;
+    left: 0rem;
+  }
+}
