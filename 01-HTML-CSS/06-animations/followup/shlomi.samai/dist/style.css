@@ -1,0 +1,21 @@
+.body {
+  margin: 0%;
+}
+
+@keyframes first_animation {
+  from {
+    background-color: blue;
+  }
+  to {
+    background-color: red;
+  }
+}
+.circle {
+  background-color: blue;
+  border-radius: 100px;
+  width: 100px;
+  height: 100px;
+  animation-name: first_animation;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
