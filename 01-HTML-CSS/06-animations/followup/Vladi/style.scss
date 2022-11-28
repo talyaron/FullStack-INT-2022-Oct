@@ -16,7 +16,7 @@ body{
         position: relative;
 
         animation-name: bounce;
-        animation-duration: 4s;
+        animation-duration: 5s;
         animation-timing-function: ease-in-out;
         animation-iteration-count: infinite;
         animation-fill-mode: forwards;
@@ -32,14 +32,24 @@ body{
     25%{
         top: 0%;
         left: 80%;
+        background-color: blue;
+    }
+    30%{
+        left: 60%;
+    }
+    35%{
+        left: 80%;
+        top: 0%;
     }
     50%{
         top: 80%;
         left: 80%;
+        background-color: green;
     }
     75%{
         top:80%;
         left: 0;
+        background-color: yellow;
     }
     100%{
         top:0;
