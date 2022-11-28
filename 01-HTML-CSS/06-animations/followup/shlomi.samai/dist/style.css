@@ -15,7 +15,17 @@
   border-radius: 100px;
   width: 100px;
   height: 100px;
-  animation-name: first_animation;
+  animation-name: bounce;
   animation-duration: 2s;
   animation-iteration-count: infinite;
+  position: relative;
+}
+
+@keyframes bounce {
+  0% {
+    right: 100px;
+  }
+  50% {
+    right: 100px;
+  }
 }
