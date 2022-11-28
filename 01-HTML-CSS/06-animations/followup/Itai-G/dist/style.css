@@ -1,0 +1,39 @@
+.circle {
+  background-color: red;
+  border-radius: 100px;
+  height: 200px;
+  width: 200px;
+  position: relative;
+  animation-name: slide;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(5, end);
+}
+
+@keyframes slide {
+  0% {
+    top: 0px;
+    left: 0px;
+    background-color: red;
+  }
+  25% {
+    top: 100px;
+    left: 20px;
+    background-color: blue;
+  }
+  45% {
+    top: 150px;
+    left: 100px;
+    background-color: yellow;
+  }
+  60% {
+    top: 250px;
+    left: 200x;
+    background-color: green;
+  }
+  90% {
+    top: 300px;
+    left: 350px;
+    background-color: black;
+  }
+}
