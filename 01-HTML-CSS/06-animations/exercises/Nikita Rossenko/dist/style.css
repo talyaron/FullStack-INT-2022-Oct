@@ -1,0 +1,56 @@
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: green;
+  animation-name: animation1;
+  animation-duration: 3s;
+  position: relative;
+  animation-iteration-count: infinite;
+}
+
+.circle2 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: green;
+  animation-name: animation2;
+  animation-duration: 3s;
+  position: relative;
+  animation-iteration-count: infinite;
+}
+
+@keyframes animation2 {
+  0% {
+    top: 0px;
+    left: 100px;
+    border-radius: 50%;
+  }
+  50% {
+    top: 300px;
+    left: 0px;
+    border-radius: 10%;
+  }
+  100% {
+    top: 0px;
+    left: 100px;
+    border-radius: 50%;
+  }
+}
+@keyframes animation1 {
+  0% {
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+  }
+  50% {
+    top: 300px;
+    left: 100px;
+    border-radius: 10%;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    border-radius: 50%;
+  }
+}
