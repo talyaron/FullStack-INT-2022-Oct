@@ -1,6 +1,9 @@
 
 .court{
-    background-color:green;
+    background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsOp8IBsoWsEvpKQkv5oRi_okBfk5rBujKgW6KskZqew&s);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
     display: flex;
     align-items: center;
     height: 80vh;
@@ -27,7 +30,7 @@
         animation-name: bounce;
         animation-duration: 1s;
         animation-timing-function: ease-in-out;
-        // animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
         animation-fill-mode: forwards;
     }
     .keeper{
@@ -40,8 +43,8 @@
 
         
         animation-name: example;
-        animation-duration: 2s;
-        // animation-iteration-count: infinite;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
         position: relative;
         left: -10%; 
         top: 0;
