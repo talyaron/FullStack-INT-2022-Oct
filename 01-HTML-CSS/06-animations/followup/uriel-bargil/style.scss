@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+}
+
+
+  
+  /* The element to apply the animation to */
+  div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation-name: example;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    position: relative;
+
+    @keyframes example {
+        0%   {background-color:red; left: 400px ; top: 200px;}
+       
+        100% {background-color:red; left: 400px; top: 300px;}
+        
+
+      }
+  }

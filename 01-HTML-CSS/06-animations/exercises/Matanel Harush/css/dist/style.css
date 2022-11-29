@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+body {
+  margin: 0;
+  background: #000000;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  background-color: black;
+  z-index: 3;
+}
+
+header h1 {
+  font-family: "Poppins", sans-serif;
+  color: #4b3c3c;
+  color: white;
+  font-size: 5rem;
+}
+
+.loader {
+  width: 40px;
+  height: 150px;
+  margin-left: 0.875rem;
+  background: #920808;
+  animation: bar-loading 1s infinite alternate;
+}
+
+.loader:nth-child(2) {
+  animation-delay: -0.2s;
+}
+
+.loader:nth-child(3) {
+  animation-delay: -0.4s;
+}
+
+@keyframes bar-loading {
+  0% {
+    transform: scaleY(0.5);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+footer {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  background-color: black;
+  z-index: 3;
+}
+
+.mtneffect {
+  position: relative;
+}
+
+.mtneffect span {
+  position: relative;
+  display: inline-block;
+  font-size: 20px;
+  color: #fff;
+  text-transform: uppercase;
+  animation: flip 2s infinite;
+  animation-delay: calc(.2s * var(--i));
+}
+
+@keyframes flip {
+  0%, 80% {
+    transform: rotateY(360deg);
+  }
+}
