@@ -287,14 +287,14 @@ body {
     top: 50%;
     left: 16.5%;
   }
-  36% {
+  32% {
     transform: rotate(90deg);
   }
-  40% {
+  37% {
     top: 84.8%;
     left: 16.5%;
   }
-  41% {
+  38% {
     transform: rotate(0);
   }
   45% {
@@ -397,9 +397,59 @@ body {
   }
 }
 
-.test {
-  z-index: 1;
-  animation-name: none;
-  top: 1%;
-  left: 16%;
+.apple {
+  font-size: var(--screen-calc);
+  position: absolute;
+}
+
+.red {
+  color: red;
+  top: 3%;
+  left: 10%;
+  animation-name: eaten-apple;
+  animation-duration: 11.5s;
+  animation-iteration-count: 1;
+  opacity: 0;
+}
+
+.blue {
+  color: blue;
+  top: 93.5%;
+  left: 10%;
+  animation-name: eaten-apple;
+  animation-duration: 7.8s;
+  animation-iteration-count: 1;
+  opacity: 0;
+}
+
+.green {
+  color: green;
+  top: 50%;
+  left: 10%;
+  animation-name: eaten-apple;
+  animation-duration: 3.5s;
+  animation-iteration-count: 1;
+  opacity: 0;
+}
+
+.yellow {
+  color: darkgoldenrod;
+  top: 40%;
+  left: 67.7%;
+  animation-name: eaten-apple;
+  animation-duration: 1.7s;
+  animation-iteration-count: 1;
+  opacity: 0;
+}
+
+@keyframes eaten-apple {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
