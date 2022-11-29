@@ -11,20 +11,20 @@ body {
 }
 
 :root {
-  --road-thickness: 20px solid white;
+  --screen-calc: calc((100vh + 100vw)/90);
+  --road-thickness: var(--screen-calc) solid white;
 }
 
 .maze {
   border: 5px solid black;
   background-color: darkcyan;
-  width: 80vw;
-  height: 80vh;
+  width: 70vw;
+  height: 90vh;
   margin: auto;
   position: relative;
 }
 .maze .box {
   position: absolute;
-  border: 1px solid white;
   width: 40%;
   height: 30%;
 }
@@ -91,6 +91,7 @@ body {
   border-left: none;
 }
 .maze .box3 {
+  border: var(--road-thickness);
   bottom: 35%;
   right: 30%;
   display: flex;
@@ -117,54 +118,286 @@ body {
 .maze .box4 .left-top {
   border: var(--road-thickness);
   width: 40%;
-  height: 70%;
+  height: 60%;
   border-bottom: none;
+  border-right: none;
 }
 .maze .box4 .right-top {
   border: var(--road-thickness);
   width: 40%;
-  height: 60%;
+  height: 50%;
   border-left: none;
 }
 .maze .box4 .left-bot {
   border: var(--road-thickness);
   width: 60%;
-  height: 30%;
-  border-left: none;
+  height: 40%;
 }
 .maze .box4 .right-bot {
   border: var(--road-thickness);
   width: 40%;
-  height: 30%;
+  height: 40%;
   border-left: none;
 }
 .maze .box5 {
   bottom: 3%;
   right: 3%;
   display: flex;
+  justify-content: flex-end;
   flex-wrap: wrap;
 }
 .maze .box5 .left-top {
   border: var(--road-thickness);
   width: 40%;
-  height: 70%;
-  border-bottom: none;
+  height: 50%;
+  border-right: none;
 }
 .maze .box5 .right-top {
   border: var(--road-thickness);
   width: 40%;
   height: 60%;
+  border-bottom: none;
   border-left: none;
 }
 .maze .box5 .left-bot {
   border: var(--road-thickness);
-  width: 60%;
-  height: 30%;
-  border-left: none;
+  width: 40%;
+  height: 40%;
 }
 .maze .box5 .right-bot {
   border: var(--road-thickness);
-  width: 40%;
-  height: 30%;
+  width: 60%;
+  height: 40%;
   border-left: none;
+}
+.maze .box6 {
+  border: var(--road-thickness);
+  top: 21%;
+  left: 16.5%;
+  width: 65%;
+  height: 65%;
+  border-bottom: none;
+}
+.maze .box7 {
+  border: var(--road-thickness);
+  top: 33%;
+  left: 35%;
+  width: 30%;
+  height: 3%;
+  border-bottom: none;
+  border-top: none;
+}
+.maze .line {
+  position: absolute;
+  background-color: white;
+  height: var(--screen-calc);
+  width: 30%;
+}
+.maze .one {
+  top: 50%;
+  left: 0;
+}
+.maze .two {
+  top: 50%;
+  right: 0;
+}
+.maze .three {
+  width: var(--screen-calc);
+  height: var(--screen-calc);
+  top: 33%;
+  left: 40.3%;
+}
+
+.pacman {
+  width: var(--screen-calc);
+  height: var(--screen-calc);
+  border-radius: 50%;
+  background: darkorange;
+  display: inline-block;
+  position: relative;
+  top: 45%;
+  left: 48.5%;
+  z-index: 10;
+  animation-name: pacmove;
+  animation-duration: 15s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+.pacman__eye {
+  position: absolute;
+  width: 0.3vw;
+  height: 0.3vw;
+  border-radius: 50%;
+  top: 20%;
+  right: 50%;
+  background: #333333;
+}
+.pacman__mouth {
+  background: #fff;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  animation-name: eat;
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+}
+@keyframes pacmove {
+  0% {
+    top: 45%;
+    left: 48.5%;
+  }
+  5% {
+    top: 35%;
+    left: 48.5%;
+  }
+  6% {
+    transform: rotate(0);
+  }
+  10% {
+    top: 35%;
+    left: 67.4%;
+  }
+  11% {
+    transform: rotate(90deg);
+  }
+  15% {
+    top: 50%;
+    left: 67.4%;
+  }
+  16% {
+    transform: rotate(0);
+  }
+  20% {
+    top: 50%;
+    left: 98%;
+    opacity: 1;
+  }
+  21% {
+    opacity: 0;
+  }
+  22% {
+    top: 50%;
+    left: 0%;
+  }
+  35% {
+    top: 50%;
+    left: 16.5%;
+    opacity: 1;
+  }
+  36% {
+    transform: rotate(90deg);
+  }
+  40% {
+    top: 84.8%;
+    left: 16.5%;
+  }
+  41% {
+    transform: rotate(0);
+  }
+  45% {
+    top: 85%;
+    left: 24.4%;
+  }
+  46% {
+    transform: rotate(90deg);
+  }
+  50% {
+    top: 93.7%;
+    left: 24.4%;
+  }
+  51% {
+    transform: rotate(180deg);
+  }
+  55% {
+    top: 93.7%;
+    left: 3%;
+  }
+  56% {
+    transform: rotate(270deg);
+  }
+  60% {
+    top: 67%;
+    left: 3%;
+  }
+  61% {
+    transform: rotate(360deg);
+  }
+  65% {
+    top: 67%;
+    left: 16.5%;
+  }
+  66% {
+    transform: rotate(270deg);
+  }
+  75% {
+    top: 3%;
+    left: 16.5%;
+  }
+  76% {
+    transform: rotate(180deg);
+  }
+  80% {
+    top: 3%;
+    left: 3%;
+  }
+  81% {
+    transform: rotate(90deg);
+  }
+  85% {
+    top: 30%;
+    left: 3%;
+  }
+  86% {
+    transform: rotate(0);
+  }
+  90% {
+    top: 30%;
+    left: 35%;
+  }
+  91% {
+    transform: rotate(90deg);
+  }
+  95% {
+    top: 35%;
+    left: 35%;
+  }
+  96% {
+    transform: rotate(0);
+  }
+  98% {
+    top: 35%;
+    left: 48%;
+  }
+  99% {
+    transform: rotate(90deg);
+  }
+  100% {
+    top: 45%;
+    left: 48.5%;
+  }
+}
+@keyframes eat {
+  0% {
+    clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  }
+  25% {
+    clip-path: polygon(100% 60%, 44% 48%, 100% 40%);
+  }
+  50% {
+    clip-path: polygon(100% 50%, 44% 48%, 100% 50%);
+  }
+  75% {
+    clip-path: polygon(100% 59%, 44% 48%, 100% 35%);
+  }
+  100% {
+    clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  }
+}
+
+.test {
+  z-index: 1;
+  animation-name: none;
+  top: 1%;
+  left: 16%;
 }
