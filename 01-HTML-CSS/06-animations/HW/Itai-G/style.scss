@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+}
+.container {
+    width: 50vw;
+    height: 100px;
+  img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+  &__pacman{
+    width: 0px;
+    height: 0px;
+    border: 20px solid #f7ed59;
+    border-right-color: transparent;
+    border-radius: 30px;
+    position: relative;
+    animation-name: slide;
+    animation-timing-function: ease;
+    animation-duration: 1s;
+    animation-iteration-count: 15;
+    top: 50px;
+    left: 20px;
+  }
+}
+
+@keyframes slide {
+    0%{
+        left: 10px;
+        left: 400px;
+    }
+    15%{
+        bottom: 20px;
+        bottom: 20px;
+    }
+
+}
