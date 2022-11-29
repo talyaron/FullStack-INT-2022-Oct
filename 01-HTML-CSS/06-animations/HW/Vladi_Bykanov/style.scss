@@ -242,7 +242,7 @@ body{
         height: 100%;
         clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
         animation-name: eat;
-        animation-duration: 0.7s;
+        animation-duration: 0.2s;
         animation-iteration-count: infinite;
       }
       
@@ -283,15 +283,17 @@ body{
             }
             21%{
                 opacity: 0;
-            }
-            22%{
                 top: 50%;
                 left: 0%;
             }
-            35%{
+            22%{
+                top: 50%;
+                left: 1%;
+                opacity: 1;
+            }
+            27%{
                 top: 50%;
                 left: 16.5%;
-                opacity: 1;
             }
             36%{
                 transform: rotate(90deg);
