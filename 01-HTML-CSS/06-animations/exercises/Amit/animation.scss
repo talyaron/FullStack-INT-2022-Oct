@@ -1,0 +1,74 @@
+// .ball{
+//     border-radius: 300px;
+//     width: 300px;
+//     height: 300px;
+//     position: relative;
+//     border: 10px solid black;
+//     animation-name: bounce;
+//     animation-duration: 1s;
+//     animation-direction: alternate;
+//     animation-iteration-count: infinite;
+
+
+// }
+
+//     @keyframes bounce{
+//       0%{background-color: rgb(255, 255, 255);
+//             top: 0px;
+//             left:0px;
+//             border-radius: 300px;
+//             width: 300px;
+//             height: 300px;}
+            
+//       100%{background-color: rgb(238, 114, 12);
+//             top: 300px;
+//             left:300px;
+//             border-radius: 400px;
+//             width: 400px;
+//             height: 400px;}
+
+//     }
+
+
+
+
+.trash{
+
+    .img1{
+        height: 500px;
+        width: 500px;
+        display: block;
+    }
+    
+    .img2{
+        height: 500px;
+        width: 500px;
+        display: block;
+    }
+
+    animation-name: open;
+    animation-duration: 1s;
+    // animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+
+     @keyframes open{
+       0%{
+        .img1{
+            height: 500px;
+            width: 500px;
+            display: block;
+        }
+        
+       }
+            
+      100%{
+        .img2{
+            height: 500px;
+            width: 500px;
+            display: none;
+        }
+      }
+
+     }
