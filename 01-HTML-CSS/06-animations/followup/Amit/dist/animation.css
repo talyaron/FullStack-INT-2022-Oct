@@ -1,0 +1,20 @@
+.img1 {
+  height: 500px;
+  width: 500px;
+  display: none;
+}
+
+.img2 {
+  height: 500px;
+  width: 500px;
+  display: none;
+}
+
+.trash:hover {
+  animation-name: open;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes open {}
