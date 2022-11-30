@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  overflow: hidden;
 }
 
 .container {
@@ -25,11 +26,30 @@ body {
   animation-duration: 6s;
   animation-iteration-count: infinite;
 }
+.container__ghost {
+  position: relative;
+  width: 30px;
+  background: LightPink;
+  height: 30px;
+  border-top-right-radius: 100px;
+  border-top-left-radius: 100px;
+  transform: translate(0px, 10px);
+  top: 0px;
+  animation-name: bounce;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+  animation-fill-mode: none;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+}
+.container__logo img {
+  bottom: -199px;
+}
 
 @keyframes slide {
   0% {
-    top: 40px;
-    left: 40px;
+    top: 60px;
+    left: 30px;
   }
   15% {
     top: 80px;
@@ -70,5 +90,51 @@ body {
   100% {
     top: 260px;
     left: 622px;
+  }
+}
+@keyframes bounce {
+  0% {
+    top: 0px;
+    left: 20px;
+  }
+  15% {
+    top: 20px;
+    left: 80px;
+  }
+  25% {
+    top: 20px;
+    left: 95px;
+  }
+  35% {
+    top: 80px;
+    left: 90px;
+  }
+  45% {
+    top: 200px;
+    left: 90px;
+  }
+  55% {
+    top: 320px;
+    left: 90px;
+  }
+  65% {
+    top: 70px;
+    left: 100px;
+  }
+  75% {
+    top: 80px;
+    left: 520px;
+  }
+  85% {
+    top: 20px;
+    left: 520px;
+  }
+  95% {
+    top: 20px;
+    left: 284px;
+  }
+  100% {
+    top: 80px;
+    left: 300px;
   }
 }
