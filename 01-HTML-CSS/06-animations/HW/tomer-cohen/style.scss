@@ -15,6 +15,7 @@ body {
   }
 }
 .page {
+  }
   &__life {
     margin-left: 25%;
     margin-top: 70px;
@@ -81,30 +82,28 @@ body {
     margin-top: 40px;
     transform: rotate(-45deg) scale(1);
     animation: heart 2s linear infinite;
-    &::before,&::after{
-        content: "";
-        background-color: red;
-        border-radius: 50%;
-        height: 90px;
-        position: absolute;
-        width: 90px;
+    &::before,
+    &::after {
+      content: "";
+      background-color: red;
+      border-radius: 50%;
+      height: 90px;
+      position: absolute;
+      width: 90px;
     }
-    &::before{
-    top: -45px;
-    left: 0;
+    &::before {
+      top: -45px;
+      left: 0;
     }
-    &::after{
-        left: 45px;
-        top: 0;
+    &::after {
+      left: 45px;
+      top: 0;
     }
-    
   }
-  &__ty{
+  &__ty {
     margin-left: 30%;
     margin-top: 10px;
   }
-}
-
 
 @keyframes heart {
   0% {

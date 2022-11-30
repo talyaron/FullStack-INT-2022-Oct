@@ -15,6 +15,17 @@ body {
   margin-top: 10px;
 }
 
+.page__tomer {
+  transform: rotate(270deg);
+  width: 300px;
+  height: 500px;
+  position: absolute;
+  margin-top: 1750px;
+}
+.page__tomer img {
+  width: 2100px;
+  height: 100%;
+}
 .page__life {
   margin-left: 25%;
   margin-top: 70px;

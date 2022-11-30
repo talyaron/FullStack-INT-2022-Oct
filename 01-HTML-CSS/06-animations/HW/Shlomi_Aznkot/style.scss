@@ -151,13 +151,13 @@ margin-top: 2%;
 .game_over{
     position: relative;
     animation-name:game_over_1 ;
-    animation-duration: 2.5s;
+    animation-duration: 10s;
     animation-iteration-count: infinite;
     margin-left: 25%;
     &__t{
         font-size: 30px;
         animation-name:game_over_2 ;
-        animation-duration: 1s;
+        animation-duration: 8s;
         animation-iteration-count:1;
         position: absolute; 
         top: 45vh; 
