@@ -8,6 +8,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0;
 }
 .page__background {
   background-image: url(https://i.pinimg.com/originals/52/a3/3c/52a33c10ae0c117156dd2807a4f324da.png);
