@@ -99,7 +99,7 @@ body {
   }
   15% {
     top: 20px;
-    left: 80px;
+    left: 88px;
   }
   25% {
     top: 20px;
@@ -131,10 +131,10 @@ body {
   }
   95% {
     top: 20px;
-    left: 284px;
+    left: 287px;
   }
   100% {
     top: 80px;
-    left: 300px;
+    left: 288px;
   }
 }
