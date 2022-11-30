@@ -1,0 +1,30 @@
+.circle {
+  background-color: pink;
+  border-radius: 300px;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  animation-name: bounce;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes bounce {
+  0% {
+    background-color: green;
+    top: 0px;
+    right: 0px;
+  }
+  50% {
+    background-color: crimson;
+    top: 100px;
+    right: -50px;
+  }
+  100% {
+    background-color: aqua;
+    top: 0px;
+    right: 0px;
+  }
+}
