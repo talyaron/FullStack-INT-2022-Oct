@@ -15,6 +15,17 @@ body {
   margin-top: 10px;
 }
 
+.page__tomer {
+  transform: rotate(270deg);
+  width: 300px;
+  height: 500px;
+  position: absolute;
+  margin-top: 1750px;
+}
+.page__tomer img {
+  width: 2100px;
+  height: 100%;
+}
 .page__life {
   margin-left: 25%;
   margin-top: 70px;
@@ -51,4 +62,69 @@ body {
   height: 500px;
   position: absolute;
   bottom: 10px;
+}
+.page__history {
+  margin-left: 25%;
+  margin-top: 200px;
+  width: 800px;
+  height: 600px;
+  background-image: url(https://cdn.britannica.com/53/1753-004-03582EDA/Flag-Israel.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+.page__history p {
+  color: red;
+}
+.page__history h1 {
+  color: red;
+}
+.page__heart {
+  background-color: red;
+  display: inline-block;
+  height: 90px;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+  width: 90px;
+  margin-left: 40%;
+  margin-top: 40px;
+  transform: rotate(-45deg) scale(1);
+  animation: heart 2s linear infinite;
+}
+.page__heart::before, .page__heart::after {
+  content: "";
+  background-color: red;
+  border-radius: 50%;
+  height: 90px;
+  position: absolute;
+  width: 90px;
+}
+.page__heart::before {
+  top: -45px;
+  left: 0;
+}
+.page__heart::after {
+  left: 45px;
+  top: 0;
+}
+.page__ty {
+  margin-left: 30%;
+  margin-top: 10px;
+}
+
+@keyframes heart {
+  0% {
+    transform: rotate(-45deg) scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: rotate(-45deg) scale(1.3);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) scale(1);
+    opacity: 1;
+  }
 }

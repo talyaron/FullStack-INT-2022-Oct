@@ -11,8 +11,8 @@ body {
 }
 
 :root {
-  --screen-calc: calc((100vh + 100vw)/90);
-  --road-thickness: var(--screen-calc) solid white;
+  --road-thickness: 1.5rem;
+  --border-style: var(--road-thickness) solid white;
 }
 
 .maze {
@@ -35,25 +35,25 @@ body {
   flex-wrap: wrap;
 }
 .maze .box1 .left-top {
-  border: var(--road-thickness);
+  border: var(--border-style);
   width: 40%;
   height: 60%;
   border-bottom: none;
 }
 .maze .box1 .right-top {
-  border: var(--road-thickness);
+  border: var(--border-style);
   width: 60%;
   height: 60%;
   border-left: none;
   border-bottom: none;
 }
 .maze .box1 .left-bot {
-  border: var(--road-thickness);
+  border: var(--border-style);
   width: 40%;
   height: 40%;
 }
 .maze .box1 .right-bot {
-  border: var(--road-thickness);
+  border: var(--border-style);
   width: 60%;
   height: 40%;
   border-right: none;
@@ -66,32 +66,32 @@ body {
   flex-wrap: wrap;
 }
 .maze .box2 .left-top {
-  border: var(--road-thickness);
+  border: var(--border-style);
   width: 60%;
   height: 60%;
   border-bottom: none;
 }
 .maze .box2 .right-top {
-  border: var(--road-thickness);
+  border: var(--border-style);
   width: 40%;
   height: 60%;
   border-left: none;
   border-bottom: none;
 }
 .maze .box2 .left-bot {
-  border: var(--road-thickness);
+  border: var(--border-style);
   width: 60%;
   height: 40%;
   border-left: none;
 }
 .maze .box2 .right-bot {
-  border: var(--road-thickness);
+  border: var(--border-style);
   width: 40%;
   height: 40%;
   border-left: none;
 }
 .maze .box3 {
-  border: var(--road-thickness);
+  border: var(--border-style);
   bottom: 35%;
   right: 30%;
   display: flex;
@@ -116,25 +116,25 @@ body {
   flex-wrap: wrap;
 }
 .maze .box4 .left-top {
-  border: var(--road-thickness);
+  border: var(--border-style);
   width: 40%;
   height: 60%;
   border-bottom: none;
   border-right: none;
 }
 .maze .box4 .right-top {
-  border: var(--road-thickness);
+  border: var(--border-style);
   width: 40%;
   height: 50%;
   border-left: none;
 }
 .maze .box4 .left-bot {
-  border: var(--road-thickness);
+  border: var(--border-style);
   width: 60%;
   height: 40%;
 }
 .maze .box4 .right-bot {
-  border: var(--road-thickness);
+  border: var(--border-style);
   width: 40%;
   height: 40%;
   border-left: none;
@@ -147,31 +147,31 @@ body {
   flex-wrap: wrap;
 }
 .maze .box5 .left-top {
-  border: var(--road-thickness);
+  border: var(--border-style);
   width: 40%;
   height: 50%;
   border-right: none;
 }
 .maze .box5 .right-top {
-  border: var(--road-thickness);
+  border: var(--border-style);
   width: 40%;
   height: 60%;
   border-bottom: none;
   border-left: none;
 }
 .maze .box5 .left-bot {
-  border: var(--road-thickness);
+  border: var(--border-style);
   width: 40%;
   height: 40%;
 }
 .maze .box5 .right-bot {
-  border: var(--road-thickness);
+  border: var(--border-style);
   width: 60%;
   height: 40%;
   border-left: none;
 }
 .maze .box6 {
-  border: var(--road-thickness);
+  border: var(--border-style);
   top: 21%;
   left: 16.5%;
   width: 65%;
@@ -179,7 +179,7 @@ body {
   border-bottom: none;
 }
 .maze .box7 {
-  border: var(--road-thickness);
+  border: var(--border-style);
   top: 33%;
   left: 35%;
   width: 30%;
@@ -190,7 +190,7 @@ body {
 .maze .line {
   position: absolute;
   background-color: white;
-  height: var(--screen-calc);
+  height: var(--road-thickness);
   width: 30%;
 }
 .maze .one {
@@ -202,15 +202,15 @@ body {
   right: 0;
 }
 .maze .three {
-  width: var(--screen-calc);
-  height: var(--screen-calc);
+  width: var(--road-thickness);
+  height: var(--road-thickness);
   top: 33%;
   left: 40.3%;
 }
 
 .pacman {
-  width: var(--screen-calc);
-  height: var(--screen-calc);
+  width: var(--road-thickness);
+  height: var(--road-thickness);
   border-radius: 50%;
   background: darkorange;
   display: inline-block;
@@ -334,7 +334,7 @@ body {
   }
   75% {
     top: 3%;
-    left: 16.5%;
+    left: 16%;
   }
   76% {
     transform: rotate(180deg);
@@ -398,7 +398,7 @@ body {
 }
 
 .apple {
-  font-size: var(--screen-calc);
+  font-size: calc(var(--road-thickness) - .3rem);
   position: absolute;
 }
 
