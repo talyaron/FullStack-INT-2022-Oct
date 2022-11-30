@@ -1,4 +1,3 @@
-
 body {
   background: black;
   padding: 0;
@@ -40,7 +39,7 @@ body {
       animation-name: eat;
       animation-duration: 0.7s;
       animation-iteration-count: infinite;
-      background: black;;
+      background: black;
       position: absolute;
       width: 100%;
       height: 100%;
@@ -154,21 +153,13 @@ body {
       left: 110px;
       top: 133px;
     }
-    18% {
-      // transform: rotate(90deg);
-    }
-    22.5% {
-      //   transform: rotate(0deg);
-    }
     27% {
-      //   transform: rotate(0deg);
       left: 190px;
       top: 133px;
     }
     31.5% {
       left: 190px;
       top: 5px;
-      // transform: rotate(-90deg);
     }
     36% {
       left: 350px;
