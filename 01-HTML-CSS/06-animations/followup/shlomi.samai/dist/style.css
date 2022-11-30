@@ -23,9 +23,9 @@
 
 @keyframes bounce {
   0% {
-    right: 100px;
+    left: 100px;
   }
   50% {
-    right: 100px;
+    left: 100px;
   }
 }
