@@ -1,6 +1,5 @@
 body {
-    background-color: black;
-
+  background-color: black;
 }
 .page {
   width: 90vw;
@@ -8,15 +7,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
-
+  margin-right: 0;
 
   &__background {
     background-image: url(https://i.pinimg.com/originals/52/a3/3c/52a33c10ae0c117156dd2807a4f324da.png);
     width: 80%;
-    height:100%;
+    height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
+    position: fixed;
   }
   &__pacman {
     width: 25px;
@@ -24,8 +23,12 @@ body {
     border-radius: 50%;
     background: yellow;
     position: relative;
-    right: 550px;
-    animation-name: move;
+    right: 700px;
+    top: 425px;
+    animation-name: movement;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+
     &__eye {
       position: absolute;
       width: 3px;
@@ -45,6 +48,95 @@ body {
       animation-duration: 0.7s;
       animation-iteration-count: infinite;
     }
+    &__food {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: #fff;
+      border-radius: 50%;
+      top: 30%;
+      left: 70px;
+      animation-name: food;
+      animation-duration: 0.7s;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+@keyframes eat {
+  0% {
+    clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  }
+  25% {
+    clip-path: polygon(100% 60%, 44% 48%, 100% 40%);
   }
 
+  50% {
+    clip-path: polygon(100% 50%, 44% 48%, 100% 50%);
+  }
+
+  75% {
+    clip-path: polygon(100% 59%, 44% 48%, 100% 35%);
+  }
+
+  100% {
+    clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  }
+}
+@keyframes food {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+}
+@keyframes movement {
+  0% {
+    top: 0px;
+    left: 0px;
+  }
+  5% {
+    top: -100px;
+  }
+  10% {
+    left: 250px;
+  }
+  15% {
+    top: 200px;
+  }
+  20% {
+    left: 60px;
+  }
+  25% {
+    top: 300px;
+  }
+  30% {
+    left: -400px;
+  }
+  35% {
+    top: -310px;
+  }
+  40% {
+    left: -230px;
+  }
+  50% {
+    top: -190px;
+  }
+  60% {
+    left: -90px;
+  }
+  70% {
+    top: -65px;
+  }
+  80% {
+    left: -20px;
+  }
+
+  100% {
+    top: 0px;
+    left: 0px;
+  }
 }
