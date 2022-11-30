@@ -1,29 +1,38 @@
 body {
-  margin: 0;
+  background-color: black;
 }
 
+.page {
+  width: 90vw;
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .page__background {
   background-image: url(https://i.pinimg.com/originals/52/a3/3c/52a33c10ae0c117156dd2807a4f324da.png);
-  background-color: red;
-  height: 700px;
-  width: 850px;
+  width: 80%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .page__pacman {
-  width: 100px;
-  height: 100px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
-  background: #F2D648;
+  background: yellow;
   position: relative;
-  margin-top: 20px;
+  right: 550px;
+  animation-name: move;
 }
 .page__pacman__eye {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 3px;
+  height: 3px;
   border-radius: 50%;
-  top: 20px;
-  right: 40px;
-  background: #333333;
+  top: 3px;
+  right: 7px;
+  background: black;
 }
 .page__pacman__mouth {
   background: #000;
