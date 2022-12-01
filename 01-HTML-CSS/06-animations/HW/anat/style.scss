@@ -1,0 +1,91 @@
+body{
+    margin: 0%;
+}
+
+.baloon{
+    background-color:white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    width:800px;
+    height: 600px;
+    border: 3px solid black;
+}
+
+
+
+img{
+    width: 40px;
+    position: relative;
+    margin-top: 550px;
+    animation-name: float;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+   
+}
+
+
+/*.pink{
+ margin-top: 550px;
+ animation-name: float;
+animation-duration: 3s;
+animation-fill-mode: both;
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+
+}*/
+
+.pink{
+    animation-timing-function: cubic-bezier(.41,.19,0,.58);
+    animation-duration: random($limit: 10s);
+
+}
+
+.lightblue{
+    animation-timing-function: ease-in;
+    animation-duration: random($limit: 10s);
+}
+
+.green{
+    animation-timing-function: ease-in-out;
+    animation-duration: random($limit: 10s);
+}
+
+.golden{
+    animation-timing-function: cubic-bezier(.18,.34,.29,.87);
+    animation-duration: random($limit: 10s);
+
+}
+
+.black{
+    animation-timing-function:cubic-bezier(.13,.88,.29,1.03);
+    animation-duration: random($limit: 10s);
+}
+
+.rubi{
+    animation-timing-function: ease-in;
+    animation-duration: random($limit: 10s);
+}
+
+.purple{
+    animation-timing-function: ease-in;
+    animation-duration: random($limit: 10s);
+}
+
+.turkiz{
+    animation-timing-function: ease-in;
+    animation-duration: random($limit: 10s);
+}
+
+
+@keyframes float {
+
+    from {
+      bottom: 0px;}
+
+    to{
+      bottom: 600px;
+     
+    }
+}

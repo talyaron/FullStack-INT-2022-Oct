@@ -1,0 +1,550 @@
+p{
+    opacity: 0;
+    font-size: 0.1vw;
+}
+.bazel{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://media.discordapp.net/attachments/330360973699579904/1047636039205925015/Untitled-2.png?width=1201&height=676");
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0px; 
+    left: 0px;   
+}
+.level{
+    margin: auto;
+    background-image: url("https://cdn.discordapp.com/attachments/548623818512531457/1047685728311722004/Untitled-3.png");
+    width: 35vw;
+    background-size: 35vw 95vh;
+    background-repeat: no-repeat;
+
+    height: 100vh;
+}
+.player{
+    background-image: url("https://cdn.discordapp.com/attachments/548623818512531457/1047653715185774612/joemama.gif");
+    width: 2vw;
+    height: 5vh;
+    background-size: 2vw, 2vh;
+    background-repeat: no-repeat;
+    position:absolute;
+
+    animation-name: player_movement;
+    animation-duration: 10s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+.im_going_fucking_insane1{
+    position: absolute;
+    top:46.2vh;
+    left: 40.5vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 1100ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.im_going_fucking_insane2{
+    position: absolute;
+    top:46.2vh;
+    left: 59.2vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 2500ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.im_going_fucking_insane3{
+    position: absolute;
+    top:43.5vh;
+    left: 59.2vw;
+    height: 0.7vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 2700ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.im_going_fucking_insane4{
+    position: absolute;
+    top:40.9vh;
+    left: 59.2vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 2600ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.im_going_fucking_insane5{
+    position: absolute;
+    top:38vh;
+    left: 59.2vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 2800ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.im_going_fucking_insane6{
+    position: absolute;
+    top:35.2vh;
+    left: 59.2vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 3000ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.im_going_fucking_insane7{
+    position: absolute;
+    top:32.7vh;
+    left: 59.2vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 3100ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.im_going_fucking_insane8{
+    position: absolute;
+    top:30.25vh;
+    left: 59.2vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 3200ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.im_going_fucking_insane9{
+    position: absolute;
+    top: 27.7vh;
+    left: 59.2vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 3300ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.im_going_fucking_insane10{
+    position: absolute;
+    top: 25.2vh;
+    left: 59.2vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 3400ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.im_going_fucking_insane11{
+    position: absolute;
+    top:22.3vh;
+    left: 59.2vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 3500ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+//yes i know i can use flex and column for this and have less work to do but i already did this so pleasepleasepleasepleasepleasepleasepleasepleasepleasepleasepleasepleasepleasepleasepleasepleasepleasepleasepleaseplease
+.im_going_fucking_insane12{
+    position: absolute;
+    top:19.7vh;
+    left: 59.2vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 3600ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+//no i dont want to know what happens if the screen ratio isnt 16:10
+.im_going_fucking_insane13{
+    position: absolute;
+    top:17vh;
+    left: 59.2vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 3700ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.im_going_fucking_insane14{
+    position: absolute;
+    top:14.3vh;
+    left: 59.2vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 3800ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.im_going_fucking_insane15{
+    position: absolute;
+    top:11.75vh;
+    left: 59.2vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 3900ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.im_going_fucking_insane16{
+    position: absolute;
+    top:11.75vh;
+    left: 60.4vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 4100ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.im_going_fucking_insane17{
+    position: absolute;
+    top:11.75vh;
+    left: 61.6vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 4250ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.im_going_fucking_insane18{
+    position: absolute;
+    top:11.75vh;
+    left: 62.8vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 4400ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.im_going_fucking_insane19{
+    position: absolute;
+    top:11.75vh;
+    left: 64.2vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 4600ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.im_going_fucking_insane20{
+    position: absolute;
+    top:11.75vh;
+    left: 65.4vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 4700ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+.im_going_fucking_insane21{
+    position: absolute;
+    top: 13.75vh;
+    left: 65.4vw;
+    height: 0.6vh;
+    width: 0.35vw;
+    background-color: #febeb4;
+    animation-delay: 4800ms;
+    animation-name: fade;
+    animation-duration: 0ms;
+    animation-fill-mode: forwards;
+    z-index: -1;
+}
+//oh great its only 5 am and i didnt finish the other 3 ghosts
+@keyframes fade {
+    from{
+        opacity:100;
+    }
+    to{
+        opacity: 0;
+    }
+}
+.ghost1{
+    background-image: url("https://media.discordapp.net/attachments/330360973699579904/1047631336422256680/Untitled-1.png?width=533&height=676");
+    width: 2vw;
+    height: 5vh;
+    background-size: 2vw, 2vh;
+    position: absolute;
+    top: 35.4vh;
+    left: 49vw;
+    animation-name: ghost;
+    animation-delay: 0.5s;
+    animation-duration: 10s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+.ghost2{
+    background-image: url("https://media.discordapp.net/attachments/330360973699579904/1047631336422256680/Untitled-1.png?width=533&height=676");
+    width: 2vw;
+    height: 5vh;
+    background-size: 2vw, 2vh;
+    position: absolute;
+    animation-iteration-count: infinite;
+    animation-name: ghost2;
+    animation-duration: 1s;
+    animation-delay: 0ms;
+    left: 46vw;
+}
+.ghost3{
+    background-image: url("https://media.discordapp.net/attachments/330360973699579904/1047631336422256680/Untitled-1.png?width=533&height=676");
+    width: 2vw;
+    height: 5vh;
+    background-size: 2vw, 2vh;
+    position: absolute;
+    animation-iteration-count: infinite;
+    animation-name: ghost2;
+    animation-duration: 1s;
+    animation-delay: 0ms;
+    left: 51.6vw;
+
+}
+.ghost4{
+    background-image: url("https://media.discordapp.net/attachments/330360973699579904/1047631336422256680/Untitled-1.png?width=533&height=676");
+    width: 2vw;
+    height: 5vh;
+    background-size: 2vw, 2vh;
+    position: absolute;
+    animation-iteration-count: infinite;
+    animation-name: ghost2;
+    animation-duration: 1s;
+    animation-delay: 0ms;
+    left: 48.8vw;
+
+}
+//i consider this done although i hate it i also love the fact i dont have to see it again
+@keyframes ghost2{
+    0%{
+        top: 43.6vh;
+    }
+    50%{
+        top: 42.6vh;
+    }
+    100%{
+        top: 43.6vh;
+    }
+}
+
+@keyframes ghost {
+    
+    0% {
+        top: 35.4vh;
+        left: 49vw;
+    }
+    5%{
+        top: 35.4vh;
+        left: 43.4vw;
+        rotate:0deg
+    }
+    6%{
+        rotate: 90deg;
+    }
+    8%{
+        rotate: 90deg;
+        top: 43.6vh;
+        left: 43.4vw;
+    }
+    9%{
+        rotate: 0deg;
+    }
+    16%{
+        left: 33vw;
+        opacity: 100;
+    }
+    17%{
+        opacity: 0;
+        left: 33vw;
+    }
+    18%{
+        opacity: 0;
+        left: 66vw;
+    }
+    19%{
+        opacity: 100;
+    }
+    24%{
+        left:58.8vw;
+        rotate: 0deg;
+        top: 43.6vh;
+    }
+    25%{
+        rotate: 90deg;
+        top: 43.6vh;
+    }
+    30%{
+        left:58.8vw;
+        top: 28.6vh;
+        rotate:90deg;
+    }
+    31%{
+        rotate: 180deg;
+        left:58.8vw;
+    }
+    35%{
+        left: 64.2vw;
+        rotate:180deg
+    }
+    38%{
+        left: 64.7vw;
+        rotate: 90deg;
+        top: 28.6vh;
+    }
+    44%{
+        opacity: 100;
+        top: 11vh;
+        left: 64.7vw;
+    }
+    50%{
+        opacity: 0;
+        left: 64.2vw;
+    }
+    100%{
+        opacity: 0;
+        rotate: 90deg;
+    }
+
+}
+
+
+
+
+@keyframes player_movement {
+    
+    0% {
+        top: 51.4vh;
+        left: 50vw;
+    }
+    5%{
+        top: 51.4vh;
+        left: 43.4vw;
+        rotate:0deg
+    }
+    6%{
+        rotate: 90deg;
+    }
+    8%{
+        rotate: 90deg;
+        top: 43.6vh;
+        left: 43.4vw;
+    }
+    9%{
+        rotate: 0deg;
+    }
+    16%{
+        left: 33vw;
+        opacity: 100;
+    }
+    17%{
+        opacity: 0;
+        left: 33vw;
+    }
+    18%{
+        opacity: 0;
+        left: 66vw;
+    }
+    19%{
+        opacity: 100;
+    }
+    24%{
+        left:58.4vw;
+        rotate: 0deg;
+        top: 43.6vh;
+    }
+    25%{
+        rotate: 90deg;
+        top: 43.6vh;
+    }
+    40%{
+        left:58.4vw;
+        top: 9.3vh;
+        rotate:90deg;
+    }
+    41%{
+        rotate: 180deg;
+        left:58.4vw;
+    }
+    47%{
+        left: 64.2vw;
+        top: 9.3vh;
+        rotate:180deg
+    }
+    48%{
+        rotate: 270deg;
+        top: 10.3vh;
+    }
+    49%{
+        opacity: 100;
+        top: 11vh;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
+
+}
+body{
+    background-image: url("https://images-ext-2.discordapp.net/external/1XmGprcwbnBivvuP0d-1uduhQjDANZ1A_P-CAXBIztM/%3Fw%3D700%26h%3D530%26crop%3D1/https/www.whitehouse.gov/wp-content/uploads/2021/01/us-capitol.jpg?width=630&height=477");
+    background-size:100vw 100vh ;
+    background-color: black;
+ }
