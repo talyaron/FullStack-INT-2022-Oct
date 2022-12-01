@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+}
+
+.circle1 {
+  background-color: #4b123c;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  position: relative;
+  left: 2rem;
+  animation-name: circle;
+  animation-duration: 2s;
+  animation-delay: 20ms;
+  animation-timing-function: ease-in-out;
+}
+@keyframes circle {
+  0% {
+    top: 0rem;
+    left: 3rem;
+  }
+  25% {
+    top: 0;
+    left: 10rem;
+    background-color: blue;
+  }
+  50% {
+    top: 10rem;
+    left: 10rem;
+    background-color: pink;
+  }
+  75% {
+    top: 10rem;
+    left: 3rem;
+    background-color: black;
+  }
+  100% {
+    top: 0;
+    left: 3rem;
+  }
+}
+
+.circle2 {
+  background-color: #59ddce;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  position: relative;
+  top: -2rem;
+  animation-name: two;
+  animation-duration: 2s;
+  animation-delay: 20ms;
+  animation-timing-function: ease-in-out;
+  animation-delay: 200ms;
+}
+@keyframes two {
+  0% {
+    top: -2rem;
+    left: 0rem;
+  }
+  25% {
+    top: -2rem;
+    left: 10rem;
+    background-color: #9dff24;
+  }
+  50% {
+    top: 10rem;
+    left: 10rem;
+    background-color: #130f30;
+  }
+  75% {
+    top: 10rem;
+    left: 0rem;
+    background-color: #ae1414;
+  }
+  100% {
+    top: -2rem;
+    left: 0rem;
+  }
+}

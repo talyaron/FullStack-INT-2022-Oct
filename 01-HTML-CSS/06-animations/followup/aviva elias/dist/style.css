@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+}
+
+.box {
+  background-color: red;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  animation-name: example;
+  animation-duration: 3s;
+  animation-fill-mode: both;
+  animation-delay: 2s;
+}
+
+@keyframes example {
+  from {
+    top: 0;
+    background-color: yellow;
+  }
+  to {
+    top: 200px;
+    background-color: blue;
+  }
+}

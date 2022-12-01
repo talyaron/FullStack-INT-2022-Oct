@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+}
+
+.battery_box {
+  height: 40vh;
+  width: 30vh;
+  background-color: rgb(150, 150, 150);
+  display: flex;
+  align-items: flex-end;
+  margin-left: 90vh;
+  margin-top: 30vh;
+  position: absolute;
+}
+
+.battery_filler {
+  animation-name: filling;
+  animation-duration: 4s;
+  z-index: 1;
+  position: relative;
+  background-color: aquamarine;
+  animation-iteration-count: infinite;
+}
+
+@keyframes filling {
+  0% {
+    background-color: red;
+    width: 30vh;
+    height: 10vh;
+  }
+
+  25% {
+    background-color: yellow;
+    width: 30vh;
+    height: 20vh;
+  }
+
+  50% {
+    background-color: green;
+    width: 30vh;
+    height: 30vh;
+  }
+
+  75%{
+    background-color: rgb(0, 56, 0);
+    width: 30vh;
+    height: 40vh;
+  }
+
+  100%{
+    background-color: black;
+    width: 30vh;
+    height: 40vh;
+  }
+}

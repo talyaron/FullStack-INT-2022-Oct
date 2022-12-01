@@ -1,0 +1,299 @@
+body {
+  background: black;
+  padding: 0;
+  margin: 0%;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 45%;
+  height: 95%;
+  border: 1px solid white;
+  background-image: url(https://i.stack.imgur.com/lnC4o.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container__pacman {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: yellow;
+  position: relative;
+  margin-top: 43%;
+  margin-left: 48%;
+  animation-name: movement;
+  animation-duration: 8s;
+}
+.container__pacman__eye {
+  position: absolute;
+  width: 5px;
+  height: 3px;
+  border-radius: 50%;
+  top: 5px;
+  right: 7px;
+  background: black;
+}
+.container__pacman__mouth {
+  animation-name: eat;
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+  background: black;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+}
+.container__pacman__food {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #b3ee11;
+  border-radius: 50%;
+  top: 40%;
+  left: 70px;
+  animation-name: food;
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+}
+.container .container__colors__aqua {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation-name: aqua_dot;
+  background-color: black;
+  animation-duration: 4s;
+  position: absolute;
+  right: 655px;
+  top: 265px;
+}
+.container .container__colors__green {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation-name: green_dot;
+  background-color: black;
+  animation-duration: 4s;
+  position: absolute;
+  right: 580px;
+  top: 455px;
+}
+.container .container__colors__red {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation-name: red_dot;
+  background-color: black;
+  animation-duration: 5s;
+  position: absolute;
+  right: 950px;
+  top: 130px;
+}
+.container .container__colors__yellow {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation-name: yellow_dot;
+  background-color: black;
+  animation-duration: 11s;
+  position: absolute;
+  right: 650px;
+  top: 195px;
+}
+@keyframes eat {
+  0% {
+    clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  }
+  25% {
+    clip-path: polygon(100% 60%, 44% 48%, 100% 40%);
+  }
+  50% {
+    clip-path: polygon(100% 50%, 44% 48%, 100% 50%);
+  }
+  75% {
+    clip-path: polygon(100% 59%, 44% 48%, 100% 35%);
+  }
+  100% {
+    clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  }
+}
+@keyframes food {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+}
+@keyframes movement {
+  0% {
+    background-color: yellow;
+    left: 0px;
+    top: 0px;
+  }
+  4.5% {
+    background-color: yellow;
+    left: 0px;
+    top: -60px;
+  }
+  9% {
+    background-color: aqua;
+    left: 110px;
+    top: -60px;
+  }
+  13.5% {
+    background-color: aqua;
+    left: 110px;
+    top: 133px;
+  }
+  27% {
+    left: 190px;
+    top: 133px;
+  }
+  31.5% {
+    left: 190px;
+    top: 5px;
+  }
+  36% {
+    left: 350px;
+    top: 5px;
+  }
+  40.5% {
+    left: -350px;
+    top: 5px;
+    background-color: green;
+  }
+  45% {
+    left: -185px;
+    top: 5px;
+  }
+  49.5% {
+    left: -185px;
+    top: -275px;
+  }
+  54% {
+    left: -310px;
+    top: -275px;
+  }
+  58.5% {
+    left: -310px;
+    top: -275px;
+  }
+  63% {
+    left: -310px;
+    top: -190px;
+    background-color: red;
+  }
+  67.5% {
+    left: 110px;
+    top: -190px;
+  }
+  72% {
+    left: 110px;
+    top: -125px;
+  }
+  76.5% {
+    left: 35px;
+    top: -125px;
+  }
+  81% {
+    left: 35px;
+    top: -60px;
+  }
+  85.5% {
+    left: 0px;
+    top: -60px;
+  }
+  90% {
+    left: 0px;
+    top: -60px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+@keyframes aqua_dot {
+  0% {
+    background-color: aqua;
+  }
+  10% {
+    background-color: aqua;
+  }
+  25% {
+    background-color: black;
+  }
+  50% {
+    background-color: black;
+  }
+  100% {
+    background-color: black;
+  }
+}
+@keyframes green_dot {
+  0% {
+    background-color: green;
+  }
+  10% {
+    background-color: green;
+  }
+  25% {
+    background-color: green;
+  }
+  50% {
+    background-color: green;
+  }
+  75% {
+    background-color: black;
+  }
+  100% {
+    background-color: black;
+  }
+}
+@keyframes red_dot {
+  0% {
+    background-color: red;
+  }
+  10% {
+    background-color: red;
+  }
+  25% {
+    background-color: red;
+  }
+  50% {
+    background-color: red;
+  }
+  75% {
+    background-color: red;
+  }
+  80% {
+    background-color: red;
+  }
+  100% {
+    background-color: black;
+  }
+}
+@keyframes yellow_dot {
+  0% {
+    background-color: yellow;
+  }
+  10% {
+    background-color: yellow;
+  }
+  25% {
+    background-color: yellow;
+  }
+  50% {
+    background-color: yellow;
+  }
+  75% {
+    background-color: black;
+  }
+  100% {
+    background-color: black;
+  }
+}

@@ -1,0 +1,26 @@
+.circle{
+  background-color: navy;
+  border-radius: 100px;
+  width: 100px; 
+  height: 100px;
+  position: relative;
+
+
+  //prefered keyframe
+  animation-name: bonce;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  // animation-delay: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+//PROPERTIES OF SOME ANIMATION
+@keyframes bounce {
+    //from postion a
+    0%{
+        background-color: pink;
+        top: 0px;right: 0px;
+    }
+
+    50%{}
