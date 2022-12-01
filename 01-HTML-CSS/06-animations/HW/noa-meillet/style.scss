@@ -1,0 +1,272 @@
+.pacman{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    width: fit-content;
+
+    &__board{
+        width:100%;
+        
+        
+        img{
+            height: 100%;
+        }
+    }    
+
+    &__ghost{
+        display: flex;
+        flex-direction: row;
+
+        &__orange{
+            position: absolute;
+            top: 7%;
+            left: 6%;
+            animation-name: orange-movement;
+            animation-duration: 15s;
+            animation-iteration-count: 1;
+            animation-fill-mode:forwards;
+
+            img{
+                width:23%;
+            }
+        }
+
+        &__red{
+            position: absolute;
+            top: 7%;
+            left: 23%;
+            animation-name: red-movement;
+            animation-duration: 15s;
+            animation-iteration-count: 1;
+            animation-fill-mode:forwards;
+            animation-delay: 1s;
+
+            img{
+                width:23%;
+            }
+        }
+
+        &__pink{
+            position: absolute;
+            top: 7%;
+            left: 43%;
+            animation-name: pink-movement;
+            animation-duration: 15s;
+            animation-iteration-count: 1;
+            animation-fill-mode:forwards;
+            animation-delay: 3s;
+
+            img{
+                width:23%;
+            }
+        }
+    }
+                    
+}
+
+@keyframes orange-movement{
+
+    0%{
+        top: 7%;
+        left: 6%;
+        width: 23%;
+    }
+
+    10%{
+        top: 27%;
+        left: 6%;
+        width: 23%;
+    }
+
+    20%{
+        top: 27%;
+        left: 22%;
+        width: 23%;
+    }
+
+    30%{
+        top: 64%;
+        left: 22%;
+        width: 23%;
+    }
+
+    40%{
+        top: 64%;
+        left: 6%;
+        width: 23%;
+    }
+
+    50%{
+        top: 73%;
+        left: 6%;
+        width: 23%;
+    }
+
+    60%{
+        top: 73%;
+        left: 12%;
+        width: 23%;
+    }
+
+    70%{
+        top: 82.5%;
+        left: 12%;
+        width: 23%;
+    }
+
+    80%{
+        top: 82.5%;
+        left: 6%;
+        width: 23%;
+    }
+
+    90%{
+        top: 90%;
+        left: 6%;
+        width: 23%;
+    }
+
+    100%{
+        top: 90%;
+        left: 90%;
+        width: 23%;
+    }
+}
+
+@keyframes red-movement{
+
+    0%{
+        top: 7%;
+        left: 23%;
+        width: 23%;
+    }
+
+    10%{
+        top: 18%;
+        left: 23%;
+        width: 23%;
+    }
+
+    20%{
+        top: 18%;
+        left: 63%;
+        width: 23%;
+    }
+
+    30%{
+        top: 28%;
+        left: 63%;
+        width: 23%;
+    }
+
+    40%{
+        top: 28%;
+        left: 53%;
+        width: 23%;
+    }
+
+    50%{
+        top: 36.5%;
+        left: 53%;
+        width: 23%;
+    }
+
+    60%{
+        top: 36.5%;
+        left: 63%;
+        width: 23%;
+    }
+
+    70%{
+        top: 45%;
+        left: 63%;
+        width: 23%;
+    }
+
+    80%{
+        top: 45%;
+        left: 74%;
+        width: 23%;
+    }
+
+    90%{
+        top: 82.5%;
+        left: 74%;
+        width: 23%;
+    }
+
+    100%{
+        top: 82.5%;
+        left: 90%;
+        width: 23%;
+    }
+}
+
+@keyframes pink-movement{
+
+    0%{
+        top: 7%;
+        left: 43%;
+        width: 23%;
+    }
+
+    10%{
+        top: 18%;
+        left: 43%;
+        width: 23%;
+    }
+
+    20%{
+        top: 18%;
+        left: 90%;
+        width: 23%;
+    }
+
+    30%{
+        top: 27%;
+        left: 90%;
+        width: 23%;
+    }
+
+    40%{
+        top: 27%;
+        left: 74%;
+        width: 23%;
+    }
+
+    50%{
+        top: 64%;
+        left: 74%;
+        width: 23%;
+    }
+
+    60%{
+        top: 64%;
+        left: 53%;
+        width: 23%;
+    }
+
+    70%{
+        top: 72%;
+        left: 53%;
+        width: 23%;
+    }
+
+    80%{
+        top: 72%;
+        left: 74%;
+        width: 23%;
+    }
+
+    90%{
+        top: 64%;
+        left: 73%;
+        width: 23%;
+    }
+
+    100%{
+        top: 64%;
+        left: 90%;
+        width: 23%;
+    }
+}

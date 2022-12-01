@@ -1,0 +1,140 @@
+body {
+  margin: 0;
+  overflow: hidden;
+}
+.container {
+  width: 100vw;
+  height: 100vw;
+  display: flex;
+  img {
+    height: 620px;
+    width: 620px;
+    position: absolute;
+  }
+  &__pacman {
+    width: 0px;
+    height: 0px;
+    border: 20px solid #f7ed59;
+    border-right-color: transparent;
+    border-radius: 30px;
+    position: relative;
+    animation-name: slide;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: none;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+  }
+  &__ghost {
+    position: relative;
+    width: 30px;
+    background: LightPink;
+    height: 30px;
+    border-top-right-radius: 100px;
+    border-top-left-radius: 100px;
+    transform: translate(00px, 10px);
+    top: 0px;
+    animation-name: bounce;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    animation-fill-mode: none;
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
+  }
+  &__logo img {
+    bottom: -199px;
+  }
+}
+
+@keyframes slide {
+  0% {
+    top: 60px;
+    left: 30px;
+  }
+  15% {
+    top: 80px;
+    left: 40px;
+  }
+  25% {
+    top: 80px;
+    left: 70px;
+  }
+  35% {
+    top: 80px;
+    left: 90px;
+  }
+  45% {
+    top: 80px;
+    left: 120px;
+  }
+  55% {
+    top: 270px;
+    left: 120px;
+  }
+  65% {
+    top: 270px;
+    left: 200px;
+  }
+  75% {
+    top: 200px;
+    left: 200px;
+  }
+  85% {
+    top: 200px;
+    left: 400px;
+  }
+  95% {
+    top: 260px;
+    left: 400px;
+  }
+  100% {
+    top: 260px;
+    left: 622px;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    top: 0px;
+    left: 20px;
+  }
+  15% {
+    top: 20px;
+    left: 88px;
+  }
+  25% {
+    top: 20px;
+    left: 95px;
+  }
+  35% {
+    top: 80px;
+    left: 90px;
+  }
+  45% {
+    top: 200px;
+    left: 90px;
+  }
+  55% {
+    top: 320px;
+    left: 90px;
+  }
+  65% {
+    top: 70px;
+    left: 100px;
+  }
+  75% {
+    top: 80px;
+    left: 520px;
+  }
+  85%{
+    top: 20px;
+    left: 520px;
+  }
+  95%{
+    top: 20px;
+    left: 287px;
+  }
+  100%{
+    top: 80px;
+    left: 288px;
+  }
+}

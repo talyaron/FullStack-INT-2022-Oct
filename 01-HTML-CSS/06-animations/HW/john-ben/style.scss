@@ -1,0 +1,86 @@
+body{
+    margin: 0%;
+    background-image: url("https://t4.ftcdn.net/jpg/04/86/09/87/360_F_486098711_h1IIw3sF5CYunPrBa45ugVZRxwoGop3C.jpg");
+
+}
+
+
+
+.wrapper{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+
+
+  &__titre {
+      position: absolute;
+      display: flex;
+      top: 3%;
+      font-size: xx-large;
+      font-style:italic ;
+      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      color: white;
+  }
+    &__france{
+        position: absolute;
+        display: flex;
+        top: 20%;
+    }
+      &__brazil{
+          position: absolute;
+          display: flex;
+          top: 20%;
+          left: 10%;
+      }
+
+        &__argentina{
+            position: absolute;
+            display: flex;
+            top: 20%;
+            right: 10%;
+        }
+
+
+          &__ballon {
+            width: 200px;
+            height: 200px;
+            position:relative;
+            animation-name: high;
+            animation-duration: 5s;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+
+              img{
+                height: 100%;
+                width: 100%;
+                border-radius: 100%;
+              }
+          }
+        
+
+  
+  #ball1{
+    animation-timing-function: linear;
+  }
+
+  #ball2{
+    animation-timing-function: ease;
+  }
+
+  #ball3{
+    animation-timing-function: ease-in;
+  }
+
+}
+
+@keyframes high {
+
+    from {
+      bottom: 0px;
+    }
+    to{
+      bottom: 700px;
+    }
+}
