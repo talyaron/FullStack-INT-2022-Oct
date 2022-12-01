@@ -1,0 +1,251 @@
+body {
+  margin: 0;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCw6JwarS6Xgju4vShw07YYnEyP-Pqg9fPtg&usqp=CAU");
+  overflow-x: hidden;
+}
+
+.balon-container {
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px 200px 200px 200px 200px 200px;
+  grid-template-rows: 150px 150px 150px;
+  width: 1000px;
+  height: 600px;
+  justify-content: center;
+  position: relative;
+  left: 300px;
+  row-gap: 200px;
+}
+.balon-container__singel-left {
+  height: 150px;
+  width: 200px;
+  animation-name: leftlbalon;
+  animation-duration: 10s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  position: relative;
+  animation-delay: 1s;
+}
+.balon-container__singel-left img {
+  height: 180px;
+  width: 120px;
+  animation-name: balonmove;
+  animation-iteration-count: infinite;
+  position: relative;
+  animation-duration: 1s;
+  animation-direction: alternate;
+}
+@keyframes leftlbalon {
+  from {
+    bottom: 0px;
+    left: 500px;
+  }
+  to {
+    bottom: 1200px;
+    left: 0px;
+  }
+}
+@keyframes balonmove {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50px;
+  }
+}
+.balon-container__singel-right {
+  height: 150px;
+  width: 200px;
+  left: 0px;
+  animation-name: rightbalon;
+  animation-duration: 10s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  position: relative;
+  animation-delay: 1s;
+}
+.balon-container__singel-right img {
+  height: 180px;
+  width: 120px;
+  animation-name: balonmove;
+  animation-iteration-count: infinite;
+  position: relative;
+  animation-duration: 1s;
+  animation-direction: alternate;
+}
+@keyframes rightbalon {
+  from {
+    bottom: 0px;
+    left: 0px;
+  }
+  to {
+    bottom: 1200px;
+    left: 1500px;
+  }
+}
+@keyframes balonmove {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50px;
+  }
+}
+.balon-container__singel-rightdelay {
+  height: 150px;
+  width: 200px;
+  left: 0px;
+  animation-name: rightdelay;
+  animation-duration: 10s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  position: relative;
+  animation-delay: 2s;
+}
+.balon-container__singel-rightdelay img {
+  height: 180px;
+  width: 120px;
+  animation-name: balonmove;
+  animation-iteration-count: infinite;
+  position: relative;
+  animation-duration: 1s;
+  animation-direction: alternate;
+}
+@keyframes rightdelay {
+  from {
+    bottom: 0px;
+    left: 0px;
+  }
+  to {
+    bottom: 1200px;
+    left: 1500px;
+  }
+}
+@keyframes balonmove {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50px;
+  }
+}
+.balon-container__singel-leftdelay {
+  height: 150px;
+  width: 200px;
+  animation-name: leftdelay;
+  animation-duration: 10s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  position: relative;
+  animation-delay: 2s;
+}
+.balon-container__singel-leftdelay img {
+  height: 180px;
+  width: 120px;
+  animation-name: leftmove;
+  animation-iteration-count: infinite;
+  position: relative;
+  animation-duration: 1s;
+  animation-direction: alternate;
+}
+@keyframes leftdelay {
+  from {
+    bottom: 0px;
+    left: 200px;
+  }
+  to {
+    bottom: 1200px;
+    left: 0px;
+  }
+}
+@keyframes leftmove {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50px;
+  }
+}
+.balon-container__balon-flex {
+  display: flex;
+  width: 200px;
+  flex-direction: row;
+  justify-content: space-between;
+  animation-name: flexbalon;
+  animation-duration: 20s;
+  animation-timing-function: ease-out;
+  position: relative;
+  animation-fill-mode: forwards;
+}
+.balon-container__balon-flex img {
+  height: 120px;
+  width: 80px;
+  animation-name: flexmove;
+  animation-duration: 0.3s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  position: relative;
+  animation-timing-function: ease-in;
+}
+@keyframes flexbalon {
+  0% {
+    bottom: 0;
+    width: 200px;
+  }
+  30% {
+    bottom: 200px;
+    width: 200px;
+  }
+  100% {
+    bottom: 1200px;
+    width: 2000px;
+  }
+}
+@keyframes flexmove {
+  from {
+    left: 0px;
+    left: 3px;
+  }
+}
+
+.singel-big {
+  height: 200px;
+  width: 150px;
+  left: 650px;
+  animation-name: bigbalon;
+  animation-duration: 10s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+  position: relative;
+}
+
+.singel-big img {
+  height: 180px;
+  width: 120px;
+  animation-name: bigmove;
+  animation-iteration-count: infinite;
+  position: relative;
+  animation-duration: 30s;
+}
+
+@keyframes bigbalon {
+  from {
+    bottom: 0px;
+  }
+  to {
+    bottom: 2000px;
+  }
+}
+@keyframes bigmove {
+  0% {
+    width: 120px;
+    height: 180px;
+  }
+  75% {
+    width: 120px;
+    height: 180px;
+  }
+  100% {
+    width: 360px;
+    height: 480px;
+  }
+}
