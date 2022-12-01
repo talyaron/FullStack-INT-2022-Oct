@@ -1,0 +1,14 @@
+.circle {
+  background-color: navy;
+  border-radius: 100px;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation-name: bonce;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes bounce {}
