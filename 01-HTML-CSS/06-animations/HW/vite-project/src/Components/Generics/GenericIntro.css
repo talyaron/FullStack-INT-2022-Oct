@@ -1,0 +1,22 @@
+
+#smallTitle{
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+#mainTitle{
+    margin: 20px 0;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+#description{
+    margin-bottom: 1rem;
+}
+
+#introContainer{
+    text-align: left;
+    width: 50%;
+    padding-left: 5%;
+    margin-top: 40px;
+}
