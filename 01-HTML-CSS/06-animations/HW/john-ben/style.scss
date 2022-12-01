@@ -3,34 +3,7 @@ body{
     background-image: url("https://t4.ftcdn.net/jpg/04/86/09/87/360_F_486098711_h1IIw3sF5CYunPrBa45ugVZRxwoGop3C.jpg");
 
 }
-.titre{
-    position: absolute;
-    display: flex;
-    top: 3%;
-    font-size: xx-large;
-    color: white;
-}
-.france{
-    position: absolute;
-    display: flex;
-    top: 20%;
 
-}
-.brazil{
-    position: absolute;
-    display: flex;
-    top: 20%;
-    left: 10%;
-
-}
-
-.argentina{
-    position: absolute;
-    display: flex;
-    top: 20%;
-    right: 10%;
-
-}
 
 
 .wrapper{
@@ -40,40 +13,69 @@ body{
   align-items: flex-end;
   justify-content: space-around;
 
-    &__balloon {
-      width: 200px;
-      height: 200px;
-      // background:rgb(204, 12, 12);
-      position:relative;
 
-      animation-name: flying;
-      animation-duration: 4s;
-      animation-fill-mode: forwards;
-      animation-iteration-count: infinite;
-     
-      img{
-        height: 100%;
-        width: 100%;
-        border-radius: 100%;
-      }
+  &__titre {
+      position: absolute;
+      display: flex;
+      top: 3%;
+      font-size: xx-large;
+      font-style:italic ;
+      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      color: white;
   }
+    &__france{
+        position: absolute;
+        display: flex;
+        top: 20%;
+    }
+      &__brazil{
+          position: absolute;
+          display: flex;
+          top: 20%;
+          left: 10%;
+      }
+
+        &__argentina{
+            position: absolute;
+            display: flex;
+            top: 20%;
+            right: 10%;
+        }
+
+
+          &__ballon {
+            width: 200px;
+            height: 200px;
+            position:relative;
+            animation-name: high;
+            animation-duration: 5s;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+
+              img{
+                height: 100%;
+                width: 100%;
+                border-radius: 100%;
+              }
+          }
+        
 
   
-  #baloon1{
+  #ball1{
     animation-timing-function: linear;
   }
 
-  #baloon2{
+  #ball2{
     animation-timing-function: ease;
   }
 
-  #baloon3{
+  #ball3{
     animation-timing-function: ease-in;
   }
 
 }
 
-@keyframes flying {
+@keyframes high {
 
     from {
       bottom: 0px;
