@@ -1,7 +1,7 @@
 ## Main ##
 https://getbem.com/introduction/
 
-## videos ##
+## Videos ##
 Video: https://www.youtube.com/watch?v=SLjHSVwXYq4        background-color: red;
 
 ## Example (todo list): ##
