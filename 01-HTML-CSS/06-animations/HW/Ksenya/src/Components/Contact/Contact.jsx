@@ -1,16 +1,14 @@
-import React from 'react';
+import React from "react";
 import house1 from "../../icons/house1.svg";
 import house2 from "../../icons/house2.svg";
 import house3 from "../../icons/house3.svg";
 import house4 from "../../icons/house4.svg";
 import cunstructionCar from "../../icons/trucking-truck-svgrepo-com.svg";
-import "./dist/porfolio.css";
+import "./contact.scss";
 
-const Portfolio = () => {
-
-
-    return (
-        <div>
+const Contact = () => {
+  return (
+    <div>
       <div className="constructionContainer">
         <div className="housesContainer">
           <img className="house" src={house1} alt="house" />
@@ -22,7 +20,7 @@ const Portfolio = () => {
       </div>
       This part is still under construction
     </div>
-    );
+  );
 };
 
-export default Portfolio;
+export default Contact;
