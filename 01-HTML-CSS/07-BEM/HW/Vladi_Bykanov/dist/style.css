@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.apps {
+  width: 5rem;
+  height: 100%;
+  background-color: #202225;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.apps hr {
+  width: 60%;
+  border: 0.5px solid #96989D;
+  opacity: 0.5;
+}
+.apps__app {
+  width: 70%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: #36393F;
+  margin: 0.5em 0;
+}
+
+.home {
+  width: 15rem;
+  height: 100%;
+  background-color: #2F3136;
+  color: #96989D;
+  display: flex;
+  flex-direction: column;
+}
+.home__search {
+  margin: 1em 0.5em;
+  width: 90%;
+  background-color: #202225;
+  border: none;
+}
+.home__options {
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.home__options__option {
+  padding: 0 0.5em;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+}
+.home__options__option i {
+  width: 2rem;
+}
+.home__options__option b {
+  margin-left: 0.5em;
+}
+.home__options__option:hover {
+  background-color: #42464D;
+}
+.home__friends {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+}
+.home__friends__friend {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0;
+  border-radius: 10px;
+}
+.home__friends__friend img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.home__friends__friend p {
+  margin-left: 1em;
+}
+.home__friends__friend:hover {
+  background-color: #42464D;
+}
+.home__user {
+  background-color: #292B2F;
+  height: 2rem;
+  margin-top: auto;
+  padding: 0.3em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.home__user__img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.home__user__name {
+  font-size: 0.8em;
+  color: whitesmoke;
+}
+.home__user__icons {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: 1fr 15fr;
+  background-color: #36393F;
+}
+.main__topNav {
+  border-bottom: 2px solid #202225;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 1em;
+  font-size: 1.1rem;
+  width: calc(100vw - 20rem);
+  height: 2rem;
+  color: #96989D;
+}
+.main__topNav__title b {
+  margin-left: 0.5em;
+  color: whitesmoke;
+}
+.main__topNav__settings {
+  display: flex;
+}
+.main__topNav__settings .fa-solid {
+  margin: 0 0.5em;
+}
+.main__topNav__settings .fa-rotate-right {
+  border-right: 1px solid #96989D;
+  padding-right: 1em;
+}
+.main__body__stages {
+  border-right: 2px solid #202225;
+  width: 60%;
+  height: 100%;
+}
+.main__body__activities {
+  background-color: aqua;
+}

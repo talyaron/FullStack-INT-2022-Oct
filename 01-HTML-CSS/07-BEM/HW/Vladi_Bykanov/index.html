@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BEM Discord</title>
+    <link rel="stylesheet" href="./dist/style.css" />
+    <script
+      src="https://kit.fontawesome.com/0d9e773bea.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="apps">
+      <div class="apps__app app--main"></div>
+      <hr />
+      <div class="apps__app"></div>
+      <div class="apps__app"></div>
+      <div class="apps__app"></div>
+    </div>
+    <div class="home">
+      <input
+        class="home__search"
+        type="text"
+        placeholder="Find or start conversation"
+      />
+      <div class="home__options">
+        <div class="home__options__option">
+          <i class="fa-solid fa-house-signal"></i>
+          <b>Home</b>
+        </div>
+        <div class="home__options__option">
+          <i class="fa-solid fa-user-group"></i>
+          <b>Friends</b>
+        </div>
+        <div class="home__options__option">
+          <i class="fa-solid fa-meteor"></i>
+          <b>Nitro</b>
+        </div>
+      </div>
+      <div class="home__friends">
+        <h6>DIRECT MESSAGES</h6>
+        <div class="home__friends__friend">
+          <img
+            src="./Landscape/pexels-jaime-reimer-2662116.jpg"
+            alt="John's Profile img"
+          />
+          <p>John</p>
+        </div>
+        <div class="home__friends__friend">
+          <img src="./Landscape/pexels-lumn-167699.jpg" alt="" />
+          <p>Jarry</p>
+        </div>
+        <div class="home__friends__friend">
+          <img src="./Landscape/pexels-pixabay-235621.jpg" alt="" />
+          <p>Johny</p>
+        </div>
+      </div>
+      <div class="home__user">
+        <img
+          class="home__user__img"
+          src="./Landscape/pexels-roberto-nickson-2775196.jpg"
+          alt=""
+        />
+        <div class="home__user__name">
+          <b>Vladislav Byk...</b>
+          <span>#5279</span>
+        </div>
+        <div class="home__user__icons">
+          <i class="fa-solid fa-volume-xmark"></i>
+          <i class="fa-solid fa-headphones"></i>
+          <i class="fa-solid fa-gear"></i>
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="main__topNav">
+        <div class="main__topNav__title">
+          <i class="fa-solid fa-house-signal"></i>
+          <b>Home</b>
+        </div>
+        <div class="main__topNav__settings">
+          <i class="fa-solid fa-rotate-right"></i>
+          <i class="fa-solid fa-inbox"></i>
+          <i class="fa-solid fa-circle-question"></i>
+        </div>
+      </div>
+      <div class="main_body">
+        <div class="main__body__stages">
+          <div class="main__body__stages_title"></div>
+          <div class="main__body__stages__stage">
+            <div class="main__body__stages__stage__server">
+              <img
+                class="main__stages__stage__server__img"
+                src="./Landscape/pexels-stein-egil-liland-3408744.jpg"
+                alt=""
+                width="50px"
+              />
+            </div>
+            <div class="main__body__stages__stage__name"></div>
+            <div class="main__body__stages__stage__users"></div>
+          </div>
+        </div>
+        <div class="main_body__activities"></div>
+      </div>
+    </div>
+  </body>
+</html>
