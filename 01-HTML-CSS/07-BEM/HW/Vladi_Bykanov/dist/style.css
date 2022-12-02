@@ -6,11 +6,11 @@
 body {
   width: 100vw;
   height: 100vh;
-  display: flex;
+  display: grid;
+  grid-template-columns: 4.5rem 15rem auto;
 }
 
 .apps {
-  width: 5rem;
   height: 100%;
   background-color: #202225;
   display: flex;
@@ -31,18 +31,24 @@ body {
 }
 
 .home {
-  width: 15rem;
-  height: 100%;
   background-color: #2F3136;
   color: #96989D;
   display: flex;
   flex-direction: column;
 }
 .home__search {
-  margin: 1em 0.5em;
-  width: 90%;
+  border-bottom: 2px solid #202225;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home__search input {
   background-color: #202225;
   border: none;
+  height: 60%;
+  border-radius: 5px;
+  color: white;
 }
 .home__options {
   font-size: 1.5rem;
@@ -112,7 +118,7 @@ body {
 
 .main {
   display: grid;
-  grid-template-rows: 1fr 15fr;
+  grid-template-rows: 3rem auto;
   background-color: #36393F;
 }
 .main__topNav {
@@ -120,10 +126,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5em 1em;
+  padding: 0 1em;
   font-size: 1.1rem;
-  width: calc(100vw - 20rem);
-  height: 2rem;
   color: #96989D;
 }
 .main__topNav__title b {
@@ -140,11 +144,16 @@ body {
   border-right: 1px solid #96989D;
   padding-right: 1em;
 }
+.main__body {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
 .main__body__stages {
   border-right: 2px solid #202225;
-  width: 60%;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .main__body__activities {
-  background-color: aqua;
+  display: flex;
+  flex-direction: column;
 }
