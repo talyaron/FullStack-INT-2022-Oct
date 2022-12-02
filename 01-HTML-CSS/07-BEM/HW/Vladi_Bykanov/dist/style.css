@@ -32,7 +32,22 @@ body {
   aspect-ratio: 1/1;
   border-radius: 50%;
   background-color: #36393F;
+  color: #3BA55D;
   margin: 0.5em 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.apps__app img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+.apps__app--discord {
+  border-radius: 10px;
+  background-color: #5865F2;
+  color: whitesmoke;
+  font-size: 2rem;
 }
 
 .home {
@@ -43,7 +58,7 @@ body {
 }
 .home__search {
   border-bottom: 2px solid #202225;
-  height: 3rem;
+  height: 2.9rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,6 +69,9 @@ body {
   height: 60%;
   border-radius: 5px;
   color: white;
+}
+.home__search input::placeholder {
+  text-align: center;
 }
 .home__options {
   display: flex;
@@ -82,16 +100,40 @@ body {
 .home__friends__friend {
   display: flex;
   align-items: center;
-  padding: 0.5em 0;
+  padding: 0.5em;
   border-radius: 10px;
+  position: relative;
 }
-.home__friends__friend img {
+.home__friends__friend img, .home__friends__friend .img {
   width: var(--friendImg-size);
   height: var(--friendImg-size);
   border-radius: 50%;
 }
-.home__friends__friend p {
+.home__friends__friend .img {
+  background-color: #3BA55D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: whitesmoke;
+}
+.home__friends__friend .green-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #3BA55D;
+  bottom: 10px;
+  left: 35px;
+  z-index: 10;
+  border: 3px solid #2F3136;
+}
+.home__friends__friend .name {
   margin-left: 1em;
+  display: flex;
+  flex-direction: column;
+}
+.home__friends__friend .name .explication {
+  font-size: 0.7em;
 }
 .home__friends__friend:hover {
   background-color: #42464D;
@@ -154,6 +196,8 @@ body {
   grid-template-columns: 3fr 2fr;
 }
 .main__body__stages {
+  overflow-y: auto;
+  height: calc(100vh - 5rem);
   border-right: 2px solid #202225;
   display: flex;
   flex-direction: column;

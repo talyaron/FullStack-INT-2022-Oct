@@ -31,8 +31,24 @@ body{
         aspect-ratio: 1/1;
         border-radius: 50%;
         background-color: #36393F;
+        color: #3BA55D;
         margin: .5em 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+            width: 100%;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+        }
+        &--discord{
+            border-radius: 10px;
+            background-color: #5865F2;
+            color: whitesmoke;
+            font-size: 2rem;
+        }
     }
+    
 }
 
 .home{
@@ -42,7 +58,7 @@ body{
     flex-direction: column;
     &__search{
         border-bottom: 2px solid #202225;
-        height: 3rem;
+        height: 2.9rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -53,14 +69,13 @@ body{
             border-radius: 5px;
             color: white;
         }
+        input::placeholder{
+            text-align: center;
+        }
     }
     &__options{
-        // border: 1px solid white;
-        // height: 20%;
-        // font-size: 1.2rem;
         display: flex;
         flex-direction: column;
-        // justify-content: space-between;
         &__option{
             padding: 0 .5em;
             height: 3rem;
@@ -85,15 +100,39 @@ body{
         &__friend{
             display: flex;
             align-items: center;
-            padding: .5em 0;
+            padding: .5em;
             border-radius: 10px;
-            img{
+            position: relative;
+            img, .img{
                 width: var(--friendImg-size);
                 height: var(--friendImg-size);
                 border-radius: 50%;
             }
-            p{
+            .img{
+                background-color: #3BA55D;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: whitesmoke;
+            }
+            .green-dot{
+                position: absolute;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: #3BA55D;
+                bottom: 10px;
+                left: 35px;
+                z-index: 10;
+                border: 3px solid #2F3136;
+            }
+            .name{
                 margin-left: 1em;
+                display: flex;
+                flex-direction: column;
+                .explication{
+                    font-size: .7em;
+                }
             }
         }
         &__friend:hover{
@@ -160,6 +199,8 @@ body{
         display: grid;
         grid-template-columns: 3fr 2fr;
         &__stages{
+            overflow-y: auto;
+            height: calc(100vh - 5rem);
             border-right: 2px solid #202225;
             display: flex;
             flex-direction: column;
