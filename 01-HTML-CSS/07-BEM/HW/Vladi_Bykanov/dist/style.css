@@ -49,6 +49,11 @@ body {
   color: whitesmoke;
   font-size: 2rem;
 }
+.apps__app:hover {
+  transform: scale(1.2);
+  transition: transform ease-in 0.2s;
+  cursor: pointer;
+}
 
 .home {
   background-color: #2F3136;
@@ -91,6 +96,7 @@ body {
 }
 .home__options__option:hover {
   background-color: #42464D;
+  cursor: pointer;
 }
 .home__friends {
   display: flex;
@@ -137,6 +143,7 @@ body {
 }
 .home__friends__friend:hover {
   background-color: #42464D;
+  cursor: pointer;
 }
 .home__user {
   background-color: #292B2F;
@@ -186,6 +193,10 @@ body {
 }
 .main__topNav__settings .fa-solid {
   margin: 0 0.5em;
+}
+.main__topNav__settings .fa-solid:hover {
+  color: whitesmoke;
+  cursor: pointer;
 }
 .main__topNav__settings .fa-rotate-right {
   border-right: 1px solid #96989D;

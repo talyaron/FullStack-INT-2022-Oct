@@ -48,6 +48,11 @@ body{
             font-size: 2rem;
         }
     }
+    &__app:hover{
+        transform: scale(1.2);
+        transition: transform ease-in .2s ;
+        cursor: pointer;
+    }
     
 }
 
@@ -90,6 +95,7 @@ body{
         }
         &__option:hover{
             background-color: #42464D;
+            cursor: pointer;
         }
     }
     &__friends{
@@ -137,6 +143,7 @@ body{
         }
         &__friend:hover{
             background-color: #42464D;
+            cursor: pointer;
         }
     }
     &__user{
@@ -188,6 +195,10 @@ body{
             display: flex;
             .fa-solid {
                 margin: 0 .5em;
+            }
+            .fa-solid:hover{
+                color: whitesmoke;
+                cursor: pointer;
             }
             .fa-rotate-right{
                 border-right: 1px solid #96989D;
