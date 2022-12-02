@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+:root {
+  --stageSpeaker-size: 30px;
+  --friendImg-size: 50px;
+}
+
 body {
   width: 100vw;
   height: 100vh;
@@ -51,7 +56,6 @@ body {
   color: white;
 }
 .home__options {
-  font-size: 1.5rem;
   display: flex;
   flex-direction: column;
 }
@@ -82,8 +86,8 @@ body {
   border-radius: 10px;
 }
 .home__friends__friend img {
-  width: 2rem;
-  height: 2rem;
+  width: var(--friendImg-size);
+  height: var(--friendImg-size);
   border-radius: 50%;
 }
 .home__friends__friend p {
@@ -109,6 +113,7 @@ body {
 .home__user__name {
   font-size: 0.8em;
   color: whitesmoke;
+  margin-left: 0.5em;
 }
 .home__user__icons {
   width: 40%;
@@ -152,8 +157,135 @@ body {
   border-right: 2px solid #202225;
   display: flex;
   flex-direction: column;
+  padding: 1rem 3rem;
+}
+.main__body__stages__title {
+  color: whitesmoke;
+}
+.main__body__stages__stage {
+  padding: 1em;
+  background-color: #2F3136;
+  border-radius: 5px;
+  margin-top: 1em;
+  color: whitesmoke;
+}
+.main__body__stages__stage__server {
+  display: flex;
+  align-items: center;
+}
+.main__body__stages__stage__server img {
+  width: 2rem;
+  aspect-ratio: 1/1;
+  border-radius: 5px;
+}
+.main__body__stages__stage__server__text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: smaller;
+  margin-left: 0.5em;
+}
+.main__body__stages__stage__server__text .name {
+  display: flex;
+}
+.main__body__stages__stage__server__text .name .status-icon {
+  margin-left: 0.5em;
+  width: 1rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: #182fb5;
+  display: flex;
+}
+.main__body__stages__stage__server__text .name .status-icon .fa-eye {
+  margin: auto;
+  font-size: 0.7em;
+}
+.main__body__stages__stage__server__text .status {
+  color: #96989D;
+}
+.main__body__stages__stage__server__online {
+  margin-left: auto;
+  background-color: #202225;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  padding: 5px;
+}
+.main__body__stages__stage__server__online i {
+  margin-right: 5px;
+}
+.main__body__stages__stage__name {
+  margin: 0.5em 0;
+  font-size: 1.5rem;
+}
+.main__body__stages__stage__speakers {
+  color: #96989D;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 80%;
+}
+.main__body__stages__stage__speakers__speaker {
+  display: flex;
+  align-items: center;
+  margin: 0.5em;
+}
+.main__body__stages__stage__speakers__speaker img, .main__body__stages__stage__speakers__speaker i {
+  width: var(--stageSpeaker-size);
+  height: var(--stageSpeaker-size);
+  border-radius: 50%;
+  margin-right: 0.5em;
+}
+.main__body__stages__stage__speakers__speaker i {
+  background-color: #202225;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.5em;
+}
+.main__body__stages__stage__speakers--withPhoto {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+}
+.main__body__stages__stage__speakers--withPhoto div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.main__body__stages__stage__speakers--withPhoto div .main__body__stages__stage__speakers__speaker {
+  display: flex;
+  align-items: center;
+  margin: 0.5em;
+}
+.main__body__stages__stage__speakers--withPhoto div .main__body__stages__stage__speakers__speaker img, .main__body__stages__stage__speakers--withPhoto div .main__body__stages__stage__speakers__speaker i {
+  width: var(--stageSpeaker-size);
+  height: var(--stageSpeaker-size);
+  border-radius: 50%;
+  margin-right: 0.5em;
+}
+.main__body__stages__stage__speakers--withPhoto div .main__body__stages__stage__speakers__speaker i {
+  background-color: #202225;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.5em;
+}
+.main__body__stages__stage__speakers--withPhoto img {
+  height: 8rem;
+  aspect-ratio: 4/2;
+  border-radius: 10px;
 }
 .main__body__activities {
   display: flex;
   flex-direction: column;
+  background-color: antiquewhite;
+}
+
+@media screen and (max-width: 1400px) {
+  .main__body {
+    display: block;
+  }
+  .main__body__activities {
+    display: none;
+  }
 }
