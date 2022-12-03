@@ -4,8 +4,8 @@
 }
 
 :root{
-    --stageSpeaker-size: 30px;
-    --friendImg-size: 50px;
+    --stageSpeaker-size: 20px;
+    --friendImg-size: 30px;
 }
 
 body{
@@ -21,13 +21,14 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: auto;
     hr{
         width: 60%;
         border: .5px solid #96989D;
         opacity: .5;
     }
     &__app{
-        width: 70%;
+        width: 3rem;
         aspect-ratio: 1/1;
         border-radius: 50%;
         background-color: #36393F;
@@ -61,6 +62,7 @@ body{
     color: #96989D;
     display: flex;
     flex-direction: column;
+    height: 100vh;
     &__search{
         border-bottom: 2px solid #202225;
         height: 2.9rem;
@@ -103,6 +105,7 @@ body{
         display: flex;
         flex-direction: column;
         padding: .5em;
+        overflow-y: auto;
         &__friend{
             display: flex;
             align-items: center;
@@ -123,12 +126,12 @@ body{
             }
             .green-dot{
                 position: absolute;
-                width: 10px;
-                height: 10px;
+                width: calc(var(--friendImg-size)/4);
+                height: calc(var(--friendImg-size)/4);
                 border-radius: 50%;
                 background-color: #3BA55D;
-                bottom: 10px;
-                left: 35px;
+                bottom: 15%;
+                left: 12%;
                 z-index: 10;
                 border: 3px solid #2F3136;
             }
@@ -183,7 +186,7 @@ body{
         justify-content: space-between;
         align-items: center;
         padding: 0 1em;
-        font-size: 1.1rem;
+        font-size: .9rem;
         color: #96989D;
         &__title{
             b{
@@ -208,7 +211,7 @@ body{
     }
     &__body{
         display: grid;
-        grid-template-columns: 3fr 2fr;
+        grid-template-columns: 5fr 2fr;
         &__stages{
             overflow-y: auto;
             height: calc(100vh - 5rem);
@@ -275,7 +278,7 @@ body{
                 }
                 &__name{
                     margin: .5em 0 ;
-                    font-size: 1.5rem;
+                    font-size: 1.1rem;
                 }
                 &__speakers{
                     // border: 1px solid white;
@@ -330,12 +333,22 @@ body{
 
                     }
                     img{
-                        height: 8rem;
+                        height: 6rem;
                         aspect-ratio: 4/2;
                         border-radius: 10px;
                     }
                 }
             }
+        }
+        &__stages::-webkit-scrollbar{
+            width: 1em;
+        }
+        &__stages::-webkit-scrollbar-track{
+            box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+        &__stages::-webkit-scrollbar-thumb{
+            background-color: #292B2F;
+            border-radius: 20px;
         }
         &__activities{
             display: flex;
@@ -345,14 +358,14 @@ body{
     }
 }
 
-@media screen and (max-width: 1400px){
-    .main{
-        &__body{
-            display: block;
-            &__activities{
-                display: none;
-            }
-        }
+// @media screen and (max-width: 1600px){
+//     .main{
+//         &__body{
+//             display: block;
+//             &__activities{
+//                 display: none;
+//             }
+//         }
         
-    }
-}
+//     }
+// }
