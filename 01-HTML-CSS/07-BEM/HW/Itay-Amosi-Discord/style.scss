@@ -219,6 +219,12 @@ body {
         height: 115px;
       }
     }
+  //   &__friends:hover{
+  //     // transform: scale(1.2);
+  //     // transition: transform ease-in .2s ;
+  //     cursor: pointer;
+  //     text-align: center;
+  // }
     &__nitro {
       background-color: #1a1a1a;
       height: 45px;
@@ -262,7 +268,6 @@ body {
     gap: 3rem;
     border: none;
     font-size: 16px;
-    cursor: pointer;
     margin-top: -15px;
   }
   .avatar-p1 {
