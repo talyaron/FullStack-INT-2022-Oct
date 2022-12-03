@@ -1,20 +1,21 @@
 body {
   margin: 0%;
+  // width: auto;
+  // min-height: 99vh;
+  box-sizing: border-box;
   border: 3px solid black;
-  width: 1600px;
+  width: 1800px;
   height: 800px;
-  
 }
-.discord{
-    
-}
+
 .server {
   border: 2px solid black;
   display: flex;
   flex-direction: column;
   width: 60px;
-  height: 800px;
+  height: 790px;
   background-color: rgb(58, 55, 55);
+  position: absolute;
   img {
     width: 50px;
     height: 50px;
@@ -29,20 +30,133 @@ body {
     margin-left: 4px;
     &__serAdd {
       margin-left: 7px;
-    //   background-color: gray;
+      //   background-color: gray;
       width: 50px;
       height: 50px;
     }
     &__serverSearch {
-        margin-left: 7px;
-    img{
+      margin-left: 7px;
+      img {
         width: 40px;
         height: 40px;
         border-radius: 50%;
-    }
+      }
     }
   }
   &__home {
     border-bottom: 3px solid black;
+  }
+}
+.mineMenu {
+  // margin-top: -800px;
+  // margin-left: 100px;
+  background-color: grey;
+  position: absolute;
+  width: 320px;
+  height: 795px;
+  left: 65px;
+  &__search {
+    width: 95%;
+    height: 28px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 24px;
+    margin-left: 5px;
+  }
+  &__home {
+    margin-top: 90px;
+    margin-left: 20px;
+    border: 2px solid black;
+    width: 260px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    color: black;
+    text-decoration: none;
+    p {
+      margin-left: 20px;
+    }
+    i {
+      margin-top: 15px;
+      margin-left: 10px;
+    }
+  }
+  &__friend {
+    margin-top: 10px;
+    margin-left: 20px;
+    border: 2px solid black;
+    width: 260px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    color: black;
+    text-decoration: none;
+    p {
+      margin-left: 20px;
+    }
+    i {
+      margin-top: 15px;
+      margin-left: 10px;
+    }
+  }
+  &__nitro {
+    margin-top: 10px;
+    margin-left: 20px;
+    border: 2px solid black;
+    width: 260px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    color: black;
+    text-decoration: none;
+    p {
+      margin-left: 18px;
+    }
+    i {
+      margin-top: 15px;
+      margin-left: 10px;
+    }
+    img {
+      margin-top: 7px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+  &__title {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 25px;
+    color: black;
+    text-decoration: none;
+    i {
+      margin-left: 100px;
+      margin-top: 15px;
+    }
+    h1 {
+      font-size: 25px;
+      margin: 0;
+    }
+  }
+  &__subMenu{
+    
+    &__usrename{
+        border: 2px solid black;
+        display: flex;
+        margin-left: 15px;
+        padding: 5x;
+        margin: 15px;
+        color: black;
+        text-decoration: none;
+        img{
+            width: 40px;
+            height: 40px;
+        }
+        p{
+            margin-left: 15px;
+        }
+    }
   }
 }
