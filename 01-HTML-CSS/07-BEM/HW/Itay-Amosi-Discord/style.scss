@@ -1,0 +1,193 @@
+body {
+  width: auto;
+  min-height: 100vh;
+  padding: auto;
+  margin: auto;
+  font-family: Verdana;
+  font-size: 12px;
+  color: white;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding-left: 15px;
+  box-sizing: border-box;
+  background-color: #333333;
+  padding: 0%;
+
+  &__scroller {
+    background-color: #000000;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    min-height: 100vh;
+    position: relative;
+
+    &__apps {
+      background: #b3b3b3;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;  
+      transition: border-radius 128ms, background 128ms;  
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .divider {
+      width: 100%;
+      background-color: lightgray;
+      height: 2px;
+      border-radius: 1px;
+      opacity: 0.5;
+      transform: scale(0.75);
+    }
+    .green--color:hover {
+      background-color: green;
+    }
+    .purple--color:hover {
+      background-color: purple;
+    }
+    .orange--color:hover {
+      background-color: orange;
+    }
+    .blue--me:hover {
+      background-color: blue;
+    } 
+    &__apps:hover .popup--me{
+        opacity: 1;
+      }
+      &__apps:hover .popup--green{
+        opacity: 1;
+      }
+      &__apps:hover .popup--purple{
+        opacity: 1;
+      }
+      &__apps:hover .popup--orange{
+        opacity: 1;
+      }
+  }
+  .container__scroller__apps:hover::before{
+    transform: translate(-100%, -50%) scale(0.5);
+  }
+  .container__scroller__apps:hover {
+    border-radius: 25%;
+  }
+  .container__scroller__apps::before{
+    width: 100%;
+    height: 100%;
+    content: '';
+    transform: translate(-100%, -50%) scale(0);
+    position: absolute;
+    background-color: white;
+    border-radius: 4px;
+    top: 50%;
+    transition: transform 180ms;;
+  }
+  .popup--me{
+    background-color: black;
+    position: absolute;
+    padding: 0.68rem 1rem 1rem 1rem;
+    top: 50%;
+    left: 154%;
+    width: max-content;
+    border-radius: 15px;
+    transform:translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .popup--green{
+    background-color: black;
+    position: absolute;
+    padding: 0.68rem 1rem 1rem 1rem;
+    top: 50%;
+    left: 154%;
+    width: max-content;
+    border-radius: 15px;
+    transform:translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .popup--purple{
+    background-color: black;
+    position: absolute;
+    padding: 0.68rem 1rem 1rem 1rem;
+    top: 50%;
+    left: 154%;
+    width: max-content;
+    border-radius: 15px;
+    transform:translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .popup--orange{
+    background-color: black;
+    position: absolute;
+    padding: 0.68rem 1rem 1rem 1rem;
+    top: 50%;
+    left: 154%;
+    width: max-content;
+    border-radius: 15px;
+    transform:translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .popup--me::before{
+    position: absolute;
+    background: black;
+    width: 24px;
+    left: -2px;
+    top: 50%;
+    content: '';
+    height: 24px;
+    transform: translateY(-50%) rotate(45deg);
+    z-index: -1;
+  }
+  .popup--green::before{
+    position: absolute;
+    background: black;
+    width: 24px;
+    left: -2px;
+    top: 50%;
+    content: '';
+    height: 24px;
+    transform: translateY(-50%) rotate(45deg);
+    z-index: -1;
+  }
+  .popup--purple::before{
+    position: absolute;
+    background: black;
+    width: 24px;
+    left: -2px;
+    top: 50%;
+    content: '';
+    height: 24px;
+    transform: translateY(-50%) rotate(45deg);
+    z-index: -1;
+  }
+  .popup--orange::before{
+    position: absolute;
+    background: black;
+    width: 24px;
+    left: -2px;
+    top: 50%;
+    content: '';
+    height: 24px;
+    transform: translateY(-50%) rotate(45deg);
+    z-index: -1;
+  }
+.web{
+   width: inherit;
+border-radius: 50%;
+}
+.circleIcon-3489FI{
+    width: 35px;
+    height: 35px;
+    color: rgb(68, 131, 68);
+}
+
+}
