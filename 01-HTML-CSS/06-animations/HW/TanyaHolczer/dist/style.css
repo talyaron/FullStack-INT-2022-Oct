@@ -1,0 +1,132 @@
+body {
+  background: #333;
+  height: 100vh;
+}
+
+.balloon {
+  display: inline-block;
+  width: 120px;
+  height: 145px;
+  background: #799ed2;
+  border-radius: 80%;
+  box-shadow: inset -10px -10px 0 rgba(0, 0, 0, 0.07);
+  margin: 20px 30px;
+  animation: animate 5s forwards 1s ease-in-out infinite;
+  position: relative;
+}
+
+@keyframes animate {
+  from {
+    top: 100vh;
+  }
+  to {
+    top: -30vh;
+  }
+}
+.balloon:nth-child(2) {
+  background: #8882c9;
+  animation-duration: 3.5s;
+}
+
+.balloon:nth-child(2):before {
+  color: #8882c9;
+}
+
+.balloon:nth-child(3) {
+  background: #66cc86;
+  animation-duration: 3s;
+}
+
+.balloon:nth-child(3):before {
+  color: #59a671;
+}
+
+.balloon:nth-child(4) {
+  background: #c9c85e;
+  animation-duration: 4.5s;
+}
+
+.balloon:nth-child(4):before {
+  color: #a9a860;
+}
+
+.balloon:nth-child(5) {
+  background: #ce8355;
+  animation-duration: 5s;
+}
+
+.balloon:nth-child(5):before {
+  color: #a96942;
+}
+
+.balloon:nth-child(6) {
+  background: #c9c582;
+  animation-duration: 3.5s;
+}
+
+.balloon:nth-child(6):before {
+  color: #bfc982;
+}
+
+.balloon:nth-child(7) {
+  background: #12391e;
+  animation-duration: 3s;
+}
+
+.balloon:nth-child(7):before {
+  color: #59a671;
+}
+
+.balloon:nth-child(8) {
+  background: #c9c85e;
+  animation-duration: 4.5s;
+}
+
+.balloon:nth-child(8):before {
+  color: #a9a860;
+}
+
+.balloon:nth-child(9) {
+  background: #3a1bc1;
+  animation-duration: 5s;
+}
+
+.balloon:nth-child(9):before {
+  color: #a96942;
+}
+
+.balloon:nth-child(10) {
+  background: #82c9b8;
+  animation-duration: 3.5s;
+}
+
+.balloon:nth-child(10):before {
+  color: #82c9b0;
+}
+
+.balloon:nth-child(11) {
+  background: #cc668f;
+  animation-duration: 3s;
+}
+
+.balloon:nth-child(11):before {
+  color: #a65963;
+}
+
+.balloon:nth-child(12) {
+  background: #c9c85e;
+  animation-duration: 4.5s;
+}
+
+.balloon:nth-child(12):before {
+  color: #a9a860;
+}
+
+.balloon:nth-child(13) {
+  background: #55ce65;
+  animation-duration: 5s;
+}
+
+.balloon:nth-child(13):before {
+  color: #55a942;
+}

@@ -45,7 +45,7 @@ body {
 }
 
 .mineMenu {
-  background-color: grey;
+  background-color: #64656a;
   position: absolute;
   width: 320px;
   height: 795px;
@@ -151,4 +151,45 @@ body {
 }
 .mineMenu__subMenu__usrename p {
   margin-left: 15px;
+}
+
+.me {
+  margin-top: 95px;
+  position: sticky;
+  display: flex;
+  color: black;
+  text-decoration: none;
+  border: 2px solid black;
+  background-color: #31363a;
+  justify-content: space-between;
+}
+.me__icon-name img {
+  width: 50px;
+  width: 50px;
+}
+.me__icon-name p {
+  margin-left: 15px;
+  float: right;
+}
+.me__icon {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 120px;
+}
+
+.navBar {
+  margin-left: 380px;
+  display: flex;
+  position: sticky;
+  width: 1395px;
+  background-color: gray;
+}
+.navBar__home {
+  display: flex;
+  margin-left: 10px;
+}
+.navBar__home i {
+  right: 100px;
+  float: left;
 }
