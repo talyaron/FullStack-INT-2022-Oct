@@ -1,5 +1,6 @@
 .body {
     margin: 0%;
+    
 }
 
 .page {
@@ -11,7 +12,7 @@
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    background-color: rgb(251, 7, 7);
+    font-family: Arial, sans-serif;
 }
 
 .navbar{
@@ -58,12 +59,12 @@
     background-color: rgb(7,94,84);
     justify-content: space-around;
     vertical-align: text-top;
-    padding: 5PX;
+    font-size: 10px;
 }
 
 .camaraLogoPosition {
 position: relative;
-top: 10px;
+top: 4px;
 opacity: 0.5;
 }
 
@@ -98,11 +99,17 @@ opacity: 0.5;
     padding-bottom: 5px;
 }
 .time {
-    font-size: 15px;
+    font-size: 11px;
 }
 
 .greenCircle {
     width: 30px;
     height: 30px;
 }
+.callaSeperator{
+    height: 1px;
+    background-color: grey;
+
+}
+
 
