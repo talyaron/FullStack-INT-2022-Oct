@@ -1,0 +1,48 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.main {
+  border: 1px solid red;
+  width: 1000px;
+  height: 1000px;
+  margin: auto;
+  margin-top: 100px;
+  display: flex;
+  gap: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.main__ball {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-color: aqua;
+  -webkit-animation-name: ball;
+          animation-name: ball;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+@-webkit-keyframes ball {
+  0% {
+    background-color: green;
+  }
+  50% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: grey;
+  }
+}
+@keyframes ball {
+  0% {
+    background-color: green;
+  }
+  50% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: grey;
+  }
+}/*# sourceMappingURL=style.css.map */

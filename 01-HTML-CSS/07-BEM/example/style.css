@@ -1,0 +1,48 @@
+.addTask {
+  border-radius: 10px;
+  background-color: wheat;
+  width: 700px;
+  margin: 10px auto;
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.addTask__input {
+  flex: auto;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+}
+.addTask__btn {
+  background-color: teal;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  border: none;
+}
+
+.tasks {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  width: 700px;
+  margin: auto;
+}
+.tasks__task {
+  background-color: rgb(226, 226, 109);
+  padding: 20px;
+  border-radius: 10px;
+}
+.tasks__task p {
+  background-color: rgb(158, 158, 77);
+  font-size: 1.5rem;
+}
+.tasks__task--done {
+  background-color: rgba(226, 226, 109, 0.402);
+}
+
+.bold-large {
+  font-size: 2rem;
+  font-weight: 900;
+}/*# sourceMappingURL=style.css.map */

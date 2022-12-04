@@ -1,0 +1,15 @@
+.grid-container {
+  height: 500px;
+  width: 100vw;
+  background-color: aqua;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+}
+.grid-container__grid-item {
+  width: 100px;
+  height: 100px;
+  background-color: bisque;
+  border: 2px solid black;
+}/*# sourceMappingURL=style.css.map */
