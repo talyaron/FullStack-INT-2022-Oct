@@ -1,0 +1,88 @@
+body {
+  margin: 0%;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: azure;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.wrapper__balloon {
+  width: 100px;
+  height: 200px;
+  border-radius: 80%;
+  position: relative;
+  -webkit-animation-name: flying;
+          animation-name: flying;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+.wrapper__balloon img {
+  height: 100%;
+  width: 100%;
+}
+.wrapper #baloon1 {
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+.wrapper #baloon2 {
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+}
+.wrapper #baloon3 {
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+}
+.wrapper #baloon4 {
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+}
+.wrapper #baloon5 {
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+.wrapper #baloon6 {
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+}
+.wrapper #baloon7 {
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+}
+.wrapper #baloon8 {
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+.wrapper #baloon9 {
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+}
+.wrapper #baloon10 {
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes flying {
+  from {
+    bottom: 0px;
+  }
+  to {
+    bottom: 800px;
+  }
+}
+
+@keyframes flying {
+  from {
+    bottom: 0px;
+  }
+  to {
+    bottom: 800px;
+  }
+}/*# sourceMappingURL=style.css.map */
