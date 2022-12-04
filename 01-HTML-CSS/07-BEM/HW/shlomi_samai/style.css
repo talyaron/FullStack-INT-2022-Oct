@@ -7,7 +7,7 @@
   border: 1px solid black;
   border-radius: 17px;
   height: 90vh;
-  width: 30vw;
+  width: 20vw;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -64,4 +64,40 @@
 
 .opacity {
   opacity: 0.5;
+}
+
+.calles {
+  color: white;
+  display: flex;
+  height: 30px;
+  background-color: white;
+  justify-content: space-between;
+  vertical-align: text-top;
+  padding: 5PX;
+}
+
+.colorGreen {
+  color: rgb(7, 94, 84);
+}
+
+.colorBlack {
+  color: black;
+}
+
+.users {
+  display: flex;
+}
+
+.callesAndTime {
+  display: flex;
+  padding-bottom: 5px;
+}
+
+.time {
+  font-size: 15px;
+}
+
+.greenCircle {
+  width: 30px;
+  height: 30px;
 }/*# sourceMappingURL=style.css.map */
