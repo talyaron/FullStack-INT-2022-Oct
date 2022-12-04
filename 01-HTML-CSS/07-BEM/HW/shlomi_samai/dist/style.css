@@ -40,8 +40,28 @@
   background-color: #075e54;
   display: flex;
   justify-content: space-between;
+  color: white;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-left: 5px;
 }
 
-.searchAndDots {
+.menu {
   color: white;
+  display: flex;
+  height: 30px;
+  background-color: #075e54;
+  justify-content: space-around;
+  vertical-align: text-top;
+  padding: 5PX;
+}
+
+.camaraLogoPosition {
+  position: relative;
+  top: 10px;
+  opacity: 0.5;
+}
+
+.opacity {
+  opacity: 0.5;
 }
