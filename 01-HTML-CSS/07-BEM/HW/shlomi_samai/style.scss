@@ -1,5 +1,6 @@
 .body {
     margin: 0%;
+    
 }
 
 .page {
@@ -7,11 +8,11 @@
     border:1px solid black;
     border-radius: 17px;
     height: 90vh;
-    width: 30vw;
+    width: 20vw;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    background-color: rgb(251, 7, 7);
+    font-family: Arial, sans-serif;
 }
 
 .navbar{
@@ -45,7 +46,70 @@
     background-color: rgb(7,94,84);
     display: flex;
     justify-content: space-between;
-}
-.searchAndDots{
     color: white;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 5px;
 }
+
+.menu{
+    color: white;
+    display: flex;
+    height: 30px;
+    background-color: rgb(7,94,84);
+    justify-content: space-around;
+    vertical-align: text-top;
+    font-size: 10px;
+}
+
+.camaraLogoPosition {
+position: relative;
+top: 4px;
+opacity: 0.5;
+}
+
+.opacity {
+opacity: 0.5;   
+}
+
+.calles {
+    color: white;
+    display: flex;
+    height: 30px;
+    background-color: white;
+    justify-content: space-between;
+    vertical-align: text-top;
+    padding: 5PX; 
+}
+
+.colorGreen {
+    color:rgb(7,94,84) ;
+}
+
+.colorBlack {
+    color:black ;
+}
+
+.users{
+    display: flex;
+}
+
+.callesAndTime {
+    display: flex;
+    padding-bottom: 5px;
+}
+.time {
+    font-size: 11px;
+}
+
+.greenCircle {
+    width: 30px;
+    height: 30px;
+}
+.callaSeperator{
+    height: 1px;
+    background-color: grey;
+
+}
+
+

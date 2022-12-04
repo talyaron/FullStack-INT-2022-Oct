@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+}
+
+.circle {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  border-radius: 50%;
+  -webkit-animation-name: bounce;
+          animation-name: bounce;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+@-webkit-keyframes bounce {
+  0% {
+    top: 650px;
+  }
+  50% {
+    left: 200px;
+    background-color: green;
+    border: 1px solid black;
+    border-radius: 0;
+  }
+  100% {
+    top: 650px;
+  }
+}
+@keyframes bounce {
+  0% {
+    top: 650px;
+  }
+  50% {
+    left: 200px;
+    background-color: green;
+    border: 1px solid black;
+    border-radius: 0;
+  }
+  100% {
+    top: 650px;
+  }
+}/*# sourceMappingURL=style.css.map */
