@@ -191,4 +191,5 @@ body {
 }
 .navBar__home i {
   right: 100px;
+  float: left;
 }
