@@ -1,0 +1,254 @@
+body {
+  margin: 0;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 20px;
+}
+
+.header {
+  background-color: black;
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  position: fixed;
+}
+.header__bbc {
+  margin-left: 13%;
+  display: flex;
+  width: 350px;
+  justify-content: space-around;
+}
+.header__bbc__logo {
+  display: flex;
+  width: 100px;
+  justify-content: space-around;
+  position: relative;
+  top: 17px;
+}
+.header__bbc__icon img {
+  padding-top: 40px;
+  height: 26px;
+  width: 26px;
+}
+.header__bbc p {
+  font-size: x-large;
+  width: 25px;
+  height: 25px;
+  color: black;
+  background-color: white;
+}
+.header__bbc__sign-in {
+  margin-left: 0;
+  width: 150px;
+  color: white;
+}
+.header__bbc__sign-in h3 {
+  font-size: xx-large;
+}
+.header__nav_bar {
+  display: flex;
+  margin-top: 17px;
+  width: 1000px;
+  justify-content: space-around;
+}
+.header__nav_bar__home {
+  font-size: x-large;
+  width: 25px;
+  height: 25px;
+  color: white;
+  margin-top: 10px;
+}
+.header__nav_bar__news {
+  font-size: x-large;
+  width: 25px;
+  height: 25px;
+  color: white;
+  margin-top: 10px;
+}
+.header__nav_bar__sport {
+  font-size: x-large;
+  width: 25px;
+  height: 25px;
+  color: white;
+  margin-top: 10px;
+}
+.header__nav_bar__reel {
+  font-size: x-large;
+  width: 25px;
+  height: 25px;
+  color: white;
+  margin-top: 10px;
+}
+.header__nav_bar__worklife {
+  font-size: x-large;
+  width: 25px;
+  height: 25px;
+  color: white;
+  margin-top: 10px;
+}
+
+.container {
+  width: 1300px;
+  height: 1600px;
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+}
+.container__line {
+  height: 250px;
+  width: 1300px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(179, 173, 173);
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 35px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+}
+.container__line__welcome {
+  font-weight: 900;
+}
+.container__line__date {
+  font-weight: 900;
+}
+.container__top_news_grid {
+  height: 360px;
+  width: 1400px;
+  display: grid;
+  grid-template-areas: "big big little_1 little_2" "big big little_3 little_4";
+  gap: 10px;
+}
+.container__top_news_grid__big {
+  grid-area: big;
+  height: 360px;
+  width: 600px;
+}
+.container__top_news_grid__big__image {
+  height: 100%;
+  width: 650px;
+}
+.container__top_news_grid__big__text_over_image {
+  position: relative;
+  bottom: 157px;
+  left: 15px;
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+}
+.container__top_news_grid__big__text_over_image__box {
+  height: 100%;
+  width: 80%;
+}
+.container__top_news_grid__little_1 {
+  grid-area: little_1;
+  height: 175px;
+  width: 300px;
+}
+.container__top_news_grid__little_1__image {
+  height: 100%;
+  width: 100%;
+}
+.container__top_news_grid__little_1__text_box {
+  position: relative;
+  bottom: 80px;
+  left: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.container__top_news_grid__little_1__text_box__text_over_image {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 700;
+}
+.container__top_news_grid__little_1__text_box__tag {
+  border-left: 5px solid rgb(16, 224, 82);
+  padding-left: 10px;
+  color: rgb(209, 203, 203);
+  font-size: 16px;
+  font-weight: 100;
+  margin: 7px;
+}
+.container__top_news_grid__little_2 {
+  grid-area: little_2;
+  height: 175px;
+  width: 300px;
+}
+.container__top_news_grid__little_3 {
+  grid-area: little_3;
+  height: 175px;
+  width: 300px;
+}
+.container__top_news_grid__little_4 {
+  grid-area: little_4;
+  height: 175px;
+  width: 300px;
+}
+.container__bottom_news_grid {
+  height: 300px;
+  width: 1360px;
+  display: grid;
+  grid-template-areas: "news news news" "article_1 article_2 article_3" "sport sport sport" "article_4 article_5 article_6";
+  gap: 20px;
+  position: relative;
+  top: 20px;
+  font-size: 30px;
+  font-weight: 900;
+}
+.container__bottom_news_grid__header_news {
+  grid-area: news;
+  border-left: 5px solid rgb(176, 21, 21);
+  padding-left: 10px;
+}
+.container__bottom_news_grid__article_1 {
+  grid-area: article_1;
+  display: flex;
+  flex-direction: column;
+}
+.container__bottom_news_grid__article_1__image {
+  width: 100%;
+  height: 250px;
+}
+.container__bottom_news_grid__article_1__text_under_image {
+  position: relative;
+  top: 10px;
+  left: 0px;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  font-weight: 200;
+}
+.container__bottom_news_grid__article_2 {
+  grid-area: article_2;
+  display: flex;
+  flex-direction: column;
+}
+.container__bottom_news_grid__article_3 {
+  grid-area: article_3;
+  display: flex;
+  flex-direction: column;
+}
+.container__bottom_news_grid__header_sport {
+  grid-area: sport;
+  border-left: 5px solid rgb(16, 224, 82);
+  padding-left: 10px;
+}
+.container__bottom_news_grid__article_4 {
+  grid-area: article_4;
+  display: flex;
+  flex-direction: column;
+}
+.container__bottom_news_grid__article_5 {
+  grid-area: article_5;
+  display: flex;
+  flex-direction: column;
+}
+.container__bottom_news_grid__article_6 {
+  grid-area: article_6;
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=style.css.map */
