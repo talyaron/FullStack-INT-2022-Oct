@@ -1,0 +1,14 @@
+.grid-container {
+  height: 300vh;
+  width: 100vw;
+  background-color: aqua;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+}
+.grid-container .grid-item {
+  width: 100px;
+  height: 100px;
+  background-color: beige;
+  border: 1px solid black;
+}/*# sourceMappingURL=style.css.map */
