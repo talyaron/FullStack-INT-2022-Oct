@@ -1,0 +1,53 @@
+$width:700px;
+
+.addTask {
+  border-radius: 10px;
+  background-color: wheat;
+  width: $width;
+  margin: 10px auto;
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+
+  &__input {
+    flex: auto;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+  }
+
+  &__btn {
+    background-color: teal;
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    border: none;
+  }
+}
+
+.tasks {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  width: $width;
+  margin: auto;
+  &__task {
+    background-color: rgb(226, 226, 109);
+    padding: 20px;
+    border-radius: 10px;
+
+    p {
+      background-color: rgb(158, 158, 77);
+      font-size: 1.5rem;
+    }
+    &--done {
+      background-color: rgba(226, 226, 109, 0.402);
+    }
+  }
+}
+
+.bold-large {
+  font-size: 2rem;
+  font-weight: 900;
+}

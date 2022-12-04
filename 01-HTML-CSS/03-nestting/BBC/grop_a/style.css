@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+}
+
+.title {
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+}
+.title .title__bbca {
+  margin-left: 100px;
+}
+.title .title__bbca__bbc {
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  border: solid 2px black;
+  color: black;
+  background-color: white;
+  font-size: x-large;
+  border-radius: 3px;
+}
+
+.a {
+  font-size: xx-large;
+  color: white;
+}/*# sourceMappingURL=style.css.map */
