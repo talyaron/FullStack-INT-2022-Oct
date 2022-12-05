@@ -370,6 +370,10 @@ body {
   min-width: 20%;
   height: 100%;
   border-left: 1px solid #4f545c;
+  color: #bdbdbd;
+}
+.main__body__activities h1 {
+  margin-left: 20px;
 }
 
 @media screen and (max-width: 1400px) {
