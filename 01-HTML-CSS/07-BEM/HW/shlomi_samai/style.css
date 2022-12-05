@@ -7,7 +7,7 @@
   border: 1px solid black;
   border-radius: 17px;
   height: auto;
-  width: 22vw;
+  width: 18vw;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -112,7 +112,7 @@
 
 .callaSeperator {
   height: 1px;
-  width: 18vw;
+  width: 14vw;
   position: relative;
   left: 50px;
   opacity: 0.6;
