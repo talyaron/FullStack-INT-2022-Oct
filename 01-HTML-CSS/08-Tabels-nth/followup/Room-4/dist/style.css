@@ -1,0 +1,17 @@
+table {
+  margin: auto;
+  border-collapse: collapse;
+  width: 100px;
+  border: 1px solid red;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border: 1px;
+  border: 1px solid red;
+}
+
+tr:nth-child(2n-0) {
+  background-color: aqua;
+}
