@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+.watsapp-screen {
+  width: 500px;
+  height: 790px;
+  background-color: white;
+  margin: 20px auto;
+  border: 3px solid gainsboro;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 25px;
+}
+.watsapp-screen__indicator-bar {
+  width: 100%;
+  height: 25px;
+  background-color: #034603;
+  display: flex;
+  flex-direction: row;
+  gap: 400px;
+  top: 0px;
+  border-radius: 25px 25px 0px 0px;
+  position: relative;
+  margin-right: 5px;
+}
+.watsapp-screen__indicator-bar p {
+  font-size: 11px;
+  color: white;
+  left: 5px;
+  bottom: 5px;
+}
+.watsapp-screen__indicator-bar span {
+  color: white;
+  font-size: 20px;
+}
+.watsapp-screen__search-input {
+  width: 100%;
+  height: 50px;
+  background-color: #035503;
+  display: flex;
+  flex-direction: row;
+  gap: 360px;
+  position: relative;
+}
+.watsapp-screen__search-input h3 {
+  color: white;
+  margin-top: 15px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
+  opacity: 0.9;
+}
+.watsapp-screen__search-input span {
+  color: white;
+  opacity: 0.61;
+}
+.watsapp-screen__search-input__icon {
+  top: 15px;
+  position: relative;
+}
+.watsapp-screen__chats-bar {
+  width: 100%;
+  height: 50px;
+  background-color: #035503;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: relative;
+}
+.watsapp-screen__chats-bar H5 {
+  color: white;
+  opacity: 0.61;
+}
+.watsapp-screen__chats-bar__camera {
+  top: 15px;
+  position: relative;
+}
+.watsapp-screen__chats-bar span {
+  color: white;
+  opacity: 0.61;
+}
+.watsapp-screen__contact-chats {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+.watsapp-screen__contact-chats span {
+  font-size: 15px;
+  color: green;
+  position: relative;
+  right: 5px;
+  font-weight: bolder;
+}
+.watsapp-screen__contact-chats__contact {
+  width: 45%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  gap: 10px;
+  margin-top: 0px;
+}
+.watsapp-screen__contact-chats__contact__circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: #80df80;
+  left: 10px;
+  top: 10px;
+  position: relative;
+}
+.watsapp-screen__contact-chats__contact__usrename {
+  width: 66%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.watsapp-screen__contact-chats__contact__usrename--redarrow span {
+  color: red;
+}
+.watsapp-screen__contact-chats__contact__usrename h5 {
+  display: inline;
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.watsapp-screen__contact-chats__contact__usrename h6 {
+  display: inline;
+  margin-top: 0px;
+  margin-left: 10px;
+  opacity: 0.6;
+}

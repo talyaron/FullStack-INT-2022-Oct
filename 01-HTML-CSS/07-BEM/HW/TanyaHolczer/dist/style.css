@@ -1,0 +1,243 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  color: #f4f4f4;
+  overflow-x: none;
+}
+
+.container {
+  background: #36393e;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.header {
+  height: 5vh;
+  text-align: justify;
+  background-color: #1e2124;
+  justify-content: space-between;
+  display: flex;
+}
+
+.left {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  height: 5vh;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  height: 5vh;
+  align-items: center;
+}
+
+h5 {
+  padding: 0;
+  margin: 0;
+}
+
+.fa-minus {
+  padding-left: 1vw;
+}
+
+.fa-square {
+  padding-left: 1vw;
+}
+
+.fa-x {
+  padding-left: 1vw;
+}
+
+.fa-minus:hover {
+  color: #7289da;
+}
+
+.fa-square:hover {
+  color: #7289da;
+}
+
+.fa-x:hover {
+  color: #7289da;
+}
+
+.menu {
+  width: 7vw;
+  height: 95vh;
+  background-color: #1e2124;
+  display: inline-block;
+}
+
+.images {
+  align-items: center;
+  justify-content: space-around;
+}
+
+.images img {
+  margin-top: 5px;
+  border-radius: 50%;
+}
+
+.menu2 {
+  position: absolute;
+  display: inline-block;
+  overflow: auto;
+  height: 95vh;
+  width: 27vw;
+  background-color: #282b30;
+  left: 7vw;
+  top: 5vh;
+}
+
+.search {
+  padding: 0;
+}
+
+.fa-user {
+  font-size: 30px;
+  display: inline-block;
+  padding-right: 2vw;
+}
+
+.fa-bolt {
+  font-size: 30px;
+  display: inline-block;
+  padding-right: 2vw;
+}
+
+h3 {
+  display: inline-block;
+}
+
+#grey {
+  color: #a3a3a3;
+}
+
+.user {
+  position: absolute;
+  display: flex;
+  height: 15vh;
+  width: 27vw;
+  background-color: #282b30;
+  left: 7vw;
+  top: 85vh;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+
+.profile {
+  margin-top: 20px;
+  border-radius: 50%;
+  margin-left: 1vw;
+}
+
+h6 {
+  padding: 0;
+  margin: 0;
+}
+
+.username {
+  padding: 0;
+  text-align: center;
+  justify-content: space-between;
+  justify-content: center;
+  display: flex;
+}
+
+.fa-microphone {
+  padding-left: 1vw;
+}
+
+.fa-headphones {
+  padding-left: 1vw;
+}
+
+.fa-gear {
+  padding-left: 1vw;
+  padding-right: 3vw;
+}
+
+.fa-microphone:hover {
+  color: #7289da;
+}
+
+.fa-headphones:hover {
+  color: #7289da;
+}
+
+.fa-gear:hover {
+  color: #7289da;
+}
+
+.name {
+  margin-top: 15px;
+  margin-left: 2vw;
+}
+
+#right_options {
+  padding-top: 10px;
+}
+
+#small {
+  font-size: 15px;
+}
+
+.navbar {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #424549;
+  border-radius: 5px;
+  overflow: auto;
+  display: inline-block;
+  position: absolute;
+  left: 34vw;
+  width: 66vw;
+}
+
+.navbar li {
+  float: left;
+}
+
+.navbar li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 15px 20px;
+}
+
+.navbar li a:hover {
+  background-color: #446190;
+  color: #f4f4f4;
+}
+
+.wumpus {
+  position: absolute;
+  display: inline-block;
+  height: 85vh;
+  width: 66vw;
+  left: 34vw;
+  top: 15vh;
+  align-content: center;
+}
+
+#wumpus {
+  position: relative;
+  box-sizing: border-box;
+  left: 40%;
+  top: 25%;
+}
+
+h2 {
+  margin: 0;
+  padding-left: 20vw;
+  padding-top: 20vh;
+}

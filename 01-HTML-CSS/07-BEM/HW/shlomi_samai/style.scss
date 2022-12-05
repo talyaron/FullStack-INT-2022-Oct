@@ -7,8 +7,8 @@
     margin: auto;
     border:1px solid black;
     border-radius: 17px;
-    height: 90vh;
-    width: 20vw;
+    height: 90vh;   
+    width: 22vw;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -88,6 +88,7 @@ opacity: 0.5;
 
 .colorBlack {
     color:black ;
+    font-size: 15px;
 }
 
 .users{
@@ -109,6 +110,10 @@ opacity: 0.5;
 .callaSeperator{
     height: 1px;
     background-color: grey;
+    width: 16vw;
+    position: relative;
+    left: 50px;
+    opacity: 0.6;
 
 }
 
