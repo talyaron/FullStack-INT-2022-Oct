@@ -1,0 +1,300 @@
+body {
+  margin: 0;
+  background-color: #2f2f2f;
+  overflow: hidden;
+}
+body ::-webkit-scrollbar {
+  width: 20px;
+}
+body ::-webkit-scrollbar-track {
+  background: #262726;
+}
+body ::-webkit-scrollbar-thumb {
+  background: #724848;
+  border-radius: 10px;
+}
+
+.icon_top {
+  display: flex;
+  justify-content: flex-end;
+  justify-content: space-between;
+  margin-left: 80vw;
+  margin-right: 2.5vw;
+  position: relative;
+  top: 20px;
+  color: #807f7f;
+  font-size: x-large;
+}
+.icon_top .icon_top_right:hover {
+  color: aliceblue;
+}
+
+.discord_games_wraps {
+  position: relative;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 8px;
+  height: 500px;
+}
+.discord_games_wraps i {
+  color: #6f6767;
+}
+.discord_games_wraps img:hover {
+  transform: scale(1.2);
+  transition: transform ease-in 0.2s;
+}
+.discord_games_wraps__all_the_games_discord {
+  position: relative;
+  border-radius: 10px;
+  width: 45px;
+  height: 35px;
+}
+.discord_games_wraps__all_the_games {
+  position: relative;
+  top: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+.discord_games_wraps__circle {
+  position: relative;
+  background-color: #515150;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+}
+.discord_games_wraps__circle .icon_1 {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  font-size: 22px;
+  color: #28b00a;
+}
+.discord_games_wraps__circle .icon_2 {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  font-size: 22px;
+  color: #fb95f9;
+}
+.discord_games_wraps__circle:hover {
+  transform: scale(1.2);
+  transition: transform ease-in 0.2s;
+}
+.discord_games_wraps__discord_child {
+  position: absolute;
+  top: 14px;
+  left: 70px;
+  background-color: #7b7878;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-areas: " search   liveStages liveStages  liveStages activites activites  ";
+}
+.discord_games_wraps__discord_child input {
+  position: relative;
+  height: 25px;
+  width: 210px;
+  background-color: #202020;
+  border-radius: 2px;
+  top: 15px;
+  left: 10%;
+  border: none;
+  color: whitesmoke;
+}
+.discord_games_wraps__discord_child .i {
+  position: absolute;
+  font-size: medium;
+  color: #565454;
+  top: 20px;
+  left: 217px;
+}
+.discord_games_wraps__discord_child .p1 {
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-top: 20px;
+  font-size: larger;
+}
+.discord_games_wraps__discord_child .icon {
+  color: #abacac;
+}
+.discord_games_wraps__discord_child .p1:hover {
+  background-color: #2f2f2f;
+  color: azure;
+}
+.discord_games_wraps__discord_child .p1:hover .icon {
+  color: azure;
+}
+.discord_games_wraps__discord_child .p2 {
+  margin-left: 15%;
+  font-size: large;
+  color: azure;
+}
+.discord_games_wraps__discord_child .img_s {
+  margin-left: 10px;
+  width: 35px;
+  height: 35px;
+  border: solid 2px;
+  border-color: crimson crimson yellowgreen yellowgreen;
+  border-radius: 50%;
+}
+.discord_games_wraps__discord_child .text_img {
+  position: relative;
+  bottom: 13px;
+  left: 12px;
+  color: black;
+  font-size: large;
+}
+.discord_games_wraps__discord_child .titel_live_stages {
+  position: absolute;
+  margin-left: 25%;
+  color: white;
+}
+.discord_games_wraps__discord_child--search {
+  grid-area: search;
+  background-color: #424343;
+}
+.discord_games_wraps__discord_child--liveStages {
+  grid-area: liveStages;
+  overflow-y: auto;
+  background-color: #4b4949;
+}
+.discord_games_wraps__discord_child--liveStages .titel_live_stages {
+  position: relative;
+  margin-left: 25px;
+  color: white;
+}
+.discord_games_wraps__discord_child--liveStages .div_ls {
+  position: relative;
+  width: 80%;
+  height: 150px;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: #40403f;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+.discord_games_wraps__discord_child--liveStages .aoz {
+  position: absolute;
+  top: 9px;
+  background-color: black;
+  color: azure;
+  padding: 2px;
+  padding-left: 6px;
+  padding-right: 25px;
+  border-radius: 20%;
+  right: 10px;
+}
+.discord_games_wraps__discord_child--liveStages .aoz_number {
+  color: azure;
+  position: absolute;
+  top: 10px;
+  right: 13px;
+  font-size: medium;
+}
+.discord_games_wraps__discord_child--liveStages .a {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  border-radius: 10px;
+  position: absolute;
+  width: 35px;
+  height: 35px;
+}
+.discord_games_wraps__discord_child--liveStages .pl {
+  color: azure;
+  position: relative;
+  font-size: medium;
+  display: inline;
+  top: 10px;
+  left: 50px;
+}
+.discord_games_wraps__discord_child--liveStages .ps {
+  color: azure;
+  position: absolute;
+  font-size: 10px;
+  display: inline;
+  top: 21px;
+  left: 50px;
+}
+.discord_games_wraps__discord_child--liveStages .pt {
+  color: azure;
+  position: absolute;
+  font-size: 15px;
+  display: inline;
+  top: 41px;
+  left: 10px;
+}
+.discord_games_wraps__discord_child--liveStages .pimg_1 {
+  color: azure;
+  position: absolute;
+  font-size: 12px;
+  display: inline;
+  top: 76px;
+  left: 37px;
+}
+.discord_games_wraps__discord_child--liveStages .pimg_2 {
+  color: azure;
+  position: absolute;
+  font-size: 12px;
+  display: inline;
+  top: 105px;
+  left: 38px;
+}
+.discord_games_wraps__discord_child--liveStages .gif {
+  position: absolute;
+  top: 88px;
+  left: 116px;
+  width: 140px;
+  height: 50px;
+  border-radius: 10px;
+}
+.discord_games_wraps__discord_child--liveStages .pimg_3 {
+  color: azure;
+  position: absolute;
+  font-size: 12px;
+  display: inline;
+  top: 76px;
+  left: 177px;
+}
+.discord_games_wraps__discord_child--liveStages .pimg_4 {
+  color: azure;
+  position: absolute;
+  font-size: 12px;
+  display: inline;
+  top: 105px;
+  left: 177px;
+}
+.discord_games_wraps__discord_child--liveStages .b, .discord_games_wraps__discord_child--liveStages .c, .discord_games_wraps__discord_child--liveStages .d, .discord_games_wraps__discord_child--liveStages .g {
+  border-radius: 50%;
+  position: relative;
+  top: 60px;
+  width: 20px;
+  height: 20px;
+}
+.discord_games_wraps__discord_child--liveStages .b {
+  position: absolute;
+  top: 114px;
+  left: 14px;
+}
+.discord_games_wraps__discord_child--liveStages .c {
+  position: absolute;
+  top: 86px;
+  left: 11px;
+}
+.discord_games_wraps__discord_child--liveStages .d {
+  position: absolute;
+  top: 86px;
+  left: 151px;
+}
+.discord_games_wraps__discord_child--liveStages .g {
+  position: absolute;
+  top: 114px;
+  left: 151px;
+}
+.discord_games_wraps__discord_child--activites {
+  grid-area: activites;
+  background-color: #767575;
+}
