@@ -5,15 +5,14 @@ body {
   box-sizing: border-box;
   border: 3px solid black;
   width: 1800px;
-  height: 800px;
+  height: 1000px;
 }
-
 .server {
   border: 2px solid black;
   display: flex;
   flex-direction: column;
   width: 60px;
-  height: 790px;
+  height: 990px;
   background-color: rgb(58, 55, 55);
   position: absolute;
   img {
@@ -50,10 +49,10 @@ body {
 .mineMenu {
   // margin-top: -800px;
   // margin-left: 100px;
-  background-color: grey;
+  background-color: rgba(100, 101, 106, 255);
   position: absolute;
   width: 320px;
-  height: 795px;
+  height: 995px;
   left: 65px;
   &__search {
     width: 95%;
@@ -140,23 +139,297 @@ body {
       margin: 0;
     }
   }
-  &__subMenu{
-    
-    &__usrename{
-        border: 2px solid black;
-        display: flex;
+  &__subMenu {
+    &__usrename {
+      border: 2px solid black;
+      display: flex;
+      margin-left: 15px;
+      padding: 5x;
+      margin: 15px;
+      color: black;
+      text-decoration: none;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+      p {
         margin-left: 15px;
-        padding: 5x;
-        margin: 15px;
-        color: black;
-        text-decoration: none;
-        img{
-            width: 40px;
+      }
+    }
+  }
+}
+.me {
+  margin-top: 290px;
+  position: sticky;
+  display: flex;
+  color: black;
+  text-decoration: none;
+  border: 2px solid black;
+  background-color: #31363a;
+  justify-content: space-between;
+  &__icon-name {
+    img {
+      width: 50px;
+      width: 50px;
+    }
+    p {
+      margin-left: 15px;
+      float: right;
+    }
+  }
+  &__icon {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 120px;
+  }
+}
+.navBar {
+  margin-left: 380px;
+  display: flex;
+  position: sticky;
+  width: 1415px;
+  background-color: #36393f;
+
+  &__home {
+    display: flex;
+    margin-left: 10px;
+    color: black;
+    text-decoration: none;
+
+    img {
+      margin-right: 10px;
+      margin-top: 10px;
+      width: 30px;
+      height: 30px;
+    }
+    p {
+      margin-left: 10px;
+      font-size: 20px;
+    }
+  }
+  &__icon {
+    display: flex;
+    justify-content: flex-end;
+    width: 200px;
+    margin-left: 1100px;
+    justify-content: space-around;
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+.liveStage {
+  background-color: #31363a;
+  margin-left: 382px;
+  margin-top: 0;
+  width: 1000px;
+  height: 94%;
+  &__title {
+    padding-top: 30px;
+    span {
+      font-size: 30px;
+      font-weight: bold;
+    }
+  }
+  &__stage {
+    width: 800px;
+    height: 200px;
+    border: #18191b solid 3px;
+    margin: 40px;
+    margin-left: 50px;
+    position: relative;
+    &__profile {
+      position: relative;
+      left: 20px;
+      top: 20px;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+    &__name {
+      display: flex;
+      flex-direction: column;
+      margin-left: 65px;
+      margin-top: -20px;
+      span {
+        font-weight: bold;
+        font-size: 20px;
+      }
+    }
+    &__bio {
+      margin-left: 20px;
+      h1 {
+        font-size: 30px;
+        color: white;
+      }
+    }
+    &__amount {
+      width: 70px;
+      position: relative;
+      left: 700px;
+      bottom: 110px;
+      border: 2px #18191b solid;
+      border-radius: 20%;
+      display: flex;
+      i {
+        margin-left: 5px;
+      }
+      span {
+        margin-left: 20px;
+        font-size: large;
+        font-weight: bold;
+      }
+    }
+    &__member {
+      margin-left: 15px;
+      display: flex;
+      align-items: center;
+      margin-top: -15px;
+      justify-content: space-around;
+      span {
+        font-weight: bold;
+        position: relative;
+        bottom: 10px;
+      }
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+}
+.activities {
+  background-color: #31363a;
+  margin-left: 1380px;
+  width: 417px;
+  margin-top: -935px;
+  border: 2px solid black;
+  height: 94%;
+  &__title {
+    margin-left: 60px;
+    font-size: 30px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: white;
+  }
+  &__activity {
+    width: 350px;
+    height: 200px;
+    border: 2px solid black;
+    margin: 20px;
+    &__name {
+      position: relative;
+      display: flex;
+      align-items: center;
+      left: 20px;
+      top: 5px;
+      font-weight: bold;
+      img {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+      }
+    }
+    &__friend {
+      width: 270px;
+      height: 130px;
+      border: solid 2px black;
+      margin-left: 20px;
+      margin-top: 10px;
+      &__server {
+        margin-top: 5px;
+        margin-left: 65px;
+        span {
+          font-weight: bold;
+          position: relative;
+          bottom: 10px;
+        }
+        img {
+          width: 30px;
+          height: 30px;
+          margin-left: 10px;
+        }
+      }
+      &__grid {
+        margin-bottom: 5px;
+        display: grid;
+        justify-items: center;
+        justify-content: center;
+        &__box1 {
+          border: 2px solid black;
+          grid-area: 1/2/1/2;
+          img {
+            width: 90px;
             height: 40px;
+          }
         }
-        p{
-            margin-left: 15px;
+        &__box2 {
+          border: 2px solid black;
+          img {
+            width: 90px;
+            height: 40px;
+          }
         }
+        &__box3 {
+          border: 2px solid black;
+          img {
+            width: 90px;
+            height: 40px;
+          }
+        }
+        &__box4 {
+          border: 2px solid black;
+          img {
+            width: 90px;
+            height: 40px;
+          }
+        }
+      }
+    }
+    &__friends {
+      margin-top: 60px;
+      margin-left: 65px;
+      border: 3px solid black;
+      border-radius: 10%;
+      margin-right: 20px;
+      padding-top: 3px;
+      display: flex;
+      span {
+        font-weight: bold;
+        position: relative;
+        bottom: 10px;
+      }
+      img {
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
+      }
+      &__icons {
+        display: flex;
+        width: 150px;
+        justify-content: flex-end;
+      }
+    }
+  }
+  &__name{
+    display: flex;
+    margin-left: 15px;
+    margin: 15px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid black;
+    img {
+      width: 30px;
+      height: 30px;
+      margin-top: 10px;
+      margin-left: 5px;
+    }
+    p {
+      margin-left: 15px;
     }
   }
 }

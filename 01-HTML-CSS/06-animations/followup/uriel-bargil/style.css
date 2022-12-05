@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+}
+
+/* The element to apply the animation to */
+div {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  -webkit-animation-name: example;
+          animation-name: example;
+  -webkit-animation-duration: 7s;
+          animation-duration: 7s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  position: relative;
+}
+@-webkit-keyframes example {
+  0% {
+    background-color: red;
+    left: 400px;
+    top: 200px;
+  }
+  100% {
+    background-color: red;
+    left: 400px;
+    top: 300px;
+  }
+}
+@keyframes example {
+  0% {
+    background-color: red;
+    left: 400px;
+    top: 200px;
+  }
+  100% {
+    background-color: red;
+    left: 400px;
+    top: 300px;
+  }
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,76 @@
+body {
+  font-family: "Pacifico", cursive;
+  margin: 0;
+}
+
+.main_animation_wrapper {
+  display: flex;
+}
+
+.main_animation {
+  position: relative;
+  width: 40vh;
+  height: 10vh;
+  font-size: 4vh;
+  -webkit-animation-name: slide;
+          animation-name: slide;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@-webkit-keyframes slide {
+  0% {
+    background-color: red;
+    top: 0px;
+    right: 0px;
+  }
+  20% {
+    background-color: orange;
+  }
+  40% {
+    background-color: yellow;
+    right: -80vw;
+  }
+  60% {
+    background-color: green;
+  }
+  80% {
+    background-color: blue;
+  }
+  100% {
+    background-color: purple;
+    top: 0px;
+    right: 0px;
+  }
+}
+
+@keyframes slide {
+  0% {
+    background-color: red;
+    top: 0px;
+    right: 0px;
+  }
+  20% {
+    background-color: orange;
+  }
+  40% {
+    background-color: yellow;
+    right: -80vw;
+  }
+  60% {
+    background-color: green;
+  }
+  80% {
+    background-color: blue;
+  }
+  100% {
+    background-color: purple;
+    top: 0px;
+    right: 0px;
+  }
+}/*# sourceMappingURL=style.css.map */

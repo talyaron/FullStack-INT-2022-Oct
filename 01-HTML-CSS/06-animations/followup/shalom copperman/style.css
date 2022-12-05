@@ -1,0 +1,41 @@
+.circle {
+  background-color: green;
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+  position: relative;
+  -webkit-animation-name: go-right;
+          animation-name: go-right;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes go-right {
+  0% {
+    top: 0px;
+    left: 200px;
+  }
+  50% {
+    top: 100px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+@keyframes go-right {
+  0% {
+    top: 0px;
+    left: 200px;
+  }
+  50% {
+    top: 100px;
+  }
+  100% {
+    top: 0px;
+  }
+}/*# sourceMappingURL=style.css.map */
