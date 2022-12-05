@@ -1,0 +1,53 @@
+.circle {
+  background-color: purple;
+  border-radius: 100px;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  -webkit-animation-name: bounce;
+          animation-name: bounce;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    background-color: aquamarine;
+    top: 0px;
+    right: 0px;
+  }
+  50% {
+    background-color: rgb(241, 214, 62);
+    top: 200px;
+    right: -10px;
+  }
+  100% {
+    background-color: rgb(223, 165, 213);
+    top: 0px;
+    right: -30px;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    background-color: aquamarine;
+    top: 0px;
+    right: 0px;
+  }
+  50% {
+    background-color: rgb(241, 214, 62);
+    top: 200px;
+    right: -10px;
+  }
+  100% {
+    background-color: rgb(223, 165, 213);
+    top: 0px;
+    right: -30px;
+  }
+}/*# sourceMappingURL=style.css.map */

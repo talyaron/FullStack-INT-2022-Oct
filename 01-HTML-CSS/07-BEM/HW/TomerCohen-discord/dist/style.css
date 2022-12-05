@@ -1,0 +1,429 @@
+body {
+  margin: 0%;
+  box-sizing: border-box;
+  border: 3px solid black;
+  width: 1800px;
+  height: 1000px;
+}
+
+.server {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  width: 60px;
+  height: 990px;
+  background-color: #3a3737;
+  position: absolute;
+}
+.server img {
+  width: 50px;
+  height: 50px;
+}
+.server__servers {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  margin-top: 20px;
+  margin-left: 4px;
+}
+.server__servers__serAdd {
+  margin-left: 7px;
+  width: 50px;
+  height: 50px;
+}
+.server__servers__serverSearch {
+  margin-left: 7px;
+}
+.server__servers__serverSearch img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.server__home {
+  border-bottom: 3px solid black;
+}
+
+.mineMenu {
+  background-color: #64656a;
+  position: absolute;
+  width: 320px;
+  height: 995px;
+  left: 65px;
+}
+.mineMenu__search {
+  width: 95%;
+  height: 28px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 24px;
+  margin-left: 5px;
+}
+.mineMenu__home {
+  margin-top: 90px;
+  margin-left: 20px;
+  border: 2px solid black;
+  width: 260px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  color: black;
+  text-decoration: none;
+}
+.mineMenu__home p {
+  margin-left: 20px;
+}
+.mineMenu__home i {
+  margin-top: 15px;
+  margin-left: 10px;
+}
+.mineMenu__friend {
+  margin-top: 10px;
+  margin-left: 20px;
+  border: 2px solid black;
+  width: 260px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  color: black;
+  text-decoration: none;
+}
+.mineMenu__friend p {
+  margin-left: 20px;
+}
+.mineMenu__friend i {
+  margin-top: 15px;
+  margin-left: 10px;
+}
+.mineMenu__nitro {
+  margin-top: 10px;
+  margin-left: 20px;
+  border: 2px solid black;
+  width: 260px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  color: black;
+  text-decoration: none;
+}
+.mineMenu__nitro p {
+  margin-left: 18px;
+}
+.mineMenu__nitro i {
+  margin-top: 15px;
+  margin-left: 10px;
+}
+.mineMenu__nitro img {
+  margin-top: 7px;
+  width: 40px;
+  height: 40px;
+}
+.mineMenu__title {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 25px;
+  color: black;
+  text-decoration: none;
+}
+.mineMenu__title i {
+  margin-left: 100px;
+  margin-top: 15px;
+}
+.mineMenu__title h1 {
+  font-size: 25px;
+  margin: 0;
+}
+.mineMenu__subMenu__usrename {
+  border: 2px solid black;
+  display: flex;
+  margin-left: 15px;
+  padding: 5x;
+  margin: 15px;
+  color: black;
+  text-decoration: none;
+}
+.mineMenu__subMenu__usrename img {
+  width: 40px;
+  height: 40px;
+}
+.mineMenu__subMenu__usrename p {
+  margin-left: 15px;
+}
+
+.me {
+  margin-top: 290px;
+  position: sticky;
+  display: flex;
+  color: black;
+  text-decoration: none;
+  border: 2px solid black;
+  background-color: #31363a;
+  justify-content: space-between;
+}
+.me__icon-name img {
+  width: 50px;
+  width: 50px;
+}
+.me__icon-name p {
+  margin-left: 15px;
+  float: right;
+}
+.me__icon {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 120px;
+}
+
+.navBar {
+  margin-left: 380px;
+  display: flex;
+  position: sticky;
+  width: 1415px;
+  background-color: #36393f;
+}
+.navBar__home {
+  display: flex;
+  margin-left: 10px;
+  color: black;
+  text-decoration: none;
+}
+.navBar__home img {
+  margin-right: 10px;
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
+}
+.navBar__home p {
+  margin-left: 10px;
+  font-size: 20px;
+}
+.navBar__icon {
+  display: flex;
+  justify-content: flex-end;
+  width: 200px;
+  margin-left: 1100px;
+  justify-content: space-around;
+}
+.navBar__icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.liveStage {
+  background-color: #31363a;
+  margin-left: 382px;
+  margin-top: 0;
+  width: 1000px;
+  height: 94%;
+}
+.liveStage__title {
+  padding-top: 30px;
+}
+.liveStage__title span {
+  font-size: 30px;
+  font-weight: bold;
+}
+.liveStage__stage {
+  width: 800px;
+  height: 200px;
+  border: #18191b solid 3px;
+  margin: 40px;
+  margin-left: 50px;
+  position: relative;
+}
+.liveStage__stage__profile {
+  position: relative;
+  left: 20px;
+  top: 20px;
+}
+.liveStage__stage__profile img {
+  width: 40px;
+  height: 40px;
+}
+.liveStage__stage__name {
+  display: flex;
+  flex-direction: column;
+  margin-left: 65px;
+  margin-top: -20px;
+}
+.liveStage__stage__name span {
+  font-weight: bold;
+  font-size: 20px;
+}
+.liveStage__stage__bio {
+  margin-left: 20px;
+}
+.liveStage__stage__bio h1 {
+  font-size: 30px;
+  color: white;
+}
+.liveStage__stage__amount {
+  width: 70px;
+  position: relative;
+  left: 700px;
+  bottom: 110px;
+  border: 2px #18191b solid;
+  border-radius: 20%;
+  display: flex;
+}
+.liveStage__stage__amount i {
+  margin-left: 5px;
+}
+.liveStage__stage__amount span {
+  margin-left: 20px;
+  font-size: large;
+  font-weight: bold;
+}
+.liveStage__stage__member {
+  margin-left: 15px;
+  display: flex;
+  align-items: center;
+  margin-top: -15px;
+  justify-content: space-around;
+}
+.liveStage__stage__member span {
+  font-weight: bold;
+  position: relative;
+  bottom: 10px;
+}
+.liveStage__stage__member img {
+  width: 40px;
+  height: 40px;
+}
+
+.activities {
+  background-color: #31363a;
+  margin-left: 1380px;
+  width: 417px;
+  margin-top: -935px;
+  border: 2px solid black;
+  height: 94%;
+}
+.activities__title {
+  margin-left: 60px;
+  font-size: 30px;
+  margin-top: 20px;
+  font-weight: bold;
+  color: white;
+}
+.activities__activity {
+  width: 350px;
+  height: 200px;
+  border: 2px solid black;
+  margin: 20px;
+}
+.activities__activity__name {
+  position: relative;
+  display: flex;
+  align-items: center;
+  left: 20px;
+  top: 5px;
+  font-weight: bold;
+}
+.activities__activity__name img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+.activities__activity__friend {
+  width: 270px;
+  height: 130px;
+  border: solid 2px black;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.activities__activity__friend__server {
+  margin-top: 5px;
+  margin-left: 65px;
+}
+.activities__activity__friend__server span {
+  font-weight: bold;
+  position: relative;
+  bottom: 10px;
+}
+.activities__activity__friend__server img {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+}
+.activities__activity__friend__grid {
+  margin-bottom: 5px;
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+}
+.activities__activity__friend__grid__box1 {
+  border: 2px solid black;
+  grid-area: 1/2/1/2;
+}
+.activities__activity__friend__grid__box1 img {
+  width: 90px;
+  height: 40px;
+}
+.activities__activity__friend__grid__box2 {
+  border: 2px solid black;
+}
+.activities__activity__friend__grid__box2 img {
+  width: 90px;
+  height: 40px;
+}
+.activities__activity__friend__grid__box3 {
+  border: 2px solid black;
+}
+.activities__activity__friend__grid__box3 img {
+  width: 90px;
+  height: 40px;
+}
+.activities__activity__friend__grid__box4 {
+  border: 2px solid black;
+}
+.activities__activity__friend__grid__box4 img {
+  width: 90px;
+  height: 40px;
+}
+.activities__activity__friends {
+  margin-top: 60px;
+  margin-left: 65px;
+  border: 3px solid black;
+  border-radius: 10%;
+  margin-right: 20px;
+  padding-top: 3px;
+  display: flex;
+}
+.activities__activity__friends span {
+  font-weight: bold;
+  position: relative;
+  bottom: 10px;
+}
+.activities__activity__friends img {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+}
+.activities__activity__friends__icons {
+  display: flex;
+  width: 150px;
+  justify-content: flex-end;
+}
+.activities__name {
+  display: flex;
+  margin-left: 15px;
+  margin: 15px;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid black;
+}
+.activities__name img {
+  width: 30px;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+.activities__name p {
+  margin-left: 15px;
+}
