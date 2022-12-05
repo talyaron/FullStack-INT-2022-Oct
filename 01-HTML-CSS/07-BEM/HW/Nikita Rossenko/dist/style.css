@@ -238,8 +238,10 @@ body {
   color: #bdbdbd;
   width: 100%;
   min-width: 700px;
-  height: 100vh;
   overflow-y: auto;
+  align-items: center;
+  gap: 30px;
+  padding: 220px 0px 130px 0px;
 }
 .main__body__stages__stage h1 {
   height: 50px;
@@ -252,7 +254,6 @@ body {
   min-width: 550px;
   background-color: #2F3136;
   border-radius: 10px;
-  margin: 10px auto;
 }
 .main__body__stages__stage--maxUsers {
   height: 270px;
