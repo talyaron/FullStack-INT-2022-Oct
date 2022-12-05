@@ -28,8 +28,8 @@ body {
   top: 425px;
   -webkit-animation-name: movement;
           animation-name: movement;
-  -webkit-animation-duration: 15s;
-          animation-duration: 15s;
+  -webkit-animation-duration: 20s;
+          animation-duration: 20s;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
 }
@@ -144,55 +144,55 @@ body {
   }
   5% {
     top: -100px;
-    left: -20px;
+    left: 0px;
   }
   10% {
     left: 250px;
-    top: -100px;
+    top: 0px;
   }
   15% {
     top: 200px;
-    left: 270px;
+    left: 0px;
   }
   20% {
     left: 60px;
-    top: 190px;
+    top: 0px;
   }
   25% {
     top: 300px;
-    left: 90px;
+    left: 0px;
   }
   30% {
     left: -400px;
-    top: 300px;
+    top: 0px;
   }
   35% {
     top: -310px;
-    left: -400px;
-  }
-  38% {
-    top: -310px;
-    left: -220px;
+    left: 0px;
   }
   40% {
     left: -230px;
-    top: -190px;
+    top: 0px;
+  }
+  45% {
+    left: -210px;
+    top: 0px;
   }
   50% {
     top: -190px;
-    left: -80px;
+    left: 0px;
   }
   60% {
-    left: -70px;
-    top: -85px;
+    left: -90px;
+    top: 0px;
   }
   70% {
     top: -65px;
-    left: -20px;
+    left: 0px;
   }
   80% {
-    left: -10px;
-    top: -40px;
+    left: -20px;
+    top: 0px;
   }
   100% {
     top: 0px;
@@ -206,55 +206,55 @@ body {
   }
   5% {
     top: -100px;
-    left: -20px;
+    left: 0px;
   }
   10% {
     left: 250px;
-    top: -100px;
+    top: 0px;
   }
   15% {
     top: 200px;
-    left: 270px;
+    left: 0px;
   }
   20% {
     left: 60px;
-    top: 190px;
+    top: 0px;
   }
   25% {
     top: 300px;
-    left: 90px;
+    left: 0px;
   }
   30% {
     left: -400px;
-    top: 300px;
+    top: 0px;
   }
   35% {
     top: -310px;
-    left: -400px;
-  }
-  38% {
-    top: -310px;
-    left: -220px;
+    left: 0px;
   }
   40% {
     left: -230px;
-    top: -190px;
+    top: 0px;
+  }
+  45% {
+    left: -210px;
+    top: 0px;
   }
   50% {
     top: -190px;
-    left: -80px;
+    left: 0px;
   }
   60% {
-    left: -70px;
-    top: -85px;
+    left: -90px;
+    top: 0px;
   }
   70% {
     top: -65px;
-    left: -20px;
+    left: 0px;
   }
   80% {
-    left: -10px;
-    top: -40px;
+    left: -20px;
+    top: 0px;
   }
   100% {
     top: 0px;
