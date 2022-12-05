@@ -1,0 +1,54 @@
+table.int-inside-text {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    border: 3px solid #555555;
+    background-color: #555555;
+    width: 400px;
+    text-align: center;
+    border-collapse: collapse;
+  }
+  table.int-inside-text td, table.int-inside-text th {
+    border: 1px solid #555555;
+    padding: 8px 8px;
+  }
+  table.int-inside-text tbody td {
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFFFFF;
+  }
+  table.int-inside-text tr:nth-child(even) {
+    background: #A40000;
+  }
+  table.int-inside-text td:nth-child(even) {
+    background: #A4A4A4;
+  }
+  table.int-inside-text thead {
+    background: #000000;
+    background: -moz-linear-gradient(top, #404040 0%, #191919 66%, #000000 100%);
+    background: -webkit-linear-gradient(top, #404040 0%, #191919 66%, #000000 100%);
+    background: linear-gradient(to bottom, #404040 0%, #191919 66%, #000000 100%);
+    border-bottom: 6px solid #FFFFFF;
+  }
+  table.int-inside-text thead th {
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFFFFF;
+    text-align: left;
+    border-left: 2px solid #B90000;
+  }
+  table.int-inside-text thead th:first-child {
+    border-left: none;
+  }
+  
+  table.int-inside-text tfoot td {
+    font-size: 13px;
+  }
+  table.int-inside-text tfoot .links {
+    text-align: right;
+  }
+  table.int-inside-text tfoot .links a{
+    display: inline-block;
+    background: #FFFFFF;
+    color: #A43152;
+    padding: 2px 8px;
+    border-radius: 5px;
+  }
