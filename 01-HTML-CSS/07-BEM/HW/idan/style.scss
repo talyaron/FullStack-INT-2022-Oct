@@ -1,0 +1,549 @@
+//12:58 start i wonder how i will once im done
+$widthh: 100vw 710px;
+h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+p{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.light{
+    font-weight: lighter;
+    color: #b9bbbe94;
+}
+.descriptor{
+    font-size: 10px;
+}
+.server_list{
+    width: 70px;
+    height: 100vh;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    gap: 0.625rem;
+    flex-direction: column;
+    background-color: #202225;
+    overflow-y: scroll;
+
+    img{
+        height: 3rem;
+        width: 3rem;
+        margin: auto;
+        border-radius: 50%;
+    }
+    &__spacer{
+        width: 2rem;
+        border-bottom: #363a3f solid 2px;
+        margin:auto;
+    }
+    &__icon{
+
+        min-height: 3rem;
+        min-width: 3rem;
+        margin: 10px auto 0px;
+        border-radius: 33%;
+        background-color: #5865f2;
+        padding-bottom: 20px;
+        box-sizing: border-box;
+
+        img{
+            width: 1.625rem;
+            height: auto;
+            margin-left: 0.6875rem;
+            margin-top: 0.87rem;
+            margin-right: auto;
+            border-radius: 0;
+
+        }
+
+    }
+
+
+}
+//if you zoom out funny stuff happan yes funny its 2 am also i dont know why but only margin auto works which is something im guessing its a problem on my end because i cant think of any other reason i have a tendency to break things
+.conv_list{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 240px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    overflow-y: scroll;
+    left: 70px;
+    top: 60px;
+    gap: 2px;
+    background-color: #2f3136;
+    color: #b9bbbe;
+    overflow-x: hidden;
+    
+    input[type=text] {
+        position: fixed;
+        top: -10px;
+        min-height: 20px;
+        margin-top: 25px;
+        border-radius: 3px;
+        border: none;
+        float: none;
+        display: block;
+        text-align: left;
+        width: 210px;
+        margin-left: 10px;
+        padding-left: 10px;
+        background-color: #202225;
+        color: white;
+        z-index: 11;
+        //i just now noticed its not a real search bar
+    }
+    img{
+        width: 20px;
+        height: 20px;
+        position: fixed;
+        right: -207px;
+        top: -20px;
+        //its a search icon yes also i know it doesnt it stopped existing when this code turned into trash which is the oposite of what im supposed to be doing in this exercise but please i am so tired
+    }
+    &__select{
+        margin: 0px auto;
+        width: 224px;
+        height: 42px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+        color: #96989d;
+        &--home{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+            margin: 0px auto;
+            width: 224px;
+            height: 42px;
+            background-color: #42464d;
+            color:#dcddde;
+            border-radius: 4px;
+        }    
+
+    }
+    &__friend{
+        margin: 0px auto;
+        width: 224px;
+        height: 42px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+        color: #96989d;
+        &__status{
+            height: 10px;
+            width: 10px;
+            border: solid #2f3136 2px;
+            border-radius: 50%;
+            background-color: #3ba55c;
+            position: relative;
+            right: 88px;
+            top: 10px;
+            &--dND {
+                height: 10px;
+                width: 10px;
+                border: solid #2f3136 2px;
+                border-radius: 50%;
+                color: #18191b;
+                background-color: red;
+                position: relative;
+                right: 113px;
+                top: 10px;
+                p{
+                    color: #2f3136;
+                    position: relative;
+                    top: -42px;
+                    right: 3.5px;
+                    font-size: 1.8rem;
+                }
+            }
+        }
+
+        img{
+            height: 30px;
+            width: 30px;
+            position: relative;
+            left: 5px;
+            top:0px;
+            border-radius: 50%;
+        }
+
+        p{
+            padding-left: 5px;
+        }
+    }
+    h1{
+        position:relative;
+        left: 13px;
+        font-size: 10px;
+        font-weight: 100;
+    }
+
+
+}
+.conv_list__select img{
+    height: 30px;
+    width: 30px;
+    position: relative;
+    left: 5px;
+    top:0px;
+    padding-right: 10px ;
+}
+.conv_list__select--home img{
+    height: 40px;
+    width: 40px;
+    position: relative;
+    left: 1px;
+    top: 0px;
+}
+//ignore this ^^ it exists because its late
+.home{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 310px;
+    top: 0px;
+    background-color: #36393f;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    &__card{
+        position: fixed;
+        left: 70px;
+        height: 50px;
+        background-color: #36393f;
+        display: flex;
+        align-items: center;
+        z-index: 10;
+        width: 100vw;
+        border-bottom: solid rgba(0, 0, 0, 0.363) 1px;
+        h1{
+            position: fixed;
+            left: 360px;
+        }
+        img{
+            height: 40px;
+            width: 40px;
+            position: fixed;
+            left: 320px;
+            top: 2
+            px;
+        }
+    }
+    h1{
+        color: white;
+        font-size: 1.6rem;
+    }
+
+    &__stage_list{
+        position: absolute;
+        top: 100px;
+        left: 80px;
+        height: 100%;
+        min-width: 70vw;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        gap: 40px;
+
+        h1{
+            font-size: 2rem;
+        }
+        &__stages{
+            width: 65%;
+            background-color: #2f3136;
+            border-radius: 7px;
+            position: relative;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            img{
+                border-radius: 50%;
+                height: 20px;
+                width: 20px;
+            }
+            min-height: 100px;
+            p{
+                position: relative;
+                bottom: 0px;
+                color: #dcddde;
+            }
+            &__friend{
+
+                height: 30px;
+                border-bottom: 1px solid #36393f;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 17px;
+                width: 100%;
+                img{
+                    position: relative;
+                    left: 10px;
+                }
+
+
+                
+            }
+            &__server{
+                height: 70px;
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 16px;
+                p{
+                    font-size: 1.125rem;
+                    line-height: 0.5rem;
+                }
+                img{
+                    
+                    box-sizing: border-box;
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 5px;
+                    position: relative;
+                    left: 10px;
+                }
+                &__listiner{
+                    min-height: 1.4rem;
+                    background-color: #202225;
+                    color: #b9bbbea9;
+                    height: 10px;
+                    position: absolute;
+                    right: 30px;
+                    border-radius: 10px;
+                    display: flex;
+                    align-items: center;
+                    gap: 7px;
+                    
+                    img{
+                        width:20px;
+                        height: 20px;
+                        border-radius:50%;
+                        position: relative;
+                        left: 4px;
+                    }
+                }
+            }
+            &__title{
+                position: relative;
+                bottom: 10px;
+                h1{
+                    color: #c5c7c9;
+                    font-size: 1.6rem;
+                    position: relative;
+                    left: 10px;
+                }
+            }
+            &__speakers{
+                position: relative;
+                left: 5px;
+                min-width: 100px;
+                height: 30px;
+                display: grid;
+                width: 90%;
+                height: 70px;
+                grid-template-rows: repeat(2,1fr);
+                grid-template-columns: repeat(3,1fr);
+                column-gap: 10%;
+                color : #b9bbbe;
+                &__speaker{
+                    width: 200px;
+                    height: 10px;
+                    display: flex;
+                    align-items: center;
+                    color: #b9bbbe;
+                }
+                img{
+                    border-radius: 50%;
+                }
+
+            }
+
+
+        }
+    }
+
+
+}
+.activity_feed{
+    color: #c5c7c9;
+    min-width: 416px;
+    max-width: 416px;
+    height: 100%;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color: #36393f ;
+    border-left: solid #96989d2f 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    h1{
+        padding-left: 20px;
+        align-self: flex-start;
+    }
+    &__activity{
+        margin-top: 20px;
+        width: 380px;
+        min-height: 350px;
+        border-radius: 10px;
+        background-color: #2f3136;
+        overflow-y: scroll;
+        img{
+            border-radius: 50%;
+            height: 35px;
+            width: 35px;
+        }
+        &__profile{
+            position: relative;
+            gap: 10px;
+            border-radius: 10px;
+            width: 350px;
+            margin: 5px auto;
+            display: flex;
+            align-items: center;
+            &__status{
+                height: 10px;
+                width: 10px;
+                border: solid #2f3136 2px;
+                border-radius: 50%;
+                background-color: #130e0e;
+                position: relative;
+                right: 190px;
+                top: 10px;
+            }
+            //im not going to add joe biden in game with hunter biden i know its missing stuff at the top i dont have time
+        }
+        &__server{
+            position: relative;
+            background-color: #36393f;
+            width: 350px;
+            min-height: 258px;
+            border-radius: 10px;
+            width: 350px;
+            margin: 5px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0px;
+            &__status{
+                height: 10px;
+                width: 10px;
+                border: solid #2f3136 2px;
+                border-radius: 50%;
+                background-color: #3ba55c;
+                position: relative;
+                right: 88px;
+                top: 10px;
+            }
+            &__screen_share{
+                width: 350px;
+                position: absolute;
+                left: 0px;
+                top: 60px;
+                img{
+                    
+                    height: auto;
+                    width: 350px;
+                    border-radius: 10px;
+                    border-top-left-radius: 0px;
+                    border-top-right-radius: 0px;
+                    
+                }
+            }
+        }
+        &__par_container{
+            display: flex;
+            flex-direction: row;
+            width: 70px;
+            height: 100px;
+            position: relative;
+            left: 270px;
+            bottom: 60px;
+            overflow: hidden;
+            &__participants{
+                position: relative;
+                width: 10px;
+                height: 30px;
+                border-radius: 50%;
+
+                img{
+                    border: #202225 solid 3px ;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+
+    }
+
+}
+
+
+body{
+    overflow: hidden;
+
+}
+
+
+.profile{
+    position: absolute;
+    left: 70px;
+    bottom: 0px;
+    margin: 0px auto;
+    width: 240px;
+    height: 42px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    color: #96989d;
+    background-color: #292b2f;
+    &__status{
+        height: 10px;
+        width: 10px;
+        border: solid #2f3136 2px;
+        border-radius: 50%;
+        background-color: #3ba55c;
+        position: relative;
+        right: 88px;
+        top: 10px;
+    }
+    img{
+        height: 30px;
+        width: 30px;
+        position: relative;
+        left: 5px;
+        top:0px;
+        border-radius: 50%;
+    }
+    p{
+        padding-left: 5px;
+    }
+}
+body{
+    background-color: #2f3136;
+}
+
+
+
+::-webkit-scrollbar {
+    width: 3px;
+    //works on chrome works for me
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #18191b; 
+    border-radius: 20px;
+}
