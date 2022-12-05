@@ -6,8 +6,8 @@
   margin: auto;
   border: 1px solid black;
   border-radius: 17px;
-  height: 90vh;
-  width: 20vw;
+  height: auto;
+  width: 18vw;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -74,23 +74,31 @@
   justify-content: space-between;
   vertical-align: text-top;
   padding: 5PX;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.colorRed {
+  color: red;
 }
 
 .colorGreen {
-  color: rgb(7, 94, 84);
+  color: green;
 }
 
 .colorBlack {
   color: black;
+  font-size: 15px;
 }
 
 .users {
   display: flex;
+  gap: 10px;
 }
 
 .callesAndTime {
   display: flex;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
 }
 
 .time {
@@ -104,5 +112,16 @@
 
 .callaSeperator {
   height: 1px;
-  background-color: grey;
+  width: 14vw;
+  position: relative;
+  left: 50px;
+  opacity: 0.6;
+  padding-top: 20px;
+  border-top: 1px solid gray;
+}
+
+.blackEnding {
+  height: 10px;
+  background-color: black;
+  border-radius: 0px 0px 10px 10px;
 }/*# sourceMappingURL=style.css.map */
