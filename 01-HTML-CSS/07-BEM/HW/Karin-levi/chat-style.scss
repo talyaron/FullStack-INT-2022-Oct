@@ -1,0 +1,221 @@
+
+
+.wrapper{
+    width: 400px;
+    height: 800px;
+    border-radius: 30px;
+    border: solid 2px rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+
+    &__topMenu{
+        width: 100%;
+        height: 30px;
+        background-color: rgb(33, 71, 63);
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+
+            &__phoneStatus{
+                width: 100%;
+                height: 20px;
+                background-color: rgb(22, 64, 48);
+                border-top-left-radius: 30px;
+                border-top-right-radius: 30px;
+                padding-top: 5px;
+                display: flex;
+                justify-content: space-between;
+
+                &__clock{
+                    width: 25px;
+                    height: 25px;
+
+                    p{
+                        color:white;
+                        height: 100%;
+                        width: 100%;
+                        margin-top: 2px;
+                        margin-left:10px;
+                    }
+                }
+
+                &__rightStatus{
+                    height: 25px;
+                    width:80px;
+                     display: flex;
+                     justify-content: space-between;
+                     margin-right: 10px;
+
+                    &__wifiIcon{
+                        width: 20px;
+                        height: 25px;
+
+                        i{
+                            color: white;
+                        }
+                    }
+
+                    &__dataIcon{
+                        width: 20px;
+                        height: 25px;
+
+                        i{
+                            color: white;
+                        }
+                    }
+
+                    &__batteryIcon{
+                        width: 20px;
+                        height: 25px;
+
+                        i{
+                            color: white;
+                        }
+                    }
+                }
+            }
+    }
+
+
+    &__centerMenu{
+        width: 100%;
+        height: 25px;
+        display: flex;
+        background-color: rgb(33, 71, 63);
+        justify-content: space-between;
+        padding-top: 10px;
+        color: white;
+        margin:0;
+        font-size: large;
+        
+       &__leftIcons{
+        display: flex;
+        justify-content: space-between;
+        width:100px;
+        height: 100%;
+       }
+        
+        &__rigthIcons{
+            width:90px;
+            height: 25px;
+            display: flex;
+            justify-content: space-between;
+            
+            &__videoIcon{
+                width: 25px;
+                height: 25px;
+                // border: 2px solid  yellow;
+
+                i{
+                    color: white;
+                }
+            }
+
+            &__phoneIcon{
+                width: 20px;
+                height: 25px;
+            
+                i{
+                 color: white;   
+                }
+            }
+
+            &__menuIcon{
+                width: 20px;
+                height: 25px;
+
+                i{
+                 color: white;   
+                }
+            }
+        }
+    }
+
+    &__chatPage{
+        margin: auto;
+        margin-top: 2px;
+        width: 398px;
+        height: 710px;
+        background-color: rgba(193, 193, 193, 0.516);
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+        column-gap: 10px;
+
+        &__line1{
+            height: 25px;
+            width: 250px;
+            background-color: rgb(37, 186, 21);
+            border-radius: 5px;
+            font-size: small;
+            margin-right: 10px;
+            
+        }
+        &__line2{
+            align-self:flex-start;
+            height: 40px;
+            width: 250px;
+            font-size: small;
+            background-color: white;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        &__barMsg{
+            display: flex;
+            justify-content: space-between;    
+
+            &__message{
+                margin-right: 20px;
+                margin-bottom: 7px;
+                width: 350px;
+                height: 30px;
+                border-radius: 30px;
+                display: flex;
+                justify-content: space-between;    
+            
+                background-color: white;
+            
+                    &__right{
+                        width: 160px;
+                        display: flex;
+                        justify-content: space-between;
+                        padding-top: 5px;
+                        &__input{
+                            input{
+                                border: none;
+                            }
+                        }
+                        &__emoji{
+                            
+                            padding-left: 3px;
+                        }
+                    }
+    
+                    &__left{
+                        width: 35px;
+                        display: flex;
+                        justify-content: space-between;
+                        padding-right: 5px;
+                        padding-top: 5px;
+    
+                        // &__addFile{
+    
+                        // }
+    
+                        // &__addPicture{
+    
+                        // }
+                    }                
+            }
+            &__microphone{
+                padding-right: 10px;
+                padding-top: 5px;
+            }
+        }
+    
+        
+    }
+}

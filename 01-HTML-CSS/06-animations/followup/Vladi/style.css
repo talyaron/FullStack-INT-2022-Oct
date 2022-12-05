@@ -1,0 +1,96 @@
+.court {
+  background-color: green;
+  display: flex;
+  align-items: center;
+  height: 80vh;
+  width: 90vw;
+}
+.court .goal {
+  width: 200px;
+  height: 500px;
+  border: 10px solid black;
+  border-right: none;
+}
+.court .ball {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-image: url(https://cdn.britannica.com/68/195168-050-BBAE019A/football.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  top: 20%;
+  left: 50%;
+  -webkit-animation-name: bounce;
+          animation-name: bounce;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.court .keeper {
+  width: 100px;
+  height: 100px;
+  background-image: url(https://e7.pngegg.com/pngimages/941/133/png-clipart-goalkeeper-football-goalkeeper-game-happy-birthday-vector-images-thumbnail.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  -webkit-animation-name: example;
+          animation-name: example;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  position: relative;
+  left: -10%;
+  top: 0;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    top: 20%;
+    left: 50%;
+  }
+  50% {
+    top: -20%;
+  }
+  100% {
+    top: -20%;
+    left: -25%;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    top: 20%;
+    left: 50%;
+  }
+  50% {
+    top: -20%;
+  }
+  100% {
+    top: -20%;
+    left: -25%;
+  }
+}
+@-webkit-keyframes example {
+  0% {
+    left: -10%;
+    top: 0;
+  }
+  100% {
+    left: -10%;
+    top: -10%;
+  }
+}
+@keyframes example {
+  0% {
+    left: -10%;
+    top: 0;
+  }
+  100% {
+    left: -10%;
+    top: -10%;
+  }
+}/*# sourceMappingURL=style.css.map */
