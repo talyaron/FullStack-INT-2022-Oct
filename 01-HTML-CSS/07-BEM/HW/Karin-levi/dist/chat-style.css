@@ -126,14 +126,16 @@
   background-color: #25ba15;
   border-radius: 5px;
   font-size: small;
+  margin-right: 10px;
 }
 .wrapper__chatPage__line2 {
   align-self: flex-start;
   height: 40px;
   width: 250px;
   font-size: small;
-  background-color: rgba(246, 243, 243, 0.815);
+  background-color: white;
   border-radius: 5px;
+  margin-left: 10px;
 }
 .wrapper__chatPage__barMsg {
   display: flex;

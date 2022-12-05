@@ -150,6 +150,7 @@
             background-color: rgb(37, 186, 21);
             border-radius: 5px;
             font-size: small;
+            margin-right: 10px;
             
         }
         &__line2{
@@ -157,8 +158,9 @@
             height: 40px;
             width: 250px;
             font-size: small;
-            background-color: rgba(246, 243, 243, 0.815);
+            background-color: white;
             border-radius: 5px;
+            margin-left: 10px;
         }
 
         &__barMsg{
@@ -199,13 +201,13 @@
                         padding-right: 5px;
                         padding-top: 5px;
     
-                        &__addFile{
+                        // &__addFile{
     
-                        }
+                        // }
     
-                        &__addPicture{
+                        // &__addPicture{
     
-                        }
+                        // }
                     }                
             }
             &__microphone{
