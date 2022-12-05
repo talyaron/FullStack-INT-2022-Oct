@@ -7,11 +7,11 @@
   border: 1px solid black;
   border-radius: 17px;
   height: 90vh;
-  width: 30vw;
+  width: 22vw;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  background-color: #fb0707;
+  font-family: Arial, sans-serif;
 }
 
 .navbar {
@@ -53,15 +53,61 @@
   background-color: #075e54;
   justify-content: space-around;
   vertical-align: text-top;
-  padding: 5PX;
+  font-size: 10px;
 }
 
 .camaraLogoPosition {
   position: relative;
-  top: 10px;
+  top: 4px;
   opacity: 0.5;
 }
 
 .opacity {
   opacity: 0.5;
+}
+
+.calles {
+  color: white;
+  display: flex;
+  height: 30px;
+  background-color: white;
+  justify-content: space-between;
+  vertical-align: text-top;
+  padding: 5PX;
+}
+
+.colorGreen {
+  color: #075e54;
+}
+
+.colorBlack {
+  color: black;
+  font-size: 15px;
+}
+
+.users {
+  display: flex;
+}
+
+.callesAndTime {
+  display: flex;
+  padding-bottom: 5px;
+}
+
+.time {
+  font-size: 11px;
+}
+
+.greenCircle {
+  width: 30px;
+  height: 30px;
+}
+
+.callaSeperator {
+  height: 1px;
+  background-color: grey;
+  width: 16vw;
+  position: relative;
+  left: 50px;
+  opacity: 0.6;
 }
