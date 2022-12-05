@@ -213,6 +213,8 @@ body{
     }
 }
 
+// stages section
+
 .stages{
     grid-area: d;
     overflow-y: auto;
@@ -221,7 +223,7 @@ body{
     flex-direction: column;
     padding: 1rem ;
     color: whitesmoke;
-    &__stage--title{
+    &__title{
         font-size: 1.5rem;
         font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
@@ -354,7 +356,7 @@ body{
     flex-direction: column;
     color: whitesmoke;
     padding: 1rem;
-    &__activity--title{
+    &__title{
         font-size: 1.5rem;
         font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
@@ -416,7 +418,7 @@ body{
                     left: 2rem;
                     border: 3px solid #36393F;
                 }
-                .name{
+                &__name{
                     margin-left: 1em;
                     display: flex;
                     flex-direction: column;
@@ -455,6 +457,7 @@ body{
                             display: flex;
                             align-items: center;
                             justify-content: center;
+                            font-size: .8em;
                         }
                     }
                     .fa-brands:nth-child(2){

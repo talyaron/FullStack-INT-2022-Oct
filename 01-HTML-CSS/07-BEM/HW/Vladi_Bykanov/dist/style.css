@@ -211,7 +211,7 @@ body {
   padding: 1rem;
   color: whitesmoke;
 }
-.stages__stage--title {
+.stages__title {
   font-size: 1.5rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
@@ -342,7 +342,7 @@ body {
   color: whitesmoke;
   padding: 1rem;
 }
-.activities__activity--title {
+.activities__title {
   font-size: 1.5rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
@@ -406,12 +406,12 @@ body {
   left: 2rem;
   border: 3px solid #36393F;
 }
-.activities__activity__server__head .name {
+.activities__activity__server__head__name {
   margin-left: 1em;
   display: flex;
   flex-direction: column;
 }
-.activities__activity__server__head .name .explication {
+.activities__activity__server__head__name .explication {
   font-size: 0.7em;
   color: #96989D;
 }
@@ -447,6 +447,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 0.8em;
 }
 .activities__activity__server__head .icons .fa-brands:nth-child(2) {
   position: absolute;
