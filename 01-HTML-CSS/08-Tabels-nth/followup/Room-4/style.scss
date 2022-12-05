@@ -1,20 +1,20 @@
-body {
-
-}
-
-table {
-  margin: auto;
-  border-collapse: collapse;
+table ,tr ,th {
+  // border-collapse: collapse;
   width: 100px;
   border:1px solid red;
+  margin: 100px auto;
 }
-th, td {
-    text-align: left;
+th {
+    text-align: center;
     padding: 8px;
     border: 1px;
     border:1px solid red;
     
   }
-tr:nth-child(2n-0+){
+tr:nth-child(5n){
     background-color: aqua;
+}
+tr{
+  text-align: center;
+
 }
