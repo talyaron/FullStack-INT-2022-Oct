@@ -6,7 +6,7 @@
   margin: auto;
   border: 1px solid black;
   border-radius: 17px;
-  height: 70vh;
+  height: auto;
   width: 22vw;
   display: flex;
   flex-direction: column;
@@ -118,4 +118,10 @@
   opacity: 0.6;
   padding-top: 20px;
   border-top: 1px solid gray;
+}
+
+.blackEnding {
+  height: 10px;
+  background-color: black;
+  border-radius: 0px 0px 10px 10px;
 }/*# sourceMappingURL=style.css.map */
