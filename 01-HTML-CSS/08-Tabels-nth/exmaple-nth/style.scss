@@ -1,0 +1,25 @@
+
+
+td, th{
+    padding: 10px 20px;
+    border:none;
+    border-collapse: collapse;
+    border-style : hidden;
+   
+}
+
+caption{
+    background-color: rgb(159, 159, 159);
+    color: white;
+    padding: 10px;
+}
+
+tr:nth-child(5){
+    background-color: rgb(235, 235, 235);
+}
+
+
+li:nth-child(2n+5){
+    color:rgb(218, 38, 68);
+}
+

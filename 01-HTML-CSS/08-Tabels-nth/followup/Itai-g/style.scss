@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+}
+table{
+    border-collapse: collapse;
+    width: 400px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+    caption{
+        height: 50px;
+        text-align: center;
+        padding-top: 20px;
+        font-size: 20px;
+    }
+}
+td, th  {
+    border: 4px solid black;
+    padding: 18px;
+}
+th{
+    background-color: red;
+}
+caption{
+    background-color: yellow;
+}
+td:nth-child(n+2){
+    background-color: palegreen;
+}
+td:nth-child(1){
+    background-color: green;
+}
