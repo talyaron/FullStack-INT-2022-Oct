@@ -1,6 +1,16 @@
-#root {
-  max-width: 1280px;
+body {
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.App{
+  display: flex;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
 }

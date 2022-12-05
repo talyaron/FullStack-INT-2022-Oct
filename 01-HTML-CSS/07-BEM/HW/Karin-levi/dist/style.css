@@ -151,6 +151,9 @@
   padding-left: 10px;
   padding-top: 10px;
 }
+.wrapper__callsList__call1__leftItem--red {
+  color: #bb2f2f;
+}
 .wrapper__callsList__call1__centerItems {
   width: 200px;
   height: 70px;

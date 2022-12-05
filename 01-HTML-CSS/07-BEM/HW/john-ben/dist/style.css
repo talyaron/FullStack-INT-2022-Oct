@@ -1,0 +1,186 @@
+* {
+  padding: 3px;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.container {
+  width: 390px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  background: url("img/john.jpeg");
+  background: #036055;
+  border-radius: 15px;
+}
+.chat__header {
+  display: flex;
+  cursor: pointer;
+}
+.chat__header__profile {
+  width: 100%;
+  background: #036055;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 0px 10px;
+  position: relative;
+}
+.chat__header__profile__left {
+  flex: 1;
+}
+.chat__header__profile__left__pic {
+  width: 50px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-left: 33px;
+}
+.chat__header__profile__left__fleche {
+  display: inline-block;
+  width: 30px;
+  position: absolute;
+  top: 19px;
+  cursor: pointer;
+}
+.chat__header__profile__left h2 {
+  display: inline-block;
+  line-height: 45px;
+  vertical-align: bottom;
+  color: #fff;
+  font-size: 20px;
+}
+.chat__header__profile__left span {
+  color: #ccc;
+  position: absolute;
+  top: 40px;
+  left: 100px;
+  font-size: 14px;
+}
+.chat__header__profile__right {
+  display: flex;
+}
+.chat__header__profile__right__icon {
+  width: 25px;
+  margin-left: 15px;
+}
+.chat__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  position: relative;
+  cursor: pointer;
+}
+.chat__footer__emoji {
+  display: block;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 10px;
+  top: 12px;
+}
+.chat__footer textarea {
+  display: block;
+  flex: 1;
+  width: 100%;
+  height: 50px;
+  border-radius: 60px;
+  margin: 5px;
+  padding: 10px;
+  outline: none;
+  font-size: 19px;
+  padding-left: 40px;
+  padding-right: 90px;
+  border: 2px solid #ccc;
+  color: #555;
+  resize: none;
+}
+.chat__footer__icons {
+  position: absolute;
+  right: 80px;
+  top: 10px;
+}
+.chat__footer img {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  margin-left: 5px;
+}
+.chat__footer__micro {
+  display: block;
+  width: 85px;
+  height: 85px;
+  margin-right: 15px;
+}
+.chat .chat-box {
+  background: url("../img/john.jpeg");
+  padding-left: 0px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  flex: 1;
+}
+.chat .chat-box .img_chat {
+  width: 280px;
+}
+.chat .chat-r {
+  display: flex;
+}
+.chat .chat-r .sp {
+  flex: 1;
+}
+.chat .chat-l {
+  display: flex;
+}
+.chat .chat-l .sp {
+  flex: 1;
+}
+.chat .chat-box .mess {
+  display: block;
+  max-width: 325px;
+  background: #F7FCF6;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+.chat p {
+  word-break: break-all;
+  font-size: 16px;
+}
+.chat .chat-box .mess-r {
+  background: #E2FFC7;
+}
+.chat .chat-box .emoji {
+  width: 20px;
+}
+.chat .chat-box .check {
+  display: flex;
+  float: left;
+}
+.chat .chat-box .check img {
+  width: 20px;
+  margin: auto;
+}
+.chat .chat-box .check span {
+  color: #888;
+  font-size: 12px;
+  font-weight: 700px;
+}
+.chat *::-webkit-scrollbar {
+  width: 2px;
+}
+.chat *::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.chat *::-webkit-scrollbar-thumb {
+  background: #aaa;
+}
+.chat *::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

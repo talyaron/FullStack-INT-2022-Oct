@@ -1,5 +1,6 @@
 # Table #
 ## Documentation ##
+https://www.w3schools.com/html/html_tables.asp
 https://www.w3schools.com/tags/tag_table.asp#:~:text=An%20HTML%20table%20consists%20of,%2C%20and%20elements
 
 ## Videos ##
