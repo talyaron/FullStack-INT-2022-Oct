@@ -30,6 +30,41 @@ body {
             width: auto;
             // margin: 2px;
             border-radius: 25px;
+
+            &--picture {
+                background-color: rgb(161, 170, 80);
+                width: 20px;
+                height: 20px;
+                display: inline-flex;
+            }
+
+            &--call_status {
+                background-color: rgb(33, 35, 168);
+                width: 20px;
+                height: 20px;
+                display: inline-flex;
+            }
+
+            &--user_name {
+                background-color: rgb(68, 83, 11);
+                width: 20px;
+                height: 20px;
+                display: inline-flex;
+            }
+
+            &--date_time {
+                background-color: rgb(12, 147, 156);
+                width: 20px;
+                height: 20px;
+                display: inline-flex;
+            }
+
+            &--video_icon {
+                background-color: rgb(141, 67, 67);
+                width: 20px;
+                height: 20px;
+                display: inline-flex;
+            }
           
         }
     }

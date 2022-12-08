@@ -29,6 +29,36 @@ body {
   width: auto;
   border-radius: 25px;
 }
+.wtsp__body__profile--picture {
+  background-color: #a1aa50;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+}
+.wtsp__body__profile--call_status {
+  background-color: #2123a8;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+}
+.wtsp__body__profile--user_name {
+  background-color: #44530b;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+}
+.wtsp__body__profile--date_time {
+  background-color: #0c939c;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+}
+.wtsp__body__profile--video_icon {
+  background-color: #8d4343;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+}
 .wtsp__footer {
   background-color: #be7fac;
   width: auto;
