@@ -1,0 +1,36 @@
+body {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+}
+
+.wtsp {
+  border: solid black 1px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+.wtsp__header {
+  background-color: lightgray;
+  width: auto;
+  height: 100px;
+}
+.wtsp__body {
+  width: auto;
+  height: min(640px);
+  display: grid;
+  align-items: center;
+  margin: 3px;
+}
+.wtsp__body__profile {
+  background-color: green;
+  height: 70px;
+  width: auto;
+  border-radius: 25px;
+}
+.wtsp__footer {
+  background-color: #be7fac;
+  width: auto;
+  height: 100px;
+}
