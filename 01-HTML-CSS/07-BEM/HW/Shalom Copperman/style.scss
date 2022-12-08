@@ -28,14 +28,19 @@ body {
             background-color: green;
             height: 70px;
             width: auto;
-            // margin: 2px;
             border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            
 
             &--picture {
                 background-color: rgb(161, 170, 80);
-                width: 20px;
-                height: 20px;
+                width: 50px;
+                height: 50px;
+                border-radius: 100px;
                 display: inline-flex;
+                
             }
 
             &--call_status {
