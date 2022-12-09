@@ -1,5 +1,49 @@
-table, tr, td, th {
-  background-color: aqua;
-  border: 1px solid black;
-  border-collapse: collapse;
+body {
+  margin: 0%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar_back {
+  width: 100vw;
+  height: 5vh;
+  background-color: black;
+  color: white;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.navbar {
+  margin: auto;
+  width: 95vw;
+  height: 4.5vh;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 0.6%;
+  font-size: 1.05rem;
+}
+.navbar__leftNavbar {
+  display: flex;
+  gap: 2rem;
+}
+.navbar__leftNavbar__cnn {
+  background-color: red;
+  height: 3vh;
+}
+.navbar__rightNavbar {
+  display: flex;
+  gap: 0.5rem;
+}
+.navbar__rightNavbar__logIn {
+  border: 0.1rem solid white;
+  border-radius: 0.5rem;
+  font-weight: bolder;
+  height: 3vh;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+.tags {
+  display: flex;
 }/*# sourceMappingURL=style.css.map */

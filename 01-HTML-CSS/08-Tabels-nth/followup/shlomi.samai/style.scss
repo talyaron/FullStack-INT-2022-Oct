@@ -1,5 +1,59 @@
-table, tr, td, th {
-    background-color: aqua;
-    border: 1px solid black;
-    border-collapse: collapse;
+body {
+    margin: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.navbar_back {
+    width: 100vw;
+    height: 5vh;
+    background-color: black;
+    color: white;
+    position: sticky;
+}
+    
+.navbar{
+    margin: auto;
+    width: 95vw;
+    height: 4.5vh;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 0.6%;
+    font-size: 1.05rem;
+
+
+        &__leftNavbar {
+            display: flex;
+            gap: 2rem;
+           
+            &__cnn{
+                background-color: red;
+                height: 3vh;
+            }
+   
+        }
+        &__rightNavbar {
+            display: flex;
+            gap: 0.5rem;
+
+            &__logIn {
+                border: 0.1rem solid white;
+                border-radius: 0.5rem;
+                font-weight: bolder;
+                height: 3vh;
+            }
+
+        }
+}
+
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.tags{
+    display: flex;
 }
