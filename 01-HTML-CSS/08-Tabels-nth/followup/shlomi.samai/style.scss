@@ -2,6 +2,7 @@ body {
     margin: 0%;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 .navbar_back {
     width: 100vw;
     height: 5vh;
@@ -9,8 +10,8 @@ body {
     color: white;
     position: sticky;
 }
-    
-.navbar{
+
+.navbar {
     margin: auto;
     width: 95vw;
     height: 4.5vh;
@@ -20,40 +21,97 @@ body {
     font-size: 1.05rem;
 
 
-        &__leftNavbar {
-            display: flex;
-            gap: 2rem;
-           
-            &__cnn{
-                background-color: red;
-                height: 3vh;
-            }
-   
-        }
-        &__rightNavbar {
-            display: flex;
-            gap: 0.5rem;
+    &__leftNavbar {
+        display: flex;
+        gap: 2rem;
 
-            &__logIn {
-                border: 0.1rem solid white;
-                border-radius: 0.5rem;
-                font-weight: bolder;
-                height: 3vh;
-            }
-
+        &__cnn {
+            background-color: red;
+            height: 3vh;
         }
+
+    }
+
+    &__rightNavbar {
+        display: flex;
+        gap: 0.5rem;
+
+        &__logIn {
+            border: 0.1rem solid white;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            height: 3vh;
+        }
+
+    }
 }
 
 
 
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 48
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
 }
 
-.tags{
+.tags {
     display: flex;
+    margin: auto;
+    width: 70vw;
+}
+
+.page {
+    margin: auto;
+    width: 70vw;
+    position: relative;
+    top: 2rem;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    &__col1 {
+        display: flex;
+        flex-direction: column;
+
+        &__mainHeadline {
+            font-size: 2rem;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        &__mainPicture {
+            background: url(https://cdn.cnn.com/cnnnext/dam/assets/221208132438-third-griner-bout-split-large-tease.jpg);
+            background-size:cover;
+            background-repeat: no-repeat;
+            width: 22rem;
+            height: 15rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+           
+
+
+            &__ANALYSIS {
+                background-color: black;
+                font-weight: bold;
+                 color: white;
+                 width: 25%;
+            }
+        }
+
+    }
+
+}
+.seperator {
+    width: 20rem;
+    height: 0.1rem;
+    background-color: gray;
+}
+
+p:hover {
+    background-color: aqua;
 }

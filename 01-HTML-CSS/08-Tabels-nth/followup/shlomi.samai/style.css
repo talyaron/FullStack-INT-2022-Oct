@@ -36,7 +36,7 @@ body {
 .navbar__rightNavbar__logIn {
   border: 0.1rem solid white;
   border-radius: 0.5rem;
-  font-weight: bolder;
+  font-weight: bold;
   height: 3vh;
 }
 
@@ -46,4 +46,53 @@ body {
 
 .tags {
   display: flex;
+  margin: auto;
+  width: 70vw;
+}
+
+.page {
+  margin: auto;
+  width: 70vw;
+  position: relative;
+  top: 2rem;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.wrapper__col1 {
+  display: flex;
+  flex-direction: column;
+}
+.wrapper__col1__mainHeadline {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
+}
+.wrapper__col1__mainPicture {
+  background: url(https://cdn.cnn.com/cnnnext/dam/assets/221208132438-third-griner-bout-split-large-tease.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 22rem;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.wrapper__col1__mainPicture__ANALYSIS {
+  background-color: black;
+  font-weight: bold;
+  color: white;
+  width: 25%;
+}
+
+.seperator {
+  width: 20rem;
+  height: 0.1rem;
+  background-color: gray;
+}
+
+p:hover {
+  background-color: aqua;
 }/*# sourceMappingURL=style.css.map */
