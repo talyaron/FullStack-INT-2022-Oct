@@ -1,3 +1,98 @@
-.nice {
+body {
+   margin-top:10px;
+   margin-bottom: 10px;
+   margin-left:auto;
+   margin-right: auto;
+   width: 400px;
+}
+.wtsp {
+    border: solid black 1px;
+    border-radius: 25px;
+    overflow:hidden;
+
+    &__header {
+        background-color: lightgray;
+        width:auto;
+        height: 100px;
+    }
+
+    &__body {
+        // background-color: rgb(80, 146, 146);
+        width:auto;
+        height: min(640px);
+        display: grid;
+        align-items: center;
+        margin: 3px;
+       
+        &__profile {          
+            background-color: green;
+            height: 70px;
+            width: auto;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content:space-between;
+            
+
+            &--picture {
+                background-color: rgb(161, 170, 80);
+                width: 50px;
+                height: 50px;
+                border-radius: 100px;
+                
+            }
+
+            &--filler {
+                width: 100px;
+            }
+
+            &--details {
+                background-color: white;
+                width: 200px;
+                height: 50px;
+                display: flex;
+                flex-direction: column;
+
+                &--call_status {
+                    background-color: rgb(33, 35, 168);
+                    width: 200px;
+                    height: 10px;
+                  
+                }
     
+                &--user_name {
+                    background-color: rgb(68, 83, 11);
+                    width: 200px;
+                    height: 10px;
+            
+                }
+    
+                &--date_time {
+                    background-color: rgb(12, 147, 156);
+                    width: 200px;
+                    height: 10px;
+                   
+                }
+
+            }
+
+          
+
+            &--video_icon {
+                background-color: rgb(141, 67, 67);
+                width: 20px;
+                height: 20px;
+                
+               
+            }
+          
+        }
+    }
+
+    &__footer {
+        background-color: rgb(190, 127, 172);
+        width:auto;
+        height: 100px;
+    }
 }

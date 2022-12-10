@@ -1,0 +1,76 @@
+body {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+}
+
+.wtsp {
+  border: solid black 1px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+.wtsp__header {
+  background-color: lightgray;
+  width: auto;
+  height: 100px;
+}
+.wtsp__body {
+  width: auto;
+  height: min(640px);
+  display: grid;
+  align-items: center;
+  margin: 3px;
+}
+.wtsp__body__profile {
+  background-color: green;
+  height: 70px;
+  width: auto;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.wtsp__body__profile--picture {
+  background-color: #a1aa50;
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+}
+.wtsp__body__profile--filler {
+  width: 100px;
+}
+.wtsp__body__profile--details {
+  background-color: white;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.wtsp__body__profile--details--call_status {
+  background-color: #2123a8;
+  width: 200px;
+  height: 10px;
+}
+.wtsp__body__profile--details--user_name {
+  background-color: #44530b;
+  width: 200px;
+  height: 10px;
+}
+.wtsp__body__profile--details--date_time {
+  background-color: #0c939c;
+  width: 200px;
+  height: 10px;
+}
+.wtsp__body__profile--video_icon {
+  background-color: #8d4343;
+  width: 20px;
+  height: 20px;
+}
+.wtsp__footer {
+  background-color: #be7fac;
+  width: auto;
+  height: 100px;
+}

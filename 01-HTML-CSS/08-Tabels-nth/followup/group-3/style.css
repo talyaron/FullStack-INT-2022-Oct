@@ -1,0 +1,20 @@
+table {
+  margin: 200px auto;
+  width: 50%;
+  font-size: large;
+}
+
+th {
+  background-color: lightpink;
+}
+
+.hannuka {
+  color: lightsalmon;
+}
+
+tr:nth-child(odd) {
+  background-color: rgba(168, 245, 245, 0.749);
+}
+tr:nth-child(odd) td:nth-child(even) {
+  font-weight: 900;
+}/*# sourceMappingURL=style.css.map */
