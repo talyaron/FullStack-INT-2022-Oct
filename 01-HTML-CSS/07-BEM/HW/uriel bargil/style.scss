@@ -1,0 +1,175 @@
+body {
+  margin: 0;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+border-right {
+  border-right: #3874ce;
+}
+
+.material-symbols-outlined {
+  color: white;
+  width: 10px;
+  align-items: center;
+  align-content: center;
+}
+
+.container {
+  background-color: #36393f;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.header {
+  height: 5vh;
+  background-color: #1e2023;
+  color: white;
+}
+
+
+.LeftToolBar {
+  height: 95vh;
+  width: 5.63vw;
+  background-color: #202225;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+
+  .disImg {
+    padding-top: 5px;
+    height: 7.8vh;
+    width: 3.52vw;
+    border-radius: 30px;
+  }
+}
+
+.SideMenu {
+  background-color: #2f3136;
+  width: 18.75vw;
+  height: 95vh;
+  position: absolute;
+  top: 5vh;
+  left: 5.7vw;
+  padding: 10px;
+  border: solid 1px #40444b;
+
+    
+
+  #placeH {
+    background-color: #36393f;
+    width: 16.8vw;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHsAAAB7CAMAAABjGQ9NAAAAZlBMVEUAAAD8/vz///+Xl5fz9PNvcW/t7u05Ojnb3Nv6+/qampo2Njbe396oqahQUVCOj47HyMdnZ2e9vr11dnXU1dQZGhmIiYjNzs1CQkLn6OexsrEPEA8wMDB9fX1WVlZeX14hIiEoKCg6RtdMAAAEoUlEQVRoge2b6baiMAyAoSIXVFZRFjd4/5ccUK+mQJekVGfOmfy759J+TZukaVodRyWnbr9+yvmg/Ho5iZOmDl32K27oF5vLzyfAUR0OQCjDCLxgVVkFHy5FOOKCAYRldrKGPtYi8C++TiyRfTn5QQ9uy5OrnZr8oKfbhdGRHvlO9y5Lks+lNvmu+mY59LXGoAd6sVS8WXvz6Edkmf/XbhlvO04BD2owCJsfAauXiDTHGbKfJvHrg/jSFFM8C2NJp0Q0c9P1ZEK7JBjTWd0aoq9jspfPT+bpVoyjfG2GrngzYyyXBI7byB1YboI+BTzaX8u/H0UgdjRgR3xXgbLBzedahHRjv/DoSKPJgYOzHZnNLbYWupeCa0TdU7kZZ9obxA40Y/6ZhD6EBK17qaC5I9pBaWAXJaJhxQ26JaC33NShmu5h04bA5tS+4trmsC1+R2vBqqEXDZoKIZEAvk0w1gS2RrOBm1JCIwgxDBvcOu/dlpKDwGnDWtvRoO1d3oqzADl2YKmMlG8DN2HIDAYMu6CgnRuwdFy+fno7CW3KndPbR5E9XMGMKfIFkeTUmVsDNg0NAiurUScFEBs8IhtMnYfy8M170NTUI16ATTM1x/kB0Skjsmmb/3/2v8r+pq1RfQyyUbWnxJwNYwuq4LlATCXHtcx0+3acFXXq4B66orHfRyPUwcLhcoeUhI6BqSHdFBTzQlKtDCZ8KBfjE2xSiRJULLBJMky3kMt1lxi0Ryd8Pj3PHATmueioDA7+BGvjDrHooguYNNdF1+PhiUpdIZI2x1bpblBtwmkug+1xm1kHjSXEo50DVzZBJekpbEmq43PVNUx8gPUpRkyx+UqZtubE0hgvMezEZXsKmnaQnHTjaqnAl2ANCvhcUZppBKg25eeKuP8OUoV8V2kr/35URqbP+CAZ11c/77JA0eXjmwN6GXmQhO+tj5AiZ2s3M/dJZldVzRjO6mTGgLI8nJBdQp1HDh8uuosoq15577ba58LLacNpz6fdsp7vFWXTNGlReJN3AHbhzwFIbiWXgif6F9BPHvdH6A8SNLSiUSa4jRWhi5GfP8Uj3Z50JeLu3W3Gd3qvMRSkQ85RV3W2GzKseP5z5iFz9YdsGx3Vmbt5eLQIjs/97lKlKjpjzesQsxd5B/WiMnLF+N6WuI1OACdmUYNcUm/GqQcjLsezKYTTd9ZzFvU+xInXO+/MnYpoiky29d7wbtkxesoqywQnD/HyLPgIRSCSKG+kuRnbPtyXwS1PeyALB5bhk7Tjg9O+lodBu5qrQrBNzSMV3KLmrWrjtQlXrLhduCDP/Myap1/U/KR8b2hR85Mssv4FmtuDn3dfhG/VcHtr/lV4901rl+YRttf8oNZ80SfUnGhYu4Wn609RGhz1rLYMnPjCUEda1ZoT7+L0RGntyEd6GFFZu9kzYoWorJ1yw6EtCoOjvmDSE7nmls9prfSY9sUzolnJXUfECaRVD3+IMHX+QEVCqLn9goQYbtfHfmX2J0qmv80wgX9GbQc+XHqhbYZzXlbjO62g/Rjb2cM7HsbS7nPofk/dvKujockvYWhyXaVlWRbRr5X9AXvxNONNC7hmAAAAAElFTkSuQmCC");
+    background-size: 19px;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-left: 20px;
+    color: white;
+    border-radius: 9px;
+    
+    ;
+
+  }
+
+  &__lines {
+    color: white;
+    position: relative;
+    top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    
+
+    &__span {
+      position: relative;
+      left: 40px;
+      bottom: 5px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+  }
+}
+
+.RightContainer {
+  background-color: #36393f;
+  width: 75.63vw;
+  height: 95vh;
+  position: absolute;
+  top: -1px;
+  left: 20.38vw;
+  display: block;
+
+  .HeadMenu {
+    background-color: #36393f;
+    height: 7.45vh;
+    top: 0px;
+
+    position: relative;
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+
+    &__span {
+      position: relative;
+      top: -2px;
+      left: 20px;
+      font-weight: bold;
+      font-size: 20px;
+      color: white;
+    }
+  }
+  
+
+  .Mreact {
+    background-color: #36393f;
+    height: 91.68vh;
+    width: 47.5vw;
+    top: 0px;
+    position: relative;
+    display: flex;
+    border: solid 1px #40444b;
+background-image: url(https://www.uploads.co.il/uploads/images/622737990.png); 
+background-repeat: no-repeat;
+background-size: 500px;
+background-position-x: center;
+background-position-y: center;
+
+    
+
+
+}
+
+  .activity {
+    background-color: #36393f;
+    height: 91.68vh;
+    width: 27.97vw;
+    right: 1.5px;
+    position: absolute;
+    top: 7.4vh;
+    border: solid 1px #40444b;
+    
+
+
+
+    .turn {
+      max-width: 20vw;
+      text-align: center;
+      position: relative;
+      top: 120px;
+      left: 40px;
+    }
+
+    .active {
+      color: white;
+      font-weight: bold;
+      position: relative;
+      left: 8px ;
+    }
+
+    .Factivity {
+      color: #77797e;
+    }
+  }
+}
