@@ -17,57 +17,77 @@ body {
   height: 100px;
 }
 .wtsp__body {
-  width: auto;
+  width: 350px;
   height: min(640px);
   display: grid;
   align-items: center;
-  margin: 3px;
+  margin: auto;
 }
 .wtsp__body__profile {
-  background-color: green;
   height: 70px;
   width: auto;
-  border-radius: 25px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  border-bottom: 1px solid black;
 }
 .wtsp__body__profile--picture {
-  background-color: #a1aa50;
-  width: 50px;
-  height: 50px;
+  margin-left: 10px;
+  width: 20%;
+  height: 80%;
   border-radius: 100px;
+  overflow: hidden;
+}
+.wtsp__body__profile--picture img {
+  max-width: 100%;
+  height: auto;
 }
 .wtsp__body__profile--filler {
-  width: 100px;
+  width: 5%;
 }
 .wtsp__body__profile--details {
   background-color: white;
-  width: 200px;
+  margin-left: 20px;
+  width: 60%;
   height: 50px;
   display: flex;
   flex-direction: column;
 }
-.wtsp__body__profile--details--call_status {
-  background-color: #2123a8;
-  width: 200px;
-  height: 10px;
-}
 .wtsp__body__profile--details--user_name {
-  background-color: #44530b;
-  width: 200px;
   height: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px;
 }
-.wtsp__body__profile--details--date_time {
-  background-color: #0c939c;
-  width: 200px;
+.wtsp__body__profile--details--status_details {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.wtsp__body__profile--details--status_details--call_status {
+  max-width: 10%;
   height: 10px;
+  font-size: 10px;
+  padding: 5px;
+}
+.wtsp__body__profile--details--status_details--call_status img {
+  color: black;
+  max-width: 100%;
+  height: auto;
+}
+.wtsp__body__profile--details--status_details--date_time {
+  font-size: 10px;
+  padding: 5px;
+  padding-left: 0px;
 }
 .wtsp__body__profile--video_icon {
-  background-color: #8d4343;
-  width: 20px;
-  height: 20px;
+  width: 25%;
+  height: 30px;
+  display: flex;
+}
+.wtsp__body__profile--video_icon img {
+  max-width: 100%;
+  height: auto;
 }
 .wtsp__footer {
   background-color: #be7fac;

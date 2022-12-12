@@ -17,82 +17,107 @@ body {
     }
 
     &__body {
-        // background-color: rgb(80, 146, 146);
-        width:auto;
+        width:350px;
         height: min(640px);
         display: grid;
         align-items: center;
-        margin: 3px;
+        margin: auto;
        
         &__profile {          
-            background-color: green;
+            // background-color: green;
             height: 70px;
             width: auto;
-            border-radius: 25px;
+            // border-radius: 25px;
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content:space-between;
+            border-bottom: 1px solid black;
             
 
             &--picture {
-                background-color: rgb(161, 170, 80);
-                width: 50px;
-                height: 50px;
+                margin-left: 10px;
+                width: 20%;
+                height:80%;
                 border-radius: 100px;
+                overflow: hidden;
+                img {
+                    max-width: 100%;
+                    height: auto;
+                }
                 
             }
 
             &--filler {
-                width: 100px;
+                width: 5%;
             }
 
             &--details {
                 background-color: white;
-                width: 200px;
+                margin-left: 20px;
+                width: 60%;
                 height: 50px;
                 display: flex;
                 flex-direction: column;
 
-                &--call_status {
-                    background-color: rgb(33, 35, 168);
-                    width: 200px;
-                    height: 10px;
-                  
-                }
-    
                 &--user_name {
-                    background-color: rgb(68, 83, 11);
-                    width: 200px;
+                    // background-color: rgb(68, 83, 11);
                     height: 10px;
+                    font-size: 12px;
+                    font-weight: bold;
+                    padding: 4px;
             
                 }
+
+                &--status_details {
+                    max-width: 100%;
+                    display: flex;
+                    flex-direction: row;
+
+                    &--call_status {
+                        // background-color: rgb(33, 35, 168);
+                        max-width: 10%;
+                        height: 10px;
+                        font-size: 10px;
+                        padding: 5px;
+
+                        img {
+                            color:black;
+                            max-width: 100%;
+                            height: auto;
+                        }   
+                    }
+
+                    &--date_time {
+                        // background-color: rgb(12, 147, 156);
+                        // height: 10px;
+                        // width: 40%;
+                        font-size: 10px;
+                        padding: 5px;
+                        padding-left: 0px;
+                    }
+
+                }             
     
-                &--date_time {
-                    background-color: rgb(12, 147, 156);
-                    width: 200px;
-                    height: 10px;
-                   
-                }
-
             }
-
-          
 
             &--video_icon {
-                background-color: rgb(141, 67, 67);
-                width: 20px;
-                height: 20px;
-                
-               
-            }
-          
-        }
+                // background-color: yellow;
+                width: 25%;
+                height: 30px;
+                display: flex;
+
+                img {
+                    max-width: 100%;
+                    height: auto;
+                    // border-radius: 100px;
+                }    
+            }                       
+        }      
     }
 
     &__footer {
         background-color: rgb(190, 127, 172);
         width:auto;
         height: 100px;
-    }
+    }   
 }
