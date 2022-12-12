@@ -12,29 +12,29 @@
           animation-fill-mode: forwards;
   -webkit-animation-iteration-count: infinite;
           animation-iteration-count: infinite;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
 }
 
 @-webkit-keyframes bounce {
   25% {
     background-color: pink;
-    top: 0px;
+    top: 50px;
     right: -20px;
   }
   50% {
     background-color: rgb(34, 0, 255);
-    top: 100px;
+    top: 0px;
     right: -60px;
   }
   75% {
     background-color: rgb(81, 22, 218);
-    top: 200px;
+    top: 50px;
     right: -100px;
   }
   100% {
     background-color: rgb(1, 0, 0);
-    top: 100px;
+    top: 0px;
     right: -140px;
   }
 }
@@ -42,22 +42,22 @@
 @keyframes bounce {
   25% {
     background-color: pink;
-    top: 0px;
+    top: 50px;
     right: -20px;
   }
   50% {
     background-color: rgb(34, 0, 255);
-    top: 100px;
+    top: 0px;
     right: -60px;
   }
   75% {
     background-color: rgb(81, 22, 218);
-    top: 200px;
+    top: 50px;
     right: -100px;
   }
   100% {
     background-color: rgb(1, 0, 0);
-    top: 100px;
+    top: 0px;
     right: -140px;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,18 @@
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin: 100px auto;
+}
+
+td {
+  width: 100px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: lightsteelblue;
+}
+
+tr:hover {
+  background-color: aquamarine;
+}/*# sourceMappingURL=style.css.map */
