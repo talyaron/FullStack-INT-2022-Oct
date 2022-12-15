@@ -34,4 +34,6 @@ function handleSubmit(event){
     document.querySelector('#root').innerText = `Vat is ${vat}`
 }
 
+var key = 'b8djm8'
+
 
