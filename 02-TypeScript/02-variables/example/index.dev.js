@@ -25,3 +25,5 @@ function handleSubmit(event) {
   var vat = amount * 1.17;
   document.querySelector('#root').innerText = "Vat is ".concat(vat);
 }
+
+var key = 'b8djm8';
