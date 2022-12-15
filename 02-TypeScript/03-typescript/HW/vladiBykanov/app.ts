@@ -1,28 +1,56 @@
 // const main = document.querySelector('.main')
 const nameInput = document.getElementById('name')
-const ageInput:HTMLElement  = document.getElementById('age')
+const ageInput  = document.getElementById('salary')
+const calculateBtn = document.querySelector('#calculateBtn')
+const saveBtn = document.querySelector('#saveBtn')
+const resetBtn = document.querySelector('#resetBtn')
 const output = document.querySelector('.output')
 
-let totalAge = 0
+let salaryArr = []
+let namesArr = []
 let totalPpl = 0
 
-window.addEventListener('keydown', (e) => {
-    if(e.key == 'Enter' && !nameInput.value == '' && !ageInput.value == ''){
-        console.log('check')
-        totalAge += parseInt(ageInput.value)
-        totalPpl ++
+saveBtn?.addEventListener('click', () => {
+    if(nameInput.value == '' || ageInput.value == ''){
         ageInput.value = ''
+        nameInput.value = ''
+        return output?.textContent = 'please provide full data'
     }
+    salaryArr.push(parseInt(ageInput.value))
+    namesArr.push(nameInput.value)
+    console.log(salaryArr)
+    console.log(namesArr)
+    totalPpl ++
+    ageInput.value = ''
+    nameInput.value = ''
 })
 
+calculateBtn?.addEventListener('click', () => {
+    if (salaryArr.length == 0 || namesArr.length < 0){
+        ageInput.value = ''
+        nameInput.value = ''
+        return output?.textContent = 'No Date Entered'
+    } 
+    else if (salaryArr.length < 3 || namesArr.length < 3){
+        return output?.textContent = 'please provide at least 3 inputs'
+    }
+    const fullSum = salaryArr.reduce((a, b) => a + b, 0)
+    const textOutput = `The avrage salaries of ${namesArr.join(', ')} is ${fullSum / totalPpl}`
 
-// let nameOne = 'vladi'
-// let nameTwo = 'itay'
-// let ageOne = 33
-// let ageTwo = 25
+    output?.textContent = textOutput
+})
 
-// let avrage = (ageOne + ageTwo) / 2
+resetBtn?.addEventListener('click', () => {
+    output?.textContent = 'Cleaned'
 
-// let output = `The avrage age of ${nameOne} and ${nameTwo} is ${avrage}`
+    if (salaryArr.length == 0 || namesArr.length == 0){
+        ageInput.value = ''
+        nameInput.value = ''
+        return
+    }
 
-// console.log(output)
+    salaryArr = []
+    namesArr = []
+
+})
+
