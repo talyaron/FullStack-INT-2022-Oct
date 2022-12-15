@@ -1,0 +1,30 @@
+html {
+    background-color: bisque;
+}
+
+body {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+h2 {
+    font-size: 80px;
+}
+
+button {
+    font-size: 40px;
+    background-color: brown;
+    border: none;
+    border-radius: 10px;
+}
+
+#increment-btn:hover {
+    border: 3px solid blue;
+}
