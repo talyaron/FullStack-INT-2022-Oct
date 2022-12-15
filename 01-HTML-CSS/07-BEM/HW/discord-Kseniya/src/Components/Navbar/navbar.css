@@ -1,0 +1,37 @@
+.navbarContainer {
+  background-color: #424242;
+  height: 100%;
+  color: white;
+  padding-left: 5%;
+}
+.navbarContainer__search {
+  font-size: 1rem;
+}
+
+.sidebarDirectMessageTitle {
+  font-size: 1vw;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.singleDirectMessage {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.directMessageImg {
+  height: 2.5rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.directMessageSecondaryTitle {
+  font-size: 0.65rem;
+  color: rgb(160, 160, 160);
+}
+
+.directMessageUserName {
+  font-weight: bold;
+  font-size: 0.9rem;
+}/*# sourceMappingURL=navbar.css.map */
