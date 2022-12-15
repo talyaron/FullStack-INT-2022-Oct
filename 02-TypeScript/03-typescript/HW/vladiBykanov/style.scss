@@ -4,9 +4,28 @@
  } 
 
  body{ 
-     width:100vw; 
-     height:100vh; 
-     display: flex;
-     align-items: center;
-     justify-content: center;
+    //  width:100vw; 
+    //  height:100vh; 
  } 
+
+.main{
+    height: 100vh;
+    display: flex;flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 2rem;
+    input{
+        padding: .5em;
+    }
+    input::placeholder{
+        font-size: 1.3rem;
+    }
+    button{
+        width: 10vw;
+        height: 5vh;
+    }
+    .output{
+        font-size: 2rem;
+        font-weight: 600;
+    }
+}
