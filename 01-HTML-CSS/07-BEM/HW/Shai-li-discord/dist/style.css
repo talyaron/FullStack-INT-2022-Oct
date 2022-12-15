@@ -49,14 +49,15 @@ body {
 .container .groups__group--discord {
   border-radius: 30%;
 }
-.container .home {
+
+.home {
   width: 20vw;
   height: 100vh;
   background-color: #565252;
   margin-top: 20px;
   border-top-left-radius: 10px;
 }
-.container .home input {
+.home input {
   background-color: #343232;
   border: none;
   margin-left: 40px;
@@ -64,7 +65,7 @@ body {
   border-radius: 7px;
   padding: 5px;
 }
-.container .home__categories {
+.home__categories {
   display: flex;
   flex-direction: column;
   padding: 0.5rem 3rem;
@@ -72,61 +73,66 @@ body {
   color: #a3a29f;
   opacity: 80%;
 }
-.container .home__categories:hover {
+.home__categories:hover {
   background-color: #696b6c;
 }
-.container .home h5 {
+.home h5 {
   text-align: left;
   margin-left: 20px;
   color: #c7c7c7;
 }
-.container .home__members {
+.home__members {
   display: flex;
   flex-direction: column;
   padding: 0.7rem;
   gap: 1rem;
 }
-.container .home__members__member {
+.home__members__member {
   color: #e9eeee;
   display: flex;
   align-items: center;
   margin-left: 10px;
   padding: 5px;
 }
-.container .home__members__member img {
+.home__members__member img {
   width: 50px;
   height: 50px;
   border-radius: 100px;
   align-items: center;
 }
-.container .home__members__member .name {
+.home__members__member .name {
   padding: 10px;
 }
-.container .rightBlock {
+
+.rightBlock {
   height: 100vh;
   width: 100vw;
   background-color: #5e6262;
   margin-top: 20px;
   color: #dedddd;
 }
-.container .rightBlock__topNav {
+.rightBlock__topNav {
   font-size: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 20px;
 }
-.container .rightBlock .stages {
+.rightBlock__stages {
   display: flex;
   flex-direction: row;
+}
+.rightBlock__stages__stage {
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
 }
-.container .rightBlock .stages__title {
+.rightBlock__stages__stage__title {
   font-size: large;
   margin-right: 15rem;
   margin-left: 4rem;
 }
-.container .rightBlock .userContainer {
+.rightBlock .userContainer {
   width: 30vw;
   height: 20vh;
   background-color: #3b3a3a;
@@ -134,24 +140,29 @@ body {
   display: flex;
   flex-direction: row;
 }
-.container .rightBlock .userContainer img {
+.rightBlock .userContainer img {
   height: 40px;
   width: 40px;
   border-radius: 30%;
   margin: 0.5rem;
 }
-.container .rightBlock .userContainer__name {
+.rightBlock .userContainer__name {
   margin-top: 1rem;
   font-size: medium;
 }
-.container .rightBlock .userContainer__headphone {
-  background-color: #555657;
-  height: 20px;
-  width: 40px;
-  border-radius: 30%;
-  font-size: small;
-  text-align: center;
-  margin-top: 0.8rem;
-  margin-right: 0.5rem;
-  align-items: center;
+.rightBlock .userContainer__headphones {
+  width: 70px;
+  position: relative;
+  left: 700px;
+  bottom: 110px;
+  border: 2px #18191b solid;
+  border-radius: 20%;
+  display: flex;
+}
+.rightBlock .userContainer__headphones i {
+  margin-left: 5px;
+}
+.rightBlock .userContainer__caption {
+  margin-top: 4.5rem;
+  font-variant-position: initial;
 }
