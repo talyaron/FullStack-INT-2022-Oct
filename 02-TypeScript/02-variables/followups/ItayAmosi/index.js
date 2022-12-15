@@ -1,4 +1,4 @@
-console.log('hi itay');
+console.log("hi itay");
 
 
 
@@ -23,3 +23,11 @@ console.log(x);
  z = y + x / x;
 console.log(z);
 
+
+function handleSubmit(event){
+    event.preventDefault();
+    var amount = event.target.elements.number.valueAsNumber;
+    console.log(amount)
+    var vat = amount * 1.17;
+    document.querySelector('#root').innerText = `Vat is ${vat}`
+}
