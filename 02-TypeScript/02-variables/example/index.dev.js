@@ -1,4 +1,6 @@
 "use strict";
+<<<<<<< HEAD
+=======
 
 // console.log("Hi Tal");
 // console.log('Good evening');
@@ -25,3 +27,4 @@ function handleSubmit(event) {
   var vat = amount * 1.17;
   document.querySelector('#root').innerText = "Vat is ".concat(vat);
 }
+>>>>>>> 1dc92fe084d0eae8e6129c6fd5f28d8682976236
