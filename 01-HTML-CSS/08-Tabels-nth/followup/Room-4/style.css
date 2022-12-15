@@ -1,0 +1,20 @@
+table, tr, th {
+  width: 100px;
+  border: 1px solid red;
+  margin: 100px auto;
+}
+
+th {
+  text-align: center;
+  padding: 8px;
+  border: 1px;
+  border: 1px solid red;
+}
+
+tr:nth-child(5n) {
+  background-color: aqua;
+}
+
+tr {
+  text-align: center;
+}/*# sourceMappingURL=style.css.map */

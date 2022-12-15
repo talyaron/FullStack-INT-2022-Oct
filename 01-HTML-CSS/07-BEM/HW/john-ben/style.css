@@ -1,0 +1,325 @@
+.big_container {
+  display: flex;
+  width: 100vw;
+  height: 1000px;
+}
+
+* {
+  padding: 3px;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.container {
+  width: 390px;
+  margin-left: 350px;
+  margin-top: 100px;
+  border-radius: 10px;
+}
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  background: url("img/john.jpeg");
+  background: #036055;
+  border-radius: 15px;
+}
+.chat__header {
+  display: flex;
+  cursor: pointer;
+}
+.chat__header__profile {
+  width: 100%;
+  background: #036055;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 0px 10px;
+  position: relative;
+}
+.chat__header__profile__left {
+  flex: 1;
+}
+.chat__header__profile__left__pic {
+  width: 50px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-left: 33px;
+}
+.chat__header__profile__left__fleche {
+  display: inline-block;
+  width: 30px;
+  position: absolute;
+  top: 19px;
+  cursor: pointer;
+}
+.chat__header__profile__left h2 {
+  display: inline-block;
+  line-height: 45px;
+  vertical-align: bottom;
+  color: #fff;
+  font-size: 20px;
+}
+.chat__header__profile__left span {
+  color: #ccc;
+  position: absolute;
+  top: 40px;
+  left: 100px;
+  font-size: 14px;
+}
+.chat__header__profile__right {
+  display: flex;
+}
+.chat__header__profile__right__icon {
+  width: 25px;
+  margin-left: 15px;
+}
+.chat__footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  position: relative;
+  cursor: pointer;
+}
+.chat__footer__emoji {
+  display: block;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 10px;
+  top: 12px;
+}
+.chat__footer textarea {
+  display: block;
+  flex: 1;
+  width: 100%;
+  height: 50px;
+  border-radius: 60px;
+  margin: 5px;
+  padding: 10px;
+  outline: none;
+  font-size: 19px;
+  padding-left: 40px;
+  padding-right: 90px;
+  border: 2px solid #ccc;
+  color: #555;
+  resize: none;
+}
+.chat__footer__icons {
+  position: absolute;
+  right: 80px;
+  top: 10px;
+}
+.chat__footer img {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  margin-left: 5px;
+}
+.chat__footer__micro {
+  display: block;
+  width: 85px;
+  height: 85px;
+  margin-right: 15px;
+}
+.chat__box {
+  background: url("../img/john.jpeg");
+  padding-left: 0px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  flex: 1;
+}
+.chat__box__chat-r {
+  display: flex;
+}
+.chat__box__chat-r__sp {
+  flex: 1;
+}
+.chat__box__chat-r__mess {
+  display: block;
+  max-width: 325px;
+  background: #F7FCF6;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 10px 0px;
+  cursor: pointer;
+  background: #E2FFC7;
+}
+.chat__box__chat-r__mess__img_chat {
+  width: 280px;
+}
+.chat__box__chat-r__mess__check {
+  display: flex;
+  float: left;
+}
+.chat__box__chat-r__mess__check img {
+  width: 20px;
+  margin: auto;
+}
+.chat__box__chat-l {
+  display: flex;
+}
+.chat__box__chat-l__mess {
+  display: block;
+  max-width: 325px;
+  background: #F7FCF6;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 10px 0px;
+  cursor: pointer;
+}
+.chat__box__chat-l__mess__emoji {
+  width: 20px;
+}
+.chat__box__chat-l__mess__check {
+  display: flex;
+  float: left;
+}
+.chat__box__chat-l__mess__check img {
+  width: 20px;
+  margin: auto;
+}
+.chat__box__chat-l__sp {
+  flex: 1;
+}
+.chat__box p {
+  word-break: break-all;
+  font-size: 16px;
+}
+.chat__box span {
+  color: #888;
+  font-size: 12px;
+  font-weight: 700px;
+}
+.chat__box *::-webkit-scrollbar {
+  width: 2px;
+}
+.chat__box *::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.chat__box *::-webkit-scrollbar-thumb {
+  background: #aaa;
+}
+.chat__box *::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.container2 {
+  width: 390px;
+  margin-left: 300px;
+  margin-top: 100px;
+  border-radius: 10px;
+}
+
+.chat2 {
+  display: flex;
+  flex-direction: column;
+  height: 700px;
+  background-color: white;
+  background: #036055;
+  border-radius: 15px;
+}
+.chat2__header {
+  display: flex;
+  cursor: pointer;
+}
+.chat2__header__profile {
+  width: 100%;
+  background: #036055;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 0px 10px;
+  position: relative;
+}
+.chat2__header__profile__left {
+  flex: 1;
+}
+.chat2__header__profile__left__pic {
+  width: 50px;
+  display: inline-block;
+  border-radius: 50%;
+  margin-left: 33px;
+}
+.chat2__header__profile__left__fleche {
+  display: inline-block;
+  width: 30px;
+  position: absolute;
+  top: 19px;
+  cursor: pointer;
+}
+.chat2__header__profile__left h2 {
+  display: inline-block;
+  line-height: 45px;
+  vertical-align: bottom;
+  color: #fff;
+  font-size: 20px;
+}
+.chat2__header__profile__left span {
+  color: #ccc;
+  position: absolute;
+  top: 40px;
+  left: 100px;
+  font-size: 14px;
+}
+.chat2__header__profile__right {
+  display: flex;
+}
+.chat2__header__profile__right__icon {
+  width: 25px;
+  margin-left: 15px;
+}
+.chat2 .chat-box2 {
+  display: flex;
+  width: 378px;
+  flex-direction: column;
+  background-color: #036055;
+  padding-left: 0px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-radius: 10px;
+}
+.chat2 .section {
+  display: flex;
+  width: 378px;
+  height: 78px;
+  border-style: solid;
+  border-color: #036055;
+  background-color: white;
+}
+.chat2 .section__left {
+  display: flex;
+  width: 60%;
+  height: 81px;
+}
+.chat2 .section__left img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-left: 25px;
+  margin-top: 10px;
+}
+.chat2 .section__left h2 {
+  color: #036055;
+  font-size: 20px;
+  margin-top: 15px;
+}
+.chat2 .section__left span {
+  color: #036055;
+  display: inline-block;
+  font-size: 14px;
+  margin-top: 17px;
+  margin-right: 30px;
+}
+.chat2 .section__right {
+  display: flex;
+  width: 40%;
+  height: 81px;
+}
+.chat2 .section__right img {
+  height: 30px;
+  margin: auto;
+}/*# sourceMappingURL=style.css.map */

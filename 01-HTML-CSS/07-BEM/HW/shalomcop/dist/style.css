@@ -1,0 +1,8 @@
+body {
+  width: 600px;
+}
+
+.top_bar {
+  background-color: blue;
+  height: 0px;
+}
