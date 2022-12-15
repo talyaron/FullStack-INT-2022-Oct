@@ -1,13 +1,17 @@
 
-let btnClick = document.getElementById("count")
-let btnReser = document.getElementById("")
+const incrementBtn = document.getElementById('increment-btn')
+const amount = document.getElementById("count")
+const resetBtn = document.getElementById("reset-btn")
 let count = 0;
 
-function increment(){
-    count++;
-    btnClick.innerText = count;
-}
+incrementBtn.addEventListener('click', () => {
+    count ++
+    amount.textContent = count
+    console.log(count)
+})
 
-function reset(){
-    btnClick.innerText = 0;
-}
+resetBtn.addEventListener('click', () => {
+    count = 0
+    amount.textContent = count
+    console.log(count)
+})
