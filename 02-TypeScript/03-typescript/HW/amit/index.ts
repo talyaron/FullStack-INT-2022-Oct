@@ -19,6 +19,7 @@ console.log(``);
 
 
 
+
 //task 2: power of//
 console.log(`task 2:`);
 var base:number= 2;
@@ -39,6 +40,7 @@ console.log(``);
 
 
 
+
 //task 3// square root
 console.log(`task 3:`);
 var x:number= 25;
@@ -47,6 +49,3 @@ console.log(`the square root of ${x} is ${squareRootX}.`);
 var y:number= 144;
 var squareRootY = Math.sqrt(y);
 console.log(`the square root of ${y} is ${squareRootY}.`);
-
-
-
