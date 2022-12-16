@@ -6,8 +6,8 @@ const resetBtn = document.querySelector('#resetBtn')
 const makeListBtn = document.querySelector('#makeListBtn')
 const output = document.querySelector('.output')
 const listOutput: HTMLElement | null = document.querySelector('#listOutput')
-const main = document.querySelector('.main')
-
+const inputPage = document.querySelector('.inputPage')
+const ulEl = document.querySelector('.listOfNames')
 
 const highestPayingJobs = {
     'Cardiologist': 353970,
@@ -22,7 +22,6 @@ const highestPayingJobs = {
     'Pediatric Surgeon': 290310
 }
 
-// console.log((Object.values(highestPayingJobs).reduce((a,b) => a + b, 0)) / 10)
 
 const totalIncome = Object.values(highestPayingJobs).reduce((a,b) => a + b, 0)
 const jobTitles = Object.keys(highestPayingJobs).join(', ')
@@ -35,7 +34,7 @@ if (listOutput != null) listOutput.textContent = text
 
 
 makeListBtn?.addEventListener('click', () => {
-    main.style.transform = 'translateY(0)'
+    inputPage.style.transform = 'translateY(0)'
 })
 
 let salaryArr = []
@@ -43,11 +42,14 @@ let namesArr = []
 let totalPpl = 0
 
 saveBtn?.addEventListener('click', () => {
+
     if(nameInput?.value == '' || ageInput.value == ''){
         ageInput.value = ''
         nameInput.value = ''
         return output?.textContent = 'please provide full data'
-    }
+    } 
+    else if (nameInput?.value.length < 8) return output?.textContent = 'please provide full name'
+
     salaryArr.push(parseInt(ageInput.value))
     namesArr.push(nameInput.value)
     console.log(salaryArr)
@@ -55,6 +57,8 @@ saveBtn?.addEventListener('click', () => {
     totalPpl ++
     ageInput.value = ''
     nameInput.value = ''
+    output?.textContent = 'Type in your data'
+    renderArr(namesArr)
 })
 
 calculateBtn?.addEventListener('click', () => {
@@ -67,8 +71,9 @@ calculateBtn?.addEventListener('click', () => {
         return output?.textContent = 'please provide at least 3 inputs'
     }
     const fullSum = salaryArr.reduce((a, b) => a + b, 0)
-    const textOutput = `The avrage salaries of ${namesArr.join(', ')} is ${fullSum / totalPpl}`
-
+    const lastName = namesArr.pop()
+    const textOutput = `The avrage salaries of ${namesArr.join(', ')} and ${lastName} is ${fullSum / totalPpl}`
+    namesArr.push(lastName)
     output?.textContent = textOutput
 })
 
@@ -85,3 +90,11 @@ resetBtn?.addEventListener('click', () => {
     namesArr = []
 })
 
+function renderArr(arr){
+    ulEl?.replaceChildren()
+    arr.forEach(element => {
+        const li = document.createElement('li')
+        li.textContent = element
+        ulEl?.append(li)
+    });
+}
