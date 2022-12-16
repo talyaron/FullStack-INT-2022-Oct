@@ -5,7 +5,7 @@ const saveBtn = document.querySelector('#saveBtn')
 const resetBtn = document.querySelector('#resetBtn')
 const makeListBtn = document.querySelector('#makeListBtn')
 const output = document.querySelector('.output')
-const listOutput = document.querySelector<HTMLParagraphElement>('#listOutput')
+const listOutput: HTMLElement | null = document.querySelector('#listOutput')
 const main = document.querySelector('.main')
 
 
@@ -28,9 +28,10 @@ const totalIncome = Object.values(highestPayingJobs).reduce((a,b) => a + b, 0)
 const jobTitles = Object.keys(highestPayingJobs).join(', ')
 const avrageOfIncome = totalIncome / Object.entries(highestPayingJobs).length
 
-const text = `The highest 10 paying jobs in the US are: ${jobTitles}. And their average income is ${avrageOfIncome}$ a year`
+const text: string = `The highest 10 paying jobs in the US are: ${jobTitles}. And their average income is ${avrageOfIncome}$ a year`
 
-listOutput?.textContent = text
+if (listOutput != null) listOutput.textContent = text
+
 
 
 makeListBtn?.addEventListener('click', () => {
