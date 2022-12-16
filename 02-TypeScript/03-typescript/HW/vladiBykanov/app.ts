@@ -1,10 +1,12 @@
-// const main = document.querySelector('.main')
-const nameInput = document.getElementById('name')
+const nameInput = document.getElementById<HTMLInputElement>('name')
 const ageInput  = document.getElementById('salary')
 const calculateBtn = document.querySelector('#calculateBtn')
 const saveBtn = document.querySelector('#saveBtn')
 const resetBtn = document.querySelector('#resetBtn')
+const makeListBtn = document.querySelector('#makeListBtn')
 const output = document.querySelector('.output')
+const listOutput = document.querySelector<HTMLParagraphElement>('#listOutput')
+const main = document.querySelector('.main')
 
 
 const highestPayingJobs = {
@@ -15,7 +17,7 @@ const highestPayingJobs = {
     'Orthopedic Surgeon, Except Pediatric': 306220,
     'Dermatologist': 302740,
     'Radiologist': 301720,
-    'Surgeon, All Other': 297800,
+    'Surgeon (All Other)': 297800,
     'Obstetrician-Gynecologist': 296210,
     'Pediatric Surgeon': 290310
 }
@@ -26,17 +28,21 @@ const totalIncome = Object.values(highestPayingJobs).reduce((a,b) => a + b, 0)
 const jobTitles = Object.keys(highestPayingJobs).join(', ')
 const avrageOfIncome = totalIncome / Object.entries(highestPayingJobs).length
 
-const text = `The highest 10 paying jobs in the US are: ${jobTitles} and their average income is ${avrageOfIncome}$ a year`
+const text = `The highest 10 paying jobs in the US are: ${jobTitles}. And their average income is ${avrageOfIncome}$ a year`
 
-console.log(text)
+listOutput?.textContent = text
 
+
+makeListBtn?.addEventListener('click', () => {
+    main.style.transform = 'translateY(0)'
+})
 
 let salaryArr = []
 let namesArr = []
 let totalPpl = 0
 
 saveBtn?.addEventListener('click', () => {
-    if(nameInput.value == '' || ageInput.value == ''){
+    if(nameInput?.value == '' || ageInput.value == ''){
         ageInput.value = ''
         nameInput.value = ''
         return output?.textContent = 'please provide full data'
@@ -76,6 +82,5 @@ resetBtn?.addEventListener('click', () => {
 
     salaryArr = []
     namesArr = []
-
 })
 
