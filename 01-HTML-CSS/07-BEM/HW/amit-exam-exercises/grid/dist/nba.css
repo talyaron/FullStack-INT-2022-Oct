@@ -177,7 +177,7 @@ body {
   width: auto;
   height: auto;
   padding: 0.5rem;
-  display: flexbox;
+  display: flex;
   flex-direction: column;
 }
 .container .main__playersBar__player__lapseBar {
