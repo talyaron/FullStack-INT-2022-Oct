@@ -1,15 +1,38 @@
-// const main = document.querySelector('.main')
 var nameInput = document.getElementById('name');
 var ageInput = document.getElementById('salary');
 var calculateBtn = document.querySelector('#calculateBtn');
 var saveBtn = document.querySelector('#saveBtn');
 var resetBtn = document.querySelector('#resetBtn');
+var makeListBtn = document.querySelector('#makeListBtn');
 var output = document.querySelector('.output');
+var listOutput = document.querySelector('#listOutput');
+var main = document.querySelector('.main');
+var highestPayingJobs = {
+    'Cardiologist': 353970,
+    'Anesthesiologist': 331190,
+    'Oral and Maxillofacial Surgeon': 311460,
+    'Emergency Medicine Physician': 310640,
+    'Orthopedic Surgeon, Except Pediatric': 306220,
+    'Dermatologist': 302740,
+    'Radiologist': 301720,
+    'Surgeon (All Other)': 297800,
+    'Obstetrician-Gynecologist': 296210,
+    'Pediatric Surgeon': 290310
+};
+// console.log((Object.values(highestPayingJobs).reduce((a,b) => a + b, 0)) / 10)
+var totalIncome = Object.values(highestPayingJobs).reduce(function (a, b) { return a + b; }, 0);
+var jobTitles = Object.keys(highestPayingJobs).join(', ');
+var avrageOfIncome = totalIncome / Object.entries(highestPayingJobs).length;
+var text = "The highest 10 paying jobs in the US are: " + jobTitles + ". And their average income is " + avrageOfIncome + "$ a year";
+listOutput === null || listOutput === void 0 ? void 0 : listOutput.textContent = text;
+makeListBtn === null || makeListBtn === void 0 ? void 0 : makeListBtn.addEventListener('click', function () {
+    main.style.transform = 'translateY(0)';
+});
 var salaryArr = [];
 var namesArr = [];
 var totalPpl = 0;
 saveBtn === null || saveBtn === void 0 ? void 0 : saveBtn.addEventListener('click', function () {
-    if (nameInput.value == '' || ageInput.value == '') {
+    if ((nameInput === null || nameInput === void 0 ? void 0 : nameInput.value) == '' || ageInput.value == '') {
         ageInput.value = '';
         nameInput.value = '';
         return output === null || output === void 0 ? void 0 : output.textContent = 'please provide full data';
