@@ -8,6 +8,9 @@ var output = document.querySelector('.output');
 var listOutput = document.querySelector('#listOutput');
 var inputPage = document.querySelector('.inputPage');
 var ulEl = document.querySelector('.listOfNames');
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
 var highestPayingJobs = {
     'Cardiologist': 353970,
     'Anesthesiologist': 331190,
@@ -23,7 +26,7 @@ var highestPayingJobs = {
 var totalIncome = Object.values(highestPayingJobs).reduce(function (a, b) { return a + b; }, 0);
 var jobTitles = Object.keys(highestPayingJobs).join(', ');
 var avrageOfIncome = totalIncome / Object.entries(highestPayingJobs).length;
-var text = "The highest 10 paying jobs in the US are: " + jobTitles + ". And their average income is " + avrageOfIncome + "$ a year";
+var text = "The highest 10 paying jobs in the US are: " + jobTitles + ". And their average income is " + numberWithCommas(avrageOfIncome) + " $ a year";
 if (listOutput != null)
     listOutput.textContent = text;
 makeListBtn === null || makeListBtn === void 0 ? void 0 : makeListBtn.addEventListener('click', function () {
@@ -61,7 +64,7 @@ calculateBtn === null || calculateBtn === void 0 ? void 0 : calculateBtn.addEven
     }
     var fullSum = salaryArr.reduce(function (a, b) { return a + b; }, 0);
     var lastName = namesArr.pop();
-    var textOutput = "The avrage salaries of " + namesArr.join(', ') + " and " + lastName + " is " + fullSum / totalPpl;
+    var textOutput = "The avrage salaries of " + namesArr.join(', ') + " and " + lastName + " is " + numberWithCommas(fullSum / totalPpl) + " \u20AA";
     namesArr.push(lastName);
     output === null || output === void 0 ? void 0 : output.textContent = textOutput;
 });

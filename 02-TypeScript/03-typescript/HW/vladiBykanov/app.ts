@@ -9,6 +9,11 @@ const listOutput: HTMLElement | null = document.querySelector('#listOutput')
 const inputPage = document.querySelector('.inputPage')
 const ulEl = document.querySelector('.listOfNames')
 
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
 const highestPayingJobs = {
     'Cardiologist': 353970,
     'Anesthesiologist': 331190,
@@ -27,7 +32,7 @@ const totalIncome = Object.values(highestPayingJobs).reduce((a,b) => a + b, 0)
 const jobTitles = Object.keys(highestPayingJobs).join(', ')
 const avrageOfIncome = totalIncome / Object.entries(highestPayingJobs).length
 
-const text: string = `The highest 10 paying jobs in the US are: ${jobTitles}. And their average income is ${avrageOfIncome}$ a year`
+const text: string = `The highest 10 paying jobs in the US are: ${jobTitles}. And their average income is ${numberWithCommas(avrageOfIncome)} $ a year`
 
 if (listOutput != null) listOutput.textContent = text
 
@@ -72,7 +77,7 @@ calculateBtn?.addEventListener('click', () => {
     }
     const fullSum = salaryArr.reduce((a, b) => a + b, 0)
     const lastName = namesArr.pop()
-    const textOutput = `The avrage salaries of ${namesArr.join(', ')} and ${lastName} is ${fullSum / totalPpl}`
+    const textOutput = `The avrage salaries of ${namesArr.join(', ')} and ${lastName} is ${numberWithCommas(fullSum / totalPpl)} ₪`
     namesArr.push(lastName)
     output?.textContent = textOutput
 })
