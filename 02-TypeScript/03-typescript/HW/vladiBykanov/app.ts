@@ -32,7 +32,7 @@ const totalIncome = Object.values(highestPayingJobs).reduce((a,b) => a + b, 0)
 const jobTitles = Object.keys(highestPayingJobs).join(', ')
 const avrageOfIncome = totalIncome / Object.entries(highestPayingJobs).length
 
-const text: string = `The highest 10 paying jobs in the US are: ${jobTitles}. And their average income is ${numberWithCommas(avrageOfIncome)} $ a year`
+const text: string = `The 10 highest paying jobs in the US currently are: ${jobTitles}. And their average income is ${numberWithCommas(avrageOfIncome)} $ a year`
 
 if (listOutput != null) listOutput.textContent = text
 
