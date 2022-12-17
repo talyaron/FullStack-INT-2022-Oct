@@ -26,7 +26,7 @@ var highestPayingJobs = {
 var totalIncome = Object.values(highestPayingJobs).reduce(function (a, b) { return a + b; }, 0);
 var jobTitles = Object.keys(highestPayingJobs).join(', ');
 var avrageOfIncome = totalIncome / Object.entries(highestPayingJobs).length;
-var text = "The highest 10 paying jobs in the US are: " + jobTitles + ". And their average income is " + numberWithCommas(avrageOfIncome) + " $ a year";
+var text = "The 10 highest paying jobs in the US currently are: " + jobTitles + ". And their average income is " + numberWithCommas(avrageOfIncome) + " $ a year";
 if (listOutput != null)
     listOutput.textContent = text;
 makeListBtn === null || makeListBtn === void 0 ? void 0 : makeListBtn.addEventListener('click', function () {
