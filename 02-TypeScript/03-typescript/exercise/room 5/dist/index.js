@@ -4,4 +4,4 @@ console.log(firstName + "," + firstAge);
 var secondName = "shlomi";
 var secondAge = 35;
 console.log(secondName + "," + secondAge);
-var average = ;
+var average;

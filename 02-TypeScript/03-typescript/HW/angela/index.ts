@@ -37,7 +37,7 @@ var d= Math.sqrt(b).toFixed(3);
 console.log(`the square root of ${a} is ${c} and the square root of ${b} is ${d}`);
 
 console.log('');
-var num = prompt("choose an intger number to get the squre root of ");
+var num = prompt("choose an intger number to get the squre root of , you'll see the result at the bottom");
 var root = Math.sqrt(num).toFixed(2);
 console.log(`the squre root of ${num} is ${root}`);
 

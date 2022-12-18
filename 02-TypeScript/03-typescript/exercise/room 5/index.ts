@@ -10,4 +10,4 @@ var secondAge:number = 35 ;
 
 console.log(`${secondName},${secondAge}`)
 
-var average:number = 
+var average:number;
