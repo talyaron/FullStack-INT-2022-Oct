@@ -10,25 +10,35 @@
   <body>
     <div class="startPage">
       <h1>Pre made list</h1>
-      <p id="listOutput">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente voluptas perspiciatis nam atque aspernatur fugit natus. Facere atque natus temporibus consectetur blanditiis doloremque consequatur nam quos, tempore saepe nesciunt eveniet?</p>
+      <p id="listOutput">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente
+        voluptas perspiciatis nam atque aspernatur fugit natus. Facere atque
+        natus temporibus consectetur blanditiis doloremque consequatur nam quos,
+        tempore saepe nesciunt eveniet?
+      </p>
       <button id="makeListBtn">Make your own list</button>
     </div>
-    <div class="main">
+    <div class="inputPage">
       <h4>Calculate the average income of your group</h4>
       <div class="nameBox">
-        <p>Enter name</p>
+        <p>Enter full name</p>
         <input type="text" id="name" placeholder="John Doe" />
       </div>
       <div class="salaryBox">
         <p>Enter salary</p>
-        <input type="text" id="salary" placeholder="7,500$" />
+        <input type="text" id="salary" placeholder="7,500₪" />
       </div>
       <div class="Buttons">
         <button id="saveBtn">Save Input</button>
         <button id="calculateBtn">Calculate Average</button>
         <button id="resetBtn">Reset Data</button>
       </div>
-      <div class="output">Date output will be provided here</div>
+      <div class="output">Type in your data</div>
+      <div class="listDiv">
+        <span>List of names</span>
+        <ul class="listOfNames">
+        </ul>
+      </div>
     </div>
 
     <script src="./dist/app.js"></script>
