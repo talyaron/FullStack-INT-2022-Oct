@@ -7,14 +7,10 @@ for (let i = 1; i < 10; i++) {
 var salariesAvg:number= salariesSum/10;
 console.log(`The average salary of a developer is ${salariesAvg}`);
 
-
-
 console.log("Second exercise");
 var num:number=50;
 var numPower:number= Math.pow(num,2);
 console.log(`The power of ${num} is ${numPower}`);
-
-
 
 console.log("Third exercise");
 var num1:number= 16;
