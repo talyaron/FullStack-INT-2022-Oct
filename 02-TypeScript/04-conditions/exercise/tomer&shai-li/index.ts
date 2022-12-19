@@ -36,5 +36,5 @@ var yearsStr= prompt(`for how many years`);
 // var years= parseInt(yearsStr);
 
 
-var result= loanamount*yearlyprecentage*years;
-alert(result);
+// var result= loanamount*yearlyprecentage*years;
+// alert(result);
