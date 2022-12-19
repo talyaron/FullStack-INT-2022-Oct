@@ -58,7 +58,7 @@
 
 
 
-const donationStr = prompt(`How mach you donate?`)
+var donationStr = prompt(`How mach you donate?`)
 console.log(donationStr typeof donationstr);
 
 
