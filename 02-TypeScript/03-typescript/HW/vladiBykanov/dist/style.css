@@ -29,7 +29,7 @@ html {
   height: 5vh;
 }
 
-.main {
+.inputPage {
   background-color: white;
   transform: translateY(-100vh);
   height: 100vh;
@@ -43,17 +43,36 @@ html {
   top: 0;
   transition: all 0.5s;
 }
-.main input {
+.inputPage input {
   padding: 0.5em;
 }
-.main input::placeholder {
+.inputPage input::placeholder {
   font-size: 1.3rem;
 }
-.main button {
-  width: 10vw;
+.inputPage button {
+  width: 15vw;
   height: 5vh;
 }
-.main .output {
-  font-size: 2rem;
-  font-weight: 600;
+.inputPage .output {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.listDiv {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  font-size: 1.3rem;
+  padding: 1em;
+}
+.listDiv span {
+  border-bottom: 1px solid black;
+  line-height: 1rem;
+}
+.listDiv .listOfNames {
+  height: 100%;
+  display: block;
+  line-height: 2rem;
+  margin-top: 1em;
 }
