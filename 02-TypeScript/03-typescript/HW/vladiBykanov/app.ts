@@ -1,12 +1,14 @@
-const nameInput = document.getElementById<HTMLInputElement>("name");
-const ageInput = document.getElementById("salary");
+const nameInput = document.getElementById("name") as HTMLInputElement | null;
+const salaryInput = document.getElementById(
+  "salary"
+) as HTMLInputElement | null;
 const calculateBtn = document.querySelector("#calculateBtn");
 const saveBtn = document.querySelector("#saveBtn");
 const resetBtn = document.querySelector("#resetBtn");
 const makeListBtn = document.querySelector("#makeListBtn");
-const output = document.querySelector(".output");
+const output = document.querySelector(".output") as HTMLElement | null;
 const listOutput: HTMLElement | null = document.querySelector("#listOutput");
-const inputPage = document.querySelector(".inputPage");
+const inputPage = document.querySelector(".inputPage") as HTMLElement | null;
 const ulEl = document.querySelector(".listOfNames");
 
 function numberWithCommas(x) {
@@ -37,55 +39,55 @@ const text: string = `The 10 highest paying jobs in the US currently are: ${jobT
 if (listOutput != null) listOutput.textContent = text;
 
 makeListBtn?.addEventListener("click", () => {
-  inputPage.style.transform = "translateY(0)";
+  if (inputPage != null) inputPage.style.transform = "translateY(0)";
 });
 
-let salaryArr = [];
-let namesArr = [];
+let salaryArr: number[] = [];
+let namesArr: string[] = [];
 let totalPpl = 0;
 
 saveBtn?.addEventListener("click", () => {
-  if (nameInput?.value == "" || ageInput.value == "") {
-    ageInput.value = "";
-    nameInput.value = "";
-    return (output?.textContent = "please provide full data");
-  } else if (nameInput?.value.length < 8)
-    return (output?.textContent = "please provide full name");
+  if (nameInput?.value == "" || salaryInput?.value == "") {
+    salaryInput!.value = "";
+    nameInput!.value = "";
+    return (output!.textContent = "please provide full data");
+  } else if (nameInput!.value.length < 8)
+    return (output!.textContent = "please provide full name");
 
-  salaryArr.push(parseInt(ageInput.value));
-  namesArr.push(nameInput.value);
+  salaryArr.push(parseInt(salaryInput!.value));
+  namesArr.push(nameInput!.value);
   console.log(salaryArr);
   console.log(namesArr);
   totalPpl++;
-  ageInput.value = "";
-  nameInput.value = "";
-  output?.textContent = "Type in your data";
+  salaryInput!.value = "";
+  nameInput!.value = "";
+  output!.textContent = "Type in your data";
   renderArr(namesArr);
 });
 
 calculateBtn?.addEventListener("click", () => {
   if (salaryArr.length == 0 || namesArr.length < 0) {
-    ageInput.value = "";
-    nameInput.value = "";
-    return (output?.textContent = "No Date Entered");
+    salaryInput!.value = "";
+    nameInput!.value = "";
+    return (output!.textContent = "No Date Entered");
   } else if (salaryArr.length < 3 || namesArr.length < 3) {
-    return (output?.textContent = "please provide at least 3 inputs");
+    return (output!.textContent = "please provide at least 3 inputs");
   }
   const fullSum = salaryArr.reduce((a, b) => a + b, 0);
   const lastName = namesArr.pop();
   const textOutput = `The avrage salaries of ${namesArr.join(
     ", "
   )} and ${lastName} is ${numberWithCommas(fullSum / totalPpl)} ₪`;
-  namesArr.push(lastName);
-  output?.textContent = textOutput;
+  namesArr.push(lastName!);
+  output!.textContent = textOutput;
 });
 
 resetBtn?.addEventListener("click", () => {
-  output?.textContent = "Cleaned";
+  output!.textContent = "Cleaned";
 
   if (salaryArr.length == 0 || namesArr.length == 0) {
-    ageInput.value = "";
-    nameInput.value = "";
+    salaryInput!.value = "";
+    nameInput!.value = "";
     return;
   }
 
