@@ -25,15 +25,15 @@
 
 var loanamountStr= prompt(`enter loan amount`);
 
-var loanamount= parseInt(loanamountStr);
+// var loanamount= parseInt(loanamountStr);
 
 var yearlyprecentageStr= prompt(`enter yearly precentage`);
 
-var yearlyprecentage= parseInt(yearlyprecentageStr);
+// var yearlyprecentage= parseInt(yearlyprecentageStr);
  
 var yearsStr= prompt(`for how many years`);
 
-var years= parseInt(yearsStr);
+// var years= parseInt(yearsStr);
 
 
 var result= loanamount*yearlyprecentage*years;
