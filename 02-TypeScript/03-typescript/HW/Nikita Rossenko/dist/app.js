@@ -9,7 +9,6 @@ var employee7 = 16000;
 var employee8 = 17000;
 var employee9 = 18000;
 var employee10 = 19000;
-var avg = (employee1 + employee2 + employee3 + employee4 + employee5 + employee6 + employee7 + employee8 + employee9 + employee10) / 10;
 console.log("Task 1 \nThe average salary of ten developers is " + avg + "$");
 // Task 2
 var num1 = 30;
