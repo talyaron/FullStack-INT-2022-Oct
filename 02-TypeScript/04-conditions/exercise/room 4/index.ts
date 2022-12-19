@@ -17,6 +17,7 @@ if(loanAmountStr){
 var yearlyPreStr = prompt('enter yearly increase %:');
 if(yearlyPreStr){
     yearlyPre = parseInt(yearlyPreStr);
+    // yearlyPre = (100 + yearlyPre)/100
     if(isNaN(yearlyPre)){
         alert("You didnt put a number");
         while(true){
