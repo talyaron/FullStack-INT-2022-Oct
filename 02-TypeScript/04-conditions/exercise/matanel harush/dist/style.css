@@ -14,7 +14,6 @@ label, input {
   margin: 10px 0;
 }
 
-/* Style the password input field */
 input[type=password] {
   width: 100%;
   padding: 12px 20px;
@@ -24,7 +23,6 @@ input[type=password] {
   border-radius: 4px;
 }
 
-/* Style the submit button */
 button[type=submit] {
   width: 100%;
   background-color: #4CAF50;
