@@ -2,14 +2,39 @@ body {
   margin: 0;
 }
 
-.box {
-  width: 50vw;
-  height: 50vh;
-  background-color: aqua;
-  margin: auto;
-  border: 5px solid black;
+.header {
+  width: 100vw;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: blue;
 }
-.box img {
-  width: 50vw;
-  height: 25vh;
+.header__box1 {
+  background-color: crimson;
+  height: 45px;
+  width: 150px;
+  top: 15px;
+  position: relative;
+}
+.header__box2 {
+  background-color: chartreuse;
+  height: 45px;
+  width: 150px;
+  top: 15px;
+  position: relative;
+}
+.header__box3 {
+  background-color: darkgoldenrod;
+  height: 45px;
+  width: 150px;
+  top: 15px;
+  position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+  .header {
+    flex-direction: column-reverse;
+    height: 450px;
+  }
 }

@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.startPage {
+  background-color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  p {
+    width: 60%;
+    line-height: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.3rem;
+    color: darkblue;
+  }
+  button {
+    width: 15vw;
+    height: 5vh;
+  }
+}
+
+.inputPage {
+  background-color: white;
+  transform: translateY(-100vh);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  transition: all 0.5s;
+  input {
+    padding: 0.5em;
+  }
+  input::placeholder {
+    font-size: 1.3rem;
+  }
+  button {
+    width: 15vw;
+    height: 5vh;
+  }
+  .output {
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+}
+
+.listDiv {
+  // border: 1px solid black;
+  position: absolute;
+  left: 0;
+  top: 0;
+  // width: 20vw;
+  height: 100vh;
+  font-size: 1.3rem;
+  padding: 1em;
+  span {
+    border-bottom: 1px solid black;
+    line-height: 1rem;
+  }
+  .listOfNames {
+    height: 100%;
+    display: block;
+    line-height: 2rem;
+    margin-top: 1em;
+  }
+}
