@@ -23,8 +23,8 @@ window.addEventListener("keydown", (e) => {
       const finalOutput = calculateLoan(intAmount, intPeriod, intPercentage);
       output!.textContent = 
         `The amount you will have to pay back when you loan ${intAmount}$ for ${intPeriod} years at ${intPercentage}% a year is: ${finalOutput}`;
-        output?.style.fontSize = '2rem';
-        output?.style.margin = '2rem';
+        output!.style.fontSize = '2rem';
+        output!.style.margin = '2rem';
     }
   }
 });

@@ -18,8 +18,8 @@ window.addEventListener("keydown", function (e) {
             var finalOutput = calculateLoan(intAmount, intPeriod, intPercentage);
             output.textContent =
                 "The amount you will have to pay back when you loan " + intAmount + "$ for " + intPeriod + " years at " + intPercentage + "% a year is: " + finalOutput;
-            output === null || output === void 0 ? void 0 : output.style.fontSize = '2rem';
-            output === null || output === void 0 ? void 0 : output.style.margin = '2rem';
+            output.style.fontSize = '2rem';
+            output.style.margin = '2rem';
         }
     }
 });
