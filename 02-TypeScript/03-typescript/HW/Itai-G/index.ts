@@ -1,9 +1,4 @@
-
-
 //sqr root var
-
-
-
 
 var number1:number = 144;
 var number2:number = 36;
