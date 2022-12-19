@@ -15,22 +15,26 @@ var salary10: number=10000;
 var averageSalary:number =(salary1+salary2+salary3+salary4+salary5+salary6 +salary7+salary8+salary9+salary10)/10;
 console.log(`The average salary of a developer is ${averageSalary}`);
 console.log("")
-console.log("")
+
 //Task  2
 
 console.log("Task2");
-var x:number=10;
-y=x**2;
-console.log(`${y} is pawer of ${x}`);
+var x:number=3;
+console.log(`${x**-2} is ${x} to power (-2)`);
 console.log("")
-console.log("")
+
+console.log("Anather way to solve is by a function :math.pow")
+
+var x:number=3; 
+var y:number=5;
+console.log(`${Math.pow(x,y)} is ${x} to power ${y}`)
+console.log(``)
+
 //Task 3
 
 console.log("Task3");
 var x:number=64;
-y=Math.sqrt(x);
-console.log(`${x} square root is ${y}`);
+console.log(`${x} square root is ${Math.sqrt(x)}`);
 
 var x:number=81;
-y=Math.sqrt(x);
-console.log(`${x} square root is ${y}`);
+console.log(`${x} square root is ${Math.sqrt(x)}`);

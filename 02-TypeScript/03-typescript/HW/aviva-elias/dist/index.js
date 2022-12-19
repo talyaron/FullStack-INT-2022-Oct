@@ -13,19 +13,19 @@ var salary10 = 10000;
 var averageSalary = (salary1 + salary2 + salary3 + salary4 + salary5 + salary6 + salary7 + salary8 + salary9 + salary10) / 10;
 console.log("The average salary of a developer is " + averageSalary);
 console.log("");
-console.log("");
 //Task  2
 console.log("Task2");
-var x = 10;
-y = Math.pow(x, 2);
-console.log(y + " is pawer of " + x);
+var x = 3;
+console.log(Math.pow(x, -2) + " is " + x + " to power (-2)");
 console.log("");
+console.log("Anather way to solve is by a function :math.pow");
+var x = 3;
+var y = 5;
+console.log(Math.pow(x, y) + " is " + x + " to power " + y);
 console.log("");
 //Task 3
 console.log("Task3");
 var x = 64;
-y = Math.sqrt(x);
-console.log(x + " square root is " + y);
+console.log(x + " square root is " + Math.sqrt(x));
 var x = 81;
-y = Math.sqrt(x);
-console.log(x + " square root is " + y);
+console.log(x + " square root is " + Math.sqrt(x));
