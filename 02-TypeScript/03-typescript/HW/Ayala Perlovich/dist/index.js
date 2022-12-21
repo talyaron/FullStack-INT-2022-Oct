@@ -11,3 +11,7 @@ var SalarieDafna = 21000;
 var SalarieSigal = 19000;
 var avg = (SalarieDavid + Salarieor + SalarieDani + Salarieyonit + SalarieDana + SalarieRina + SalarieOmer + SalarieTomer + SalarieDafna + SalarieSigal) / 10;
 console.log(" The average salary of a developeris " + avg);
+var nunber = 2;
+var powe = 5;
+var result = Math.pow(nunber, powe);
+console.log(result);

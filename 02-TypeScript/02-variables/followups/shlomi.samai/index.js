@@ -8,5 +8,4 @@ console.log(x+y);
 console.log(x/0);
 console.log(number);
 
-var shlomi_age:number=35;
 
