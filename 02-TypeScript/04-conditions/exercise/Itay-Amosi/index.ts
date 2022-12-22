@@ -13,5 +13,5 @@
 var n:number = null;
 console.log(number * 1.17)
 
-var calulate = prompt
-console.log(` the average salary of 10 Developers is ${} `);
+var calulate = prompt;
+// console.log(` the average salary of 10 Developers is ${} `);
