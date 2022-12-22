@@ -1,0 +1,20 @@
+// before functions
+var userName = prompt("What is you name?");
+userName = userName === null || userName === void 0 ? void 0 : userName.toUpperCase();
+console.log("Thank you " + userName + " for registering");
+userName = prompt("What is you name?");
+userName = userName === null || userName === void 0 ? void 0 : userName.toUpperCase();
+console.log("Thank you " + userName + " for registering");
+userName = prompt("What is you name?");
+console.log("Thank you " + userName + " for registering");
+userName = userName === null || userName === void 0 ? void 0 : userName.toUpperCase();
+userName = prompt("What is you name?");
+console.log("Thank you " + userName + " for registering");
+userName = prompt("What is you name?");
+console.log("Thank you " + userName + " for registering");
+userName = prompt("What is you name?");
+console.log("Thank you " + userName + " for registering");
+userName = prompt("What is you name?");
+console.log("Thank you " + userName + " for registering");
+userName = prompt("What is you name?");
+console.log("Thank you " + userName + " for registering");
