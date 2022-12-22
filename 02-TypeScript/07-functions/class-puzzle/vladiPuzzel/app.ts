@@ -1,4 +1,4 @@
-function multi(a, b): number{
+function multi(a:number, b:number): number{
     return a * b;
 }
 
