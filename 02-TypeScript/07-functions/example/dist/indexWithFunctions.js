@@ -1,4 +1,11 @@
 //function sayThankYou(argument){
+function priceWithVat(price) {
+    return price * 1.17;
+}
+for (var i = 0; i < 7; i++) {
+    var userName = prompt("What is your name?");
+    console.log(sayThankYou(userName));
+}
 function sayThankYou(name) {
     if (name) {
         name = name.toUpperCase();
@@ -7,13 +14,6 @@ function sayThankYou(name) {
     else {
         return "";
     }
-}
-function priceWithVat(price) {
-    return price * 1.17;
-}
-for (var i = 0; i < 7; i++) {
-    var userName = prompt("What is your name?");
-    console.log(sayThankYou(userName));
 }
 // userName = prompt("What is your name?");
 // console.log(sayThankYou(userName));
