@@ -5,7 +5,7 @@ function multi(a:number, b:number): number{
 function addUp(n: number): number{
     let x: number = 0;
     for(let i = 1; i <= n; i++){
-        x += n;
+        x += i;
     }
     return x;
 }

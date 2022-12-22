@@ -4,7 +4,7 @@ function multi(a, b) {
 function addUp(n) {
     var x = 0;
     for (var i = 1; i <= n; i++) {
-        x += n;
+        x += i;
     }
     return x;
 }
