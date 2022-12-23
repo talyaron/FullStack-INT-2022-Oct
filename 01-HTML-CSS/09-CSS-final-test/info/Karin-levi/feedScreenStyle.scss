@@ -272,7 +272,7 @@
 
             }
 
-            // &__bubble::after,
+            
             &__bubble::before{
                 border-left: 20px solid transparent;
                 border-right: 20px solid transparent;
@@ -301,7 +301,6 @@
             border: solid 1px rgb(183, 182, 182);
             display: flex;
             justify-content: space-around;
-            
 
             &__homeButton{
                 height: 40px;
