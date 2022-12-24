@@ -11,7 +11,7 @@
 // }
 //     console.log(`the negative number of ${num}is ${negative_Number(num)}`)
 // ex3:
-// let num = 566
+// let num = 566 
 // function reversed_Num(num:number) {
 //     return (parseFloat(num.toString().split('').reverse().join('')) * Math.sign(num))                 
 //   }
