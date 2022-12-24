@@ -39,7 +39,7 @@ function avrageHeight (gender:string,height:number){
     }
     
 }
-const gender=prompt("what is your bio gender?")
+const gender=prompt("what is your biological gender?")
 if (gender== " " ||!gender ){
         alert("please enter a gender");
     }
