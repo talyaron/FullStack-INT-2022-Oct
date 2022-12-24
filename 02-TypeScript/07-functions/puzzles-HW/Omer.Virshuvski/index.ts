@@ -58,11 +58,9 @@ function avrHeight(): number {
     }
     return realHeight - avrHeight;
 }
-// console.log(avrHeight());
+console.log("Average: " + avrHeight());
 
 
-var x = 54;
-console.log(x.toString());
 //Level 3
 console.log("Level 3");
 function reverse(num:number):number {
