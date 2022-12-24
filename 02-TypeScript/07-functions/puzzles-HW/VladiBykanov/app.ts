@@ -6,9 +6,7 @@ function reversedNum(num: number): number {
 
 //arrow function returns reversed number as a string
 const revNum = (num: number) =>
-  (
-    parseFloat(num.toString().split("").reverse().join("")) * Math.sign(num)
-  ).toString();
+  (parseFloat(num.toString().split("").reverse().join("")) * Math.sign(num)).toString();
 
 console.log(reversedNum(123456789));
 console.log(reversedNum(-123456789));
