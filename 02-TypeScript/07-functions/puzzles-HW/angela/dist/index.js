@@ -35,7 +35,7 @@ function avrageHeight(gender, height) {
         return height - 160;
     }
 }
-var gender = prompt("what is your bio gender?");
+var gender = prompt("what is your biological gender?");
 if (gender == " " || !gender) {
     alert("please enter a gender");
 }

@@ -65,27 +65,20 @@ var x = 54;
 console.log(x.toString());
 //Level 3
 console.log("Level 3");
-// function reverse(num:number):number {
-//     var str:string = num.toString();
-//     var count = 0;
-//     while (num > 0) {
-//         count += 1;
-//         num / 10;
-//     }
-//     var newStr = "";
-//     for (let i = count; i > 0; i--) {
-//         newStr += str[i-1];
-//     }
-//     return parseInt(newStr)
-// }
-// console.log(reverse(52));
-
-
-var num = 52;
-var count = 0;
-while (num > 1) {
-    count += 1;
-    console.log(num);
-    num / 10;
+function reverse(num:number):number {
+    var str:string = num.toString();
+    var count = 0;
+    while (num > 1) {
+        count++;
+        num /= 10;
+    }
+    var newStr = "";
+    for (let i = count; i > 0; i--) {
+        newStr += str[i-1];
+    }
+    return parseInt(newStr)
 }
-console.log("count: " + count);
+console.log("123 reverse is: " + reverse(123));
+
+
+
