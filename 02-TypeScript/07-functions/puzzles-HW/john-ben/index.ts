@@ -13,19 +13,6 @@
 
 
 
-
-
-// ex3:
-// let num = 566 
-
-// function reversed_Num(num:number) {
-//     return (parseFloat(num.toString().split('').reverse().join('')) * Math.sign(num))                 
-//   }
-//   console.log(`the reverse number of ${num} is ${reversed_Num(num)}`)
-
-
-
-
 // ex 2-1
 //  let numero1 = 555
 //  let numero2 = 555
@@ -39,3 +26,13 @@
 //     }
 //  }
 //  console.log(`the biggest number is ${is_higer(numero1,numero2)}`)
+
+
+
+//ex3:
+let num = 566 
+
+function reversed_Num(num:number) {
+    return (parseFloat(num.toString().split('').reverse().join('')) * Math.sign(num))                 
+  }
+  console.log(`the reverse number of ${num} is ${reversed_Num(num)}`)
