@@ -15,5 +15,6 @@ inputNumber.addEventListener("keydown", function (e) {
     e.defaultPrevented;
     if (e.key == "Enter") {
         output.textContent = revNum(parseFloat(inputNumber.value));
+        inputNumber.value = '';
     }
 });

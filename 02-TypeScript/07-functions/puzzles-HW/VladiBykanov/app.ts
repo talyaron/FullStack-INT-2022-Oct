@@ -24,5 +24,6 @@ inputNumber.addEventListener("keydown", (e) => {
 
   if (e.key == "Enter") {
     output.textContent = revNum(parseFloat(inputNumber.value));
+    inputNumber.value = '';
   }
 });
