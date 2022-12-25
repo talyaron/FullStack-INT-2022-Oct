@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+body{
+    overflow: hidden;
+    position: static;
+    text-align: center;
+    background-color:rgb(255, 254, 254) ;
+    margin: auto auto auto auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+
+}
+input{
+    font-size: x-large; 
+    border: none;
+    border-radius: 5px; 
+    background-color: gray; 
+    color: white;
+}
+
+::placeholder {
+  color: white;
+  font-size: 20px;
+  padding-left:10px;
+   /* Firefox */
+}
+
+.Reverse_a_number{
+    position: relative;
+    top: 30vh;   
+}
+#titel{
+    font-size: 50px;
+}
+button{
+    font-size: larger;
+    background-color: rgb(250, 113, 113);
+    font-weight: bolder;
+    padding: 3px 5px 3px 5px;
+    border-radius: 5px;
+   
+}
+
+
+button:hover{
+    background-color: rgb(246, 91, 83);
+}
+
+
+</style>
+
+
+
+</head>
+<body>
+
+<div class="Reverse_a_number" >
+    <h1 id="titel">Reverse the number try it</h1>
+    <input type="number" name="num" id="input" placeholder="Enter only numbers !!!">  <br><br>
+    <button id="btn">push me</button><br>
+    <h1 id="result"></h1>
+
+
+</div>
+
+
+
+
+ 
+    <script src="./dist/app.js"></script>
+</body>
+</html>

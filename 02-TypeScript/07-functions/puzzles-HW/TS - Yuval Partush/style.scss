@@ -1,0 +1,177 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: rgb(0, 95, 95);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+* {
+    box-sizing: border-box;
+  }
+.presentation{
+    width: 80vw;
+    height: 60vh;
+    // border: 2px solid white;
+    position: relative;
+    h1{
+        text-align: center;
+        color: white;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    &__boxes{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        // border: 1px solid white;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        .box{
+            width: 30%;
+            height: 60%;
+            border: 0.2vw solid white;
+            // border: inset 0.5vw #000;
+            // filter: blur(0vw);
+            // -webkit-filter: blur(0.vw);
+            &__btn{
+                position: absolute;
+                background: rgba(0, 0, 0, 0.6);
+                padding: 0.5vw;
+                border-radius: 1vw;
+                color: white;
+                cursor: pointer;
+                z-index: 1;
+                // top: 50%;
+                // left: 13%;
+            }
+        }
+        // h3{
+        //     color: white;
+        //     position: absolute;
+        //     z-index: 2;
+        // }
+        .box img{
+            width: 100%;
+            height: 100%;
+            box-shadow: 3px 3px 3px 3px #000 inset;
+            filter: blur(0.5vw);
+            transition: 1s ease-in-out;
+        }
+        .box img:hover{
+            filter: blur(0);
+        }
+        .box p{
+            position: absolute;
+        }
+        
+        
+    }
+}
+.exercise1{
+    width: 60%;
+    height: 60%;
+    background-color: rgb(0, 51, 85);
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0px 5px 80px 6px #fff;
+    border: 3px solid white;
+    display: none;
+    .fa-circle-xmark{
+        position: absolute;
+        color: white;
+        font-size: 2rem;
+        right: 1vw;
+        top: 1vh;
+        cursor: pointer;
+    }
+    .HW{
+        width: 100%;
+        border: 1px solid white;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 30px;
+        h2,h4{
+            color: white;
+            // text-align: center;
+        }
+        
+    }
+}
+.exercise2{
+    width: 60%;
+    height: 60%;
+    background-color: rgb(0, 51, 85);
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0px 5px 80px 6px #fff;
+    border: 3px solid white;
+    display: none;
+    flex-direction: row;
+    .HW{
+        width: 100%;
+        border: 1px solid white;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 30px;
+    }
+    #pp,label,h3,#HGp{
+        color: white;
+    }
+    .fa-right-from-bracket{
+        position: absolute;
+        color: white;
+        font-size: 2rem;
+        right: 1vw;
+        top: 1vh;
+        cursor: pointer;
+    }
+    
+    
+}
+.box__btn2{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.5vw;
+    border-radius: 1vw;
+    color: white;
+    cursor: pointer;
+    z-index: 1;
+    
+}
+.exercise3{
+    width: 60%;
+    height: 60%;
+    background-color: rgb(0, 51, 85);
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0px 5px 80px 6px #fff;
+    border: 3px solid white;
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .fa-xmark{
+        position: absolute;
+        color: white;
+        font-size: 2rem;
+        right: 1vw;
+        top: 1vh;
+        cursor: pointer;
+    }
+    h3,p{
+        color: white;
+    }
+    input,button{
+        display: block;
+    }
+}
