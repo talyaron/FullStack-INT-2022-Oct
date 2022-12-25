@@ -1,4 +1,3 @@
-let userNumber = prompt("please write a number to be reversed");
 function reverseANumber(userNumberVar) {
     if (isNaN(userNumberVar)) {
         return alert("This is not a number!");
@@ -17,8 +16,8 @@ function reverseANumber(userNumberVar) {
         for (k = 0; k <= stringLength - 1; k++) {
             numberOppArray[k] = parseInt(oppArray[k]);
         }
-        //console.log(numberOppArray.join(""));
         return (numberOppArray.join(""));
     }
 }
-console.log(reverseANumber(userNumber));
+let userNumber = prompt("please write a number to be reversed");
+console.log(`The reversed number is ${reverseANumber(userNumber)}`);
