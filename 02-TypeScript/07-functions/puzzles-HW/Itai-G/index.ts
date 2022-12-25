@@ -35,7 +35,7 @@ console.log(`Now outside is ${clToFr} c and ${clToFrConvert(clToFr)} Fr`);
 //ex level 1.
 let numBig = 20;
 let numSmall = 12;
-function max (numBig:number, numSmall:number){
+function max (numBig:number, numSmall:number):number{
     if((numBig) > (numSmall)){
         return numBig;
     }else 
