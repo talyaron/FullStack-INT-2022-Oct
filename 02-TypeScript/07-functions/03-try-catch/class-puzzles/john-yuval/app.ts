@@ -1,0 +1,26 @@
+function product (the_product:string){
+    
+switch (the_product) {
+  case "ice cream":
+    console.log("the price of an ice cream is 8 shekels");
+    break;
+  case "cake":
+    console.log("the price of a cake is 70 shekels");
+    break;
+  case "cookie":
+    console.log("the price of a cookie is 5 shekels");
+    break;
+    default:
+        console.error("your choice is wrong!")
+    
+}
+}
+
+const answer = prompt("which product you want?")
+const result = product(answer);
+
+// if (result && !isNaN(result)) {
+//     alert(`Your number returned as ${result}`);
+//   } else {
+//     alert("we have an error");
+//   }
