@@ -1,5 +1,5 @@
 while(true){
-    let userInputProduct = prompt('enter product i.e ice-cream, cake, cookie');
+    const userInputProduct = prompt('enter product i.e ice-cream, cake, cookie');
     alert(`price is ${productPrice(userInputProduct)}`);
 }
 
@@ -10,9 +10,6 @@ function productPrice(product:string | null):number | false{
     const iceCreamPrice:number = 8;
     const cakePrice:number = 70;
     try{
-        if(product !== `ice-cream` && product !== `cake` && product !== `cookie`){
-            throw new Error('no matching product name');
-        }
         switch (product){
             case `ice-cream`:
                 return iceCreamPrice;
@@ -20,6 +17,8 @@ function productPrice(product:string | null):number | false{
                 return cakePrice;
             case `cookie`:
                 return cookiePrice;
+            default:
+            throw new Error('no matching product name');
         }
     }
     catch (error) {
