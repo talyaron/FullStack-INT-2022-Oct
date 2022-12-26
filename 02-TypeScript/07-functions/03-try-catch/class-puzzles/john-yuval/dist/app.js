@@ -1,22 +1,24 @@
 function product(the_product) {
     switch (the_product) {
         case "ice cream":
-            console.log("the price of an ice cream is 8 shekels");
+            result = "8";
             break;
         case "cake":
-            console.log("the price of a cake is 70 shekels");
+            result = "70";
             break;
         case "cookie":
-            console.log("the price of a cookie is 5 shekels");
+            result = "5";
             break;
         default:
             console.error("your choice is wrong!");
     }
+    return result;
 }
 var answer = prompt("which product you want?");
 var result = product(answer);
-// if (result && !isNaN(result)) {
-//     alert(`Your number returned as ${result}`);
-//   } else {
-//     alert("we have an error");
-//   }
+if (result && !isNaN(result)) {
+    console.log("it should cost you " + result + " nis");
+}
+else {
+    alert("we have an error");
+}
