@@ -11,7 +11,7 @@ switch (the_product) {
     console.log("the price of a cookie is 5 shekels");
     break;
     default:
-        console.log("your choice is wrong!")
+        console.error("your choice is wrong!")
     
 }
 }
