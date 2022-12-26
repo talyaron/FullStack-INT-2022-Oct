@@ -1,9 +1,7 @@
-
-const userInputProduct = prompt('enter product i.e ice-cream, cake, cookie');
-
-alert(`price is ${productPrice(userInputProduct)}`);
-
-
+while(true){
+    let userInputProduct = prompt('enter product i.e ice-cream, cake, cookie');
+    alert(`price is ${productPrice(userInputProduct)}`);
+}
 
 
 
