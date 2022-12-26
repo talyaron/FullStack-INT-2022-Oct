@@ -11,19 +11,21 @@ function sqrtNumber(b) {
 }
 console.log(sqrtNumber(9));
 console.log("level 1.3");
-function celsiusTemp(celsius) {
+function celsiusToFahrnhit(celsius) {
     var cTemp = celsius;
-    var cToFahr = (cTemp * 9) / 5 + 32;
-    var message = cTemp + '\xB0C is ' + cToFahr + ' \xB0F.';
-    console.log(message);
+    var fahr = (cTemp * 9) / 5 + 32;
+    // const message = `${cTemp}\xB0C is ${cToFahr}\xB0F`
+    // return message;
+    return fahr;
 }
+console.log(celsiusToFahrnhit(0));
 function fahrenheitTemp(fahrenheit) {
     var fTemp = fahrenheit;
     var fToCel = ((fTemp - 32) * 5) / 9;
     var message = fTemp + '\xB0F is ' + fToCel + '\xB0C.';
     console.log(message);
 }
-celsiusTemp(40);
+celsiusToFahrnhit(40);
 fahrenheitTemp(30);
 // level 2
 console.log("level 2.1");

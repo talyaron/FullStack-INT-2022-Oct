@@ -8,6 +8,7 @@ var largerNum = function (firstNum, secondNum) {
     if (firstNum === secondNum) {
         return "they are the same";
     }
+    //return condition ?(if) true :(else) false
     return firstNum > secondNum ? firstNum : secondNum;
 };
 var heightRelativeToGender = function (height, gender) {

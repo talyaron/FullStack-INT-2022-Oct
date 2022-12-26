@@ -1,4 +1,3 @@
-var n = 35;
 //level 1,1//
 function negativnum(n) {
     return n * -1;
@@ -10,10 +9,11 @@ function squareNumbe(n) {
 }
 console.log(squareNumbe(n));
 //level 1,3//
-function celesuisToFahrenheit(n) {
-    return n * 1.8 + 32;
+function celesuisToFahrenheit(celsius) {
+    var fahrnhiet = celsius * 1.8 + 32;
+    return fahrnhiet;
 }
-console.log(celesuisToFahrenheit(n));
+console.log(celesuisToFahrenheit(20));
 //level 2,1//
 function largerNumber(low, high) {
     if (low > high) {
@@ -28,6 +28,8 @@ console.log(largerNumber(1000, 350));
 function genderHight(avr, male) {
     if (male === "male") {
         return avr - 174;
+    }
+    else {
     }
 }
 console.log(genderHight(170, "male"));

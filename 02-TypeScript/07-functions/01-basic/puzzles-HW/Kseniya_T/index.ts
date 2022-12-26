@@ -10,6 +10,7 @@ const largerNum = (firstNum: number, secondNum: number): number | string => {
   if (firstNum === secondNum) {
     return "they are the same";
   }
+  //return condition ?(if) true :(else) false
   return firstNum > secondNum ? firstNum : secondNum;
 };
 
