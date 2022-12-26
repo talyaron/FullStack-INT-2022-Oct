@@ -27,14 +27,14 @@ console.log("Anather way to solve is by a function :math.pow")
 
 var x:number=3; 
 var y:number=5;
-console.log(`${Math.pow(x,y)} is ${x} to power ${y}`)
+console.log( Math.pow(x,y)+` is ${x} to power ${y}`)
 console.log(``)
 
 //Task 3
 
 console.log("Task3");
 var x:number=64;
-console.log(`${x} square root is ${Math.sqrt(x)}`);
+console.log(`${x} square root is ` + Math.sqrt(x));
 
 var x:number=81;
-console.log(`${x} square root is ${Math.sqrt(x)}`);
+console.log(`${x} square root is ` + Math.sqrt(x));

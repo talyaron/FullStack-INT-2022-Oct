@@ -1,8 +1,6 @@
-var userNumber = prompt("please write a number");
 function positiveToNegitive(userNumberVar) {
-    console.log(userNumberVar);
     if (isNaN(userNumberVar)) {
-        return alert("this is not a number");
+        return alert("This is not a number!");
     }
     else if (userNumberVar == 0) {
         return alert("The number zero is neither positive nor negative");
@@ -11,5 +9,5 @@ function positiveToNegitive(userNumberVar) {
         return (userNumberVar * (-1));
     }
 }
-console.log(userNumber);
-console.log(positiveToNegitive(userNumber));
+let userNumber = prompt("please write a number");
+console.log(`The negative number is ${positiveToNegitive(userNumber)}`);

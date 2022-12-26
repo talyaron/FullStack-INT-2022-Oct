@@ -44,10 +44,15 @@ console.log(genderHight(170,`male`));
 
 
 // level 3,1//
-// const revers= 1234
-// function reverseNumbers(revers:number):number{
-//     // return 
-// }
-// console.log(reverseNumbers(n));
+function reverseNumbers(n:number){
+    return ( 
+     n 
+    .toString()
+    .split(``)
+    .reverse()
+    .join(``)
+    )
+}
+console.log(reverseNumbers(n));
 
 
