@@ -16,16 +16,12 @@ function priceOfDesert(desert) {
         switch (desert) {
             case "ice-cream":
                 return 8;
-                break;
             case "cake":
                 return 70;
-                break;
             case "cookie":
                 return 5;
-                break;
-            default:
-                throw new Error('We dont serve this desert.');
         }
+        throw new Error('We dont serve this desert.');
     }
     catch (error) {
         console.error(error);
