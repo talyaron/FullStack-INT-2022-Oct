@@ -19,9 +19,8 @@ function priceOfDesert (desert:string):number | false{
                 return 70;
             case "cookie":
                 return 5;
-            default:
-                throw new Error('We dont serve this desert.');            
         }
+        throw new Error('We dont serve this desert.');            
     } catch (error) {
         console.error(error);
         return false;
