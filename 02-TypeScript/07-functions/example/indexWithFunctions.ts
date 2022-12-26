@@ -6,9 +6,7 @@ function priceWithVat(price: number): number {
 
 for (let i = 0; i < 7; i++) {
   let userName = prompt("What is your name?");
-  console.log(sayThankYou(userName));
-}
-
+  
 function sayThankYou(name: string | null): string {
   if (name) {
     name = name.toUpperCase();

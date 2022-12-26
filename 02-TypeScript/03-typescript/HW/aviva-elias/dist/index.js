@@ -21,7 +21,7 @@ console.log("");
 console.log("Anather way to solve is by a function :math.pow");
 var x = 3;
 var y = 5;
-console.log(Math.pow(x, y) + " is " + x + " to power " + y);
+console.log(Math.pow(x, y) + (" is " + x + " to power " + y));
 console.log("");
 //Task 3
 console.log("Task3");
