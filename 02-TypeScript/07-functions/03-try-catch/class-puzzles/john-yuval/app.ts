@@ -1,4 +1,4 @@
-function product (the_product:string){
+function product (the_product:string|null){
     
 switch (the_product) {
   case "ice cream":
