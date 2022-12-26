@@ -1,7 +1,7 @@
 
-let userInput = prompt('enter product i.e ice-cream, cake, cookie');
+const userInputProduct = prompt('enter product i.e ice-cream, cake, cookie');
 
-alert(`price is ${productPrice(userInput)}`);
+alert(`price is ${productPrice(userInputProduct)}`);
 
 
 

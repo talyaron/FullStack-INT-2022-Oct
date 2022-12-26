@@ -1,5 +1,5 @@
-var userInput = prompt('enter product i.e ice-cream, cake, cookie');
-alert("price is " + productPrice(userInput));
+var userInputProduct = prompt('enter product i.e ice-cream, cake, cookie');
+alert("price is " + productPrice(userInputProduct));
 function productPrice(product) {
     var cookiePrice = 5;
     var iceCreamPrice = 8;
