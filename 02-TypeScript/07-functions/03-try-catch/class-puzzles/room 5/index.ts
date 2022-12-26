@@ -1,6 +1,6 @@
 
-const Product:Function = function(iceCream,cake,cookie):string{
-    WhatProduct= prompt(`which product do you want?`):String;
+const Product:Function = function(iceCream:string,cake:string,cookie:string):string{
+    let whatproduct= prompt(`which product do you want?`);
 
 
 }
