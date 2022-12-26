@@ -7,9 +7,6 @@ function productPrice(product) {
     var iceCreamPrice = 8;
     var cakePrice = 70;
     try {
-        if (product !== "ice-cream" && product !== "cake" && product !== "cookie") {
-            throw new Error('no matching product name');
-        }
         switch (product) {
             case "ice-cream":
                 return iceCreamPrice;
@@ -17,6 +14,8 @@ function productPrice(product) {
                 return cakePrice;
             case "cookie":
                 return cookiePrice;
+            default:
+                throw new Error('no matching product name');
         }
     }
     catch (error) {
