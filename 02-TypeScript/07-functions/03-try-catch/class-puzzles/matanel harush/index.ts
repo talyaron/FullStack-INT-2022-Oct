@@ -1,4 +1,5 @@
 function getPrice(product: string): number {
+  try {
     switch (product) {
       case 'ice-cream':
         return 8;
@@ -10,6 +11,9 @@ function getPrice(product: string): number {
         alert(`Sorry, we do not sell ${product}`);
         throw new Error(`Invalid product: ${product}`);
     }
+  } catch (error) {
+    console.error(error)
+  }
   }
   
   function showPrice(): void {
