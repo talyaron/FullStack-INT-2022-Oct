@@ -1,4 +1,4 @@
-function chooseFood(productName) {
+var chooseFood = function (productName) {
     try {
         if (!productName) {
             throw new Error("You must choose Product Name");
@@ -13,16 +13,16 @@ function chooseFood(productName) {
         }
         throw new Error("Invalid Product Name");
     }
-    catch (err) {
-        console.log(err);
+    catch (error) {
+        console.error(error);
         return false;
     }
-}
-var productsNAME = prompt("Choose Product Name");
-var price = productPrice(productName);
+};
+var productName = prompt('Choose Product Name');
+var price = chooseFood(productName);
 if (price === false) {
-    alert("You did not enter a correct product name");
+    alert('You did not enter a correct product name');
 }
 else {
-    alert("your price is " + price);
+    alert("Your price is " + price);
 }
