@@ -1,5 +1,5 @@
 //Q 1
-var threeNumbers = function (num1, num2, num3) {
+function threeNumbers(num1, num2, num3) {
     try {
         if (typeof num1 !== 'number' || typeof num2 !== 'number' || typeof num3 !== 'number') {
             throw new Error("Not a number");
@@ -10,7 +10,7 @@ var threeNumbers = function (num1, num2, num3) {
         console.error(error);
         return false;
     }
-};
+}
 var check1 = true;
 while (check1) {
     var num1 = prompt("Insert first number for first function");
