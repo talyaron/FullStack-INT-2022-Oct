@@ -1,13 +1,12 @@
-var userInput = prompt('enter product i.e ice-cream, cake, cookie');
-alert("price is " + productPrice(userInput));
+while (true) {
+    var userInputProduct = prompt('enter product i.e ice-cream, cake, cookie');
+    alert("price is " + productPrice(userInputProduct));
+}
 function productPrice(product) {
     var cookiePrice = 5;
     var iceCreamPrice = 8;
     var cakePrice = 70;
     try {
-        if (product !== "ice-cream" && product !== "cake" && product !== "cookie") {
-            throw new Error('no matching product name');
-        }
         switch (product) {
             case "ice-cream":
                 return iceCreamPrice;
@@ -15,6 +14,8 @@ function productPrice(product) {
                 return cakePrice;
             case "cookie":
                 return cookiePrice;
+            default:
+                throw new Error('no matching product name');
         }
     }
     catch (error) {

@@ -1,14 +1,19 @@
 function getPrice(product) {
-    switch (product) {
-        case 'ice-cream':
-            return 8;
-        case 'cake':
-            return 70;
-        case 'cookie':
-            return 5;
-        default:
-            alert("Sorry, we do not sell " + product);
-            throw new Error("Invalid product: " + product);
+    try {
+        switch (product) {
+            case 'ice-cream':
+                return 8;
+            case 'cake':
+                return 70;
+            case 'cookie':
+                return 5;
+            default:
+                alert("Sorry, we do not sell " + product);
+                throw new Error("Invalid product: " + product);
+        }
+    }
+    catch (error) {
+        console.error(error);
     }
 }
 function showPrice() {
