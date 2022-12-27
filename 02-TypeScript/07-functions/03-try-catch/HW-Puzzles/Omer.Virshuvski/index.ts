@@ -1,5 +1,5 @@
 //Q 1
-const threeNumbers = (num1: number, num2: number, num3: number): number | false => {
+function threeNumbers(num1: number, num2: number, num3: number): number | false {
     try {
         if (typeof num1 !== 'number' || typeof num2 !== 'number' || typeof num3 !== 'number') {
             throw new Error("Not a number");
