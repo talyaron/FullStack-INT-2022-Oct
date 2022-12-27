@@ -1,5 +1,5 @@
 // Question 1
-const threeNumbers: function = (x: number,y: number, z: number): number | false => {
+const threeNumbers: Function = (x: number,y: number, z: number): number | false => {
     try {
     if (typeof x !== "number" ||typeof y !== "number" ||typeof z !== "number") {
         throw new Error(`error is not a number`);
@@ -16,7 +16,7 @@ let calculation = true;
     const y: any =prompt(`Enter a Number 2`);
     const z: any =prompt(`Enter a Number 3`);
     console.log(x*y*z);
-    if (x !== null && y !== null && z !== null2) {
+    if (x !== null && y !== null && z !== null) {
         if (threeNumbers(parseInt(x), parseInt(y), parseInt(z))) {
          alert(`The answer is ${x*y*z}`);
             calculation = false;

@@ -17,7 +17,7 @@ var x = prompt("Enter a Number 1");
 var y = prompt("Enter a Number 2");
 var z = prompt("Enter a Number 3");
 console.log(x * y * z);
-if (x !== null && y !== null && z !== null2) {
+if (x !== null && y !== null && z !== null) {
     if (threeNumbers(parseInt(x), parseInt(y), parseInt(z))) {
         alert("The answer is " + x * y * z);
         calculation = false;
