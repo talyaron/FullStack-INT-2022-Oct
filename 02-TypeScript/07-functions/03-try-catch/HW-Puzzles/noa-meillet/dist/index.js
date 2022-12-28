@@ -1,15 +1,17 @@
 var questionMsg = prompt("Enter the method you want to interpretate your message:", "enter encrypt or decrypt");
-var msg = prompt("Enter the message you want to encrypt:");
-if (!msg) {
-    console.log("you don't enter a value");
-}
-else {
-    var msgEncrypt = encrypt(msg);
-    if (msgEncrypt != false) {
-        console.log("your encrypted message is: " + msgEncrypt);
+if (questionMsg == "encrypt") {
+    var msgEncpt = prompt("Enter the message you want to encrypt:");
+    if (!msgEncpt) {
+        console.log("you don't enter a value");
     }
     else {
-        console.log("We dont serve this desert.");
+        var msgEncrypt = encrypt(msgEncpt);
+        if (msgEncrypt != false) {
+            console.log("your encrypted message is: " + msgEncrypt);
+        }
+        else {
+            console.log("We can't encrypt your message :(");
+        }
     }
 }
 function encrypt(msg) {
@@ -120,5 +122,26 @@ function encrypt(msg) {
     catch (error) {
         console.error('your message can not be encrypt because of an unknow value');
         return false;
+    }
+}
+/*
+function
+variable=0
+while variable<= msg.length     1 4 22 5,  14 26 2 1 26!
+  while (variable != space or . or ! or ? or ,)
+    add the char to a variable
+  switch (variable)
+      case fo each number
+   add the variable to the result+ a space char
+return result*/
+function decrypt(msg) {
+    var msgChar;
+    var i = 0;
+    while (i <= msg.length) {
+        while (msg.charAt(i) != " " || msg.charAt(i) != "." || msg.charAt(i) != "," || msg.charAt(i) != "?" || msg.charAt(i) != "!") {
+            msgChar += msgChar(i);
+        }
+        switch (msgChar) {
+        }
     }
 }
