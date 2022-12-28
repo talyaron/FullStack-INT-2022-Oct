@@ -1,4 +1,4 @@
-const numbers: Function = (num1: number , num2 :number , num3: number): Number | false {
+const numbers: Function = (num1: number , num2 :number , num3: number): Number | false => {
     try {
         if (typeof num1 !== `number`|| typeof num2 !== `number`||typeof num3!==`number`){
             throw Error(`you need to enter numbers alone`);
