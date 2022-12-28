@@ -23,8 +23,8 @@ while (numberAllow) {
             alert(`must be a number`)
         }
     } else {
-        alert("Some of the inputs are null")
-        console.error("Some of the inputs are null")
+        alert("You left some lines empty")
+        console.error("You left some lines empty")
     }
 
     console.log(num1*num2*num3)
