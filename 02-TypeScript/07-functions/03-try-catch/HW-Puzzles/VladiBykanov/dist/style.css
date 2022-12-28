@@ -6,4 +6,15 @@
 body {
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: 30vw;
+  min-width: 300px;
+  padding: 0.5em 0;
+  margin-bottom: 2em;
 }
