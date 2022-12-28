@@ -8,13 +8,23 @@
     <link rel="stylesheet" href="./dist/style.css" />
   </head>
   <body>
-    <label for="message">Text:</label>
+    <label for="message">YOUR INPUT</label>
     <input
       type="text"
       name="message"
       id="message"
       placeholder="Type in the message you want to encrypt"
     />
+    <div class="chackboxes">
+      <div class="encrypt">
+        <label for="encrypt">Encrypt:</label>
+        <input type="checkbox" name="encrypt" id="encrypt" />
+      </div>
+      <div class="decrypt">
+        <label for="decrypt">Decrypt:</label>
+        <input type="checkbox" name="decrypt" id="decrypt" />
+      </div>
+    </div>
     <!-- <label for="encryptionCode">Code:</label>
     <input
       type="text"
