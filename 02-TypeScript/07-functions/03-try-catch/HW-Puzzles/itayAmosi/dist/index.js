@@ -49,3 +49,4 @@ function letterValue(abcToCode) {
 }
 var abcToCode = prompt("Please enter the message to encrypt");
 console.log("" + letterValue(abcToCode));
+// https://github.com/talyaron/FullStack-INT-2022-Oct/tree/main/02-TypeScript/07-functions/03-try-catch/HW-Puzzles/itayAmosi
