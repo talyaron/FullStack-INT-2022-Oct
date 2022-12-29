@@ -14,15 +14,13 @@ var isNumber = function (numberString) {
 // function gets a number from the user and retuns it as an integer.
 // If the user entered a letter, the loop will continue.
 var getNumber = function (textNumber) {
-    var rightInput = false;
-    while (!rightInput) {
+    while (true) {
         var numberString = prompt("Please enter your " + textNumber + " number.");
         var intNumber = isNumber(numberString);
         if (intNumber) {
-            rightInput = true;
+            return intNumber;
         }
     }
-    return intNumber;
 };
 // get three numbers and prints the result.
 var firstNumber = getNumber("first");
