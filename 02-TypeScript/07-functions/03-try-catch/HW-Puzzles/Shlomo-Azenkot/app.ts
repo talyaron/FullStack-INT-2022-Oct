@@ -459,6 +459,12 @@ case "*":
     encryptionResult+=" ";
     break;
 
+case " ":
+    encryptionResult+= " , "
+    break;
+
+
+
     default:
             throw new Error('linsert error only in tange [ a-z / A-Z / 0-9 / !-)  ]');
             break;
@@ -472,10 +478,10 @@ case "*":
 
  }
 
-
+ console.log(split_the_string);
  console.log(encryptionResult);
  let result =document.querySelector(".EncryptionResult")as HTMLHeadElement;
-result.textContent=encryptionResult;
+result.innerHTML=encryptionResult;
 
 } catch (error) {
   console.error(error);  

@@ -368,6 +368,9 @@ btnEncryption.addEventListener('click', function (event) {
                             encryptionResult += ")";
                             encryptionResult += " ";
                             break;
+                        case " ":
+                            encryptionResult += " , ";
+                            break;
                         default:
                             throw new Error('linsert error only in tange [ a-z / A-Z / 0-9 / !-)  ]');
                             break;
@@ -375,9 +378,10 @@ btnEncryption.addEventListener('click', function (event) {
                 }
             }
         }
+        console.log(split_the_string);
         console.log(encryptionResult);
         var result_1 = document.querySelector(".EncryptionResult");
-        result_1.textContent = encryptionResult;
+        result_1.innerHTML = encryptionResult;
     }
     catch (error) {
         console.error(error);
