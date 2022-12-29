@@ -34,21 +34,30 @@ console.log(theLarger(x, y));
 //2.2
 var averegeMale = 174;
 var avaregeFemale = 164;
-function averegeHeightoGender(userheight, usergender) {
-    if (usergender === "male") {
-        return averegeMale - userheight;
+var gender = "mail" || "female";
+function HeightoGender(height, gender) {
+    if (gender === "male") {
+        return averegeMale - height;
     }
-    else {
-        return avaregeFemale - userheight;
+    else if (gender === "female") {
+        return avaregeFemale - height;
     }
 }
-var userheight = prompt("what is your height?");
-var usergender = prompt("what is your gender ?");
-console.log(averegeHeightoGender(userheight, usergender));
-//level3
-//function reverseNumbers( num:number):number{
-//}
-var num = 4;
-for (i = 1; i < num; i++) {
-    console.log(i);
+var gender = prompt("what is your gender ?");
+if (gender) {
+    var heightStr = prompt("what is your height?");
+    var height = parseInt(heightStr);
+    if (!isNaN(height) && heightStr !== "") {
+        console.log(HeightoGender(height, gender));
+    }
+    else {
+        alert("you did not enter a number");
+    }
+}
+else if (gender === "") {
+    if (!gender) {
+        {
+            alert("you did not enter a gender");
+        }
+    }
 }

@@ -1,7 +1,9 @@
 // // // Question 1
 const threeNumbers: Function = (x: number,y: number, z: number): number | false => {
     try {
-    if (typeof x !== "number" ||typeof y !== "number" ||typeof z !== "number") {
+    if (typeof x !== "number" ||typeof y !== "number" ||typeof z !== "number"){
+        
+     
         throw new Error(`error is not a number`);
     }return x*y*z;
     }catch (Error){
