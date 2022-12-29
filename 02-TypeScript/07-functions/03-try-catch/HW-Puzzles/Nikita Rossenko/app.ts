@@ -42,7 +42,7 @@ function multiplication() {
     }
 }
 
-console.log(multiplication())
+// console.log(multiplication())
 
 
 // 2)
@@ -68,7 +68,6 @@ function encryptMessage(){
             let encryptedMessage:string = "";
             for (const i in messageChars){
                 let letter:string = messageChars[i]
-                console.log(encryptionDictionary[letter])
                 encryptedMessage = `${encryptedMessage}`+ encryptionDictionary[letter]+ " " ;
             }
             console.log(encryptedMessage)
