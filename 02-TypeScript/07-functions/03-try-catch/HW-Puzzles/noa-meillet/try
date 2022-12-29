@@ -1,0 +1,265 @@
+/*
+const questionMsg= prompt ("Enter the method you want to interpretate your message:", "enter encrypt or decrypt");
+if (questionMsg== "encrypt"){
+    const msgEncpt= prompt ("Enter one word you want to encrypt:");
+    if (!msgEncpt){
+        alert(`you don't enter a value`);
+    } else {
+        const msgEncrypt= encrypt(msgEncpt);
+        if (msgEncrypt!=false){
+          alert(`your encrypted message is: ${msgEncrypt}`);
+        } else {
+            alert(`We can't encrypt your message :(`);
+        }
+    }
+} else if (questionMsg== "decrypt"){
+    const msgDecpt= prompt ("Enter one message you want to decrypt, the message need to be numbers between 1 to 26 with a space between each number:","example: 1 5 24 18 9");
+    if (!msgDecpt){
+        alert(`you don't enter a value`);
+    } else {
+        const msgDecrypt= decrypt(msgDecpt);
+        if (msgDecrypt!=false){
+          alert(`your decrypted message is: ${msgDecrypt}`);
+        } else {
+            alert(`We can't decrypt your message :(`);
+        }
+    }
+} else {
+    alert(`we do not receive a correct value`);
+}
+
+function encrypt (msg:string):string | false{
+    try { 
+        msg= msg.toLowerCase();
+        let encryptMsg="";
+        for (let i=0;i< msg.length ;i++){
+            switch (msg.charAt(i)){
+                case "a":
+                    encryptMsg+="1 ";
+                    break;
+                case "b":
+                    encryptMsg+="2 ";
+                    break; 
+                case "c":
+                    encryptMsg+="3 ";
+                    break;   
+                case "d":
+                    encryptMsg+="4 ";
+                    break; 
+                case "e":
+                    encryptMsg+="5 ";
+                    break;
+                case "f":
+                    encryptMsg+="6 ";
+                    break; 
+                case "g":
+                    encryptMsg+="7 ";
+                    break;
+                case "h":
+                    encryptMsg+="8 ";
+                    break;
+                case "i":
+                    encryptMsg+="9 ";
+                    break;   
+                case "j":
+                    encryptMsg+="10 ";
+                    break;
+                case "k":
+                    encryptMsg+="11 ";
+                    break;    
+                case "l":
+                    encryptMsg+="12 ";
+                    break; 
+                case "m":
+                    encryptMsg+="13 ";
+                    break;   
+                case "n":
+                    encryptMsg+="14 ";
+                    break; 
+                case "o":
+                    encryptMsg+="15 ";
+                    break;
+                case "p":
+                    encryptMsg+="16 ";
+                    break; 
+                case "q":
+                    encryptMsg+="17 ";
+                    break;
+                case "r":
+                    encryptMsg+="18 ";
+                    break;
+                case "s":
+                    encryptMsg+="19 ";
+                    break;   
+                case "t":
+                    encryptMsg+="20 ";
+                    break;    
+                case "u":
+                    encryptMsg+="21 ";
+                    break;    
+                case "v":
+                    encryptMsg+="22 ";
+                    break; 
+                case "w":
+                    encryptMsg+="23 ";
+                    break;   
+                case "x":
+                    encryptMsg+="24 ";
+                    break; 
+                case "y":
+                    encryptMsg+="25 ";
+                    break;
+                case "z":
+                    encryptMsg+="26 ";
+                    break;    
+                default:
+                    throw new Error('your message can not be encrypt because of an unknow value');                
+            }
+        } 
+        return encryptMsg;
+    } catch (error) {
+        console.error('your message can not be encrypt because of an unknow value');
+        return false;
+    }
+}
+
+
+function decrypt(msg:string):string | false {
+    try {
+        let msgChar=msg.charAt(0);
+        let decryptMsg="";
+        if (msg.length==1){
+            switch(msgChar){
+                case "1":
+                    decryptMsg+="a";
+                    break;
+                case "2":
+                    decryptMsg+="b";
+                    break; 
+                case "3":
+                    decryptMsg+="c";
+                    break;   
+                case "4":
+                    decryptMsg+="d";
+                    break; 
+                case "5":
+                    decryptMsg+="e";
+                    break;
+                case "6":
+                    decryptMsg+="f";
+                    break; 
+                case "7":
+                    decryptMsg+="g";
+                    break;
+                case "8":
+                    decryptMsg+="h";
+                    break;
+                case "9":
+                    decryptMsg+="i";
+                    break;   
+                default:
+                    throw new Error('your message can not be encrypt because of an unknow value');     
+            }
+            return decryptMsg;
+        } else {
+            for (let i=1; i< msg.length; i++){
+                if (msg.charAt(i) == " "){
+                    msgChar="";
+                } else {
+                    msgChar+=msg.charAt(i);
+                }
+                switch(msgChar){
+                        case "1":
+                            decryptMsg+="a";
+                            break;
+                        case "2":
+                            decryptMsg+="b";
+                            break; 
+                        case "3":
+                            decryptMsg+="c";
+                            break;   
+                        case "4":
+                            decryptMsg+="d";
+                            break; 
+                        case "5":
+                            decryptMsg+="e";
+                            break;
+                        case "6":
+                            decryptMsg+="f";
+                            break; 
+                        case "7":
+                            decryptMsg+="g";
+                            break;
+                        case "8":
+                            decryptMsg+="h";
+                            break;
+                        case "9":
+                            decryptMsg+="i";
+                            break;   
+                        case "10":
+                            decryptMsg+="j";
+                            break;
+                        case "11":
+                            decryptMsg+="k";
+                            break;    
+                        case "12":
+                            decryptMsg+="l";
+                            break; 
+                        case "13":
+                            decryptMsg+="m";
+                            break;   
+                        case "14":
+                            decryptMsg+="n";
+                            break; 
+                        case "15":
+                            decryptMsg+="o";
+                            break;
+                        case "16":
+                            decryptMsg+="p";
+                            break; 
+                        case "17":
+                            decryptMsg+="q";
+                            break;
+                        case "18":
+                            decryptMsg+="r";
+                            break;
+                        case "19":
+                            decryptMsg+="s";
+                            break;   
+                        case "20":
+                            decryptMsg+="t";
+                            break;    
+                        case "21":
+                            decryptMsg+="u";
+                            break;    
+                        case "22":
+                            decryptMsg+="v";
+                            break; 
+                        case "23":
+                            decryptMsg+="w";
+                            break;   
+                        case "24":
+                            decryptMsg+="x";
+                            break; 
+                        case "25":
+                            decryptMsg+="y";
+                            break;
+                        case "26":
+                            decryptMsg+="z";
+                            break; 
+                        case "":
+                            msgChar="";
+                            break; 
+                        default:
+                            throw new Error('your message can not be encrypt because of an unknow value');    
+                }
+                msgChar="";
+            }
+        }    
+        return decryptMsg;
+    } catch (error) {
+        console.error('your message can not be encrypt because of an unknow value');
+        return false;
+    }
+}
+*/

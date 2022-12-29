@@ -34,32 +34,47 @@ function theLarger(x:number,y:number){
 //2.2
 
    
-    let averegeMale=174
-    let avaregeFemale=164
+    let averegeMale:number=174
+    let avaregeFemale:number=164
+  let gender:string="mail"||"female"
 
-function averegeHeightoGender( userheight:number,usergender:string):number{
-if(usergender==="male") 
-    {   
-           return averegeMale-userheight}
-else {
+function HeightoGender( height:number,gender:string):number{
+if(gender==="male") {
+           return averegeMale-height}
+ else if(gender==="female") {
     
-    return avaregeFemale-userheight}
+    return avaregeFemale-height}
+
+ }
+
+  
+let gender =prompt( "what is your gender ?");
+
+
+
+     if (gender){
+        
+        let heightStr=prompt("what is your height?")
+        let height=parseInt(heightStr)
+
+if(!isNaN(height)&& heightStr!==""){
     
+    console.log(HeightoGender( height,gender))
 }
+
+else{alert("you did not enter a number")}}
   
 
-  let userheight=prompt("what is your height?");
+ else if(gender==="") {
+    if(!gender){
+        {alert("you did not enter a gender")}}}
+   
+   
+       
+
+
+  
+
  
-  let usergender=prompt( "what is your gender ?");
   
-  console.log(averegeHeightoGender(userheight,usergender))  
 
-
-//level3
-
-//function reverseNumbers( num:number):number{
-    
-//}
-let num:number=4
-for(i=1;i<num;i++){
-   console.log(i)}

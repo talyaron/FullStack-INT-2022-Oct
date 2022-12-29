@@ -6,4 +6,26 @@
 body {
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type='text']{
+  width: 30vw;
+  min-width: 300px;
+  padding: .5em 0;
+  margin-bottom: 2em;
+}
+
+.chackboxes{
+  // border: 1px solid black;
+  width: 20vw;
+  min-width: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .5em;
+  font-size: 1.3rem;
 }

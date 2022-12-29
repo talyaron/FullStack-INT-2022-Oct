@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>encrypt message</title>
-    <link rel="stylesheet" href="./dist/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./dist/style.css" />
+  </head>
+  <body>
+    <label for="message">YOUR INPUT (press ENTER to get result)</label>
+    <input
+      type="text"
+      name="message"
+      id="message"
+      placeholder="Type in the message you want to encrypt"
+    />
+    <div class="chackboxes">
+      <div class="encrypt">
+        <label for="encrypt">Encrypt:</label>
+        <input type="checkbox" name="encrypt" id="encrypt" />
+      </div>
+      <div class="decrypt">
+        <label for="decrypt">Decrypt:</label>
+        <input type="checkbox" name="decrypt" id="decrypt" />
+      </div>
+    </div>
+    <!-- <label for="encryptionCode">Code:</label>
+    <input
+      type="text"
+      name="encryptionCode"
+      id="encryptionCode"
+      placeholder="Key must include all 26 characters of the alphabet"
+    /> -->
+    <h1 id="output">Encrypted message will be displayed here</h1>
     <script src="./dist/app.js"></script>
-</body>
+  </body>
 </html>
