@@ -1,6 +1,4 @@
 
-
-
 interface State  {
     country:string;
     yearOfIndependentcy:number;
@@ -24,8 +22,8 @@ function early(obj1:State, obj2:State):string{
         return obj1.country;
     }
     else {
-        return "The independancy year is the same"
+        return "The independancy year is the same";
     }
 }
 
-console.log(early(india,israel))
+console.log(early(india,israel));
