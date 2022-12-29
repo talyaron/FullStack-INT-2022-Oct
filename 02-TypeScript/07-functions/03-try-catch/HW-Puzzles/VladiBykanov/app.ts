@@ -6,17 +6,17 @@ const output = document.querySelector("#output") as HTMLHeadElement;
 const encryptCheckbox = document.querySelector("#encrypt") as HTMLInputElement;
 const decryptCheckbox = document.querySelector("#decrypt") as HTMLInputElement;
 
-const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const encryption_Code = "JTREKYAVOGDXPSNCUIZLFBMWHQ";
+// const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+// const encryption_Code = "JTREKYAVOGDXPSNCUIZLFBMWHQ";
 
-function encrypt(userInput: string): string | void {
+function encrypt(userInput: string): any {
   try {
     let encytedToNum = "";
 
     for (let i = 0; i < userInput.length; i++) {
       // check for space
       if (userInput[i] == " ") {
-        encytedToNum += " ";
+        encytedToNum += "- ";
       }
       // check if letter is capital
       else if (userInput[i].toUpperCase() == userInput[i]) {
@@ -33,21 +33,26 @@ function encrypt(userInput: string): string | void {
   }
 }
 
-function decrypt(encryptedMessage: string): string | void {
+function decrypt(encryptedMessage: string): any {
   try {
     let decryptBackToString = "";
+    //convert code string to an array
     const textArr = encryptedMessage.split(" ");
-    console.log(textArr);
     for (let i = 0; i < textArr.length; i++) {
-      decryptBackToString += String.fromCharCode(parseInt(textArr[i]) + 65);
+      if (textArr[i] == "-") {
+        decryptBackToString += " ";
+      } else if (textArr[i] == "") {
+        decryptBackToString += "";
+      } else {
+        decryptBackToString += String.fromCharCode(parseInt(textArr[i]) + 65);
+      }
     }
     return decryptBackToString;
   } catch (error) {
-    return console.error(error);
+    console.error(error);
+    return false;
   }
 }
-
-// console.log(" ".charCodeAt(0));
 
 window.addEventListener("keydown", (e) => {
   e.preventDefault;
@@ -60,14 +65,16 @@ window.addEventListener("keydown", (e) => {
         !/\d/.test(message.value)
       ) {
         output.textContent = encrypt(message.value);
+        message.value = '';
       } else if (
         !encryptCheckbox.checked &&
         decryptCheckbox.checked &&
         /\d/.test(message.value)
       ) {
         output.textContent = decrypt(message.value);
+        message.value = '';
       } else {
-        output.textContent = "Value typed isn't correct";
+        output.textContent = "Value input isn't correct (make sure you check the correct checkbox)";
       }
     }
   }
