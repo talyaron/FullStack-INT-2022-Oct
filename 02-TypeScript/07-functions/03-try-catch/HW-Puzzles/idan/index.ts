@@ -19,7 +19,6 @@ function joeMachine(unencryptedMsg:string):string{
     try{
         let encryptedMsg:any = [unencryptedMsg.length];
         console.log(typeof(encryptedMsg))
-        //i have no idea what kind of error can occur so i dont know what try/catch thing to put also the name joe machine does have meaning and i wont explain why
         for (let index = 0; index < unencryptedMsg.length; index++) {
            switch (index%8){
                 case 1: 
@@ -43,10 +42,10 @@ function joeMachine(unencryptedMsg:string):string{
                 default:
                     encryptedMsg[index] = String.fromCharCode(unencryptedMsg.charCodeAt(index)+3);
                     break; 
-                    
+
             }     
         }
-    
+
         return encryptedMsg.join('');
     }
     catch{

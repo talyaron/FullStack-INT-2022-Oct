@@ -16,7 +16,6 @@ function joeMachine(unencryptedMsg) {
     try {
         var encryptedMsg = [unencryptedMsg.length];
         console.log(typeof (encryptedMsg));
-        //i have no idea what kind of error can occur so i dont know what try/catch thing to put also the name joe machine does have meaning and i wont explain why
         for (var index = 0; index < unencryptedMsg.length; index++) {
             switch (index % 8) {
                 case 1:
