@@ -1,6 +1,8 @@
 var threeNumbers = function (num1, num2, num3) {
     try {
-        if (typeof num1 !== "number" || typeof num2 !== "number" || typeof num3 !== "number") {
+        if (typeof num1 !== "number" ||
+            typeof num2 !== "number" ||
+            typeof num3 !== "number") {
             throw new Error("not a number");
         }
         return num1 * num2 * num3;
@@ -11,22 +13,11 @@ var threeNumbers = function (num1, num2, num3) {
     }
 };
 var numberAllow = true;
-while (numberAllow) {
+function main() {
     var num1 = prompt("what is your first number");
     var num2 = prompt("what is your second number");
     var num3 = prompt("what is your third number");
-    if (num1 !== null && num2 !== null && num3 !== null) {
-        if (threeNumbers(parseInt(num1), parseInt(num2), parseInt(num3))) {
-            alert("The answer is " + num1 * num2 * num3);
-            numberAllow = false;
-        }
-        else {
-            alert("must be a number");
-        }
-    }
-    else {
-        alert("You left some lines empty");
-        console.error("You left some lines empty");
-    }
-    console.log(num1 * num2 * num3);
+    var result = threeNumbers(parseInt(num1), parseInt(num2), parseInt(num3));
+    console.log(result);
 }
+main();
