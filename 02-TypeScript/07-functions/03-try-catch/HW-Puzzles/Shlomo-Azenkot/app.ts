@@ -390,7 +390,7 @@ case "*":
     break;
 
     default:
-            throw new Error('None');
+            throw new Error('linsert error only in tange [ a-z / A-Z / 0-9 / !-)  ]');
             break;
 
 
