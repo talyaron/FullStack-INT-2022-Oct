@@ -50,7 +50,7 @@ input.addEventListener("keypress", function (event) {
         result = result * n;
         console.log(result);
     }
-    btn.addEventListener('click', function (event) {
+    btn.addEventListener("click", function (event) {
         if (count == 3) {
             var showresult = result.toString();
             error_Only_3_numbers.textContent = showresult;
@@ -62,14 +62,14 @@ input.addEventListener("keypress", function (event) {
 // ----------------------------------------------------------------
 // ----------------------------------------------------------------
 var btnEncryption = document.querySelector(".btnEncryption");
-btnEncryption.addEventListener('click', function (event) {
+btnEncryption.addEventListener("click", function (event) {
     var _a;
     var encryptionResult = "";
     var inputEncryption = (_a = document.querySelector(".inputEncryption")) === null || _a === void 0 ? void 0 : _a.value;
     var split_the_string = [];
     try {
         if (inputEncryption) {
-            split_the_string = inputEncryption.split('');
+            split_the_string = inputEncryption.split("");
             if (split_the_string) {
                 for (var i = 0; i < split_the_string.length; i++) {
                     switch (split_the_string[i]) {
@@ -181,46 +181,37 @@ btnEncryption.addEventListener('click', function (event) {
                         case "A":
                             encryptionResult += "1";
                             encryptionResult += " ";
-                            ;
                             break;
                         case "B":
                             encryptionResult += "2";
                             encryptionResult += " ";
-                            ;
                             break;
                         case "C":
                             encryptionResult += "3";
                             encryptionResult += " ";
-                            ;
                             break;
                         case "D":
                             encryptionResult += "4";
                             encryptionResult += " ";
-                            ;
                             break;
                         case "E":
                             encryptionResult += "5";
                             encryptionResult += " ";
-                            ;
                             break;
                         case "F":
                             encryptionResult += "6";
                             encryptionResult += " ";
-                            ;
                             break;
                         case "G":
                             encryptionResult += "7";
                             encryptionResult += " ";
-                            ;
                             break;
                         case "H":
                             encryptionResult += "8";
                             encryptionResult += " ";
-                            ;
                             break;
                         case "I":
                             encryptionResult += "9";
-                            ;
                             break;
                         case "J":
                             encryptionResult += "10";
@@ -372,7 +363,7 @@ btnEncryption.addEventListener('click', function (event) {
                             encryptionResult += " , ";
                             break;
                         default:
-                            throw new Error('linsert error only in tange [ a-z / A-Z / 0-9 / !-)  ]');
+                            throw new Error("linsert error only in tange [ a-z / A-Z / 0-9 / !-)  ]");
                             break;
                     }
                 }
@@ -381,7 +372,7 @@ btnEncryption.addEventListener('click', function (event) {
         console.log(split_the_string);
         console.log(encryptionResult);
         var result_1 = document.querySelector(".EncryptionResult");
-        result_1.innerHTML = encryptionResult;
+        result_1.innerText = encryptionResult;
     }
     catch (error) {
         console.error(error);
@@ -394,7 +385,7 @@ btnEncryption.addEventListener('click', function (event) {
 // const value :string | undefined = input?.value;
 // // const reversedNum = value => parseFloat(value.toString().split('').reverse().join('')) * Math.sign(value);
 // function reversedNum(value){
-//     return (parseFloat(value.toString().split('').reverse().join('')) * Math.sign(value)).toString();                
+//     return (parseFloat(value.toString().split('').reverse().join('')) * Math.sign(value)).toString();
 //   }
 //   const reverse = reversedNum(value);
 // let result = document.getElementById("result")as HTMLHeadElement;
@@ -460,7 +451,7 @@ btnEncryption.addEventListener('click', function (event) {
 // var input = document.getElementById('textFild').value;
 // var message=document.getElementById('message');
 // btn.addEventListener('click', (event) => {
-//     if(isNaN(input)){  
+//     if(isNaN(input)){
 //        message.innerHTML ='no number'
 //     }else {
 //        message.innerHTML ='yes number'
