@@ -1,4 +1,4 @@
-const threeNumbers=(num1:number,num2:number,num3: number): number | false =>{
+const threeNumbers: Function =(num1:number,num2:number,num3: number): number | false =>{
     try {
         if(typeof num1 !== `number` ||typeof num2 !== `number` || typeof num3 !==`number`){
             throw new Error(`not a number`);  
@@ -23,8 +23,8 @@ while (numberAllow) {
             alert(`must be a number`)
         }
     } else {
-        alert("Some of the inputs are null")
-        console.error("Some of the inputs are null")
+        alert("You left some lines empty")
+        console.error("You left some lines empty")
     }
 
     console.log(num1*num2*num3)
