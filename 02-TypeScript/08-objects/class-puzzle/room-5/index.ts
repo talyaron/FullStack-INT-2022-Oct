@@ -29,8 +29,5 @@ function whoIsOlder(object1:State, object2:State):string | false{
     }
 }
 
-if (whoIsOlder(israel,india)!=="The states are established the same year."){
-    console.log (`the state of ${whoIsOlder(israel,india)} established first.`);
-} else {
-    console.log (`The states are established the same year.`);
-}
+console.log("wich state established first?")
+console.log (whoIsOlder(israel,india))
