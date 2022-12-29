@@ -1,0 +1,43 @@
+.vid-list {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.names-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.names-container button {
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.names-container button:hover {
+  background-color: #77b196;
+}
+
+.names-container .names-list {
+  font-family: "Times New Roman", Times, serif;
+  display: none;
+  list-style-type: none;
+  padding: 0;
+  margin-left: 25px;
+}
+
+.names-container .names-list li {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
