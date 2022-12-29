@@ -128,96 +128,122 @@ if(split_the_string){
   switch( split_the_string[i] ){
    case "a":
     encryptionResult+="1";
+    encryptionResult+=" ";
     break;
 
    case "b":
     encryptionResult+="2";
+    encryptionResult+=" ";
     break;
 
     case "c":
       encryptionResult+="3";
+      encryptionResult+=" ";
      break;
   
      case "d":
       encryptionResult+="4";
+      encryptionResult+=" ";
       break;
     case "e":
       encryptionResult+="5";
+      encryptionResult+=" ";
      break;
   
      case "f":
       encryptionResult+="6";
+      encryptionResult+=" ";
       break;
     case "g":
       encryptionResult+="7";
+      encryptionResult+=" ";
       break;
   
      case "h":
       encryptionResult+="8";
+      encryptionResult+=" ";
       break;
     case "i":
       encryptionResult+="9";
+      encryptionResult+=" ";
       break;
   
      case "j":
       encryptionResult+="10";
+      encryptionResult+=" ";
       break;
      case "k":
       encryptionResult+="11";
+      encryptionResult+=" ";
       break;
     case "l":
       encryptionResult+="12";
+      encryptionResult+=" ";
       break;
   
      case "m":
       encryptionResult+="13";
+      encryptionResult+=" ";
       break;
      case "n":
       encryptionResult+="14";
+      encryptionResult+=" ";
       break;
     case "o":
       encryptionResult+="15";
+      encryptionResult+=" ";
       break;
   
      case "p":
       encryptionResult+="16";
+      encryptionResult+=" ";
       break;
      case "q":
       encryptionResult+="17";
+      encryptionResult+=" ";
       break;
     case "r":
       encryptionResult+="18";
+      encryptionResult+=" ";
       break;
   
      case "s":
       encryptionResult+="19";
+      encryptionResult+=" ";
       break;
      case "t":
       encryptionResult+="20";
+      encryptionResult+=" ";
       break;
     case "u":
       encryptionResult+="21";
+      encryptionResult+=" ";
       break;
   
      case "v":
       encryptionResult+="22";
+      encryptionResult+=" ";
       break;
      
     
     case "w":
       encryptionResult+="23";
+      encryptionResult+=" ";
       break;
   
      case "x":
       encryptionResult+="24";
+      encryptionResult+=" ";
       break;
 
      case "y":
       encryptionResult+="25";
+      encryptionResult+=" ";
       break;
 
      case "z":
       encryptionResult+="26";
+      encryptionResult+=" ";
       break;
 
 
@@ -226,34 +252,42 @@ if(split_the_string){
 
    case "A":
     encryptionResult+="1";
+    encryptionResult+=" ";
 ;    break;
 
    case "B":
     encryptionResult+="2";
+    encryptionResult+=" ";
 ;    break;
 
     case "C":
       encryptionResult+="3";
+      encryptionResult+=" ";
 ;      break;
   
      case "D":
       encryptionResult+="4";
+      encryptionResult+=" ";
 ;      break;
 
     case "E":
       encryptionResult+="5";
+      encryptionResult+=" ";
 ;      break;
   
      case "F":
       encryptionResult+="6";
+      encryptionResult+=" ";
 ;      break;
 
     case "G":
       encryptionResult+="7";
+      encryptionResult+=" ";
 ;      break;
   
      case "H":
       encryptionResult+="8";
+      encryptionResult+=" ";
 ;      break;
 
     case "I":
@@ -262,131 +296,167 @@ if(split_the_string){
   
      case "J":
       encryptionResult+="10";
+      encryptionResult+=" ";
       break;
      case "K":
       encryptionResult+="11";
+      encryptionResult+=" ";
       break;
     case "L":
       encryptionResult+="12";
+      encryptionResult+=" ";
       break;
   
      case "M":
       encryptionResult+="13";
+      encryptionResult+=" ";
       break;
      case "N":
       encryptionResult+="14";
+      encryptionResult+=" ";
       break;
     case "O":
       encryptionResult+="15";
+      encryptionResult+=" ";
       break;
   
      case "P":
       encryptionResult+="16";
+      encryptionResult+=" ";
       break;
      case "Q":
       encryptionResult+="17";
+      encryptionResult+=" ";
       break;
     case "R":
       encryptionResult+="18";
+      encryptionResult+=" ";
       break;
   
      case "S":
       encryptionResult+="19";
+      encryptionResult+=" ";
       break;
      case "T":
       encryptionResult+="20";
+      encryptionResult+=" ";
       break;
     case "U":
       encryptionResult+="21";
+      encryptionResult+=" ";
       break;
   
      case "V":
       encryptionResult+="22";
+      encryptionResult+=" ";
       break;
      
       
     case "W":
       encryptionResult+="23";
+      encryptionResult+=" ";
       break;
   
      case "X":
       encryptionResult+="24";
+      encryptionResult+=" ";
       break;
 
      case "Y":
       encryptionResult+="25";
+      encryptionResult+=" ";
       break;
 
      case "Z":
       encryptionResult+="26";
+      encryptionResult+=" ";
       break;
  
 
 // ---------------------------------
 case "1":
   encryptionResult+="A";
+  encryptionResult+=" ";
   break;
 
  case "2":
   encryptionResult+="B";
+  encryptionResult+=" ";
   break;
 
   case "3":
     encryptionResult+="C";
+    encryptionResult+=" ";
     break;
 
    case "4":
     encryptionResult+="D";
+    encryptionResult+=" ";
     break;
   case "5":
     encryptionResult+="E";
+    encryptionResult+=" ";
     break;
 
    case "6":
     encryptionResult+="F";
+    encryptionResult+=" ";
     break;
   case "7":
     encryptionResult+="G";
+    encryptionResult+=" ";
     break;
 
    case "8":
     encryptionResult+="H";
+    encryptionResult+=" ";
     break;
   case "9":
     encryptionResult+="I";
+    encryptionResult+=" ";
     break;
 
 // -------------------------------
 
 case "!":
     encryptionResult+="!";
+    encryptionResult+=" ";
     break;
 case "@":
     encryptionResult+="@";
+    encryptionResult+=" ";
     break;
 case "#":
     encryptionResult+="#";
+    encryptionResult+=" ";
     break;
 case "$":
     encryptionResult+="$";
+    encryptionResult+=" ";
     break;
 case "%":
     encryptionResult+="%";
+    encryptionResult+=" ";
     break;
 case "^":
     encryptionResult+="^";
+    encryptionResult+=" ";
     break;
 case "&":
     encryptionResult+="&";
+    encryptionResult+=" ";
     break;
 case "*":
     encryptionResult+="*";
+    encryptionResult+=" ";
     break;
 case "(":
     encryptionResult+="(";
+    encryptionResult+=" ";
     break;
 case "*":
     encryptionResult+=")";
+    encryptionResult+=" ";
     break;
 
     default:
