@@ -44,7 +44,7 @@ function multiplication() {
         return false;
     }
 }
-console.log(multiplication());
+// console.log(multiplication())
 // 2)
 function encryptMessage() {
     try {
@@ -69,7 +69,6 @@ function encryptMessage() {
             var encryptedMessage = "";
             for (var i in messageChars) {
                 var letter = messageChars[i];
-                console.log(encryptionDictionary[letter]);
                 encryptedMessage = "" + encryptedMessage + encryptionDictionary[letter] + " ";
             }
             console.log(encryptedMessage);
