@@ -6,6 +6,11 @@ function AddNetflixUser(userName, videoList) {
         return _this.videoList;
     };
 }
+var newUser = new AddNetflixUser("John Doe", {
+    "The Holiday": [],
+    "Alles op tafel": []
+});
+console.log(newUser);
 var account = {
     userName: "Vladi",
     videoList: {
@@ -14,6 +19,13 @@ var account = {
     },
     videoViewedBy: function (movie) {
         return this.videoList[movie];
+    },
+    get getName() {
+        return this.userName;
+    },
+    set addVideo(movie) {
+        this.videoList[movie] = [];
     }
 };
-console.log(account.videoViewedBy("The Matrix"));
+// console.log(account.videoViewedBy("The Matrix"));
+console.log(account.addVideo('Snatch'));
