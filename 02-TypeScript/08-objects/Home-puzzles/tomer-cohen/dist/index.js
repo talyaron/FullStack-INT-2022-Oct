@@ -19,7 +19,7 @@ function DollerToShekels(video) {
         return false;
     }
 }
-var movieAllow = prompt("what movie do you want to rent? we have FastAndFurious9,AvengersEndGame,Avater2 ");
+var movieAllow = prompt("what movie do you want to rent? we have\nFast-And-Furious-9\nAvengers-EndGame\nAvater2");
 if (movieAllow == " " || !movieAllow) {
     var movieAllow_1 = alert("please enter a movie");
     if (fastAndFurious9) {

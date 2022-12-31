@@ -29,7 +29,10 @@ try {
     return false;
 }
 }
-const movieAllow:string| null= prompt(`what movie do you want to rent? we have FastAndFurious9,AvengersEndGame,Avater2 `)
+const movieAllow:string| null= prompt(`what movie do you want to rent? we have
+Fast-And-Furious-9
+Avengers-EndGame
+Avater2`)
 if (movieAllow==" "|| !movieAllow){
     const movieAllow = alert ("please enter a movie")
 
