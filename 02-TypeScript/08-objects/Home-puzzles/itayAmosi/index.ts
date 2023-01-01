@@ -1,20 +1,20 @@
 interface Movies {
-  name: string;
-  parice: Number;
-  Last_rental: Number;
-  rented: String;
-  type_of_movie: string;
+  name: string
+  parice: Number
+  Last_rental: Number
+  rented: String
+  type_of_movie: string
 }
 interface Users {
-  name: string;
-  age: Number;
-  Address: string;
-  phone: Number;
+  name: string
+  age: Number
+  Address: string
+  phone: Number
 }
 interface directors {
-  name: string;
-  type_of_movies: String;
-  Total_film_directing: Number;
+  name: string
+  type_of_movies: String
+  Total_film_directing: Number
 }
 
 const Black_Adam: Movies = {
@@ -54,16 +54,25 @@ const tomer: Users = {
 const matan: Users = {
   name: 'Matan',
   age: 46,
-  Address: 'Moses Nussbaum, 23, Tel Aviv', 
-  phone: 1234,
+  Address: 'Moses Nussbaum, 23, Tel Aviv',
+  phone: 2232325,
 }
-const dollarToShekel: Function = (dTS:number):number | false => {
-try {
+
+const Welcome = prompt(`Welcome to BLOCKBUSTER
+Enter a username and click OK`)
+console.log(`A username has been entered: ${Welcome}`)
+
+const dollarToShekel: Function = (dTS: number): number | false => {
+  try {
     return dTS * 3.35
-} catch(error) {
+  } catch (error) {
     alert(`Error`)
     console.error(Error)
     return false
-    }  
+  }
 }
-const choose =prompt(`Choose your movie`)
+// const myButton = document.getElementById('myBtn');
+// myButton?.addEventListener(`clic`, function (e) {
+//   const name = alert(`this move rent`)
+//   console.log(name);
+// });

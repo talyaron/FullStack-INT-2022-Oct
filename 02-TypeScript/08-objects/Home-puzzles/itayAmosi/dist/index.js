@@ -36,8 +36,10 @@ var matan = {
     name: 'Matan',
     age: 46,
     Address: 'Moses Nussbaum, 23, Tel Aviv',
-    phone: 1234
+    phone: 2232325
 };
+var Welcome = prompt("Welcome to BLOCKBUSTER\nEnter a username and click OK");
+console.log("A username has been entered: " + Welcome);
 var dollarToShekel = function (dTS) {
     try {
         return dTS * 3.35;
@@ -48,4 +50,8 @@ var dollarToShekel = function (dTS) {
         return false;
     }
 };
-var choose = prompt("Choose your movie");
+// const myButton = document.getElementById('myBtn');
+// myButton?.addEventListener(`clic`, function (e) {
+//   const name = alert(`this move rent`)
+//   console.log(name);
+// });
