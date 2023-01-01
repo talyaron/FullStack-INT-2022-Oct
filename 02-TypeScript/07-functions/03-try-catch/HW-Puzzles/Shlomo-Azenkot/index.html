@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        text-align: center;
+        overflow-x: hidden;
+        position: static;
+        background-color: rgb(255, 254, 254);
+        margin: auto auto auto auto;
+      }
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      input {
+        width: 250px;
+        height: 80px;
+        border: solid 3px black;
+        border-radius: 5px;
+        background-color: gray;
+        color: white;
+        font-size: xx-large;
+      }
+
+      ::placeholder {
+        color: white;
+        font-weight: bold;
+        font-size: large;
+        height: 200px;
+        padding-left: 10px;
+        /* Firefox */
+      }
+
+      .titel {
+        font-size: 20px;
+      }
+      .button {
+        margin: 0;
+        padding: 0;
+        font-size: larger;
+        background: linear-gradient(
+          to bottom right,
+          rgb(123, 249, 85),
+          rgb(156, 248, 128),
+          rgb(165, 243, 141)
+        );
+        font-weight: bolder;
+        padding: 3px 5px 3px 5px;
+        border-radius: 7px;
+        color: rgb(17, 17, 17);
+      }
+
+      .button:hover {
+        background-color: rgb(28, 87, 6);
+      }
+
+      .Multiply_3_numbers {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        width: 100vw;
+        height: 50vh;
+        background: linear-gradient(
+          to bottom left,
+          rgb(23, 23, 23),
+          rgb(69, 68, 68),
+          rgb(79, 78, 78)
+        );
+      }
+
+      .The_amount_of_numbers_entered {
+        position: relative;
+        left: 47vw;
+        background-color: rgb(235, 86, 86);
+        width: 50px;
+        height: 40px;
+        border: 3px solid black;
+        border-radius: 30%;
+        text-align: center;
+      }
+      .activ {
+        position: relative;
+        left: 47vw;
+        background-color: rgb(119, 250, 107);
+        width: 50px;
+        height: 40px;
+        border: 3px solid black;
+        border-radius: 30%;
+        text-align: center;
+      }
+      .Some_numbers_have_been_entered {
+        position: absolute;
+        margin: auto;
+        margin-left: 8px;
+        color: aliceblue;
+      }
+
+      .Encryption {
+        position: absolute;
+        text-align: center;
+        width: 100vw;
+        height: 65vh;
+        background: linear-gradient(
+          to bottom right,
+          rgb(10, 2, 60),
+          rgba(30, 30, 120, 0.5),
+          rgba(57, 99, 128, 0.1)
+        );
+      }
+      .btnEncryption {
+        margin: 0;
+        padding: 0;
+        font-size: larger;
+        background: linear-gradient(
+          to bottom right,
+          rgb(252, 180, 180),
+          rgba(248, 112, 112, 0.5),
+          rgba(253, 86, 86, 0.1)
+        );
+        font-weight: bolder;
+        padding: 3px 5px 3px 5px;
+        border-radius: 5px;
+      }
+      .btnEncryption:hover {
+        background-color: rgb(255, 13, 0);
+      }
+      .btnEncryption {
+        margin: 0;
+        padding: 0;
+        font-size: larger;
+        background-color: rgb(216, 176, 176);
+        font-weight: bolder;
+        padding: 3px 5px 3px 5px;
+        border-radius: 5px;
+        color: rgb(17, 17, 17);
+      }
+
+      @keyframes lights {
+        0% {
+          color: hsl(230, 40%, 80%);
+          text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.2),
+            0 0 0.125em hsla(320, 100%, 60%, 0.3),
+            -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+            1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+        }
+
+        30% {
+          color: hsl(230, 80%, 90%);
+          text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+            0 0 0.125em hsla(320, 100%, 60%, 0.5),
+            -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+            0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+        }
+
+        40% {
+          color: hsl(230, 100%, 95%);
+          text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+            0 0 0.125em hsla(320, 100%, 90%, 0.5),
+            -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+            0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+        }
+
+        70% {
+          color: hsl(230, 80%, 90%);
+          text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.5),
+            0 0 0.125em hsla(320, 100%, 60%, 0.5),
+            0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+            -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+        }
+
+        100% {
+          color: hsl(230, 40%, 80%);
+          text-shadow: 0 0 1em hsla(320, 100%, 50%, 0.2),
+            0 0 0.125em hsla(320, 100%, 60%, 0.3),
+            1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+            -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+        }
+      }
+
+      .titelMultiply {
+        margin: auto;
+        font-size: 3.5rem;
+        font-weight: 300;
+        animation: lights 5s 750ms linear infinite;
+      }
+
+      .titelEncryption span {
+        font-size: 10rem;
+        font-family: "Bad Script", cursive;
+        color: #111;
+        animation: glowing 2s linear infinite;
+      }
+
+      @keyframes glowing {
+        0%,
+        100% {
+          color: #fff;
+          filter: blur(2px);
+          text-shadow: 0 0 10px #00b3ff, 0 0 20px #00b3ff, 0 0 40px #00b3ff,
+            0 0 80px #00b3ff, 0 0 120px #00b3ff, 0 0 200px #00b3ff,
+            0 0 300px #00b3ff, 0 0 400px #00b3ff;
+        }
+        5%,
+        95% {
+          color: #111;
+          text-shadow: none;
+          filter: blur(0px);
+        }
+      }
+
+      .titelEncryption span:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      .titelEncryption span:nth-child(2) {
+        animation-delay: 0.25s;
+      }
+
+      .titelEncryption span:nth-child(3) {
+        animation-delay: 0.5s;
+      }
+
+      .titelEncryption span:nth-child(4) {
+        animation-delay: 0.75s;
+      }
+
+      .titelEncryption span:nth-child(5) {
+        animation-delay: 1s;
+      }
+
+      .titelEncryption span:nth-child(6) {
+        animation-delay: 1.25s;
+      }
+
+      .titelEncryption span:nth-child(7) {
+        animation-delay: 1.5s;
+      }
+
+      .titelEncryption span:nth-child(8) {
+        animation-delay: 1.75s;
+      }
+      .Only_3_numbers {
+        color: white;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-size: 32px;
+        font-weight: bold;
+      }
+      .EncryptionResult {
+        color: rgb(2, 2, 2);
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-size: 38px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Multiply_3_numbers typewriter">
+      <br />
+      <h1 class="titelMultiply">Enter 3 Numbers ("enter to add")</h1>
+      <br /><br />
+
+      <input
+        type="number"
+        name="num"
+        id="input_multiplication"
+        placeholder=" Contains only numbers !!!"
+      /><br /><br />
+
+      <div class="The_amount_of_numbers_entered">
+        <h1 class="Some_numbers_have_been_entered">+0</h1>
+      </div>
+      <br />
+      <button class="button" id="btn">to result</button>
+      <h1 class="Only_3_numbers"></h1>
+      <br />
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+    <div class="Encryption">
+      <h1 class="titelEncryption">
+        <span>E</span>
+        <span>n</span>
+        <span>c</span>
+        <span>o</span>
+        <span>d</span>
+        <span>e</span>
+        <span>n</span>
+        <span>🕵🏿‍♂</span>
+      </h1>
+      <input
+        type="text"
+        name="num"
+        class="inputEncryption"
+        placeholder=" numbers && characters "
+      /><br /><br />
+      <br />
+      <button class="btnEncryption">Encryption</button>
+      <h1 class="EncryptionResult"></h1>
+      <br /><br />
+      <br /><br />
+      <hr />
+    </div>
+
+    <!-- <div class="Reverse_a_number" >
+    <h1 id="titel">Reverse the number try it</h1>
+    <input type="number" name="num" id="input" placeholder="Enter only numbers !!!">  <br><br>
+    <button id="btn">push me</button><br>
+    <h1 id="result"></h1>
+
+
+</div> -->
+
+    <script src="././dist/app.js"></script>
+  </body>
+</html>
