@@ -3,9 +3,9 @@ var isNumber = function (num, argumentPosition) {
     if (typeof num !== "number") {
         throw new Error(argumentPosition + " Argument should be a number");
     }
-    if (/^\d+$/.test(num.toString())) {
-        throw new Error('Only numbers are acceptable');
-    }
+    // if (/^\d+$/.test(num.toString())) {
+    //   throw new Error('Only numbers are acceptable')
+    // }
     return num;
 };
 var multiplicationNumbers = function (firstNumber, secondNumber, thirdNumber) {
@@ -58,6 +58,7 @@ mapEncription.set("w", "23");
 mapEncription.set("x", "24");
 mapEncription.set("y", "25");
 mapEncription.set("z", "26");
+mapEncription.set(' ', '');
 var encryption = function (stringToNum) {
     var encryptedMessage = "";
     try {
@@ -76,4 +77,12 @@ var encryption = function (stringToNum) {
         return false;
     }
 };
+var answer = prompt("give me a message please");
+var message = encryption(answer);
+if (message) {
+    alert("Your message returned as " + message);
+}
+else {
+    alert("we have an error");
+}
 encryption("hi");

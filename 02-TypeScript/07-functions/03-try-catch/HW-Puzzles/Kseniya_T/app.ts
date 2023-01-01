@@ -3,9 +3,9 @@ const isNumber = (num: number, argumentPosition: string): number | false => {
   if (typeof num !== "number") {
     throw new Error(`${argumentPosition} Argument should be a number`);
   }
-  if (/^\d+$/.test(num.toString())) {
-    throw new Error('Only numbers are acceptable')
-  }
+  // if (/^\d+$/.test(num.toString())) {
+  //   throw new Error('Only numbers are acceptable')
+  // }
   return num;
 };
 
@@ -69,8 +69,9 @@ mapEncription.set("w", "23");
 mapEncription.set("x", "24");
 mapEncription.set("y", "25");
 mapEncription.set("z", "26");
+mapEncription.set(' ', '')
 
-const encryption = (stringToNum: string): number | string | false => {
+const encryption = (stringToNum: string): number | false => {
   let encryptedMessage = "";
   try {
 
@@ -81,6 +82,7 @@ const encryption = (stringToNum: string): number | string | false => {
     const arrStringToNum = stringToNum.split("");
     arrStringToNum.forEach((element) => {
       encryptedMessage += mapEncription.get(element);
+      
     });
 
     console.log(encryptedMessage);
@@ -90,5 +92,14 @@ const encryption = (stringToNum: string): number | string | false => {
     return false;
   }
 };
+const answer = prompt("give me a message please");
 
+const message = encryption(answer!);
+if (message) {
+  alert(`Your message returned as ${message}`);
+} else {
+  alert("we have an error");
+}
 encryption("hi");
+
+
