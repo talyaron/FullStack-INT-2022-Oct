@@ -1,3 +1,6 @@
+// initiating a variable that will hold all the users 
+var netflixUsers = [];
+// function that will crate a user based on our template
 function AddNetflixUser(userName, videoList) {
     var _this = this;
     this.userName = userName;
@@ -10,7 +13,7 @@ var newUser = new AddNetflixUser("John Doe", {
     "The Holiday": [],
     "Alles op tafel": []
 });
-console.log(newUser);
+// console.log(newUser);
 var account = {
     userName: "Vladi",
     videoList: {
@@ -23,9 +26,12 @@ var account = {
     get getName() {
         return this.userName;
     },
-    set addVideo(movie) {
+    set addNewMovie(movie) {
         this.videoList[movie] = [];
     }
 };
-// console.log(account.videoViewedBy("The Matrix"));
-console.log(account.addVideo('Snatch'));
+console.log(account.videoViewedBy("The Matrix"));
+account.addNewMovie = 'movie';
+console.log(account);
+netflixUsers.push(account, newUser);
+console.log(netflixUsers);
