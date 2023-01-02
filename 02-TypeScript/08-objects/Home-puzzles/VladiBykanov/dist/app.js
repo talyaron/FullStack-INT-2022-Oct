@@ -1,6 +1,8 @@
-// initiating a variable that will hold all the users 
+// initiating a variable that will hold all the users
 var netflixUsers = [];
-// function that will crate a user based on our template
+var userBtn = document.querySelectorAll('.chooseUser');
+var movieBtn = document.querySelectorAll('.chooseMovie');
+// function that will crate a user based on our interface template
 function AddNetflixUser(userName, videoList) {
     var _this = this;
     this.userName = userName;
@@ -8,6 +10,7 @@ function AddNetflixUser(userName, videoList) {
     this.videoViewedBy = function () {
         return _this.videoList;
     };
+    netflixUsers.push(this);
 }
 var newUser = new AddNetflixUser("John Doe", {
     "The Holiday": [],
@@ -30,8 +33,10 @@ var account = {
         this.videoList[movie] = [];
     }
 };
-console.log(account.videoViewedBy("The Matrix"));
-account.addNewMovie = 'movie';
-console.log(account);
-netflixUsers.push(account, newUser);
-console.log(netflixUsers);
+// console.log(account.videoViewedBy("The Matrix"));
+// account.addNewMovie = 'movie';
+// console.log(account);
+netflixUsers.push(account);
+console.log(account.userName);
+// console.log(netflixUsers[1].userName);
+netflixUsers.forEach(function (user) { return console.log(user.userName); });
