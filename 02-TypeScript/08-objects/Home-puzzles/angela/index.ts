@@ -22,14 +22,11 @@ const renter=['john','amelia','luke','dan','lily','luna'];
 
 function dollar_to_shekel (video:Movie){
     try {
-        if(video.name=="train to busan"){
-            return video.price * 3.53
-        }
-        if(video.name=="fight club"){
-            return video.price * 3.53
-        }
-        if(video.name=="i am legend"){
-            return video.price * 3.53
+        switch(dollar_to_shekel){
+            case "train to busan": return video.price *3.53;
+            case "fight club ":return video.price * 3.53;
+            case "i am legend": return video.price *3.53;
+            default: return "you choose an unavailable movie"
         }
     } catch (error) {
        console.error("error") 
