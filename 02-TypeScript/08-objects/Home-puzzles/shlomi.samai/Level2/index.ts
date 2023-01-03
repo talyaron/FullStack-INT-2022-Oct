@@ -2,11 +2,13 @@ interface Video {
   name:string,
   price:number,
   renter?:string,
+  watchHistort?:string[],
 }
 
 interface User {
   name:string,
   age:number,
+  rentedVideo?:string[],
 }
 
 function pricOfVideo(obj:Video):number|false {
@@ -36,6 +38,7 @@ catch (error) {
 const TheCurrier:Video={
   name: "TheCurrier",
   price:50,
+  
 }
 
 const Lorem1:Video={
