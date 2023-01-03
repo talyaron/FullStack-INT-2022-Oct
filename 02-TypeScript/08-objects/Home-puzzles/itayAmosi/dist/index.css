@@ -98,11 +98,11 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-
-#myBtn {
-  color: #0008ff;
+.wrapper__container .index {
+  height: 5px;
+  width: 5px;
 }
 
-#myMovie {
-  color: #d5f105;
+#Nope {
+  color: red;
 }
