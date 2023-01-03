@@ -2,6 +2,8 @@ interface User{
     userName: string;
     password: string;
     videos?: Video[];
+   
+   
 }
 
 interface Video{
@@ -9,7 +11,7 @@ interface Video{
     producer: string;
     price: number;
     yearOfProduction?: number;
-    rentTo?: User;
+    rentTo?: User; 
     viewBy?:User[];
 }
 
