@@ -1,21 +1,24 @@
 // initiating a variable that will hold all the users
 var netflixUsers = [];
-var movieList = {};
+var viewedMovieList = {};
 var userWatchedMovie = document.querySelector(".userWatchedMovie");
+var creatUserName = document.querySelector(".creatUserName");
+var addMovieToNewUsersList = document.querySelector(".addMovieToNewUsersList");
 // const userBtnList = document.querySelector(".userBtnList") as HTMLUListElement;
 // const movieBtnList = document.querySelector(
 //   ".movieBtnList"
 // ) as HTMLUListElement;
+// listening to button clicks on html window
 window.addEventListener("click", function (e) {
     var target = e.target;
     if (target.className === "movie") {
-        userWatchedMovie.style.display = 'block';
+        userWatchedMovie.style.display = "block";
         while (userWatchedMovie.childNodes.length > 2) {
             userWatchedMovie.removeChild(userWatchedMovie.lastChild);
         }
         // text on button
         var text_1 = target.textContent;
-        Object.entries(movieList).forEach(function (_a) {
+        Object.entries(viewedMovieList).forEach(function (_a) {
             var key = _a[0], value = _a[1];
             var movieValues = value;
             if (key.toLowerCase() == (text_1 === null || text_1 === void 0 ? void 0 : text_1.toLowerCase())) {
@@ -26,6 +29,11 @@ window.addEventListener("click", function (e) {
                 }
             }
         });
+    }
+});
+window.addEventListener("keydown", function (e) {
+    if (e.key == "Enter" && creatUserName.value != '') {
+        console.log("working");
     }
 });
 // function that will crate a user based on our interface template
@@ -49,42 +57,38 @@ function addUser(userName, videoList) {
     //adding user to list of users on platform
     netflixUsers.push(this);
 }
-var userOne = new addUser("User One", {
+var userOne = new addUser("Vladislav Bykanov", {
     matrix: false,
     avatar: false,
     "the godfather": true
 });
-var userTwo = new addUser("User Two", {
+var userTwo = new addUser("John Doe", {
     matrix: false,
     avatar: false,
     "the godfather": true
+});
+var userThree = new addUser("Jerry Smith", {
+    matrix: true,
+    avatar: true,
+    "the godfather": false
 });
 userTwo.markMovieViewed("matrix");
-// console.log(userOne.checkIfMovieWasWatched("matrix"));
-// console.log(userOne.getUserName());
 userOne.addMovieToList("Titanic");
-console.log(netflixUsers);
-// console.log(userOne.videoList["avatar"]);
-// console.log(userOne.videoList["Titanic"]);
-// console.log(movieList);
-var keys = Object.keys(netflixUsers[1].videoList);
-var values = Object.values(netflixUsers[1].videoList)[0];
-// console.log(keys);
-// console.log(values);
-console.log(movieList);
+userOne.markMovieViewed("Titanic");
+console.log(viewedMovieList);
 // adding the movie as viewed for the chosen user
 function markMovieAsViewedForPerson(movie, user) {
-    return movieList[movie].push(user);
+    return viewedMovieList[movie].push(user);
 }
-// adding the name of the user that watched the movie to movieList
+// adding the name of the user that watched the movie to viewedMovieList
 netflixUsers.forEach(function (user) {
     Object.entries(user.videoList).forEach(function (_a) {
         var key = _a[0], value = _a[1];
         if (value == true) {
-            if (!movieList[key]) {
-                movieList[key] = [];
+            if (!viewedMovieList[key]) {
+                viewedMovieList[key] = [];
             }
-            movieList[key].push(user.userName);
+            viewedMovieList[key].push(user.userName);
             // console.log(key, user.userName);
         }
     });
@@ -105,6 +109,6 @@ netflixUsers.forEach(function (user) {
 //     this.videoList[movie] = [];
 //   },
 // };
-var word = "hello";
-var upperWord = word.toLowerCase().charAt(0).toUpperCase() + word.slice(1);
+// let word = "hello";
+// let upperWord = word.toLowerCase().charAt(0).toUpperCase() + word.slice(1);
 // console.log(upperWord);

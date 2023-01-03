@@ -1,24 +1,31 @@
 // initiating a variable that will hold all the users
 const netflixUsers: NetflixUser[] = [];
-const movieList = {};
+const viewedMovieList = {};
 const userWatchedMovie = document.querySelector(
   ".userWatchedMovie"
 ) as HTMLUListElement;
+const creatUserName = document.querySelector(
+  ".creatUserName"
+) as HTMLInputElement;
+const addMovieToNewUsersList = document.querySelector(
+  ".addMovieToNewUsersList"
+) as HTMLInputElement;
 // const userBtnList = document.querySelector(".userBtnList") as HTMLUListElement;
 // const movieBtnList = document.querySelector(
 //   ".movieBtnList"
 // ) as HTMLUListElement;
 
+// listening to button clicks on html window
 window.addEventListener("click", (e) => {
   const target = e.target as Element;
   if (target.className === "movie") {
-    userWatchedMovie.style.display = 'block';
+    userWatchedMovie.style.display = "block";
     while (userWatchedMovie.childNodes.length > 2) {
       userWatchedMovie.removeChild(userWatchedMovie.lastChild as Element);
     }
     // text on button
     const text = target.textContent;
-    Object.entries(movieList).forEach(([key, value]) => {
+    Object.entries(viewedMovieList).forEach(([key, value]) => {
       const movieValues = value as [];
       if (key.toLowerCase() == text?.toLowerCase()) {
         for (const i in movieValues) {
@@ -28,6 +35,12 @@ window.addEventListener("click", (e) => {
         }
       }
     });
+  }
+});
+
+window.addEventListener("keydown", (e) => {
+  if (e.key == "Enter" && creatUserName.value != '') {
+    console.log("working");
   }
 });
 
@@ -61,49 +74,43 @@ function addUser(userName: string, videoList: {}) {
   netflixUsers.push(this);
 }
 
-const userOne: NetflixUser = new addUser("User One", {
+const userOne: NetflixUser = new addUser("Vladislav Bykanov", {
   matrix: false,
   avatar: false,
   "the godfather": true,
 });
 
-const userTwo: NetflixUser = new addUser("User Two", {
+const userTwo: NetflixUser = new addUser("John Doe", {
   matrix: false,
   avatar: false,
   "the godfather": true,
+});
+
+const userThree: NetflixUser = new addUser("Jerry Smith", {
+  matrix: true,
+  avatar: true,
+  "the godfather": false,
 });
 
 userTwo.markMovieViewed("matrix");
-
-// console.log(userOne.checkIfMovieWasWatched("matrix"));
-// console.log(userOne.getUserName());
 userOne.addMovieToList("Titanic");
-console.log(netflixUsers);
-// console.log(userOne.videoList["avatar"]);
-// console.log(userOne.videoList["Titanic"]);
+userOne.markMovieViewed("Titanic");
 
-// console.log(movieList);
-
-const keys = Object.keys(netflixUsers[1].videoList);
-const values = Object.values(netflixUsers[1].videoList)[0];
-// console.log(keys);
-// console.log(values);
-
-console.log(movieList);
+console.log(viewedMovieList);
 
 // adding the movie as viewed for the chosen user
 function markMovieAsViewedForPerson(movie: string, user: string) {
-  return movieList[movie].push(user);
+  return viewedMovieList[movie].push(user);
 }
 
-// adding the name of the user that watched the movie to movieList
+// adding the name of the user that watched the movie to viewedMovieList
 netflixUsers.forEach((user) => {
   Object.entries(user.videoList).forEach(([key, value]) => {
     if (value == true) {
-      if (!movieList[key]) {
-        movieList[key] = [];
+      if (!viewedMovieList[key]) {
+        viewedMovieList[key] = [];
       }
-      movieList[key].push(user.userName);
+      viewedMovieList[key].push(user.userName);
       // console.log(key, user.userName);
     }
   });
@@ -126,7 +133,7 @@ netflixUsers.forEach((user) => {
 //   },
 // };
 
-let word = "hello";
-let upperWord = word.toLowerCase().charAt(0).toUpperCase() + word.slice(1);
+// let word = "hello";
+// let upperWord = word.toLowerCase().charAt(0).toUpperCase() + word.slice(1);
 
 // console.log(upperWord);

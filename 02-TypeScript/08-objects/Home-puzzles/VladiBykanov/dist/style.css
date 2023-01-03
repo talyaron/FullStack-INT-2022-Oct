@@ -15,6 +15,13 @@ ul li button {
   padding: 0.5em;
 }
 
+.userPage__movieList li {
+  display: block;
+}
+.userPage input {
+  padding: 0.5em;
+}
+
 .userWatchedMovie {
   display: none;
   position: absolute;
@@ -23,6 +30,10 @@ ul li button {
 }
 .userWatchedMovie li {
   display: flex;
+}
+
+.creatUserPage input {
+  padding: 0.5em;
 }
 
 .movieList li {

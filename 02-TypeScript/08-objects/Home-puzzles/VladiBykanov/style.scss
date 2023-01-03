@@ -19,6 +19,19 @@ ul{
   }
 }
 
+
+.userPage{
+  &__movieList{
+    li{
+      display: block;
+    }
+  }
+  input{
+    padding: .5em;
+  }
+
+}
+
 .userWatchedMovie{
   display: none;
   position: absolute;
@@ -26,6 +39,12 @@ ul{
   right: 30vw;
   li{
     display: flex;
+  }
+}
+
+.creatUserPage{
+  input{
+    padding: .5em;
   }
 }
 

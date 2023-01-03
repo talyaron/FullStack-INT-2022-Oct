@@ -9,16 +9,6 @@
   </head>
   <body>
     <h1>Netflix Dev Page</h1>
-    <!-- <div class="creatUserPage">
-      <label for="createUserName">User Name:</label>
-      <input type="text" name="createUserName" id="createUserName" />
-      <label for="movieName">Movie Name:</label>
-      <input type="text" name="movieName" id="movieName" />
-    </div> -->
-    <!-- <div class="lookupUser">
-      <label for="lookForUser">Type in user you want to search:</label>
-      <input type="text" name="lookForUser" id="lookForUser" />
-    </div> -->
     <h4>Choose a user to see his movie list:</h4>
     <ul class="userBtnList">
       <li><button>Vladislav Bykanov</button></li>
@@ -34,21 +24,21 @@
     <ul class="userWatchedMovie">
       <hX><b>People That watched this movie:</b></hX>
     </ul>
+    <div class="creatUserPage">
+      <h2>Create User</h2>
+      <label for="userName">Choose a user name:</label>
+      <input type="text" name="userName" class="creatUserName" placeholder="Jake425">
+    </div>
     <div class="userPage">
       <h2 class="userPage__userName">NAME</h2>
       <h4>Movies available:</h4>
-      <ul class="movieList">
+      <ul class="userPage__movieList">
         <li>Matrix</li>
         <li>Avatar</li>
         <li>The Godfather</li>
       </ul>
-      <label for="addMovieToUser">Add movie to list:</label>
-      <input
-        type="text"
-        name="addMovieToUser"
-        id="addMovieToUser"
-        placeholder="Titanic"
-      />
+      <label for="movieName">Add movie to watch list:</label>
+      <input type="text" name="movieName" class="addMovieToNewUsersList" placeholder="Armageddon">
     </div>
     <script src="./dist/app.js"></script>
   </body>
