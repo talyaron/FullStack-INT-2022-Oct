@@ -41,10 +41,11 @@ else {
 
 
 //level 3:
-function findReverse(){
-    let numberToRev = Number(document.getElementById("input_number").value);
 
-    let reverse = Number(String(numberToRev).split('').reverse().join(''));
+let str = prompt("Enter a number to reverse");
+    
+let splitString = str.split('')
+let reverseArray = splitString.reverse();
+let newString = reverseArray.join('');
 
-    console.log("Reverse : "+reverse);
-}
+console.log(newString);

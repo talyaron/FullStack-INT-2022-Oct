@@ -34,8 +34,8 @@ else {
     }
 }
 //level 3:
-function findReverse() {
-    var numberToRev = Number(document.getElementById("input_number").value);
-    var reverse = Number(String(numberToRev).split('').reverse().join(''));
-    console.log("Reverse : " + reverse);
-}
+var str = prompt("Enter a number to reverse");
+var splitString = str.split('');
+var reverseArray = splitString.reverse();
+var newString = reverseArray.join('');
+console.log(newString);
