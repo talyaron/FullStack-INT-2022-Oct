@@ -4,7 +4,7 @@
 }
 
 body {
-  width: 100vw;
+  width: 90vw;
   padding: 2em;
 }
 
@@ -15,6 +15,11 @@ ul li button {
   padding: 0.5em;
 }
 
+.userPage {
+  display: none;
+  border: 2px solid black;
+  padding: 1em;
+}
 .userPage__movieList li {
   display: block;
 }
@@ -22,13 +27,13 @@ ul li button {
   padding: 0.5em;
 }
 
-.userWatchedMovie {
+.listOfUsersWhoWatchedTheMovieChosen {
   display: none;
   position: absolute;
   top: 20vh;
   right: 30vw;
 }
-.userWatchedMovie li {
+.listOfUsersWhoWatchedTheMovieChosen li {
   display: flex;
 }
 

@@ -1,38 +1,66 @@
 // initiating a variable that will hold all the users
 var netflixUsers = [];
 var viewedMovieList = {};
-var userWatchedMovie = document.querySelector(".userWatchedMovie");
+var listOfUsersWhoWatchedTheMovieChosen = document.querySelector(".listOfUsersWhoWatchedTheMovieChosen");
 var creatUserName = document.querySelector(".creatUserName");
 var addMovieToNewUsersList = document.querySelector(".addMovieToNewUsersList");
+var userNameClickedOn = document.querySelector(".userPage__userName");
+var userPage = document.querySelector(".userPage");
+var userMovieList = document.querySelector(".userPage__movieList");
 // const userBtnList = document.querySelector(".userBtnList") as HTMLUListElement;
 // const movieBtnList = document.querySelector(
 //   ".movieBtnList"
 // ) as HTMLUListElement;
-// listening to button clicks on html window
+// catching clicks on buttons and displaying the people who watched them
 window.addEventListener("click", function (e) {
     var target = e.target;
+    var text = target.textContent;
+    // if clicked on movie button display users that watched it
     if (target.className === "movie") {
-        userWatchedMovie.style.display = "block";
-        while (userWatchedMovie.childNodes.length > 2) {
-            userWatchedMovie.removeChild(userWatchedMovie.lastChild);
+        listOfUsersWhoWatchedTheMovieChosen.style.display = "block";
+        // clear list of movies besides first child of ul element which is a title (hX tag)
+        while (listOfUsersWhoWatchedTheMovieChosen.childNodes.length > 2) {
+            listOfUsersWhoWatchedTheMovieChosen.removeChild(listOfUsersWhoWatchedTheMovieChosen.lastChild);
+        }
+        if (!(text.toLowerCase() in viewedMovieList)) {
+            console.log(text);
         }
         // text on button
-        var text_1 = target.textContent;
+        // go through watched movies object
         Object.entries(viewedMovieList).forEach(function (_a) {
             var key = _a[0], value = _a[1];
             var movieValues = value;
-            if (key.toLowerCase() == (text_1 === null || text_1 === void 0 ? void 0 : text_1.toLowerCase())) {
+            // display users who watched the movie that was clicked on
+            if (key.toLowerCase() == (text === null || text === void 0 ? void 0 : text.toLowerCase())) {
                 for (var i in movieValues) {
                     var li = document.createElement("li");
                     li.textContent = movieValues[i];
-                    userWatchedMovie.appendChild(li);
+                    listOfUsersWhoWatchedTheMovieChosen.appendChild(li);
                 }
+            }
+        });
+    }
+    // if clicked on user button display movies on his list
+    else if (target.className === "userName") {
+        userNameClickedOn.textContent = target.textContent;
+        userPage.style.display = "block";
+        netflixUsers.forEach(function (user) {
+            if (user.userName === target.textContent) {
+                //clear ul element
+                userMovieList.replaceChildren();
+                // displaying list of movies of the user selected
+                Object.entries(user.videoList).forEach(function (_a) {
+                    var key = _a[0];
+                    var li = document.createElement("li");
+                    li.textContent = key;
+                    userMovieList.appendChild(li);
+                });
             }
         });
     }
 });
 window.addEventListener("keydown", function (e) {
-    if (e.key == "Enter" && creatUserName.value != '') {
+    if (e.key == "Enter" && creatUserName.value.length > 5) {
         console.log("working");
     }
 });
@@ -69,13 +97,14 @@ var userTwo = new addUser("John Doe", {
 });
 var userThree = new addUser("Jerry Smith", {
     matrix: true,
-    avatar: true,
+    avatar: false,
     "the godfather": false
 });
 userTwo.markMovieViewed("matrix");
 userOne.addMovieToList("Titanic");
 userOne.markMovieViewed("Titanic");
 console.log(viewedMovieList);
+console.log(netflixUsers);
 // adding the movie as viewed for the chosen user
 function markMovieAsViewedForPerson(movie, user) {
     return viewedMovieList[movie].push(user);
