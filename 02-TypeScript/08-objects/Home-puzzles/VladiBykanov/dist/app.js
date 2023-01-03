@@ -1,15 +1,42 @@
 // initiating a variable that will hold all the users
 var netflixUsers = [];
 var movieList = {};
-var userBtn = document.querySelectorAll(".chooseUser");
-var movieBtn = document.querySelectorAll(".chooseMovie");
+var userWatchedMovie = document.querySelector(".userWatchedMovie");
+// const userBtnList = document.querySelector(".userBtnList") as HTMLUListElement;
+// const movieBtnList = document.querySelector(
+//   ".movieBtnList"
+// ) as HTMLUListElement;
+window.addEventListener("click", function (e) {
+    var target = e.target;
+    if (target.className === "movie") {
+        userWatchedMovie.style.display = 'block';
+        while (userWatchedMovie.childNodes.length > 2) {
+            userWatchedMovie.removeChild(userWatchedMovie.lastChild);
+        }
+        // text on button
+        var text_1 = target.textContent;
+        Object.entries(movieList).forEach(function (_a) {
+            var key = _a[0], value = _a[1];
+            var movieValues = value;
+            if (key.toLowerCase() == (text_1 === null || text_1 === void 0 ? void 0 : text_1.toLowerCase())) {
+                for (var i in movieValues) {
+                    var li = document.createElement("li");
+                    li.textContent = movieValues[i];
+                    userWatchedMovie.appendChild(li);
+                }
+            }
+        });
+    }
+});
 // function that will crate a user based on our interface template
 function addUser(userName, videoList) {
     var _this = this;
     this.userName = userName;
     this.videoList = videoList;
-    // Return a list of peope that watched the movie chosen
-    this.checkIfMovieWasWatched = function (movie) { return _this.videoList[movie]; };
+    // Return true if user watched the movie
+    this.checkIfMovieWasWatched = function (movie) {
+        return _this.videoList[movie];
+    };
     // return users name
     this.getUserName = function () {
         return _this.userName;
@@ -18,36 +45,38 @@ function addUser(userName, videoList) {
     this.addMovieToList = function (movie) {
         _this.videoList[movie] = false;
     };
+    this.markMovieViewed = function (movie) { return (_this.videoList[movie] = true); };
     //adding user to list of users on platform
     netflixUsers.push(this);
 }
-var userOne = new addUser("Vladislav Bykanov", {
+var userOne = new addUser("User One", {
     matrix: false,
     avatar: false,
     "the godfather": true
 });
-var userTwo = new addUser("John Doe", {
+var userTwo = new addUser("User Two", {
     matrix: false,
     avatar: false,
     "the godfather": true
 });
+userTwo.markMovieViewed("matrix");
 // console.log(userOne.checkIfMovieWasWatched("matrix"));
 // console.log(userOne.getUserName());
 userOne.addMovieToList("Titanic");
 console.log(netflixUsers);
-console.log(userOne.videoList["avatar"]);
-console.log(userOne.videoList["Titanic"]);
+// console.log(userOne.videoList["avatar"]);
+// console.log(userOne.videoList["Titanic"]);
 // console.log(movieList);
 var keys = Object.keys(netflixUsers[1].videoList);
 var values = Object.values(netflixUsers[1].videoList)[0];
 // console.log(keys);
 // console.log(values);
-// console.log(movieList);
+console.log(movieList);
 // adding the movie as viewed for the chosen user
 function markMovieAsViewedForPerson(movie, user) {
     return movieList[movie].push(user);
 }
-// console.log each movie that was watched and who watched it
+// adding the name of the user that watched the movie to movieList
 netflixUsers.forEach(function (user) {
     Object.entries(user.videoList).forEach(function (_a) {
         var key = _a[0], value = _a[1];

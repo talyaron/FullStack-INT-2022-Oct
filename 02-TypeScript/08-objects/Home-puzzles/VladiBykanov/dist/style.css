@@ -8,11 +8,21 @@ body {
   padding: 2em;
 }
 
-.btnList li {
+ul li {
   display: inline;
 }
-.btnList li button {
+ul li button {
   padding: 0.5em;
+}
+
+.userWatchedMovie {
+  display: none;
+  position: absolute;
+  top: 20vh;
+  right: 30vw;
+}
+.userWatchedMovie li {
+  display: flex;
 }
 
 .movieList li {

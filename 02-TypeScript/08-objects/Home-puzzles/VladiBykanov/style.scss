@@ -9,13 +9,23 @@ body {
   padding: 2em;
 }
 
-.btnList {
+ul{
   li {
     display: inline;
     button {
       // width: 10vw;
       padding: 0.5em;
     }
+  }
+}
+
+.userWatchedMovie{
+  display: none;
+  position: absolute;
+  top: 20vh;
+  right: 30vw;
+  li{
+    display: flex;
   }
 }
 
