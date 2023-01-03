@@ -2,6 +2,11 @@ interface Movie {
     name: string;
     price: number;
   }
+  interface Users {
+    firstName: string;
+    lastName:string;
+    id: number;
+  }
   
   const glassOnionAKnivesOutMystery: Movie = {
     name: "Glass Onion A Knives Out Mystery",
@@ -17,6 +22,13 @@ interface Movie {
     name: "uncharted",
     price: 10.99,
   };
+
+
+
+
+
+
+
   
   function dollarToShekel(rentAmovie: Movie) {
     try {
