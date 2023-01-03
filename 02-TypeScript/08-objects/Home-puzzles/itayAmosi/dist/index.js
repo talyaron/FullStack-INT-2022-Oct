@@ -7,7 +7,7 @@ var Black_Adam = {
 };
 var Spirited = {
     name: 'Spirited',
-    parice: 49.99,
+    parice: 34.99,
     Last_rental: 20 - 11 - 2022,
     rented: 'Yes',
     type_of_movie: 'Musical/Comedy'
@@ -30,7 +30,7 @@ var tomer = {
     name: 'Tomer',
     age: 21,
     Address: 'Rachel the poet, 65, Haifa',
-    phone: 123
+    phone: 5896523
 };
 var matan = {
     name: 'Matan',
@@ -39,7 +39,11 @@ var matan = {
     phone: 2232325
 };
 var Welcome = prompt("Welcome to BLOCKBUSTER\nEnter a username and click OK");
+if (Welcome == " " || !Welcome) {
+    alert("It is not possible to register without a username\n  Please refresh the site and enter a username again");
+}
 console.log("A username has been entered: " + Welcome);
+var Thanks = alert("Hi " + Welcome + ", thanks for signing up");
 var dollarToShekel = function (dTS) {
     try {
         return dTS * 3.35;
@@ -50,8 +54,62 @@ var dollarToShekel = function (dTS) {
         return false;
     }
 };
-// const myButton = document.getElementById('myBtn');
-// myButton?.addEventListener(`clic`, function (e) {
-//   const name = alert(`this move rent`)
-//   console.log(name);
-// });
+var myButton1 = document.getElementById('Black_Adam');
+var clickedRent = myButton1.click;
+myButton1.addEventListener("click", function (e) {
+    +alert("this movie rent by " + matan.name + "\n  is " + matan.age + " years old\n  and is lives in " + matan.Address + "\n  is phone number " + matan.phone);
+});
+var myButton2 = document.getElementById('Spirited');
+var clickedNoRent = myButton2.click;
+myButton2.addEventListener("click", function (e) {
+    alert("this move is no rent by nobody!\n    You can rent the movie for " + Spirited.parice + " Dollars,\n    (Enter OK to Continue to Rent)");
+    if (myButton2) {
+        return alert("Thanks " + Welcome + " You rented the movie for " + Spirited.parice + ",\n      by the way the price in shekels is " + dollarToShekel(Spirited.parice) + ".");
+    }
+});
+var myButton3 = document.getElementById('Emancipation');
+var clickedRent2 = myButton3.click;
+myButton3.addEventListener("click", function (e) {
+    +alert("this movie rent by " + tomer.name + "\n  is " + tomer.age + " years old\n  and is lives in " + tomer.Address + "\n  is phone number " + tomer.phone);
+});
+var comingSoon = document.getElementById('Nope');
+var notArrived = comingSoon.click;
+comingSoon.addEventListener("click", function (e) {
+    alert("this movie Not Arrived");
+});
+var checkMoney1 = document.getElementById('checkMoney1');
+var clicked1 = checkMoney1.click;
+checkMoney1.addEventListener("click", function (e) {
+    alert("44.99 dollars,\n  Click OK for the rental and the price in shekels ");
+    try {
+        if (myButton1) {
+            return alert("This movie is already rented by " + matan.name + ",\n       by the way its price is " + dollarToShekel(Black_Adam.parice) + " Shekels");
+        }
+    }
+    catch (error) {
+    }
+});
+var checkMoney2 = document.getElementById('checkMoney2');
+var clicked2 = checkMoney2.click;
+checkMoney2.addEventListener("click", function (e) {
+    alert(Spirited.parice + " Dollars,\n  Click OK for the rental and the price in shekels ");
+    try {
+        if (myButton1) {
+            return alert(dollarToShekel(Spirited.parice) + " in shekel");
+        }
+    }
+    catch (error) {
+    }
+});
+var checkMoney3 = document.getElementById('checkMoney3');
+var clicked3 = checkMoney3.click;
+checkMoney3.addEventListener("click", function (e) {
+    alert(Emancipation.parice + " Dollars,\n  Click OK for the rental and the price in shekels ");
+    try {
+        if (myButton3) {
+            return alert("This movie is already rented by " + tomer.name + ",\n       by the way its price is " + dollarToShekel(Emancipation.parice) + " Shekels");
+        }
+    }
+    catch (error) {
+    }
+});
