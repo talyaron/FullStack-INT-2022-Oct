@@ -11,16 +11,12 @@ var I_Am_Legend = {
     price: 5.50
 };
 var renter = ['john', 'amelia', 'luke', 'dan', 'lily', 'luna'];
-function dollar_to_shekel(video) {
+function dollar_to_shekel(userInput) {
     try {
-        if (video.name == "train to busan") {
-            return video.price * 3.53;
-        }
-        if (video.name == "fight club") {
-            return video.price * 3.53;
-        }
-        if (video.name == "i am legend") {
-            return video.price * 3.53;
+        switch (userInput) {
+            case "train to busan": return train_to_busan.price * 3.53;
+            case "fight club": return fight_club.price * 3.53;
+            case "i am legend": return I_Am_Legend.price * 3.53;
         }
     }
     catch (error) {
@@ -28,12 +24,12 @@ function dollar_to_shekel(video) {
     }
 }
 var randomName = Math.floor(Math.random() * renter.length);
-// console.log(randomname, renter[random]);
 var wellcome = alert("wellcome to blockbuster");
-var userInput = prompt("currnt available movies are: train to busan,fight club,i am legend");
+var userInput = prompt("current available movies are: train to busan,fight club,i am legend");
 if (userInput == " " || !userInput) {
     var userInput_1 = alert("please enter a movie");
 }
 else {
-    var user = alert(dollar_to_shekel(userInput) + "} cost ,also " + renter[randomName] + " rented it");
+    var dts = dollar_to_shekel(userInput);
+    var user = alert(userInput + " costs " + dts + ", also " + renter[randomName] + " rented it ");
 }
