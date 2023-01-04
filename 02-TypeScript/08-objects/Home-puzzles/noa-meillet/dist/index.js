@@ -36,7 +36,6 @@ function setVideoToUser(user:User, video:Video): void | false{
     } catch (error) {
         console.error(error);
             return false;
-    }
 }
 
 
