@@ -8,11 +8,11 @@ interface users {
   userPassword: string;
 }
 const tomer:users ={
-    Name: `tomer`,
+    Name: `tomer6633`,
     userPassword:`tomer1`
 }
 const noa:users={
-    Name: `noa`,
+    Name: `noa532`,
     userPassword: `noa1`
 }
 const fastAndFurious9: videos = {
@@ -39,6 +39,14 @@ function DollerToShekels(video: number): number | false {
   }
 }
 
+const login = prompt(`Welcome to my website
+Enter a username`)
+if(login == " " || !login){
+  alert(`It is not possible to get to the website without a username
+  `)
+}
+console.log(`username: ${login}`)
+const Thanks = alert(`Hi ${login}, thanks for signing up`)
 
 
 const movieAllow: string | null =
@@ -54,7 +62,7 @@ if (movieAllow == " " || !movieAllow) {
   alert(
     `the price for avatar 2 is ${avatar2.price}in shekels is ${DollerToShekels(
       avatar2.price
-    )} but ${avatar2.rent?.Name}`
+    )} but ${avatar2.rent?.Name} rent this one`
   );
 } else if (movieAllow == `avengersEndaGame`) {
   alert(
@@ -63,6 +71,7 @@ if (movieAllow == " " || !movieAllow) {
     }in shekels is ${DollerToShekels(avengersEndaGame.price)}`
   );
 } else {
-  alert(`why you dont take movie`);
+  alert(`Only For The Names In The Qustion (You Can Copy Paste)`);
 }
+
 
