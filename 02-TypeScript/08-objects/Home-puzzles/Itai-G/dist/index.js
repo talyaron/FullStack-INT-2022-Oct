@@ -1,51 +1,82 @@
-var glassOnionAKnivesOutMystery = {
-    name: "Glass Onion A Knives Out Mystery",
-    price: 25.99
-};
-var blackPantherWakandaForever = {
-    name: "Black Panther Wakanda Forever",
-    price: 15.99
-};
-var uncharted = {
-    name: "uncharted",
-    price: 10.99
-};
-function dollarToShekel(rentAmovie) {
+var movies = [
+    {
+        name: "Glass Onion A Knives Out Mystery",
+        price: 25.99,
+        rentedBy: 1
+    },
+    {
+        name: "Black Panther Wakanda Forever",
+        price: 15.99,
+        rentedBy: 3
+    },
+    {
+        name: "uncharted",
+        price: 10.99,
+        rentedBy: 2
+    }
+];
+var users = [
+    {
+        id: 1,
+        firstName: "Shimon",
+        lastName: "Or"
+    },
+    {
+        id: 2,
+        firstName: "Itay",
+        lastName: "Gelberg"
+    },
+    {
+        id: 3,
+        firstName: "Simon",
+        lastName: "Levi"
+    },
+    {
+        id: 4,
+        firstName: "Ayala",
+        lastName: "Vilo"
+    },
+    {
+        id: 5,
+        firstName: "Udi",
+        lastName: "Bron"
+    }
+];
+function dollarToShekel(movieName) {
     try {
-        if (rentAmovie.name == "Glass Onion A Knives Out Mystery") {
-            return rentAmovie.price * 3.5;
+        if (movieName == "Glass Onion A Knives Out Mystery") {
+            return movies[0].price * 3.5;
         }
-        if (rentAmovie.name == "Black Panther Wakanda Forever") {
-            return rentAmovie.price * 3.5;
+        if (movieName == "Black Panther Wakanda Forever") {
+            return movies[1].price * 3.5;
         }
-        if (rentAmovie.name == "uncharted") {
-            return rentAmovie.price * 3.5;
+        if (movieName == "uncharted") {
+            return movies[2].price * 3.5;
         }
     }
     catch (error) {
         console.error("we ha got an error on our hands");
     }
 }
-function getMovieByName(movieName) {
-    try {
-        if (movieName === glassOnionAKnivesOutMystery.name) {
-            return glassOnionAKnivesOutMystery;
-        }
-        if (movieName === blackPantherWakandaForever.name) {
-            return blackPantherWakandaForever;
-        }
-        if (movieName === uncharted.name) {
-            return uncharted;
-        }
-    }
-    catch (error) {
-        console.error('failed to get movie from library');
-    }
-}
 var userInput = prompt("please enter a movie name to rent:\n  Glass Onion A Knives Out Mystery\n  Black Panther Wakanda Forever\n  uncharted");
 if (typeof userInput === "undefined") {
     alert("error input");
 }
-var movieObject = getMovieByName(userInput);
-var moviePrice = dollarToShekel(movieObject);
-alert("thank you for choosing the movie " + userInput + "and it's price in nis is " + moviePrice);
+var moviePrice = dollarToShekel(userInput);
+alert("thank you for choosing the movie  " + userInput + " and it's price in nis is " + moviePrice);
+//ex:2
+function howRentedMovie(movie, id) {
+    if (movie.rentedBy === id) {
+        for (var i = 0; i < users.length; i++) {
+            var user = null;
+            if (users[i].id === id) {
+                user = users[i];
+            }
+            if (user !== null) {
+                console.log(user.firstName + " " + user.lastName + " have rented the movie " + movie.name);
+            }
+        }
+    }
+}
+howRentedMovie(movies[0], 1);
+howRentedMovie(movies[2], 2);
