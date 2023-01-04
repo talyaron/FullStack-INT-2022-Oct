@@ -39,7 +39,7 @@ var itay = {
 for (var key in messi) {
     console.log(messi.name + " " + key + " is " + messi[key]);
 }
-function getAgeOfPerson(obj) {
+function getAgeOfPerson(obj, obj2) {
     try {
         var currentYear = new Date().getFullYear();
         var age_1 = currentYear - obj.yearOfBirth;

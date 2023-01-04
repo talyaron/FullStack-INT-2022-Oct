@@ -69,7 +69,7 @@ for (const key in messi) {
   console.log(`${messi.name} ${key} is ${messi[key]}`);
 }
 
-function getAgeOfPerson(obj: Person): number | false {
+function getAgeOfPerson(obj: Person,obj2: Person): number | false {
   try {
     const currentYear: number = new Date().getFullYear();
     const age = currentYear - obj.yearOfBirth;

@@ -27,7 +27,8 @@ if (x !== null && y !== null && z !== null) {
 else {
     alert("Can't do a calculation, There must be 3 numbers to calculate");
 }
-// Question 2
+Question;
+2;
 function letterValue(abcToCode) {
     var encriptDictionary = {
         a: 1,
