@@ -2,6 +2,8 @@ interface User{
     userName: string;
     password: string;
     videos?: Video[];
+   
+   
 }
 
 interface Video{
@@ -52,7 +54,6 @@ function setVideoToUser(user:User, video:Video): void | false{
     } catch (error) {
         console.error(error);
             return false;
-    }
 }
 
 
