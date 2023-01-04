@@ -1,0 +1,52 @@
+* {
+  margin: 0.5em 0;
+  padding: 0;
+}
+
+body {
+  width: 90vw;
+  padding: 2em;
+}
+
+ul li {
+  display: inline;
+}
+ul li button {
+  padding: 0.5em;
+  margin-right: 0.5em;
+}
+
+.userPage {
+  display: none;
+  border: 2px solid black;
+  padding: 1em;
+}
+.userPage__movieList li {
+  display: block;
+}
+.userPage input {
+  padding: 0.5em;
+}
+
+.userWatchedMovie {
+  display: none;
+  position: absolute;
+  top: 40vh;
+  left: 5vw;
+}
+.userWatchedMovie li {
+  display: flex;
+}
+
+.creatUserPage input {
+  padding: 0.5em;
+}
+
+.movieList li {
+  font-size: 1.2rem;
+}
+
+#addMovieToUser {
+  padding: 0 0.5em;
+  font-size: 1.2em;
+}

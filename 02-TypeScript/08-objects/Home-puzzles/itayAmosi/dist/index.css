@@ -98,3 +98,11 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
+.wrapper__container .index {
+  height: 5px;
+  width: 5px;
+}
+
+#Nope {
+  color: red;
+}

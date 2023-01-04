@@ -8,9 +8,20 @@ interface Video{
     name: string;
     producer: string;
     price: number;
-    yearOfProduction?: number;
     rentTo?: User;
     viewBy?:User[];
+}
+
+const noa:User = {
+    userName: "Noa1806",
+    password: "123456",
+    videos: []
+}
+
+const avatar:Video = {
+    name:"Avatar",
+    producer:"James Cameron",
+    price: 10.90
 }
 
 function convertToShekels(video:Video):number | false{
@@ -22,49 +33,37 @@ function convertToShekels(video:Video):number | false{
     }
 }
 
-function createUser (user:User):void | false{
+/*
+alert(`${setVideoToUser(noa,avatar)}`);
+
+function setVideoToUser(user:User, video:Video): void | false{
     try {
-        let getFromUser= prompt(`Enter your user name:`);
-        while (!getFromUser){
-            getFromUser= prompt(`We can't receive that value. Enter your user name:`); 
-        }
-        user.userName= getFromUser;
-        getFromUser= prompt(`Enter your password:`);
-        while (!getFromUser){
-            getFromUser= prompt(`We can't receive that value. Enter your password:`); 
-        }
-        user.password= getFromUser;
-        } catch (error) {
-            console.error(error);
+        let getFromUser= prompt("enter the movies you are going to watch");
+        while (getFromUser != "."  || !getFromUser){
+            switch (getFromUser){
+                case "avatar":
+                    {
+                    user.videos?.unshift(video);
+                    setViewsToVideo (user, video);
+                    }
+                    break;
+            }
+        }    
+    } catch (error) {
+        console.error(error);
             return false;
-        }
+    }
 }
 
-function createrVideo(video:Video):void | false{
-    try {
-        let getFromUser= prompt(`Enter the name of the movie:`);
-        while (!getFromUser){
-            getFromUser= prompt(`We can't receive that value. Enter the name of the movie:`); 
-        }
-        video.name= getFromUser;
-        getFromUser= prompt(`Enter the producer name of ${video.name} movie:`);
-        while (!getFromUser){
-            getFromUser= prompt(`We can't receive that value. Enter the producer name of ${video.name} movie:`); 
-        }
-        video.producer= getFromUser;
-        getFromUser= prompt(`Enter the movie price: (If it's free eneter 0) `);
-        while (!getFromUser){
-            getFromUser= prompt(`We can't receive that value. Enter the movie price:`); 
-        }
-        video.price= parseInt(getFromUser);
-        } catch (error) {
-            console.error(error);
-            return false;
-        }
-}
 
-//function setVideoToUser{}
-//function setViewsToVideo{}
+function setViewsToVideo(user:User, video:Video): void | false{}
 
+prompt = enter the movies you are going to watch
+while getfromuser != "."  || !getfromuser
+      switch (getfromuser)
+        case "avatar":
+            user.videos.push(avatar);
+            setViewsToVideo (avatar);      
+*/
 
 

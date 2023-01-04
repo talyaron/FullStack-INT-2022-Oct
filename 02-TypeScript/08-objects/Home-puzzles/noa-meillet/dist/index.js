@@ -1,3 +1,13 @@
+var noa = {
+    userName: "Noa1806",
+    password: "123456",
+    videos: []
+};
+var avatar = {
+    name: "Avatar",
+    producer: "James Cameron",
+    price: 10.90
+};
 function convertToShekels(video) {
     try {
         return video.price * 3.25;
@@ -7,46 +17,35 @@ function convertToShekels(video) {
         return false;
     }
 }
-function createUser(user) {
+/*
+alert(`${setVideoToUser(noa,avatar)}`);
+
+function setVideoToUser(user:User, video:Video): void | false{
     try {
-        var getFromUser = prompt("Enter your user name:");
-        while (!getFromUser) {
-            getFromUser = prompt("We can't receive that value. Enter your user name:");
+        let getFromUser= prompt("enter the movies you are going to watch");
+        while (getFromUser != "."  || !getFromUser){
+            switch (getFromUser){
+                case "avatar":
+                    {
+                    user.videos?.unshift(video);
+                    setViewsToVideo (user, video);
+                    }
+                    break;
+            }
         }
-        user.userName = getFromUser;
-        getFromUser = prompt("Enter your password:");
-        while (!getFromUser) {
-            getFromUser = prompt("We can't receive that value. Enter your password:");
-        }
-        user.password = getFromUser;
-    }
-    catch (error) {
+    } catch (error) {
         console.error(error);
-        return false;
+            return false;
     }
 }
-function createrVideo(video) {
-    try {
-        var getFromUser = prompt("Enter the name of the movie:");
-        while (!getFromUser) {
-            getFromUser = prompt("We can't receive that value. Enter the name of the movie:");
-        }
-        video.name = getFromUser;
-        getFromUser = prompt("Enter the producer name of " + video.name + " movie:");
-        while (!getFromUser) {
-            getFromUser = prompt("We can't receive that value. Enter the producer name of " + video.name + " movie:");
-        }
-        video.producer = getFromUser;
-        getFromUser = prompt("Enter the movie price: (If it's free eneter 0) ");
-        while (!getFromUser) {
-            getFromUser = prompt("We can't receive that value. Enter the movie price:");
-        }
-        video.price = parseInt(getFromUser);
-    }
-    catch (error) {
-        console.error(error);
-        return false;
-    }
-}
-//function setVideoToUser{}
-//function setViewsToVideo{}
+
+
+function setViewsToVideo(user:User, video:Video): void | false{}
+
+prompt = enter the movies you are going to watch
+while getfromuser != "."  || !getfromuser
+      switch (getfromuser)
+        case "avatar":
+            user.videos.push(avatar);
+            setViewsToVideo (avatar);
+*/
