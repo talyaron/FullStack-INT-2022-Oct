@@ -75,7 +75,7 @@ window.addEventListener("click", (e) => {
   }
 });
 
-function displayUserMovieList(){
+function displayUserMovieList() {
   netflixUsers.forEach((user) => {
     if (user.userName === userNameDisplayed.textContent) {
       //clear ul element
@@ -89,7 +89,6 @@ function displayUserMovieList(){
     }
   });
 }
-
 
 // listen for ENTER press
 window.addEventListener("keydown", (e) => {
@@ -111,7 +110,7 @@ window.addEventListener("keydown", (e) => {
         // display new movie on page as button
         createMovieButton();
         displayUserMovieList();
-        addMovieToSelectedUserList.value = ''; 
+        addMovieToSelectedUserList.value = "";
       }
     });
   }
@@ -157,18 +156,17 @@ const userThree: NetflixUser = new addUser("Jerry Smith", {
 });
 
 userTwo.markMovieViewed("matrix");
-userOne.addMovieToList("Titanic");
-userOne.markMovieViewed("Titanic");
-
-
-// adding the movie as viewed for the chosen user
-function markMovieAsViewedForPerson(movie: string, user: string) {
-  return viewedMovieList[movie].push(user);
-}
+userOne.addMovieToList("titanic");
+userOne.markMovieViewed("titanic");
+userThree.markMovieViewed("titanic");
 
 // adding the name of the user that watched the movie to viewedMovieList
 function markFilmViewedForUsers() {
   try {
+    //empty object before running
+    Object.keys(viewedMovieList).forEach((key) => {
+      delete viewedMovieList[key];
+    });
     netflixUsers.forEach((user) => {
       Object.entries(user.videoList).forEach(([key, value]) => {
         if (value == true) {
@@ -228,8 +226,8 @@ createUserButton();
 createMovieButton();
 markFilmViewedForUsers();
 
-
-
+console.log(viewedMovieList);
+console.log(netflixUsers);
 
 // const account = {
 //   userName: "Vladi",

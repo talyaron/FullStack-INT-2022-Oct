@@ -85,7 +85,7 @@ window.addEventListener("keydown", function (e) {
                 // display new movie on page as button
                 createMovieButton();
                 displayUserMovieList();
-                addMovieToSelectedUserList.value = '';
+                addMovieToSelectedUserList.value = "";
             }
         });
     }
@@ -128,15 +128,16 @@ var userThree = new addUser("Jerry Smith", {
     armageddon: true
 });
 userTwo.markMovieViewed("matrix");
-userOne.addMovieToList("Titanic");
-userOne.markMovieViewed("Titanic");
-// adding the movie as viewed for the chosen user
-function markMovieAsViewedForPerson(movie, user) {
-    return viewedMovieList[movie].push(user);
-}
+userOne.addMovieToList("titanic");
+userOne.markMovieViewed("titanic");
+userThree.markMovieViewed("titanic");
 // adding the name of the user that watched the movie to viewedMovieList
 function markFilmViewedForUsers() {
     try {
+        //empty object before running
+        Object.keys(viewedMovieList).forEach(function (key) {
+            delete viewedMovieList[key];
+        });
         netflixUsers.forEach(function (user) {
             Object.entries(user.videoList).forEach(function (_a) {
                 var key = _a[0], value = _a[1];
@@ -196,6 +197,8 @@ function createMovieButton() {
 createUserButton();
 createMovieButton();
 markFilmViewedForUsers();
+console.log(viewedMovieList);
+console.log(netflixUsers);
 // const account = {
 //   userName: "Vladi",
 //   videoList: {
