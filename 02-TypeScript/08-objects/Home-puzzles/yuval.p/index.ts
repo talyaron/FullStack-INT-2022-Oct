@@ -1,22 +1,59 @@
-interface movie{
-    Name:string
-    Price:number
-    Who_rented:string
+interface Movie {
+    Title: string,
+    price: number,
+    RentedBy:number,
 }
-interface user{
-    name:string
-    pnumber:number
+interface User{
+    id:number,
+    FirstName:string,
+    LastName:string,
 }
+const Movies:Array<Movie> =[
+    {
+        Title: "Virgins",
+        price: 30,
+        RentedBy:1
+    },
+    {
+        Title: "BreakPoint",
+        price: 35,
+        RentedBy: 2
+    }
+];
+const Users:Array<User> = [
+    {
+        id: 1,
+        FirstName:"Yuval",
+        LastName:"Partush"
+    },
+    {
+        id:2,
+        FirstName:"Cristiano",
+        LastName:"Ronaldo"
+    },
+];
 
-let video:string | null = prompt("What video would you like to rent? We have: 1.Avatar , 2.kick-ass");
+function usdToNis(Movies: Movie){
+    return (Movies.price * 3.53).toFixed(2);
+};
+// const result = usdToNis(Movies[1]);
+// console.log(result);
 
-if (video == "avatar")
-{
-    const avatar = 40; 
-    console.log(`You choose Avatar and it cost ${avatar}$`);
+function movieTaken(Movies:Movie, id:number){
+    if(Movies.RentedBy === id){
+        for(let i = 0; i < Users.length; i++){
+            let user: User | null = null;
+            if(Users[i].id === id){
+                user = Users[i];
+                console.log(`${id} has the movie ${Movies.Title}`);
+            }
+
+        }
+    } 
+    else
+    {
+        console.log(` ${id} does not have the movie ${Movies.Title}`)
+    }
 }
-else if (video == "kick-ass")
-{
-    const kickass = 20;
-    console.log(`you choose Kick-Ass and it cost ${kickass}$`)
-}
+movieTaken(Movies[0], 2)
+
