@@ -51,9 +51,9 @@ const Thanks = alert(`Hi ${login}, thanks for signing up`)
 
 const movieAllow: string | null =
   prompt(`what movie do you want to rent? we have
-FastAndFurious9
-AvengersEndGame
-Avater2`);
+fastAndFurious9
+avengersEndaGame
+avatar2`);
 if (movieAllow == " " || !movieAllow) {
   const movieAllow = alert("please enter a movie");
 } else if (movieAllow == `fastAndFurious9`) {
