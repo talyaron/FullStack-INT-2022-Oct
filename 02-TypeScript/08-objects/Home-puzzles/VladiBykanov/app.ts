@@ -18,10 +18,10 @@ const userWatchedMovie = document.querySelector(
 const creatUserName = document.querySelector(
   ".creatUserName"
 ) as HTMLInputElement;
-const addMovieToNewUsersList = document.querySelector(
-  ".addMovieToNewUsersList"
+const addMovieToSelectedUserList = document.querySelector(
+  ".addMovieToSelectedUserList"
 ) as HTMLInputElement;
-const userNameClickedOn = document.querySelector(
+const userNameDisplayed = document.querySelector(
   ".userPage__userName"
 ) as HTMLHeadElement;
 const userPage = document.querySelector(".userPage") as HTMLDivElement;
@@ -33,7 +33,6 @@ const movieBtnList = document.querySelector(
   ".movieBtnList"
 ) as HTMLUListElement;
 
-
 // catching clicks on buttons and displaying info accordingly
 window.addEventListener("click", (e) => {
   const target = e.target as Element;
@@ -44,9 +43,7 @@ window.addEventListener("click", (e) => {
     userPage.style.display = "none";
     // clear list of movies besides first child of ul element which is a title (hX tag)
     while (userWatchedMovie.childNodes.length > 2) {
-      userWatchedMovie.removeChild(
-        userWatchedMovie.lastChild as Element
-      );
+      userWatchedMovie.removeChild(userWatchedMovie.lastChild as Element);
     }
     // check if no one watched this movie and display message
     if (!(text.toLowerCase() in viewedMovieList)) {
@@ -59,7 +56,7 @@ window.addEventListener("click", (e) => {
       Object.entries(viewedMovieList).forEach(([key, value]) => {
         const movieValues = value as [];
         // display users who watched the movie that was clicked on
-        if (key.toLowerCase() == text?.toLowerCase()) {
+        if (key.toLowerCase() == text.toLowerCase()) {
           for (const i in movieValues) {
             const li = document.createElement("li") as HTMLElement;
             li.textContent = movieValues[i];
@@ -71,33 +68,54 @@ window.addEventListener("click", (e) => {
   }
   // if clicked on user button display movies on his list
   else if (target.className === "userName") {
-    userNameClickedOn.textContent = target.textContent;
+    userNameDisplayed.textContent = target.textContent;
     userPage.style.display = "block";
     userWatchedMovie.style.display = "none";
+    displayUserMovieList();
+  }
+});
+
+function displayUserMovieList(){
+  netflixUsers.forEach((user) => {
+    if (user.userName === userNameDisplayed.textContent) {
+      //clear ul element
+      userMovieList.replaceChildren();
+      // displaying list of movies of the user selected
+      Object.entries(user.videoList).forEach(([key]) => {
+        const li = document.createElement("li") as HTMLElement;
+        li.textContent = key;
+        userMovieList.appendChild(li);
+      });
+    }
+  });
+}
+
+
+// listen for ENTER press
+window.addEventListener("keydown", (e) => {
+  if (e.key == "Enter" && creatUserName.value.length > 5) {
+    const newUser: NetflixUser = new addUser(creatUserName.value, {});
+    creatUserName.value = "";
+    createUserButton();
+  }
+  // making sure user is displayed and movie name is entered
+  else if (
+    e.key == "Enter" &&
+    userPage.style.display == "block" &&
+    addMovieToSelectedUserList.value.length > 3
+  ) {
     netflixUsers.forEach((user) => {
-      if (user.userName === target.textContent) {
-        //clear ul element
-        userMovieList.replaceChildren();
-        // displaying list of movies of the user selected
-        Object.entries(user.videoList).forEach(([key]) => {
-          const li = document.createElement("li") as HTMLElement;
-          li.textContent = key;
-          userMovieList.appendChild(li);
-        });
+      // adding movie to list of user movies
+      if (user.userName == userNameDisplayed.textContent) {
+        user.videoList[addMovieToSelectedUserList.value] = false;
+        // display new movie on page as button
+        createMovieButton();
+        displayUserMovieList();
+        addMovieToSelectedUserList.value = ''; 
       }
     });
   }
 });
-
-
-window.addEventListener("keydown", (e) => {
-  if (e.key == "Enter" && creatUserName.value.length > 5) {
-    const newUser: NetflixUser = new addUser(creatUserName.value, {});
-    creatUserName.value = '';
-    console.log(netflixUsers);
-  }
-});
-
 
 // function that will crate a user based on our interface template
 function addUser(userName: string, videoList: {}) {
@@ -135,14 +153,13 @@ const userThree: NetflixUser = new addUser("Jerry Smith", {
   matrix: true,
   avatar: false,
   "the godfather": false,
+  armageddon: true,
 });
 
 userTwo.markMovieViewed("matrix");
 userOne.addMovieToList("Titanic");
 userOne.markMovieViewed("Titanic");
 
-console.log(viewedMovieList);
-console.log(netflixUsers);
 
 // adding the movie as viewed for the chosen user
 function markMovieAsViewedForPerson(movie: string, user: string) {
@@ -150,48 +167,69 @@ function markMovieAsViewedForPerson(movie: string, user: string) {
 }
 
 // adding the name of the user that watched the movie to viewedMovieList
-netflixUsers.forEach((user) => {
-  Object.entries(user.videoList).forEach(([key, value]) => {
-    if (value == true) {
-      if (!viewedMovieList[key]) {
-        viewedMovieList[key] = [];
-      }
-      viewedMovieList[key].push(user.userName);
-      // console.log(key, user.userName);
-    }
-  });
-});
+function markFilmViewedForUsers() {
+  try {
+    netflixUsers.forEach((user) => {
+      Object.entries(user.videoList).forEach(([key, value]) => {
+        if (value == true) {
+          if (!viewedMovieList[key]) {
+            viewedMovieList[key] = [];
+          }
+          viewedMovieList[key].push(user.userName);
+          // console.log(key, user.userName);
+        }
+      });
+    });
+  } catch (error) {
+    alert(error);
+  }
+}
 
-function createUserButton(){
+function createUserButton() {
   userBtnList.replaceChildren();
-  netflixUsers.forEach(user => {
-    const li = document.createElement('li') as HTMLElement;
-    const btn = document.createElement('button') as HTMLButtonElement;
-    btn.classList.add('userName');
+  netflixUsers.forEach((user) => {
+    const li = document.createElement("li") as HTMLElement;
+    const btn = document.createElement("button") as HTMLButtonElement;
+    btn.classList.add("userName");
     btn.textContent = user.userName;
     li.append(btn);
     userBtnList.append(li);
-  })
-}
-
-function createMovieButton(){
-  movieBtnList.replaceChildren();
-  netflixUsers.forEach((user) => {
-      Object.entries(user.videoList).forEach(([key]) => {
-        const li = document.createElement("li") as HTMLElement;
-        const btn = document.createElement('button') as HTMLButtonElement;
-        btn.classList.add('movie');
-        btn.textContent = key;
-        li.append(btn);
-        movieBtnList.append(li);
-      });
   });
 }
 
-
+function createMovieButton() {
+  try {
+    movieBtnList.replaceChildren();
+    const listOfMovies: string[] = [];
+    netflixUsers.forEach((user) => {
+      Object.entries(user.videoList).forEach(([key]) => {
+        let word = key;
+        let upperWord =
+          word.toLowerCase().charAt(0).toUpperCase() + word.slice(1);
+        if (listOfMovies.some((value) => value === key)) {
+          return false;
+        } else {
+          listOfMovies.push(key);
+          const li = document.createElement("li") as HTMLElement;
+          const btn = document.createElement("button") as HTMLButtonElement;
+          btn.classList.add("movie");
+          btn.textContent = upperWord;
+          li.append(btn);
+          movieBtnList.append(li);
+        }
+      });
+    });
+  } catch (error) {
+    alert(error);
+  }
+}
 
 createUserButton();
 createMovieButton();
+markFilmViewedForUsers();
+
+
+
 
 // const account = {
 //   userName: "Vladi",

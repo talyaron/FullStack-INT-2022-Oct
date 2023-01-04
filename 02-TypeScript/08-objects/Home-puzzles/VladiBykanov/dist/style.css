@@ -31,8 +31,8 @@ ul li button {
 .userWatchedMovie {
   display: none;
   position: absolute;
-  top: 20vh;
-  right: 30vw;
+  top: 40vh;
+  left: 5vw;
 }
 .userWatchedMovie li {
   display: flex;
