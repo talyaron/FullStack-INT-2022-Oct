@@ -19,48 +19,55 @@ function videoRenter(videoObj, userObj) {
         return false;
     }
 }
-var TheCurrier = {
+const TheCurrier = {
     name: "TheCurrier",
-    price: 50
+    price: 50,
 };
-var Lorem1 = {
+const Lorem1 = {
     name: "TheCurrier",
-    price: 20
+    price: 20,
 };
-var Lorem2 = {
+const Lorem2 = {
     name: "TheCurrier",
-    price: 30
+    price: 30,
 };
-var Lorem3 = {
-    name: "TheCurrier",
-    price: 40
-};
-var Dudu = {
+const Dudu = {
     name: "Dudu",
-    age: 40
+    age: 40,
 };
-var Tom = {
+const Tom = {
     name: "Tom",
-    age: 30
+    age: 30,
 };
-var userSelectionVideo = prompt("please select a movie, the options are:TheCurrier,Lorem1,Lorem2,Lorem3");
-var userSelectionUser = prompt("please select a movie, the options are:Dudu,Tom");
+const userSelectionVideo = prompt("please select a movie, the options are:TheCurrier,Lorem1,Lorem2");
+const userSelectionUser = prompt("please select a movie, the options are:Dudu,Tom");
 if (userSelectionVideo === null || userSelectionUser === null || userSelectionVideo === " " || userSelectionUser === " ") {
     console.log("Not movie/User in the list, null or space");
     console.log(userSelectionVideo);
 }
 else if (userSelectionVideo === "TheCurrier" && userSelectionUser === "Dudu") {
-    var videoPrice = pricOfVideo(TheCurrier);
-    var referenceObj = videoRenter(TheCurrier, Dudu);
+    const videoPrice = pricOfVideo(TheCurrier);
+    const referenceObj = videoRenter(TheCurrier, Dudu);
 }
-else if (userSelectionVideo === "Lorem2") {
-    var videoPrice = pricOfVideo(Lorem2);
+else if (userSelectionVideo === "TheCurrier" && userSelectionUser === "Tom") {
+    const videoPrice = pricOfVideo(TheCurrier);
+    const referenceObj = videoRenter(TheCurrier, Tom);
 }
-else if (userSelectionVideo === "Lorem3") {
-    var videoPrice = pricOfVideo(Lorem3);
+else if (userSelectionVideo === "Lorem1" && userSelectionUser === "Dudu") {
+    const videoPrice = pricOfVideo(TheCurrier);
+    const referenceObj = videoRenter(TheCurrier, Tom);
 }
-else if (userSelectionVideo === "Lorem1") {
-    var videoPrice = pricOfVideo(Lorem1);
+else if (userSelectionVideo === "Lorem1" && userSelectionUser === "Tom") {
+    const videoPrice = pricOfVideo(TheCurrier);
+    const referenceObj = videoRenter(TheCurrier, Tom);
+}
+else if (userSelectionVideo === "Lorem2" && userSelectionUser === "Dudu") {
+    const videoPrice = pricOfVideo(TheCurrier);
+    const referenceObj = videoRenter(TheCurrier, Tom);
+}
+else if (userSelectionVideo === "Lorem2" && userSelectionUser === "Tom") {
+    const videoPrice = pricOfVideo(TheCurrier);
+    const referenceObj = videoRenter(TheCurrier, Tom);
 }
 else {
     console.log("Not movie in the list");
