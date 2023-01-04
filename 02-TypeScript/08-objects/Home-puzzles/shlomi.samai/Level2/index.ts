@@ -2,11 +2,13 @@ interface Video {
   name:string,
   price:number,
   renter?:string,
+  listOfRenters?: string[],
 }
 
 interface User {
   name:string,
   age:number,
+  listOfVideos?:string[],
 }
 
 function pricOfVideo(obj:Video):number|false {
