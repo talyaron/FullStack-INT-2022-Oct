@@ -18,7 +18,7 @@ interface Movie {
     {
     name: "Black Panther Wakanda Forever",
     price: 15.99,
-    rentedBy: 3
+    rentedBy: 1
   },
   {
     name: "uncharted",
@@ -95,6 +95,7 @@ function howRentedMovie(movie:Movie, id: number){
       if(users[i].id === id){
         user = users[i];
       }
+
       if (user !== null){
         console.log(`${user.firstName} ${user.lastName} have rented the movie ${movie.name}`);
       }
@@ -104,5 +105,20 @@ function howRentedMovie(movie:Movie, id: number){
 
 
 
-howRentedMovie(movies[0] , 1);
+function howRentedMovie1(movie:Movie, id: number){
+  if(movie.rentedBy === id) {
+    for(let i =0; i < users.length; i++){
+      let user: User | null = null;
+      if(users[i].id === id){
+        user = users[i];
+      }
+
+      if (user !== null){
+        console.log(`${user.firstName} ${user.lastName} have rented the movie ${movie.name}`);
+      }
+    }
+  }
+}
+
+howRentedMovie(movies[1] , 1);
 howRentedMovie(movies[2] , 2);
