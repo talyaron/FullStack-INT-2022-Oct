@@ -1,2 +1,26 @@
-var shlomi = { age: 35, lastName2: "samai", city: "shaareyTikva" };
-console.log("hi i'm my age is " + shlomi.age + " and i'm from " + shlomi["lastName2"]);
+var Israel = {
+    name: "israel",
+    yearOfDecleration: 1948
+};
+var India = {
+    name: "India",
+    yearOfDecleration: 1948
+};
+function declerationSeniority(obj1, obj2) {
+    try {
+        if (obj1.yearOfDecleration > obj2.yearOfDecleration) {
+            return obj2.name;
+        }
+        else if (obj2.yearOfDecleration > obj1.yearOfDecleration) {
+            return obj1.name;
+        }
+        else {
+            return ("both seniority are the same");
+        }
+    }
+    catch (error) {
+        console.error(error);
+        return "we have some error";
+    }
+}
+console.log(declerationSeniority(India, Israel));

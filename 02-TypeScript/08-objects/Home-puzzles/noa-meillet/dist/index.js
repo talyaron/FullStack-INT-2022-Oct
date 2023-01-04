@@ -1,3 +1,33 @@
+var noa = {
+    userName: "Noa1806",
+    password: "123456",
+    videos: []
+};
+var avatar = {
+    name: "Avatar",
+    producer: "James Cameron",
+    price: 10.9
+};
+var zootropolis = {
+    name: "Zootropolis",
+    producer: "Walt Disney",
+    price: 10.9
+};
+var lalaland = {
+    name: "Lalaland",
+    producer: "Damien Chazelle",
+    price: 10.9
+};
+var price = prompt("enter the name of the movie you want to convert his price to shekel:");
+if (!price) {
+    alert("you need to enter a value");
+}
+else if (price != "avatar") {
+    alert("this movie is not available");
+}
+else {
+    alert(convertToShekels(avatar));
+}
 function convertToShekels(video) {
     try {
         return video.price * 3.25;
@@ -7,46 +37,54 @@ function convertToShekels(video) {
         return false;
     }
 }
-function createUser(user) {
+/*
+let movieArr:Video[] = [avatar, zootropolis,lalaland];
+setVideoToUser(noa,movieArr);
+
+
+function setVideoToUser(user:User, movieArr:Video[]): void | false{
     try {
-        var getFromUser = prompt("Enter your user name:");
-        while (!getFromUser) {
-            getFromUser = prompt("We can't receive that value. Enter your user name:");
+        let getFromUser= prompt(`enter the movies you are going to watch from this list: avatar, zootropolis, lalaland.`,`To stop enter . or null`);
+        while (getFromUser != "."  || !getFromUser){
+            switch (getFromUser){
+                case "avatar":
+                    {
+                    user.videos?.unshift(movieArr[0]);
+                    setViewsToVideo (user, movieArr[0]);
+                    }
+                    break;
+                case "zootropolis":
+                    {
+                    user.videos?.unshift(movieArr[1]);
+                    setViewsToVideo (user, movieArr[1]);
+                    }
+                    break;
+                case "lalaland":
+                    {
+                    user.videos?.unshift(movieArr[2]);
+                    setViewsToVideo (user, movieArr[2]);
+                    }
+                    break;
+                default :
+                alert ("this movie is not available");
+            }
         }
-        user.userName = getFromUser;
-        getFromUser = prompt("Enter your password:");
-        while (!getFromUser) {
-            getFromUser = prompt("We can't receive that value. Enter your password:");
-        }
-        user.password = getFromUser;
-    }
-    catch (error) {
+        console.log (user.videos?.toString);
+    } catch (error) {
         console.error(error);
-        return false;
+            return false;
     }
 }
-function createrVideo(video) {
+
+
+function setViewsToVideo(user:User, video:Video): void | false{
     try {
-        var getFromUser = prompt("Enter the name of the movie:");
-        while (!getFromUser) {
-            getFromUser = prompt("We can't receive that value. Enter the name of the movie:");
-        }
-        video.name = getFromUser;
-        getFromUser = prompt("Enter the producer name of " + video.name + " movie:");
-        while (!getFromUser) {
-            getFromUser = prompt("We can't receive that value. Enter the producer name of " + video.name + " movie:");
-        }
-        video.producer = getFromUser;
-        getFromUser = prompt("Enter the movie price: (If it's free eneter 0) ");
-        while (!getFromUser) {
-            getFromUser = prompt("We can't receive that value. Enter the movie price:");
-        }
-        video.price = parseInt(getFromUser);
-    }
-    catch (error) {
+        video.viewBy?.unshift(user);
+        console.log (video.viewBy?.toString);
+    } catch (error) {
         console.error(error);
-        return false;
+            return false;
     }
 }
-//function setVideoToUser{}
-//function setViewsToVideo{}
+
+*/ 

@@ -90,19 +90,32 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-.wrapper__container .HHHHH-img {
-  background-image: url();
+.wrapper__container .White_Noise-img {
+  background-image: url(https://m.media-amazon.com/images/M/MV5BMDdmYjc3Y2EtM2FjYS00NGI2LTliZjgtYmQxMzJiMmUxNmI4XkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_.jpg);
   width: 200px;
   height: 190px;
   border: 2px solid black;
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
+.wrapper__container .Strange_World-img {
+  background-image: url(https://resizing.flixster.com/2xMkNqbnCcVFU3sEAhAblUFRJa8=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzk5ZjM1MDZlLWU4ZWEtNDRjMi05Y2ViLTk4ZmY1YmQ3NjU2MS5qcGc=);
+  width: 200px;
+  height: 190px;
+  border: 2px solid black;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.wrapper__container #Nope {
+  color: red;
+}
+.wrapper__container #White_Noise {
+  color: red;
+}
+.wrapper__container #Strange_World {
+  color: red;
+}
 .wrapper__container .index {
   height: 5px;
   width: 5px;
-}
-
-#Nope {
-  color: red;
 }

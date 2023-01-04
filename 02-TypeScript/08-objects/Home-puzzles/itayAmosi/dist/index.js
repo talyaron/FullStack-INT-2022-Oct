@@ -39,11 +39,21 @@ var matan = {
     phone: 2232325
 };
 var Welcome = prompt("Welcome to BLOCKBUSTER\nEnter a username and click OK");
-if (Welcome == " " || !Welcome) {
-    alert("It is not possible to register without a username\n  Please refresh the site and enter a username again");
-}
+var enter = function () {
+    try {
+        if (Welcome == ' ' || !Welcome) {
+            alert("It is not possible to register without a username\n  Please refresh the site and enter a username again");
+            enter();
+        }
+        else {
+            alert("Hi," + Welcome + ",\n      thanks for signing up!");
+            return Welcome;
+        }
+    }
+    catch (error) { }
+};
+enter();
 console.log("A username has been entered: " + Welcome);
-var Thanks = alert("Hi " + Welcome + ", thanks for signing up");
 var dollarToShekel = function (dTS) {
     try {
         return dTS * 3.35;
@@ -57,6 +67,7 @@ var dollarToShekel = function (dTS) {
 var myButton1 = document.getElementById('Black_Adam');
 var clickedRent = myButton1.click;
 myButton1.addEventListener("click", function (e) {
+    ;
     +alert("this movie rent by " + matan.name + "\n  is " + matan.age + " years old\n  and is lives in " + matan.Address + "\n  is phone number " + matan.phone);
 });
 var myButton2 = document.getElementById('Spirited');
@@ -70,11 +81,22 @@ myButton2.addEventListener("click", function (e) {
 var myButton3 = document.getElementById('Emancipation');
 var clickedRent2 = myButton3.click;
 myButton3.addEventListener("click", function (e) {
+    ;
     +alert("this movie rent by " + tomer.name + "\n  is " + tomer.age + " years old\n  and is lives in " + tomer.Address + "\n  is phone number " + tomer.phone);
 });
 var comingSoon = document.getElementById('Nope');
 var notArrived = comingSoon.click;
 comingSoon.addEventListener("click", function (e) {
+    alert("this movie Not Arrived");
+});
+var comingSoon2 = document.getElementById('White_Noise');
+var notArrived2 = comingSoon2.click;
+comingSoon2.addEventListener("click", function (e) {
+    alert("this movie Not Arrived");
+});
+var comingSoon3 = document.getElementById('Strange_World');
+var notArrived3 = comingSoon3.click;
+comingSoon3.addEventListener("click", function (e) {
     alert("this movie Not Arrived");
 });
 var checkMoney1 = document.getElementById('checkMoney1');
@@ -86,8 +108,7 @@ checkMoney1.addEventListener("click", function (e) {
             return alert("This movie is already rented by " + matan.name + ",\n       by the way its price is " + dollarToShekel(Black_Adam.parice) + " Shekels");
         }
     }
-    catch (error) {
-    }
+    catch (error) { }
 });
 var checkMoney2 = document.getElementById('checkMoney2');
 var clicked2 = checkMoney2.click;
@@ -98,8 +119,7 @@ checkMoney2.addEventListener("click", function (e) {
             return alert(dollarToShekel(Spirited.parice) + " in shekel");
         }
     }
-    catch (error) {
-    }
+    catch (error) { }
 });
 var checkMoney3 = document.getElementById('checkMoney3');
 var clicked3 = checkMoney3.click;
@@ -110,6 +130,5 @@ checkMoney3.addEventListener("click", function (e) {
             return alert("This movie is already rented by " + tomer.name + ",\n       by the way its price is " + dollarToShekel(Emancipation.parice) + " Shekels");
         }
     }
-    catch (error) {
-    }
+    catch (error) { }
 });
