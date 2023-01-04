@@ -36,7 +36,7 @@ if (login == " " || !login) {
 }
 console.log("username: " + login);
 var Thanks = alert("Hi " + login + ", thanks for signing up");
-var movieAllow = prompt("what movie do you want to rent? we have\nFastAndFurious9\nAvengersEndGame\nAvater2");
+var movieAllow = prompt("what movie do you want to rent? we have\nfastAndFurious9\navengersEndaGame\navatar2");
 if (movieAllow == " " || !movieAllow) {
     var movieAllow_1 = alert("please enter a movie");
 }
