@@ -32,22 +32,18 @@ class Celebrity {
   }
 }
 
+const eminem = new Celebrity("Marshall Mathers", "Male", true, true);
 const cristianoJr = new Celebrity("Cristiano Ronaldo", "Male", false, true);
 const rihanna = new Celebrity("Rihanna", "Female", true, true);
 const jenniferAni = new Celebrity("Jennifer Aniston", "Female", false, true);
 const ryanRynolds = new Celebrity("Ryan Reynolds", "Male", true, true);
-const eminem = new Celebrity("Marshall Mathers", "Male", true, true);
 
+eminem.NumberOffFollowers = 4200000 + 37700000;
 cristianoJr.NumberOffFollowers = 529000000;
 rihanna.NumberOffFollowers = 6900000 + 139000000;
 jenniferAni.NumberOffFollowers = 41100000;
 ryanRynolds.NumberOffFollowers = 4720000 + 21100000;
-eminem.NumberOffFollowers = 4200000 + 37700000;
 
-console.log(
-  `${cristianoJr.name} has ${cristianoJr.NumberOffFollowers} followers`
-);
-console.log(celebrityList);
 
 //sort celebrities from most followers to least followers
 function rateCelebs() {
@@ -55,4 +51,5 @@ function rateCelebs() {
   return sortedList.sort((a, b) => b.followersAmount - a.followersAmount);
 }
 
-console.log(rateCelebs());
+console.log(celebrityList); //original list
+console.log(rateCelebs()); //sorted list
