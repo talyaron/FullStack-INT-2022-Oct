@@ -19,8 +19,8 @@ class Video {
 }
 
 const jamesBond = new Video ("james", 5.8, 1985);
-const lordOfTheRings = new Video ("lord of the rings", 3.5);
-const matrix = new Video ("matrix", 6.2);
+const lordOfTheRings = new Video ("lord of the rings", 3.5, 2005);
+const matrix = new Video ("matrix", 6.2, 2021);
 console.log (jamesBond.age())
 console.log (lordOfTheRings.age());
 console.log (matrix.age())

@@ -14,8 +14,8 @@ var Video = /** @class */ (function () {
     return Video;
 }());
 var jamesBond = new Video("james", 5.8, 1985);
-var lordOfTheRings = new Video("lord of the rings", 3.5);
-var matrix = new Video("matrix", 6.2);
+var lordOfTheRings = new Video("lord of the rings", 3.5, 2005);
+var matrix = new Video("matrix", 6.2, 2021);
 console.log(jamesBond.age());
 console.log(lordOfTheRings.age());
 console.log(matrix.age());
