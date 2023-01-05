@@ -62,46 +62,52 @@ const videos: Videos = {
      return error 
     }
 
-  
-   
-
-
   },
 
 
 
    whoWatchedMe(videos: Videos) {
+    try {
       let input = document.querySelector(".input2") as HTMLInputElement;
       let valueOfinput = input.value;
         videos.users[ videos.users.length] = valueOfinput;
          return videos.users;
+    } catch (error) {
+     console.log(error); 
+    }
+    
 
 
    },
 
 
   namesOfTheScouts(Videos:Videos,typeB: string){
+ try {
+  if (typeB==="b") {
+    let input_b=document.querySelector(".inputB")as HTMLInputElement;
+    let value_b=input_b.value;
+    videos.movieAndSpecificUsers.batman.BatmansScouts[videos.movieAndSpecificUsers.batman.BatmansScouts.length]=value_b;
+    return videos.movieAndSpecificUsers.batman.BatmansScouts;
+  }
+  if (typeB==="s") {
+    let input_s=document.querySelector(".inputS")as HTMLInputElement;
+    let value_s=input_s.value;
+    videos.movieAndSpecificUsers.superman.supermanScouts[videos.movieAndSpecificUsers.superman.supermanScouts.length]=value_s;
+    return videos.movieAndSpecificUsers.superman.supermanScouts;
+  }
+  if (typeB==="h") {
+    let input_h=document.querySelector(".inputH")as HTMLInputElement;
+    let value_h=input_h.value;
+    videos.movieAndSpecificUsers.theAvengers.theAvengersScouts[videos.movieAndSpecificUsers.theAvengers.theAvengersScouts.length]=value_h;
+    return videos.movieAndSpecificUsers.theAvengers.theAvengersScouts;
+  }
 
-    if (typeB==="b") {
-      let input_b=document.querySelector(".inputB")as HTMLInputElement;
-      let value_b=input_b.value;
-      videos.movieAndSpecificUsers.batman.BatmansScouts[videos.movieAndSpecificUsers.batman.BatmansScouts.length]=value_b;
-      return videos.movieAndSpecificUsers.batman.BatmansScouts;
-    }
-    if (typeB==="s") {
-      let input_s=document.querySelector(".inputS")as HTMLInputElement;
-      let value_s=input_s.value;
-      videos.movieAndSpecificUsers.superman.supermanScouts[videos.movieAndSpecificUsers.superman.supermanScouts.length]=value_s;
-      return videos.movieAndSpecificUsers.superman.supermanScouts;
-    }
-    if (typeB==="h") {
-      let input_h=document.querySelector(".inputH")as HTMLInputElement;
-      let value_h=input_h.value;
-      videos.movieAndSpecificUsers.theAvengers.theAvengersScouts[videos.movieAndSpecificUsers.theAvengers.theAvengersScouts.length]=value_h;
-      return videos.movieAndSpecificUsers.theAvengers.theAvengersScouts;
-    }
 
-
+ } catch (error) {
+  console.log(error);
+ }
+    
+  
 
 
 
