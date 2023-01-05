@@ -61,3 +61,46 @@ else if (gender === "") {
         }
     }
 }
+var reverseNum = function (num) {
+    return (num.toString().split('').reverse().join(''));
+};
+// let again: boolean=true
+// while(again===true){
+//     const answer=prompt(" write a number pleace")
+//     if(answer){
+//      const num=parseInt(answer)
+// if(!isNaN(num)&&(answer!=="" )){
+//     console.log(reverseNum(123))
+//     alert(`the rever num is ${reverseNum(123)}`)
+// }
+//  else{ alert("you did not write anumber")}       
+//     }
+//     else{alert("you did not write somthing")
+//     again=false
+// }
+// }
+var answer;
+// while (isNaN(num) || (answer == null)) {
+//     const answer = prompt("pleas enter a number")
+//     if (answer !== null) {
+//         const num = parseInt(answer)
+//         if (isNaN(num)) {
+//             alert("you did not write anumber")
+//         }
+//         else {
+//             console.log(reverseNum(123))
+//             alert(`the revers num is ${reverseNum(123)}`)
+//         }
+//     }
+//     else { alert("you did not write somthing") }
+//}
+// ***level 3***
+console.log("**level 3**");
+function reversedNum(num) {
+    return (num
+        .toString()
+        .split('')
+        .reverse()
+        .join(''));
+}
+console.log("3) " + reversedNum(6543.21));

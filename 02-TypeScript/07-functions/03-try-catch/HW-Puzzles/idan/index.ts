@@ -56,7 +56,6 @@ function joeMachine(unencryptedMsg:string):string{
 function unJoeMachine(unencryptedMsg:string):string{
     try{
         let encryptedMsg:any = [unencryptedMsg.length];
-        console.log(typeof(encryptedMsg))
         for (let index = 0; index < unencryptedMsg.length; index++) {
            switch (index%8){
                 case 1: 
