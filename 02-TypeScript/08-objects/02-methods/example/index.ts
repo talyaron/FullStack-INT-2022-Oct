@@ -11,7 +11,7 @@ const xMan: Video = {
   price: 10, //property
   toNIS: function () {
     //method
-
+    console.dir(this);
     return this.price * 3.45;
   },
 };

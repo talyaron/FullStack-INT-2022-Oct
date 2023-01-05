@@ -1,10 +1,8 @@
-var xMan = {
-    title: "x-man",
-    sn: "sdfgjkhsdkjghskdjghdkhgsdg",
-    price: 10,
+var avatar2 = {
+    title: "avatar2",
+    sn: "tomerwgewgd",
+    price: 29.99,
     toNIS: function () {
-        //method
-        console.dir(this);
         return this.price * 3.45;
     }
 };
@@ -17,5 +15,5 @@ function dollarToNis(dollar) {
         return false;
     }
 }
-console.log(dollarToNis(xMan.price));
-console.log(xMan.toNIS());
+console.log(dollarToNis(avatar2.price));
+console.log(avatar2.toNIS());
