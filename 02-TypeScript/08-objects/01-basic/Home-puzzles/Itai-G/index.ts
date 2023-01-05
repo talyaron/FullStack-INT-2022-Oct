@@ -34,7 +34,7 @@ interface Movie {
     },
     {
         id: 2,
-        firstName: "Itay",
+        firstName: "Itai",
         lastName: "Gelberg",
     },
     {
