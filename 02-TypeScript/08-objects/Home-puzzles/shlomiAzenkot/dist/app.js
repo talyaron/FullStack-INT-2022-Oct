@@ -27,29 +27,39 @@ var videos = {
         }
     },
     whoWatchedMe: function (videos) {
-        var input = document.querySelector(".input2");
-        var valueOfinput = input.value;
-        videos.users[videos.users.length] = valueOfinput;
-        return videos.users;
+        try {
+            var input = document.querySelector(".input2");
+            var valueOfinput = input.value;
+            videos.users[videos.users.length] = valueOfinput;
+            return videos.users;
+        }
+        catch (error) {
+            console.log(error);
+        }
     },
     namesOfTheScouts: function (Videos, typeB) {
-        if (typeB === "b") {
-            var input_b = document.querySelector(".inputB");
-            var value_b = input_b.value;
-            videos.movieAndSpecificUsers.batman.BatmansScouts[videos.movieAndSpecificUsers.batman.BatmansScouts.length] = value_b;
-            return videos.movieAndSpecificUsers.batman.BatmansScouts;
+        try {
+            if (typeB === "b") {
+                var input_b = document.querySelector(".inputB");
+                var value_b = input_b.value;
+                videos.movieAndSpecificUsers.batman.BatmansScouts[videos.movieAndSpecificUsers.batman.BatmansScouts.length] = value_b;
+                return videos.movieAndSpecificUsers.batman.BatmansScouts;
+            }
+            if (typeB === "s") {
+                var input_s = document.querySelector(".inputS");
+                var value_s = input_s.value;
+                videos.movieAndSpecificUsers.superman.supermanScouts[videos.movieAndSpecificUsers.superman.supermanScouts.length] = value_s;
+                return videos.movieAndSpecificUsers.superman.supermanScouts;
+            }
+            if (typeB === "h") {
+                var input_h = document.querySelector(".inputH");
+                var value_h = input_h.value;
+                videos.movieAndSpecificUsers.theAvengers.theAvengersScouts[videos.movieAndSpecificUsers.theAvengers.theAvengersScouts.length] = value_h;
+                return videos.movieAndSpecificUsers.theAvengers.theAvengersScouts;
+            }
         }
-        if (typeB === "s") {
-            var input_s = document.querySelector(".inputS");
-            var value_s = input_s.value;
-            videos.movieAndSpecificUsers.superman.supermanScouts[videos.movieAndSpecificUsers.superman.supermanScouts.length] = value_s;
-            return videos.movieAndSpecificUsers.superman.supermanScouts;
-        }
-        if (typeB === "h") {
-            var input_h = document.querySelector(".inputH");
-            var value_h = input_h.value;
-            videos.movieAndSpecificUsers.theAvengers.theAvengersScouts[videos.movieAndSpecificUsers.theAvengers.theAvengersScouts.length] = value_h;
-            return videos.movieAndSpecificUsers.theAvengers.theAvengersScouts;
+        catch (error) {
+            console.log(error);
         }
         // for(let i in videos.movieAndSpecificUsers.batman.BatmansScouts) {
         //   console.log(videos.movieAndSpecificUsers.batman.BatmansScouts[i]);
