@@ -1,0 +1,48 @@
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
+var celebrityList = [];
+var Celebrity = /** @class */ (function () {
+    function Celebrity(name, ganre, tiktok, instagram, followersAmount) {
+        if (followersAmount === void 0) { followersAmount = 0; }
+        this.name = name;
+        this.ganre = ganre;
+        this.tiktok = tiktok;
+        this.instagram = instagram;
+        this.followersAmount = followersAmount;
+        celebrityList.push(this);
+    }
+    Object.defineProperty(Celebrity.prototype, "NumberOffFollowers", {
+        get: function () {
+            return this.followersAmount;
+        },
+        set: function (num) {
+            this.followersAmount = num;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    return Celebrity;
+}());
+var cristianoJr = new Celebrity("Cristiano Ronaldo", "Male", false, true);
+var rihanna = new Celebrity("Rihanna", "Female", true, true);
+var jenniferAni = new Celebrity("Jennifer Aniston", "Female", false, true);
+var ryanRynolds = new Celebrity("Ryan Reynolds", "Male", true, true);
+var eminem = new Celebrity("Marshall Mathers", "Male", true, true);
+cristianoJr.NumberOffFollowers = 529000000;
+rihanna.NumberOffFollowers = 6900000 + 139000000;
+jenniferAni.NumberOffFollowers = 41100000;
+ryanRynolds.NumberOffFollowers = 4720000 + 21100000;
+eminem.NumberOffFollowers = 4200000 + 37700000;
+console.log(cristianoJr.name + " has " + cristianoJr.NumberOffFollowers + " followers");
+console.log(celebrityList);
+//sort celebrities from most followers to least followers
+function rateCelebs() {
+    var sortedList = __spreadArrays(celebrityList);
+    return sortedList.sort(function (a, b) { return b.followersAmount - a.followersAmount; });
+}
+console.log(rateCelebs());
