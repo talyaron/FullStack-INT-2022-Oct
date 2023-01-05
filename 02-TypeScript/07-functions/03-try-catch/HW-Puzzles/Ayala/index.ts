@@ -35,7 +35,7 @@ function exTwo(word: string) {
     for (let i = 0; i < word.length; i++) {
       const char = word[i];
     const codeChar = (char.toLowerCase().charCodeAt(0) - 96);
-      encripted +=  `encripted $ {codeChar}` ;
+      encripted += `${codeChar}`;
     }
   console.log(encripted)
   } catch (error) {
@@ -48,3 +48,16 @@ function exTwo(word: string) {
 exTwo("abc");
 
 
+/*function exTwo1(word: string) {
+  try {
+    for (let i = 0; i < word.length; i++) {
+      const char = word[i];
+      console.log(char);
+      console.log(char.toLowerCase().charCodeAt(0));
+    }
+   } catch (error) {
+      console.error(error.message);
+
+    }
+  }
+    exTwo1("abc");*/
