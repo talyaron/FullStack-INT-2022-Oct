@@ -21,12 +21,21 @@ var avatar2 = {
     price: 49.99,
     rent: noa
 };
-function DollerToShekels(video) {
+function dolarToShekel(video) {
     try {
         return 3.53 * video;
     }
     catch (error) {
         console.error(error);
+        return false;
+    }
+}
+function videoPriceInDolars(priceDolar) {
+    var priceInShekel = dolarToShekel(priceDolar);
+    if (typeof priceInShekel === "number") {
+        return priceInShekel;
+    }
+    else {
         return false;
     }
 }
@@ -44,10 +53,10 @@ else if (movieAllow == "fastAndFurious9") {
     var movieAllow_2 = alert(((_a = fastAndFurious9.rent) === null || _a === void 0 ? void 0 : _a.Name) + " take the movie");
 }
 else if (movieAllow == "avatar2") {
-    alert("the price for avatar 2 is " + avatar2.price + "in shekels is " + DollerToShekels(avatar2.price) + " but " + ((_b = avatar2.rent) === null || _b === void 0 ? void 0 : _b.Name) + " rent this one");
+    alert("the price for avatar 2 is " + avatar2.price + "in shekels is " + dolarToShekel(avatar2.price) + " but " + ((_b = avatar2.rent) === null || _b === void 0 ? void 0 : _b.Name) + " rent this one");
 }
 else if (movieAllow == "avengersEndaGame") {
-    alert("the price for avengersEndaGame is " + avengersEndaGame.price + "in shekels is " + DollerToShekels(avengersEndaGame.price));
+    alert("the price for avengersEndaGame is " + avengersEndaGame.price + "in shekels is " + dolarToShekel(avengersEndaGame.price));
 }
 else {
     alert("Only For The Names In The Qustion (You Can Copy Paste)");

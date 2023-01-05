@@ -14,8 +14,8 @@ function logIn() {
         var repeat = true;
         while (repeat === true) {
             var userName = prompt("Welcome to Amitflix! \n\nWhat is your user name?\n");
-            if ((userName !== null)) {
-                if ((isNaN(Number(userName))) && (userName !== "")) {
+            if (userName !== null) {
+                if (isNaN(Number(userName)) && userName !== "") {
                     repeat = false;
                     var user = {
                         name: userName,
@@ -126,31 +126,19 @@ var xMen = {
     name: "X-Men",
     genre: "action",
     SN: 4120,
-    usersOrdered: [
-        "Wolverine",
-        "Storm"
-    ]
+    usersOrdered: ["Wolverine", "Storm"]
 };
 var avengers = {
     name: "Avengers",
     genre: "action",
     SN: 4274,
-    usersOrdered: [
-        "Michaelangelo",
-        "Leonardo",
-        "Raphael",
-        "Donatelo"
-    ]
+    usersOrdered: ["Michaelangelo", "Leonardo", "Raphael", "Donatelo"]
 };
 var frozen = {
     name: "Frozen",
     genre: "action",
     SN: 4285,
-    usersOrdered: [
-        "Gamora",
-        "Groot",
-        "Rocket"
-    ]
+    usersOrdered: ["Gamora", "Groot", "Rocket"]
 };
 var fightClub = {
     name: "Fight Club",
@@ -169,12 +157,7 @@ var fightClub = {
         "Tyler",
     ]
 };
-var videosList = [
-    xMen,
-    avengers,
-    frozen,
-    fightClub
-];
+var videosList = [xMen, avengers, frozen, fightClub];
 /////////////////////////////////////////users////////////////////////////////////////////////
 var usersList = [
     {
@@ -226,7 +209,7 @@ var usersList = [
         name: "Tyler",
         userID: 170896,
         videosOrdered: [fightClub]
-    }
+    },
 ];
 //////////////////////////////////////////////////////main/////////////////////////////////////////////////////
 var activeUser = logIn();
