@@ -4,6 +4,7 @@ var xMan = {
     price: 10,
     toNIS: function () {
         //method
+        console.dir(this);
         return this.price * 3.45;
     }
 };
