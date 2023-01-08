@@ -1,4 +1,4 @@
-// task 1
+// task 1-2
 
 class Celebs {
     name: string;
@@ -16,7 +16,7 @@ class Celebs {
       tiktok: boolean,
       followersIsntagram: number,
       followersTiktok: number,
-      followers?: number
+      followers: number
     ) {
       this.name = name;
       this.age = age;
@@ -36,8 +36,8 @@ class Celebs {
     }
   }
   
-  const yodaLevi = new Celebs (`Yoda Levi`, 43, true, false, 150000, 0, );
-  const fiftiCent = new Celebs (`50cent`, 47, true, true, 1500000, 3000000, );
-  console.dir(yodaLevi);
-  
+  const yodaLevi = new Celebs (`Yoda Levi`, 43, true, false, 150000, 0,234 );
+  const fiftiCent = new Celebs (`50cent`, 47, true, true, 1500000, 3000000,2346 );
+  console.log(yodaLevi);
+  console.log(fiftiCent);
   

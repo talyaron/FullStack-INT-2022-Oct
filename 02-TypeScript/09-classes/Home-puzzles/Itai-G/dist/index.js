@@ -1,4 +1,4 @@
-// task 1
+// task 1-2
 var Celebs = /** @class */ (function () {
     function Celebs(name, age, instagram, tiktok, followersIsntagram, followersTiktok, followers) {
         this.name = name;
@@ -17,6 +17,7 @@ var Celebs = /** @class */ (function () {
     };
     return Celebs;
 }());
-var yodaLevi = new Celebs("Yoda Levi", 43, true, false, 150000, 0);
-var fiftiCent = new Celebs("50cent", 47, true, true, 1500000, 3000000);
-console.dir(yodaLevi);
+var yodaLevi = new Celebs("Yoda Levi", 43, true, false, 150000, 0, 234);
+var fiftiCent = new Celebs("50cent", 47, true, true, 1500000, 3000000, 2346);
+console.log(yodaLevi);
+console.log(fiftiCent);
