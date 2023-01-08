@@ -8,11 +8,8 @@ var Celebs = /** @class */ (function () {
     }
     Celebs.prototype.setNumOfFollowrs = function () {
         var numberOfFollower = null;
-        while (!numberOfFollower || !isNaN(numberOfFollower)) {
-            prompt("enter the number of the followers");
+        if (!numberOfFollower || !isNaN(numberOfFollower)) {
         }
-        this.numOfFollowers = parseInt(numberOfFollower);
-        console.log(numberOfFollower);
         return this.numOfFollowers;
     };
     Celebs.prototype.getNumOfFollowrs = function () {
@@ -21,6 +18,6 @@ var Celebs = /** @class */ (function () {
     return Celebs;
 }());
 var kendalljenner = new Celebs("kendall jenner", "model", "kendalljenner", "kendalljenner", 269);
-kendalljenner.setNumOfFollowrs();
 var messi = new Celebs("messi", "football", "leomessi", "leomessi", 416);
-messi.setNumOfFollowrs();
+console.dir(kendalljenner);
+console.dir(messi);

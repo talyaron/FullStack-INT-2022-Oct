@@ -19,22 +19,31 @@ class Celebs {
   }
   setNumOfFollowrs() {
     let numberOfFollower: string | null = null;
-    while (!numberOfFollower || !isNaN(numberOfFollower)) {
-      prompt(`enter the number of the followers`);
+    if (!numberOfFollower || !isNaN(numberOfFollower)) { 
     }
-    this.numOfFollowers = parseInt(numberOfFollower);
-    console.log(numberOfFollower);
     return this.numOfFollowers;
+    
   }
-  getNumOfFollowrs(){
+  getNumOfFollowrs() {
     return this.numOfFollowers;
   }
 }
 
-const kendalljenner= new Celebs(`kendall jenner`,`model`,`kendalljenner`,`kendalljenner`,269);
-kendalljenner.setNumOfFollowrs();
+const kendalljenner = new Celebs(
+  `kendall jenner`,
+  `model`,
+  `kendalljenner`,
+  `kendalljenner`,
+  269
+);
 
-const messi= new Celebs(`messi`,`football`,`leomessi`,`leomessi`,416);
-messi.setNumOfFollowrs();
+const messi = new Celebs(
+  `messi`,
+ `football`,
+  `leomessi`,
+  `leomessi`,
+  416);
+console.dir(kendalljenner)
+console.dir(messi)
 
 
