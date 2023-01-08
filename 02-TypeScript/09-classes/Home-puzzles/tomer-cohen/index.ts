@@ -33,3 +33,8 @@ class Celebs {
 
 const kendalljenner= new Celebs(`kendall jenner`,`model`,`kendalljenner`,`kendalljenner`,269);
 kendalljenner.setNumOfFollowrs();
+
+const messi= new Celebs(`messi`,`football`,`leomessi`,`leomessi`,416);
+messi.setNumOfFollowrs();
+
+

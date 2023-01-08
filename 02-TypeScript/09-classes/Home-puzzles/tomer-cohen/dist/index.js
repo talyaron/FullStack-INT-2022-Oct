@@ -22,3 +22,5 @@ var Celebs = /** @class */ (function () {
 }());
 var kendalljenner = new Celebs("kendall jenner", "model", "kendalljenner", "kendalljenner", 269);
 kendalljenner.setNumOfFollowrs();
+var messi = new Celebs("messi", "football", "leomessi", "leomessi", 416);
+messi.setNumOfFollowrs();
