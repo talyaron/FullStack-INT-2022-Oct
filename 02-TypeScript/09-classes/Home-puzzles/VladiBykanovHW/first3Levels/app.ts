@@ -6,6 +6,7 @@ class Celebrity {
   tiktok: boolean;
   instagram: boolean;
   followersAmount: number;
+  followersIsntagram: any;
 
   constructor(
     name: string,
