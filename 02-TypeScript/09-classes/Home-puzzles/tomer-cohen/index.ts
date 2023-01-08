@@ -17,14 +17,11 @@ class Celebs {
     nameInstagram = this.nameInstegram;
     numOfFollowers = this.numOfFollowers;
   }
-  setNumOfFollowrs() {
-    let numberOfFollower: string | null = null;
-    if (!numberOfFollower || !isNaN(numberOfFollower)) { 
-    }
-    return this.numOfFollowers;
-    
+  setFollowers(followers: number) {
+    this.numOfFollowers = followers;
   }
-  getNumOfFollowrs() {
+  
+  getFollowers(): number  {
     return this.numOfFollowers;
   }
 }
@@ -36,14 +33,8 @@ const kendalljenner = new Celebs(
   `kendalljenner`,
   269
 );
-
-const messi = new Celebs(
-  `messi`,
- `football`,
-  `leomessi`,
-  `leomessi`,
-  416);
+const tomer= new Celebs(`tomer`,`tomer`,`tpmer`,`tomer`,421)
 console.dir(kendalljenner)
-console.dir(messi)
+console.log(tomer)
 
 
