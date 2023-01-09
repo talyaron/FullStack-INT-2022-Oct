@@ -8,3 +8,8 @@ var lorem3 = {
     }
 };
 console.log(lorem3.toShekels());
+var Video = /** @class */ (function () {
+    function Video(neme, year, mainActor) {
+    }
+    return Video;
+}());
