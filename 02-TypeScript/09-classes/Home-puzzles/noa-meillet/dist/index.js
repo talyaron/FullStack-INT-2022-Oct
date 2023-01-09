@@ -42,7 +42,7 @@ var ishayRibo = createCeleb();
 if (ishayRibo) {
     celebsArr.unshift(ishayRibo);
 }
-whoHasTheMostFolowers(celebsArr);
+alert(whoHasTheMostFolowers(celebsArr));
 function whoHasTheMostFolowers(celebsArr) {
     try {
         if (celebsArr.length == 0) {

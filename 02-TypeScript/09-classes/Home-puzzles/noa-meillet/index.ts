@@ -55,7 +55,7 @@ if (ishayRibo){
     celebsArr.unshift(ishayRibo);
 }
 
-whoHasTheMostFolowers(celebsArr);
+alert(whoHasTheMostFolowers(celebsArr));
 
 function whoHasTheMostFolowers(celebsArr:Celebs[]): string | false{
     try {
