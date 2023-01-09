@@ -9,5 +9,5 @@ const uri = new Person("uri");
 
 const persons :Person[] =[david,uri]
 console.log(persons)
-console.log(persons[-2])
+console.log(persons[1])
 
