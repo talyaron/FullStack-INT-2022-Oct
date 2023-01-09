@@ -7,7 +7,7 @@ class Celebs {
     tiktok: boolean;
     followersIsntagram: number;
     followersTiktok: number;
-    followers?:number;
+    followers:number;
   
     constructor(
       name: string,
@@ -43,4 +43,7 @@ class Celebs {
 
   yodaLevi.setFollowers(2000);
   console.log(yodaLevi.getFollowers()); //to invoke
-  
+  const arrCelebs = [yodaLevi,fiftiCent];
+  arrCelebs.sort((a, b) => b.followers - a.followers);
+
+  console.log(arrCelebs)
