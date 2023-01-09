@@ -71,7 +71,6 @@ var avgSalaryPerProffesion = function (developers) {
         if (element.profession === "Full-Stack") {
             avgFullStackSalary += element.salary;
             fullStackIndex++;
-            console.log(fullStackIndex);
         }
         else if (element.profession === "Front-End") {
             avgFrontEndSalary += element.salary;
