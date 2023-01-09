@@ -24,9 +24,7 @@ var Celeb = /** @class */ (function () {
 }());
 var messi = new Celeb("messi", "sport", "messi_num1", "messi_still-num1", 1000000);
 var bibi = new Celeb("Benjamin Netanyahu ", "politics", "bibi_Still_rule", "bibi_123", 200000);
-var rachel = new Celeb("rachel imenu", "holiness");
-17000000;
-;
+var rachel = new Celeb("rachel imenu", "holiness", "", "", 17000000);
 console.log(messi.name + " have " + messi.getFollwer() + " followers");
 var newFollower = messi.setFollower(3000000);
 console.log(messi.name + " update is followers and now they are " + newFollower + " ");
