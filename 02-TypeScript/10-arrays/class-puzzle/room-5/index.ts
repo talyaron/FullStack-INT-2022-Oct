@@ -91,8 +91,8 @@ const avgSalaryPerProffesion = (developers: IDevelopers[]) => {
   });
 
   avgFullStackSalary = avgFullStackSalary / fullStackIndex;
-  avgFrontEndSalary = avgFrontEndSalary / frontEndIndex
-  avgBackEndSalary = avgBackEndSalary / backEndIndex
+  avgFrontEndSalary = avgFrontEndSalary / frontEndIndex;
+  avgBackEndSalary = avgBackEndSalary / backEndIndex;
 
   return console.log(
     `the avarge salary of a Full-Stack developer is ${avgFullStackSalary}, the avarge salary of a Front-End developer is ${avgFrontEndSalary} and the avarge salary of a Back-End developer is ${avgBackEndSalary}`
