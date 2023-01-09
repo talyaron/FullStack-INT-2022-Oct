@@ -6,19 +6,15 @@ var Celebs = /** @class */ (function () {
         nameInstagram = this.nameInstegram;
         numOfFollowers = this.numOfFollowers;
     }
-    Celebs.prototype.setNumOfFollowrs = function () {
-        var numberOfFollower = null;
-        while (!numberOfFollower || !isNaN(numberOfFollower)) {
-            prompt("enter the number of the followers");
-        }
-        this.numOfFollowers = parseInt(numberOfFollower);
-        console.log(numberOfFollower);
-        return this.numOfFollowers;
+    Celebs.prototype.setFollowers = function (followers) {
+        this.numOfFollowers = followers;
     };
-    Celebs.prototype.getNumOfFollowrs = function () {
+    Celebs.prototype.getFollowers = function () {
         return this.numOfFollowers;
     };
     return Celebs;
 }());
 var kendalljenner = new Celebs("kendall jenner", "model", "kendalljenner", "kendalljenner", 269);
-kendalljenner.setNumOfFollowrs();
+var tomer = new Celebs("tomer", "tomer", "tpmer", "tomer", 421);
+console.dir(kendalljenner);
+console.log(tomer);
