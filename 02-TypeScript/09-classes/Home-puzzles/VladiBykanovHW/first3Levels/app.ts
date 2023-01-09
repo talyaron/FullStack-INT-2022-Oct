@@ -6,7 +6,6 @@ class Celebrity {
   tiktok: boolean;
   instagram: boolean;
   followersAmount: number;
-  followersIsntagram: any;
 
   constructor(
     name: string,
@@ -20,8 +19,6 @@ class Celebrity {
     this.tiktok = tiktok;
     this.instagram = instagram;
     this.followersAmount = followersAmount;
-
-    celebrityList.push(this);
   }
 
   get NumberOffFollowers() {
@@ -46,11 +43,19 @@ jenniferAni.NumberOffFollowers = 41100000;
 ryanRynolds.NumberOffFollowers = 4720000 + 21100000;
 
 
+
+const addCelebsToList = (celeb: Celebrity) => celebrityList.push(celeb);
+addCelebsToList(eminem);
+addCelebsToList(cristianoJr);
+addCelebsToList(rihanna);
+addCelebsToList(jenniferAni);
+addCelebsToList(ryanRynolds);
+
 //sort celebrities from most followers to least followers
 function rateCelebs() {
-  const sortedList = [...celebrityList];
-  return sortedList.sort((a, b) => b.followersAmount - a.followersAmount);
+  return [...celebrityList].sort((a, b) => b.followersAmount - a.followersAmount);
 }
 
 console.log(celebrityList); //original list
 console.log(rateCelebs()); //sorted list
+console.log(celebrityList); //original list

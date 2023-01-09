@@ -14,7 +14,6 @@ var Celebrity = /** @class */ (function () {
         this.tiktok = tiktok;
         this.instagram = instagram;
         this.followersAmount = followersAmount;
-        celebrityList.push(this);
     }
     Object.defineProperty(Celebrity.prototype, "NumberOffFollowers", {
         get: function () {
@@ -38,10 +37,16 @@ cristianoJr.NumberOffFollowers = 529000000;
 rihanna.NumberOffFollowers = 6900000 + 139000000;
 jenniferAni.NumberOffFollowers = 41100000;
 ryanRynolds.NumberOffFollowers = 4720000 + 21100000;
+var addCelebsToList = function (celeb) { return celebrityList.push(celeb); };
+addCelebsToList(eminem);
+addCelebsToList(cristianoJr);
+addCelebsToList(rihanna);
+addCelebsToList(jenniferAni);
+addCelebsToList(ryanRynolds);
 //sort celebrities from most followers to least followers
 function rateCelebs() {
-    var sortedList = __spreadArrays(celebrityList);
-    return sortedList.sort(function (a, b) { return b.followersAmount - a.followersAmount; });
+    return __spreadArrays(celebrityList).sort(function (a, b) { return b.followersAmount - a.followersAmount; });
 }
 console.log(celebrityList); //original list
 console.log(rateCelebs()); //sorted list
+console.log(celebrityList); //original list
