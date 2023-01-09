@@ -40,4 +40,7 @@ class Celebs {
   const fiftiCent = new Celebs (`50cent`, 47, true, true, 1500000, 3000000,2346 );
   console.log(yodaLevi);
   console.log(fiftiCent);
+
+  yodaLevi.setFollowers(2000);
+  console.log(yodaLevi.getFollowers()); //to invoke
   
