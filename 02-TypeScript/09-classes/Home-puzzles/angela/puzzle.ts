@@ -50,6 +50,6 @@ function addedConsole(celebs:celeb[]){
 }
 addedConsole(celebs)
 
-var mostFollowers= celebs.sort((a, b) => a.follower - b.follower)[celebs.length-1];
+const mostFollowers= celebs.sort((a, b) => a.follower - b.follower)[celebs.length-1];
 console.log(`${mostFollowers.name} has the most followers on tiktok ,they have ${mostFollowers.follower}`);
 

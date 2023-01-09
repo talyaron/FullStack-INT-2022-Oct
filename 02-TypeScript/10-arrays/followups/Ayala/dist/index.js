@@ -8,4 +8,4 @@ var david = new Person("david");
 var uri = new Person("uri");
 var persons = [david, uri];
 console.log(persons);
-console.log(persons[-2]);
+console.log(persons[1]);
