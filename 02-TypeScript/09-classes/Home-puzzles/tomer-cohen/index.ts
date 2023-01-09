@@ -1,40 +1,36 @@
-class Celebs {
+class Celeb {
   name: string;
   genre: string;
-  nameTikTok: string;
-  nameInstegram: string;
-  numOfFollowers: number;
-  constructor(
-    name: string,
-    genre: string,
-    nameTikTok: string,
-    nameInstagram: string,
-    numOfFollowers: number
-  ) {
-    name = this.name;
-    genre = this.genre;
-    nameTikTok = this.nameTikTok;
-    nameInstagram = this.nameInstegram;
-    numOfFollowers = this.numOfFollowers;
+  tiktok: string;
+  insta: string;
+  numberFollowers: number;
+  constructor(name: string, genre: string, tiktok: string, insta: string, numberFollowers: number){
+    this.name = name;
+    this.genre = genre;
+    this.tiktok = tiktok;
+    this.insta = insta;
+    this.numberFollowers = numberFollowers
   }
-  setFollowers(followers: number) {
-    this.numOfFollowers = followers;
+
+  setNumFollowers(number: number){
+    return this.numberFollowers = number;
   }
-  
-  getFollowers(): number  {
-    return this.numOfFollowers;
+
+  getNumFollowers(){
+    return this.numberFollowers;
   }
 }
 
-const kendalljenner = new Celebs(
+
+const kendalljenner = new Celeb(
   `kendall jenner`,
   `model`,
   `kendalljenner`,
   `kendalljenner`,
   269
 );
-const tomer= new Celebs(`tomer`,`tomer`,`tpmer`,`tomer`,421)
-console.dir(kendalljenner)
-console.log(tomer)
 
+const tomer = new Celeb ('Tomer', 'Male', 'TomerTiktok', 'tomerInsta', 1000000)
 
+console.dir(kendalljenner);
+console.log(tomer);

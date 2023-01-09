@@ -1,20 +1,20 @@
-var Celebs = /** @class */ (function () {
-    function Celebs(name, genre, nameTikTok, nameInstagram, numOfFollowers) {
-        name = this.name;
-        genre = this.genre;
-        nameTikTok = this.nameTikTok;
-        nameInstagram = this.nameInstegram;
-        numOfFollowers = this.numOfFollowers;
+var Celeb = /** @class */ (function () {
+    function Celeb(name, genre, tiktok, insta, numberFollowers) {
+        this.name = name;
+        this.genre = genre;
+        this.tiktok = tiktok;
+        this.insta = insta;
+        this.numberFollowers = numberFollowers;
     }
-    Celebs.prototype.setFollowers = function (followers) {
-        this.numOfFollowers = followers;
+    Celeb.prototype.setNumFollowers = function (number) {
+        return this.numberFollowers = number;
     };
-    Celebs.prototype.getFollowers = function () {
-        return this.numOfFollowers;
+    Celeb.prototype.getNumFollowers = function () {
+        return this.numberFollowers;
     };
-    return Celebs;
+    return Celeb;
 }());
-var kendalljenner = new Celebs("kendall jenner", "model", "kendalljenner", "kendalljenner", 269);
-var tomer = new Celebs("tomer", "tomer", "tpmer", "tomer", 421);
+var kendalljenner = new Celeb("kendall jenner", "model", "kendalljenner", "kendalljenner", 269);
+var tomer = new Celeb('Tomer', 'Male', 'TomerTiktok', 'tomerInsta', 1000000);
 console.dir(kendalljenner);
 console.log(tomer);
