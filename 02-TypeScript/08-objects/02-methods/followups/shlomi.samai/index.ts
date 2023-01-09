@@ -13,9 +13,14 @@ const lorem3:VideoInter= {
         return this.price*3.5
         console.dir(this.price*3.5)
     },
-
 }
-
-
 console.log(lorem3.toShekels())
 
+class Video {
+    name:string;
+    year:number;
+    mainActor:string;
+    constructor (neme:string,year:number,mainActor:number){
+        
+    }
+}
