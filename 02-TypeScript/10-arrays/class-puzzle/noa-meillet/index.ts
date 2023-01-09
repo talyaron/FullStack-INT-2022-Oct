@@ -63,15 +63,15 @@ function salaryAverage (developersArr:Developer[]){
   try {
     const fullstackDevelopers = developersArr.filter(developer => developer.profession === "fullstack");
     const sumFS = fullstackDevelopers.reduce((sum, current) => sum + current.salary, 0);
-    console.log (sumFS/fullstackDevelopers.length);
+    console.log (`the average salary of fullstack developper is ${sumFS/fullstackDevelopers.length}`);
 
     const qaDevelopers = developersArr.filter(developer => developer.profession === "qa");
     const sumQA = qaDevelopers.reduce((sum, current) => sum + current.salary, 0);
-    console.log (sumQA/qaDevelopers.length);
+    console.log (`the average salary of qa developper is ${sumQA/qaDevelopers.length}`);
 
     const devopsDevelopers = developersArr.filter(developer => developer.profession === "devops");
     const sumDevops = devopsDevelopers.reduce((sum, current) => sum + current.salary, 0);
-    console.log (sumDevops/devopsDevelopers.length);
+    console.log (`the average salary of devops developper is ${sumDevops/devopsDevelopers.length}`);
 
   } catch (error) {
     console.error(error);

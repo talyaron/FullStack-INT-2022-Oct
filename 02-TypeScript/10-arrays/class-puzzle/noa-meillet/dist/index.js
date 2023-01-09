@@ -60,13 +60,13 @@ function salaryAverage(developersArr) {
     try {
         var fullstackDevelopers = developersArr.filter(function (developer) { return developer.profession === "fullstack"; });
         var sumFS = fullstackDevelopers.reduce(function (sum, current) { return sum + current.salary; }, 0);
-        console.log(sumFS / fullstackDevelopers.length);
+        console.log("the average salary of fullstack developper is " + sumFS / fullstackDevelopers.length);
         var qaDevelopers = developersArr.filter(function (developer) { return developer.profession === "qa"; });
         var sumQA = qaDevelopers.reduce(function (sum, current) { return sum + current.salary; }, 0);
-        console.log(sumQA / qaDevelopers.length);
+        console.log("the average salary of qa developper is " + sumQA / qaDevelopers.length);
         var devopsDevelopers = developersArr.filter(function (developer) { return developer.profession === "devops"; });
         var sumDevops = devopsDevelopers.reduce(function (sum, current) { return sum + current.salary; }, 0);
-        console.log(sumDevops / devopsDevelopers.length);
+        console.log("the average salary of devops developper is " + sumDevops / devopsDevelopers.length);
     }
     catch (error) {
         console.error(error);
