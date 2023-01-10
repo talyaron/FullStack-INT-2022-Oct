@@ -54,3 +54,10 @@ items.sort((a, b) => a.price - b.price)
 console.log(items) // To delete!
 
 // task 4
+const names = items.map((items) => items.name)
+function findName(partOf:string){
+if (partOf){
+return names.find(name=> name.includes(partOf))
+}
+}
+console.log(names)

@@ -46,3 +46,10 @@ console.log(min);
 items.sort(function (a, b) { return a.price - b.price; });
 console.log(items); // To delete!
 // task 4
+var names = items.map(function (items) { return items.name; });
+function findName(partOf) {
+    if (partOf) {
+        return names.find(function (name) { return name.includes(partOf); });
+    }
+}
+console.log(names);
