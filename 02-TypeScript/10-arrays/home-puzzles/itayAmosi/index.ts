@@ -32,16 +32,16 @@ const items: GameShop[] = [
 ]
 
 // task 1
-console.log(items) // To delete
+console.log(items) // To delete!
 function getTypes(item: GameShop) {
-  // console.log(item.name, item.types);    // To delete
+  console.log(item.name, item.types); // To delete!
 }
 items.forEach(getTypes)
 
 // task 2
 
 function getPrices(item: GameShop) {
-  console.log(item.price) // To delete
+  console.log(item.price) // To delete!
 }
 items.forEach(getPrices)
 
@@ -51,6 +51,6 @@ console.log(min)
 // task 3
 items.sort((a, b) => a.price - b.price)
 
-console.log(items) // To delete
+console.log(items) // To delete!
 
 // task 4

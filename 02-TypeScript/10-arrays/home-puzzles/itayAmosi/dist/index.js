@@ -30,19 +30,19 @@ var items = [
     samsungTv,
 ];
 // task 1
-console.log(items); // To delete
+console.log(items); // To delete!
 function getTypes(item) {
-    // console.log(item.name, item.types);    // To delete
+    console.log(item.name, item.types); // To delete!
 }
 items.forEach(getTypes);
 // task 2
 function getPrices(item) {
-    console.log(item.price); // To delete
+    console.log(item.price); // To delete!
 }
 items.forEach(getPrices);
 var min = Math.min.apply(Math, items.map(function (item) { return item.price; }));
 console.log(min);
 // task 3
 items.sort(function (a, b) { return a.price - b.price; });
-console.log(items); // To delete
+console.log(items); // To delete!
 // task 4
