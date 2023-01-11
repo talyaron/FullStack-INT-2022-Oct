@@ -140,15 +140,15 @@ products.push(
 const filteredByType = (type: string): Product[] =>
   products.filter((ele) => ele.getType == type);
 
-const findCheapestItem = () =>
+const findCheapestItem = (): Product =>
   products.reduce((prev, current) =>
     prev.getPrice < current.getPrice ? prev : current
   );
 
-const sortProductsByPrice = () =>
+const sortProductsByPrice = (): Product[] =>
   [...products].sort((a, b) => a.getPrice - b.getPrice);
 
-const findProductName = (input: string) => {
+const findProductName = (input: string): Product[] => {
   const filteredByString = products.filter((ele) =>
     ele.getName.toLowerCase().includes(input)
   );
@@ -170,8 +170,6 @@ console.log(findProductName("da"));
 console.log(findProductName("6"));
 console.log(findProductName("bsrge"));
 
-
-
 // Created search app that displayes related products in real time
 const searchInput = document.querySelector("#search") as HTMLInputElement;
 const ulEl = document.querySelector(".displayedList") as HTMLUListElement;
@@ -179,7 +177,7 @@ const ulEl = document.querySelector(".displayedList") as HTMLUListElement;
 window.addEventListener("keyup", () => {
   if (searchInput.value != "") {
     ulEl.replaceChildren();
-    const listToDisplay = findProductName(searchInput.value);
+    const listToDisplay: Product[] = findProductName(searchInput.value);
     listToDisplay.forEach((ele) => {
       const li = document.createElement("li") as HTMLElement;
       const img = document.createElement("img") as HTMLImageElement;
