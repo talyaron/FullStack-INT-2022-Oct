@@ -27,12 +27,34 @@ var products = [
     S21,
     S22
 ];
+console.log(getAllItemInType(products));
+var sortedArr = sortArrByPrice(products);
+if (sortedArr)
+    console.log(cheapestItem(sortedArr));
+function getAllItemInType(productsArr) {
+    try {
+        if (productsArr.length == 0)
+            throw new Error("there is no item in the store");
+        var typeGetFromUser_1;
+        while (!typeGetFromUser_1) {
+            typeGetFromUser_1 = prompt("Enter the type of item you will want to buy:");
+        }
+        var selectproductarry = productsArr.filter(function (item) { return item.type == typeGetFromUser_1; });
+        if (selectproductarry.length == 0)
+            throw new Error("items from type " + typeGetFromUser_1 + " is availble in our store");
+        return selectproductarry;
+    }
+    catch (error) {
+        console.error(error);
+        return false;
+    }
+}
 function sortArrByPrice(productsArr) {
     try {
         if (productsArr.length == 0)
             throw new Error("there is no item in the store");
-        var sortedArr = productsArr.sort(function (a, b) { return a.price - b.price; });
-        return sortedArr;
+        var sortedArr_1 = productsArr.sort(function (a, b) { return a.price - b.price; });
+        return sortedArr_1;
     }
     catch (error) {
         console.error(error);
