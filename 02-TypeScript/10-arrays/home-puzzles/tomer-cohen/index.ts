@@ -27,6 +27,26 @@ const products:tomershop[]= [
     S21,
     S22
 ];
+
+function getAllItemInType(productsArr:tomershop[]){
+  try {
+    if(productsArr.length==0)
+    throw new Error(`there is no item in the store`);
+    let typeGetFromUser;
+    while (!typeGetFromUser){ 
+      typeGetFromUser = prompt (`Enter the type of item you will want to buy:`)
+    }
+    const selectproductarry = productsArr.filter(item => item.type== typeGetFromUser)
+    if(selectproductarry.length==0)
+    throw new Error(`items from type ${typeGetFromUser} is availble in our store`)
+    return selectproductarry;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+
+}
+
 function sortArrByPrice(productsArr:tomershop[]): tomershop[] | false{
     try {
       if (productsArr.length==0)
