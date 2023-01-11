@@ -42,7 +42,7 @@ const yodaLevi = new Celebs (`Yoda Levi`, 43, true, false, 150000, 0, 148);
 const fiftiCent = new Celebs (`50cent`, 47, true, true, 1500000, 3000000, 100);
 const barrefaeli = new Celebs (`Bar Refaeli`, 33, true, true, 2500000, 15000000, 1875);
 const bibi = new Celebs (`Bibi netanyaho`, 74, true, true, 35000000, 12000000, 12000);
-const personss: Celebs[] = [yodaLevi, fiftiCent, barrefaeli, bibi];
+const persons: Celebs[] = [yodaLevi, fiftiCent, barrefaeli, bibi];
 
 console.log(yodaLevi);
 console.log(fiftiCent);
@@ -53,6 +53,6 @@ console.log(yodaLevi.followers);
 `--`
 // task 3
 
-personss.sort((a, b) => b.followers - a.followers);
-console.log(personss);
+persons.sort((a, b) => b.followers - a.followers);
+console.log(persons);
 
