@@ -1,0 +1,293 @@
+.profileScreen{
+    height: 750px;
+    width: 500px;
+    background-color: white;
+    border: solid 1px rgb(183, 182, 182);
+    margin: auto; 
+
+    &__phoneStatus{
+        height: 20px;
+        width: 100%;
+        display: flex;
+        background-color: rgb(250, 247, 247);
+
+        &__connection{
+         height: 100%;
+         width: 30px;
+         font-size: x-large;
+         padding-left: 10px;
+       }
+
+       &__company{
+        height: 100%;
+        width: 70px;
+        padding-right: 25px;
+        font-weight: bold;
+       }
+
+       &__wifi{
+        height: 100%;
+        width: 60px;
+        padding-right: 50px;
+       }
+
+       &__clock{
+        height: 100%;
+        width: 70px;
+       }
+
+       &__battery{
+        height: 100%;
+        width: 30px;
+        padding-left: 150px;
+       }
+      
+    }
+
+    &__title{
+        height: 60px;
+        width: 100%;
+        background-color: rgb(250, 247, 247);
+        display: flex;
+        justify-content: space-between;
+        
+        &__username{
+            height: 40px;
+            width: 130px;
+            padding-left: 200px;
+            padding-top: 15px;
+            
+           span{
+            font-size: x-large;
+            font-weight: bold;
+           }
+        }
+
+        &__settings{
+            height: 40px;
+            width: 40px;
+            padding-left: 130px;
+            padding-top: 10px;
+
+            i{
+                font-size:x-large;
+                padding-top: 10px;
+            }
+        }
+    }
+
+    &__profileInfo{
+        height: 110px;
+        width: 100%;
+        display: flex;
+        border: solid 1px rgb(183, 182, 182);
+
+        &__profilePicture{
+            height: 90px;
+            width: 500px;
+            padding-top: 5px;
+            padding-left: 20px;
+            
+            img{
+                height: 100px;
+                width: 100px;
+                border-radius: 100px;
+            }
+        }
+
+
+        &__profileFollow{
+            height: 110px;
+            width: 100%;
+            margin-right: 30px;
+            
+            &__profileData{
+                display: flex;
+                justify-content: space-around;
+
+                &__amountPosts{
+                    height: 60px;
+                    width: 60px;
+                    padding-top: 10px;
+    
+                    span{
+                        font-weight: bold;
+                        font-size: large;
+                        
+                    }
+                    #posts{
+                        color: gray;
+                        font-weight:lighter;
+                     }
+                }
+    
+                &__amountFollowers{
+                    height: 60px;
+                    width: 60px;
+                    padding-top: 10px;
+    
+                    span{
+                        font-weight: bold;
+                        font-size: large;
+                       
+                    }
+                    #followers{
+                        color: gray;
+                        font-weight:lighter;
+                     }
+                }
+    
+                &__amountFollowing{
+                    height: 60px;
+                    width: 60px;
+                    padding-top: 10px;
+    
+                    span{
+                        font-weight: bold;
+                        font-size: large;
+                    }
+                    #following{
+                        color: gray;
+                        font-weight:lighter;
+                     }
+                }
+            }
+            
+            &__editProfile{
+                height: 30px;
+                width: 90%;
+                margin-left: 10px;
+                text-align: center;
+                background-color: rgb(222, 217, 217);
+            }
+        }
+    }
+
+    &__aboutUsername{
+        height: 110px;
+        width: 100%;
+        border: solid 1px rgb(183, 182, 182);  
+        
+        &__info{
+            height: 100px;
+            width: 200px;   
+            padding-top: 10px;
+            padding-left: 15px;
+        }
+        span{
+            font-size: medium;
+        }
+
+        #site{
+            color: blue;
+        }
+    }
+    
+    &__sortingPictures{
+        height: 40px;
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        border: solid 1px rgb(183, 182, 182);
+        display: flex;
+        justify-content: space-around;
+        padding-top: 15px;
+        font-size: x-large;
+        color: rgba(148, 146, 146, 0.563);
+
+    }
+
+    &__albumPicturesWrapper{
+        width: 100%;
+        height: 280px;
+
+        &__albumPictures{
+            display: grid;
+            gap: 5px;
+            grid-template-areas: 
+            'topLeftPicture topCenterPicture topRightPicture'
+            'bottomLeftPicture bottomCenterPicture bottomRightPicture';
+            height: 100%;
+            width: 100%;
+    
+            &__topLeftPicture{
+                grid-area: topLeftPicture;
+                height: 100%;
+            }
+    
+            &__topCenterPicture{
+                grid-area: topCenterPicture;
+                height: 100%;
+            }
+    
+            &__topRightPicture{
+                grid-area: topRightPicture;
+                height: 100%;
+            }
+    
+            &__bottomLeftPicture{
+                grid-area: bottomLeftPicture;
+                height: 100%;
+            }
+    
+            &__bottomCenterPicture{
+                grid-area: bottomCenterPicture;
+                height: 100%;
+            }
+    
+            &__bottomRightPicture{
+                grid-area: bottomRightPicture;
+                height: 100%;
+            }
+
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    &__menuButtons{
+        height: 40px;
+        width: 100%;
+        background-color: rgb(250, 247, 247);
+        border: solid 1px rgb(183, 182, 182);
+        display: flex;
+        justify-content: space-around;
+        padding-top: 70px;
+
+        &__homeButton{
+            height: 40px;
+            width: 35px;
+            font-size: 30px;
+            color:rgba(141, 138, 138, 0.854);;
+        }
+
+        &__searchButton{
+            height: 40px;
+            width: 35px;
+            font-size: 30px;
+            color:rgba(141, 138, 138, 0.854);
+        }
+
+        &__cameraButton{
+            height: 40px;
+            width: 35px;
+            font-size: 30px;
+            color:rgba(141, 138, 138, 0.854);
+        }
+
+        &__loveButton{
+            height: 40px;
+            width: 35px;
+            font-size: 30px;
+            color:rgba(141, 138, 138, 0.854);
+        }
+
+        &__profileButton{
+            height: 40px;
+            width: 35px;
+            font-size: 30px;
+            color:black;
+        }
+    }
+}
