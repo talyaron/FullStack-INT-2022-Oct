@@ -27,6 +27,10 @@ var products = [
     S21,
     S22
 ];
+console.log(getAllItemInType(products));
+var sortedArr = sortArrByPrice(products);
+if (sortedArr)
+    console.log(cheapestItem(sortedArr));
 function getAllItemInType(productsArr) {
     try {
         if (productsArr.length == 0)
@@ -49,8 +53,8 @@ function sortArrByPrice(productsArr) {
     try {
         if (productsArr.length == 0)
             throw new Error("there is no item in the store");
-        var sortedArr = productsArr.sort(function (a, b) { return a.price - b.price; });
-        return sortedArr;
+        var sortedArr_1 = productsArr.sort(function (a, b) { return a.price - b.price; });
+        return sortedArr_1;
     }
     catch (error) {
         console.error(error);

@@ -27,6 +27,11 @@ const products:tomershop[]= [
     S21,
     S22
 ];
+console.log(getAllItemInType(products));
+const sortedArr= sortArrByPrice(products);
+if(sortedArr)
+console.log(cheapestItem(sortedArr));
+
 
 function getAllItemInType(productsArr:tomershop[]){
   try {
