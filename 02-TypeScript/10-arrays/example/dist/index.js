@@ -8,24 +8,24 @@ var Person = /** @class */ (function () {
 }());
 var noam = new Person("noam", 33, "male");
 var ruth = new Person("Ruth", 27, "female");
-var dan = new Person("Dan", 41, "male");
+var dan = new Person("Dan", 14, "male");
 /// we use lists to hold togther many elements
 var persons = [noam, ruth, dan];
 console.log(persons);
 console.log(persons[1]);
-console.log(persons.length);
+// console.log(persons.length);
 //sort
-persons.sort(function (a, b) { return a.age - b.age; });
+// persons.sort((a, b) => a.age - b.age);
 console.log(persons);
 //filter
-var personsAbove30 = persons.filter(function (person) { return person.age > 30; });
+var personsAbove30 = persons.filter(function (person) { return person.age; });
 console.log(personsAbove30);
-//callback
-function logPerson(person) {
-    console.log(person.name, person.age);
-}
-persons.forEach(logPerson);
-persons.forEach(function (person) {
-    console.log(person.name, person.age);
-});
-console.log(persons.filter(function (person) { return person.gender === "female"; }));
+// //callback
+// function logPerson(person: Person) {
+//   console.log(person.name, person.age);
+// }
+// persons.forEach(logPerson);
+// persons.forEach(function (person: Person) {
+//   console.log(person.name, person.age);
+// });
+// console.log(persons.filter((person) => person.gender === "female"));
