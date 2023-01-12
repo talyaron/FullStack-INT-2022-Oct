@@ -1,5 +1,4 @@
 class Product {
-
     public constructor (
       public price:number,
       public name:string,
@@ -28,8 +27,8 @@ class Product {
     
     const filteredProductsTest:Product[]=products.filter(checkString);
     const userInput=prompt("enter your search:")
-    function checkString(product:Product) {
     
+    function checkString(product:Product) {
       while (userInput!==null){
       //console.log(product.name.includes("t"))
       return product.name.includes(userInput)
