@@ -34,7 +34,8 @@ function cheapest_price(items: Cars[]): Cars | false {
       }
     }
     return items[minIndex];
-  } catch (error) {
+  }
+  catch (error) {
     console.error(error);
     return false;
   }
