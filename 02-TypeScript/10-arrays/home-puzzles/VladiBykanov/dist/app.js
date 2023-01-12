@@ -64,49 +64,74 @@ var forsbergShirt = new Product(20, "Forsberg - Stoltson", "Clothing", "Shirt", 
 var leviesShirt = new Product(22, "Levi's - Original Tee", "Clothing", "Shirt", "https://img01.ztat.net/article/spp-media-p1/01c276157f394da5ab43da3d9256f8e4/b526407ff60e490f8e318812063f6b51.jpg?imwidth=1800&filter=packshot");
 var tommyHilShirt = new Product(60, "Tommy Hilfiger - Regular", "Clothing", "Shirt", "https://img01.ztat.net/article/spp-media-p1/25fba27a171632689b1e9b0723884732/7a14e2a8b5c945059d7ae8c2051fae41.jpg?imwidth=1800&filter=packshot");
 products.push(tommyHilShirt, leviesShirt, forsbergShirt, gStarShirt, bershakaJeans, jackAndJonesJeans, leviesJeans, timberland, drMarten, adidasShoes, jordanShoes, airmaxShoes);
-var filteredByType = function (type) {
-    return products.filter(function (ele) { return ele.getType == type; });
+var filteredByType = function (type, arr) {
+    try {
+        return arr.filter(function (ele) { return ele.getType == type; });
+    }
+    catch (error) {
+        console.log(error);
+        return false;
+    }
 };
-var findCheapestItem = function () {
-    return products.reduce(function (prev, current) {
-        return prev.getPrice < current.getPrice ? prev : current;
-    });
+var findCheapestItem = function (arr) {
+    try {
+        return arr.reduce(function (prev, current) {
+            return prev.getPrice < current.getPrice ? prev : current;
+        });
+    }
+    catch (error) {
+        console.log(error);
+        return false;
+    }
 };
-var sortProductsByPrice = function () {
-    return __spreadArrays(products).sort(function (a, b) { return a.getPrice - b.getPrice; });
+var sortProductsByPrice = function (arr) {
+    try {
+        return __spreadArrays(arr).sort(function (a, b) { return a.getPrice - b.getPrice; });
+    }
+    catch (error) {
+        console.log(error);
+        return false;
+    }
 };
-var findProductName = function (input) {
-    var filteredByString = products.filter(function (ele) {
-        return ele.getName.toLowerCase().includes(input);
-    });
-    // filteredByString.forEach(ele => document.write(ele.name))
-    return filteredByString;
+var findProductName = function (input, arr) {
+    try {
+        var filteredByString = arr.filter(function (ele) {
+            return ele.getName.toLowerCase().includes(input);
+        });
+        return filteredByString;
+    }
+    catch (error) {
+        console.log(error);
+        return false;
+    }
 };
 // HW level 1 - filter list by type "Sneakers"
-console.log(filteredByType("Sneakers"));
+console.log(filteredByType("Sneakers", products));
 // HW level 2 - Finding cheapest product on list
-console.log(findCheapestItem());
+console.log(findCheapestItem(products));
 // HW level 3 - Sorting all products from cheapest to most exepensive
-console.log(sortProductsByPrice());
+console.log(sortProductsByPrice(products));
 // HW level 4 - Finding product based on String
-console.log(findProductName("da"));
-console.log(findProductName("6"));
-console.log(findProductName("bsrge"));
+console.log(findProductName("da", products));
+console.log(findProductName("6", products));
+console.log(findProductName("bsrge", products));
 // Created search app that displayes related products in real time
 var searchInput = document.querySelector("#search");
 var ulEl = document.querySelector(".displayedList");
 window.addEventListener("keyup", function () {
     if (searchInput.value != "") {
         ulEl.replaceChildren();
-        var listToDisplay = findProductName(searchInput.value);
-        listToDisplay.forEach(function (ele) {
-            var li = document.createElement("li");
-            var img = document.createElement("img");
-            img.src = ele.getImg;
-            li.textContent = ele.getName;
-            li.append(img);
-            ulEl.append(li);
-        });
+        var listToDisplay = findProductName(searchInput.value, products);
+        if (listToDisplay !== false) {
+            listToDisplay.forEach(function (ele) {
+                var li = document.createElement("li");
+                var img = document.createElement("img");
+                img.src = ele.getImg;
+                li.textContent = ele.getName;
+                li.append(img);
+                ulEl.append(li);
+            });
+        }
     }
     else {
         ulEl.replaceChildren();
