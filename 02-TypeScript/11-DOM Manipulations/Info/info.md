@@ -1,6 +1,6 @@
 ## Documentation
 
-(Please read the wohle chapter)
+(Please read the whole chapter)
 https://www.w3schools.com/js/js_htmldom.asp
 
 ## Video

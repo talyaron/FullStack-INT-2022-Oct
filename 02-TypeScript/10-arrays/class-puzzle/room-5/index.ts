@@ -1,8 +1,16 @@
+enum proffession {
+  FULL_STACK = "FULL_STACK",
+  BACK_END = "Back-End",
+  FRONT_END = "FRONT_END",
+}
+
+type PROFFESSION_LITERALS = keyof typeof proffession;
+
 interface IDevelopers {
   name: string;
   age: number;
   salary: number;
-  profession: string;
+  profession: PROFFESSION_LITERALS;
 }
 
 const developers: IDevelopers[] = [
@@ -10,93 +18,88 @@ const developers: IDevelopers[] = [
     name: "Gili",
     age: 24,
     salary: 34000,
-    profession: "Full-Stack",
+    profession: "FULL_STACK",
   },
   {
     name: "Shahar",
     age: 23,
     salary: 40000,
-    profession: "Full-Stack",
+    profession: "FULL_STACK",
   },
   {
     name: "Tal",
     age: 30,
     salary: 44000,
-    profession: "Front-End",
+    profession: "FRONT_END",
   },
   {
     name: "Bill",
     age: 80,
     salary: 100000,
-    profession: "Back-End",
+    profession: "BACK_END",
   },
   {
     name: "Amit",
     age: 22,
     salary: 20000,
-    profession: "Front-End",
+    profession: "FRONT_END",
   },
   {
     name: "Katia",
     age: 35,
     salary: 29000,
-    profession: "Back-End",
+    profession: "BACK_END",
   },
   {
     name: "Omer",
     age: 28,
     salary: 36000,
-    profession: "Full-Stack",
+    profession: "FULL_STACK",
   },
   {
     name: "Muhammad",
     age: 25,
     salary: 11000,
-    profession: "Full-Stack",
+    profession: "FULL_STACK",
   },
   {
     name: "Ovad",
     age: 37,
     salary: 39000,
-    profession: "Back-End",
+    profession: "BACK_END",
   },
   {
     name: "Alex",
     age: 20,
     salary: 12000,
-    profession: "Front-End",
+    profession: "FRONT_END",
   },
 ];
 
-const avgSalaryPerProffesion = (developers: IDevelopers[]) => {
-  let avgFullStackSalary = 0;
-  let avgFrontEndSalary = 0;
-  let avgBackEndSalary = 0;
+interface ISalaryPerProffession {
+  amount: number;
+  sum: number;
+  avg: number;
+}
 
-  let fullStackIndex = 0;
-  let frontEndIndex = 0;
-  let backEndIndex = 0;
+const avgSalaryPerProffesion = (developers: IDevelopers[]) => {
+  let salaryMap = new Map<PROFFESSION_LITERALS, ISalaryPerProffession>();
 
   developers.forEach((element) => {
-    if (element.profession === "Full-Stack") {
-      avgFullStackSalary += element.salary;
-      fullStackIndex++;
-    } else if (element.profession === "Front-End") {
-      avgFrontEndSalary += element.salary;
-      frontEndIndex++;
-    } else if (element.profession === "Back-End") {
-      avgBackEndSalary += element.salary;
-      backEndIndex++;
+    if (salaryMap.has(element.profession)) {
+      let value = salaryMap.get(element.profession)!;
+      value.amount++;
+      value.sum += element.salary;
+      value.avg = value.sum / value.amount;
+    } else {
+      salaryMap.set(element.profession, {
+        amount: 1,
+        sum: element.salary,
+        avg: element.salary,
+      });
     }
   });
-
-  avgFullStackSalary = avgFullStackSalary / fullStackIndex;
-  avgFrontEndSalary = avgFrontEndSalary / frontEndIndex;
-  avgBackEndSalary = avgBackEndSalary / backEndIndex;
-
-  return console.log(
-    `the avarge salary of a Full-Stack developer is ${avgFullStackSalary}, the avarge salary of a Front-End developer is ${avgFrontEndSalary} and the avarge salary of a Back-End developer is ${avgBackEndSalary}`
-  );
+  console.log(salaryMap);
 };
 
 avgSalaryPerProffesion(developers);

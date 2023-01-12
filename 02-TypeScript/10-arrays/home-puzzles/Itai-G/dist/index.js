@@ -31,16 +31,12 @@ var items = [
 ];
 // task 1
 function getTypes(item) {
-    console.log(item.name, item.types);
+    console.log(item.types);
 }
 items.forEach(getTypes);
 // task 2
-function getPrices(item) {
-    console.log(item.price);
-}
-items.forEach(getPrices);
 var min = Math.min.apply(Math, items.map(function (item) { return item.price; }));
-console.log(min);
+console.log("the the most least expensive product costs " + min);
 // task 3
 items.sort(function (a, b) { return a.price - b.price; });
-console.log(items); // To delete
+console.log(items);

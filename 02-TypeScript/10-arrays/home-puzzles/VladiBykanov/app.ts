@@ -137,38 +137,60 @@ products.push(
   airmaxShoes
 );
 
-const filteredByType = (type: string): Product[] =>
-  products.filter((ele) => ele.getType == type);
+const filteredByType = (type: string, arr:Product[]): Product[] | false => {
+  try {
+    return arr.filter((ele) => ele.getType == type);
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
 
-const findCheapestItem = (): Product =>
-  products.reduce((prev, current) =>
-    prev.getPrice < current.getPrice ? prev : current
-  );
+const findCheapestItem = (arr: Product[]): Product | false => {
+  try {
+    return arr.reduce((prev, current) =>
+      prev.getPrice < current.getPrice ? prev : current
+    );
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
 
-const sortProductsByPrice = (): Product[] =>
-  [...products].sort((a, b) => a.getPrice - b.getPrice);
+const sortProductsByPrice = (arr: Product[]): Product[] | false => {
+  try {
+    return [...arr].sort((a, b) => a.getPrice - b.getPrice);
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
 
-const findProductName = (input: string): Product[] => {
-  const filteredByString = products.filter((ele) =>
-    ele.getName.toLowerCase().includes(input)
-  );
-  // filteredByString.forEach(ele => document.write(ele.name))
-  return filteredByString;
+const findProductName = (input: string, arr: Product[]): Product[] | false => {
+  try {
+    const filteredByString = arr.filter((ele) =>
+      ele.getName.toLowerCase().includes(input)
+    );
+    return filteredByString;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
 };
 
 // HW level 1 - filter list by type "Sneakers"
-console.log(filteredByType("Sneakers"));
+console.log(filteredByType("Sneakers", products));
 
 // HW level 2 - Finding cheapest product on list
-console.log(findCheapestItem());
+console.log(findCheapestItem(products));
 
 // HW level 3 - Sorting all products from cheapest to most exepensive
-console.log(sortProductsByPrice());
+console.log(sortProductsByPrice(products));
 
 // HW level 4 - Finding product based on String
-console.log(findProductName("da"));
-console.log(findProductName("6"));
-console.log(findProductName("bsrge"));
+console.log(findProductName("da", products));
+console.log(findProductName("6", products));
+console.log(findProductName("bsrge", products));
 
 // Created search app that displayes related products in real time
 const searchInput = document.querySelector("#search") as HTMLInputElement;
@@ -177,15 +199,20 @@ const ulEl = document.querySelector(".displayedList") as HTMLUListElement;
 window.addEventListener("keyup", () => {
   if (searchInput.value != "") {
     ulEl.replaceChildren();
-    const listToDisplay: Product[] = findProductName(searchInput.value);
-    listToDisplay.forEach((ele) => {
-      const li = document.createElement("li") as HTMLElement;
-      const img = document.createElement("img") as HTMLImageElement;
-      img.src = ele.getImg;
-      li.textContent = ele.getName;
-      li.append(img);
-      ulEl.append(li);
-    });
+    const listToDisplay: Product[] | boolean = findProductName(
+      searchInput.value,
+      products
+    );
+    if (listToDisplay !== false) {
+      listToDisplay.forEach((ele) => {
+        const li = document.createElement("li") as HTMLElement;
+        const img = document.createElement("img") as HTMLImageElement;
+        img.src = ele.getImg;
+        li.textContent = ele.getName;
+        li.append(img);
+        ulEl.append(li);
+      });
+    }
   } else {
     ulEl.replaceChildren();
   }
