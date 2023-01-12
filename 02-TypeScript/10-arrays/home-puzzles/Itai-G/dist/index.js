@@ -36,7 +36,5 @@ function getTypes(item) {
 items.forEach(getTypes);
 // task 2
 var min = Math.min.apply(Math, items.map(function (item) { return item.price; }));
-console.log("the the most least expensive product costs " + min);
 // task 3
 items.sort(function (a, b) { return a.price - b.price; });
-console.log(items);
