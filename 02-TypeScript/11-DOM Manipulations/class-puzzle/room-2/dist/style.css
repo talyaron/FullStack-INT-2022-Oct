@@ -1,0 +1,16 @@
+body {
+  background-color: azure;
+}
+
+.card {
+  border: black solid 3px;
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #000000;
+}
+
+.details {
+  border: gray 1px solid;
+}
