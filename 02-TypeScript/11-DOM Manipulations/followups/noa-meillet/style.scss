@@ -1,0 +1,25 @@
+body{
+    background-color: beige;
+}
+
+.box{
+    display: flex;
+    flex-direction:column;
+    margin: 20px auto;
+    height: 100px;
+    width: 100px;
+    border: black solid 3px;
+    animation-name: myMove;
+    animation-duration: 2s;
+    animation-timing-function: 5;
+}
+
+@keyframes myMove {
+  from {border-color: black;}
+  to {border-color: white;}
+}
+
+@keyframes myNewmMove {
+    from {border-radius: 0px;}
+    to {border-radius: 100px;}
+  }
