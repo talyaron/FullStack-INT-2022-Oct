@@ -18,13 +18,26 @@ function checkType(product) {
 console.log(filteredProducts);
 console.log(sortedArray);
 console.log(sortedArray[0]);
-const filteredProductsTest = products.filter(checkString);
-const userInput = prompt("enter your search:");
-function checkString(product) {
-    while (userInput !== null) {
-        //console.log(product.name.includes("t"))
-        return product.name.includes(userInput);
+function checkString(input, text) {
+    try {
+        let i = 0;
+        let filteredProductsByText = [];
+        for (i = 0; i <= input.length - 1; i++) {
+            if (input[i].name.includes(text)) {
+                filteredProductsByText.push(input[i]);
+            }
+        }
+        return filteredProductsByText;
     }
-    return false;
+    catch (Error) {
+        console.error(Error);
+        return false;
+    }
 }
-console.log(filteredProductsTest);
+let userInput = prompt("enter your search:");
+if (userInput !== null) {
+    console.log(checkString(products, userInput));
+}
+// while (userInput!==null) {
+//   console.log(checkString(products,userInput))
+//   }
