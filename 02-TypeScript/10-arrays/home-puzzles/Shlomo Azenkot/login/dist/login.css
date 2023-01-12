@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
+body {
+  background-color: black;
+}
+
+.login {
+  position: absolute;
+  left: 25%;
+  top: 10%;
+  font-size: 60px;
+  text-align: center;
+  color: #f30303;
+  font-family: "Lilita One", cursive;
+}
+
+.container {
+  position: relative;
+  margin: auto;
+  margin-top: 15vh;
+  background-color: #fcf9d8;
+  width: 380px;
+  height: 420px;
+  border-radius: 20px;
+  box-shadow: 5px 10px 20px 5px #979797;
+}
+.container__input {
+  position: relative;
+  height: 30%;
+}
+
+label {
+  margin-left: 10%;
+  color: black;
+  font-size: larger;
+  font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+input {
+  margin-left: 10%;
+  color: black;
+  font-weight: bold;
+  font-size: larger;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 2px 5px 10px #fefefe;
+}
+
+button {
+  background-color: #71b609;
+  font-size: larger;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-left: 40%;
+}
+
+button:hover {
+  background-color: #426d02;
+}
+
+span {
+  position: relative;
+  left: 45px;
+  color: red;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bold;
+}

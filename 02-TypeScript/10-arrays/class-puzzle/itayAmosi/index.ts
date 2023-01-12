@@ -30,3 +30,7 @@ avg=avg/salarys.length;
 
 
 console.log(avg);
+
+
+
+

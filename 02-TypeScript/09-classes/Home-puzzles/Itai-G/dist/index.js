@@ -23,3 +23,6 @@ console.log(yodaLevi);
 console.log(fiftiCent);
 yodaLevi.setFollowers(2000);
 console.log(yodaLevi.getFollowers()); //to invoke
+var arrCelebs = [yodaLevi, fiftiCent];
+arrCelebs.sort(function (a, b) { return b.followers - a.followers; });
+console.log(arrCelebs);
