@@ -3,6 +3,7 @@ function someFunction(x: any): number | false {
     if(typeof x !== 'number'){
         throw new Error('Argument should be a number');
     }
+    
     return x / 0;
   } catch (error) {
     console.error(error);
