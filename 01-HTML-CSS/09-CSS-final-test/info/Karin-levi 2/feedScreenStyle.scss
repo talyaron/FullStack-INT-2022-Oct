@@ -1,0 +1,348 @@
+
+
+.feedScreen{
+    height: 700px;
+    width: 500px;
+    background-color: rgb(250, 247, 247);
+    border: solid 1px rgb(183, 182, 182);
+    margin: auto;
+    
+
+    &__phoneStatus{
+        height: 20px;
+        width: 100%;
+        display: flex;
+        background-color: rgb(250, 247, 247);
+       
+        &__connection{
+         height: 100%;
+         width: 30px;
+         font-size: x-large;
+         padding-left: 10px;
+       }
+
+       &__company{
+        height: 100%;
+        width: 70px;
+        padding-right: 25px;
+        font-weight: bold;
+       }
+
+       &__wifi{
+        height: 100%;
+        width: 60px;
+        padding-right: 50px;
+       }
+
+       &__clock{
+        height: 100%;
+        width: 70px;
+       }
+
+       &__battery{
+        height: 100%;
+        width: 30px;
+        padding-left: 150px;
+       }
+      
+    }
+
+    &__title{
+        height: 60px;
+        width: 100%;
+        background-color: rgb(250, 247, 247);
+        display: flex;
+       
+        &__instagram{
+            height: 60px;
+            width: 130px;
+            padding-left: 200px;
+
+            img{
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        &__store{
+            height: 100%;
+            width: 40px;
+            padding-left: 130px;
+            padding-top: 10px;
+
+            i{
+                font-size:x-large;
+                padding-top: 10px;
+
+            }
+        }
+    }
+
+
+    &__feedPost{
+        height: 600px;
+        width: 100%;
+        background-color: rgb(255, 254, 254);
+        border: solid 1px rgba(211, 208, 208, 0.89);
+        box-sizing: border-box;
+
+            &__profile{
+            height: 60px;
+            width: 100%;
+            background-color: rgb(255, 254, 254);
+            display: flex;
+
+                &__identifire{
+                    height: 60px;
+                    width: 500px;
+                    background-color: rgb(255, 253, 253);
+                    display: flex;
+
+                    &__picture{
+                        height: 60px;
+                        width: 60px;
+                        padding-left: 10px;
+                        padding-top: 5px;
+
+                        img{
+                            border-radius: 30px;
+                            height: 50px;
+                            width: 50px;
+                        }
+                    }
+
+                    &__username{
+                        height: 40px;
+                        width: 80px;
+                        padding-top: 20px;
+                        font-weight: bold;
+                    }
+                }
+            
+                &__menu{
+                    height: 40px;
+                    width: 50px;
+                    font-size: x-large;
+                    padding-top: 20px;
+                }
+        }
+
+        &__mainPicture{
+            height: 400px;
+            width: 100%;
+            position: relative;
+            text-align: center;
+
+            img{
+                height: 100%;
+                width: 100%;
+            }
+
+            &__like{
+                position: absolute;
+                font-size: 100px;
+                color: rgba(255, 254, 254, 0.663);
+                top: 50%;
+                left:50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+
+        &__buttons{
+            height: 60px;
+            width: 100%;
+            background-color: rgb(255, 254, 254);
+            border: solid 1px rgb(183, 182, 182);
+            display: flex;
+
+            &__likeButton{
+                height: 40px;
+                width: 35px;
+                font-size: 30px;
+                color:rgba(0, 0, 0, 0.67);
+                padding-top: 15px;
+                padding-left: 20px;
+            }
+
+            &__commentButton{
+                height: 40px;
+                width: 35px;
+                background-color: rgb(255, 254, 254);
+                font-size: 30px;
+                color:rgba(0, 0, 0, 0.67);
+                padding-top: 15px;
+                padding-left: 20px;
+            }
+
+            &__shareButton{
+                height: 40px;
+                width: 35px;
+                background-color: rgb(255, 254, 254);
+                font-size: 30px;
+                color:rgba(0, 0, 0, 0.67);
+                padding-top: 15px;
+                padding-left: 20px;
+            }
+        }
+
+        &__postInfo{
+            height: 55px;
+            width: 100%;
+            background-color: rgb(255, 254, 254);
+
+            &__Likes{
+                height: 20px;
+                width: 100%;
+                padding-top: 10px;
+                padding-left: 10px;
+                display: flex;
+
+                &__iconLikes{
+                    height: 100%;
+                    width: 20px;
+                }
+
+                &__amountLikes{
+                    width: 100px;
+                    height: 100%;
+                }
+            }
+
+            &__comment{
+                height: 15px;
+                width: 100%;
+                padding-left: 15px;
+
+                span{
+                    color: blue;
+                }
+            }
+
+            &__bubble{
+                height: 30px;
+                width: 150px;
+                border: 2px solid rgb(226, 54, 54);
+                border-radius: 10px;
+                color: rgb(226, 54, 54);
+                display: flex;
+                justify-content:space-around;
+                padding-top: 10px;
+                background-color: rgb(226, 54, 54);
+                animation-name: bubble;
+                animation-duration: 6s;
+                animation-iteration-count: infinite;
+
+                position: absolute;
+                font-size: 10px;
+                top: 66%;
+                left:55%;
+                transform: translate(-50%, -50%);
+
+                &__comment{
+                    height: 15px;
+                    width: 30px;
+
+                    i{
+                        color: white;
+                        font-size: large;
+                    }
+                }
+
+                &__love{
+                    height: 15px;
+                    width: 30px;
+
+                    i{
+                        color: white;
+                        font-size: large;
+                    }
+                }
+
+                &__user{
+                    height: 15px;
+                    width: 30px;
+
+                    i{
+                        color: white;
+                        font-size: large;
+                    }
+                }
+
+
+            }
+
+            
+            &__bubble::before{
+                border-left: 20px solid transparent;
+                border-right: 20px solid transparent;
+                border-top: 20px solid rgb(205, 42, 42);
+                bottom: -20px;
+                content: '';
+                left: 50%;
+                margin-left: -20px;
+                position: absolute;
+            }
+
+            &__bubble::before{
+                border-left: 23px solid transparent;
+                border-right: 23px solid transparent;
+                border-top: 23px solid;
+                border-top-color: inherit; 
+                bottom: -23px;
+                margin-left: -23px;
+            }
+        }
+
+        &__menuButtons{
+            height: 40px;
+            width: 100%;
+            background-color: rgb(250, 247, 247);
+            border: solid 1px rgb(183, 182, 182);
+            display: flex;
+            justify-content: space-around;
+
+            &__homeButton{
+                height: 40px;
+                width: 35px;
+                font-size: 30px;
+                color:rgba(141, 138, 138, 0.854);;
+            }
+
+            &__searchButton{
+                height: 40px;
+                width: 35px;
+                font-size: 30px;
+                color:rgba(141, 138, 138, 0.854);
+            }
+
+            &__cameraButton{
+                height: 40px;
+                width: 35px;
+                font-size: 30px;
+                color:rgba(141, 138, 138, 0.854);
+            }
+
+            &__loveButton{
+                height: 40px;
+                width: 35px;
+                font-size: 30px;
+                color:rgba(141, 138, 138, 0.854);
+            }
+
+
+            &__profileButton{
+                height: 40px;
+                width: 35px;
+                font-size: 30px;
+                color:rgba(141, 138, 138, 0.854);
+            }
+        }
+    }
+}
+
+@keyframes bubble {
+    0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}

@@ -1,0 +1,13 @@
+.green {
+  background-color: #51c451;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.394);
+  max-width: 300px;
+}
+.card img {
+  width: 100%;
+}
