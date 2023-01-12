@@ -1,5 +1,6 @@
 console.dir(document);
 document.body.style.backgroundColor = "wheat";
+console.log(navigator.onLine);
 function getRandomColor() {
     var letters = "0123456789ABCDEF";
     var color = "#";
@@ -9,7 +10,7 @@ function getRandomColor() {
     console.log(color);
     return color;
 }
-var root = document.querySelector("#root");
+var root = document.querySelector("#shmulik");
 if (root) {
     console.dir(root);
     root.style.backgroundColor = getRandomColor();

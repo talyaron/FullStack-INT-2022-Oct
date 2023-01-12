@@ -3,7 +3,7 @@ let btn = document.querySelector(".enter") as HTMLButtonElement;
 btn.addEventListener("click", (e) => {
   let inputName = (document.querySelector(".input_name") as HTMLInputElement)
     .value;
-
+  
   let errorName = document.querySelector(".error_name") as HTMLSpanElement;
   let errorPassword = document.querySelector(
     ".error_password"
@@ -93,3 +93,4 @@ btn.addEventListener("click", (e) => {
     window.parent.close();
   }
 });
+
