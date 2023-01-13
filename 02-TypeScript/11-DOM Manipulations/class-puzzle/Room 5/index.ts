@@ -15,6 +15,4 @@ const randomDice:HTMLDivElement | null = document.querySelector("#randomDice");
 if (randomDice && randomDice != null){
     randomDice.innerHTML = `<img src=${diceArray[throwDice()]} />`;
 // randomDice.innerHTML = 
-}   
-
-5
+}
