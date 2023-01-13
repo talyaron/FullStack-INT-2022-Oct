@@ -2,7 +2,7 @@ body {
   background-color: beige;
 }
 
-.box {
+#root {
   display: flex;
   flex-direction: column;
   margin: 20px auto;
@@ -10,23 +10,21 @@ body {
   width: 100px;
   border: black solid 3px;
   animation-name: myMove;
-  animation-duration: 2s;
-  animation-timing-function: 5;
+  animation-duration: 2.5s;
+  animation-iteration-count: 2;
 }
 
 @keyframes myMove {
-  from {
+  0% {
+    background-color: coral;
     border-color: black;
   }
-  to {
-    border-color: white;
+  50% {
+    background-color: black;
+    border-color: coral;
   }
-}
-@keyframes myNewmMove {
-  from {
-    border-radius: 0px;
-  }
-  to {
-    border-radius: 100px;
+  100% {
+    background-color: coral;
+    border-color: black;
   }
 }

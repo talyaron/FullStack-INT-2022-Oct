@@ -95,7 +95,6 @@ var sortProductsByPrice = function (arr) {
 };
 var findProductName = function (input, arr) {
     try {
-        // I would use peoduct, instead of ele. this will help others to understand easly what is it taht you are passing
         var filteredByString = arr.filter(function (ele) {
             return ele.getName.toLowerCase().includes(input);
         });
@@ -106,37 +105,94 @@ var findProductName = function (input, arr) {
         return false;
     }
 };
-// HW level 1 - filter list by type "Sneakers"
-console.log(filteredByType("Sneakers", products));
-// HW level 2 - Finding cheapest product on list
-console.log(findCheapestItem(products));
-// HW level 3 - Sorting all products from cheapest to most exepensive
-console.log(sortProductsByPrice(products));
-// HW level 4 - Finding product based on String
-console.log(findProductName("da", products));
-console.log(findProductName("6", products));
-console.log(findProductName("bsrge", products));
-//Tal: Created search app that displayes related products in real time
+// Created search app that displayes related products in real time
 var searchInput = document.querySelector("#search");
 var ulEl = document.querySelector(".displayedList");
-window.addEventListener("keyup", function () {
-    if (searchInput.value != "") {
-        //Tal: I would use ulElement instead of ulEl --> much more easy to undersant.
-        ulEl.replaceChildren();
-        var listToDisplay = findProductName(searchInput.value, products);
-        if (listToDisplay !== false) {
-            listToDisplay.forEach(function (ele) {
-                //Tal: Using innerHTMl gives you better control on the apperance, and it is much more easy to understand
-                var li = document.createElement("li");
-                var img = document.createElement("img");
-                img.src = ele.getImg;
-                li.textContent = ele.getName;
-                li.append(img);
-                ulEl.append(li);
-            });
+var openFormBtn = document.querySelector(".addNewItemForm");
+var newItemPrice = document.querySelector(".newItemPrice");
+var newItemName = document.querySelector(".newItemName");
+var newItemDepartment = document.querySelector(".newItemDepartment");
+var newItemType = document.querySelector(".newItemType");
+var newItemLink = document.querySelector(".newItemLink");
+var submitNewItemBtn = document.querySelector(".submitNewItem");
+var urlRegex = new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/);
+var addItemForm = document.querySelector(".addItemForm");
+// render items to screen
+displayItems(products);
+searchInput.addEventListener("keyup", function () {
+    try {
+        if (searchInput.value != "") {
+            ulEl.replaceChildren();
+            var listToDisplay = findProductName(searchInput.value, products);
+            if (listToDisplay !== false) {
+                displayItems(listToDisplay);
+            }
+        }
+        else {
+            displayItems(products);
         }
     }
-    else {
-        ulEl.replaceChildren();
+    catch (error) {
+        console.log(error);
     }
 });
+openFormBtn.addEventListener("click", function () {
+    try {
+        addItemForm.style.transform = "translateY(0)";
+    }
+    catch (error) {
+        console.log(error);
+    }
+});
+submitNewItemBtn.addEventListener("click", function () {
+    var priceValue = parseFloat(newItemPrice.value);
+    var nameValue = newItemName.value;
+    var departmentValue = newItemDepartment.value;
+    var typeValue = newItemType.value;
+    var linkValue = newItemLink.value;
+    if (nameValue.length > 6 &&
+        linkValue.match(urlRegex) &&
+        priceValue &&
+        departmentValue &&
+        typeValue) {
+        var newItem = new Product(priceValue, nameValue, departmentValue, typeValue, linkValue);
+        products.unshift(newItem);
+        displayItems(products);
+        addItemForm.style.transform = "translateY(-100vh)";
+        newItemPrice.value = "";
+        newItemName.value = "";
+        newItemDepartment.value = "";
+        newItemType.value = "";
+        newItemLink.value = "";
+    }
+    else {
+        alert("Fill in all the info correctly.");
+    }
+});
+function displayItems(arr) {
+    try {
+        ulEl.replaceChildren();
+        arr.forEach(function (ele) {
+            var li = document.createElement("li");
+            var img = document.createElement("img");
+            img.src = ele.getImg;
+            li.textContent = ele.getName;
+            li.append(img);
+            ulEl.append(li);
+        });
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+// trying something
+var doesImageExist = function (url) {
+    var newPromise = new Promise(function (resolve) {
+        var img = new Image();
+        img.src = url;
+        img.onerror = function () { return resolve(false); };
+        img.onload = function () { return resolve(true); };
+    }).then();
+    console.log(newPromise);
+};
+doesImageExist("https://img01.ztat.net/article/spp-media-p1/25fba27a171632689b1e9b0723884732/7a14e2a8b5c945059d7ae8c2051fae41.jpg?imwidth=1800&filter=packshot");
