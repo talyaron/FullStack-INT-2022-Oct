@@ -10,15 +10,54 @@
   <body>
     <div class="inputArea">
       <label for="search">Search product by name:</label>
-      <input type="text" name="search" id="search" placeholder="Levi's, Tommy, Nike..."/>
-      <label for="addItemName">Add Item Name:</label>
-      <input type="text"  name="addItemName" class="addItemName" placeholder="Puma - Essentials Big Logo">
-      <label for="addItemLink">Add Item Photo Link:</label>
-      <input type="text"  name="addItemLink" class="addItemLink" placeholder="https://eu.puma.com/nl/nl/pd/essentials-big-logo-sweatshirt-met-ronde-hals-voor-kinderen/586963.html?dwvar_586963_size=0200&dwvar_586963_color=01&gclid=Cj0KCQiA_P6dBhD1ARIsAAGI7HD-rYjhqaE8pZFW1Fd_mfg-QyKUNADEtm8BmkNYL2OrMEOh0-TZZ_IaAuGnEALw_wcB#">
-      <button class="add">Add</button>
+      <input
+        type="text"
+        name="search"
+        id="search"
+        placeholder="Levi's, Tommy, Nike..."
+      />
+      <button class="addNewItemForm">Add new Item</button>
     </div>
-    <ul class="displayedList">
-    </ul>
+    <div class="addItemForm">
+      <h2>Add new Item</h2>
+      <label for="newItemPrice">Add Item price:</label>
+      <input
+        type="number"
+        name="newItemPrice"
+        class="newItemPrice"
+        placeholder="135"
+      />
+      <label for="newItemName">Add Item Name:</label>
+      <input
+        type="text"
+        name="newItemName"
+        class="newItemName"
+        placeholder="Carhartt WIP - SHORT WATCH UNISEX"
+      />
+      <label for="newItemDepartment">Add Item Department:</label>
+      <input
+        type="text"
+        name="newItemDepartment"
+        class="newItemDepartment"
+        placeholder="Accessories"
+      />
+      <label for="newItemType">Add Item Type:</label>
+      <input
+        type="text"
+        name="newItemType"
+        class="newItemType"
+        placeholder="Hat"
+      />
+      <label for="newItemLink">Add a link with item's photo:</label>
+      <input
+        type="text"
+        name="newItemLink"
+        class="newItemLink"
+        placeholder="https://img01.ztat.net/article/spp-media..."
+      />
+      <button class="submitNewItem">Add</button>
+    </div>
+    <ul class="displayedList"></ul>
     <script src="./dist/app.js"></script>
   </body>
 </html>

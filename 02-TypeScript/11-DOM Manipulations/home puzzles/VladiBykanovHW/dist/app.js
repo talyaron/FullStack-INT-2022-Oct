@@ -118,37 +118,85 @@ console.log(findProductName("bsrge", products));
 // Created search app that displayes related products in real time
 var searchInput = document.querySelector("#search");
 var ulEl = document.querySelector(".displayedList");
-var addBtn = document.querySelector('.add');
-var addItemName = document.querySelector('.addItemName');
-var addItemLink = document.querySelector('.addItemLink');
-window.addEventListener("keyup", function () {
-    if (searchInput.value != "") {
-        ulEl.replaceChildren();
-        var listToDisplay = findProductName(searchInput.value, products);
-        if (listToDisplay !== false) {
-            listToDisplay.forEach(function (ele) {
-                var li = document.createElement("li");
-                var img = document.createElement("img");
-                img.src = ele.getImg;
-                li.textContent = ele.getName;
-                li.append(img);
-                ulEl.append(li);
-            });
+var openFormBtn = document.querySelector(".addNewItemForm");
+var newItemPrice = document.querySelector(".newItemPrice");
+var newItemName = document.querySelector(".newItemName");
+var newItemDepartment = document.querySelector(".newItemDepartment");
+var newItemType = document.querySelector(".newItemType");
+var newItemLink = document.querySelector(".newItemLink");
+var submitNewItemBtn = document.querySelector(".submitNewItem");
+var urlRegex = new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/);
+var addItemForm = document.querySelector(".addItemForm");
+// render items to screen
+displayItems(products);
+searchInput.addEventListener("keyup", function () {
+    try {
+        if (searchInput.value != "") {
+            ulEl.replaceChildren();
+            var listToDisplay = findProductName(searchInput.value, products);
+            if (listToDisplay !== false) {
+                displayItems(listToDisplay);
+            }
+        }
+        else {
+            displayItems(products);
         }
     }
-    else {
-        ulEl.replaceChildren();
+    catch (error) {
+        console.log(error);
     }
 });
-addBtn.addEventListener('click', function () {
-    var newItemName = addItemName.value;
-    var newItemLink = addItemLink.value;
+openFormBtn.addEventListener("click", function () {
+    try {
+        addItemForm.style.transform = "translateY(0)";
+    }
+    catch (error) {
+        console.log(error);
+    }
 });
-products.forEach(function (ele) {
-    var li = document.createElement("li");
-    var img = document.createElement("img");
-    img.src = ele.getImg;
-    li.textContent = ele.getName;
-    li.append(img);
-    ulEl.append(li);
+submitNewItemBtn.addEventListener("click", function () {
+    var priceValue = parseFloat(newItemPrice.value);
+    var nameValue = newItemName.value;
+    var departmentValue = newItemDepartment.value;
+    var typeValue = newItemType.value;
+    var linkValue = newItemLink.value;
+    if (nameValue.length > 6 &&
+        linkValue.match(urlRegex) &&
+        checkFieldInput(priceValue) &&
+        checkFieldInput(departmentValue) &&
+        checkFieldInput(typeValue)) {
+        var newItem = new Product(priceValue, nameValue, departmentValue, typeValue, linkValue);
+        products.unshift(newItem);
+        displayItems(products);
+        addItemForm.style.transform = "translateY(-100vh)";
+        newItemPrice.value = "";
+        newItemName.value = "";
+        newItemDepartment.value = "";
+        newItemType.value = "";
+        newItemLink.value = "";
+    }
 });
+function displayItems(arr) {
+    try {
+        ulEl.replaceChildren();
+        arr.forEach(function (ele) {
+            var li = document.createElement("li");
+            var img = document.createElement("img");
+            img.src = ele.getImg;
+            li.textContent = ele.getName;
+            li.append(img);
+            ulEl.append(li);
+        });
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+function checkFieldInput(input) {
+    if (input == "") {
+        return false;
+    }
+    else {
+        return true;
+    }
+}

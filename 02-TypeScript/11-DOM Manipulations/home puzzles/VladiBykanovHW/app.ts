@@ -137,7 +137,7 @@ products.push(
   airmaxShoes
 );
 
-const filteredByType = (type: string, arr:Product[]): Product[] | false => {
+const filteredByType = (type: string, arr: Product[]): Product[] | false => {
   try {
     return arr.filter((ele) => ele.getType == type);
   } catch (error) {
@@ -195,43 +195,109 @@ console.log(findProductName("bsrge", products));
 // Created search app that displayes related products in real time
 const searchInput = document.querySelector("#search") as HTMLInputElement;
 const ulEl = document.querySelector(".displayedList") as HTMLUListElement;
-const addBtn = document.querySelector('.add') as HTMLButtonElement;
-const addItemName = document.querySelector('.addItemName') as HTMLInputElement;
-const addItemLink = document.querySelector('.addItemLink') as HTMLInputElement;
+const openFormBtn = document.querySelector(
+  ".addNewItemForm"
+) as HTMLButtonElement;
 
-window.addEventListener("keyup", () => {
-  if (searchInput.value != "") {
-    ulEl.replaceChildren();
-    const listToDisplay: Product[] | boolean = findProductName(
-      searchInput.value,
-      products
-    );
-    if (listToDisplay !== false) {
-      listToDisplay.forEach((ele) => {
-        const li = document.createElement("li") as HTMLElement;
-        const img = document.createElement("img") as HTMLImageElement;
-        img.src = ele.getImg;
-        li.textContent = ele.getName;
-        li.append(img);
-        ulEl.append(li);
-      });
+const newItemPrice = document.querySelector(
+  ".newItemPrice"
+) as HTMLInputElement;
+const newItemName = document.querySelector(".newItemName") as HTMLInputElement;
+const newItemDepartment = document.querySelector(
+  ".newItemDepartment"
+) as HTMLInputElement;
+const newItemType = document.querySelector(".newItemType") as HTMLInputElement;
+const newItemLink = document.querySelector(".newItemLink") as HTMLInputElement;
+const submitNewItemBtn = document.querySelector(
+  ".submitNewItem"
+) as HTMLButtonElement;
+
+const urlRegex = new RegExp(
+  /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
+);
+const addItemForm = document.querySelector(".addItemForm") as HTMLDivElement;
+
+// render items to screen
+displayItems(products);
+
+searchInput.addEventListener("keyup", () => {
+  try {
+    if (searchInput.value != "") {
+      ulEl.replaceChildren();
+      const listToDisplay: Product[] | boolean = findProductName(
+        searchInput.value,
+        products
+      );
+      if (listToDisplay !== false) {
+        displayItems(listToDisplay);
+      }
+    } else {
+      displayItems(products);
     }
-  } else {
-    ulEl.replaceChildren();
+  } catch (error) {
+    console.log(error);
   }
 });
 
-addBtn.addEventListener('click', () => {
-  const newItemName = addItemName.value;
-  const newItemLink = addItemLink.value;
-
-})
-
-products.forEach((ele) => {
-  const li = document.createElement("li") as HTMLElement;
-  const img = document.createElement("img") as HTMLImageElement;
-  img.src = ele.getImg;
-  li.textContent = ele.getName;
-  li.append(img);
-  ulEl.append(li);
+openFormBtn.addEventListener("click", () => {
+  try {
+    addItemForm.style.transform = "translateY(0)";
+  } catch (error) {
+    console.log(error);
+  }
 });
+
+submitNewItemBtn.addEventListener("click", () => {
+  const priceValue = parseFloat(newItemPrice.value);
+  const nameValue = newItemName.value;
+  const departmentValue = newItemDepartment.value;
+  const typeValue = newItemType.value;
+  const linkValue = newItemLink.value;
+  if (
+    nameValue.length > 6 &&
+    linkValue.match(urlRegex) &&
+    checkFieldInput(priceValue) &&
+    checkFieldInput(departmentValue) &&
+    checkFieldInput(typeValue)
+  ) {
+    const newItem = new Product(
+      priceValue,
+      nameValue,
+      departmentValue,
+      typeValue,
+      linkValue
+    );
+    products.unshift(newItem);
+    displayItems(products);
+    addItemForm.style.transform = "translateY(-100vh)";
+    newItemPrice.value = "";
+    newItemName.value = "";
+    newItemDepartment.value = "";
+    newItemType.value = "";
+    newItemLink.value = "";
+  }
+});
+
+function displayItems(arr: Product[]) {
+  try {
+    ulEl.replaceChildren();
+    arr.forEach((ele) => {
+      const li = document.createElement("li") as HTMLElement;
+      const img = document.createElement("img") as HTMLImageElement;
+      img.src = ele.getImg;
+      li.textContent = ele.getName;
+      li.append(img);
+      ulEl.append(li);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function checkFieldInput(input: string | number) {
+  if (input == "") {
+    return false;
+  } else {
+    return true;
+  }
+}
