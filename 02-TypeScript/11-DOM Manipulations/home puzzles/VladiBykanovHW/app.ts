@@ -256,9 +256,9 @@ submitNewItemBtn.addEventListener("click", () => {
   if (
     nameValue.length > 6 &&
     linkValue.match(urlRegex) &&
-    checkFieldInput(priceValue) &&
-    checkFieldInput(departmentValue) &&
-    checkFieldInput(typeValue)
+    priceValue &&
+    departmentValue &&
+    typeValue
   ) {
     const newItem = new Product(
       priceValue,
@@ -275,6 +275,8 @@ submitNewItemBtn.addEventListener("click", () => {
     newItemDepartment.value = "";
     newItemType.value = "";
     newItemLink.value = "";
+  } else {
+    alert("Fill in all the info correctly.");
   }
 });
 
@@ -294,10 +296,17 @@ function displayItems(arr: Product[]) {
   }
 }
 
-function checkFieldInput(input: string | number) {
-  if (input == "") {
-    return false;
-  } else {
-    return true;
-  }
+
+// trying something
+const doesImageExist = (url: string) => {
+  const newPromise = new Promise((resolve) => {
+    const img = new Image();
+
+    img.src = url;
+    img.onerror = () => resolve(false);
+    img.onload = () => resolve(true);
+  }).then()
+  console.log(newPromise);
 }
+
+doesImageExist("https://img01.ztat.net/article/spp-media-p1/25fba27a171632689b1e9b0723884732/7a14e2a8b5c945059d7ae8c2051fae41.jpg?imwidth=1800&filter=packshot");
