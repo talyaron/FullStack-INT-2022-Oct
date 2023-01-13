@@ -178,20 +178,6 @@ const findProductName = (input: string, arr: Product[]): Product[] | false => {
   }
 };
 
-// HW level 1 - filter list by type "Sneakers"
-console.log(filteredByType("Sneakers", products));
-
-// HW level 2 - Finding cheapest product on list
-console.log(findCheapestItem(products));
-
-// HW level 3 - Sorting all products from cheapest to most exepensive
-console.log(sortProductsByPrice(products));
-
-// HW level 4 - Finding product based on String
-console.log(findProductName("da", products));
-console.log(findProductName("6", products));
-console.log(findProductName("bsrge", products));
-
 // Created search app that displayes related products in real time
 const searchInput = document.querySelector("#search") as HTMLInputElement;
 const ulEl = document.querySelector(".displayedList") as HTMLUListElement;
@@ -296,7 +282,6 @@ function displayItems(arr: Product[]) {
   }
 }
 
-
 // trying something
 const doesImageExist = (url: string) => {
   const newPromise = new Promise((resolve) => {
@@ -305,8 +290,10 @@ const doesImageExist = (url: string) => {
     img.src = url;
     img.onerror = () => resolve(false);
     img.onload = () => resolve(true);
-  }).then()
+  }).then();
   console.log(newPromise);
-}
+};
 
-doesImageExist("https://img01.ztat.net/article/spp-media-p1/25fba27a171632689b1e9b0723884732/7a14e2a8b5c945059d7ae8c2051fae41.jpg?imwidth=1800&filter=packshot");
+doesImageExist(
+  "https://img01.ztat.net/article/spp-media-p1/25fba27a171632689b1e9b0723884732/7a14e2a8b5c945059d7ae8c2051fae41.jpg?imwidth=1800&filter=packshot"
+);

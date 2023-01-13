@@ -105,16 +105,6 @@ var findProductName = function (input, arr) {
         return false;
     }
 };
-// HW level 1 - filter list by type "Sneakers"
-console.log(filteredByType("Sneakers", products));
-// HW level 2 - Finding cheapest product on list
-console.log(findCheapestItem(products));
-// HW level 3 - Sorting all products from cheapest to most exepensive
-console.log(sortProductsByPrice(products));
-// HW level 4 - Finding product based on String
-console.log(findProductName("da", products));
-console.log(findProductName("6", products));
-console.log(findProductName("bsrge", products));
 // Created search app that displayes related products in real time
 var searchInput = document.querySelector("#search");
 var ulEl = document.querySelector(".displayedList");
