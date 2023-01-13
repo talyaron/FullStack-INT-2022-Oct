@@ -103,6 +103,8 @@ function sortArrByPrice(clothesArr: Item[]): Item[] | false {
     return sortedArr;
   } catch (error) {
     console.error(error);
+    if (store)
+        store.innerHTML=`<h1> We did not find item for you </h1>`;
     return false;
   }
 }
@@ -133,6 +135,8 @@ function getTheCheapestItem(clothesArr: Item[]): Item[] | false {
     return chosenItemsArr;
   } catch (error) {
     console.error(error);
+    if (store)
+        store.innerHTML=`<h1> We did not find item for you </h1>`;
     return false;
   }
 }
