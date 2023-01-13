@@ -17,3 +17,4 @@ if (randomDice && randomDice != null){
 // randomDice.innerHTML = 
 }   
 
+5

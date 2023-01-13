@@ -13,3 +13,4 @@ if (randomDice && randomDice != null) {
     randomDice.innerHTML = "<img src=" + diceArray[throwDice()] + " />";
     // randomDice.innerHTML = 
 }
+5;
