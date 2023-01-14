@@ -117,7 +117,7 @@ var newItemLink = document.querySelector(".newItemLink");
 var submitNewItemBtn = document.querySelector(".submitNewItem");
 var urlRegex = new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/);
 var addItemForm = document.querySelector(".addItemForm");
-// render items to screen
+// render items to screen when page is loaded for the first time
 displayItems(products);
 searchInput.addEventListener("keyup", function () {
     try {
@@ -185,7 +185,7 @@ function displayItems(arr) {
         console.log(error);
     }
 }
-// trying something
+// trying something (not working yet)
 var doesImageExist = function (url) {
     var newPromise = new Promise(function (resolve) {
         var img = new Image();

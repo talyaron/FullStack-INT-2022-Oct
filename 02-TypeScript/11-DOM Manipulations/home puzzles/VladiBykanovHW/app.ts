@@ -203,7 +203,7 @@ const urlRegex = new RegExp(
 );
 const addItemForm = document.querySelector(".addItemForm") as HTMLDivElement;
 
-// render items to screen
+// render items to screen when page is loaded for the first time
 displayItems(products);
 
 searchInput.addEventListener("keyup", () => {
@@ -282,7 +282,7 @@ function displayItems(arr: Product[]) {
   }
 }
 
-// trying something
+// trying something (not working yet)
 const doesImageExist = (url: string) => {
   const newPromise = new Promise((resolve) => {
     const img = new Image();
