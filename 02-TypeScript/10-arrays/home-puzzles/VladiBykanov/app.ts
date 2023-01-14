@@ -137,7 +137,7 @@ products.push(
   airmaxShoes
 );
 
-const filteredByType = (type: string, arr:Product[]): Product[] | false => {
+const filteredByType = (type: string, arr: Product[]): Product[] | false => {
   try {
     return arr.filter((ele) => ele.getType == type);
   } catch (error) {
@@ -168,6 +168,7 @@ const sortProductsByPrice = (arr: Product[]): Product[] | false => {
 
 const findProductName = (input: string, arr: Product[]): Product[] | false => {
   try {
+    // I would use peoduct, instead of ele. this will help others to understand easly what is it taht you are passing
     const filteredByString = arr.filter((ele) =>
       ele.getName.toLowerCase().includes(input)
     );
@@ -192,12 +193,13 @@ console.log(findProductName("da", products));
 console.log(findProductName("6", products));
 console.log(findProductName("bsrge", products));
 
-// Created search app that displayes related products in real time
+//Tal: Created search app that displayes related products in real time
 const searchInput = document.querySelector("#search") as HTMLInputElement;
 const ulEl = document.querySelector(".displayedList") as HTMLUListElement;
 
 window.addEventListener("keyup", () => {
   if (searchInput.value != "") {
+    //Tal: I would use ulElement instead of ulEl --> much more easy to undersant.
     ulEl.replaceChildren();
     const listToDisplay: Product[] | boolean = findProductName(
       searchInput.value,
@@ -205,6 +207,7 @@ window.addEventListener("keyup", () => {
     );
     if (listToDisplay !== false) {
       listToDisplay.forEach((ele) => {
+        //Tal: Using innerHTMl gives you better control on the apperance, and it is much more easy to understand
         const li = document.createElement("li") as HTMLElement;
         const img = document.createElement("img") as HTMLImageElement;
         img.src = ele.getImg;

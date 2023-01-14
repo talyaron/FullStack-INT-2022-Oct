@@ -95,6 +95,7 @@ var sortProductsByPrice = function (arr) {
 };
 var findProductName = function (input, arr) {
     try {
+        // I would use peoduct, instead of ele. this will help others to understand easly what is it taht you are passing
         var filteredByString = arr.filter(function (ele) {
             return ele.getName.toLowerCase().includes(input);
         });
@@ -115,15 +116,17 @@ console.log(sortProductsByPrice(products));
 console.log(findProductName("da", products));
 console.log(findProductName("6", products));
 console.log(findProductName("bsrge", products));
-// Created search app that displayes related products in real time
+//Tal: Created search app that displayes related products in real time
 var searchInput = document.querySelector("#search");
 var ulEl = document.querySelector(".displayedList");
 window.addEventListener("keyup", function () {
     if (searchInput.value != "") {
+        //Tal: I would use ulElement instead of ulEl --> much more easy to undersant.
         ulEl.replaceChildren();
         var listToDisplay = findProductName(searchInput.value, products);
         if (listToDisplay !== false) {
             listToDisplay.forEach(function (ele) {
+                //Tal: Using innerHTMl gives you better control on the apperance, and it is much more easy to understand
                 var li = document.createElement("li");
                 var img = document.createElement("img");
                 img.src = ele.getImg;

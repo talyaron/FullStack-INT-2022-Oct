@@ -39,9 +39,8 @@ class GameShop {
 
   // task 2
   const min = Math.min(...items.map((item) => item.price))
-  console.log(`the the most least expensive product costs ${min}`)
+  
   
   // task 3
   items.sort((a, b) => a.price - b.price)
   
-  console.log(items)
