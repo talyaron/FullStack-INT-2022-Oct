@@ -5,11 +5,9 @@ function addImage() {
     )
     console.dir(picture)
     let urlImage: any = prompt(`Enter image please`)
-
-    
       if (picture && urlImage)
       for (let i = 0; i < 5; i++) {
-          var img = document.createElement("img");
+          const img = document.createElement("img");
           img.src = urlImage;
           document.body.appendChild(img);
         }
