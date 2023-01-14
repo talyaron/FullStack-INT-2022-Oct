@@ -2,10 +2,10 @@ function addImage() {
     try {
         var picture = document.querySelector('#picture');
         console.dir(picture);
-        var urlImage = prompt("Enter image please");
-        if (picture && urlImage)
+        if (picture)
             for (var i = 0; i < 5; i++) {
-                var img = document.createElement("img");
+                var urlImage = prompt("Enter image please");
+                var img = document.createElement('img');
                 img.src = urlImage;
                 document.body.appendChild(img);
             }

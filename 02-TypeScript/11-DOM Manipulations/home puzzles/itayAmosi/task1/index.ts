@@ -9,10 +9,12 @@ function addImage() {
     
       if (picture && urlImage)
       for (let i = 0; i < 5; i++) {
-        picture.innerHTML= `<div class="imagebox">
-        <img src='${urlImage}'/>
-        </div>`
-    }
+          var img = document.createElement("img");
+          img.src = urlImage;
+          document.body.appendChild(img);
+        }
+        
+    
   } catch (error) {
     console.error(error)
     return false
