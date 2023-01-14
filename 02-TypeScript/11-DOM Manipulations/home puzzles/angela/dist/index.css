@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+}
+
+.imgBox {
+  padding: 2rem;
+  border-radius: 25%;
+  width: 15rem;
+}
+.imgBox img {
+  width: 100%;
+}
