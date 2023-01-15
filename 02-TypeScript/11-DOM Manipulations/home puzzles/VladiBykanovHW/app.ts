@@ -194,16 +194,13 @@ const newItemDepartment = document.querySelector(
 ) as HTMLInputElement;
 const newItemType = document.querySelector(".newItemType") as HTMLInputElement;
 const newItemLink = document.querySelector(".newItemLink") as HTMLInputElement;
-const submitNewItemBtn = document.querySelector(
-  ".submitNewItem"
-) as HTMLButtonElement;
 
 const urlRegex = new RegExp(
   /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
 );
-const addItemForm = document.querySelector(".addItemForm") as HTMLDivElement;
+const addItemForm = document.querySelector(".addItemForm") as HTMLFormElement;
 
-// render items to screen
+// render items to screen when page is loaded for the first time
 displayItems(products);
 
 searchInput.addEventListener("keyup", () => {
@@ -233,7 +230,10 @@ openFormBtn.addEventListener("click", () => {
   }
 });
 
-submitNewItemBtn.addEventListener("click", () => {
+addItemForm.addEventListener("submit", (e) => {
+  //Preventing page of refrashing affter submiting form
+  e.preventDefault();
+
   const priceValue = parseFloat(newItemPrice.value);
   const nameValue = newItemName.value;
   const departmentValue = newItemDepartment.value;
@@ -282,7 +282,7 @@ function displayItems(arr: Product[]) {
   }
 }
 
-// trying something
+// trying something (not working yet)
 const doesImageExist = (url: string) => {
   const newPromise = new Promise((resolve) => {
     const img = new Image();
@@ -294,6 +294,6 @@ const doesImageExist = (url: string) => {
   console.log(newPromise);
 };
 
-doesImageExist(
-  "https://img01.ztat.net/article/spp-media-p1/25fba27a171632689b1e9b0723884732/7a14e2a8b5c945059d7ae8c2051fae41.jpg?imwidth=1800&filter=packshot"
-);
+// doesImageExist(
+//   "https://img01.ztat.net/article/spp-media-p1/d5e1e146adfb350dbd5165d561870b55/b3085171bfa240aba35322de6f8a1e66.jpg?imwidth=1800&filter=packshot"
+// );

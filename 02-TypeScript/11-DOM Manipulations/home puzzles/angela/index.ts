@@ -1,23 +1,36 @@
-const img:HTMLDivElement | null = document.querySelector(".imgBox");
+let popUp:HTMLDivElement | null = document.querySelector("#popup");
 
-const addImg=[];
+function openPopup(){
+    popUp?.classList.add("open-popup");
 
-
-function addPrompt(){
-    for(let a = 0 ; a < 5; a++){
-        let pr = prompt("enter an url");
-        
-        if (!pr || pr=== null) {
-            alert("please enter a vail url");
-        } else {
-            img?.innerHTML=`<div class="imgBox">
-            <img src='${pr}'/>
-        </div>`;
-        const count =addImg.push(pr);
-
-        }
-    }
 }
-addPrompt()
-console.log(addImg)
+function closePopup(){
+    popUp?.classList.remove("open-popup");
+    
+}
+openPopup();
+closePopup();
 
+class books{
+    public constructor(
+        public bookTitle:string,
+        public price:number,
+        public category:string,
+        public auther:string,
+        public iamge:string
+        ){}
+ }
+
+ let items:books[]=[];
+
+ const theBlackDahlia = new items(
+    "The Black Dahlia",
+    50.78,
+    "crime",
+    "James Ellroy",
+    "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/0995/9780099537861.jpg"
+
+ )
+ const you = new items(
+    
+ )

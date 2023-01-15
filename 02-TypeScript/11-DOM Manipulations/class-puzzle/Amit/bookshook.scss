@@ -1,0 +1,49 @@
+body{
+    margin:0;
+    position: relative;
+    background-color: wheat;
+}
+
+.searchBox{
+    width: 30rem;
+    height: 3rem;
+    position: relative;
+    top: 5rem;
+    left: 30rem;
+    border: 0.1rem solid black; ;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    background-color: rgb(42, 41, 41);
+    color: white;   
+}
+
+.results{
+    width: 50rem;
+    height: 200rem;
+    position: relative;
+    top: 5rem;
+    left: 30rem;
+    border: 0.1rem solid black; ;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    
+    &__book{
+        width: 40rem;
+        height: 20rem;
+        position: relative;
+        top: 0rem;
+        left: 3rem;
+        border: 0.1rem solid black; ;
+        border-radius: 1rem;
+        font-size: 1.5rem;
+        margin-top: 0.7rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        background-color: white;
+    }
+}
