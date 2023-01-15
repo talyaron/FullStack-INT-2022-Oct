@@ -9,7 +9,7 @@ var dice5 = 'https://upload.wikimedia.org/wikipedia/commons/0/08/Dice-5-b.svg';
 var dice6 = 'https://upload.wikimedia.org/wikipedia/commons/2/26/Dice-6-b.svg';
 var diceArray = [dice1, dice2, dice3, dice4, dice5, dice6];
 var randomDice = document.querySelector("#randomDice");
-if (randomDice && randomDice != null) {
+if (randomDice != null) {
     randomDice.innerHTML = "<img src=" + diceArray[throwDice()] + " />";
     // randomDice.innerHTML = 
 }
