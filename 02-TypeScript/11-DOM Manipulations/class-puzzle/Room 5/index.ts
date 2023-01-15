@@ -12,7 +12,7 @@ const diceArray = [dice1,dice2,dice3,dice4,dice5,dice6]
 
 const randomDice:HTMLDivElement | null = document.querySelector("#randomDice");
 
-if (randomDice && randomDice != null){
+if (randomDice != null){
     randomDice.innerHTML = `<img src=${diceArray[throwDice()]} />`;
 // randomDice.innerHTML = 
 }
