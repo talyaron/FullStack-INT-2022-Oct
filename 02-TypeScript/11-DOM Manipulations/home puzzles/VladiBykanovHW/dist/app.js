@@ -114,7 +114,6 @@ var newItemName = document.querySelector(".newItemName");
 var newItemDepartment = document.querySelector(".newItemDepartment");
 var newItemType = document.querySelector(".newItemType");
 var newItemLink = document.querySelector(".newItemLink");
-var submitNewItemBtn = document.querySelector(".submitNewItem");
 var urlRegex = new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/);
 var addItemForm = document.querySelector(".addItemForm");
 // render items to screen when page is loaded for the first time
@@ -144,7 +143,9 @@ openFormBtn.addEventListener("click", function () {
         console.log(error);
     }
 });
-submitNewItemBtn.addEventListener("click", function () {
+addItemForm.addEventListener("submit", function (e) {
+    //Preventing page of refrashing affter submiting form
+    e.preventDefault();
     var priceValue = parseFloat(newItemPrice.value);
     var nameValue = newItemName.value;
     var departmentValue = newItemDepartment.value;
@@ -195,4 +196,6 @@ var doesImageExist = function (url) {
     }).then();
     console.log(newPromise);
 };
-doesImageExist("https://img01.ztat.net/article/spp-media-p1/25fba27a171632689b1e9b0723884732/7a14e2a8b5c945059d7ae8c2051fae41.jpg?imwidth=1800&filter=packshot");
+// doesImageExist(
+//   "https://img01.ztat.net/article/spp-media-p1/d5e1e146adfb350dbd5165d561870b55/b3085171bfa240aba35322de6f8a1e66.jpg?imwidth=1800&filter=packshot"
+// );

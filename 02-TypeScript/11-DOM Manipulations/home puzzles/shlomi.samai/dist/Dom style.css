@@ -1,0 +1,20 @@
+.body {
+  width: 500px;
+}
+
+#myFirstDOM {
+  height: 200px;
+  width: 200px;
+  background-color: aqua;
+}
+#myFirstDOM img {
+  width: 100%;
+}
+
+.myFirstDOM {
+  height: 200px;
+  width: 400px;
+  background-color: #ff0095;
+  display: flex img;
+  display-width: 100%;
+}
