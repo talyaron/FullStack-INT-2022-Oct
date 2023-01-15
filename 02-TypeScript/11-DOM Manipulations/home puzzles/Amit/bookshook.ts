@@ -52,7 +52,7 @@ function search(): void {
             let results = document.querySelectorAll<HTMLElement>(".results__book");
 
             for (let i = 0; i < results.length; i++) {
-                if (results[i].innerHTML.toLocaleLowerCase().includes(userInputValue)) {
+                if (results[i].innerText.toLocaleLowerCase().includes(userInputValue)) {
                     results[i].style.display = "";
                 } else {
                     results[i].style.display = "none";

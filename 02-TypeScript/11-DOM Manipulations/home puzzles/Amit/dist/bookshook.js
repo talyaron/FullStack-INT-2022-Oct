@@ -38,7 +38,7 @@ function search() {
             userInputValue = userInputValue.toLocaleLowerCase();
             var results = document.querySelectorAll(".results__book");
             for (var i = 0; i < results.length; i++) {
-                if (results[i].innerHTML.toLocaleLowerCase().includes(userInputValue)) {
+                if (results[i].innerText.toLocaleLowerCase().includes(userInputValue)) {
                     results[i].style.display = "";
                 }
                 else {
