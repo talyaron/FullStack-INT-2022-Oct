@@ -1,3 +1,4 @@
+//tesk 1
 function addImage() {
     try {
         var picture = document.querySelector('#picture');
