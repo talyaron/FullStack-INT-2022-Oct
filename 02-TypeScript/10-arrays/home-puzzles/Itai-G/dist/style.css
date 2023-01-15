@@ -8,11 +8,13 @@ input {
   font-size: 1rem;
 }
 
-.productsCards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+#productsCards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 0.25;
-  margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
 .card {
