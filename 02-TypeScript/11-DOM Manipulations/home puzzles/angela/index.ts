@@ -1,23 +1,12 @@
-const img:HTMLDivElement | null = document.querySelector(".imgBox");
+let popUp:HTMLDivElement | null = document.querySelector("#popup");
 
-const addImg=[];
+function openPopup(){
+    popUp?.classList.add("open-popup");
 
-
-function addPrompt(){
-    for(let a = 0 ; a < 5; a++){
-        let pr = prompt("enter an url");
-        
-        if (!pr || pr=== null) {
-            alert("please enter a vail url");
-        } else {
-            img?.innerHTML=`<div class="imgBox">
-            <img src='${pr}'/>
-        </div>`;
-        const count =addImg.push(pr);
-
-        }
-    }
 }
-addPrompt()
-console.log(addImg)
-
+function closePopup(){
+    popUp?.classList.remove("open-popup");
+    
+}
+openPopup();
+closePopup();
