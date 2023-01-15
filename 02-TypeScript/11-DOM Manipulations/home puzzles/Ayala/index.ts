@@ -6,6 +6,7 @@ const title: HTMLDivElement | null = document.querySelector("#title");
 console.dir(title);
 
 const NameOfPicture: string | null = prompt("what is the name of the picture");
+console.dir("name of the picture" , name)
 // const NameOfPicture: string | null = "puppy";
 
 const imageUrl: string | null = prompt('Enter image url')
