@@ -1,3 +1,5 @@
+//task 2
+
 let imageUrls: string[] = [];
 
 for (let i = 0; i < 5; i++) {
