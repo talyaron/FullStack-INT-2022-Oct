@@ -1,7 +1,8 @@
+//task 2
 var imageUrls = [];
 for (var i = 0; i < 5; i++) {
     var imageUrl = prompt("Enter an image URL:");
-    imageUrls.push(imageUrl);
+    imageUrls.push("" + imageUrl);
 }
 var container = document.getElementById("container");
 for (var i = 0; i < imageUrls.length; i++) {

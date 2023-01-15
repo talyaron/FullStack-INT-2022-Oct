@@ -9,8 +9,4 @@ if (imgInput!==null && test ) {
   test.innerHTML=`<div class="myFirstDOM">
   <img src='${imgInput}'/>
   </div>`;
-  console.dir(test);
-  test.innerHTML=`<div class="myFirstDOM">
-  <img src='${imgInput}'/>
-  </div>`;
 }
