@@ -3,6 +3,7 @@
 var title = document.querySelector("#title");
 console.dir(title);
 var NameOfPicture = prompt("what is the name of the picture");
+console.dir("name of the picture", name);
 // const NameOfPicture: string | null = "puppy";
 var imageUrl = prompt('Enter image url');
 for (var i = 0; i < 5; i++) {
