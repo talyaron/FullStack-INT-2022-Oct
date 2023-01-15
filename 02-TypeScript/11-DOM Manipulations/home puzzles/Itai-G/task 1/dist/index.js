@@ -1,3 +1,4 @@
+//task 2
 var imageUrls = [];
 for (var i = 0; i < 5; i++) {
     var imageUrl = prompt("Enter an image URL:");
