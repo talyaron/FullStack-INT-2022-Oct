@@ -4,12 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>book nook</title>
     <link rel="stylesheet" href="./dist/index.css">
+    <script src="https://kit.fontawesome.com/1616f543b6.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://cdn.pixabay.com/photo/2016/03/31/18/50/book-1294676_960_720.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div class="imgBox"></div>
+<body> 
+    <div class="header">
+        <div class="header__icon">
+            <div class="header__icon--img">
+                <img src="https://cdn.pixabay.com/photo/2016/03/31/18/50/book-1294676_960_720.png" alt="">
+            </div>
+            book nook
+        </div>
+        <div class="header__searchBar">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="the search for books continues ..." >
+        </div>
+      <div class="header__rightBar">
+        <button id="btn" onclick="openPopup()">Advance</button>
+        <div class="header__rightBar--popup" id="popup">
+            <h2>Advance search</h2>
+            <p>please enter one of the field below to start a search</p>
+            <input type="text">
+            <span>Category</span>
+            <input type="text">
+            <span>Author</span>
+            <input type="text">
+            <span>price</span>
+            <button type="button" id="close" onclick="closePopup()">close</button>
+        </div>
+        <i class="fa-regular fa-heart"></i><p>wishlist</p> 
+       <p>sign out</p>  
+       <p>my account</p> 
+      </div>  
 
+    </div>
+    
     <script src="./dist/index.js"></script>
 </body>
 </html>

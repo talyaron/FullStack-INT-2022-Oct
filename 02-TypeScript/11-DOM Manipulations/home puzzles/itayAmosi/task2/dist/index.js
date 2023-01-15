@@ -1,5 +1,4 @@
 //task1
-
 // function addImage() {
 //   try {
 //     const picture: HTMLHeadingElement | null = document.querySelector(
@@ -20,10 +19,7 @@
 // }
 // addImage()
 // console.log(addImage)
-
-
 //task2
-
 // function addImage() {
 //   try {
 //     const picture: HTMLHeadingElement | null = document.querySelector(
