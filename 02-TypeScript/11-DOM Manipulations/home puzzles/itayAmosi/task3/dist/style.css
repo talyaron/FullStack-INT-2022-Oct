@@ -57,6 +57,9 @@ body {
   width: 550px;
   height: 50px;
 }
+.wrapper #btn_search {
+  padding: 15px;
+}
 .wrapper__container {
   display: grid;
   grid-template-columns: auto auto auto;
