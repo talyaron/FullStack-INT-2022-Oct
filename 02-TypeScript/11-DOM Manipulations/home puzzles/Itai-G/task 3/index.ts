@@ -32,42 +32,29 @@ class GameShop {
     samsungTv,
   ]
   
-  // task 1
-  function getTypes(item: GameShop) {
-    console.log(item.types);  
-  }
-  items.forEach(getTypes)
-
-  // task 2
-  const min = Math.min(...items.map((item) => item.price))
-  
-  
-  // task 3
   items.sort((a, b) => a.price - b.price)
-  
 
 
-  // UPADTE
-  const searchBox = document.getElementById("searchFild") as HTMLInputElement;
+const searchBox = document.getElementById("searchFild") as HTMLInputElement;
 
-  searchBox.addEventListener("keyup", () => {
-    const searchValue = searchBox.value;
+searchBox.addEventListener("keyup", () => {
+  const searchValue = searchBox.value;
+
+  const filteredArray = items.filter(item => item.name.includes(searchValue));
+
+  updateUI(filteredArray);
+});
+
+function updateUI(filteredArray: GameShop[]) {
+  let searchResultContainer = document.getElementById("productsCards")as HTMLDivElement;
+  searchResultContainer.innerHTML = "";
   
-    const filteredArray = items.filter(item => item.name.includes(searchValue));
-  
-    updateUI(filteredArray);
+  filteredArray.forEach(item => {
+    let div = document.createElement("div");
+    let imge = document.createElement("img")as HTMLImageElement;
+    imge.src = item.productImg
+    div.innerHTML = `${item.name} ${item.price}$`;
+    div.append(imge);
+    searchResultContainer.appendChild(div);
   });
-  
-  function updateUI(filteredArray: GameShop[]) {
-    let searchResultContainer = document.getElementById("productsCards")as HTMLDivElement;
-    searchResultContainer.innerHTML = "";
-    
-    filteredArray.forEach(item => {
-      let div = document.createElement("div");
-      let imge = document.createElement("img")as HTMLImageElement;
-      imge.src = item.productImg
-      div.innerHTML = `${item.name} ${item.price}$`;
-      div.append(imge);
-      searchResultContainer.appendChild(div);
-    });
-  }
+}

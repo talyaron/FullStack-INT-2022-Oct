@@ -30,16 +30,7 @@ var items = [
     lgTv,
     samsungTv,
 ];
-// task 1
-function getTypes(item) {
-    console.log(item.types);
-}
-items.forEach(getTypes);
-// task 2
-var min = Math.min.apply(Math, items.map(function (item) { return item.price; }));
-// task 3
 items.sort(function (a, b) { return a.price - b.price; });
-// UPADTE
 var searchBox = document.getElementById("searchFild");
 searchBox.addEventListener("keyup", function () {
     var searchValue = searchBox.value;

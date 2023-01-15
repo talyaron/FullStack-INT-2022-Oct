@@ -1,11 +1,13 @@
+//task 2
+
 let imageUrls: string[] = [];
 
 for (let i = 0; i < 5; i++) {
   let imageUrl = prompt("Enter an image URL:");
-  imageUrls.push(imageUrl);
+  imageUrls.push(`${imageUrl}`);
 }
 
-let container:HTMLElement = document.getElementById("container");
+let container = document.getElementById("container") as HTMLDivElement;
 
 for (let i = 0; i < imageUrls.length; i++) {
   let img = document.createElement("img");
