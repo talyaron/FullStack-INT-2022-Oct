@@ -5,7 +5,7 @@ for (let i = 0; i < 5; i++) {
   imageUrls.push(imageUrl);
 }
 
-let container = document.getElementById("container");
+let container:HTMLElement = document.getElementById("container");
 
 for (let i = 0; i < imageUrls.length; i++) {
   let img = document.createElement("img");
