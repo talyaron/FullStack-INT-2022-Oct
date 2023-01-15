@@ -1,0 +1,226 @@
+body {
+    margin: 0%;
+}
+
+.wrapper {
+    width: auto;
+    height: 255vh;
+    background-color: antiquewhite;
+
+
+    &__head {
+        margin-top: -15px;
+        width: 100%;
+        height: 90px;
+        background-color: rgb(251, 255, 0);
+        padding: 0%;
+        font-size: 4rem;
+        text-align: center;
+        position: fixed;
+
+        .outin {
+            width: 250px;
+            height: 250px;
+            display: inline;
+            background-color: rgb(241, 5, 190);
+            border: px1;
+            animation-name: pop-outin;
+            animation: 2s anim-popoutin ease infinite;
+        }
+    }
+
+
+    @keyframes anim-popoutin {
+        0% {
+            color: black;
+            transform: scale(0);
+            opacity: 0;
+            text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        }
+
+        25% {
+            color: rgb(8, 187, 8);
+            transform: scale(2);
+            opacity: 1;
+            text-shadow: 3px 10px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        50% {
+            color: black;
+            transform: scale(1);
+            opacity: 1;
+            text-shadow: 1px 0 0 rgba(0, 0, 0, 0);
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+            text-shadow: 1px 0 0 rgba(0, 0, 0, 0);
+        }
+
+    }
+
+    #query {
+        margin-top: 190px;
+        margin-left: 450px;
+        width: 550px;
+        height: 50px;
+
+    }
+
+    #btn_search {
+        padding: 15px;
+    }
+    #productsCards {
+        display: flex;
+        // grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
+        gap: 25;
+        align-items: center;
+        margin-top: 1rem;
+        justify-content: center;
+
+    }
+    
+    .card {
+        border: 1px solid black;
+        background-color: white;
+        padding: .5rem;
+    }
+    
+.searchWapper {
+    display: flex;
+    flex-direction: column;
+    gap: .25;
+}
+
+input {
+    font-size: 1rem;
+}
+.card > .productName {
+    margin-bottom: .25rem;
+}
+
+.card > .body {
+    font-size: .8rem;
+    color: #777;
+}
+img {
+    width: 85px;
+    height: 70px;
+}
+
+    &__container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        justify-content: center;
+        padding-top: 150px;
+        gap: 5px;
+
+
+
+
+
+        .Fifa2022-img {
+            background-image: url(https://cdn.shopify.com/s/files/1/0272/6084/6180/products/ps5-fifa2022-11_1000x.jpg?v=1633429984);
+            width: 200px;
+            height: 190px;
+            border: 2px solid black;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+
+
+        }
+
+        .Fortnite-img {
+            background-image: url(https://www.cjs-cdkeys.com/product_images/img/o/6649.jpg);
+            width: 200px;
+            height: 190px;
+            border: 2px solid black;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+
+        }
+
+        .Emancipation-img {
+            background-image: url(https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS0oAkT3etqKxnnFmVkOdyg1KqhFovsdO7BZ7DkoV2SnAmvN8J9);
+            width: 200px;
+            height: 190px;
+            border: 2px solid black;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+
+        }
+
+        .God_of_War-img {
+            background-image: url(https://i5.walmartimages.com/asr/80d588ee-f05e-4727-998a-bf05c743117a.5930d31ee72baf4b40f776aada31ceeb.png);
+            width: 200px;
+            height: 190px;
+            border: 2px solid black;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+
+        }
+
+        .controller-img {
+            background-image: url(https://scufgaming.com/media/prismic/5d36ce27-565c-4dae-866b-1fda40cc8e0a_pro_fps_light_gray_playstation_4_controller_850x600.png);
+            width: 200px;
+            height: 190px;
+            border: 2px solid black;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+
+        }
+
+        .lgTv-img {
+            background-image: url(https://tidal-cms.s3.amazonaws.com/assets/696752e0-7b3e-11eb-a264-df2c48b80ec3/LGTV-product.jpg);
+            width: 200px;
+            height: 190px;
+            border: 2px solid black;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+
+        }
+
+        .HDMI_cable-img {
+            background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBYWFRgWFhYZGRgaGhwcHBocHBwfHBwaHxwaGhoaGhwcIS4lHR4rIRgaJjgmKy8xNTU1GiQ7QDs0Py40NTEBDAwMEA8QGhISGDQlJSE0NDQ0NDQ0NDE0MTQ0NDQ0NDQxNDExNDQxNDQ1NDQ0MTQ0NDQxNDQxMTQ0NDExNDQ0NP/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAABQIDBAYHCAH/xAA7EAACAQIDBgMGBQQCAgMBAAABAgADEQQhMQUGEkFRYSJxgQcTMpGhwUJSsdHwFGJy4SPxgrJDkqIk/8QAGAEBAQEBAQAAAAAAAAAAAAAAAAECAwT/xAAhEQEBAAICAgMAAwAAAAAAAAAAAQIRITEDURJBYSJxof/aAAwDAQACEQMRAD8A5Ti8C6GxEx0Yidc3o3RalfiW6HRhof2M53tPY5Q3Ayka2s4LaBUjP1m/7sb81aNgW405qcx/qcvZSNZfoYgrBY9R7D3ho4lRwMA35Sc/TrJmeYNl7ZdCCrEGdY3V9oCvZK57cfP16/rCadHiWqFZXUMpBB0I0mHi9s4elk9ZFPTiBPyGcqJGJEYfeTCObLiKd+7W/wDa0lVN9NIFUREBERAREQEREBERAREQEREBERAREQEREC1WpK6lWAZTqDpNB3m3IuC1AXGpTmPLqPrOhxA8z7X2IRfKxE1ivhmXUT09vDuxTxALCyVPzcj/AJD7zke392npOUdLfoR1B5yNSudU6lpI4XFHrGM2Uyk2lpKJVAxGbEgeQyP1/SDtslPeauicCVHVSPFZiL/6mAMUx1Y/OYVJxLvBzEokKVe2c2bd/eythyAj3Tmj5r6HUTT0BlT11XuYR3vY++OHrABmFN+YYjh9G0+djJmjtSgx4UrU2PRXUn5AzzI+Id9MhK6VFic3I8v9wPUsTjm5u+b4c+7r1Hq0rZcQu6nlwsTmv9p9Lc+jYHenCVfhrKp6P4T9cj6GETsSlWBzGcqgIiICIiAiIgIiICIiAiIgIiICIiAmHj8BTrLw1FDDl1HcHlMyIHKd6Ny2pguniTrbMD+4ff8ASaDtvBWCLb4V/Um89Jzkm/8AgVXEkKoUFFYAacwSB5gwscqRba/w/tMmg95kY/CcxI2rUKCw+I/S/wDqRpk1Kt24V5anv2mRSw4mHhVsJJ0jKmmNicGHFrkeX3lFOmEHCtz5mSVpbenmSNbQjE4m6StMQwn0oSbE59BlfyMp4La2A6QJfZu8Veif+Oq6dgTb1GhnQN2faMreDFmx5VFXLyZV/UD05zlJp3F9JTciB6O2btzD4gkUqqORmV0a3Xhaxt3taSc80YPHMjK6sQym6kZEHqDyPlNy2J7QsRTdRVYVKf4lYeMDqrjn2YHzGsI7NE13ZG+GExDBFqcLnRHHCW/xPwt5AmbFAREQEREBERAREQEREBERAREQE0D2n4AstOso8S8S8XQ24l9Mmm/zD2hglrU2puMmHyOoI7gwPPuEU1EIdeFxqLc78uokK+F48QV5KL/ab/tzYlTDsVYZA3VhoR1B+01vB0h/Ut3T9GkaRdagRKsO/UiZW2V4OUikIsWY2AzvBtLI0ugSCw7ufGgPBe2Z8R6kDpJTC4riy0IlF+pRBExnRh0PcjxAemszFaV2B7QiONMnMeLofwj0ELncMLEc+RmU+GIN1JU9Rz8xoZaann8ALD8R5wLBp8xKMxrMtBc3YFSOunoZQQG0+cChKjDTkb+vXzm2bG39xVFgXc1U/EjG+X9rHxKfUjtNVFPKUlYHZcJ7SsG3xCpTPdQw9CpP6TYdm7wYbEZUqyOfy3s3/wBWsfpPOzRTqlSCGIIzBBzHlA9PxOU7oe0UgrSxbXU2C1eY/wA+o769b8upI4IBBBBFwRmCDoQYRciIgIiICIiBbp1AwDKQQRcEaES5OMbk77NRtTc8SHkTmPIzr+ExK1FDIbg/yx7wMiIiAiIgYm0MAlZClQXU/MHqDyM4rvHsg4PHU1vdWB4W6q2l+91IndZqu++7X9ZSBQgVqZ4kJ0PPhJ9Bn+8DkW18Pxug7G48pqW1gfeimNBb+fzrN82pQdHpl0ZHuQykWs1rEdx0PMGag9If1FZm/Clx8rSNLLYkjhpJll4m6DtMivQVADxEMchncsfLr3kbs88Cmo3X5/y8zdmKXY1G+Ll2XteUZuExl/CwIbvrfvM8NIZqprMVQAKurkXv0tM3Au1irDNYRnK5Gk+8Y5j5ZS3ECgYZb3uddDnb6y6qKOZ+U+Wn2EUVMz0lkrMjh6/KWauIC5DX6wLT0+uUsO6ryB7n9p9dmbsPrLZp89fOZuUa0pOLf8OXkAJM7H3rxmHYFKzWH4G8SkdCpyHpYyFJlQEvaPRu7e11xWHp1wLFhZl/K4NmHlcZdiJLzn3sgqk4aqvJatx6qt/0nQZUIiICIiB5Kw9cjnN43S31qYdgCSyHVTpOfMhU2PKX6dSRux6j2JtqliUD028xzH7jvJSeZtg7w1cOwZGII+U7VunvtSxQCsQtTpyY9uh7Qw2+IiUIiIGtb6bC/qaF0H/LT8Sd7ZlPX9ZwjE0z/UuCCOOi2R63vb0npycq9pu7ZFWnjaS+EErW4RoGy94e2eZ9ecDkmLH/APNRC/iNj5i/7S3j2KIqD8QF/uJlV0K0bEWNOuQe2Y/eWdqU74nh/mcKycLXWjTueQ0/Mx0/naZezCzKGbVs/uB8iJC7WXxhOQz+0lsRxI9hpkPlpCpAQJYpYoHWVq98xkOphF+UVa4Ufy8xamIJNl+c+JTHPM95jLLSzHav3pbTIfWUhAIY2llqlzZRfy+5nO5WtSaXnYf7mK73yAue336TJp4Rjm59Bl8zqfpMylQAyA9BJtUbTwDNmxsOg+5/b5zKo7NZmC0xft/uSmGwLudJtmydkimLn4pm52L8dpr2XYF6KV0qLY8asCDcEFSMvlN8mh0qjKQykgjQjWT2A26DYVcv7hp/5Dl56eU3h5ZeKxljfpPxKEYEXBBB0tK53YIiIHnbendpqTlWWx/mnWadWpFDYz1NtrY9PEpwuM/wtzB+47TjO9+6T0X8S+E6MNDI1K0Cm8kMHjGQhlNiOcxcXgihlilVtkYLHadzfaDcLSxGY0D8x59R9Z0ylVV1DKQynQjMGeVqVQjMHKbrulvtVw7AMeOmdVP26HvKjvMSM2PtmliUD02vlmv4l8x95JwhKSL5GVRA5J7QNw2tiK9AAo6h2TQo6c1HNSPlYctOW7Uv7ylU5Oqn1vYjzBuJ6rIvOV7/AO4Cii9XDKfAxqe7Avw3zfg58Nxfh5Z2yyBXK8egOJUEaqPvJfFU7k3kXtE3ahU0DC3rzF/O8mKh1gRtahYXlipieKyA5AeL9pLPTujeQ+5+0gqNM2J6mSiTpsLZT41XOwFz/Nekihx3yN+3WTOCPEl+AgDIm2QPQnr5zjlw3FKYcnNj6D95mUktkBYeUu0cMX0F5PYDYrGxbKYuTWkRRwzNoDJvZ+wic2FpO4TZypyzmcigTFyXTHw2BVBYCZNp9MTntpSYAn0JIja28NDD5MeN+ILwJnZjoHcZD0jGXK6kS6ieweNemfCctSp+HzP5fPKbJsjaaYhC6kZMVNiCLi2hGoznBdob4PVZkcgDjIVEvw20Bbqb31vOq+y43wrMNDVb5hVB8+npPXhjljrdcsrK3WIidmH2YmPwSVkKOLqfmD1HQzLiBxve3c96N2A4kvkwH69DOc7S2aUNwJ6lq01ZSrAFSLEHQic63t3KsC9EXXUrzH7iRqVxTCPY2My2S2YmRtfZpQ8QHnMKjXtkYKmdh7eqYdgysQR3naN1t9KWJARiFqd8g3l0PacEamDmsroV3QggkHrKj1NE4LhPaJjKae7V1IGjMvEw8r5W7G8zMD7ScapBYpUHNWVVy7FAM5DTt0TVd399cPigASaT/lfIE/2tofoZs/GL2uL9Lyo0rfXcGli6LCiq0q3EXBAsrNz4gNCeoHnOV43A1aJFOupWoqqGFwc7DO4yN9b956Mmge0Xd1qtq9NSxVeFwNbDMNbnqQfSBy3DnJh5fz6yMo24c+/6yVRCrEdj9jIZDYsP7jCqOAh/CMrazoO5OIdWIy8YCm4BVhyDqfiX69DNFvJjYe2WoOCRdfqPLr5Th5cLZuN43Xbp52XS4rIgR9eDk3em34v8T4hPnABl0ytzHpylWAxSVk41IdW+h/UMPmJknMeO7Wy4wLuvZh/8i9/i855Zlvi8V1s9MYCfQJcqUitibFW+FlzVvIjn21kbtTbNDDj/AJXAa4ARc2udAeS+vyiS26kTcSASRW19vUcOp4m4nyHAmZudOIjJZqm196K9RTY/01I1RT48yGvmQzjPQfK5tNSxG0QrOtIH3i1wwcMGRkXiGh5EhD0IuD37YeH2zcvTaNtbx1nADN7ii1UJxLdgQLF+MjM2BBt00mlV3qVHdafwcZJYZKeXEWOgsO2UyWwjVHZqjDicvU4VBCg3JJA0AubcvWbZuzuhicUqcKcFLg4Sziym+rKBm2R5ZG+s9GMmLF5WfZ3uauIrgOeJFUO7LoFPwqp6sb59Fad9w2HSmioihVUWVQLAAcgJE7rbvU8FR90mZJu72ALHQZDQAWAH+5OTU9s19iIlQiIgIiIGmb2bmpiFZqQCudV0Ddx0P0M4ZtnY70HKOpUg6kW/6nqWQW8u7VLGJZwAwHha2fkeokWV5rw9VlNjMkOCSZsO8e6r4VrMuVjY8jyuDzGc12nSupYcoafWQ8pWMtZ8RxwknQfy0pSkX8TZDkvbvKimrtIrkDbyNvrFN3ax4vW5lx8CrWut7Sv3YUdBCNv3T3qxGGZQcR7ynlxU3ucv7GJJU/TtOt4HebC1fhrJfox4T/8ArX0nnQOeQP6StcU46+hgd527ufQxPjW1Nz+JQCrf5D7i3rOH7c2TUw1d6dRCpBvnoR1U8wesy9m7z16JHBUdO1yAfMaGbNT35FYBMZQp11GhZQrDyYaegkGgASU2TsPEYluGjSd+4FlHm58I9TOn7BqbGqEcNFEc6LVBIv5sSvztN/pKoUBQAtsgLWt2tyhGhbn7hVMM3vK1c3Izpp8J/wAiwz9APObDjcCyksM16jl5/vNgic/J4pnP1vHOxzTe2oUwzujMpuOIKSATceIgfitcX79hbktfbQZF4Fb3oqAgEKysgF8xrxcXLoZ6H29u2mJTg4igJBJAB0IOQOXKajtf2bcK3wzcTaFXsL9wwGUnjxuM1TLLd3HIxhmdz71uEVGaoKSE8PFmTley2BKjU2NpsO7m6dfElDSohFF+It8AJy+LnYZ2F8+k6Luz7NKVII2Ib3jLog+Ac/EdWz8hplN+pUwoCqAAMgALADsBOnP1wjUd3PZ/hsOFLj3rqBbi+BbflU6+ZvNwAtKolkkTb7ERKhERAREQEREBERA1/fXAe+wdVQLso4ly/KQxt5gETgowfAWIORBuOYM9MzlXtB3RFJHxNHJOEh0/KSQAR1W59L9NIscharxNb8I5dTykpRe+sjtn4biuZnAWhplBZ8elcj+es+o0uqeUqMKohvmfLp/35ykLbI3+5/aZzKOctNR6eohGOyXEslSNPl+3SZZQDMZemZHpPoQa/wA9YFinWOoJE2HYe+GJw1gr3T8jeJT6HT0tID3dj5z6UkHadg+0TD1rLV/4X75oT2bl6/OblSqqwDKwZToQQQfIieY7GSOzds1cM3GlRkPRTmfMaW84R6QicLb2qY0EW92QOqa+diM/K06DuTvvTxw4HUJXAJKj4WA1KXz8wfrnZsbnERKEREBERAREQEREBERAREQEjdvbP/qMPVo/nQgf5ai/a4Ekogea8BgGpu9NwVdGIIORBuRYzH2inALnS87xt/dOhiWFQ3SqBbjUDxDSzr+Id8jpnONb77LegzI4zVteTLnZhIu0YKTCxHiHaXEe8xcNiGQmxuAgax75zLSujgE+Bjz5GVVwGCIIIyb0I0M+nLWEUkSgrLtp9VbwLISVe6yuchLjuq62+0jsTjSdJLdC7XrhdMu/ORlRyZW3fOWmmfkafVWbBufijSxmHe9rVEB/xY8LD5EyFwyMeWUysM3CynPIg/I/rEyl6XWnqGJQjAgEaEXlc2yREQEREBERAREQEREBERAREQE1jffdpcbQZRYVVBKN1OvAT0P0+c2eIHl/E4B0ZldSrqjI6kWKsuYv6DWYtN7+6HUEeoJH2noreXdqnilJsFqgeF7a/wBr/mX6jl34ZvBsGphnVHUrwOD/AOJa9weYNjn/ANSKwsNiyLjVQbEGZaOpOWkimQqayjO3i+ZIP2l9AbIRzRP/AFEKkjMavjgMlmFi8UfgHO1z2HL5yyDJbokVVHLHMy20+F+Xf68pnUMAT8WXb95yyy1zWpGJSRmYKoJJ0Aklh9lHh4ny6Lz+X3mZh8MqWsLGSGGwrtnf1nHLO3puYyLeCwS5ZZ2kwuyKKqrVyqK54VLMEux04ST/AKmfgNlWsWyXrz7WmFjt2XrVeI1uPuwN1Xoo+EL5WE4TKfLvX61Zx1t03ZW1U4FRrqyqq+LQ2AAN+pk1OK4neLD4FVoUQatToCWVepY87flGWU6PuJialTBo9TUs9ja114jwkDpPZ4ss7P5T+nHKSdNliInoYIiICIiAiIgIiICIiAiIgIiICRW29iUcUhSqt+jfiU9j8stJKxA4HvVujVw1VmYcSOjKHA8JOunI+HT9dZB7IsUUHVSV+TG30tPSGJwy1FKOoZWFiDp/O85LvnuiuEIqU7mk7nzRiL2uOR4de3zg5tiKVqj31vLFQNcW1Jt9pIbVFqhOeYv/AC0xTTVhZhcRZtqVJ7NKAGyENbxNqbcwPyjyzPXlJTD01b4dOvWR+x8cKTocsra6W0zOo851HC4GjVRayoqlh8aDwk/3qmQP9y/KeHy243mO2PM4ajU2clFUfEP7sNbhUqWdgT8fCviVB1M2TDYekEDIVccmBDKe+UwNobqKXLtUYKfEzMQ1x1FQnMW85EbS3oo4Ye4wKcb53f8ACrXsWPU5HM9OUxcLnqY22/fqLuTtsu0cfSw6F6zhFtkNWbsB95ou1t5q2IBWlehQPP8AG47DU/pMbZuyMRja3Eb16pzufgUHpy9TlprOtbsbhUqFqla1Wr3+FTrkDr6/Kejx+DHHvm/5HPLO38jSN0twqtYhyDSpXzds3qDTK+fXPTTWdow9BURUUBVUBVA0AAsBL0T0Se3O19iImkIiICIiAiIgIiICIiAiIgIiICIiAmNi8KlRSjqGVsiDp/3MmIHA/aVu/wD01dOAE02W6k/Irftl6ETUFnprbGyKOJpmnWQMvLkVPVSNDNEb2S0uO4xDhPylQTbpxXt9JByTDUXdgqKWZjYAAkk9ABrOv7g7nYmipavUKKwv7kWJvyZibhT2GvPpNr3f3Xw2DH/EniOrtm59eQ7Cwk5JcZlNVZddOe787sVaqf8ACGbqFNjzzA0vcDzsOkgN1/Zu7Z1lNGmD8P42t1/c9rCdhiZxw+M1Oi3fbB2Zsulh0CUkCr21PcnUmZ0T7NySdIREShERAREQEREBERAREQEREBERAREQEREBERAREQERED5E+xAREQEREBERAREQERED/9k=);
+            width: 200px;
+            height: 190px;
+            border: 2px solid black;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+
+        }
+
+        #Nope {
+            color: red;
+        }
+
+        #White_Noise {
+            color: red;
+        }
+
+        #Strange_World {
+            color: red;
+        }
+
+        .index {
+            height: 5px;
+            width: 5px;
+        }
+
+
+
+    }
+
+
+
+
+}
+
+// @media only screen and (min-width: 600px) {
+// .container
+
+//   }
+//   @media only screen and (min-width: 900px) {
+//     width: 100%;
+//   }
