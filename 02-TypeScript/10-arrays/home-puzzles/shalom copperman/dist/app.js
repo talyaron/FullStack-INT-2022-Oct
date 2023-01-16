@@ -18,3 +18,31 @@ var mystore = [
     markPants,
     sheinCoats
 ];
+function cheapestProductIndex(items) {
+    try {
+        if (!Array.isArray(items))
+            throw new Error('the array is invalid');
+        if (itemns.length === 0)
+            throw new Error('the list is empty');
+        var minIndex = 0;
+        var minprice = items[0];
+        for (var i = 0; i < items.length; i++) {
+            if (items[i] < minprice) {
+                minprice = items[i];
+                minIndex = i;
+            }
+        }
+        return minIndex;
+    }
+    catch (error) {
+        console.log(error);
+        return false;
+    }
+}
+var index = cheapestProductIndex(mystore);
+if (index) {
+    console.log("the cheapest item is " + mystore[index]);
+}
+else {
+    console.log('there was an error during running time');
+}
