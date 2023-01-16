@@ -161,41 +161,43 @@ function displayItems(arr) {
     }
 }
 function submitForm(e) {
-    //Preventing page of refrashing affter submiting form
+    //Preventing page from refrashing affter submiting form
     e.preventDefault();
     var priceValue = parseFloat(newItemPrice.value);
     var nameValue = newItemName.value;
     var departmentValue = newItemDepartment.value;
     var typeValue = newItemType.value;
     var linkValue = newItemLink.value;
-    if (nameValue.length > 6 &&
-        linkValue.match(urlRegex) &&
-        priceValue &&
-        departmentValue &&
-        typeValue) {
-        var newItem = new Product(priceValue, nameValue, departmentValue, typeValue, linkValue);
-        products.unshift(newItem);
-        displayItems(products);
-        addItemForm.style.transform = "translateY(-100vh)";
-        newItemPrice.value = "";
-        newItemName.value = "";
-        newItemDepartment.value = "";
-        newItemType.value = "";
-        newItemLink.value = "";
-    }
-    else {
-        alert("Fill in all the info correctly.");
-    }
+    doesImageExist(linkValue)
+        .then(function (res) {
+        if (nameValue.length > 6 &&
+            res &&
+            priceValue &&
+            departmentValue &&
+            typeValue) {
+            var newItem = new Product(priceValue, nameValue, departmentValue, typeValue, linkValue);
+            products.unshift(newItem);
+            displayItems(products);
+            addItemForm.style.transform = "translateY(-100vh)";
+            newItemPrice.value = "";
+            newItemName.value = "";
+            newItemDepartment.value = "";
+            newItemType.value = "";
+            newItemLink.value = "";
+        }
+        else {
+            alert("Fill in all the info correctly.");
+        }
+    })["catch"](function () { return console.log('not real img'); });
 }
 // trying something (not working yet)
 var doesImageExist = function (url) {
-    var newPromise = new Promise(function (resolve) {
+    return new Promise(function (resolve, reject) {
         var img = new Image();
         img.src = url;
         img.onerror = function () { return resolve(false); };
         img.onload = function () { return resolve(true); };
-    }).then();
-    console.log(newPromise);
+    });
 };
 // doesImageExist(
 //   "https://img01.ztat.net/article/spp-media-p1/d5e1e146adfb350dbd5165d561870b55/b3085171bfa240aba35322de6f8a1e66.jpg?imwidth=1800&filter=packshot"
