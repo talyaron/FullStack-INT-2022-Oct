@@ -1,4 +1,3 @@
-//task 2
 
 let imageUrls: string[] = [];
 
