@@ -249,7 +249,7 @@ function displayItems(arr: Product[]) {
 }
 
 function submitForm(e: Event) {
-  //Preventing page of refrashing affter submiting form
+  //Preventing page from refrashing affter submiting form
   e.preventDefault();
 
   const priceValue = parseFloat(newItemPrice.value);
@@ -257,43 +257,46 @@ function submitForm(e: Event) {
   const departmentValue = newItemDepartment.value;
   const typeValue = newItemType.value;
   const linkValue = newItemLink.value;
-  if (
-    nameValue.length > 6 &&
-    linkValue.match(urlRegex) &&
-    priceValue &&
-    departmentValue &&
-    typeValue
-  ) {
-    const newItem = new Product(
-      priceValue,
-      nameValue,
-      departmentValue,
-      typeValue,
-      linkValue
-    );
-    products.unshift(newItem);
-    displayItems(products);
-    addItemForm.style.transform = "translateY(-100vh)";
-    newItemPrice.value = "";
-    newItemName.value = "";
-    newItemDepartment.value = "";
-    newItemType.value = "";
-    newItemLink.value = "";
-  } else {
-    alert("Fill in all the info correctly.");
-  }
+  doesImageExist(linkValue)
+    .then((res) => {
+      if (
+        nameValue.length > 6 &&
+        res &&
+        priceValue &&
+        departmentValue &&
+        typeValue
+      ) {
+        const newItem = new Product(
+          priceValue,
+          nameValue,
+          departmentValue,
+          typeValue,
+          linkValue
+        );
+        products.unshift(newItem);
+        displayItems(products);
+        addItemForm.style.transform = "translateY(-100vh)";
+        newItemPrice.value = "";
+        newItemName.value = "";
+        newItemDepartment.value = "";
+        newItemType.value = "";
+        newItemLink.value = "";
+      } else {
+        alert("Fill in all the info correctly.");
+      }
+    })
+    .catch(() => console.log('not real img'));
 }
 
 // trying something (not working yet)
 const doesImageExist = (url: string) => {
-  const newPromise = new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     const img = new Image();
 
     img.src = url;
     img.onerror = () => resolve(false);
     img.onload = () => resolve(true);
-  }).then();
-  console.log(newPromise);
+  });
 };
 
 // doesImageExist(
