@@ -141,6 +141,7 @@ for (let i in cothingStore) {
   }
 }
 
+
 const add = document.querySelector(".add") as HTMLButtonElement;
 add.addEventListener("click", (e) => {
   try {
