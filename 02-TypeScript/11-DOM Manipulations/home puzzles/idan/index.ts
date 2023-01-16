@@ -7,7 +7,7 @@ const imgURL:string[] = [];
 
 
 while(imgURL.length < numberOfProducts) {
-    const userInput = prompt (`please paste the url of an image that describes`);
+    const userInput = prompt (`please paste the url of an image`);
     if(isValidUrl(userInput) && userInput){
         //i added "&& userInput" because i dont like the red line there but i am fine with the other red line on the other place because of the try catch
         imgURL.push(userInput)

@@ -3,7 +3,7 @@ var images = document.querySelector("#imgs");
 var numberOfProducts = 5;
 var imgURL = [];
 while (imgURL.length < numberOfProducts) {
-    var userInput = prompt("please paste the url of an image that describes");
+    var userInput = prompt("please paste the url of an image");
     if (isValidUrl(userInput) && userInput) {
         //i added "&& userInput" because i dont like the red line there but i am fine with the other red line on the other place because of the try catch
         imgURL.push(userInput);
