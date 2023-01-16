@@ -20,7 +20,18 @@ var lesMiserables = new Book("Les Miserables", 100, "Historical", "French", 4285
 var doNotRaiseAHandAgainstTheBoy = new Book("Do Not Raise a Hand Against the Boy", 70, "Memoir", "Hebrew", 3030, "doNotRaiseAHandAgainstTheBoy");
 var fromTheKitchenWithLove = new Book("From The Kitchen With Love", 50, "Cooking", "Hebrew", 4700, "fromTheKitchenWithLove");
 var aTaleOfFiveBalloons = new Book("A Tale of Five Balloons", 20, "Children", "Hebrew", 2010, "aTaleOfFiveBalloons");
-var allBooksArray = [theLordOfTheRings, theNeverEndingStory, aPigeonAndABoy, fontanelle, nehamaTheLouse, myRussianGrandmotherAndHerAmericanVacuum, lesMiserables, doNotRaiseAHandAgainstTheBoy, fromTheKitchenWithLove, aTaleOfFiveBalloons];
+var allBooksArray = [
+    theLordOfTheRings,
+    theNeverEndingStory,
+    aPigeonAndABoy,
+    fontanelle,
+    nehamaTheLouse,
+    myRussianGrandmotherAndHerAmericanVacuum,
+    lesMiserables,
+    doNotRaiseAHandAgainstTheBoy,
+    fromTheKitchenWithLove,
+    aTaleOfFiveBalloons,
+];
 var bookData = document.querySelector("#bookData");
 if (bookData) {
     for (var i = 0; i < allBooksArray.length; i++) {
