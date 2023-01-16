@@ -143,7 +143,24 @@ openFormBtn.addEventListener("click", function () {
         console.log(error);
     }
 });
-addItemForm.addEventListener("submit", function (e) {
+addItemForm.addEventListener("submit", submitForm);
+function displayItems(arr) {
+    try {
+        ulEl.replaceChildren();
+        arr.forEach(function (ele) {
+            var li = document.createElement("li");
+            var img = document.createElement("img");
+            img.src = ele.getImg;
+            li.textContent = ele.getName;
+            li.append(img);
+            ulEl.append(li);
+        });
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+function submitForm(e) {
     //Preventing page of refrashing affter submiting form
     e.preventDefault();
     var priceValue = parseFloat(newItemPrice.value);
@@ -168,22 +185,6 @@ addItemForm.addEventListener("submit", function (e) {
     }
     else {
         alert("Fill in all the info correctly.");
-    }
-});
-function displayItems(arr) {
-    try {
-        ulEl.replaceChildren();
-        arr.forEach(function (ele) {
-            var li = document.createElement("li");
-            var img = document.createElement("img");
-            img.src = ele.getImg;
-            li.textContent = ele.getName;
-            li.append(img);
-            ulEl.append(li);
-        });
-    }
-    catch (error) {
-        console.log(error);
     }
 }
 // trying something (not working yet)

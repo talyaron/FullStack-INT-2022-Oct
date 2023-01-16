@@ -230,7 +230,25 @@ openFormBtn.addEventListener("click", () => {
   }
 });
 
-addItemForm.addEventListener("submit", (e) => {
+addItemForm.addEventListener("submit", submitForm);
+
+function displayItems(arr: Product[]) {
+  try {
+    ulEl.replaceChildren();
+    arr.forEach((ele) => {
+      const li = document.createElement("li") as HTMLElement;
+      const img = document.createElement("img") as HTMLImageElement;
+      img.src = ele.getImg;
+      li.textContent = ele.getName;
+      li.append(img);
+      ulEl.append(li);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+function submitForm(e: Event) {
   //Preventing page of refrashing affter submiting form
   e.preventDefault();
 
@@ -263,22 +281,6 @@ addItemForm.addEventListener("submit", (e) => {
     newItemLink.value = "";
   } else {
     alert("Fill in all the info correctly.");
-  }
-});
-
-function displayItems(arr: Product[]) {
-  try {
-    ulEl.replaceChildren();
-    arr.forEach((ele) => {
-      const li = document.createElement("li") as HTMLElement;
-      const img = document.createElement("img") as HTMLImageElement;
-      img.src = ele.getImg;
-      li.textContent = ele.getName;
-      li.append(img);
-      ulEl.append(li);
-    });
-  } catch (error) {
-    console.log(error);
   }
 }
 
