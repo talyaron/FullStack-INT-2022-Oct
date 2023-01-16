@@ -1,4 +1,4 @@
-class product {
+class products {
     constructor (
         public name:string,
         public brand: string,
@@ -8,7 +8,14 @@ class product {
 
     }
 
-const shirt new product ("shirt","zara","man",120);
-const pants new product ('pants','mark','women',170);
-const coat new product ('coat', 'shein','unisex',249);
+const zaraShirts new products ("shirt","zara","man",120);
+const markPants new products ('pants','mark','women',170);
+const sheinCoats new products ('coat', 'shein','unisex',249);
+
+const mystore: products [] = [
+    zaraShirts,
+    markPants,
+    sheinCoats
+];
+
 
