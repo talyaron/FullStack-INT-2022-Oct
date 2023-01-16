@@ -61,6 +61,7 @@ function search(): void {
         })
     }
 
+    
     catch (error) {
         console.error(error);
         return error;
