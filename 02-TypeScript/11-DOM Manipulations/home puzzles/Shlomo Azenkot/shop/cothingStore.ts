@@ -119,74 +119,103 @@ divAdd.addEventListener("click", (e) => {
   AddItem.style.display = "block";
 });
 
+// --------------------------------------------------------------
+
 for (let i in cothingStore) {
-  const div = document.createElement("div");
-  const img = document.createElement("img");
-  const price = document.createElement("p");
-  const type = document.createElement("h2");
-  type.innerHTML = cothingStore[i].getType.toString();
-  price.innerHTML = `${cothingStore[
-    i
-  ].getPrice.toString()}   <i class="fa-solid fa-shekel-sign iconS"></i>`;
-  img.src = cothingStore[i].getimgLink;
-  wraps_pictures.appendChild(div);
-  div.appendChild(img);
-  div.appendChild(price);
-  div.appendChild(type);
+  try {
+    const div = document.createElement("div");
+    const img = document.createElement("img");
+    const price = document.createElement("p");
+    const type = document.createElement("h2");
+    type.innerHTML = cothingStore[i].getType.toString();
+    price.innerHTML = `${cothingStore[
+      i
+    ].getPrice.toString()}   <i class="fa-solid fa-shekel-sign iconS"></i>`;
+    img.src = cothingStore[i].getimgLink;
+    wraps_pictures.appendChild(div);
+    div.appendChild(img);
+    div.appendChild(price);
+    div.appendChild(type);
+  } catch (error) {
+    throw new Error(error);
+  }
 }
 
 const add = document.querySelector(".add") as HTMLButtonElement;
 add.addEventListener("click", (e) => {
-  const gender = (document.querySelector(".gender") as HTMLInputElement).value;
-  const type = (document.querySelector(".type ") as HTMLInputElement).value;
-  const price = (document.querySelector(".price") as HTMLInputElement).value;
-  const imgLink = (document.querySelector(".imgLink ") as HTMLInputElement)
-    .value;
-  if (
-    gender &&
-    gender != "" &&
-    type &&
-    type != "" &&
-    price &&
-    price != "" &&
-    imgLink &&
-    imgLink != ""
-  ) {
-    let div = document.createElement("div");
-    let img = document.createElement("img");
-    let price2 = document.createElement("p");
-    let type2 = document.createElement("h2");
-    img.src = imgLink;
-    div.append(img);
-    price2.innerHTML = `${price}  <i class="fa-solid fa-shekel-sign iconS"></i>`;
-    div.appendChild(price2);
-    type2.innerHTML = type;
-    div.appendChild(type2);
+  try {
+    const gender = (document.querySelector(".gender") as HTMLInputElement)
+      .value;
+    const type = (document.querySelector(".type ") as HTMLInputElement).value;
+    const price = (document.querySelector(".price") as HTMLInputElement).value;
+    const imgLink = (document.querySelector(".imgLink ") as HTMLInputElement)
+      .value;
+    if (
+      gender &&
+      gender != "" &&
+      type &&
+      type != "" &&
+      price &&
+      price != "" &&
+      imgLink &&
+      imgLink != ""
+    ) {
+      let div = document.createElement("div");
+      let img = document.createElement("img");
+      let price2 = document.createElement("p");
+      let type2 = document.createElement("h2");
+      img.src = imgLink;
+      div.append(img);
+      price2.innerHTML = `${price}  <i class="fa-solid fa-shekel-sign iconS"></i>`;
+      div.appendChild(price2);
+      type2.innerHTML = type;
+      div.appendChild(type2);
 
-    wraps_pictures.append(div);
-  }
+      wraps_pictures.append(div);
+    }
 
-  if (gender && type && price && imgLink) {
-    AddItem.style.display = "none";
-    const add = new CothingStore(gender, type, parseInt(price), imgLink);
-    cothingStore.push(add);
+    if (gender && type && price && imgLink) {
+      AddItem.style.display = "none";
+      const add = new CothingStore(gender, type, parseInt(price), imgLink);
+      cothingStore.push(add);
+    }
+  } catch (error) {
+    throw new Error(error);
   }
 });
 
 const searchItem = document.querySelector(".search") as HTMLInputElement;
 searchItem.addEventListener("keyup", (e) => {
-  wraps_pictures.replaceChildren();
-  divAdd = document.createElement("div");
-  divAdd.style.backgroundColor = "white";
-  divAdd.innerHTML = `<i class="fa-solid fa-plus " id="a" ></i>`;
-  wraps_pictures.append(divAdd);
+  try {
+    wraps_pictures.replaceChildren();
+    divAdd = document.createElement("div");
+    divAdd.style.backgroundColor = "white";
+    divAdd.innerHTML = `<i class="fa-solid fa-plus " id="a" ></i>`;
+    wraps_pictures.append(divAdd);
 
-  if (searchItem.value != "") {
-    for (let i in cothingStore) {
-      if (
-        cothingStore[i].getType.includes(searchItem.value.toLowerCase()) ||
-        cothingStore[i].getPrice.toString().includes(searchItem.value)
-      ) {
+    if (searchItem.value != "") {
+      for (let i in cothingStore) {
+        if (
+          cothingStore[i].getType.includes(searchItem.value.toLowerCase()) ||
+          cothingStore[i].getPrice.toString().includes(searchItem.value)
+        ) {
+          const div = document.createElement("div");
+          const img = document.createElement("img");
+          const price = document.createElement("p");
+          const type = document.createElement("h2");
+          type.innerHTML = cothingStore[i].getType.toString();
+          price.innerHTML = `${cothingStore[
+            i
+          ].getPrice.toString()}   <i class="fa-solid fa-shekel-sign iconS"></i>`;
+          img.src = cothingStore[i].getimgLink;
+          wraps_pictures.appendChild(div);
+          div.appendChild(img);
+          div.appendChild(price);
+          div.appendChild(type);
+        }
+      }
+    } else {
+      for (let i in cothingStore) {
         const div = document.createElement("div");
         const img = document.createElement("img");
         const price = document.createElement("p");
@@ -202,22 +231,8 @@ searchItem.addEventListener("keyup", (e) => {
         div.appendChild(type);
       }
     }
-  } else {
-    for (let i in cothingStore) {
-      const div = document.createElement("div");
-      const img = document.createElement("img");
-      const price = document.createElement("p");
-      const type = document.createElement("h2");
-      type.innerHTML = cothingStore[i].getType.toString();
-      price.innerHTML = `${cothingStore[
-        i
-      ].getPrice.toString()}   <i class="fa-solid fa-shekel-sign iconS"></i>`;
-      img.src = cothingStore[i].getimgLink;
-      wraps_pictures.appendChild(div);
-      div.appendChild(img);
-      div.appendChild(price);
-      div.appendChild(type);
-    }
+  } catch (error) {
+    throw new Error(error);
   }
 });
 

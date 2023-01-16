@@ -1,6 +1,9 @@
 let btn = document.querySelector(".enter") as HTMLButtonElement;
 
 btn.addEventListener("click", (e) => {
+  try {
+    
+ 
   let inputName = (document.querySelector(".input_name") as HTMLInputElement)
     .value;
 
@@ -95,4 +98,9 @@ btn.addEventListener("click", (e) => {
     window.open("../shop/index.html");
     window.parent.close();
   }
+
+
+} catch (error) {
+  throw new Error(error);  
+}
 });

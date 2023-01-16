@@ -78,63 +78,92 @@ var AddItem = document.querySelector(".AddItem");
 divAdd.addEventListener("click", function (e) {
     AddItem.style.display = "block";
 });
+// --------------------------------------------------------------
 for (var i in cothingStore) {
-    var div = document.createElement("div");
-    var img = document.createElement("img");
-    var price = document.createElement("p");
-    var type = document.createElement("h2");
-    type.innerHTML = cothingStore[i].getType.toString();
-    price.innerHTML = cothingStore[i].getPrice.toString() + "   <i class=\"fa-solid fa-shekel-sign iconS\"></i>";
-    img.src = cothingStore[i].getimgLink;
-    wraps_pictures.appendChild(div);
-    div.appendChild(img);
-    div.appendChild(price);
-    div.appendChild(type);
+    try {
+        var div = document.createElement("div");
+        var img = document.createElement("img");
+        var price = document.createElement("p");
+        var type = document.createElement("h2");
+        type.innerHTML = cothingStore[i].getType.toString();
+        price.innerHTML = cothingStore[i].getPrice.toString() + "   <i class=\"fa-solid fa-shekel-sign iconS\"></i>";
+        img.src = cothingStore[i].getimgLink;
+        wraps_pictures.appendChild(div);
+        div.appendChild(img);
+        div.appendChild(price);
+        div.appendChild(type);
+    }
+    catch (error) {
+        throw new Error(error);
+    }
 }
 var add = document.querySelector(".add");
 add.addEventListener("click", function (e) {
-    var gender = document.querySelector(".gender").value;
-    var type = document.querySelector(".type ").value;
-    var price = document.querySelector(".price").value;
-    var imgLink = document.querySelector(".imgLink ")
-        .value;
-    if (gender &&
-        gender != "" &&
-        type &&
-        type != "" &&
-        price &&
-        price != "" &&
-        imgLink &&
-        imgLink != "") {
-        var div = document.createElement("div");
-        var img = document.createElement("img");
-        var price2 = document.createElement("p");
-        var type2 = document.createElement("h2");
-        img.src = imgLink;
-        div.append(img);
-        price2.innerHTML = price + "  <i class=\"fa-solid fa-shekel-sign iconS\"></i>";
-        div.appendChild(price2);
-        type2.innerHTML = type;
-        div.appendChild(type2);
-        wraps_pictures.append(div);
+    try {
+        var gender = document.querySelector(".gender")
+            .value;
+        var type = document.querySelector(".type ").value;
+        var price = document.querySelector(".price").value;
+        var imgLink = document.querySelector(".imgLink ")
+            .value;
+        if (gender &&
+            gender != "" &&
+            type &&
+            type != "" &&
+            price &&
+            price != "" &&
+            imgLink &&
+            imgLink != "") {
+            var div = document.createElement("div");
+            var img = document.createElement("img");
+            var price2 = document.createElement("p");
+            var type2 = document.createElement("h2");
+            img.src = imgLink;
+            div.append(img);
+            price2.innerHTML = price + "  <i class=\"fa-solid fa-shekel-sign iconS\"></i>";
+            div.appendChild(price2);
+            type2.innerHTML = type;
+            div.appendChild(type2);
+            wraps_pictures.append(div);
+        }
+        if (gender && type && price && imgLink) {
+            AddItem.style.display = "none";
+            var add_1 = new CothingStore(gender, type, parseInt(price), imgLink);
+            cothingStore.push(add_1);
+        }
     }
-    if (gender && type && price && imgLink) {
-        AddItem.style.display = "none";
-        var add_1 = new CothingStore(gender, type, parseInt(price), imgLink);
-        cothingStore.push(add_1);
+    catch (error) {
+        throw new Error(error);
     }
 });
 var searchItem = document.querySelector(".search");
 searchItem.addEventListener("keyup", function (e) {
-    wraps_pictures.replaceChildren();
-    divAdd = document.createElement("div");
-    divAdd.style.backgroundColor = "white";
-    divAdd.innerHTML = "<i class=\"fa-solid fa-plus \" id=\"a\" ></i>";
-    wraps_pictures.append(divAdd);
-    if (searchItem.value != "") {
-        for (var i in cothingStore) {
-            if (cothingStore[i].getType.includes(searchItem.value.toLowerCase()) ||
-                cothingStore[i].getPrice.toString().includes(searchItem.value)) {
+    try {
+        wraps_pictures.replaceChildren();
+        divAdd = document.createElement("div");
+        divAdd.style.backgroundColor = "white";
+        divAdd.innerHTML = "<i class=\"fa-solid fa-plus \" id=\"a\" ></i>";
+        wraps_pictures.append(divAdd);
+        if (searchItem.value != "") {
+            for (var i in cothingStore) {
+                if (cothingStore[i].getType.includes(searchItem.value.toLowerCase()) ||
+                    cothingStore[i].getPrice.toString().includes(searchItem.value)) {
+                    var div = document.createElement("div");
+                    var img = document.createElement("img");
+                    var price = document.createElement("p");
+                    var type = document.createElement("h2");
+                    type.innerHTML = cothingStore[i].getType.toString();
+                    price.innerHTML = cothingStore[i].getPrice.toString() + "   <i class=\"fa-solid fa-shekel-sign iconS\"></i>";
+                    img.src = cothingStore[i].getimgLink;
+                    wraps_pictures.appendChild(div);
+                    div.appendChild(img);
+                    div.appendChild(price);
+                    div.appendChild(type);
+                }
+            }
+        }
+        else {
+            for (var i in cothingStore) {
                 var div = document.createElement("div");
                 var img = document.createElement("img");
                 var price = document.createElement("p");
@@ -149,20 +178,8 @@ searchItem.addEventListener("keyup", function (e) {
             }
         }
     }
-    else {
-        for (var i in cothingStore) {
-            var div = document.createElement("div");
-            var img = document.createElement("img");
-            var price = document.createElement("p");
-            var type = document.createElement("h2");
-            type.innerHTML = cothingStore[i].getType.toString();
-            price.innerHTML = cothingStore[i].getPrice.toString() + "   <i class=\"fa-solid fa-shekel-sign iconS\"></i>";
-            img.src = cothingStore[i].getimgLink;
-            wraps_pictures.appendChild(div);
-            div.appendChild(img);
-            div.appendChild(price);
-            div.appendChild(type);
-        }
+    catch (error) {
+        throw new Error(error);
     }
 });
 // let t_shirt = document.querySelector(".img_t") as HTMLImageElement;
