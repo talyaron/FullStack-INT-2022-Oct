@@ -1,4 +1,3 @@
-var _a;
 var Book = /** @class */ (function () {
     function Book(title, price, genre, language, sn, camelCaseTitle) {
         this.title = title;
@@ -32,28 +31,40 @@ var allBooksArray = [
     fromTheKitchenWithLove,
     aTaleOfFiveBalloons,
 ];
-var bookData = document.querySelector("#bookData");
-if (bookData) {
-    for (var i = 0; i < allBooksArray.length; i++) {
-        var book = document.createElement("div");
-        book.innerHTML = "\n        <div id=" + allBooksArray[i].sn + " class=\"results__book results__book__image--" + allBooksArray[i].camelCaseTitle + "\">\n            <div class=\"results__book__wrapper\">\n                <span>Title: " + allBooksArray[i].title + " </span>\n                <span>Price: " + allBooksArray[i].price + " NIS </span>\n                <span>Genre: " + allBooksArray[i].genre + " </span>\n                <span>Language: " + allBooksArray[i].language + " </span>\n                <span>sn: " + allBooksArray[i].sn + " </span>\n            </div>    \n        </div>\n        ";
-        (_a = document.querySelector("#bookData")) === null || _a === void 0 ? void 0 : _a.appendChild(book);
+function renderBooks() {
+    var _a;
+    var bookData = document.querySelector("#bookData");
+    if (bookData) {
+        for (var i = 0; i < allBooksArray.length; i++) {
+            var book = document.createElement("div");
+            book.innerHTML = "\n        <div id=" + allBooksArray[i].sn + " class=\"results__book results__book__image--" + allBooksArray[i].camelCaseTitle + "\">\n            <div class=\"results__book__wrapper\">\n                <span>Title: " + allBooksArray[i].title + " </span>\n                <span>Price: " + allBooksArray[i].price + " NIS </span>\n                <span>Genre: " + allBooksArray[i].genre + " </span>\n                <span>Language: " + allBooksArray[i].language + " </span>\n                <span>sn: " + allBooksArray[i].sn + " </span>\n            </div>    \n        </div>";
+            (_a = document.querySelector("#bookData")) === null || _a === void 0 ? void 0 : _a.appendChild(book);
+        }
     }
 }
 function search() {
     try {
         var userInput = document.querySelector("#userInput");
+        var noResults_1 = document.querySelector("#noResults");
         userInput === null || userInput === void 0 ? void 0 : userInput.addEventListener("input", function (search) {
             var _a;
             var userInputValue = (_a = search.target) === null || _a === void 0 ? void 0 : _a.value;
             userInputValue = userInputValue.toLocaleLowerCase();
             var results = document.querySelectorAll(".results__book");
             for (var i = 0; i < results.length; i++) {
-                if (results[i].innerText.toLocaleLowerCase().includes(userInputValue)) {
+                if (results[i].innerText.toLowerCase().includes(userInputValue) && noResults_1) {
                     results[i].style.display = "";
+                    noResults_1.style.display = "none";
                 }
                 else {
                     results[i].style.display = "none";
+                }
+            }
+            var allBooks = document.querySelectorAll(".results");
+            for (var i = 0; i < results.length; i++) {
+                if (!allBooks[i].innerText.toLowerCase().includes(userInputValue) && noResults_1) {
+                    noResults_1.style.display = "";
+                    noResults_1.innerHTML = "Sorry, there isn't a book that icludes <u><b>" + userInputValue + "</b></u> on our store...";
                 }
             }
         });

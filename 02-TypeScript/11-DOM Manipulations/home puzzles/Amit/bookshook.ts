@@ -6,7 +6,7 @@ class Book {
     public language: string,
     public sn: number,
     public camelCaseTitle: string
-  ) {}
+  ) { }
 }
 
 const theLordOfTheRings = new Book(
@@ -103,11 +103,12 @@ const allBooksArray: Book[] = [
   aTaleOfFiveBalloons,
 ];
 
-const bookData: HTMLDivElement | null = document.querySelector("#bookData");
-if (bookData) {
-  for (let i = 0; i < allBooksArray.length; i++) {
-    const book = document.createElement("div");
-    book.innerHTML = `
+function renderBooks() {
+  const bookData: HTMLDivElement | null = document.querySelector("#bookData");
+  if (bookData) {
+    for (let i = 0; i < allBooksArray.length; i++) {
+      const book = document.createElement("div");
+      book.innerHTML = `
         <div id=${allBooksArray[i].sn} class="results__book results__book__image--${allBooksArray[i].camelCaseTitle}">
             <div class="results__book__wrapper">
                 <span>Title: ${allBooksArray[i].title} </span>
@@ -116,29 +117,41 @@ if (bookData) {
                 <span>Language: ${allBooksArray[i].language} </span>
                 <span>sn: ${allBooksArray[i].sn} </span>
             </div>    
-        </div>
-        `;
-    document.querySelector("#bookData")?.appendChild(book);
+        </div>`;
+      document.querySelector("#bookData")?.appendChild(book);
+    }
   }
 }
 
 function search(): void {
   try {
     const userInput: any = document.querySelector("#userInput");
+    const noResults: HTMLDivElement | null = document.querySelector("#noResults");
+
     userInput?.addEventListener("input", (search) => {
       let userInputValue = search.target?.value;
       userInputValue = userInputValue.toLocaleLowerCase();
 
       let results = document.querySelectorAll<HTMLElement>(".results__book");
-
       for (let i = 0; i < results.length; i++) {
-        if (results[i].innerText.toLocaleLowerCase().includes(userInputValue)) {
+        if (results[i].innerText.toLowerCase().includes(userInputValue) && noResults) {
           results[i].style.display = "";
+          noResults.style.display = "none";
         } else {
           results[i].style.display = "none";
         }
       }
-    });
+
+      let allBooks = document.querySelectorAll<HTMLElement>(".results");
+      for (let i = 0; i < results.length; i++) {
+        if (!allBooks[i].innerText.toLowerCase().includes(userInputValue) && noResults) {
+          noResults.style.display = "";
+          noResults.innerHTML = `Sorry, there isn't a book that icludes <u><b>${userInputValue}</b></u> on our store...`;
+        }
+      }
+
+    }
+    );
   } catch (error) {
     console.error(error);
     return error;

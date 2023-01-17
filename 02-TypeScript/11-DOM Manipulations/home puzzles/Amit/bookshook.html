@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./dist/bookshook.js" defer></script>
     <link rel="stylesheet" href="./dist/bookshook.css">
     <title>BookShook</title>
 </head>
-<body>
+<body onload="renderBooks()">
     <div class="header" >Book-Shook</div>
     <input type="text" id="userInput" class="searchBox"  onkeyup="search()" placeholder="Search books...">
 
     <div class="results">
         <div id="bookData"></div>
+        <div id="noResults"></div>
     </div>
-    <script src="./dist/bookshook.js"></script>
+
+    
+    
 </body>
 </html>
