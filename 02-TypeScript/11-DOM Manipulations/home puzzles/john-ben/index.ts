@@ -4,11 +4,11 @@ const image: HTMLDivElement | null  = document.querySelector("#image");
 function addPhoto() {
     try {
 
-        let userPhoto: string | "a" = prompt("Enter your photo please");
+        let userPhoto: string | null = prompt("Enter your photo please");
         for (let i = 0; i < 5; i++) {
 
 
-            if (userPhoto == "a"  || image == null) {
+            if (userPhoto == null  || image == null) {
                 alert('you did not enter a Photo address')
                 console.error("you did not enter a Photo address")
                 
