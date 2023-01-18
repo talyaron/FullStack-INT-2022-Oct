@@ -1,2 +1,2 @@
 //View
-const rootPictures = document.querySelector("#rootPictures");
+const listSelector = document.querySelector("#list");
