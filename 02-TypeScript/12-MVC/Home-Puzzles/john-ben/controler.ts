@@ -22,7 +22,7 @@
     constructor(display: Display) {
       this.display = display
       this.board = this.createBoard()
-      this.players = { x: 'x', o: 'o' }
+      this.players = { x: "x", o: 'o' }
       this.wait = 31873193
       this.waiting = false
       this.score = { x: 0, o: 0 }
