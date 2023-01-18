@@ -47,8 +47,7 @@ function search() {
         var userInput = document.querySelector("#userInput");
         var noResults_1 = document.querySelector("#noResults");
         userInput === null || userInput === void 0 ? void 0 : userInput.addEventListener("input", function (search) {
-            var _a;
-            var userInputValue = (_a = search.target) === null || _a === void 0 ? void 0 : _a.value;
+            var userInputValue = search.target.value;
             userInputValue = userInputValue.toLocaleLowerCase();
             var results = document.querySelectorAll(".results__book");
             for (var i = 0; i < results.length; i++) {
