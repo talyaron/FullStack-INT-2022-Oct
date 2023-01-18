@@ -1,0 +1,78 @@
+:root {
+    --font-color: #FCB42A;
+    --bg-color: #000022;
+    --board-color: #2121DE;
+    --x-color: #FFFF00;
+    --o-color: #FFFFFF;
+    --game-width: 450px;
+    --message-color: #00FF00;
+    --font-family: 'Press Start 2P';
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    background: #000022;
+    margin: 2rem 0;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 0;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #FCB42A;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  #game {
+    max-width: 450px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .score {
+    border: 2px solid #FCB42A;
+    margin: 1rem 0;
+    text-align: center;
+  }
+  
+  .row,
+  .col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .col {
+    cursor: pointer;
+    border: 3px solid #2121DE;
+    margin: 5px;
+    height: 200px;
+    width: 200px;
+    line-height: 0;
+  
+    border-radius: 4px;
+    font-size: 40px;
+  }
+  
+  .col:hover {
+    border: 3px solid #4d4de4;
+  }
+  
+  .x {
+    color: #FFFF00;
+  }
+  
+  .o {
+    color: #FFFFFF;
+  }
+  
+  .message {
+    margin: 2rem 0;
+    text-align: center;
+    color: #00FF00;
+  }
