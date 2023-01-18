@@ -1,5 +1,5 @@
 
-const image: HTMLDivElement |null  = document.querySelector("#image");
+const image: HTMLDivElement | null  = document.querySelector("#image");
 
 function addPhoto() {
     try {
@@ -10,7 +10,7 @@ function addPhoto() {
 
             if (userPhoto == null  || image == null) {
                 alert('you did not enter a Photo address')
-                return new Error('you did not enter a Photo address');
+                console.error("you did not enter a Photo address")
                 
             }
 
@@ -24,5 +24,6 @@ function addPhoto() {
         return false
     }
 }
-addPhoto()
 
+
+addPhoto()

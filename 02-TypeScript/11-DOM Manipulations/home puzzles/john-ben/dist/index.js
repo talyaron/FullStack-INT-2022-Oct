@@ -5,7 +5,7 @@ function addPhoto() {
         for (var i = 0; i < 5; i++) {
             if (userPhoto == null || image == null) {
                 alert('you did not enter a Photo address');
-                return new Error('you did not enter a Photo address');
+                console.error("you did not enter a Photo address");
             }
             else {
                 image.innerHTML += "<img src='" + userPhoto + "'/>";
