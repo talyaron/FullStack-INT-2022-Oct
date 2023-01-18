@@ -14,10 +14,7 @@ function getProductFromUser(): void {
   }
 }
 
-function renderProducts(
-  products: Product[],
-  someElement: Element | null
-): void {
+function renderProducts(products: Product[],someElement: Element | null): void {
   try {
     if (!someElement)
       throw new Error("no dom element to render the products to");
