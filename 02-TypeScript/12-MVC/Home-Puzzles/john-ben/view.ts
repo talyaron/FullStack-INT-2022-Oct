@@ -1,7 +1,4 @@
-   // Display
-  //==================================================================================================
-  
-  class DOMDisplay implements Display {
+    class DOMDisplay implements Display {
     /**
      * Bind document click to the game if clicked element is a cell
      * @param {requestCallback} clickHandler
@@ -15,7 +12,6 @@
           const cell = clicked
           const row = +cell.parentElement!.dataset.row!
           const col = +cell.dataset.col!
-  
           clickHandler(row, col)
         }
       })
@@ -50,9 +46,6 @@
      */
     getAllElements = (selector: string): NodeList => <NodeList>document.querySelectorAll(selector)
   
-
-
-
         /**
      * Create the score board view and render it to the DOM
      * @param {Score} scoreData
@@ -60,7 +53,6 @@
          printScoreBoard = (scoreData: Score): void => {
             const game = this.getElement('#game')
             const scoreBoard = this.createElement('div', 'score')
-        
             game.append(scoreBoard)
         
             const playerOneScore = this.createElement('div', 'x')
@@ -79,11 +71,9 @@
      * @param {Object[]} boardData 3x3 multi-dimensional array of empty strings
      */
 
-
     printGameBoard = (boardData: Array<Array<string>>): void => {
       const game = this.getElement('#game')
       const gameBoard = this.createElement('div', 'board', undefined)
-  
       game.append(gameBoard)
   
       boardData.forEach((row, i) => {
@@ -124,7 +114,6 @@
       })
     }
   
-  
     /**
      * Update the existing score for the current player
      * @param {Score} currentScore
@@ -136,7 +125,7 @@
       const d: number = currentScore[currentPlayer]
       currentPlayerScore.textContent = `${player}: ${d}`
     }
-  
+
     /**
      * Print the win, lose, or stalemate message
      * @param {string} winner
@@ -158,6 +147,4 @@
       const message = this.getElement('.message')
       message.remove()
     } //enleve le message de gagne/egalite 
-
-    
   }

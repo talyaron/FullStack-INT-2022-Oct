@@ -1,6 +1,3 @@
-   // Model
-  //==============================================================================
-  
   class TicTacToe {
     /**
      * board - 3x3 multi-dimensional array of empty strings
@@ -27,24 +24,18 @@
       this.waiting = false
       this.score = { x: 0, o: 0 }
       this.currentPlayer = this.players.x
-  
       this.display.bindHandler(this.clickCell)
     }
     
-  
-  
     /**
      * Click a cell in the game board and determine if its a win, a stalemate, or
      * the game continues. Game over or switch player.
      */
-
     //fonction qui lorsque le joueur clique sur une case determine la suite de la partie 
 
     clickCell = (row: number, col: number) => {
-      
       const canContinue = this.board[row][col] === '' //constante qui determine que la case du tableau est vide
       
-
       if (canContinue && !this.waiting) {
         this.board[row][col] = this.currentPlayer
         this.display.updateBoard(row, col, this.currentPlayer) // si la case est vide et il y'a pas d'attente (partie pas terminee) alors lorsqu'il clicke ,le token saffiche et passe au joueur suivant .
@@ -147,4 +138,3 @@
       this.display.printGameBoard(this.board) //fonction qui affiche le jeu appelee dans l'index.html
     }
   }
-  

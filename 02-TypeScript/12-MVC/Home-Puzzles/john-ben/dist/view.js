@@ -1,5 +1,3 @@
-// Display
-//==================================================================================================
 var DOMDisplay = /** @class */ (function () {
     function DOMDisplay() {
         var _this = this;

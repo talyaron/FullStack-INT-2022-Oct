@@ -1,5 +1,3 @@
-// Model
-//==============================================================================
 var TicTacToe = /** @class */ (function () {
     function TicTacToe(display) {
         var _this = this;
