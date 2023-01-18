@@ -42,22 +42,20 @@
   align-items: center;
   justify-content: space-around;
 }
+.gameContainer__playerArea__score {
+  font-size: 1.5rem;
+}
+.gameContainer__buttonGrid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem;
+}
 
 .displayedCard {
   aspect-ratio: 3/5;
   width: 4rem;
   margin: 0 0.5rem;
-}
-
-.score {
-  font-size: 1.5rem;
-}
-
-.ButtonGrid {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0.5rem;
 }
 
 button {
