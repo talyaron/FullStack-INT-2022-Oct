@@ -1,0 +1,1 @@
+const listSelector = document.querySelector("#list");
