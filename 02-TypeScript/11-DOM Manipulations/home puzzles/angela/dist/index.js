@@ -8,15 +8,15 @@ function closePopup() {
 openPopup();
 closePopup();
 var books = /** @class */ (function () {
-    function books(bookTitle, price, category, auther, iamge) {
+    function books(bookTitle, price, catagory, auther, image) {
         this.bookTitle = bookTitle;
         this.price = price;
-        this.category = category;
+        this.catagory = catagory;
         this.auther = auther;
-        this.iamge = iamge;
+        this.image = image;
     }
     return books;
 }());
 var items = [];
-var theBlackDahlia = new items("The Black Dahlia", 50.78, "crime", "James Ellroy", "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/0995/9780099537861.jpg");
-var you = new items();
+var you = new items("You", 46.21, "crime", " Caroline Kepnes", "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4711/9781471137372.jpg");
+console.log(items);

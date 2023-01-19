@@ -12,25 +12,22 @@ openPopup();
 closePopup();
 
 class books{
-    public constructor(
-        public bookTitle:string,
-        public price:number,
-        public category:string,
-        public auther:string,
-        public iamge:string
-        ){}
- }
-
- let items:books[]=[];
-
- const theBlackDahlia = new items(
-    "The Black Dahlia",
-    50.78,
+   
+    constructor(
+       public bookTitle:string,
+       public price:number,
+       public catagory:string,
+       public auther:string,
+       public image:string,
+    ){}
+}
+const items:books[]=[];
+const you = new items(
+    "You",
+    46.21,
     "crime",
-    "James Ellroy",
-    "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/0995/9780099537861.jpg"
+    " Caroline Kepnes",
+    "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9781/4711/9781471137372.jpg"
+)
 
- )
- const you = new items(
-    
- )
+console.log(items);
