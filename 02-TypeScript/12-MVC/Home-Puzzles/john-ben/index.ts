@@ -10,6 +10,8 @@ interface Display {
     updateScore(currentScore: Score, currentPlayer: string): void
     printMessage(winner?: string): void
     clearMessage(): void
+    newGame(startGame):void
+    
   }
 
   // Start Game
@@ -17,3 +19,4 @@ interface Display {
 
 const ticTacToe = new TicTacToe(new DOMDisplay())
 ticTacToe.startGame()
+

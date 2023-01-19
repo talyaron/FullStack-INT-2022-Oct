@@ -147,4 +147,16 @@
       const message = this.getElement('.message')
       message.remove()
     } //enleve le message de gagne/egalite 
+    
+    newGame = (startGame): void => {
+      const game = this.getElement('#game')
+      const button_newGame = this.createElement('div','button', undefined)
+      button_newGame.innerHTML =`<button type="button">Click Me!</button>`
+      button_newGame.addEventListener('click',startGame)
+      game.append(button_newGame)
+      
+    }
+   
   }
+
+

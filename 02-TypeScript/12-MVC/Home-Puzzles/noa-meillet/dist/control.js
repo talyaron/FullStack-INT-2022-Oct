@@ -1,6 +1,7 @@
 function showStore(clothesShopArr) {
     try {
         if (store && clothesShopArr.length != 0) {
+            store.innerHTML = "";
             for (var i = 0; i < clothesShopArr.length; i++) {
                 store.innerHTML += "<div class= \"store__item\">\n                <img class=\"store__item__detail\" id=\"image\" src='" + clothesShopArr[i].image + "' alt=\"image\"/>\n                <h2 class=\"store__item__detail\" id=\"itemName\">" + clothesShopArr[i].name + "</h2>\n                <h5 class=\"store__item__detail\" id=\"itemDepartment\">" + clothesShopArr[i].department + "</h5>\n                <h5 class=\"store__item__detail\" id=\"itemType\">" + clothesShopArr[i].type + "</h5>\n                <h3 class=\"store__item__detail\" id=\"itemPrice\">" + clothesShopArr[i].price + "</h3>\n                </div>";
             }
@@ -33,12 +34,11 @@ function getAllItemInType(clothesArr) {
                 }
             }
         }
-        return chosenItemsArr;
     }
     catch (error) {
         console.error(error);
         if (store)
-            store.innerHTML = "<h1> We did not find item for you </h1>";
+            store.innerHTML = "<h1>Item from this type is availble in our store </h1>";
         return false;
     }
 }

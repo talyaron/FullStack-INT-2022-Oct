@@ -20,13 +20,19 @@
       this.display = display
       this.board = this.createBoard()
       this.players = { x: "x", o: "o" }
-      this.wait = 31873193
+      this.wait = 2000;
       this.waiting = false
       this.score = { x: 0, o: 0 }
       this.currentPlayer = this.players.x
       this.display.bindHandler(this.clickCell)
     }
-    
+    get getWait(){
+      return this.wait
+     }
+     set changeWait(newWait){
+      this.wait = newWait
+      newWait = 0;
+     }
     /**
      * Click a cell in the game board and determine if its a win, a stalemate, or
      * the game continues. Game over or switch player.
@@ -129,12 +135,14 @@
     increaseScore = (): void => {
       this.score[this.currentPlayer] += 1 //fonction qui aggremente le score de 1 
     }
-  
+
     /**
      * Render score board and game board
      */
     startGame(): void {
       this.display.printScoreBoard(this.score)
       this.display.printGameBoard(this.board) //fonction qui affiche le jeu appelee dans l'index.html
-    }
+      this.display.newGame(this.changeWait)
   }
+
+}
