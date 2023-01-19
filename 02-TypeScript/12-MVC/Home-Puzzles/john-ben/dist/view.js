@@ -112,6 +112,13 @@ var DOMDisplay = /** @class */ (function () {
             var message = _this.getElement('.message');
             message.remove();
         }; //enleve le message de gagne/egalite 
+        this.newGame = function (startGame) {
+            var game = _this.getElement('#game');
+            var button_newGame = _this.createElement('div', 'button', undefined);
+            button_newGame.innerHTML = "<button type=\"button\">Click Me!</button>";
+            button_newGame.addEventListener('click', startGame);
+            game.append(button_newGame);
+        };
     }
     /**
      * Bind document click to the game if clicked element is a cell

@@ -95,18 +95,34 @@ var TicTacToe = /** @class */ (function () {
         this.display = display;
         this.board = this.createBoard();
         this.players = { x: "x", o: "o" };
-        this.wait = 31873193;
+        this.wait = 2000;
         this.waiting = false;
         this.score = { x: 0, o: 0 };
         this.currentPlayer = this.players.x;
         this.display.bindHandler(this.clickCell);
     }
+    Object.defineProperty(TicTacToe.prototype, "getWait", {
+        get: function () {
+            return this.wait;
+        },
+        enumerable: false,
+        configurable: true
+    });
+    Object.defineProperty(TicTacToe.prototype, "changeWait", {
+        set: function (newWait) {
+            this.wait = newWait;
+            newWait = 0;
+        },
+        enumerable: false,
+        configurable: true
+    });
     /**
      * Render score board and game board
      */
     TicTacToe.prototype.startGame = function () {
         this.display.printScoreBoard(this.score);
         this.display.printGameBoard(this.board); //fonction qui affiche le jeu appelee dans l'index.html
+        this.display.newGame(this.changeWait);
     };
     return TicTacToe;
 }());
