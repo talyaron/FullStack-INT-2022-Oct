@@ -4,4 +4,4 @@ console.dir(boxes);
 
 boxes.forEach(box=>box.style.backgroundColor = getRandomColor())
 
-console.dir([]);
+console.dir([1]);
