@@ -1,0 +1,15 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  max-width: 75ch;
+  margin: auto;
+}
+.wrapper .box {
+  height: 300px;
+  background: teal;
+}
+.wrapper .box2 {
+  height: 300px;
+  background: rgba(0, 128, 128, 0.678);
+}
