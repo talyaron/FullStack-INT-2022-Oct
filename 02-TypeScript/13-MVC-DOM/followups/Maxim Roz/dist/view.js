@@ -1,3 +1,3 @@
 var boxes = document.querySelectorAll(".box");
-// boxes.forEach(box=> boxes.style.backgroundColor = getRandomBoxColor())
 console.log(boxes);
+boxes.forEach(function (box) { return box.style.backgroundColor = getRandomBoxColor(); });
