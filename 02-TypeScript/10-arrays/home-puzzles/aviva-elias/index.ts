@@ -1,5 +1,5 @@
 class ClothingStore{
-    constructor(public name:string,public price:number,public departmen:string,public type :string){}
+    constructor(public name:string,public price:number,public department:string,public type :string){}
 }
 const Raincoat=new ClothingStore("pink raincoat" ,50,"girls","coat");
 const highBoots=new ClothingStore("blue high boots" ,100, "women shoes" ,"shoe")
@@ -34,7 +34,7 @@ function chipestItem(){
     console.log(`the chipest item in the store is ${chipestItem()}`)
 
 //task 3:
- const menDipartment:ClothingStore[]=clothing.filter((dip)=>dip.departmen==="men")
+ const menDipartment:ClothingStore[]=clothing.filter((dip)=>dip.department==="men")
   menDipartment.sort((a,b)=>a.price-b.price)
 
   function dipartmentList(index:ClothingStore){

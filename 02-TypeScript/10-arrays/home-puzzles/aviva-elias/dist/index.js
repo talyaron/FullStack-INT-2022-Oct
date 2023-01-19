@@ -1,8 +1,8 @@
 var ClothingStore = /** @class */ (function () {
-    function ClothingStore(name, price, departmen, type) {
+    function ClothingStore(name, price, department, type) {
         this.name = name;
         this.price = price;
-        this.departmen = departmen;
+        this.department = department;
         this.type = type;
     }
     return ClothingStore;
@@ -29,7 +29,7 @@ function chipestItem() {
 }
 console.log("the chipest item in the store is " + chipestItem());
 //task 3:
-var menDipartment = clothing.filter(function (dip) { return dip.departmen === "men"; });
+var menDipartment = clothing.filter(function (dip) { return dip.department === "men"; });
 menDipartment.sort(function (a, b) { return a.price - b.price; });
 function dipartmentList(index) {
     console.log(index.name, index.price);
