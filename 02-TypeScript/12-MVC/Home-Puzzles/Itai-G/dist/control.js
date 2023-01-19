@@ -11,11 +11,13 @@ function createAccount() {
         console.error(error);
     }
 }
-friendsBtn.addEventListener("click", function () {
+var addfriend = document.querySelector("#addFriends");
+function friendsBtn() {
     try {
-        friendsBtn.style.transform = "translateY(0)";
+        document.getElementById("addFriends").innerHTML = "";
+        document.getElementById("addFriends").innerHTML = "\n          <ul>\n          <li>ROY2000(#32556)</li> <br>\n          <li>kilerGameing(#14596)</li> <br>\n          <li>Sports(#585)</li> <br>\n          <li>School(#4896)</li>\n        </ul>";
     }
     catch (error) {
         console.log(error);
     }
-});
+}
