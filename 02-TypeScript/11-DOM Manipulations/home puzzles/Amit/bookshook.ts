@@ -125,11 +125,11 @@ function renderBooks() {
 
 function search(): void {
   try {
-    const userInput: any = document.querySelector("#userInput");
+    const userInput: Element | null = document.querySelector("#userInput");
     const noResults: HTMLDivElement | null = document.querySelector("#noResults");
 
     userInput?.addEventListener("input", (search) => {
-      let userInputValue = search.target?.value;
+      let userInputValue = (search.target as HTMLInputElement).value
       userInputValue = userInputValue.toLocaleLowerCase();
 
       let results = document.querySelectorAll<HTMLElement>(".results__book");
@@ -149,7 +149,6 @@ function search(): void {
           noResults.innerHTML = `Sorry, there isn't a book that icludes <u><b>${userInputValue}</b></u> on our store...`;
         }
       }
-
     }
     );
   } catch (error) {

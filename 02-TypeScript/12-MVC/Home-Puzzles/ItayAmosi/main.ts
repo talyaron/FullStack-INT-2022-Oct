@@ -1,11 +1,5 @@
-createAccount();
-console.log(user);
+createAccount();// הרצת פונקציה
+// console.log(user);      //קבלת נתונים מהמשתמש בתוך הקונסול
 
 
-addEventListener("click", () => {
-    try {
-        friendsBtn.style.transform = "translateY(0)";
-    } catch (error) {
-      console.log(error);
-    }
-  });
+
