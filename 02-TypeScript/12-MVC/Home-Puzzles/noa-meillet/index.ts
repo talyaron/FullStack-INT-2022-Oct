@@ -1,1 +1,1 @@
-showStore(clothesShopArr);
+  showStore(clothesShopArr);

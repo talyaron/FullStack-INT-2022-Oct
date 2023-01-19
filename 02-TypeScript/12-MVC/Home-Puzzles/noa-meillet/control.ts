@@ -1,6 +1,7 @@
 function showStore(clothesShopArr: Item[]): void | false {
   try {
     if (store && clothesShopArr.length != 0) {
+      store.innerHTML=``;
       for (let i = 0; i < clothesShopArr.length; i++) {
         store.innerHTML += `<div class= "store__item">
                 <img class="store__item__detail" id="image" src='${clothesShopArr[i].image}' alt="image"/>
@@ -19,7 +20,7 @@ function showStore(clothesShopArr: Item[]): void | false {
   }
 }
 
-function getAllItemInType(clothesArr: Item[]): Item[] | false {
+function getAllItemInType(clothesArr: Item[]): void | false {
   try {
     if (clothesArr.length == 0)
       throw new Error(`there is no item in the store`);
@@ -48,10 +49,9 @@ function getAllItemInType(clothesArr: Item[]): Item[] | false {
         }
       }
     }
-    return chosenItemsArr;
   } catch (error) {
     console.error(error);
-    if (store) store.innerHTML = `<h1> We did not find item for you </h1>`;
+    if (store) store.innerHTML = `<h1>Item from this type is availble in our store </h1>`;
     return false;
   }
 }
