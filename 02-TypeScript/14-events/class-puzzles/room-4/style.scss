@@ -1,0 +1,19 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  max-width: 75ch;
+  margin: auto;
+
+  .box1, .box2, .box3,.box4, .box5, .box6,.box7, .box8 {
+    height: 300px;
+    background-color: teal;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    transition: all 1s;
+  }
+
+}
