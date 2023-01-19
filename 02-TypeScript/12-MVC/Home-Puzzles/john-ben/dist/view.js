@@ -115,7 +115,7 @@ var DOMDisplay = /** @class */ (function () {
         this.newGame = function (startGame) {
             var game = _this.getElement('#game');
             var button_newGame = _this.createElement('div', 'button', undefined);
-            button_newGame.innerHTML = "<button type=\"button\">Click Me!</button>";
+            button_newGame.innerHTML = "<button type=\"button\">New Game!</button>";
             button_newGame.addEventListener('click', startGame);
             game.append(button_newGame);
         };

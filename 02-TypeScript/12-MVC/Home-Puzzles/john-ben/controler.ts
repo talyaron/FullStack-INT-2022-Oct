@@ -20,7 +20,7 @@
       this.display = display
       this.board = this.createBoard()
       this.players = { x: "x", o: "o" }
-      this.wait = 2000;
+      this.wait = 4000;
       this.waiting = false
       this.score = { x: 0, o: 0 }
       this.currentPlayer = this.players.x
