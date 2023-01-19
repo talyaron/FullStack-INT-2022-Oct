@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/index.js"defer></script>
+    <link rel="stylesheet" href="./dist/style.css">
+  </head>
+  <body>
+    <div class="preload"></div>
+    <div class="container">
+      <div class="container__scroller">
+        <div class="container__scroller__apps blue--me">
+          <svg
+            class="homeIcon-r0w4ny"
+            aria-hidden="true"
+            role="img"
+            width="28"
+            height="20"
+            viewBox="0 0 28 20"
+          >
+            <path
+              fill="currentColor"
+              d="M23.0212 1.67671C21.3107 0.879656 19.5079 0.318797 17.6584 0C17.4062 0.461742 17.1749 0.934541 16.9708 1.4184C15.003 1.12145 12.9974 1.12145 11.0283 1.4184C10.819 0.934541 10.589 0.461744 10.3368 0.00546311C8.48074 0.324393 6.67795 0.885118 4.96746 1.68231C1.56727 6.77853 0.649666 11.7538 1.11108 16.652C3.10102 18.1418 5.3262 19.2743 7.69177 20C8.22338 19.2743 8.69519 18.4993 9.09812 17.691C8.32996 17.3997 7.58522 17.0424 6.87684 16.6135C7.06531 16.4762 7.24726 16.3387 7.42403 16.1847C11.5911 18.1749 16.408 18.1749 20.5763 16.1847C20.7531 16.3332 20.9351 16.4762 21.1171 16.6135C20.41 17.0369 19.6639 17.3997 18.897 17.691C19.3052 18.4993 19.7718 19.2689 20.3021 19.9945C22.6677 19.2689 24.8929 18.1364 26.8828 16.6466H26.8893C27.43 10.9731 25.9665 6.04728 23.0212 1.67671ZM9.68041 13.6383C8.39754 13.6383 7.34085 12.4453 7.34085 10.994C7.34085 9.54272 8.37155 8.34973 9.68041 8.34973C10.9893 8.34973 12.0395 9.54272 12.0187 10.994C12.0187 12.4453 10.9828 13.6383 9.68041 13.6383ZM18.3161 13.6383C17.0332 13.6383 15.9765 12.4453 15.9765 10.994C15.9765 9.54272 17.0124 8.34973 18.3161 8.34973C19.6184 8.34973 20.6751 9.54272 20.6543 10.994C20.6543 12.4453 19.6184 13.6383 18.3161 13.6383Z"
+            ></path>
+          </svg>
+          <div class="popup--me">
+            <h4 class="popup-text">Direct messages</h4>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div id="addServer" class="container__scroller__apps green--color">
+          <svg
+            class="circleIcon-3489FI"
+            aria-hidden="true"
+            role="img"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="currentColor"
+              d="M20 11.1111H12.8889V4H11.1111V11.1111H4V12.8889H11.1111V20H12.8889V12.8889H20V11.1111Z"
+            ></path>
+          </svg>
+          <div class="popup--green">
+            <h4 class="popup-text">Add a Server</h4>
+          </div>
+        </div>
+        <div class="container__scroller__apps green--color">
+          <svg
+            aria-hidden="true"
+            role="img"
+            class="circleIcon-3489FI"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="currentColor"
+              d="M12 10.9C11.39 10.9 10.9 11.39 10.9 12C10.9 12.61 11.39 13.1 12 13.1C12.61 13.1 13.1 12.61 13.1 12C13.1 11.39 12.61 10.9 12 10.9ZM12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM14.19 14.19L6 18L9.81 9.81L18 6L14.19 14.19Z"
+            ></path>
+          </svg>
+          <div class="popup--green">
+            <h4 class="popup-text">Explore Public Servers</h4>
+          </div>
+        </div>
+        <div class="container__scroller__apps purple--color">
+          <svg
+            class="circleIcon-3489FI"
+            aria-hidden="true"
+            role="img"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+          >
+            <g fill="none" fill-rule="evenodd">
+              <path
+                fill="currentColor"
+                fill-rule="nonzero"
+                d="M0.5,0 L0.5,1.5 C0.5,5.65 2.71,9.28 6,11.3 L6,16 L21,16 L21,14 C21,11.34 15.67,10 13,10 C13,10 12.83,10 12.75,10 C8,10 4,6 4,1.5 L4,0 L0.5,0 Z M13,0 C10.790861,0 9,1.790861 9,4 C9,6.209139 10.790861,8 13,8 C15.209139,8 17,6.209139 17,4 C17,1.790861 15.209139,0 13,0 Z"
+                transform="translate(2 4)"
+              ></path>
+              <path
+                d="M0,0 L24,0 L24,24 L0,24 L0,0 Z M0,0 L24,0 L24,24 L0,24 L0,0 Z M0,0 L24,0 L24,24 L0,24 L0,0 Z"
+              ></path>
+            </g>
+          </svg>
+          <div class="popup--purple">
+            <h4 class="popup-text">Add a Friends</h4>
+          </div>
+        </div>
+        <div class="container__scroller__apps purple--color">
+          <img
+            src="https://e7.pngegg.com/pngimages/408/238/png-clipart-pink-and-blue-illustration-discord-computer-icons-logo-user-internet-bot-discord-icon-purple-angle.png"
+            alt=""
+            class="web"
+          />
+          <div class="popup--purple">
+            <h4 class="popup-text">Web</h4>
+          </div>
+        </div>
+        <div class="container__scroller__apps orange--color">
+          <svg
+            class="circleIcon-3489FI"
+            aria-hidden="true"
+            role="img"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="currentColor"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M16.293 9.293L17.707 10.707L12 16.414L6.29297 10.707L7.70697 9.293L11 12.586V2H13V12.586L16.293 9.293ZM18 20V18H20V20C20 21.102 19.104 22 18 22H6C4.896 22 4 21.102 4 20V18H6V20H18Z"
+            ></path>
+          </svg>
+          <div class="popup--orange">
+            <h4 class="popup-text">Download Apps</h4>
+          </div>
+        </div>
+      </div>
+      <div class="container__sidebar">
+        <input type="search" id="searchbar" name="q" placeholder="Find or start search...">
+            <button id="btn_search">Search</button>
+        <div class="divider2"></div>
+        <div class="container__sidebar__friends">
+          <button id="friendsBtn" class="container__sidebar__friends" onclick="friendsBtn()"><p>Friends</p></button>
+        </div>
+        <div class="container__sidebar__nitro">
+          <svg
+            class="nitro-icon"
+            aria-hidden="true"
+            role="img"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="currentColor"
+              d="M2.98966977,9.35789159 C2.98966977,9.77582472 2.63442946,10.1240466 2.20807287,10.1240466 L1.78171628,10.1240466 C1.35535969,10.1240466 0.999948837,9.77582472 0.999948837,9.35789159 C0.999948837,8.93995846 1.35535969,8.59173658 1.78171628,8.59173658 L2.20807287,8.59173658 C2.63442946,8.59173658 2.98966977,8.93995846 2.98966977,9.35789159 Z M22.2467643,9.14892503 C24.0942527,12.9800344 22.3888264,17.5772989 18.3384388,19.3882867 C14.4302837,21.1297305 9.74036124,19.457998 7.9638186,15.6268886 C7.60857829,14.8607335 7.3954,14.0248673 7.32428372,13.189001 L5.76091938,13.189001 C5.33456279,13.189001 4.97932248,12.840612 4.97932248,12.4226788 C4.97932248,12.0047457 5.33456279,11.6565238 5.76091938,11.6565238 L8.03493488,11.6565238 C8.46129147,11.6565238 8.81653178,11.3083019 8.81653178,10.8903688 C8.81653178,10.4724357 8.46129147,10.1240466 8.03493488,10.1240466 L4.41090388,10.1240466 C3.98454729,10.1240466 3.62913643,9.77582472 3.62913643,9.35789159 C3.62913643,8.93995846 3.98454729,8.59173658 4.41090388,8.59173658 L9.45606667,8.59173658 C9.88242326,8.59173658 10.2376636,8.24334752 10.2376636,7.82541439 C10.2376636,7.40748126 9.88242326,7.05925937 9.45606667,7.05925937 L7.3954,7.05925937 C6.75586512,7.05925937 6.18727597,6.57161499 6.18727597,5.87517123 C6.18727597,5.24827153 6.68474884,4.69091591 7.3954,4.69091591 L15.4250589,4.69091591 C18.267493,4.8303384 20.9676946,6.43235968 22.2467643,9.14892503 Z M13.2662961,8.38056332 C11.0193969,9.3919615 10.0341721,11.9973566 11.065955,14.1998642 C12.097738,16.4023718 14.755645,17.3681317 17.0025442,16.3567335 C19.249614,15.3453354 20.2346682,12.7399402 19.2028853,10.5374326 C18.1711023,8.33492503 15.5131953,7.36916515 13.2662961,8.38056332 Z M16.8462589,9.84548582 L18.2673907,12.2138293 C18.338507,12.3530846 18.338507,12.4227958 18.2673907,12.5620512 L16.8462589,14.9303946 C16.7751426,15.0696499 16.6330806,15.0696499 16.5619643,15.0696499 L13.7906465,15.0696499 C13.6485845,15.0696499 13.5774682,14.9999387 13.5065225,14.9303946 L12.0852202,12.5620512 C12.0142744,12.4227958 12.0142744,12.3530846 12.0852202,12.2138293 L13.5065225,9.84548582 C13.5774682,9.7062305 13.7197008,9.7062305 13.7906465,9.7062305 L16.5619643,9.7062305 C16.7041969,9.63651925 16.7751426,9.7062305 16.8462589,9.84548582 Z"
+            ></path>
+          </svg>
+          <p>Nitro</p>
+        </div>
+        <span class="direct">Direct Messages +</span>
+        <div class="container__sidebar__player1">
+          <img
+            class="avatar-p1"
+            src="https://www.clipartmax.com/png/middle/307-3072095_discord-icon-by-rengatv-cool-server-icons-discord.png"
+            alt=""
+          />
+          <span>Grizz0</span>
+        </div>
+        <div class="container__sidebar__player2">
+          <img
+            class="avatar-p2"
+            src="https://i.pinimg.com/474x/12/1b/4c/121b4cddc75da2641548557f955f16d5.jpg"
+            alt=""
+          />
+          <span>Andy</span>
+        </div>
+        <div class="container__sidebar__player3">
+          <img
+            class="avatar-p3"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdsH1vOPqp1wa_Yvv8tgLoO9X3zaUo-qMXo8o0Bx8G6ID7RGnfi7wBgbTsWfnHKiWrBf8&usqp=CAU"
+            alt=""
+          />
+          <span>Aaron</span>
+        </div>
+      </div>
+      <div class="container__main_items">
+        <div class="container__main_items__items friends"><h1>Friends</h1></div>
+        <div class="container__main_items__items onlin"><h1>Onlin</h1></div>
+        <div class="container__main_items__items all"><h1>All</h1></div>
+        <div class="container__main_items__items pending"><h1>pending</h1></div>
+        <div class="container__main_items__items suggestions">
+          <h1>suggestions</h1>
+        </div>
+        <div class="container__main_items__items blocked"><h1>blocked</h1></div>
+        <div class="container__main_items__items__addfriends">
+          <h1>Add Friends</h1>
+        </div>
+        <div class="container__main_items__post">
+          <div  id="addFriends" class="container__main_items__post1"></div>
+          <div class="container__main_items__post2"></div>
+          <div class="container__main_items__post3"></div>
+          <div class="divider3"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
