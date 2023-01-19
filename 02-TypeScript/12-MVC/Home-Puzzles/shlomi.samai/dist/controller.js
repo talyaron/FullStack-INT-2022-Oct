@@ -1,9 +1,15 @@
-"use strict";
 function getProduct() {
+    let i = 0;
     try {
-        const shirt = new Product("shirt1", "summer", 1996, "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2015/10/image-dpi.jpg?q=50&fit=crop&w=660&h=340&dpr=1.5");
-        products.push(shirt);
-        console.log(products);
+        for (i = 0; i <= 1; i++) {
+            const nameInput = prompt("what is the name of the item?");
+            const departmentInput = prompt("what is the name of the department?");
+            const yearInput = prompt("what is the name of the item?");
+            const pictureURLInput = prompt("what is the name of the item?");
+            const shirt = new Product(nameInput, departmentInput, yearInput, pictureURLInput);
+            products.push(shirt);
+            console.log(products);
+        }
         return products;
     }
     catch (error) {
@@ -13,12 +19,18 @@ function getProduct() {
 }
 console.log(products);
 getProduct();
-const inputURL = products[0].pictureURL;
+let j = 0;
+let page = "";
+for (j = 0; j <= products.length - 1; j++) {
+    page += `<div class="list"> 
+            <h3>${products[j].name}</h3>
+            <h3>${products[j].department}</h3>
+            <h3>${products[j].year}</h3>
+            <img src='${products[j].pictureURL}'/> 
+            </div>`;
+}
 const html = document.querySelector("#list");
 if (html !== null) {
-    html.innerHTML = `<div class="list"> 
-  <img src='${inputURL}'/>
-  
-  </div>`;
+    html.innerHTML = page;
+    console.log(html);
 }
-console.log(html);

@@ -1,7 +1,11 @@
-
 function getProduct(){
     try {
-        const shirt = new Product("shirt1", "summer", 1996, "https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2015/10/image-dpi.jpg?q=50&fit=crop&w=660&h=340&dpr=1.5");
+        const nameInput=prompt("what is the name of the item?")
+        const departmentInput=prompt("what is the name of the department?")
+        const yearInput=prompt("what is the name of the item?")
+        const pictureURLInput=prompt("what is the name of the item?")
+
+        const shirt = new Product(nameInput, departmentInput, yearInput, pictureURLInput);
         products.push(shirt)
         console.log(products)
         return products
@@ -26,4 +30,5 @@ if (html!==null){
 
 }
 console.log(html)
+
 
