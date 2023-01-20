@@ -7,6 +7,7 @@ if (myBox) {
 var boxs = document.querySelectorAll(".box");
 boxs.forEach(function (box) {
     box.addEventListener("click", function (event) {
+        box.innerHTML = alert("Turn up the volume...!\n      That's the sound of the police");
         box.innerText = "Is The Sound Of The Police";
     });
     box.addEventListener("click", function (event) {
