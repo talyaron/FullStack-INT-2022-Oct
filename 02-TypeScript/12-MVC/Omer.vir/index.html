@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,12 +11,44 @@
     <script src="./dist/view.js" defer></script>
     <script src="./dist/controls.js" defer></script>
     <script src="./dist/index.js" defer></script>
+    <script src="https://kit.fontawesome.com/6cf7873aa7.js" crossorigin="anonymous" defer></script>
 </head>
+
 <body>
     <div class="card">
-        <input type="text" placeholder="Message" id="inputText">
-        <button id="btn">Send</button>
-        
+        <div class="card__top">
+            <div class="card__top__top">
+                <div class="card__top__top__icons">
+                    <p>58%</p>
+                    <i class="fa-solid fa-wifi fa-2xs"></i>
+                </div>
+                <div class="card__top__top__hour" id="hour"></div>
+            </div>
+            <div class="card__top__bottom">
+                <div class="card__top__bottom__icons">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                    <i class="fa-solid fa-phone"></i>
+                    <i class="fa-solid fa-video"></i>
+                </div>
+                <div class="card__top__bottom__name">
+                    <div class="card__top__bottom__name__name">
+                        <p>Alon</p>
+                    </div>
+                    <div class="card__top__bottom__name__photo">
+                        <!-- <img src="./photos/pexels-pixabay-60597.jpg" id="user" alt=""> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card__send">
+            <div class="card__send__icon">
+                <i class="fa-solid fa-microphone"></i>
+            </div>
+            <input type="text" placeholder="Message" id="inputText">
+            <button id="btn">Send</button>
+        </div>
+        <img src="./photos/HD-wallpaper-whatsapp-background-cool-dark-green-new-theme-whatsapp.jpg" alt="background">
     </div>
 </body>
+
 </html>
