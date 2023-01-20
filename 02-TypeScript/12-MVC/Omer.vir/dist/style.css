@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card {
+  width: 400px;
+  height: 100vh;
+  border: 1px black solid;
+  margin: 0 auto;
+}
