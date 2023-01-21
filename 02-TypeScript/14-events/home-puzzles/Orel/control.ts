@@ -8,7 +8,6 @@ let score1 = 0, score2 = 0
 
 function resetBoard() {
     const boardGame = document.getElementById("boardGame")!
-
     const boardGameChild = boardGame.querySelectorAll("input")!
     for (let i = 0; i < 9; i++) {
         boardGameChild[i].value = ''
@@ -22,11 +21,12 @@ function resetGame() {
 }
 
 function gamesRules() {
+    const boardGameChild = boardGame.querySelectorAll("input")!
     scorePlayer2.style.backgroundColor = "rgb(177, 190, 196)"
     scorePlayer1.style.backgroundColor = "green"
     boardGameChild.forEach((ceil) => {
         ceil.addEventListener('click', () => {
-            if (ceil.textContent === '') {
+            if (ceil.value === "") {
                 if (turn === true) {
                     player1Sound.play()
                     ceil.value! = "x";
@@ -41,11 +41,11 @@ function gamesRules() {
                     turn = true
                 }
                 else {
-
+                    return
                 }
                 winOrNot(opinionToWin)
             } else {
-                console.log("no good");
+                return
             }
         })
     })
@@ -70,30 +70,32 @@ function winOrNot(opinionToWin: number[][]) {
 }
 
 function winGame(playerWin: number) {
-    const fireWorks = document.getElementById("fireWorks") as HTMLDivElement
-    const playerWinsH1 = document.getElementById("playerWinsH1") as HTMLSpanElement
+    const fireWorks = document.getElementById("fireWorks")! as HTMLDivElement
+    const playerWinsH1 = document.getElementById("playerWinsH1")! as HTMLSpanElement
     const scorePlayer1score = document.getElementById("player1Score")! as HTMLSpanElement
     const scorePlayer2score = document.getElementById("player2Score")! as HTMLSpanElement
     if (playerWin === 1) {
         score1++
         scorePlayer1score.textContent = score1.toString()
-        fireWorks!.style.display = "flex"
-        playerWinsH1!.textContent = "player 1"
+        fireWorks.style.display = "flex"
+        playerWinsH1.textContent = "player 1"
     } else
         if (playerWin === 2) {
             score2++
             scorePlayer2score.textContent = score2.toString();
-            fireWorks!.style.display = "flex"
-            playerWinsH1!.textContent = "player 2"
+            fireWorks.style.display = "flex"
+            playerWinsH1.textContent = "player 2"
 
         }
-        gameOver.play()
+    gameOver.play()
 
     setTimeout(() => {
-        fireWorks!.style.display = "none"
-    },2500);
+        fireWorks.style.display = "none"
+        resetBoard()
+   
+    }, 2500);
 
-    resetBoard()
+
 
 }
 
@@ -115,5 +117,4 @@ function resetScore() {
 function resetButton() {
     const resetBtn = document.querySelector('.btn-reset')! as HTMLButtonElement
     resetBtn.addEventListener('click', resetGame)
-    console.log("ResetButton");
 }

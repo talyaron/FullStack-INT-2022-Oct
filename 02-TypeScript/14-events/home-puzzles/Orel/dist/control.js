@@ -19,11 +19,12 @@ function resetGame() {
     turn = true;
 }
 function gamesRules() {
+    const boardGameChild = boardGame.querySelectorAll("input");
     scorePlayer2.style.backgroundColor = "rgb(177, 190, 196)";
     scorePlayer1.style.backgroundColor = "green";
     boardGameChild.forEach((ceil) => {
         ceil.addEventListener('click', () => {
-            if (ceil.textContent === '') {
+            if (ceil.value === "") {
                 if (turn === true) {
                     player1Sound.play();
                     ceil.value = "x";
@@ -39,11 +40,12 @@ function gamesRules() {
                     turn = true;
                 }
                 else {
+                    return;
                 }
                 winOrNot(opinionToWin);
             }
             else {
-                console.log("no good");
+                return;
             }
         });
     });
@@ -82,8 +84,8 @@ function winGame(playerWin) {
     gameOver.play();
     setTimeout(() => {
         fireWorks.style.display = "none";
+        resetBoard();
     }, 2500);
-    resetBoard();
 }
 function resetScore() {
     const resetBtnScore = document.querySelector(".btn-reset-score");
@@ -99,5 +101,4 @@ function resetScore() {
 function resetButton() {
     const resetBtn = document.querySelector('.btn-reset');
     resetBtn.addEventListener('click', resetGame);
-    console.log("ResetButton");
 }
