@@ -30,7 +30,6 @@ function handleBoxClick(e) {
     var currentClass = isPlayerOTurn ? playerO : playerX;
     placeMark(box, currentClass);
     if (checkWin(currentClass)) {
-        console.log("player " + currentClass + " wins");
         boxes.forEach(function (box) { return box.removeEventListener("click", handleBoxClick); });
         if (currentClass == playerO) {
             playerOScore++;
