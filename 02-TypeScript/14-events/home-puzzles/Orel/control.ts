@@ -92,6 +92,9 @@ function winGame(playerWin: number) {
     setTimeout(() => {
         fireWorks.style.display = "none"
         resetBoard()
+        turn = true
+        scorePlayer2.style.backgroundColor = "rgb(177, 190, 196)"
+        scorePlayer1.style.backgroundColor = "green"
    
     }, 2500);
 
