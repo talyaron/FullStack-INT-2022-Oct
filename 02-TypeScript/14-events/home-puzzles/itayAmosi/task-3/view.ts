@@ -9,12 +9,6 @@ if (xo) {
 
 const XO = document.querySelectorAll(`.box`);
 
-// XO.forEach((box) =>{
-// box.addEventListener(`click`, (Event)=>{
-// box.innerText = `X`);
-
-// }
-
 
 
 XO.forEach((box:any) => {
