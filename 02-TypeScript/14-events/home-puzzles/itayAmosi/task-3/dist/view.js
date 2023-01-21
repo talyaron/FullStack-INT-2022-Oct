@@ -1,24 +1,24 @@
-var xo = document.querySelector(".box");
-if (xo) {
-    xo.addEventListener("click", function (play) {
-        console.log(play);
-    });
-    {
+var ticTacToeGame = document.querySelector(".box");
+var TicTacToe = document.querySelectorAll(".box");
+function switchPlayer() {
+    if (turn === player1) {
+        turn = player2;
+        TicTacToe.forEach(function (box) {
+            box.addEventListener("click", function (event) {
+                box.innerText = "X";
+            });
+            box.addEventListener("click", function (event) {
+                box.innerText = "O";
+            });
+        });
+    }
+    else {
+        turn = player1;
     }
 }
-var XO = document.querySelectorAll(".box");
-// XO.forEach((box) =>{
-// box.addEventListener(`click`, (Event)=>{
-// box.innerText = `X`);
-// }
-XO.forEach(function (box) {
-    box.addEventListener("click", function (event) {
-        box.innerText = "X";
-    });
-    box.addEventListener("click", function (event) {
-        box.innerText = "O";
-    });
-    //    box.addEventListener("mouseout", (event) => {
-    //      box.style.backgroundColor = 'teal';
-    //    });
-});
+// const ticTacToe = document.querySelector(`.box`)
+// if (ticTacToe) {
+//    ticTacToe.addEventListener(`click`,(play) => {
+//     console.log(play)
+//  });{
+// }}

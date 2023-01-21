@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+label {
+  margin-top: 10vh;
+}
+
+input {
+  padding: 0.2em;
+  font-size: 1.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.165);
+}
+
+.displayedList {
+  margin-top: 5vh;
+}
+.displayedList li {
+  display: flex;
+  align-items: center;
+  margin-top: 2em;
+}
+.displayedList li img {
+  width: 15vw;
+  margin-left: 5vw;
+}

@@ -1,0 +1,11 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  max-width: 75ch;
+  margin: auto;
+}
+.wrapper .box {
+  width: 300px;
+  background-color: red;
+}

@@ -222,14 +222,13 @@ body {
 }
 .watsapp-screen__user-chats__chats {
   width: 230px;
-  height: 75px;
   margin-left: 5px;
   position: relative;
   display: flex;
 }
 .watsapp-screen__user-chats__chats--right {
   position: relative;
-  left: 245px;
+  left: 500px;
 }
 .watsapp-screen__user-chats__chats__p-box {
   width: -webkit-fit-content;
@@ -264,4 +263,4 @@ body {
 .watsapp-screen__message__icons span {
   margin-top: 15px;
   opacity: 0.81;
-}/*# sourceMappingURL=style.css.map */
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="./dist/style.css" />
+    <script
+      src="https://kit.fontawesome.com/0d9e773bea.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/models.js" defer></script>
+    <script src="./dist/main.js" defer></script>
+  </head>
+  <body>
+    <div class="player one">
+      <h1>Player X</h1>
+      <span class="playerXScore">0</span>
+    </div>
+    <div class="container">
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+    <div class="player two">
+      <h1>Player O</h1>
+      <span class="playerOScore">0</span>
+    </div>
+    <div class="buttons">
+      <button class="newGameBtn">New Game</button>
+      <button class="resetScoreBtn">Reset Score</button>
+    </div>
+    <div class="message playerOWin">Player O wins this round</div>
+    <div class="message playerXWin">Player X wins this round</div>
+    <div class="message draw">It's a draw</div>
+  </body>
+</html>
