@@ -1,0 +1,168 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Anton", sans-serif;
+  color: rgba(255, 255, 255, 0.849);
+  overflow-x: hidden;
+}
+
+section.container {
+  width: 100vw;
+  min-height: 100vh;
+  background: url(./imgs/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding: 16px 32px;
+}
+section.container header {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+}
+section.container header .score-player {
+  display: flex;
+  width: 250px;
+  margin-right: 2px;
+  justify-content: space-around;
+}
+section.container header .score-player .score-player1,
+section.container header .score-player .score-player2 {
+  color: black;
+  background-color: #b1bec4;
+  font-size: 1.1rem;
+  border: 2px solid black;
+  padding: 8px;
+}
+section.container header button.btn-reset {
+  font-family: initial;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0c0808;
+  width: 115px;
+  height: 70px;
+  border-radius: 25px;
+  background-color: rgba(240, 255, 255, 0.644);
+  outline: none;
+  cursor: pointer;
+}
+section.container div.board-game {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  text-align: center;
+  margin: 25px auto;
+  width: 450px;
+  height: 450px;
+  background-color: rgba(240, 248, 255, 0.747);
+  color: black;
+}
+section.container div.board-game input {
+  cursor: pointer;
+  font-size: 5rem;
+  background: linear-gradient(#794d5b33, #753a88);
+  display: grid;
+  place-items: center;
+  border: 2px solid black;
+}
+section.container div.board-game input:hover {
+  background: linear-gradient(#1a141673, #743a8856);
+  border: 3px solid rgba(0, 0, 0, 0.432);
+}
+
+section.starting-game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 16px 32px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: calc(100% + 50px);
+  background-color: rgba(54, 54, 80, 0.918);
+}
+section.starting-game h1 {
+  color: #fff;
+  font-size: 3rem;
+}
+section.starting-game button {
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 15px;
+  padding: 16px 32px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  background-color: #85c4c4;
+  transition: 0.1s ease;
+}
+section.starting-game button:hover {
+  background-color: #317474;
+}
+section.starting-game button:active {
+  transform: scale(1.1);
+}
+section.starting-game .form-player-name input {
+  display: none;
+  padding: 5px;
+  width: 250px;
+  font-size: 1.5rem;
+}
+section.starting-game ::placeholder {
+  font-size: 1.5rem;
+}
+
+.btn-reset-score {
+  font-family: initial;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #0c0808;
+  width: 115px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: rgba(24, 102, 102, 0.877);
+  outline: none;
+  cursor: pointer;
+}
+
+.fireworks {
+  display: none;
+  grid-template-columns: repeat(3), 1fr;
+  width: 400px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.fireworks h1#playerWinsH1 {
+  color: #5900ff;
+  letter-spacing: 2px;
+  background-color: rgba(248, 248, 248, 0.726);
+  box-shadow: inset 1px 1px 2px 1px black;
+  font-weight: 700;
+  padding: 15px;
+  font-size: 4rem;
+}
+.fireworks h1.wins {
+  color: rgba(250, 248, 239, 0.918);
+  letter-spacing: 2px;
+  font-weight: 700;
+  font-size: 3rem;
+  background-color: rgba(0, 0, 139, 0.836);
+}
+.fireworks img {
+  width: 200px;
+  height: 200px;
+}
