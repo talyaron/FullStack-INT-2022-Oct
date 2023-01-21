@@ -7,9 +7,37 @@
     <title>Document</title>
     <link rel="stylesheet" href="./dist/tictaktoe.css">
     <script src="./dist/tictaktoe.js" defer></script>
-    <script src="https://kit.fontawesome.com/80449c9335.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    
 </head>
 <body>
-
+    <div class="gameContainer">
+        <div class="gameContainer__title">
+            <h1>Tic Tac Toe</h1>
+            <button class="gameContainer__title--theme-btn" id="switch" onclick="setThemes()">
+                <span class="material-symbols-outlined">
+                    switch
+                    </span>
+            </button>
+        </div>
+        <div class="gameContainer__firstRow">
+           <div class="gameContainer__firstRow--cell" id="a" onclick="getClicks()"></div>
+           <div class="gameContainer__firstRow--cell" id="b" onclick="getClicks()"></div>
+           <div class="gameContainer__firstRow--cell" id="c" onclick="getClicks()"></div>
+        </div>
+        <div class="gameContainer__secondRow">
+            <div class="gameContainer__secondRow--cell" id="a" onclick="getClicks()"></div>
+            <div class="gameContainer__secondRow--cell" id="b" onclick="getClicks()"></div>
+            <div class="gameContainer__secondRow--cell" id="c" onclick="getClicks()"></div>
+         </div>
+         <div class="gameContainer__thirdRow">
+            <div class="gameContainer__thirdRow--cell" id="a" onclick="getClicks()"></div>
+            <div class="gameContainer__thirdRow--cell" id="b" onclick="getClicks()"></div>
+            <div class="gameContainer__thirdRow--cell" id="c" onclick="getClicks()"></div>
+         </div>
+    </div>
 </body>
 </html>

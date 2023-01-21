@@ -1,0 +1,32 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wraper {
+    &__h1 {
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translate(-50%);
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    &__box {
+        display: grid;
+        place-items: center;
+        flex-basis: 33%;
+        width: 20px;
+        aspect-ratio: 1/1;
+        border: 2px black solid;
+    }
+}
