@@ -38,13 +38,19 @@ body {
   flex-direction: column;
   gap: 10px;
 }
-.player i {
-  font-size: 3rem;
+.player span {
+  font-size: 2em;
+  font-weight: bold;
+  background-color: darkolivegreen;
 }
 
-.newGameBtn {
+.buttons {
   position: absolute;
   top: 2vh;
-  width: 15vw;
-  height: 5vh;
+  width: 30vw;
+  display: flex;
+  justify-content: space-between;
+}
+.buttons button {
+  width: 10vw;
 }
