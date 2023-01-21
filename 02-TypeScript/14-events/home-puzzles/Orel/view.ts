@@ -1,6 +1,5 @@
 const btnStart = document.getElementById("btnStart");
 const gameStart = document.getElementById("startGameContainer")!
-
 const player1Name = document.getElementById("player1Name") as HTMLInputElement
 const player2Name = document.getElementById("player2Name") as HTMLInputElement
 const formPlayerName = document.getElementById("formPlayerName") as HTMLFormElement

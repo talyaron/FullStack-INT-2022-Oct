@@ -1,0 +1,11 @@
+#root {
+  height: 100px;
+  width: 100px;
+  background-color: pink;
+}
+
+.box {
+  border: 2px solid yellow;
+  height: 100px;
+  width: 100px;
+}

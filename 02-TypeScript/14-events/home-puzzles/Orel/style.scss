@@ -156,20 +156,32 @@ section.starting-game {
 }
 .fireworks{
     display: none;
+grid-template-columns: (repeat(3) , 1fr);
+    width: 400px;
     text-align: center;
+    justify-content: center;
     align-items: center;
-    width: 470px;
-    height: 470px;
-    background-color: rgba(12, 12, 6, 0.61);
+    height: 400px;
     border-radius: 25px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50% ,-50%);
-
-    h1{
-        color: rgb(233, 227, 227);
-        font-size: 2rem;
+    h1#playerWinsH1{
+        color: rgb(89, 0, 255);
+        letter-spacing: 2px;
+        background-color: rgba(248, 248, 248, 0.726);
+        box-shadow: inset 1px 1px 2px 1px black;
+        font-weight: 700;
+        padding: 15px;
+        font-size: 4rem;
+    }
+    h1.wins{
+        color: rgba(250, 248, 239, 0.918);
+        letter-spacing: 2px;
+        font-weight: 700;
+        font-size: 3rem;
+        background-color: rgba(0, 0, 139, 0.836);
     }
     img{
         width: 200px;
