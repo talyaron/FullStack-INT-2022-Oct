@@ -1,0 +1,13 @@
+.wapper{
+    margin-top: 8rem;
+    display: grid;
+    grid-template-columns: 75px 75px 75px;
+    justify-content: center;
+    gap: 70px;
+    margin: auto;
+    .box{
+        background-color: red;
+        width: 100px;
+        height: 100px;
+    }
+}
