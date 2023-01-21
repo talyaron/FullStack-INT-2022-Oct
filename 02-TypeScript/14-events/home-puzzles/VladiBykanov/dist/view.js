@@ -15,3 +15,7 @@ var winnigCombinations = [
     [0, 4, 8],
     [2, 4, 6],
 ];
+var playerOWinMessage = document.querySelector(".playerOWin");
+var playerXWinMessage = document.querySelector(".playerXWin");
+var drawMessage = document.querySelector(".draw");
+var messages = document.querySelectorAll(".message");

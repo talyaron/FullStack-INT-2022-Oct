@@ -6,6 +6,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 function newGame() {
+    messages.forEach(function (message) { return (message.style.display = "none"); });
     boxes.forEach(function (box) {
         box.addEventListener("click", handleBoxClick);
         box.innerHTML = "";
@@ -16,6 +17,7 @@ function newGame() {
 function resetScore() {
     playerOScoreSpan.innerHTML = "0";
     playerXScoreSpan.innerHTML = "0";
+    messages.forEach(function (message) { return (message.style.display = "none"); });
     boxes.forEach(function (box) {
         box.addEventListener("click", handleBoxClick);
         box.innerHTML = "";
@@ -34,14 +36,16 @@ function handleBoxClick(e) {
         if (currentClass == playerO) {
             playerOScore++;
             playerOScoreSpan.innerHTML = playerOScore.toString();
+            playerOWinMessage.style.display = "flex";
         }
         else {
             playerXScore++;
             playerXScoreSpan.innerHTML = playerXScore.toString();
+            playerXWinMessage.style.display = "flex";
         }
     }
     else if (isDraw()) {
-        console.log("its a draw");
+        drawMessage.style.display = "flex";
     }
     else {
         swapTurns();

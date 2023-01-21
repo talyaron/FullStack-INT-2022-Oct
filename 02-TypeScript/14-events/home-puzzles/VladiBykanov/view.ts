@@ -23,3 +23,14 @@ const winnigCombinations = [
   [0, 4, 8],
   [2, 4, 6],
 ];
+
+const playerOWinMessage = document.querySelector(
+  ".playerOWin"
+) as HTMLDivElement;
+const playerXWinMessage = document.querySelector(
+  ".playerXWin"
+) as HTMLDivElement;
+const drawMessage = document.querySelector(".draw") as HTMLDivElement;
+const messages = document.querySelectorAll(
+  ".message"
+) as NodeListOf<HTMLDivElement>;
