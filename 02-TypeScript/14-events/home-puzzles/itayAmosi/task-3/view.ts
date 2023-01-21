@@ -1,24 +1,47 @@
-const xo = document.querySelector(`.box`)
-if (xo) {
- xo.addEventListener(`click`,(play) => {
-    console.log(play)
- });{
+const ticTacToeGame= document.querySelector(`.box`) as HTMLElement;
 
-}}
+const TicTacToe = document.querySelectorAll(`.box`);
 
-
-const XO = document.querySelectorAll(`.box`);
-
-
-
-XO.forEach((box:any) => {
+function switchPlayer(): void {
+if (turn === player1){
+   turn = player2;
+   TicTacToe.forEach((box:any) => {
    box.addEventListener("click", (event) => {
      box.innerText = `X`;
    });
    box.addEventListener("click", (event) => {
       box.innerText = `O`;
    });
-//    box.addEventListener("mouseout", (event) => {
-//      box.style.backgroundColor = 'teal';
-//    });
  });
+}else{
+   turn = player1;
+}
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const ticTacToe = document.querySelector(`.box`)
+// if (ticTacToe) {
+//    ticTacToe.addEventListener(`click`,(play) => {
+//     console.log(play)
+//  });{
+
+// }}
+
