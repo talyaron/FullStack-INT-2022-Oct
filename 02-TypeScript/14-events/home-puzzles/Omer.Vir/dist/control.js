@@ -1,5 +1,6 @@
 var change = -1;
 var counter = 0;
+var game = false;
 var _loop_1 = function (i) {
     if (mat[i] < 0) {
         var box_1 = boxes[i];
@@ -20,15 +21,15 @@ var _loop_1 = function (i) {
             }
             box_1.style.pointerEvents = "none";
             counter++;
-            if (mat[0] == 0 && mat[1] == 0 && mat[2] == 0 || mat[3] == 0 && mat[4] == 0 && mat[5] == 0 || mat[6] == 0 && mat[7] == 0 && mat[8] == 0 || mat[0] == 0 && mat[4] == 0 && mat[8] == 0 || mat[2] == 0 && mat[4] == 0 && mat[6] == 0) {
+            if (mat[0] == 0 && mat[1] == 0 && mat[2] == 0 || mat[3] == 0 && mat[4] == 0 && mat[5] == 0 || mat[6] == 0 && mat[7] == 0 && mat[8] == 0 || mat[0] == 0 && mat[4] == 0 && mat[8] == 0 || mat[2] == 0 && mat[4] == 0 && mat[6] == 0 || mat[0] == 0 && mat[3] == 0 && mat[6] == 0 || mat[1] == 0 && mat[4] == 0 && mat[7] == 0 || mat[2] == 0 && mat[5] == 0 && mat[8] == 0) {
                 alert("O won!");
                 stopGame(i);
             }
-            if (mat[0] == 1 && mat[1] == 1 && mat[2] == 1 || mat[3] == 1 && mat[4] == 1 && mat[5] == 1 || mat[6] == 1 && mat[7] == 1 && mat[8] == 1 || mat[0] == 1 && mat[4] == 1 && mat[8] == 1 || mat[2] == 1 && mat[4] == 1 && mat[6] == 1) {
+            if (mat[0] == 1 && mat[1] == 1 && mat[2] == 1 || mat[3] == 1 && mat[4] == 1 && mat[5] == 1 || mat[6] == 1 && mat[7] == 1 && mat[8] == 1 || mat[0] == 1 && mat[4] == 1 && mat[8] == 1 || mat[2] == 1 && mat[4] == 1 && mat[6] == 1 || mat[0] == 1 && mat[3] == 1 && mat[6] == 1 || mat[1] == 1 && mat[4] == 1 && mat[7] == 1 || mat[2] == 1 && mat[5] == 1 && mat[8] == 1) {
                 alert("X won!");
                 stopGame(i);
             }
-            if (isEndGame() && counter == 9) {
+            if (isEndGame() && counter == 9 && !game) {
                 alert("Tie game...");
             }
         });
@@ -49,4 +50,5 @@ function stopGame(i) {
         var box = boxes[j];
         box.style.pointerEvents = "none";
     }
+    game = true;
 }
