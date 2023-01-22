@@ -112,11 +112,17 @@ var DOMDisplay = /** @class */ (function () {
             var message = _this.getElement('.message');
             message.remove();
         }; //enleve le message de gagne/egalite 
-        this.newGame = function (startGame) {
+        this.newGame = function () {
             var game = _this.getElement('#game');
-            var button_newGame = _this.createElement('div', 'button', undefined);
-            button_newGame.innerHTML = "<button type=\"button\">New Game!</button>";
-            button_newGame.addEventListener('click', startGame);
+            var button_newGame = _this.createElement('div', "button");
+            button_newGame.innerHTML = "<button class=\"button_newGame\">New Game</button>";
+            button_newGame.addEventListener("click", function (event) {
+                window.location.reload();
+                //  this.updateBoard
+                // ticTacToe.res
+                // ticTacToe.startGame()
+                // ticTacToe.display.clearGameBoard
+            });
             game.append(button_newGame);
         };
     }

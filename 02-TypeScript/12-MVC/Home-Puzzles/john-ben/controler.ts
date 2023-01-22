@@ -20,7 +20,7 @@
       this.display = display
       this.board = this.createBoard()
       this.players = { x: "x", o: "o" }
-      this.wait = 4000;
+      this.wait = 3000;
       this.waiting = false
       this.score = { x: 0, o: 0 }
       this.currentPlayer = this.players.x
@@ -88,8 +88,8 @@
      * Restore the board to its original empty state
      */
     resetBoard = (): void => {
-      this.display.clearMessage()
       this.display.clearGameBoard()
+      this.display.clearMessage()
       this.board = this.createBoard() // fonction qui reinitialise le message le tableur et cree un nouveau tableur 
     }
   
@@ -142,7 +142,8 @@
     startGame(): void {
       this.display.printScoreBoard(this.score)
       this.display.printGameBoard(this.board) //fonction qui affiche le jeu appelee dans l'index.html
-      this.display.newGame(this.changeWait)
+      this.display.newGame()
   }
+  
 
 }

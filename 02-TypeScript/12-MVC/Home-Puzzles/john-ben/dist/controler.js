@@ -50,8 +50,8 @@ var TicTacToe = /** @class */ (function () {
          * Restore the board to its original empty state
          */
         this.resetBoard = function () {
-            _this.display.clearMessage();
             _this.display.clearGameBoard();
+            _this.display.clearMessage();
             _this.board = _this.createBoard(); // fonction qui reinitialise le message le tableur et cree un nouveau tableur 
         };
         /**
@@ -95,7 +95,7 @@ var TicTacToe = /** @class */ (function () {
         this.display = display;
         this.board = this.createBoard();
         this.players = { x: "x", o: "o" };
-        this.wait = 4000;
+        this.wait = 3000;
         this.waiting = false;
         this.score = { x: 0, o: 0 };
         this.currentPlayer = this.players.x;
@@ -122,7 +122,7 @@ var TicTacToe = /** @class */ (function () {
     TicTacToe.prototype.startGame = function () {
         this.display.printScoreBoard(this.score);
         this.display.printGameBoard(this.board); //fonction qui affiche le jeu appelee dans l'index.html
-        this.display.newGame(this.changeWait);
+        this.display.newGame();
     };
     return TicTacToe;
 }());

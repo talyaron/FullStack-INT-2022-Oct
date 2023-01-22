@@ -131,7 +131,7 @@
      * @param {string} winner
      */
     printMessage = (winner: string): void => {
-      const message = this.createElement('div', 'message')
+      const message:  HTMLElement|null = this.createElement('div', 'message')
       const player = winner === 'x' ? 'Player 1' : 'Player 2'
   
       message.textContent = winner ? `${player} wins!` : 'Nobody wins!'
@@ -148,13 +148,18 @@
       message.remove()
     } //enleve le message de gagne/egalite 
     
-    newGame = (startGame): void => {
+    newGame = (): void => {
       const game = this.getElement('#game')
-      const button_newGame = this.createElement('div','button', undefined)
-      button_newGame.innerHTML =`<button type="button">New Game!</button>`
-      button_newGame.addEventListener('click',startGame)
+      const button_newGame = this.createElement('div',"button")
+      button_newGame.innerHTML =`<button class="button_newGame">New Game</button>`
+      button_newGame.addEventListener("click", (event) => {
+        window.location.reload();
+        //  this.updateBoard
+        // ticTacToe.res
+        // ticTacToe.startGame()
+        // ticTacToe.display.clearGameBoard
+      });
       game.append(button_newGame)
-      
     }
    
   }
