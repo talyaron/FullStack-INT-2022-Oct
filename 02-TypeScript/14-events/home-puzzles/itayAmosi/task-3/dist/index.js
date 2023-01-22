@@ -1,1 +1,1 @@
-switchPlayer();
+switchPlayers(event);
