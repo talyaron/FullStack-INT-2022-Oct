@@ -34,7 +34,8 @@ function didIWin() {
             (box1_3.style.backgroundColor == "pink" &&
                 box2_2.style.backgroundColor == "pink" &&
                 box3_1.style.backgroundColor == "pink")) {
-            winner.innerHTML += "<div class=\"player_0_win\">\n      <span class=\"closebtn\" onclick=\"reset()\">&times;</span>\n      Player 0 win the game!!\n      </div>";
+            winner.innerHTML = "The Winner is:\n      <div class=\"player_o_win\">\n      <span class=\"closebtn\" onclick=\"reset()\">&times;</span>\n      Player O win the game!!\n      </div>";
+            boxes.forEach(function (box) { return box.style.pointerEvents = "none"; });
         }
         else if ((box1_1.style.backgroundColor == "blue" &&
             box1_2.style.backgroundColor == "blue" &&
@@ -60,7 +61,11 @@ function didIWin() {
             (box1_3.style.backgroundColor == "blue" &&
                 box2_2.style.backgroundColor == "blue" &&
                 box3_1.style.backgroundColor == "blue")) {
-            winner.innerHTML += "<div class=\"player_x_win\">\n      <span class=\"closebtn\" onclick=\"reset()\">&times;</span>\n      Player X win the game!!\n      </div>";
+            winner.innerHTML = "The Winner is:\n      <div class=\"player_x_win\">\n      <span class=\"closebtn\" onclick=\"reset()\">&times;</span>\n      Player X win the game!!\n      </div>";
+            boxes.forEach(function (box) { return box.style.pointerEvents = "none"; });
+        }
+        else {
+            winner.innerHTML = "The Winner is:\n        <div class=\"no_one_win\">\n        <span class=\"closebtn\" onclick=\"reset()\">&times;</span>\n        No one win the game...\n        </div>";
         }
     }
     catch (error) {
