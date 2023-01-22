@@ -1,0 +1,73 @@
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Verdana, "Segoe UI", Tahoma, Geneva, sans-serif;
+}
+
+:root {
+  --main-color: #256b31;
+  --title-color: #a85a05;
+  --message-color: #f5952c;
+  --cardShadow-color: #712cf5;
+  --btn-color: #14f539;
+}
+
+.gameContainer {
+  height: 100vh;
+  width: 100%;
+  background-color: var(--main-color);
+  background-size: cover;
+  font-weight: bold;
+  color: white;
+  display: grid;
+  grid-template-rows: 1fr 2fr 2fr 1fr;
+}
+.gameContainer__title {
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 1rem;
+  color: var(--title-color);
+}
+.gameContainer__title__userMessage {
+  color: var(--message-color);
+  margin-top: 1rem;
+}
+.gameContainer__playerArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.gameContainer__playerArea__score {
+  font-size: 1.5rem;
+}
+.gameContainer__buttonGrid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.displayedCard {
+  aspect-ratio: 3/5;
+  width: 4rem;
+  margin: 0 0.5rem;
+}
+
+button {
+  background-color: var(--btn-color);
+  border: none;
+  width: 20%;
+  height: 2rem;
+  font-weight: bolder;
+  font-size: 1rem;
+}
+
+button:hover {
+  color: var(--cardShadow-color);
+  cursor: pointer;
+}

@@ -1,0 +1,50 @@
+body {
+  margin: 0;
+}
+
+.news {
+  height: 50vh;
+  width: 50vw;
+  margin: auto;
+  top: 150px;
+  position: relative;
+  background-color: antiquewhite;
+  display: flex;
+  flex-direction: column;
+}
+.news img {
+  width: 100%;
+  height: 50%;
+}
+.news__text {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.news__text h1 {
+  margin-bottom: 0px;
+  position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+  .news {
+    background-color: rgb(5, 58, 40);
+  }
+  .news h1 {
+    color: brown;
+  }
+  .news img {
+    height: 100%;
+    width: 100%;
+  }
+  .news__text {
+    display: none;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .news {
+    background-color: aqua;
+  }
+}
