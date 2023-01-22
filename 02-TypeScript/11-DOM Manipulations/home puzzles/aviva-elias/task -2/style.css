@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+}
+
+.imag {
+  width: 400px;
+  height: 300px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.imag img {
+  width: 100%;
+}

@@ -1,24 +1,4 @@
-var xo = document.querySelector(".box");
-if (xo) {
-    xo.addEventListener("click", function (play) {
-        console.log(play);
-    });
-    {
-    }
+var box = document.querySelectorAll(".box");
+for (var i = 0; i < box.length; i++) {
+    box[i].addEventListener("click", switchPlayers);
 }
-var XO = document.querySelectorAll(".box");
-// XO.forEach((box) =>{
-// box.addEventListener(`click`, (Event)=>{
-// box.innerText = `X`);
-// }
-XO.forEach(function (box) {
-    box.addEventListener("click", function (event) {
-        box.innerText = "X";
-    });
-    box.addEventListener("click", function (event) {
-        box.innerText = "O";
-    });
-    //    box.addEventListener("mouseout", (event) => {
-    //      box.style.backgroundColor = 'teal';
-    //    });
-});

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+    <link rel="stylesheet" href="./dist/style.css" />
+  </head>
+  <body>
+    <div class="nav-bar">
+      <div class="nav-bar__player">
+        Choose your player:<br>
+        <input type="radio" name="player" value="x" id="player_x" /><img src="./img/x-tictactoe.png" alt="player- X ">
+        <input type="radio" name="player" value="o" id="player_o" /><img src="./img/o-tictactoe.png" alt="player- O">
+      </div>
+      <div class="nav-bar__winner">The Winner is:</div>
+    </div>
+    <br />
+    <div class="wrapper">
+      <div class="box" id="box-1_1"></div>
+      <div class="box" id="box-1_2"></div>
+      <div class="box" id="box-1_3"></div>
+      <div class="box" id="box-2_1"></div>
+      <div class="box" id="box-2_2"></div>
+      <div class="box" id="box-2_3"></div>
+      <div class="box" id="box-3_1"></div>
+      <div class="box" id="box-3_2"></div>
+      <div class="box" id="box-3_3"></div>
+    </div>
+    <br>
+    <h3>(: TO RESET CLOSE THE WIN MESSAGE :)</h3>
+  </body>
+</html>
