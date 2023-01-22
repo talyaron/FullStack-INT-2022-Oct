@@ -6,4 +6,4 @@ var players = /** @class */ (function () {
 }());
 var player1 = new players("X");
 var player2 = new players("O");
-var turn = player1;
+var currentPlayer = player1 || player2;

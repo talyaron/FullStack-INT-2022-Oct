@@ -4,8 +4,8 @@ class players {
     ) {}
   }
   
-  const player1 = new players(`X`)
-  const player2 = new players(`O`)
+  let player1 = new players(`X`)
+  let player2 = new players(`O`)
   
   type Turn = "X" | "O" | ""
-  let turn: players = player1
+  let currentPlayer: players = player1 || player2;
