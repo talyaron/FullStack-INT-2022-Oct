@@ -1,5 +1,5 @@
 .gameContainer{
-    height: auto;
+    height: 30rem;
     width: 25rem;
     background-color: pink;
     margin: auto;
@@ -27,7 +27,7 @@
 
     &__firstRow{
         width: 100%;
-        height: 5rem;
+        height: 25%;
         display: flex;
         justify-content: space-evenly;
         &--cell{
@@ -42,7 +42,7 @@
     }
     &__secondRow{
         width: 100%;
-        height: 5rem;
+        height: 25%;
         display: flex;
         justify-content: space-evenly;
         &--cell{
@@ -57,7 +57,7 @@
     }
     &__thirdRow{
         width: 100%;
-        height: 5rem;
+        height: 25%;
         display: flex;
         justify-content: space-evenly;
         &--cell{
@@ -70,6 +70,7 @@
             font-size: 3em;
         }
     }
+
 }
 .theme-light {
     --color-primary: #0060df;
@@ -84,3 +85,37 @@
     --font-color: #ffffff;
   }
 
+// #popup{
+//     margin: auto;
+//     width: 28rem;
+//     height: 10rem;
+//     background-color: pink;
+//     z-index: 1;
+//     position: relative;
+//     bottom: 18rem;
+//     background: var(--color-accent);
+//     color: var(--font-color);
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     font-size: xx-large;
+//     flex-direction: column;
+//     justify-content: space-around;
+//     font-family: 'Lobster', cursive;
+//     transition: transform 0.4s , top 0.4s;
+//     visibility: hidden;
+    
+
+//     button{
+//         height: 2rem;
+//         width: 30%;
+//         background-color: transparent;
+//         font-family: 'Lobster', cursive;
+//         cursor: pointer;
+//     }
+
+// }
+
+// .open-popup{
+//     visibility: visible;
+// }
