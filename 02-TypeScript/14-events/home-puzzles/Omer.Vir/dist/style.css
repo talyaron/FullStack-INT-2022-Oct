@@ -29,3 +29,7 @@
   aspect-ratio: 1/1;
   border: 2px black solid;
 }
+
+.hover:hover {
+  background-color: #bdbcbc;
+}
