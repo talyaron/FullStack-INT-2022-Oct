@@ -20,14 +20,15 @@ for (let i = 0; i < boxes.length; i++) {
                 mat[i] = 0;
             }
             box.style.pointerEvents = "none";
+            box.classList.remove("hover");
             counter++;
             if(mat[0] == 0 && mat[1] == 0 && mat[2] == 0 || mat[3] == 0 && mat[4] == 0 && mat[5] == 0 || mat[6] == 0 && mat[7] == 0 && mat[8] == 0 || mat[0] == 0 && mat[4] == 0 && mat[8] == 0 || mat[2] == 0 && mat[4] == 0 && mat[6] == 0 || mat[0] == 0 && mat[3] == 0 && mat[6] == 0 || mat[1] == 0 && mat[4] == 0 && mat[7] == 0 || mat[2] == 0 && mat[5] == 0 && mat[8] == 0) {
                 alert("O won!")
-                stopGame(i);
+                stopGame();
             }
             if(mat[0] == 1 && mat[1] == 1 && mat[2] == 1 || mat[3] == 1 && mat[4] == 1 && mat[5] == 1 || mat[6] == 1 && mat[7] == 1 && mat[8] == 1 || mat[0] == 1 && mat[4] == 1 && mat[8] == 1 || mat[2] == 1 && mat[4] == 1 && mat[6] == 1 || mat[0] == 1 && mat[3] == 1 && mat[6] == 1 || mat[1] == 1 && mat[4] == 1 && mat[7] == 1 || mat[2] == 1 && mat[5] == 1 && mat[8] == 1) {
                 alert("X won!")
-                stopGame(i);
+                stopGame();
             }
             if(isEndGame() && counter == 9 && !game) {
                 alert("Tie game...")
@@ -43,10 +44,11 @@ function isEndGame():Boolean {
     return true;
 }
 
-function stopGame(i) {
-    for(let j = i ;j < boxes.length; j++) {
+function stopGame() {
+    for(let j = 0 ;j < boxes.length; j++) {
         const box = <HTMLDivElement>boxes[j];
         box.style.pointerEvents = "none";
+        box.classList.remove("hover");
     }
     game = true;
 }
