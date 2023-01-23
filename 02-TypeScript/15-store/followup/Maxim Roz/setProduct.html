@@ -9,7 +9,7 @@
     <script src="./dist/view.js" defer></script>
     <script src="./dist/helpers.js" defer></script>
     <script src="./dist/model.js" defer></script>
-    <script src="./dist/control.js" defer></script>
+    <script src="./dist/controls.js" defer></script>
     <script src="./dist/index.js" defer></script>
 </head>
 
@@ -20,7 +20,7 @@
         <input type="text" name="name" placeholder="name of product" required>
         <input type="color" name="color" placeholder="color">
         <input type="number" name="price" placeholder="price" required>
-        inpu
+        
         <select name="category">
             <option value="shows">Shows</option>
             <option value="shirts">Shirts</option>
@@ -28,12 +28,9 @@
         </select>
         <input type="number" name="size" placeholder="size" required>
         <input type="text" name="sn" placeholder="serial number">
+        <input type="email" name="email" placeholder="Enter Mail" required>
         <input type="submit" value="ADD">
     </form>
-
-    <input type="color" oninput="handleChangerColor(event)">
-    <input type="password" placeholder="password" id="pass" ><button onclick="handleViewPassword()">View</button>
-    <input type="datetime-local" >
 </body>
 
 </html>

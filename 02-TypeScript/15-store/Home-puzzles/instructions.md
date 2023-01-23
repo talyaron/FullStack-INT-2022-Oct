@@ -1,0 +1,3 @@
+1) create a form for registration (name, address, email, phone, password, prederd color), and pass to a function and console log the values)
+2) create a registration form (name, address, email, phone, password, prederd color , image) with profile-image (url), and store in user instance of class User. set the user details back to the dom (show profile).
+3) thae same as 2, but with local image (image on the computer).
