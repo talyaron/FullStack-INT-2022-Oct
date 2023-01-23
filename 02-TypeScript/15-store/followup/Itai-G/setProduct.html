@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>store-set product</title>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+</head>
+<body>
+    <h1>Add The Item Here.</h1>
+    <form onsubmit="handelAddItem(event)">
+        <input type="text" name="name" placeholder="Name Of The Item" required>
+        <input type="color" name="color" placeholder="Select Color">
+        <input type="number" name="price" placeholder="$?" required>
+        <select name="category">
+            <option value="shirt">Shirt</option>
+            <option value="shows">Shows</option>
+            <option value="socks">Socks</option>
+            <option value="jeans">Jeans</option>
+        </select>
+        <input type="number" name="size" placeholder="Size" required>
+        <input type="text" name="sn" placeholder="serial number">
+        <input type="submit" value="ADD Product">
+        <br><br>
+        <a href="./index.html">return Home</a>
+    </form>
+</body>
+</html>
