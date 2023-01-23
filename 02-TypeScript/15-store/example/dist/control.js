@@ -9,6 +9,7 @@ function handleAddItem(ev) {
         var sn = ev.target.elements.sn.value;
         items.push(new Item(name, color, price, category, size, sn));
         console.log(items);
+        ev.target.reset();
         console.log(name);
     }
     catch (error) {
