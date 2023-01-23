@@ -14,6 +14,7 @@ function handleAddItem(ev){
         console.log(items)
         ev.target.reset()
 
+        
         console.log(name)
     } catch (error) {
         console.error(error)
