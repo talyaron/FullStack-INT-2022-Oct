@@ -1,0 +1,74 @@
+body {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.navTitle {
+  background-color: rgb(105, 105, 105);
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navTitle h1 {
+  padding: 0;
+  margin: 0;
+}
+
+.tasksContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-image: url("https://cdn.pixabay.com/photo/2022/11/14/10/49/mountains-7591326_960_720.jpg");
+  background-size: cover;
+}
+.tasksContainer .taskContainer {
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 300px;
+  height: auto;
+  gap: 15px;
+  background-color: rgb(236, 236, 236);
+  border-radius: 10px;
+}
+.tasksContainer .taskContainer button {
+  margin: 5px;
+}
+.tasksContainer .taskContainer .title {
+  margin: 5px;
+  width: 96%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.048);
+}
+.tasksContainer .taskContainer .task {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 5px;
+  gap: 10px;
+  width: 96%;
+  height: auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.048);
+}
+.tasksContainer .taskContainer .task p {
+  padding: 0;
+  margin: 0;
+}
+.tasksContainer .taskContainer .task button {
+  position: relative;
+  width: 50%;
+  margin: auto;
+  bottom: 4px;
+}

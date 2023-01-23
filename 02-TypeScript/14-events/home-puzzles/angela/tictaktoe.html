@@ -18,26 +18,30 @@
         <div class="gameContainer__title">
             <h1>Tic Tac Toe</h1>
             <button class="gameContainer__title--theme-btn" id="switch" onclick="setThemes()">
-                <span class="material-symbols-outlined">
+                <span class="material-symbols-outlined" >
                     switch
                     </span>
             </button>
         </div>
         <div class="gameContainer__firstRow">
-           <div class="gameContainer__firstRow--cell" id="a" onclick="getClicks()"></div>
-           <div class="gameContainer__firstRow--cell" id="b" onclick="getClicks()"></div>
-           <div class="gameContainer__firstRow--cell" id="c" onclick="getClicks()"></div>
+           <div class="gameContainer__firstRow--cell A" id="a1" onclick="getClicks(this) "></div>
+           <div class="gameContainer__firstRow--cell B"  onclick="getClicks(this)"></div>
+           <div class="gameContainer__firstRow--cell C" id="a3" onclick="getClicks(this)"></div>
         </div>
         <div class="gameContainer__secondRow">
-            <div class="gameContainer__secondRow--cell" id="a" onclick="getClicks()"></div>
-            <div class="gameContainer__secondRow--cell" id="b" onclick="getClicks()"></div>
-            <div class="gameContainer__secondRow--cell" id="c" onclick="getClicks()"></div>
+            <div class="gameContainer__secondRow--cell A"  onclick="getClicks(this)"></div>
+            <div class="gameContainer__secondRow--cell B" id="b2" onclick="getClicks(this)"></div>
+            <div class="gameContainer__secondRow--cell C"  onclick="getClicks(this)"></div>
          </div>
          <div class="gameContainer__thirdRow">
-            <div class="gameContainer__thirdRow--cell" id="a" onclick="getClicks()"></div>
-            <div class="gameContainer__thirdRow--cell" id="b" onclick="getClicks()"></div>
-            <div class="gameContainer__thirdRow--cell" id="c" onclick="getClicks()"></div>
+            <div class="gameContainer__thirdRow--cell A" id="c1" onclick="getClicks(this)"></div>
+            <div class="gameContainer__thirdRow--cell B"  onclick="getClicks(this)"></div>
+            <div class="gameContainer__thirdRow--cell C" id="c3" onclick="getClicks(this)"></div>
          </div>
     </div>
+    <!-- <div class="popup" id="popup">winner is
+        <button id="restart" >restart</button>
+    </div> -->
+    
 </body>
 </html>

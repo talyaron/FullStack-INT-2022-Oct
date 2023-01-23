@@ -11,7 +11,7 @@ boxs.forEach(function (box) {
         box.innerText = "Is The Sound Of The Police";
     });
     box.addEventListener("click", function (event) {
-        document.querySelector("#audio");
+        audio.play();
     });
     box.addEventListener("mouseenter", function (event) {
         box.style.backgroundColor = 'red';
