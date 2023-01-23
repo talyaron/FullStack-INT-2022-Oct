@@ -1,0 +1,47 @@
+body {
+  /* Prevent the user selecting text in the example */
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#draggable {
+  width: 200px;
+  height: 200px;
+}
+#draggable img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.dropzone {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 200px;
+  background: blueviolet;
+  margin: 10px;
+  padding: 10px;
+}
+.dropzone img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.dropzone.dragover {
+  background-color: purple;
+}
+
+.dragging {
+  opacity: 0.5;
+}
