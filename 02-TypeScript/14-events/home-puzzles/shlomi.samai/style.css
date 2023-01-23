@@ -1,0 +1,31 @@
+.box {
+  height: 100px;
+  width: 200px;
+  background-color: #ff9100;
+}
+
+.box3 {
+  height: 100px;
+  width: 200px;
+  background-color: #7700ff;
+}
+
+.box4 {
+  height: 100px;
+  width: 200px;
+  background-color: #33ff00;
+}
+
+.box5 {
+  height: 100px;
+  width: 200px;
+  background-color: red;
+}
+
+.wrapper {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 50px;
+  gap: 50px;
+}

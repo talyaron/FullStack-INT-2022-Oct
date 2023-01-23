@@ -1,0 +1,30 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    height: 100%;
+    width: 100%; 
+
+}
+
+.board{
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.cube{
+    height: calc( 80% / 3);
+    width: calc( 80% / 3);
+    border: 1px solid black;
+}

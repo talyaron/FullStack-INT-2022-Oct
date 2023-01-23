@@ -54,9 +54,7 @@ function swapTurns() {
 
 function checkWin(currentClass) {
   return winnigCombinations.some((combination) => {
-    return combination.every((index) => {
-      return boxes[index].classList.contains(currentClass);
-    });
+    return combination.every((index) => boxes[index].classList.contains(currentClass));
   });
 }
 
