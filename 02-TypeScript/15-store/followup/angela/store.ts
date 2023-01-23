@@ -13,27 +13,23 @@ class itemProprties {
 
 const storeItems:itemProprties[]=[];
 
-function addStoreItems(obj){
+function addStoreItems(ev){
     try {
-        const brand = obj.target.elements.name.value;
-        const color = obj.target.elements.color.value;
-        const price = obj.target.elements.price.valueAsNumber;
-        const category = obj.target.elements.category.value;
-        const size = obj.target.elements.size.valueAsNumber;
+        const brand = ev.target.elements.name.value;
+        const color = ev.target.elements.color.value;
+        const price = ev.target.elements.price.valueAsNumber;
+        const category = ev.target.elements.category.value;
+        const size = ev.target.elements.size.valueAsNumber;
         
         storeItems.push(new itemProprties(brand,color,price,category,size))
-        let write:HTMLDivElement | null = document.querySelector(".popup");
-        if(write){
-        write.innerHTML =`<div class="popup" 
-        <p>${storeItems}</p>
-        </div>`
         
+        console.log(storeItems)
     }
-    console.log(storeItems)
-    } catch (error) {
+    
+     catch (error) {
         console.error(error)
     }
-   
 }
-addStoreItems()
+   
+console.log(storeItems)
 

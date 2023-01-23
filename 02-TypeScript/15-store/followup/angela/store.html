@@ -9,7 +9,7 @@
     <script src="./dist/store.js" defer></script>
 </head>
 <body>
-    <form onsubmit="addStoreItems()">
+    <form onsubmit="addStoreItems(event)">
         <input type="text" name="name" placeholder="brand" required>
         <input type="color" name="color" placeholder="color">
         <input type="number" name="price" placeholder="price" required>
