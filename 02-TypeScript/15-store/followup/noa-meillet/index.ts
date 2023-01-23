@@ -1,0 +1,1 @@
+showStore(clothesShopArr);
