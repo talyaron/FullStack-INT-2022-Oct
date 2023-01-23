@@ -1,19 +1,24 @@
 .wapper {
   margin-top: 8rem;
   display: grid;
-  grid-template-columns: 75px 75px 75px;
+  grid-template-columns: 75px 75px 75px 75px 75px;
   justify-content: center;
   gap: 70px;
-  margin: auto;
+  margin: 80px;
 }
 .wapper .box {
-  background-color: red;
   width: 100px;
   height: 100px;
+  border: 1px solid black;
+}
+.wapper .p1 {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
 }
 
-img {
-  background-image: url(https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/ba/29/5c/img-worlds-of-adventure.jpg?w=1200&h=1200&s=1);
-  width: 300px;
-  height: 100px;
+h1 {
+  display: grid;
+  text-align: center;
+  padding-top: 30px;
 }
