@@ -1,10 +1,13 @@
-var Item = /** @class */ (function () {
-    function Item(name, price) {
+class Person {
+    constructor(name, address, email, phone, password, preferedColor, pictureURL) {
         this.name = name;
-        this.price = price;
+        this.address = address;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+        this.preferedColor = preferedColor;
+        this.pictureURL = pictureURL;
     }
-    return Item;
-}());
-var items = [];
-items.push(new Item('shirt', 45));
-console.log(items);
+}
+const people = [];
+console.log(people);

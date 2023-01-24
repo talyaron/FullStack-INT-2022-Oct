@@ -1,11 +1,15 @@
-class Item {
+class Person {
 constructor (
 public name:string,
-public price:number,
+public address:string,
+public email:string,
+public phone:number,
+public password:string,
+public preferedColor:string,
+public pictureURL:string,
 ){}
 }
 
-const items:Item[]=[];
+const people:Person[]=[];
 
-items.push(new Item('shirt',45))
-console.log(items)
+console.log(people)
