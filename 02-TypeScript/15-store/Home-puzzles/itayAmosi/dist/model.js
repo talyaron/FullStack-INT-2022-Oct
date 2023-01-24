@@ -1,5 +1,6 @@
 var User = /** @class */ (function () {
-    function User(username, password, email, theOfBirth, country) {
+    function User(gender, username, password, email, theOfBirth, country) {
+        this.gender = gender;
         this.username = username;
         this.password = password;
         this.email = email;

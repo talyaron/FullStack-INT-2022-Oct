@@ -1,5 +1,6 @@
 class User{
     constructor(
+        public gender:string,
         public username:string,
         public password:string,
         public email:string,
