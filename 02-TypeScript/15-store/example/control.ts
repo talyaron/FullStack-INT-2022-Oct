@@ -4,12 +4,6 @@ function handleAddItem(ev: any) {
   try {
     ev.preventDefault();
 
-<<<<<<< HEAD
-        
-        console.log(name)
-    } catch (error) {
-        console.error(error)
-=======
     console.log(ev);
 
     const name = ev.target.elements.name.value;
@@ -47,7 +41,6 @@ function handleViewPassword() {
       passwordElement.type = "text";
     } else {
       passwordElement.type = "password";
->>>>>>> 3571659586ac34de373e5f9ad676f0a5a19037cb
     }
   } catch (error) {
     console.error(error);
