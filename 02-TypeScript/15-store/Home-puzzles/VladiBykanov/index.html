@@ -6,77 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registration Form</title>
     <link rel="stylesheet" href="./dist/style.css" />
-    <script src="./dist/helpers.js" defer></script>
-    <script src="./dist/model.js" defer></script>
     <script src="./dist/main.js" defer></script>
   </head>
+
+  <form class="addUserForm">
+    <h3>Type in Details</h3>
+    <label for="gender"
+      >Gender:
+      <select id="gender" name="gender">
+        <option value="">...</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="unknown">Prefer not to say</option>
+      </select>
+    </label>
+    <label for="firstName"
+      >First Name: <input type="text" name="firstName" id="firstName"
+    /></label>
+    <label for="lastName"
+      >Last Name: <input type="text" name="lastName" id="lastName"
+    /></label>
+    <label for="password"
+      >Password: <input type="text" name="password" id="password"
+    /></label>
+    <label for="userName"
+      >Choose a User Name: <input type="text" name="userName" id="userName"
+    /></label>
+    <label for="dob"
+      >Date Of Birth: <input type="date" name="dob" id="dob"
+    /></label>
+    <label for="phone"
+      >Phone Number: <input type="text" name="phone" id="phone"
+    /></label>
+    <label for="location"
+      >Location (Country): <input type="text" name="location" id="location"
+    /></label>
+    <label for="image"
+      >Upload Image:
+      <input type="file" name="image" accept="image/png, image/gif, image/jpeg"
+    /></label>
+    <input type="submit" value="Submit" id="submit" />
+    <div class="addUserForm__errorMessage">input missing</div>
+  </form>
   <body>
-    <form class="formSection">
-      <h3>Type in Details</h3>
-      <label for="gender"
-        >Gender:
-        <select id="gender" name="gender">
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="unknown">Prefer not to say</option>
-        </select>
-      </label>
-      <label for="firstName"
-        >First Name: <input type="text" name="firstName" id="firstName"
-      /></label>
-      <label for="lastName"
-        >Last Name: <input type="text" name="lastName" id="lastName"
-      /></label>
-      <label for="password"
-        >Password: <input type="text" name="password" id="password"
-      /></label>
-      <label for="userName"
-        >Choose a User Name: <input type="text" name="userName" id="userName"
-      /></label>
-      <label for="dob"
-        >Date Of Birth: <input type="date" name="dob" id="dob"
-      /></label>
-      <label for="phone"
-        >Phone Number: <input type="text" name="phone" id="phone"
-      /></label>
-      <label for="location"
-        >Location (Country): <input type="text" name="location" id="location"
-      /></label>
-      <label for="image"
-        >Upload Image:
-        <input
-          type="file"
-          name="image"
-          accept="image/png, image/gif, image/jpeg"
-      /></label>
-      <input type="submit" value="Submit" />
-      <div class="formSection__errorMessage">input missing</div>
-    </form>
     <main>
       <h1>Users Registered In System</h1>
-      <div class="cardsWrapper"></div>
+      <div class="cardsWrapper">
+        <!-- <div class="cardsWrapper__userCard">
+          <img src="./img/Profile.jpg" />
+          <ul>
+            <li>Gender: ${user.getGender()}</li>
+            <li>First Name: ${user.getFirstName()}</li>
+            <li>Last Name: ${user.getLastName()}</li>
+            <li>Password: ${user.getPassword()}</li>
+            <li>UserName: ${user.getUserName()}</li>
+            <li>Date Of Birth: ${user.getDOB()}</li>
+            <li>Phone Number: ${user.getPhoneNum()}</li>
+            <li>Location: ${user.getLocation()}</li>
+          </ul>
+        </div> -->
+      </div>
     </main>
   </body>
 </html>
-<!-- 
-<div class="cardsWrapper__userCard">
-  <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="" />
-  <ul>
-    <li>Gender: <span>Male</span></li>
-    <li>First Name: <span>Vladislav</span></li>
-    <li>Last Name: <span>Bykanov</span></li>
-    <li>
-      Password: <span>************</span
-      ><button id="passBtn">Show Password</button>
-    </li>
-    <li>User Name: <span>vladbyk89</span></li>
-    <li>Date Of Birth: <span>19-11-1989</span></li>
-    <li>Phone Number: <span>054-8155-232</span></li>
-    <li>Location: <span>The Netherlands</span></li>
-  </ul>
-</div>
-<div class="cardsWrapper__userCard"></div>
-<div class="cardsWrapper__userCard"></div>
-<div class="cardsWrapper__userCard"></div>
-<div class="cardsWrapper__userCard"></div>
-<div class="cardsWrapper__userCard"></div> -->
