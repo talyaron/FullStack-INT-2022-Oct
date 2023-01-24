@@ -1,0 +1,28 @@
+body{
+   width: 100vw;
+   height: 100vh;
+   background-color: lightgoldenrodyellow;
+    
+    h2, a{
+       text-decoration: none; 
+       font-size: 30px;
+
+    }
+
+
+    form{
+        width: 100vh;
+        font-size: 26px;
+        
+    }
+    label, input{
+        color: rgb(15, 187, 187);
+        padding: 6px 10px;
+    }
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+}
