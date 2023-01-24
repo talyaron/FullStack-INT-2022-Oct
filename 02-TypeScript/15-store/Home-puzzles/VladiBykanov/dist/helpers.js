@@ -28,3 +28,11 @@ function fetchRadomUser() {
         });
     });
 }
+function toggleDisplay(element) {
+    if (element.style.display == "flex") {
+        return element.style.display = "none";
+    }
+    else {
+        return element.style.display = "flex";
+    }
+}
