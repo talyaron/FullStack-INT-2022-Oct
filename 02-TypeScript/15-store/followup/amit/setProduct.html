@@ -20,19 +20,23 @@
         <input type="text" name="name" placeholder="name of product" required>
         <input type="color" name="color" placeholder="color">
         <input type="number" name="price" placeholder="price" required>
+        <label for="category"><b>Choose a category:<b></label>
         <select name="category">
-            <option value="shows">Shows</option>
+            <option value="shoes">Shoes</option>
             <option value="shirts">Shirts</option>
-            <option value="dress">Dersses</option>
+            <option value="dresses">Dresses</option>
+            <option value="pants">Pants</option>
         </select>
         <input type="number" name="size" placeholder="size" required>
         <input type="text" name="sn" placeholder="serial number">
+        <label for="gender"><b></b>Choose a gender:</b></label>
+        <select name="gender">
+            <option value="forMen">For Men</option>
+            <option value="forWomen">For Women</option>
+            
+        </select>
         <input type="submit" value="ADD">
     </form>
-
-    <input type="color" oninput="handleChangerColor(event)">
-    <input type="password" placeholder="password" id="pass" ><button onclick="handleViewPassword()">View</button>
-    <input type="datetime-local" >
 </body>
 
 </html>

@@ -1,21 +1,55 @@
-function handleAddItem(ev){
-    try {
-        ev.preventDefault()
-       
-        const name = ev.target.elements.name.value;
-        const color = ev.target.elements.color.value;
-        const price = ev.target.elements.price.valueAsNumber;
-        const category = ev.target.elements.category.value;
-        const size = ev.target.elements.size.valueAsNumber;
-        const sn = ev.target.elements.sn.value;
-     
+const form = document.querySelector("#theForm");
 
-        items.push(new Item(name,color,price,category,size, sn));
-        console.log(items)
-        ev.target.reset()
+function handleAddItem(ev: any) {
+  try {
+    ev.preventDefault();
 
+<<<<<<< HEAD
+        
         console.log(name)
     } catch (error) {
         console.error(error)
+=======
+    console.log(ev);
+
+    const name = ev.target.elements.name.value;
+    const color = ev.target.elements.color.value;
+    const price = ev.target.elements.price.valueAsNumber;
+    const category = ev.target.elements.category.value;
+    const size = ev.target.elements.size.valueAsNumber;
+    const sn = ev.target.elements.sn.value;
+
+    items.push(new Item(name, color, price, category, size, sn));
+    console.log(items);
+    ev.target.reset();
+
+    console.log(name);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function handleChangerColor(ev) {
+  try {
+    console.log(ev);
+    const color = ev.target.value;
+    document.body.style.backgroundColor = color;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function handleViewPassword() {
+  try {
+    const passwordElement: any = document.querySelector("#pass");
+    console.dir(passwordElement);
+    if (passwordElement.type === "password") {
+      passwordElement.type = "text";
+    } else {
+      passwordElement.type = "password";
+>>>>>>> 3571659586ac34de373e5f9ad676f0a5a19037cb
     }
+  } catch (error) {
+    console.error(error);
+  }
 }

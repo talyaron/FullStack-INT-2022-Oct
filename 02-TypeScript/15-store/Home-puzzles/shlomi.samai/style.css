@@ -1,0 +1,12 @@
+.list {
+  height: auto;
+  width: 200px;
+  margin: auto;
+  background-color: rgba(0, 255, 255, 0.123);
+  border: solid coral;
+  padding: 50px;
+}
+
+.list img {
+  width: 100%;
+}
