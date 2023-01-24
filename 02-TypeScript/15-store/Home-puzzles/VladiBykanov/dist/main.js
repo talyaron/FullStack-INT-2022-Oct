@@ -69,7 +69,7 @@ function renderUsers(arr) {
     arr.forEach(function (user) {
         var userCard = document.createElement("div");
         userCard.classList.add("cardsWrapper__userCard");
-        userCard.innerHTML = "<img src=\"" + user.getProfileImg() + "\"/>\n    <ul>\n    <li>Gender: " + user.getGender() + "</li>\n    <li>First Name: " + user.getFirstName() + "</li>\n    <li>Last Name: " + user.getLastName() + "</li>\n    <li>Password: " + user.getPassword() + "</li>\n    <li>UserName: " + user.getUserName() + "</li>\n    <li>Date Of Birth: " + user.getDOB() + "</li>\n    <li>Phone Number: " + user.getPhoneNum() + "</li>\n    <li>Location: " + user.getLocation() + "</li>\n    </ul>";
+        userCard.innerHTML = "<img class=\"userImg\" src=\"" + user.getProfileImg() + "\"/>\n    <ul>\n    <li>Gender: " + user.getGender() + "</li>\n    <li>First Name: " + user.getFirstName() + "</li>\n    <li>Last Name: " + user.getLastName() + "</li>\n    <li>Password: " + user.getPassword() + "</li>\n    <li>UserName: " + user.getUserName() + "</li>\n    <li>Date Of Birth: " + user.getDOB() + "</li>\n    <li>Phone Number: " + user.getPhoneNum() + "</li>\n    <li>Location: " + user.getLocation() + "</li>\n    </ul>";
         wrapper.appendChild(userCard);
     });
 }
@@ -86,9 +86,23 @@ function handleSubmit(e) {
     var dob = e.target.elements.dob.value;
     var phone = e.target.elements.phone.value;
     var location = e.target.elements.location.value;
-    var image = "./img/Profile.jpg";
-    console.log(image);
+    var image = imgSrc;
     var newUser = new User(gender, firstName, lastName, password, userName, dob, phone, location, image);
     userList.unshift(newUser);
     renderUsers(userList);
+    preview.src = "";
+}
+var file = document.querySelector("input[type=file]");
+var imgSrc = "";
+var preview = document.querySelector(".preview");
+function saveSrc() {
+    var reader = new FileReader();
+    reader.addEventListener("load", function () {
+        // convert image file to base64 string
+        preview.src = reader.result;
+        imgSrc = reader.result;
+    }, false);
+    if (file.files[0]) {
+        reader.readAsDataURL(file.files[0]);
+    }
 }

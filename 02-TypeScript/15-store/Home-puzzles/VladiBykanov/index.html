@@ -43,8 +43,10 @@
     /></label>
     <label for="image"
       >Upload Image:
-      <input type="file" name="image" accept="image/png, image/gif, image/jpeg"
-    /></label>
+      <input type="file" name="image" accept="image/png, image/gif, image/jpeg" onchange="saveSrc()"
+    />
+    <img class="preview" src="" width="100px"/>
+  </label>
     <input type="submit" value="Submit" id="submit" />
     <div class="addUserForm__errorMessage">input missing</div>
   </form>

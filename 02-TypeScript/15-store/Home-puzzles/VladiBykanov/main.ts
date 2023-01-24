@@ -81,7 +81,7 @@ function renderUsers(arr: User[]) {
   arr.forEach((user) => {
     const userCard = document.createElement("div") as HTMLDivElement;
     userCard.classList.add("cardsWrapper__userCard");
-    userCard.innerHTML = `<img src="${user.getProfileImg()}"/>
+    userCard.innerHTML = `<img class="userImg" src="${user.getProfileImg()}"/>
     <ul>
     <li>Gender: ${user.getGender()}</li>
     <li>First Name: ${user.getFirstName()}</li>
@@ -111,8 +111,7 @@ function handleSubmit(e) {
   const dob = e.target.elements.dob.value;
   const phone = e.target.elements.phone.value;
   const location = e.target.elements.location.value;
-  const image = "./img/Profile.jpg";
-  console.log(image);
+  const image = imgSrc;
   const newUser = new User(
     gender,
     firstName,
@@ -127,4 +126,26 @@ function handleSubmit(e) {
   userList.unshift(newUser);
 
   renderUsers(userList);
+  preview.src = "";
+}
+
+const file = document.querySelector("input[type=file]") as HTMLInputElement;
+let imgSrc = "";
+const preview = document.querySelector(".preview") as HTMLImageElement;
+function saveSrc() {
+  const reader = new FileReader();
+
+  reader.addEventListener(
+    "load",
+    () => {
+      // convert image file to base64 string
+      preview.src = reader.result;
+      imgSrc = reader.result;
+    },
+    false
+  );
+
+  if (file.files[0]) {
+    reader.readAsDataURL(file.files[0]);
+  }
 }
