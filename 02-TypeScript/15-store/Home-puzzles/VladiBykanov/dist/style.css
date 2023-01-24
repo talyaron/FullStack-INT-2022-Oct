@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  max-width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  overflow-y: hidden;
+}
+
+.formSection {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+  max-height: 100vh;
+}
+.formSection h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5em;
+}
+.formSection label {
+  font-size: 1.2rem;
+}
+.formSection label input {
+  width: 100%;
+}
+.formSection label input select {
+  width: 80%;
+}
+.formSection #submitBtn {
+  margin: 0 auto;
+  width: 100px;
+}
+.formSection #submitBtn:active {
+  transform: scale(0.8);
+}
+.formSection__errorMessage {
+  margin: 0.5em auto;
+  color: red;
+}
+
+main {
+  border: 1px solid black;
+  padding: 0 2em;
+  overflow-y: auto;
+}
+main h1 {
+  text-align: center;
+  margin: 1em 0;
+}
+main .cardsWrapper {
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 90%;
+  margin: 0 auto;
+}
+main .cardsWrapper__userCard {
+  border: 1px solid black;
+  aspect-ratio: 1/1;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+main .cardsWrapper__userCard img {
+  border-radius: 20px;
+  box-shadow: 0 0 10px black;
+  height: 30%;
+}
+main .cardsWrapper__userCard ul {
+  display: block;
+  height: 60%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+main .cardsWrapper__userCard ul li {
+  display: flex;
+  gap: 20px;
+}
+main .cardsWrapper__userCard ul li button {
+  padding: 0.2em;
+}

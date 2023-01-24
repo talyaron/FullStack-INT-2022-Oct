@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  max-width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  overflow-y: hidden;
+}
+
+.formSection {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+//   justify-content: space-around;
+  padding: .5em;
+  max-height: 100vh;
+  h3{
+    font-size: 1.4rem;
+    margin-bottom: .5em;
+  }
+  label{
+    font-size: 1.2rem;
+    input {
+      // display: block;
+      width: 100%;
+      select{
+        width: 80%;
+      }
+    }
+  }
+  #submitBtn {
+    margin: 0 auto;
+    width: 100px;
+  }
+  #submitBtn:active {
+    // transform: all 0.3s;
+    transform: scale(0.8);
+  }
+  &__errorMessage{
+    margin: .5em auto;
+    color: red;
+  }
+}
+
+main {
+  border: 1px solid black;
+  padding: 0 2em;
+  overflow-y: auto;
+  h1{
+    text-align: center;
+    margin: 1em 0;
+  }
+  .cardsWrapper{
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 90%;
+    margin: 0 auto;
+    &__userCard{
+        border: 1px solid black;
+        aspect-ratio: 1/1;
+        padding: 2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        img{
+            border-radius: 20px;
+            box-shadow: 0 0 10px black;
+            height: 30%;
+        }
+        ul{
+            // border: 1px solid black;
+            display: block;
+            height: 60%;
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            li{
+                // border: 1px solid black;
+                display: flex;
+                gap: 20px;
+                button{
+                    padding: .2em;
+
+                }
+            }
+        }
+    }
+  }
+}
