@@ -45,7 +45,7 @@ body {
   }
   #submitBtn {
     margin: 1em auto 2rem auto;
-    padding: .5em 2em;
+    padding: 0.5em 2em;
   }
   #submitBtn:hover {
     transform: all 0.7s;
@@ -68,7 +68,6 @@ main {
     margin: 2em 0;
   }
   .cardsWrapper {
-    // border: 1px solid black;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
@@ -79,7 +78,7 @@ main {
       border-radius: 10px;
       box-shadow: 0 0 20px var(--third);
       aspect-ratio: 1/1;
-      padding: 2em;
+      padding: 1em;
       display: flex;
       flex-direction: column;
       justify-content: space-around;
@@ -87,21 +86,22 @@ main {
       .userImg {
         border-radius: 20px;
         box-shadow: 0 0 10px black;
-        height: 30vh;
+        height: 20vw;
       }
       .userImg:hover {
         cursor: pointer;
       }
       ul {
-        // border: 1px solid black;
         display: none;
         height: 60%;
-        width: 70%;
+        width: 100%;
         flex-direction: column;
         justify-content: space-around;
-        align-items: center;
         li {
+          border: 1px solid white;
+          width: 100%;
           display: flex;
+          justify-content: center;
           font-size: 1.3rem;
           button {
             padding: 0.2em;
@@ -142,4 +142,3 @@ select {
   border-radius: 5px;
   width: 5px;
 }
-
