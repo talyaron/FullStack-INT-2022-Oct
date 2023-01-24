@@ -1,11 +1,13 @@
-function addItem(event) {
+function addItem(event, clothesShopArr) {
   try {
+    event.preventDefault();
     const name = event.target.elements.name.value;
     const departement = event.target.elements.departement.value;
     const type = event.target.elements.type.value;
     const price = event.target.elements.price.valueAsNumber;
     const image = event.target.elements.image.value;
     clothesShopArr.push(new Item(name, departement, type, price, image));
+    console.log(clothesShopArr);
     event.target.reset();
   } catch (error) {
     console.error(Error);

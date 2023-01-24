@@ -8,13 +8,12 @@
     <script src="./dist/view.js" defer></script>
     <script src="./dist/model.js" defer></script>
     <script src="./dist/control.js" defer></script>
-    <script src="./dist/index.js" defer></script>
   </head>
   <body>
     <h2>Add products</h2>
     <a href="./index.html">Store</a>
     <h1>NOA Store</h1>
-    <form onsubmit="addItem(event)">
+    <form onsubmit="addItem(event, clothesShopArr)">
       <input type="text" name="name" placeholder="name of product" required />
       <br />
       <select name="type">
