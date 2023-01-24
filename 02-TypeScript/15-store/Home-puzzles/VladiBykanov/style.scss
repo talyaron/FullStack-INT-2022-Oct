@@ -25,10 +25,15 @@ body {
   label{
     font-size: 1.3rem;
     margin-bottom: 1rem;
+    font-weight:bold;
     input {
       width: 90%;
       font-size: 1.3rem;
+      margin-top: .5em;
     }
+  }
+  #chooseFile{
+    font-size: .9rem;
   }
   #submit{
     width: 50%;

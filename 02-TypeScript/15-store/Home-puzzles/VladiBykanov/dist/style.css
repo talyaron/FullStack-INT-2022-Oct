@@ -26,10 +26,15 @@ body {
 .addUserForm label {
   font-size: 1.3rem;
   margin-bottom: 1rem;
+  font-weight: bold;
 }
 .addUserForm label input {
   width: 90%;
   font-size: 1.3rem;
+  margin-top: 0.5em;
+}
+.addUserForm #chooseFile {
+  font-size: 0.9rem;
 }
 .addUserForm #submit {
   width: 50%;
