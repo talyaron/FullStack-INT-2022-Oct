@@ -40,10 +40,10 @@ function fetchRadomUser() {
 function toggleDisplay(listEle, imgEle) {
   if (listEle.style.display == "flex") {
     listEle.style.display = "none";
-    imgEle.style.height = '30vh';
+    imgEle.style.height = '20vw';
   } else {
      listEle.style.display = "flex";
-     imgEle.style.height = '15vh';
+     imgEle.style.height = '10vw';
      imgEle.style.tranform = 'scale(1)';
   }
 }
