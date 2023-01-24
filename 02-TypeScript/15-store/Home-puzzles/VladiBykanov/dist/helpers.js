@@ -13,15 +13,6 @@ function fetchRadomUser() {
     fetch("https://randomuser.me/api/?results=8").then(function (data) {
         data.json().then(function (randomUser) {
             randomUser.results.forEach(function (user) {
-                // const gender = user.gender;
-                // const firstName = user.name.first;
-                // const lastName = user.name.last;
-                // const password = user.login.password;
-                // const userName = user.login.username;
-                // const dateOfBirth = user.dob.date.slice(0, 10);
-                // const phoneNumber = user.cell;
-                // const location = user.location.country;
-                // const profileImage = user.picture.large;
                 var randomUser = new User(user.gender, user.name.first, user.name.last, user.login.password, user.login.username, user.dob.date.slice(0, 10), user.cell, user.location.country, user.picture.large);
                 userList.push(randomUser);
             });

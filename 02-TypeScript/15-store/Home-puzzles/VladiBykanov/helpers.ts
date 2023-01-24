@@ -20,15 +20,6 @@ function fetchRadomUser() {
   fetch("https://randomuser.me/api/?results=8").then((data) => {
     data.json().then((randomUser) => {
       randomUser.results.forEach((user) => {
-        // const gender = user.gender;
-        // const firstName = user.name.first;
-        // const lastName = user.name.last;
-        // const password = user.login.password;
-        // const userName = user.login.username;
-        // const dateOfBirth = user.dob.date.slice(0, 10);
-        // const phoneNumber = user.cell;
-        // const location = user.location.country;
-        // const profileImage = user.picture.large;
         const randomUser = new User(
           user.gender,
           user.name.first,

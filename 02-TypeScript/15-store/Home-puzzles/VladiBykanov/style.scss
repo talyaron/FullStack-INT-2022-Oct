@@ -45,7 +45,7 @@ body {
   }
   #submitBtn {
     margin: 1em auto 2rem auto;
-    padding: .5em 2em;
+    padding: 0.5em 2em;
   }
   #submitBtn:hover {
     transform: all 0.7s;
@@ -68,7 +68,6 @@ main {
     margin: 2em 0;
   }
   .cardsWrapper {
-    // border: 1px solid black;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
@@ -93,7 +92,6 @@ main {
         cursor: pointer;
       }
       ul {
-        // border: 1px solid black;
         display: none;
         height: 60%;
         width: 70%;
@@ -142,4 +140,3 @@ select {
   border-radius: 5px;
   width: 5px;
 }
-
