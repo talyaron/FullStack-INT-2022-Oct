@@ -6,7 +6,6 @@ function addItem(event) {
     const price = event.target.elements.price.valueAsNumber;
     const image = event.target.elements.image.value;
     clothesShopArr.push(new Item(name, departement, type, price, image));
-    event.target.reset();
   } catch (error) {
     console.error(Error);
   }
