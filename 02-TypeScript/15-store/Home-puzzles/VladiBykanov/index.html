@@ -47,16 +47,24 @@
     /></label>
     <label for="image"
       >Upload Image:
-      <input id="chooseFile" type="file" name="image" accept="image/png, image/gif, image/jpeg" onchange="saveSrc()"
-    />
-    <img class="preview" src="" width="100px"/>
-  </label>
-    <input type="submit" value="Submit" id="submit" />
+      <input
+        id="chooseFile"
+        type="file"
+        name="image"
+        accept="image/png, image/gif, image/jpeg"
+        onchange="saveSrc()"
+      />
+      <img class="preview" src="" width="100px" />
+    </label>
     <b class="addUserForm__errorMessage">Missing Details</b>
+    <input type="submit" value="Submit" id="submitBtn" />
   </form>
   <body>
     <main>
-      <h1>Users Registered In System</h1>
+      <header>
+        <h1>Users Registered In System</h1>
+        <b>(press image to expand)</b>
+      </header>
       <div class="cardsWrapper">
         <!-- <div class="cardsWrapper__userCard">
           <img src="./img/Profile.jpg" />

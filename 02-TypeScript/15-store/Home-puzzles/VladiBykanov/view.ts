@@ -16,7 +16,8 @@ setTimeout(() => {
     ele.addEventListener("click", () => {
       const target = ele.parentElement;
       const ulEl = target?.querySelector("ul") as HTMLUListElement;
-      toggleDisplay(ulEl);
+      const img = target?.querySelector('img') as HTMLImageElement;
+      toggleDisplay(ulEl, img);
     })
   );
 }, 400);

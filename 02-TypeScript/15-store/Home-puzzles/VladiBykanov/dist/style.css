@@ -3,20 +3,28 @@
   padding: 0;
 }
 
+:root {
+  --main: #021a1f;
+  --secondary: #153238;
+  --third: #28606b;
+  --border: #075a6b;
+  --text: #0d9bb8;
+}
+
 body {
   max-width: 100vw;
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 3fr;
   overflow-y: hidden;
+  background-color: var(--main);
+  color: var(--text);
 }
 
 .addUserForm {
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   padding: 0.5em;
-  max-height: 100vh;
   overflow-y: auto;
 }
 .addUserForm h3 {
@@ -36,17 +44,14 @@ body {
 .addUserForm #chooseFile {
   font-size: 0.9rem;
 }
-.addUserForm #submit {
-  width: 50%;
-  margin: 0 auto;
-  padding: 0.5em;
-}
 .addUserForm #submitBtn {
-  margin: 0 auto;
-  width: 100px;
+  margin: 1em auto 2rem auto;
+  padding: 0.5em 2em;
 }
-.addUserForm #submitBtn:active {
+.addUserForm #submitBtn:hover {
+  transform: all 0.7s;
   transform: scale(0.8);
+  cursor: pointer;
 }
 .addUserForm__errorMessage {
   display: none;
@@ -56,24 +61,24 @@ body {
 }
 
 main {
-  border: 1px solid black;
   padding: 0 2em;
   overflow-y: auto;
-}
-main h1 {
   text-align: center;
-  margin: 1em 0;
+}
+main header {
+  margin: 2em 0;
 }
 main .cardsWrapper {
-  border: 1px solid black;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 1rem;
   width: 90%;
   margin: 0 auto;
 }
 main .cardsWrapper__userCard {
-  border: 1px solid black;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 0 20px var(--third);
   aspect-ratio: 1/1;
   padding: 2em;
   display: flex;
@@ -84,7 +89,7 @@ main .cardsWrapper__userCard {
 main .cardsWrapper__userCard .userImg {
   border-radius: 20px;
   box-shadow: 0 0 10px black;
-  height: 15vh;
+  height: 30vh;
 }
 main .cardsWrapper__userCard .userImg:hover {
   cursor: pointer;
@@ -99,7 +104,7 @@ main .cardsWrapper__userCard ul {
 }
 main .cardsWrapper__userCard ul li {
   display: flex;
-  gap: 20px;
+  font-size: 1.3rem;
 }
 main .cardsWrapper__userCard ul li button {
   padding: 0.2em;
@@ -110,4 +115,28 @@ main .cardsWrapper__userCard ul li button {
   width: 200px;
   height: 100px;
   margin: 1em auto;
+}
+
+input,
+select {
+  background-color: var(--third);
+  border-style: none;
+  color: whitesmoke;
+  padding: 0.3em;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: gainsboro;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 5px;
+  width: 5px;
 }

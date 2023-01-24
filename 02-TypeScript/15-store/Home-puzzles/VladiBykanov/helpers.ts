@@ -46,10 +46,13 @@ function fetchRadomUser() {
   });
 }
 
-function toggleDisplay(element) {
-  if (element.style.display == "flex") {
-    return element.style.display = "none";
+function toggleDisplay(listEle, imgEle) {
+  if (listEle.style.display == "flex") {
+    listEle.style.display = "none";
+    imgEle.style.height = '30vh';
   } else {
-    return element.style.display = "flex";
+     listEle.style.display = "flex";
+     imgEle.style.height = '15vh';
+     imgEle.style.tranform = 'scale(1)';
   }
 }
