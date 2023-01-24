@@ -40,12 +40,13 @@ class User {
 }
 
 const userList: User[] = [];
-const getRndUser = (n: number) => {
+async function fetchTenUsers() {
   try {
-    const fetchRadomUser = fetch(`https://randomuser.me/api/?results=${n}`);
-    fetchRadomUser.then((data) => {
+    const fetchRadomUser = await fetch(
+      "https://randomuser.me/api/?results=10"
+    ).then((data) => {
       data.json().then((randomUser) => {
-        //   console.log(randomUser.results);
+          console.log(randomUser.results);
         randomUser.results.forEach((user) => {
           // const gender = user.gender;
           // const firstName = user.name.first;
@@ -67,40 +68,22 @@ const getRndUser = (n: number) => {
             user.location.country,
             user.picture.large
           );
-          userList.push(randomUser);
-          console.log(userList);
         });
       });
     });
   } catch (error) {
     console.log(error);
   }
-};
-
-// console.table(userList);
+}
+fetchTenUsers()
 
 const wrapper = document.querySelector(".cardsWrapper") as HTMLDivElement;
 
 function renderUsers(arr: User[]) {
-  getRndUser(5);
   arr.forEach((user) => {
     const userCard = document.createElement("div") as HTMLDivElement;
     userCard.classList.add("cardsWrapper__userCard");
-    userCard.innerHTML = `<img src="https://randomuser.me/api/portraits/men/75.jpg" alt="" />
-    <ul>
-    <li>Gender: <span>Male</span></li>
-    <li>First Name: <span>Vladislav</span></li>
-    <li>Last Name: <span>Bykanov</span></li>
-    <li>
-      Password: <span>************</span
-      ><button id="passBtn">Show</button>
-    </li>
-    <li>User Name: <span>vladbyk89</span></li>
-    <li>Date Of Birth: <span>19-11-1989</span></li>
-    <li>Phone Number: <span>054-8155-232</span></li>
-    <li>Location: <span>The Netherlands</span></li>
-  </ul>
-  `;
+    userCard.innerHTML = `<img src="${user.getProfileImg()}"/>`;
     wrapper.appendChild(userCard);
     // const img = new Image();
     // const ulEle = document.createElement("ul") as HTMLUListElement;
@@ -110,4 +93,13 @@ function renderUsers(arr: User[]) {
   });
 }
 
-console.log('End of TS');
+// console.log("End of TS");
+const form = document.querySelector('.formSection') as HTMLFormElement;
+
+form.addEventListener('submit', handleSubmit)
+
+function handleSubmit(e:Event) {
+    e.preventDefault();
+
+    console.log('msg');
+}
