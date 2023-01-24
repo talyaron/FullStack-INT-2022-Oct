@@ -5,13 +5,13 @@ function saveSrc() {
     "load",
     () => {
       // convert image file to base64 string
-      preview.src = reader.result;
-      imgSrc = reader.result;
+      preview.src = reader.result as string;
+      imgSrc = reader.result as string;
     },
     false
   );
 
-  if (file.files[0]) {
+  if (file.files) {
     reader.readAsDataURL(file.files[0]);
   }
 }

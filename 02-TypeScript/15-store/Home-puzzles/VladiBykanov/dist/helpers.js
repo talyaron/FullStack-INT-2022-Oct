@@ -5,7 +5,7 @@ function saveSrc() {
         preview.src = reader.result;
         imgSrc = reader.result;
     }, false);
-    if (file.files[0]) {
+    if (file.files) {
         reader.readAsDataURL(file.files[0]);
     }
 }
