@@ -20,7 +20,7 @@ body {
   overflow-y: auto;
   h3{
     font-size: 1.4rem;
-    margin-bottom: .5em;
+    margin: 1em auto;
   }
   label{
     font-size: 1.3rem;
@@ -44,7 +44,9 @@ body {
     transform: scale(0.8);
   }
   &__errorMessage{
+    display: none;
     margin: .5em auto;
+    font-size: 2rem;
     color: red;
   }
 }

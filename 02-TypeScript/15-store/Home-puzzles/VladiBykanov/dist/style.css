@@ -21,7 +21,7 @@ body {
 }
 .addUserForm h3 {
   font-size: 1.4rem;
-  margin-bottom: 0.5em;
+  margin: 1em auto;
 }
 .addUserForm label {
   font-size: 1.3rem;
@@ -44,7 +44,9 @@ body {
   transform: scale(0.8);
 }
 .addUserForm__errorMessage {
+  display: none;
   margin: 0.5em auto;
+  font-size: 2rem;
   color: red;
 }
 
