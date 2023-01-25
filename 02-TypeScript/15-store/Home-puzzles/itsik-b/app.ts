@@ -83,9 +83,13 @@ seventhInput.type = "file"
 
 // button
 submitBtn.textContent = "Send Form"
+submitBtn.addEventListener("click", getRandomForm)
 }
 
-
+function getRandomForm(ev){
+  ev.preventDefault()
+  const userName = ev.target.elements
+}
 
 
 

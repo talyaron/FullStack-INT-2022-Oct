@@ -76,4 +76,9 @@ function startForm() {
     seventhInput.type = "file";
     // button
     submitBtn.textContent = "Send Form";
+    submitBtn.addEventListener("click", getRandomForm);
+}
+function getRandomForm(ev) {
+    ev.preventDefault();
+    var userName = ev.target.elements;
 }
