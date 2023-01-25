@@ -8,8 +8,8 @@ function handleUser(event) {
         var email = event.target.elements.email.value;
         var theOfBirth = event.target.elements.theOfBirth.value;
         var country = event.target.elements.country.value;
-        // const profileImage = imgSrc;
-        userList.push(new User(gender, username, password, email, theOfBirth, country));
+        var profileImage = event.target.elements.profileImage.value;
+        userList.push(new User(gender, username, password, email, theOfBirth, country, profileImage));
         console.log(userList);
         event.target.reset();
         renderCard(userList);
@@ -24,11 +24,11 @@ function renderCard(users) {
         users.forEach(function (user) {
             var userCard = document.createElement("div");
             userCard.classList.add("newCard");
-            userCard.innerHTML = " \n    <ul>\n    <li>Gender: " + user.gender + "</li>\n    <li>Username: " + user.username + "</li>\n    <li>Password: " + user.password + "</li>\n    <li>Email: " + user.email + "</li>\n    <li>Date Of Birth: " + user.theOfBirth + "</li>\n    <li>country: " + user.country + "</li>\n    </ul>";
-            // <img class="userImg" src="${user.getProfileImg()}"/>`;
+            userCard.innerHTML = " \n    <ul>\n    <li>Gender: " + user.gender + "</li>\n    <li>Username: " + user.username + "</li>\n    <li>Password: " + user.password + "</li>\n    <li>Email: " + user.email + "</li>\n    <li>Date Of Birth: " + user.theOfBirth + "</li>\n    <li>country: " + user.country + "</li>\n    </ul> <img class=\"userImg\" src=\"" + user.profileImage + "\"/>";
             divElement_1.appendChild(userCard);
         });
     }
     catch (error) {
+        console.error(error);
     }
 }

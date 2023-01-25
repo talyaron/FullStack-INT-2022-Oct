@@ -9,9 +9,9 @@ try {
     const email = event.target.elements.email.value;
     const theOfBirth = event.target.elements.theOfBirth.value;
     const country = event.target.elements.country.value;
-    // const profileImage = imgSrc;
+    const profileImage = event.target.elements.profileImage.value;
 
-    userList.push(new User(gender,username, password, email, theOfBirth,country));
+    userList.push(new User(gender,username, password, email, theOfBirth,country, profileImage));
     console.log(userList);
     event.target.reset();
     renderCard(userList);
@@ -36,11 +36,10 @@ const divElement = document.querySelector(`.card`) as HTMLElement;
     <li>Email: ${user.email}</li>
     <li>Date Of Birth: ${user.theOfBirth}</li>
     <li>country: ${user.country}</li>
-    </ul>`;
-    // <img class="userImg" src="${user.getProfileImg()}"/>`;
+    </ul> <img class="userImg" src="${user.profileImage}"/>`;
     divElement.appendChild(userCard);
 });
 } catch (error) {
-    
+console.error(error);
 }
 }
