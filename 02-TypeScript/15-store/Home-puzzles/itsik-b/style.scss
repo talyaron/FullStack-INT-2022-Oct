@@ -1,0 +1,42 @@
+body{
+ color: cadetblue;
+font-size: 22px;
+background-color:burlywood;
+font-weight: bold;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+
+div{
+    width: 100vw;
+    height: 100vh;  
+    display: flex;
+    justify-content: center;
+}
+form{
+
+   
+  
+ h2{
+    margin: 40px 0px;
+    color: blueviolet;
+ }
+}
+
+input{
+text-align: center;
+justify-content: center;
+display: flex;
+margin: 10px 0px;
+}
+::placeholder{
+    font-size: 15px;
+}
+
+button{
+margin: 50px 0px;
+background-color: greenyellow;
+width:70px;
+border-radius: 25% 25% 40% 40%;
+}
+
+}

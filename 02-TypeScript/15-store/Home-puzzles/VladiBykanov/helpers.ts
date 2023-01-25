@@ -37,13 +37,33 @@ function fetchRadomUser() {
   });
 }
 
-function toggleDisplay(listEle, imgEle) {
-  if (listEle.style.display == "flex") {
-    listEle.style.display = "none";
-    imgEle.style.height = '20vw';
+function toggleDisplay(listElement: HTMLElement, imgElement: HTMLElement) {
+  if (listElement.style.display == "flex") {
+    listElement.style.display = "none";
+    imgElement.style.height = '20vw';
   } else {
-     listEle.style.display = "flex";
-     imgEle.style.height = '10vw';
-     imgEle.style.tranform = 'scale(1)';
+     listElement.style.display = "flex";
+     imgElement.style.height = '10vw';
+     imgElement.style.transform = 'scale(1)';
+  }
+}
+
+function setImgClick() {
+  try {
+    setTimeout(() => {
+      const imgElements = wrapper.querySelectorAll(
+        "img"
+      ) as NodeListOf<HTMLElement>;
+      imgElements.forEach((ele) =>
+        ele.addEventListener("click", () => {
+          const target = ele.parentElement;
+          const ulEl = target?.querySelector("ul") as HTMLUListElement;
+          const img = target?.querySelector("img") as HTMLImageElement;
+          toggleDisplay(ulEl, img);
+        })
+      );
+    }, 400);
+  } catch (error) {
+    console.log(error);
   }
 }

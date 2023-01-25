@@ -31,25 +31,28 @@ body {
   font-size: 1.4rem;
   margin: 1em auto;
 }
-.addUserForm label {
+.addUserForm__inputDescription {
   font-size: 1.3rem;
   margin-bottom: 1rem;
   font-weight: bold;
 }
-.addUserForm label input {
+.addUserForm__inputDescription input {
   width: 90%;
   font-size: 1.3rem;
   margin-top: 0.5em;
 }
 .addUserForm #chooseFile {
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 .addUserForm #submitBtn {
   margin: 1em auto 2rem auto;
   padding: 0.5em 2em;
+  font-size: 1.2rem;
+  transform: scale(1);
+  transition: transform 0.2s linear;
 }
 .addUserForm #submitBtn:hover {
-  transform: all 0.7s;
+  transition: transform 0.2s linear;
   transform: scale(0.8);
   cursor: pointer;
 }
@@ -90,6 +93,7 @@ main .cardsWrapper__userCard .userImg {
   border-radius: 20px;
   box-shadow: 0 0 10px black;
   height: 20vw;
+  transition: all 0.4s linear;
 }
 main .cardsWrapper__userCard .userImg:hover {
   cursor: pointer;
@@ -102,7 +106,6 @@ main .cardsWrapper__userCard ul {
   justify-content: space-around;
 }
 main .cardsWrapper__userCard ul li {
-  border: 1px solid white;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -110,13 +113,6 @@ main .cardsWrapper__userCard ul li {
 }
 main .cardsWrapper__userCard ul li button {
   padding: 0.2em;
-}
-
-#drop_zone {
-  border: 5px solid blue;
-  width: 200px;
-  height: 100px;
-  margin: 1em auto;
 }
 
 input,
