@@ -11,14 +11,4 @@ var user = /** @class */ (function () {
     return user;
 }());
 var userinfo = [];
-// userinfo.push(
-//   new user(
-//     `tomer`,
-//     `mivtza kilshon 12`,
-//     `tomer6633@gmail.com`,
-//     506668817,
-//     `tomer1`,
-//     `blue`
-//   )
-// );
 console.log(userinfo);

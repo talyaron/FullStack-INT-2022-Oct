@@ -14,7 +14,7 @@
   <body>
     <div class="wrapper">
       <div class="formDiv">
-        <h3>can you put you details here</h3>
+        <h3>can you put you details here and picture of your t-shirt</h3>
         <form onsubmit="accountInfo(event)">
           <select name="gender">
             <option value="null">gender</option>
@@ -26,9 +26,9 @@
           <input type="email" name="email" placeholder="Enter Email"/>
           <input type="phone" name="phone" placeholder="Enter Phone">
           <!-- <input type="password" name="password" id="password" placeholder="Enter Password"> -->
+          <input oninput="ChangerColor(event)" type="color" name="color">
           <input type="submit" name="info">
         </form>
-        <input oninput="ChangerColor(event)" type="color">
       </div>
       <div class="card"></div>
     </div>
