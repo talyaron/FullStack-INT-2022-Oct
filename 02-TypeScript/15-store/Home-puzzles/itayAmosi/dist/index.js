@@ -1,1 +1,0 @@
-renderCard(userList);

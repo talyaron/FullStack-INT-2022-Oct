@@ -22,10 +22,10 @@ try {
 
 
 
-function renderCard(userList):void {
+function renderCard(users:User[]):void {
 try {
-    wrapper.replaceChildren();
-    userList.forEach((user) => {
+const divElement = document.querySelector(`.card`) as HTMLElement;
+    users.forEach((user) => {
     const userCard = document.createElement("div") as HTMLElement;
     userCard.classList.add("newCard");
     userCard.innerHTML =` 
@@ -38,10 +38,9 @@ try {
     <li>country: ${user.country}</li>
     </ul>`;
     // <img class="userImg" src="${user.getProfileImg()}"/>`;
-    wrapper.appendChild(userCard);
+    divElement.appendChild(userCard);
 });
 } catch (error) {
     
 }
 }
-
