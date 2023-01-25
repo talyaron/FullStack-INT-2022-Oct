@@ -1,7 +1,10 @@
 fetchRadomUser();
+
 setTimeout(() => {
   renderUsers(userList);
 }, 300);
+
+setImgClick();
 
 form.addEventListener("submit", handleSubmit);
 
