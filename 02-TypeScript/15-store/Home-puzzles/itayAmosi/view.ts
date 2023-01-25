@@ -1,0 +1,1 @@
+const wrapper = document.querySelector(".cardsWrapper") as HTMLDivElement;

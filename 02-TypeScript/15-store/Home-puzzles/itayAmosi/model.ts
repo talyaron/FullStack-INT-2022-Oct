@@ -9,5 +9,7 @@ class User{
         // public profileImage:string
     ){}
 }
-x
-const userList:User[] = [];
+
+const userList:User[] = [
+
+];
