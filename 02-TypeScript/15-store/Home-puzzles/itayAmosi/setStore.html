@@ -22,8 +22,8 @@
 <form onsubmit="handleUser(event)" id="form">
     <select name="gender">
         <option value="">gender</option>
-        <option value="man">man</option>
-        <option value="woman">woman</option>
+        <option value="man">male</option>
+        <option value="woman">female</option>
     </select>
 <input type="text" name="username" placeholder="Enter Username">
 <input type="password" name="password" placeholder="Enter password">
@@ -31,7 +31,7 @@
 <input type="date" name="theOfBirth">
 <input type="text" name="country" placeholder="Enter country">
 <input type="file" name="profileImage" placeholder="Enter profile Image">
-<input type="submit" value="Register">
+<input type="submit" onclick="renderCard()" value="Register">
 </form>
 </div>
 <div class="card"></div>

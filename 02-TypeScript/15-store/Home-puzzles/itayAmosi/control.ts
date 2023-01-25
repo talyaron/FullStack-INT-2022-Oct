@@ -14,7 +14,34 @@ try {
     userList.push(new User(gender,username, password, email, theOfBirth,country));
     console.log(userList);
     event.target.reset();
+    renderCard(userList);
 } catch (error) {
     console.error(error);
 }
 }
+
+
+
+function renderCard(userList):void {
+try {
+    wrapper.replaceChildren();
+    userList.forEach((user) => {
+    const userCard = document.createElement("div") as HTMLElement;
+    userCard.classList.add("newCard");
+    userCard.innerHTML =` 
+    <ul>
+    <li>Gender: ${user.gender}</li>
+    <li>Username: ${user.username}</li>
+    <li>Password: ${user.password}</li>
+    <li>Email: ${user.email}</li>
+    <li>Date Of Birth: ${user.theOfBirth}</li>
+    <li>country: ${user.country}</li>
+    </ul>`;
+    // <img class="userImg" src="${user.getProfileImg()}"/>`;
+    wrapper.appendChild(userCard);
+});
+} catch (error) {
+    
+}
+}
+

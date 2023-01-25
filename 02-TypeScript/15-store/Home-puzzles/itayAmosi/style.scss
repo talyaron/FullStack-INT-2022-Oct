@@ -40,3 +40,14 @@ h3{
 //     height: 50px;
 //     margin-top: 80px;
 // }
+.newCard{
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--third);
+    aspect-ratio: 1/1;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
