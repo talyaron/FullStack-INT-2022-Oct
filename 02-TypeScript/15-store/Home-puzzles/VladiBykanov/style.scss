@@ -90,6 +90,7 @@ main {
         border-radius: 20px;
         box-shadow: 0 0 10px black;
         height: 20vw;
+        transition: all .4s linear;
       }
       .userImg:hover {
         cursor: pointer;

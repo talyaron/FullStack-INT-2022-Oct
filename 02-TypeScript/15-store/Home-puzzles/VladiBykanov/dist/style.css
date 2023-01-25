@@ -93,6 +93,7 @@ main .cardsWrapper__userCard .userImg {
   border-radius: 20px;
   box-shadow: 0 0 10px black;
   height: 20vw;
+  transition: all 0.4s linear;
 }
 main .cardsWrapper__userCard .userImg:hover {
   cursor: pointer;
