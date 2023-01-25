@@ -28,3 +28,10 @@ h3 {
   height: 550px;
   margin-top: 80px;
 }
+
+.card {
+  border: 2px solid #da1212;
+  width: 30px;
+  height: 50px;
+  margin-top: 80px;
+}

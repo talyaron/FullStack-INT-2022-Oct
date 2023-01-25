@@ -5,23 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+  <script src="./dist/control.js" defer></script>
+  <script src="./dist/helpers.js"defer></script>
+  <script src="./dist/model.js"defer></script>
+  <script src="./dist/view.js"defer></script>
+  <script src="./dist/index.js"defer></script>
   </head>
   <body>
     <div class="wrapper">
       <div class="formDiv">
         <h3>can you put you details here</h3>
-        <form onsubmit="accountInfo(event)" id="form">
+        <form onsubmit="accountInfo(event)">
           <select name="gender">
             <option value="null">gender</option>
             <option value="man">man</option>
             <option value="woman">woman</option>
           </select>
-          <input type="text" name="name" placeholder="enter Name" />
+          <input type="name" name="name" placeholder="enter Name" />
           <input type="addres" name="address" placeholder="Enter address" />
           <input type="email" name="email" placeholder="Enter Email"/>
           <input type="phone" name="phone" placeholder="Enter Phone">
-          <input type="password" name="password" id="password" placeholder="Enter Password">
-          <input type="submit" value="info">
+          <!-- <input type="password" name="password" id="password" placeholder="Enter Password"> -->
+          <input type="submit" name="info">
         </form>
         <input oninput="ChangerColor(event)" type="color">
       </div>
