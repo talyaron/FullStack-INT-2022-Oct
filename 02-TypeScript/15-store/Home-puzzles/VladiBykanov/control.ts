@@ -45,6 +45,11 @@ function handleSubmit(e) {
   );
   userList.unshift(newUser);
 
+  // adding new user to the screen
   renderUsers(userList);
+  // reinitializing img click
+  setImgClick();
+  //clearing form
   preview.src = "";
+  e.target.reset();
 }
