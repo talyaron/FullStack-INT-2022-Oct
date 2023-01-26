@@ -49,19 +49,19 @@ h1, h2 {
         width: 60%;
         margin: 10px 0px;
     }
-    .pass{
+    #pass{
         background-image: url(https://cdn-icons-png.flaticon.com/128/2767/2767146.png);
         background-position: right;
         background-size: 20px;
         background-repeat: no-repeat;
     }
-    .colorDiv{
+    #colorDiv{
         margin: 10px;
     }
     ץ    .color{
         width: 30px;
     }
-    .image{
+    #image{
         display: inline-block;
         width: 200px;
     
@@ -84,4 +84,15 @@ h1, h2 {
 .detail{
     right: 0;
     border: 2px solid blue;
+    margin-left: 10px;
+}
+.userDiv{
+    color: blue;
+    font-size: 30px;
+    margin-left: 10px;
+    
+}
+.creatDiv{
+    font-size: 30px;
+    text-align: center;
 }

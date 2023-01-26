@@ -51,8 +51,8 @@ h1 {
   cursor: pointer;
   border: 3px solid #2121DE;
   margin: 5px;
-  height: 200px;
-  width: 200px;
+  height: 100px;
+  width: 100px;
   line-height: 0;
   border-radius: 4px;
   font-size: 40px;
@@ -79,8 +79,8 @@ h1 {
 button {
   display: flex;
   margin-top: 10px;
-  width: 200px;
-  margin-left: 130px;
+  width: 320px;
+  margin-left: 65px;
   background-color: #000022; /* Green */
   border: 2px solid orange;
   color: white;

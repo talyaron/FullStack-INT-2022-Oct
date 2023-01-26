@@ -1,0 +1,38 @@
+body {
+  color: cadetblue;
+  font-size: 22px;
+  background-color: burlywood;
+  font-weight: bold;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+body div {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+body form h2 {
+  margin: 40px 0px;
+  color: blueviolet;
+}
+body input {
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  margin: 10px 0px;
+}
+body ::-moz-placeholder {
+  font-size: 15px;
+}
+body :-ms-input-placeholder {
+  font-size: 15px;
+}
+body ::placeholder {
+  font-size: 15px;
+}
+body button {
+  margin: 50px 0px;
+  background-color: greenyellow;
+  width: 70px;
+  border-radius: 25% 25% 40% 40%;
+}

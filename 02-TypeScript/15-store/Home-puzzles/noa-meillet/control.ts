@@ -32,7 +32,7 @@ function addUser(ev) {
 
 function showUsers(usersArr){
     try {
-        if (users && usersArr.length != 0) {
+        if (users && usersArr.length > 0) {
             users.innerHTML=``;
             for (let i = 0; i < usersArr.length; i++) {
               users.innerHTML += `<div class= "users__user">
