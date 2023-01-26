@@ -14,6 +14,7 @@ function handlerAddUser(ev) {
 const inputElement = document.getElementById("file");
 inputElement.addEventListener("change", handleFiles, false);
 function handleFiles() {
+    //@ts-ignore
     const fileList = this.files; /* now you can work with the file list */
     console.log(fileList);
 }
