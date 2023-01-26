@@ -15,12 +15,30 @@ function hendleAddDetail(ev) {
 
     console.log(`name-${name} address-${address}`)
     details.push(new detail(name, address, email, phone, password, image));
-        console.log(details)
+    
+    console.log(details)
         
+    displayInDom(details)
+
     
     } catch (error) {
-        console.error(error);
+          console.error(error);
   }
+}
+
+function displayInDom(details){
+    try {
+      for(let i=0; i < detailName.length; i++){
+        const creatDiv = document.createElement("detailDiv") as HTMLDivElement
+        creatDiv.innerHTML = `${detailName[i]}: ${details[i].detailName[i]}`;
+        creatDiv.classList.add("creatDiv")
+        creatDiv.appendChild(".detail") 
+      }
+
+
+    } catch (error) {
+        console.error(error)
+    }
 }
 
 function hendelChangeColor(ev) {

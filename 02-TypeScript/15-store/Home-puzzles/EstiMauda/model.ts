@@ -11,3 +11,13 @@ class detail {
     ) {}
     }
     const details:detail[] = []
+
+
+    const detailName = [
+      "name",
+      "address",
+      "email",
+      "phone",
+      "password",
+      "image"
+    ]

@@ -10,3 +10,11 @@ var detail = /** @class */ (function () {
     return detail;
 }());
 var details = [];
+var detailName = [
+    "name",
+    "address",
+    "email",
+    "phone",
+    "password",
+    "image"
+];

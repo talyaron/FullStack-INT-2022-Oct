@@ -11,6 +11,20 @@ function hendleAddDetail(ev) {
         console.log("name-" + name + " address-" + address);
         details.push(new detail(name, address, email, phone, password, image));
         console.log(details);
+        displayInDom(details);
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function displayInDom(details) {
+    try {
+        for (var i = 0; i < detailName.length; i++) {
+            var creatDiv = document.createElement("detailDiv");
+            creatDiv.innerHTML = detailName[i] + ": " + details[i].detailName[i];
+            creatDiv.classList.add("creatDiv");
+            creatDiv.appendChild(".detail");
+        }
     }
     catch (error) {
         console.error(error);
