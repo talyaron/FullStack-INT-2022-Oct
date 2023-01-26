@@ -1,5 +1,5 @@
 var mainform = document.querySelector("form");
-function getRandomForm(ev) {
+function userSubmit(ev) {
     try {
         ev.preventDefault();
         var name = ev.target.elements.name.value;

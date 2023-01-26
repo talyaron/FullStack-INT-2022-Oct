@@ -1,6 +1,6 @@
 const mainform = document.querySelector("form")as HTMLFormElement;
 
-function getRandomForm(ev:string | number | any){
+function userSubmit(ev:string | number | any){
    try {
     ev.preventDefault();
 

@@ -10,4 +10,6 @@ public file: any)
 {}
 }
 
-const userInfo:any[] = [];
+const userInfo:formUser[] = [];
+
+// userInfo.push(new formUser())
