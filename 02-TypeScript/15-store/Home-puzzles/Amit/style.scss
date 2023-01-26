@@ -1,0 +1,126 @@
+body{
+    margin:0;
+    position: relative;
+    background-color: rgb(212, 209, 204);
+}
+
+.header{
+    width: 30rem;
+    height: 3rem;
+    position: relative;
+    top: 1rem;
+    left: 40rem;
+    font-size: 5rem;
+    color: rgb(56, 17, 186);
+    font-weight: 800;
+    
+}
+
+.searchBox{
+    width: 30rem;
+    height: 3rem;
+    position: relative;
+    top: 5rem;
+    left: 38rem;
+    border: 0.1rem solid black;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    background-color: rgb(42, 41, 41);
+    color: rgb(234, 230, 230);
+    padding: 0.5rem;   
+}
+
+.results{
+    width: 50rem;
+    height: 200rem;
+    position: relative;
+    top: 5rem;
+    left: 30rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    
+    &__contact{
+        width: 40rem;
+        height: 15rem;
+        position: relative;
+        top: 0rem;
+        left: 3rem;
+        border: 0.1rem solid black; ;
+        border-radius: 1rem;
+        font-size: 1.5rem;
+        margin-top: 0.7rem;
+        &__wrapper{
+            width: 39rem;
+            height: 11rem;
+            position: relative;
+            top: 1rem;
+            left: 1rem;
+            font-size: 1.5rem;
+            margin-top: 0.7rem;
+            display: flex;
+            flex-direction: column;
+            color: rgb(18, 17, 17);
+            font-weight: 600;
+            gap: 1rem;
+        }
+    }
+}
+
+.addContcatsWrapper{
+    width: 24rem;
+    height: 26rem;
+    position: relative;
+    bottom: 199rem;
+    left: 2rem;
+    border: 0.1rem solid black; ;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    margin-top: 0.7rem;
+
+    &__input{
+    width: 14rem;
+    height: 2rem;
+    border: 0.1rem solid black;
+    border-radius: 1rem;
+    font-size: 1rem;
+    background-color: rgb(243, 237, 237);
+    color: black;
+    padding-left: 0.5rem;
+
+    &__inputImage{
+        border: 0.1rem solid red($color: #000000);
+        color: red;
+    }
+
+    }
+    &__addButton{
+        width: 10rem;
+        height: 2rem;
+        background-color: rgb(255, 230, 0);
+        border-radius: 0.5rem;
+        font-weight: 900;
+        vertical-align: middle;
+        font-size: 1rem;
+        box-shadow: 0rem 0rem 0.2rem 0.2rem rgb(97, 97, 97);
+        &:hover{
+            background-color: white;
+            box-shadow: none;
+            transition: 0.5s;
+        }
+        &:active{
+            background-color: rgb(74, 10, 251);
+        }
+    }
+}
+
+.image{
+    width: 5rem;
+    height: 5rem;
+    border: 0.2rem solid black ;
+    background-size: cover;
+    background-position: center;
+}

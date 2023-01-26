@@ -1,0 +1,1 @@
+const card:HTMLHeadingElement | null= document.querySelector(".card");

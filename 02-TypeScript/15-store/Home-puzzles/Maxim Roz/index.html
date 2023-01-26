@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="./dist/controls.js" defer></script>
+    <script src="./dist/helpres.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+
+</head>
+<body>
+    <h1>Form</h1>
+    <form onsubmit="handleAddUserData(event)">
+        <input type="text" name="name" placeholder="Enter your name" required>
+        <input type="text" name="adress" placeholder="Enter your adress" required>
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <input type="number" name="phone" placeholder="Enter your phone" required>
+        <input type="password" name="password" placeholder="Enter password" required>
+        <input type="color" name="color" >
+        <input type="submit" value="Add">
+    </form>
+    <h1>Form with image via URL</h1>
+    <form onsubmit="handleAddUserDataAndImageUrl(event)">
+        <input type="text" name="name" placeholder="Enter your name" required>
+        <input type="text" name="adress" placeholder="Enter your adress" required>
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <input type="number" name="phone" placeholder="Enter your phone" required>
+        <input type="password" name="password" placeholder="Enter password" required>
+        <input type="color" name="color" >
+        <input type="url" name="image" placeholder="ensert URL of image" required>
+        <input type="submit" value="Add">
+    </form>
+    <div class="userDataWrapperUrl">
+        <li class="nameDom">
+           
+        </li>
+        <li class="addrDom">
+           
+        </li>
+        <li class="emailDom">
+            
+        </li>
+        <li class="phoneDom">
+            
+        </li>
+        <li class="passDom">
+           
+        </li>
+        <li class="colorDom">
+            Color: 
+           
+            <p class="box1"></p>
+
+        </li>
+        <li class="imageDom">
+            Image:
+            <img id="imgUrl" src="" alt="">
+        </li>
+    </div>
+    <h1>Form with image via local image</h1>
+    <form onsubmit="handleAddUserDataAndImageLocal(event)">
+        <input type="text" name="name" placeholder="Enter your name" required>
+        <input type="text" name="adress" placeholder="Enter your adress" required>
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <input type="number" name="phone" placeholder="Enter your phone" required>
+        <input type="password" name="password" placeholder="Enter password" required>
+        <input type="color" name="color" >
+        <input type="file" id="image"name="image" accept=".jpg, .jpeg, .png" required /> 
+        <input type="submit" value="Add">
+
+    </form>
+    <div class="userDataWrapperLocal">
+        <li class="nameOnDom">
+           
+        </li>
+        <li class="adressOnDom">
+           
+        </li>
+        <li class="emailOnDom">
+           
+        </li>
+        <li class="phoneOnDom">
+            
+        </li>
+        <li class="passwordOnDom">
+            
+        </li>
+        <li class="colorOnDom">
+            Color:
+            <p class="box2"></p>
+        </li>
+        <li class="imageOnDom">
+            Image:
+        </li>
+    </div>
+
+
+</body>
+</html>

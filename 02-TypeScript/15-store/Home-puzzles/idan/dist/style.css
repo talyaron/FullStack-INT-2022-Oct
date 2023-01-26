@@ -1,0 +1,37 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 25vh, 75vh;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.wrapper__inputSection {
+  width: 100vw;
+  height: 25vh;
+}
+.wrapper__userViewer {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+.wrapper__userViewer__userProfile {
+  width: 100vw;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+}
+.wrapper__userViewer__userProfile img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+.wrapper__userViewer__userProfile__userText {
+  min-width: 500px;
+  max-width: 50vw;
+  display: flex;
+  flex-direction: column;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
