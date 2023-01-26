@@ -10,4 +10,6 @@ var formUser = /** @class */ (function () {
     }
     return formUser;
 }());
+var formUsers = [];
 var userInfo = [];
+console.log(formUser);
