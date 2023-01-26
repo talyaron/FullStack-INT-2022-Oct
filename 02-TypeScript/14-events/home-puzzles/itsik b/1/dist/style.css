@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body div {
+  background-color: cadetblue;
+  width: 150px;
+  height: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  border: 4px solid black;
+  border-radius: 7% 35% 7%;
+  position: relative;
+}
+body div:hover {
+  background-color: bisque;
+  color: red;
+}
+body p {
+  width: 120px;
+  height: 110px;
+  background-color: #c62828;
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  display: flex;
+  bottom: 110px;
+  right: 140px;
+  border-radius: 7% 30% 30%;
+  text-align: center;
+  transition: 2s ease-in-out;
+}

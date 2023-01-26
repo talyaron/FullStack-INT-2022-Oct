@@ -5,13 +5,13 @@ function saveSrc() {
     "load",
     () => {
       // convert image file to base64 string
-      preview.src = reader.result;
-      imgSrc = reader.result;
+      preview.src = reader.result as string;
+      imgSrc = reader.result as string;
     },
     false
   );
 
-  if (file.files[0]) {
+  if (file.files) {
     reader.readAsDataURL(file.files[0]);
   }
 }
@@ -20,15 +20,6 @@ function fetchRadomUser() {
   fetch("https://randomuser.me/api/?results=8").then((data) => {
     data.json().then((randomUser) => {
       randomUser.results.forEach((user) => {
-        // const gender = user.gender;
-        // const firstName = user.name.first;
-        // const lastName = user.name.last;
-        // const password = user.login.password;
-        // const userName = user.login.username;
-        // const dateOfBirth = user.dob.date.slice(0, 10);
-        // const phoneNumber = user.cell;
-        // const location = user.location.country;
-        // const profileImage = user.picture.large;
         const randomUser = new User(
           user.gender,
           user.name.first,
@@ -46,10 +37,33 @@ function fetchRadomUser() {
   });
 }
 
-function toggleDisplay(element) {
-  if (element.style.display == "flex") {
-    return element.style.display = "none";
+function toggleDisplay(listElement: HTMLElement, imgElement: HTMLElement) {
+  if (listElement.style.display == "flex") {
+    listElement.style.display = "none";
+    imgElement.style.height = '20vw';
   } else {
-    return element.style.display = "flex";
+     listElement.style.display = "flex";
+     imgElement.style.height = '10vw';
+     imgElement.style.transform = 'scale(1)';
+  }
+}
+
+function setImgClick() {
+  try {
+    setTimeout(() => {
+      const imgElements = wrapper.querySelectorAll(
+        "img"
+      ) as NodeListOf<HTMLElement>;
+      imgElements.forEach((ele) =>
+        ele.addEventListener("click", () => {
+          const target = ele.parentElement;
+          const ulEl = target?.querySelector("ul") as HTMLUListElement;
+          const img = target?.querySelector("img") as HTMLImageElement;
+          toggleDisplay(ulEl, img);
+        })
+      );
+    }, 400);
+  } catch (error) {
+    console.log(error);
   }
 }

@@ -1,26 +1,24 @@
 body {
-  margin: 0%;
+  border: 1px solid;
+  width: 100vw;
+  height: 100vh;
 }
-
-.wrapper {
-  width: auto;
-  height: 255vh;
-  background-color: antiquewhite;
+body nav {
+  display: flex;
 }
-.wrapper__head {
-  margin-top: -15px;
+body .mynav, body ul, body li {
   width: 100%;
-  height: 90px;
-  background-color: rgb(0, 8, 255);
-  padding: 0%;
-  font-size: 4rem;
-  text-align: center;
-  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  font-size: 28px;
+  background-color: cadetblue;
 }
-.wrapper__head .outin {
-  width: 250px;
-  height: 250px;
-  display: inline;
+body ul, body li, body a {
+  color: rgb(182, 224, 14);
+  text-decoration: none;
+  font-weight: bold;
+} sans-serif;
+};
   background-color: rgb(213, 241, 5);
   border: px1;
   -webkit-animation-name: pop-outin;
