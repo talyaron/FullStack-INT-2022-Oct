@@ -6,6 +6,7 @@ var user = /** @class */ (function () {
         this.phone = phone;
         this.password = password;
         this.favoriteColor = favoriteColor;
+        this.uid = uid();
     }
     return user;
 }());
