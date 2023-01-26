@@ -8,12 +8,13 @@
     <script src="./dist/view.js" defer></script>
     <script src="./dist/model.js" defer></script>
     <script src="./dist/control.js" defer></script>
+    <link rel="stylesheet" href="./dist/style.css">
   </head>
   <body>
     <h2>Add products</h2>
     <a href="./index.html">Store</a>
     <h1>NOA Store</h1>
-    <form onsubmit="addItem(event, clothesShopArr)">
+    <form onsubmit="addItem(event)">
       <input type="text" name="name" placeholder="name of product" required />
       <br />
       <select name="type">
@@ -34,5 +35,6 @@
       <input type="text" name="image" placeholder="link to the image of the product" required/><br />
       <input type="submit" value="Add Item" />
     </form>
+    <div class="newStore"></div>
   </body>
 </html>
