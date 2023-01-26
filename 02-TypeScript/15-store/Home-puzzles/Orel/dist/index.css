@@ -6,6 +6,7 @@
 
 body,
 html {
+  background-color: darkgray;
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
@@ -38,6 +39,7 @@ section form.container select {
 section form.container select,
 section form.container input,
 section form.container button {
+  background-color: rgba(255, 255, 255, 0.658);
   padding: 10px 15px;
   border: 1px solid black;
   outline: none;

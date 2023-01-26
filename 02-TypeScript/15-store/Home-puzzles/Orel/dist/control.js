@@ -1,8 +1,7 @@
-"use strict";
 function handlerAddUser(ev) {
     try {
         ev.preventDefault();
-        const { fullName, address, email, phone, password } = ev.target.elements;
+        var _a = ev.target.elements, fullName = _a.fullName, address = _a.address, email = _a.email, phone = _a.phone, password = _a.password;
         users.push(new User(fullName.value, address.value, email.value, phone.value, password.value));
         ev.target.reset();
         renderUsers();
@@ -11,9 +10,17 @@ function handlerAddUser(ev) {
         console.log(error);
     }
 }
-const inputElement = document.getElementById("file");
+function handleRemoveItem(uid) {
+    try {
+        console.log(uid);
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+var inputElement = document.getElementById("file");
 inputElement.addEventListener("change", handleFiles, false);
 function handleFiles() {
-    const fileList = this.files; /* now you can work with the file list */
+    var fileList = this.files;
     console.log(fileList);
 }

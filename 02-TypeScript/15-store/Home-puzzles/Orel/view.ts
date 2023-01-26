@@ -11,6 +11,7 @@ function renderUsers(){
     <th>Phone</th>
     <th>Password</th>
     <th>ID</th>
+    <th>Remove</th>
     </thead>
     `
 users.forEach(users => {
@@ -23,6 +24,7 @@ users.forEach(users => {
     <td>${users.phone}</td>
     <td>${users.password}</td>
     <td>${users.uID}</td>
+    <td><button onclick="handleRemoveItem("${users.uID}")">Del</button></td>
     </tr>
     `
 
