@@ -1,4 +1,5 @@
 class user {
+  uid:string;
   constructor(
     public name: string,
     public address: string,
@@ -7,6 +8,7 @@ class user {
     public password: string,
     public favoriteColor: string
   ){
+    this.uid = uid();
   }
   }
 const userinfo: user[] = [];
