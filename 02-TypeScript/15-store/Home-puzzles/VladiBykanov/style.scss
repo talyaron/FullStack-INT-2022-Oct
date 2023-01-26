@@ -1,0 +1,140 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --main: #021a1f;
+  --secondary: #153238;
+  --third: #28606b;
+  --border: #075a6b;
+  --text: #0d9bb8;
+}
+
+body {
+  max-width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  overflow-y: hidden;
+  background-color: var(--main);
+  color: var(--text);
+}
+
+.addUserForm {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+  overflow-y: auto;
+  h3 {
+    font-size: 1.4rem;
+    margin: 1em auto;
+  }
+  &__inputDescription {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    input {
+      width: 90%;
+      font-size: 1.3rem;
+      margin-top: 0.5em;
+    }
+  }
+  #chooseFile {
+    font-size: 1rem;
+  }
+  #submitBtn {
+    margin: 1em auto 2rem auto;
+    padding: .5em 2em;
+    font-size: 1.2rem;
+    transform: scale(1);
+    transition: transform .2s linear;
+  }
+  #submitBtn:hover {
+    transition: transform .2s linear;
+    transform: scale(0.8);
+    cursor: pointer;
+  }
+  &__errorMessage {
+    display: none;
+    margin: 0.5em auto;
+    font-size: 2rem;
+    color: red;
+  }
+}
+
+main {
+  padding: 0 2em;
+  overflow-y: auto;
+  text-align: center;
+  header {
+    margin: 2em 0;
+  }
+  .cardsWrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 90%;
+    margin: 0 auto;
+    &__userCard {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      box-shadow: 0 0 20px var(--third);
+      aspect-ratio: 1/1;
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      .userImg {
+        border-radius: 20px;
+        box-shadow: 0 0 10px black;
+        height: 20vw;
+        transition: all .4s linear;
+      }
+      .userImg:hover {
+        cursor: pointer;
+      }
+      ul {
+        display: none;
+        height: 60%;
+        width: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+        li {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          font-size: 1.3rem;
+          button {
+            padding: 0.2em;
+          }
+        }
+      }
+    }
+  }
+}
+
+input,
+select {
+  background-color: var(--third);
+  border-style: none;
+  color: whitesmoke;
+  padding: 0.3em;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: gainsboro;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 5px;
+  width: 5px;
+}

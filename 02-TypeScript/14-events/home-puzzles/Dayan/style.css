@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Bubblegum Sans", cursive;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(150deg, #74cff4, #d161ff);
+}
+
+.board {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 55%;
+  left: 50%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2vmin;
+}
+.board .square {
+  background: #ffffff;
+  height: 20vmin;
+  width: 20vmin;
+  border: none;
+  border-radius: 8px;
+  font-size: 12vmin;
+  color: #d161ff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  padding-top: 25px;
+  text-align: center;
+}
+.board .square:hover {
+  background: #f1dff7;
+  cursor: pointer;
+}

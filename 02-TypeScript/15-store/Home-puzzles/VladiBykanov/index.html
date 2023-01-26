@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="./dist/style.css" />
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/main.js" defer></script>
+  </head>
+
+  <form class="addUserForm">
+    <h3>Add new user</h3>
+    <label class="addUserForm__inputDescription" for="gender"
+      >Gender:
+      <select id="gender" name="gender">
+        <option value="">...</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="unknown">Prefer not to say</option>
+      </select>
+    </label>
+    <label class="addUserForm__inputDescription" for="firstName"
+      >First Name: <input type="text" name="firstName" id="firstName"
+    /></label>
+    <label class="addUserForm__inputDescription" for="lastName"
+      >Last Name: <input type="text" name="lastName" id="lastName"
+    /></label>
+    <label class="addUserForm__inputDescription" for="password"
+      >Password: <input type="text" name="password" id="password"
+    /></label>
+    <label class="addUserForm__inputDescription" for="userName"
+      >Choose a User Name: <input type="text" name="userName" id="userName"
+    /></label>
+    <label class="addUserForm__inputDescription" for="dob"
+      >Date Of Birth: <input type="date" name="dob" id="dob"
+    /></label>
+    <label class="addUserForm__inputDescription" for="phone"
+      >Phone Number: <input type="text" name="phone" id="phone"
+    /></label>
+    <label class="addUserForm__inputDescription" for="location"
+      >Location (Country): <input type="text" name="location" id="location"
+    /></label>
+    <label class="addUserForm__inputDescription" for="image"
+      >Upload Image:
+      <input
+        id="chooseFile"
+        type="file"
+        name="image"
+        accept="image/png, image/gif, image/jpeg"
+        onchange="saveSrc()"
+      />
+      <img class="preview" src="" width="100px" />
+    </label>
+    <b class="addUserForm__errorMessage">Missing Details</b>
+    <input type="submit" value="Submit" id="submitBtn" />
+  </form>
+  <body>
+    <main>
+      <header>
+        <h1>Users Registered In System</h1>
+        <b>(press image to expand)</b>
+      </header>
+      <div class="cardsWrapper"></div>
+    </main>
+  </body>
+</html>
