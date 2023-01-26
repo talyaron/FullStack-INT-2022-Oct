@@ -8,10 +8,10 @@ function accountInfo(ev:any) {
         const address= ev.target.elements.address.value;
         const email= ev.target.elements.email.value;
         const phone= ev.target.elements.phone.value;
-        // const password= ev.target.elements.password.value;
+        const password= ev.target.elements.password.value;
         const favoriteColor= ev.target.elements.favoriteColor;
 
-        userinfo.push(new user(name,address,email,phone,favoriteColor));
+        userinfo.push(new user(name,address,email,phone,password,favoriteColor));
         console.log(userinfo);
         ev.target.reset();
     } catch (error) {

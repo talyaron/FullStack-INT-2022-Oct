@@ -1,14 +1,13 @@
-class User {
-  constructor(
-    public email: string,
-    public firstName: string,
-    public lastName: string,
-    public password: string,
-    public age: number,
-    public gender: string
-  ) {}
+interface IUser {
+  email: string;
+  firstName: string;
+  lastName: string;
+  password: string;
+  age: number;
+  gender: string;
 }
-const users: User[] = [];
+
+const users: IUser[] = [];
 
 // create a user to the store
 const createUser = (user) => {
@@ -22,7 +21,8 @@ const createUser = (user) => {
     const age = user.target.elements.age.valueAsNumber;
     const gender = user.target.elements.genderCategory.value;
 
-    users.push(new User(email, firstName, lastName, password, age, gender));
+    const newUser: IUser = {email,firstName,lastName,password,age,gender}
+    users.push(newUser);
     console.log(users);
     user.target.reset();
   } catch (error) {
@@ -30,16 +30,4 @@ const createUser = (user) => {
   }
 };
 
-// users.push(
-//   new user("example@gmail.com", "Israel", "Israeli", "isr23451", 34, "Male")
-// );
-// console.log(users);
 
-// interface IUser {
-//   email: string;
-//   firstName: string;
-//   lastName: string;
-//   password: string;
-//   age: number;
-//   gender: string;
-// }
