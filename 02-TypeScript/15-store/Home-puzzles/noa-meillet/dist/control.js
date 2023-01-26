@@ -20,7 +20,7 @@ function addUser(ev) {
 }
 function showUsers(usersArr) {
     try {
-        if (users && usersArr.length != 0) {
+        if (users && usersArr.length > 0) {
             users.innerHTML = "";
             for (var i = 0; i < usersArr.length; i++) {
                 users.innerHTML += "<div class= \"users__user\">\n                      <img class=\"users__user__detail\" id=\"image\" src='" + usersArr[i].image + "' alt=\"image\"/>\n                      <h2 class=\"users__user__detail\" id=\"userName\">" + usersArr[i].name + "</h2>\n                      <h5 class=\"users__user__detail\" id=\"userAdress\">" + usersArr[i].adress + "</h5>\n                      <h5 class=\"users__user__detail\" id=\"userEmail\">" + usersArr[i].email + "</h5>\n                      <h5 class=\"users__user__detail\" id=\"userDateOfBirth\">" + usersArr[i].dateOfBirth + "</h5>\n                      <h5 class=\"users__user__detail\" id=\"userPhonePrefix\">" + usersArr[i].phonePrefix + "</h5>\n                      <h5 class=\"users__user__detail\" id=\"userPhoneNumber\">" + usersArr[i].phoneNumber + "</h5>\n                      </div>";

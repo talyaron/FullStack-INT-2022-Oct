@@ -1,4 +1,4 @@
-function addItem(event, clothesShopArr) {
+function addItem(event) {
   try {
     event.preventDefault();
     const name = event.target.elements.name.value;
@@ -7,7 +7,7 @@ function addItem(event, clothesShopArr) {
     const price = event.target.elements.price.valueAsNumber;
     const image = event.target.elements.image.value;
     clothesShopArr.push(new Item(name, departement, type, price, image));
-    console.log(clothesShopArr);
+    showStore(clothesShopArr);
     event.target.reset();
   } catch (error) {
     console.error(Error);
@@ -20,12 +20,12 @@ function showStore(clothesShopArr: Item[]): void | false {
         store.innerHTML=``;
         for (let i = 0; i < clothesShopArr.length; i++) {
           store.innerHTML += `<div class= "store__item">
-                  <img class="store__item__detail" id="image" src='${clothesShopArr[i].image}' alt="image"/>
-                  <h2 class="store__item__detail" id="itemName">${clothesShopArr[i].name}</h2>
-                  <h5 class="store__item__detail" id="itemDepartment">${clothesShopArr[i].department}</h5>
-                  <h5 class="store__item__detail" id="itemType">${clothesShopArr[i].type}</h5>
-                  <h3 class="store__item__detail" id="itemPrice">${clothesShopArr[i].price}</h3>
-                  </div>`;
+          <img class="store__item__detail" id="image" src='${clothesShopArr[i].image}' alt="image"/>
+          <h2 class="store__item__detail" id="itemName">${clothesShopArr[i].name}</h2>
+          <h5 class="store__item__detail" id="itemDepartment">${clothesShopArr[i].department}</h5>
+          <h5 class="store__item__detail" id="itemType">${clothesShopArr[i].type}</h5>
+          <h3 class="store__item__detail" id="itemPrice">${clothesShopArr[i].price}</h3>
+          </div>`;
         }
       } else {
         throw new Error(`there is no item in the store`);
