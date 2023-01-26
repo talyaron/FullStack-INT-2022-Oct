@@ -6,9 +6,9 @@ function accountInfo(ev) {
         var address = ev.target.elements.address.value;
         var email = ev.target.elements.email.value;
         var phone = ev.target.elements.phone.value;
-        // const password= ev.target.elements.password.value;
+        var password = ev.target.elements.password.value;
         var favoriteColor = ev.target.elements.favoriteColor;
-        userinfo.push(new user(name, address, email, phone, favoriteColor));
+        userinfo.push(new user(name, address, email, phone, password, favoriteColor));
         console.log(userinfo);
         ev.target.reset();
     }

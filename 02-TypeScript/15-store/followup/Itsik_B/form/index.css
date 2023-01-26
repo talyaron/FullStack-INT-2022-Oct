@@ -1,0 +1,20 @@
+body {
+  border: 1px solid;
+  width: 100vw;
+  height: 100vh;
+}
+body nav {
+  display: flex;
+}
+body .mynav, body ul, body li {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 28px;
+  background-color: cadetblue;
+}
+body ul, body li, body a {
+  color: rgb(182, 224, 14);
+  text-decoration: none;
+  font-weight: bold;
+}
