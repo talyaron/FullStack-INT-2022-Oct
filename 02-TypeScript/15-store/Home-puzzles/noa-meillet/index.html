@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Form</title>
+    <link rel="stylesheet" href="./dist/style.css" />
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+  </head>
+  <body>
+    <h2>Register Form</h2>
+    <form onsubmit="addUser(event)">
+      <label for="name">Enter your full name:</label> <br />
+      <input type="text" name="name" placeholder="Full Name" /> <br />
+      <label for="adress">Enter your adress:</label> <br />
+      <input type="text" name="adress" placeholder="Adress" /> <br />
+      <label for="email">Enter your email adress:</label> <br />
+      <input type="email" name="email" placeholder="Email Adress" /> <br />
+      <label for="birthday">Enter your date of birth:</label> <br />
+      <input type="date" name="birthday" placeholder="Date Of Birth" /> <br />
+      <label for="phone phonePrefix">Enter your phone number:</label> <br />
+      <select name="phonePrefix">
+        <option value="050">050</option>
+        <option value="051">051</option>
+        <option value="052">052</option>
+        <option value="053">053</option>
+        <option value="054">054</option>
+        <option value="055">055</option>
+        <option value="057">057</option>
+        <option value="058">058</option>
+        <option value="059">059</option>
+      </select>
+      <input type="number" name="phone" placeholder="Phone Number" /> <br />
+      <label for="color">Enter your prefered color:</label> <br />
+      <input type="color" name="preferedColor" /> <br />
+      <label for="image">Select your profile image:</label> <br />
+      <input type="text" name="image" />
+      <input type="submit" value="Add User">
+    </form>
+    <div class="users"></div>
+
+  </body>
+</html>
