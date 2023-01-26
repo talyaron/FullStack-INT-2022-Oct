@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./dist/bookshook.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <link rel="stylesheet" href="./dist/style.css">
+    <title>Admin</title>
+</head>
+<body onreset ="renderContacts()">
+    <div class="header" >Contacts List</div>
+    <input class="searchBox" type="text" id="userInput"   onkeyup="search()" placeholder="Search...">
+
+    <div class="results">
+        <div id="contactData"></div>
+        <div id="noResults"></div>
+    </div>
+
+    <fieldset class="addContcatsWrapper">Add a contact<br></br>
+        <form id="addContactsForm" onsubmit="handleAddContact(event)">
+            <input class="addContcatsWrapper__input" type="text" name="firstName" placeholder="name" required>
+            <br></br>
+            <input class="addContcatsWrapper__input" type="text" name="serName" placeholder="ser name" required>
+            <br></br>
+            <input class="addContcatsWrapper__input" type="text" name="mobileNumber" placeholder="moblie number" required>
+            <br></br>
+            <input class="addContcatsWrapper__input" type="text" name="email" placeholder="E-mail" required>
+            <br></br>
+            <input class="addContcatsWrapper__addButton" type="submit" value="ADD">
+
+            <input class="addContcatsWrapper__inputImage" type="file" accept="image/*" name="image" id="file" onsubmit="loadImage(event)">
+
+
+        </form>
+    </fieldset>
+     
+
+
+
+
+
+
+</body>
+</html>
