@@ -45,40 +45,44 @@ function startForm() {
     firstInput.type = "text";
     firstInput.placeholder = "enter your name";
     firstInput.style.fontSize = "14px";
+    firstInput.name = "name";
     // 2
     secondLabel.innerHTML = "address:";
     secondInput.required;
     secondInput.type = "text";
     secondInput.placeholder = "enter your address";
+    secondInput.name = "address";
     // 3
     thirdLabel.innerHTML = "Email:";
     thirdInput.required;
     thirdInput.placeholder = "enter email";
     thirdInput.type = "email";
+    thirdInput.name = "email";
     // 4
     forthLabel.innerHTML = "Phone:";
     forthInput.required;
     forthInput.type = "number";
     forthInput.placeholder = "phone number";
+    forthInput.name = "phone";
     // 5
     fifthhLabel.innerHTML = "Password:";
     fifthhInput.required;
     fifthhInput.type = "password";
     fifthhInput.placeholder = "enter password here";
+    fifthhInput.name = "password";
     // 6
     sixthLabel.innerHTML = "Prefferd-Color:";
     sixthInput.type = "color";
+    sixthInput.name = "precolor";
     sixthInput.addEventListener("input", function () {
         document.body.style.backgroundColor = sixthInput.value;
     });
     // 7
     seventhLabel.innerHTML = "Add-Image";
     seventhInput.type = "file";
+    seventhInput.name = "file";
     // button
     submitBtn.textContent = "Send Form";
-    submitBtn.addEventListener("click", getRandomForm);
-}
-function getRandomForm(ev) {
-    ev.preventDefault();
-    var userName = ev.target.elements;
+    submitBtn.type = "submit";
+    form.addEventListener("submit", userSubmit);
 }

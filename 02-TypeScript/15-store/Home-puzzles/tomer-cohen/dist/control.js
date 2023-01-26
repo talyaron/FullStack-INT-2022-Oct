@@ -6,10 +6,10 @@ function accountInfo(ev) {
         var address = ev.target.elements.address.value;
         var email = ev.target.elements.email.value;
         var phone = ev.target.elements.phone.value;
-        var password = ev.target.elements.password.value;
-        var favoriteColor = ev.target.elements.favoriteColor.value;
-        userinfo.push(new user(name, address, email, phone, password, favoriteColor));
-        console.log(user);
+        // const password= ev.target.elements.password.value;
+        var favoriteColor = ev.target.elements.favoriteColor;
+        userinfo.push(new user(name, address, email, phone, favoriteColor));
+        console.log(userinfo);
         ev.target.reset();
     }
     catch (error) {
@@ -19,8 +19,8 @@ function accountInfo(ev) {
 function ChangerColor(ev) {
     try {
         console.log(ev);
-        var color = ev.target.value;
-        document.body.style.backgroundColor = color;
+        var favoriteColor = ev.target.value;
+        document.body.style.backgroundColor = favoriteColor;
     }
     catch (error) {
         console.error(error);
