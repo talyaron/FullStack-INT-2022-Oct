@@ -89,16 +89,10 @@ seventhInput.type = "file"
 seventhInput.name = "file"
 // button
 submitBtn.textContent = "Send Form"
-submitBtn.addEventListener("click", getRandomForm)
+submitBtn.addEventListener("click", userSubmit) 
+
+
+
 }
-
-
-
- 
-
-
-
-
-
 
 
