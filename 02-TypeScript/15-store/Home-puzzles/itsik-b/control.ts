@@ -9,6 +9,7 @@ public precolor: any,
 public file: any)
 {}
 }
-
+// const formUsers:formUser[] = [];
 const userInfo:formUser[] = [];
+
 
