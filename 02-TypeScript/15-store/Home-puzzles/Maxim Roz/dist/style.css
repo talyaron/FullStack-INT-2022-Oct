@@ -1,0 +1,42 @@
+.userDataWrapperLocal {
+  visibility: hidden;
+  list-style-type: none;
+}
+
+.userDataWrapperUrl {
+  visibility: hidden;
+  list-style-type: none;
+}
+
+.userDataWrapperUrl {
+  list-style-type: none;
+}
+
+.colorOnDom {
+  display: flex;
+}
+
+.colorDom {
+  display: flex;
+}
+
+.box2 {
+  width: 50px;
+  height: 20px;
+  margin: 0;
+}
+
+.box1 {
+  width: 50px;
+  height: 20px;
+  margin: 0;
+}
+
+.imageDom {
+  display: flex;
+}
+
+#imgUrl {
+  width: 100px;
+  height: 100px;
+}
