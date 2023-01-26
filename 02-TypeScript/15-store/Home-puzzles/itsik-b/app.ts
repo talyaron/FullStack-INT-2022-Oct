@@ -88,10 +88,9 @@ seventhLabel.innerHTML = "Add-Image"
 seventhInput.type = "file"
 seventhInput.name = "file"
 // button
-submitBtn.textContent = "Send Form"
-submitBtn.addEventListener("click", userSubmit) 
-
-
+submitBtn.textContent = "Send Form";
+submitBtn.type ="submit"
+form.addEventListener("submit", userSubmit) 
 
 }
 

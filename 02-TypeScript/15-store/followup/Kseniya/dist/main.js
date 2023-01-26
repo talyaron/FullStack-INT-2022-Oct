@@ -1,14 +1,3 @@
-var User = /** @class */ (function () {
-    function User(email, firstName, lastName, password, age, gender) {
-        this.email = email;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.password = password;
-        this.age = age;
-        this.gender = gender;
-    }
-    return User;
-}());
 var users = [];
 // create a user to the store
 var createUser = function (user) {
@@ -20,7 +9,8 @@ var createUser = function (user) {
         var password = user.target.elements.password.value;
         var age = user.target.elements.age.valueAsNumber;
         var gender = user.target.elements.genderCategory.value;
-        users.push(new User(email, firstName, lastName, password, age, gender));
+        var newUser = { email: email, firstName: firstName, lastName: lastName, password: password, age: age, gender: gender };
+        users.push(newUser);
         console.log(users);
         user.target.reset();
     }
@@ -28,15 +18,3 @@ var createUser = function (user) {
         console.error(error);
     }
 };
-// users.push(
-//   new user("example@gmail.com", "Israel", "Israeli", "isr23451", 34, "Male")
-// );
-// console.log(users);
-// interface IUser {
-//   email: string;
-//   firstName: string;
-//   lastName: string;
-//   password: string;
-//   age: number;
-//   gender: string;
-// }

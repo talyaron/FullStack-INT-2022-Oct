@@ -10,6 +10,5 @@ var formUser = /** @class */ (function () {
     }
     return formUser;
 }());
-var formUsers = [];
+// const formUsers:formUser[] = [];
 var userInfo = [];
-console.log(formUser);
