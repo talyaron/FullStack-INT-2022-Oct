@@ -12,9 +12,9 @@ function userSubmit(ev:string | number | any){
     const precolor:any = ev.target.elements.name.value;
     const file:any = ev.target.elements.name.value;
 
-
-
-
+     userInfo.push(new formUser(name, address, email, phone, password, precolor, file));
+      console.log(userInfo)
+      ev.target.reset();
    } catch (error) {
     console.error(error)
    }

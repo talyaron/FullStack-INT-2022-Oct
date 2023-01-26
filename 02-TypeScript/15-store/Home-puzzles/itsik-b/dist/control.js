@@ -11,4 +11,3 @@ var formUser = /** @class */ (function () {
     return formUser;
 }());
 var userInfo = [];
-// userInfo.push(new formUser())

@@ -9,6 +9,9 @@ function userSubmit(ev) {
         var password = ev.target.elements.name.value;
         var precolor = ev.target.elements.name.value;
         var file = ev.target.elements.name.value;
+        userInfo.push(new formUser(name, address, email, phone, password, precolor, file));
+        console.log(userInfo);
+        ev.target.reset();
     }
     catch (error) {
         console.error(error);

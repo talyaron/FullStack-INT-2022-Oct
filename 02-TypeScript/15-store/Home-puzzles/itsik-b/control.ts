@@ -12,4 +12,3 @@ public file: any)
 
 const userInfo:formUser[] = [];
 
-// userInfo.push(new formUser())
