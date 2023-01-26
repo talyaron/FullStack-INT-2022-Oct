@@ -1,24 +1,24 @@
 
-const form = document.querySelector(".myForm");
+const form = document.querySelector("#myForm");
 
 function hendleAddDetail(ev) {
 
   try {
     ev.preventDefault();
+
     const name = ev.target.elements.name.value;
     const address = ev.target.elements.address.value;
     const email = ev.target.elements.email.value;
     const phone = ev.target.elements.phone.valueAsNumber;
-    const password = ev.target.elements.password.value;
+    const password = ev.target.elements.pass.value;
     const image = ev.target.elements.image.value;
 
 
-    console.log(`name-${name} address-${address}`)
     details.push(new detail(name, address, email, phone, password, image));
     
     console.log(details)
         
-    displayInDom(details)
+      randelDetails()
 
     
     } catch (error) {
@@ -26,16 +26,16 @@ function hendleAddDetail(ev) {
   }
 }
 
-function displayInDom(details){
+function randelDetails(){
     try {
-      for(let i=0; i < detailName.length; i++){
-        const creatDiv = document.createElement("detailDiv") as HTMLDivElement
-        creatDiv.innerHTML = `${detailName[i]}: ${details[i].detailName[i]}`;
-        creatDiv.classList.add("creatDiv")
-        creatDiv.appendChild(".detail") 
+      for(let i=0; i<details.length; i++){
+        const userDetail = document.querySelector(".detail") as HTMLDivElement
+        userDetail.innerHTML+= `<div class="userDiv">Name: ${details[i].name} </div>`
+        userDetail.innerHTML+=  `<div class="userDiv">Address: ${details[i].address}</div>`
+        userDetail.innerHTML+=  `<div class="userDiv">Email: ${details[i].email}</div>`
+        userDetail.innerHTML+=  `<div class="userDiv">Phone: ${details[i].phone}</div>`
+        userDetail.innerHTML+=  `<div class="userDiv">Password: ${details[i].password}</div>`
       }
-
-
     } catch (error) {
         console.error(error)
     }
@@ -52,7 +52,7 @@ function hendelChangeColor(ev) {
 
 function hendelViewPassword(){
     try {
-        const passwordElement: any = document.querySelector(".pass");
+        const passwordElement: any = document.querySelector("#pass");
         console.dir(passwordElement);
         if (passwordElement.type === "password") {
           passwordElement.type = "text";
