@@ -1,18 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <!-- link to Javascript files -->
+    <script src="./dist/helper.js" defer></script>
     <script src="./dist/view.js" defer></script>
     <script src="./dist/model.js" defer></script>
     <script src="./dist/control.js" defer></script>
     <script src="./dist/index.js" defer></script>
-
+    <!-- link to CSS file -->
     <link rel="stylesheet" href="./dist/style.css">
     <title>Ballon Game</title>
 </head>
-<body>
+<body>  
+    <section class="game-container">
+        <header class="game-header">
+            <div class="logo">H<span>N</span>Y</div>
+            <div class="scores">
+                <span class="speed">speed:10</span>
+                <span class="renderSpeed">renderSpeed:10</span>
+            </div>
+            <div class="lives">
+                <h4>live</h4>
+                <span>
+                    <img src="./images/heart.png" width="20px">
+                    <img src="./images/heart.png" width="20px">
+                    <img src="./images/heart.png" width="20px">
+                </span>
+            </div>
+        </header>
+        <div class="game-board">
+
+        </div>
+
+    </section>
 
 </body>
+
 </html>
