@@ -1,0 +1,77 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+section {
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  width: 100vw;
+}
+section h1.main-title {
+  font-size: 1.5rem;
+}
+section form.container {
+  margin-top: 15px;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  gap: 2px;
+}
+section form.container select {
+  width: 100%;
+}
+section form.container select,
+section form.container input,
+section form.container button {
+  padding: 10px 15px;
+  border: 1px solid black;
+  outline: none;
+}
+section form.container button {
+  margin-top: 10px;
+}
+section .users-container {
+  min-width: 90vw;
+  overflow-y: scroll;
+  height: 300px;
+}
+section .users-container::-webkit-scrollbar {
+  display: none;
+}
+section .users-container table,
+section .users-container td,
+section .users-container th {
+  border: 1px solid;
+  padding: 10px;
+}
+section .users-container table {
+  overflow-x: scroll;
+  min-width: inherit;
+  padding: 10px;
+  border-collapse: collapse;
+}
+section .users-container table thead {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: #5d8f9e;
+  height: 30px;
+}
+section .users-container table td {
+  background-color: rgba(0, 0, 139, 0.171);
+}

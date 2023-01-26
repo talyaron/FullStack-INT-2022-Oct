@@ -4,7 +4,7 @@ class user {
     public address: string,
     public email: string,
     public phone: number,
-    // public password: string,
+    public password: string,
     public favoriteColor: string
   ){
   }
