@@ -8,10 +8,8 @@
 .wrapper .box {
   height: 300px;
   background-color: teal;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  transition: all 1s;
+}
+.wrapper .box2 {
+  height: 300px;
+  background-color: rgb(25, 87, 87);
 }

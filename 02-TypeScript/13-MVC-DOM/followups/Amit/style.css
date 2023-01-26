@@ -1,15 +1,59 @@
-.wrapper {
+body {
+  background-color: black;
+  margin: 0;
+  position: relative;
+}
+
+.board {
+  height: 30rem;
+  width: 30rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  max-width: 75ch;
+  grid-template-rows: repeat(6, 1fr);
+  grid-gap: 5px;
+  padding: 10px;
+  box-sizing: border-box;
   margin: auto;
 }
-.wrapper .box {
-  height: 300px;
-  background-color: teal;
+.board__line {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
 }
-.wrapper .box2 {
-  height: 300px;
-  background-color: rgb(25, 87, 87);
+.board__line__cell {
+  border: 0.1rem solid yellow;
+  font-size: 3.5rem;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+}
+
+.keyboard {
+  height: 30rem;
+  width: 40rem;
+  display: flex;
+  gap: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: auto;
+  position: relative;
+  top: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+.keyboard__line {
+  height: 5rem;
+  width: 40rem;
+  display: flex;
+  justify-content: space-between;
+  grid-gap: 5px;
+}
+.keyboard__line__key {
+  height: 4.5rem;
+  width: 4.5rem;
+  font-size: 1rem;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  background-color: gray;
+  border-radius: 0.8rem;
 }
