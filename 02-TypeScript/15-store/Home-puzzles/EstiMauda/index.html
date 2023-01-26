@@ -15,20 +15,20 @@
      <h1>Welcome My Site</h1>
      <div class="container split">
         <h2>Registration</h2>
-        <form class="myForm">
+        <form id="myForm"   onsubmit ="hendleAddDetail(event)">
             <label for="name">Name: </label>
-            <input type="text" class="name" name="name" placeholder="  First and last name"><br>
+            <input type="text" id="name" name="name" placeholder="  First and last name" required><br>
             <label for="address">Address: </label>
-            <input type="text" class="address" name="address" placeholder="  address"><br>
+            <input type="text" id="address" name="address" placeholder="  address" required><br>
             <label for="email">Email: </label>
-            <input type="text" class="email" name="email" placeholder="  Email"> <br>
+            <input type="email" id="email" name="email" placeholder="  Email" required> <br>
             <label for="phone">Phone: </label>
-            <input type="number" class="phone" name="phone" placeholder="  Phone (number only)" ><br>
+            <input type="number" id="phone" name="phone" placeholder="  Phone (number only)" ><br>
             <label for="pass">Password: </label>
-            <input type="password" class="pass" ondblclick="hendelViewPassword()" name="pass" placeholder="  Password"> <br>
+            <input type="password" id="pass" ondblclick="hendelViewPassword()" name="pass" placeholder="  Password"> <br>
             <label for="image">Add Img: </label>
-            <input type="file" class="image" name="image" placeholder="  Add your image"><br>
-            <button onclick ="hendleAddDetail()" >Add</button> 
+            <input type="file" id="image" name="image" placeholder="  Add your image"><br>
+            <button type="submit" >Add</button> 
         </form>
         <div class="colorDiv">
             <label for="color">Change Color: </label>
@@ -36,5 +36,6 @@
         </div>
      </div>
      <div class="detail split" ></div>
+     
 </body>
 </html>
