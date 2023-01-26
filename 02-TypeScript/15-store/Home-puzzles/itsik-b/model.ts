@@ -1,6 +1,5 @@
-const mainform = document.querySelector("form")as HTMLFormElement;
-
-function userSubmit(ev:string | number | any){
+// const mainform = document.querySelector("form")as HTMLFormElement;
+function userSubmit(ev:any){
    try {
     ev.preventDefault();
 
@@ -12,9 +11,10 @@ function userSubmit(ev:string | number | any){
     const precolor:any = ev.target.elements.precolor.value;
     const file:any = ev.target.elements.file.value;
 
-     userInfo.push(new formUser(name, address, email, phone, password, precolor, file));
-      console.log(userInfo)
-      ev.target.reset();
+      userInfo.push(new formUser(name, address, email, phone, password, precolor, file));
+       
+     
+      // ev.target.reset();
    } catch (error) {
     console.error(error)
    }

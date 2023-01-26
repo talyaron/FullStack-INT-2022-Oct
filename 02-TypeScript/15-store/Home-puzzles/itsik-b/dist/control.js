@@ -12,4 +12,3 @@ var formUser = /** @class */ (function () {
 }());
 var formUsers = [];
 var userInfo = [];
-console.log(formUser);

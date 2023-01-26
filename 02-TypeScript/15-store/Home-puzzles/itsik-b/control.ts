@@ -12,4 +12,4 @@ public file: any)
 const formUsers:formUser[] = [];
 const userInfo:formUser[] = [];
 
-console.log(formUser)
+

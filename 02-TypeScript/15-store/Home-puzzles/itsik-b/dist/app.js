@@ -83,5 +83,6 @@ function startForm() {
     seventhInput.name = "file";
     // button
     submitBtn.textContent = "Send Form";
-    submitBtn.addEventListener("click", userSubmit);
+    submitBtn.type = "submit";
+    form.addEventListener("submit", userSubmit);
 }
