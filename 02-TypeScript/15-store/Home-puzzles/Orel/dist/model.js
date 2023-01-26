@@ -1,6 +1,5 @@
-"use strict";
-class User {
-    constructor(fullName, address, email, phone, password) {
+var User = /** @class */ (function () {
+    function User(fullName, address, email, phone, password) {
         this.fullName = fullName;
         this.address = address;
         this.email = email;
@@ -8,5 +7,6 @@ class User {
         this.password = password;
         this.uID = uid();
     }
-}
-let users = [];
+    return User;
+}());
+var users = [];
