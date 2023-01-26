@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+    <link rel="stylesheet" href="./dist/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="wrapper__inputSection">
+            <form onsubmit="handleAddUser(event)">
+                <input type="text" name="name" placeholder="full name" required>
+                <input type="text" name="email" placeholder="email adress..." required>
+                <input type="text" name="adress" placeholder="home adress..." required>
+                <input type="number" name="phone" placeholder="phone number..." required>
+                <input type="text" name="password" placeholder="password" required>
+                <input type="text" name="confirmPassword" placeholder="confirmPassword" required>
+                <input type="color" name="preColor" placeholder="color" required>
+                <input type="file"  accept="image/*" name="image" id="image"  style="">
+                
+                
+
+                <input type="submit" value="ADD">
+            </form>
+        </div>
+        <div class="wrapper__userViewer">
+            
+        </div>
+    </div>
+</body>
+</html>
