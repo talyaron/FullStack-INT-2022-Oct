@@ -22,11 +22,8 @@ var Circle = /** @class */ (function () {
         ctx.beginPath();
         ctx.arc(this.lastX, this.lastY, this.radius, 0, Math.PI * 2, false);
         ctx.fillStyle = this.color;
-        // ctx.strokeStyle = "rgba(0, 0, 0, 0.236)";
-        // ctx.lineWidth = this.lineWidth;
-        ctx.closePath();
         ctx.fill();
-        // ctx.stroke();
+        ctx.closePath();
         return this;
     };
     Circle.prototype.update = function () {
@@ -45,8 +42,14 @@ var Circle = /** @class */ (function () {
         var _this = this;
         var newColor = "red";
         if (this.color != newColor) {
+            score++;
+            tinkAudio.currentTime = 0;
+            tinkAudio.play();
             return this.color = newColor;
         }
+        score += 5;
+        clapAudio.currentTime = 0;
+        clapAudio.play();
         var index = circleArray.findIndex(function (circle) { return circle.uid == _this.uid; });
         circleArray.splice(index, 1);
         time += 5; //add 5 seconds to timer when clicking circle for the second time

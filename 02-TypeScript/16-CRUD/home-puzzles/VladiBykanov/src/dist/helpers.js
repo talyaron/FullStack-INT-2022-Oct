@@ -7,12 +7,12 @@ function isIntersect(point, circle) {
 }
 function checkForWin() {
     if (circleArray.length == 0) {
-        alert("You win!");
+        alert("You win! Score: " + score);
         clearInterval(startTimer);
         return newGame();
     }
     if (time < 0) {
-        alert("you lose");
+        alert("you lose! Score: " + score);
         clearInterval(startTimer);
         circleArray.splice(0);
         seconds.textContent = "0";

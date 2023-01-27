@@ -18,7 +18,7 @@ function animate() {
     requestAnimationFrame(animate);
 }
 function newGame() {
-    // clearInterval(startTimer);
+    score = 0;
     var amountOfCircles = prompt("How many circles you want to generate?");
     if (!amountOfCircles || /[a-zA-Z]/.test(amountOfCircles))
         return newGame();

@@ -8,8 +8,8 @@ window.addEventListener("click", function (e) {
     circleArray.forEach(function (circle) {
         if (isIntersect(mouseLocation, circle)) {
             circle.handleClick();
-            circle.speedDirectionX = 15;
-            circle.speedDirectionY = 15;
+            circle.speedDirectionX = 10;
+            circle.speedDirectionY = 10;
         }
     });
 });

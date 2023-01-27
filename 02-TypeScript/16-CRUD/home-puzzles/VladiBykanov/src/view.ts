@@ -7,6 +7,11 @@ canvas.height = window.innerHeight - 10;
 
 const seconds = document.querySelector(".timer__timeLeft") as HTMLSpanElement;
 
-let time = 100;
+let time:number;
 
 let startTimer: number;
+
+const tinkAudio = document.querySelector('#tinkSound') as HTMLAudioElement;
+const clapAudio = document.querySelector('#clapSound') as HTMLAudioElement;
+
+let score:number = 0;

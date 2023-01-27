@@ -17,16 +17,29 @@ body {
   background-color: cornflowerblue;
 }
 
-.timer{
+.timer {
   position: absolute;
-  top:10px;
+  top: 10px;
   left: 10px;
   background-color: white;
-  padding: 1em;
-  font-size: 1.2rem;
+  padding: .5em;
+  font-size: 1.5rem;
   font-weight: bold;
-  &__timeLeft{
+  &__timeLeft {
     color: red;
     margin-left: 10px;
+  }
+}
+
+.scoreDiv {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: white;
+  padding: .5em;
+  font-size: 1.5rem;
+  font-weight: bold;
+  .liveScore {
+    color: green;
   }
 }

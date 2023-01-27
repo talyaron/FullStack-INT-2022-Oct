@@ -31,7 +31,7 @@ function animate() {
 }
 
 function newGame() {
-  // clearInterval(startTimer);
+  score = 0;
   const amountOfCircles = prompt(
     "How many circles you want to generate?"
   ) as string;
