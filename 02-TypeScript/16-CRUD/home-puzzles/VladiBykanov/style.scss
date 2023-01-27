@@ -12,6 +12,21 @@ body {
   align-items: center;
 }
 
-canvas {
+.playground {
   outline: 5px solid rgba(0, 0, 0, 0.236);
+  background-color: cornflowerblue;
+}
+
+.timer{
+  position: absolute;
+  top:10px;
+  left: 10px;
+  background-color: white;
+  padding: 1em;
+  font-size: 1.2rem;
+  font-weight: bold;
+  &__timeLeft{
+    color: red;
+    margin-left: 10px;
+  }
 }
