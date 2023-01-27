@@ -12,13 +12,14 @@ window.addEventListener("resize", () => {
 
 class Circle {
   private uid: number;
+  private lineWidth: number;
   constructor(
     public lastX,
     public lastY,
     public speedDirectionX,
     public speedDirectionY,
     public radius,
-    public color,
+    public color
   ) {
     this.lastX = lastX;
     this.lastY = lastY;
@@ -27,13 +28,14 @@ class Circle {
     this.radius = radius;
     this.color = color;
     this.uid = Math.random() * 1000000;
+    this.lineWidth = 0;
   }
   draw() {
     ctx.beginPath();
     ctx.arc(this.lastX, this.lastY, this.radius, 0, Math.PI * 2, false);
     ctx.fillStyle = this.color;
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.236)'
-    ctx.lineWidth = 0;
+    ctx.strokeStyle = "rgba(0, 0, 0, 0.236)";
+    ctx.lineWidth = this.lineWidth;
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
@@ -57,31 +59,27 @@ class Circle {
     this.lastY += this.speedDirectionY;
   }
   handleClick() {
-    const newColor = 'red'
-    if (this.color != newColor) { 
-      this.color = newColor
-      ctx.lineWidth = 10;
-    };
+    const newColor = "red";
+    if (this.color != newColor) {
+      this.color = newColor;
+      return (this.lineWidth = 10);
+    }
     const index = circleArray.findIndex((circle) => circle.uid == this.uid);
     circleArray.splice(index, 1);
   }
 }
 
-function getDistance(x1, x2, y1, y2) {
-  let distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-  return distance;
+interface MouseCoordinates {
+  x: number;
+  y: number;
 }
 
-let mouse = {
-  x: 0,
-  y: 0,
-};
+const mouseLocation: MouseCoordinates = { x: 0, y: 0 };
 
 window.addEventListener("click", (e) => {
-  [mouse.x, mouse.y] = [e.x, e.y];
-  console.log(mouse.x, mouse.y);
+  [mouseLocation.x, mouseLocation.y] = [e.x, e.y];
   circleArray.forEach((circle) => {
-    if (isIntersect(mouse, circle)) {
+    if (isIntersect(mouseLocation, circle)) {
       circle.handleClick();
       circle.speedDirectionX += 10;
       circle.speedDirectionY += 10;
@@ -89,7 +87,7 @@ window.addEventListener("click", (e) => {
   });
 });
 
-function isIntersect(point, circle: Circle) {
+function isIntersect(point: MouseCoordinates, circle: Circle) {
   return (
     Math.sqrt((point.x - circle.lastX) ** 2 + (point.y - circle.lastY) ** 2) <
     circle.radius
@@ -106,7 +104,14 @@ function generateCircles(amount: number) {
     const speedDirectionY = Math.random() * 1;
     const color = randomColor();
     circleArray.push(
-      new Circle(locationX, locationY, speedDirectionX, speedDirectionY, radius, color)
+      new Circle(
+        locationX,
+        locationY,
+        speedDirectionX,
+        speedDirectionY,
+        radius,
+        color
+      )
     );
   }
 }

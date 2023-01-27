@@ -21,13 +21,14 @@ var Circle = /** @class */ (function () {
         this.radius = radius;
         this.color = color;
         this.uid = Math.random() * 1000000;
+        this.lineWidth = 0;
     }
     Circle.prototype.draw = function () {
         ctx.beginPath();
         ctx.arc(this.lastX, this.lastY, this.radius, 0, Math.PI * 2, false);
         ctx.fillStyle = this.color;
-        ctx.strokeStyle = 'rgba(0, 0, 0, 0.236)';
-        ctx.lineWidth = 0;
+        ctx.strokeStyle = "rgba(0, 0, 0, 0.236)";
+        ctx.lineWidth = this.lineWidth;
         ctx.closePath();
         ctx.fill();
         ctx.stroke();
@@ -47,31 +48,22 @@ var Circle = /** @class */ (function () {
     };
     Circle.prototype.handleClick = function () {
         var _this = this;
-        var newColor = 'red';
+        var newColor = "red";
         if (this.color != newColor) {
             this.color = newColor;
-            ctx.lineWidth = 10;
+            return (this.lineWidth = 10);
         }
-        ;
         var index = circleArray.findIndex(function (circle) { return circle.uid == _this.uid; });
         circleArray.splice(index, 1);
     };
     return Circle;
 }());
-function getDistance(x1, x2, y1, y2) {
-    var distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-    return distance;
-}
-var mouse = {
-    x: 0,
-    y: 0
-};
+var mouseLocation = { x: 0, y: 0 };
 window.addEventListener("click", function (e) {
     var _a;
-    _a = [e.x, e.y], mouse.x = _a[0], mouse.y = _a[1];
-    console.log(mouse.x, mouse.y);
+    _a = [e.x, e.y], mouseLocation.x = _a[0], mouseLocation.y = _a[1];
     circleArray.forEach(function (circle) {
-        if (isIntersect(mouse, circle)) {
+        if (isIntersect(mouseLocation, circle)) {
             circle.handleClick();
             circle.speedDirectionX += 10;
             circle.speedDirectionY += 10;
