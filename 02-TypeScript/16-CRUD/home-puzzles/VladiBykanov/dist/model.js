@@ -49,6 +49,8 @@ var Circle = /** @class */ (function () {
         }
         var index = circleArray.findIndex(function (circle) { return circle.uid == _this.uid; });
         circleArray.splice(index, 1);
+        time += 5; //add 5 seconds to timer when clicking circle for the second time
+        seconds.textContent = time.toString();
     };
     return Circle;
 }());

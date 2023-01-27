@@ -12,12 +12,14 @@ function isIntersect(point: MouseCoordinates, circle: Circle) {
 function checkForWin() {
   if (circleArray.length == 0) {
     alert("You win!");
+    clearInterval(startTimer);
     return newGame();
   }
   if (time < 0) {
     alert("you lose");
     clearInterval(startTimer);
+    circleArray.splice(0);
+    seconds.textContent = "0";
     newGame();
   }
 }
-

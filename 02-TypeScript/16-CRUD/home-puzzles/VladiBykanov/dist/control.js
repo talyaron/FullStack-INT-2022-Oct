@@ -18,13 +18,14 @@ function animate() {
     requestAnimationFrame(animate);
 }
 function newGame() {
-    time = 10;
-    startTimer = setInterval(function () {
-        time--;
-        seconds.textContent = time.toString();
-    }, 1000);
+    // clearInterval(startTimer);
     var amountOfCircles = prompt("How many circles you want to generate?");
     if (!amountOfCircles || /[a-zA-Z]/.test(amountOfCircles))
         return newGame();
     generateCircles(parseInt(amountOfCircles));
+    time = parseInt(amountOfCircles) * 10 + 1;
+    startTimer = setInterval(function () {
+        time--;
+        seconds.textContent = time.toString();
+    }, 1000);
 }

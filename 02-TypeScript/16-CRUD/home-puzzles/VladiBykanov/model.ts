@@ -63,5 +63,7 @@ class Circle {
     }
     const index = circleArray.findIndex((circle) => circle.uid == this.uid);
     circleArray.splice(index, 1);
+    time += 5; //add 5 seconds to timer when clicking circle for the second time
+    seconds.textContent = time.toString();
   }
 }

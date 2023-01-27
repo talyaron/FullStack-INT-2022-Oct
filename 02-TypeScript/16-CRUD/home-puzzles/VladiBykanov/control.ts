@@ -31,14 +31,15 @@ function animate() {
 }
 
 function newGame() {
-  time = 10;
-  startTimer = setInterval(() => {
-    time--;
-    seconds.textContent = time.toString();
-  }, 1000);
+  // clearInterval(startTimer);
   const amountOfCircles = prompt(
     "How many circles you want to generate?"
   ) as string;
   if (!amountOfCircles || /[a-zA-Z]/.test(amountOfCircles)) return newGame();
   generateCircles(parseInt(amountOfCircles));
+  time = parseInt(amountOfCircles) * 10 + 1;
+  startTimer = setInterval(() => {
+    time--;
+    seconds.textContent = time.toString();
+  }, 1000);
 }
