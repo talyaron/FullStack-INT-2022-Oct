@@ -20,6 +20,9 @@ h3 {
   border: 1px solid black;
   height: 1000px;
   width: 3500px;
+  display: flex;
+  gap: 15rem;
+  align-items: center;
 }
 
 .formDiv {
@@ -27,4 +30,13 @@ h3 {
   width: 300px;
   height: 550px;
   margin-top: 80px;
+}
+
+.newCard {
+  padding: 20px;
+  border-radius: 50px;
+  box-shadow: 2px 2px 6px red;
+}
+.newCard .userImg {
+  width: 100%;
 }
