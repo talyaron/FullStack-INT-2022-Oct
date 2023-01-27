@@ -4,8 +4,8 @@ function generateCircles(amount: number) {
     const locationX = Math.random() * (window.innerWidth - radius * 2) + radius;
     const locationY =
       Math.random() * (window.innerHeight - radius * 2) + radius;
-    const speedDirectionX = Math.random() * 1;
-    const speedDirectionY = Math.random() * 1;
+    const speedDirectionX = Math.random() * 5;
+    const speedDirectionY = Math.random() * 5;
     const color = randomColor();
     circleArray.push(
       new Circle(
@@ -37,7 +37,8 @@ function newGame() {
   ) as string;
   if (!amountOfCircles || /[a-zA-Z]/.test(amountOfCircles)) return newGame();
   generateCircles(parseInt(amountOfCircles));
-  time = parseInt(amountOfCircles) * 10 + 1;
+  time = parseInt(amountOfCircles) * 3 + 1;
+  if (time > 30) time = 30;
   startTimer = setInterval(() => {
     time--;
     seconds.textContent = time.toString();

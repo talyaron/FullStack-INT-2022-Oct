@@ -3,8 +3,8 @@ function generateCircles(amount) {
         var radius = Math.random() * 50 + 20;
         var locationX = Math.random() * (window.innerWidth - radius * 2) + radius;
         var locationY = Math.random() * (window.innerHeight - radius * 2) + radius;
-        var speedDirectionX = Math.random() * 1;
-        var speedDirectionY = Math.random() * 1;
+        var speedDirectionX = Math.random() * 5;
+        var speedDirectionY = Math.random() * 5;
         var color = randomColor();
         circleArray.push(new Circle(locationX, locationY, speedDirectionX, speedDirectionY, radius, color));
     }
@@ -23,7 +23,9 @@ function newGame() {
     if (!amountOfCircles || /[a-zA-Z]/.test(amountOfCircles))
         return newGame();
     generateCircles(parseInt(amountOfCircles));
-    time = parseInt(amountOfCircles) * 10 + 1;
+    time = parseInt(amountOfCircles) * 3 + 1;
+    if (time > 30)
+        time = 30;
     startTimer = setInterval(function () {
         time--;
         seconds.textContent = time.toString();
