@@ -1,59 +1,60 @@
-var canvas = document.querySelector(".bubbleContainer");
+var canvas = document.querySelector(".playground");
 var ctx = canvas.getContext("2d");
-// console.log(ctx);
 canvas.width = window.innerWidth - 10;
 canvas.height = window.innerHeight - 10;
 window.addEventListener("resize", function () {
     canvas.width = window.innerWidth - 10;
     canvas.height = window.innerHeight - 10;
 });
-// canvas.addEventListener('mousemove', (e) => console.log(e.offsetX, e.offsetY));
 var Circle = /** @class */ (function () {
-    function Circle(lastX, lastY, direcXSpeed, directYSpeed, radius, color) {
+    function Circle(lastX, lastY, speedDirectionX, speedDirectionY, radius, color) {
         this.lastX = lastX;
         this.lastY = lastY;
-        this.direcXSpeed = direcXSpeed;
-        this.directYSpeed = directYSpeed;
+        this.speedDirectionX = speedDirectionX;
+        this.speedDirectionY = speedDirectionY;
         this.radius = radius;
         this.color = color;
         this.lastX = lastX;
         this.lastY = lastY;
-        this.direcXSpeed = direcXSpeed;
-        this.directYSpeed = directYSpeed;
+        this.speedDirectionX = speedDirectionX;
+        this.speedDirectionY = speedDirectionY;
         this.radius = radius;
         this.color = color;
+        this.uid = Math.random() * 1000000;
     }
     Circle.prototype.draw = function () {
         ctx.beginPath();
         ctx.arc(this.lastX, this.lastY, this.radius, 0, Math.PI * 2, false);
         ctx.fillStyle = this.color;
-        ctx.fill();
+        ctx.strokeStyle = 'rgba(0, 0, 0, 0.236)';
+        ctx.lineWidth = 0;
         ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
         return this;
     };
     Circle.prototype.update = function () {
         if (this.lastX + this.radius > window.innerWidth ||
             this.lastX - this.radius < 0) {
-            this.direcXSpeed = -this.direcXSpeed;
+            this.speedDirectionX = -this.speedDirectionX;
         }
         if (this.lastY + this.radius > window.innerHeight ||
-            this.lastX - this.radius < 0) {
-            this.directYSpeed = -this.directYSpeed;
+            this.lastY - this.radius < 0) {
+            this.speedDirectionY = -this.speedDirectionY;
         }
-        this.lastX += this.direcXSpeed;
-        this.lastY += this.directYSpeed;
+        this.lastX += this.speedDirectionX;
+        this.lastY += this.speedDirectionY;
     };
-    Circle.prototype.reverse = function () {
-        if (this.direcXSpeed > 0 || this.direcXSpeed < 0) {
-            this.direcXSpeed *= -1;
+    Circle.prototype.handleClick = function () {
+        var _this = this;
+        var newColor = 'red';
+        if (this.color != newColor) {
+            this.color = newColor;
+            ctx.lineWidth = 10;
         }
-        if (this.directYSpeed > 0 || this.directYSpeed < 0) {
-            this.directYSpeed *= -1;
-        }
-        return this;
-    };
-    Circle.prototype.zoom = function () {
-        this.radius += 5;
+        ;
+        var index = circleArray.findIndex(function (circle) { return circle.uid == _this.uid; });
+        circleArray.splice(index, 1);
     };
     return Circle;
 }());
@@ -61,52 +62,43 @@ function getDistance(x1, x2, y1, y2) {
     var distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
     return distance;
 }
-var c2 = new Circle(canvas.width - 40, canvas.height / 2, 2, 0, 40, "black");
-var c1 = new Circle(40, canvas.height / 2, 2, 0, 40, "black");
 var mouse = {
     x: 0,
     y: 0
 };
-window.addEventListener("mousemove", function (event) {
-    mouse.x = event.x;
-    mouse.y = event.y;
+window.addEventListener("click", function (e) {
+    var _a;
+    _a = [e.x, e.y], mouse.x = _a[0], mouse.y = _a[1];
+    console.log(mouse.x, mouse.y);
+    circleArray.forEach(function (circle) {
+        if (isIntersect(mouse, circle)) {
+            circle.handleClick();
+            circle.speedDirectionX += 10;
+            circle.speedDirectionY += 10;
+        }
+    });
 });
-function mouseOverObj(x, y, radius) {
-    return (mouse.x - x > 0 &&
-        mouse.x - x < radius &&
-        mouse.y - y > 0 &&
-        mouse.y - y < radius);
+function isIntersect(point, circle) {
+    return (Math.sqrt(Math.pow((point.x - circle.lastX), 2) + Math.pow((point.y - circle.lastY), 2)) <
+        circle.radius);
 }
-var circleArray = [];
-var colors = ["blue", "red", "black", "deeppink", "orange", "pink"];
 function generateCircles(amount) {
     for (var i = 0; i < amount; i++) {
-        var radius = Math.random() * 50 + 1;
+        var radius = Math.random() * 50 + 20;
         var locationX = Math.random() * (window.innerWidth - radius * 2) + radius;
         var locationY = Math.random() * (window.innerHeight - radius * 2) + radius;
-        var direcXSpeed = Math.random() * 20;
-        var directYSpeed = Math.random() * 20;
-        var color = colors[Math.floor(Math.random() * colors.length)];
-        circleArray.push(new Circle(locationX, locationY, direcXSpeed, directYSpeed, radius, color));
+        var speedDirectionX = Math.random() * 1;
+        var speedDirectionY = Math.random() * 1;
+        var color = randomColor();
+        circleArray.push(new Circle(locationX, locationY, speedDirectionX, speedDirectionY, radius, color));
     }
 }
 function animate() {
-    var myReq = requestAnimationFrame(animate);
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
     circleArray.forEach(function (circle) {
         circle.draw().update();
-        if (getDistance(circle.lastX, c2.lastX, circle.lastY, c2.lastY) <
-            c1.radius + c2.radius) {
-            c1.reverse().update();
-            c2.reverse().update();
-        }
     });
-    if (mouseOverObj(c1.lastX, c1.lastY, c1.radius)) {
-        c1.zoom();
-    }
-    if (mouseOverObj(c2.lastX, c2.lastY, c2.radius)) {
-        c2.zoom();
-    }
+    requestAnimationFrame(animate);
 }
-generateCircles(5);
+generateCircles(10);
 animate();

@@ -13,5 +13,5 @@ body {
 }
 
 canvas {
-  outline: 5px solid black;
+  outline: 5px solid rgba(0, 0, 0, 0.236);
 }

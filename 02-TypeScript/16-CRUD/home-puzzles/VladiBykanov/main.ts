@@ -1,8 +1,6 @@
-const canvas = document.querySelector(".bubbleContainer") as HTMLCanvasElement;
+const canvas = document.querySelector(".playground") as HTMLCanvasElement;
 
 const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
-
-// console.log(ctx);
 
 canvas.width = window.innerWidth - 10;
 canvas.height = window.innerHeight - 10;
@@ -12,30 +10,33 @@ window.addEventListener("resize", () => {
   canvas.height = window.innerHeight - 10;
 });
 
-// canvas.addEventListener('mousemove', (e) => console.log(e.offsetX, e.offsetY));
-
 class Circle {
+  private uid: number;
   constructor(
     public lastX,
     public lastY,
-    public direcXSpeed,
-    public directYSpeed,
+    public speedDirectionX,
+    public speedDirectionY,
     public radius,
-    public color
+    public color,
   ) {
     this.lastX = lastX;
     this.lastY = lastY;
-    this.direcXSpeed = direcXSpeed;
-    this.directYSpeed = directYSpeed;
+    this.speedDirectionX = speedDirectionX;
+    this.speedDirectionY = speedDirectionY;
     this.radius = radius;
     this.color = color;
+    this.uid = Math.random() * 1000000;
   }
   draw() {
     ctx.beginPath();
     ctx.arc(this.lastX, this.lastY, this.radius, 0, Math.PI * 2, false);
     ctx.fillStyle = this.color;
-    ctx.fill();
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.236)'
+    ctx.lineWidth = 0;
     ctx.closePath();
+    ctx.fill();
+    ctx.stroke();
     return this;
   }
   update() {
@@ -43,29 +44,26 @@ class Circle {
       this.lastX + this.radius > window.innerWidth ||
       this.lastX - this.radius < 0
     ) {
-      this.direcXSpeed = -this.direcXSpeed;
+      this.speedDirectionX = -this.speedDirectionX;
     }
     if (
       this.lastY + this.radius > window.innerHeight ||
-      this.lastX - this.radius < 0
+      this.lastY - this.radius < 0
     ) {
-      this.directYSpeed = -this.directYSpeed;
+      this.speedDirectionY = -this.speedDirectionY;
     }
 
-    this.lastX += this.direcXSpeed;
-    this.lastY += this.directYSpeed;
+    this.lastX += this.speedDirectionX;
+    this.lastY += this.speedDirectionY;
   }
-  reverse() {
-    if (this.direcXSpeed > 0 || this.direcXSpeed < 0) {
-      this.direcXSpeed *= -1;
-    }
-    if (this.directYSpeed > 0 || this.directYSpeed < 0) {
-      this.directYSpeed *= -1;
-    }
-    return this;
-  }
-  zoom() {
-    this.radius += 5;
+  handleClick() {
+    const newColor = 'red'
+    if (this.color != newColor) { 
+      this.color = newColor
+      ctx.lineWidth = 10;
+    };
+    const index = circleArray.findIndex((circle) => circle.uid == this.uid);
+    circleArray.splice(index, 1);
   }
 }
 
@@ -74,69 +72,53 @@ function getDistance(x1, x2, y1, y2) {
   return distance;
 }
 
-let c2 = new Circle(canvas.width - 40, canvas.height / 2, 2, 0, 40, "black");
-
-let c1 = new Circle(40, canvas.height / 2, 2, 0, 40, "black");
-
 let mouse = {
   x: 0,
   y: 0,
 };
-window.addEventListener("mousemove", (event) => {
-  mouse.x = event.x;
-  mouse.y = event.y;
+
+window.addEventListener("click", (e) => {
+  [mouse.x, mouse.y] = [e.x, e.y];
+  console.log(mouse.x, mouse.y);
+  circleArray.forEach((circle) => {
+    if (isIntersect(mouse, circle)) {
+      circle.handleClick();
+      circle.speedDirectionX += 10;
+      circle.speedDirectionY += 10;
+    }
+  });
 });
 
-function mouseOverObj(x, y, radius) {
+function isIntersect(point, circle: Circle) {
   return (
-    mouse.x - x > 0 &&
-    mouse.x - x < radius &&
-    mouse.y - y > 0 &&
-    mouse.y - y < radius
+    Math.sqrt((point.x - circle.lastX) ** 2 + (point.y - circle.lastY) ** 2) <
+    circle.radius
   );
 }
 
-const circleArray: Circle[] = [];
-
-const colors = ["blue", "red", "black", "deeppink", "orange", "pink"];
-
 function generateCircles(amount: number) {
   for (let i = 0; i < amount; i++) {
-    const radius = Math.random() * 50 + 1;
+    const radius = Math.random() * 50 + 20;
     const locationX = Math.random() * (window.innerWidth - radius * 2) + radius;
     const locationY =
       Math.random() * (window.innerHeight - radius * 2) + radius;
-    const direcXSpeed = Math.random() * 20;
-    const directYSpeed = Math.random() * 20;
-    const color = colors[Math.floor(Math.random() * colors.length)];
+    const speedDirectionX = Math.random() * 1;
+    const speedDirectionY = Math.random() * 1;
+    const color = randomColor();
     circleArray.push(
-      new Circle(locationX, locationY, direcXSpeed, directYSpeed, radius, color)
+      new Circle(locationX, locationY, speedDirectionX, speedDirectionY, radius, color)
     );
   }
 }
 
 function animate() {
-  let myReq = requestAnimationFrame(animate);
   ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
   circleArray.forEach((circle) => {
     circle.draw().update();
-    if (
-      getDistance(circle.lastX, c2.lastX, circle.lastY, c2.lastY) <
-      c1.radius + c2.radius
-    ) {
-      c1.reverse().update();
-      c2.reverse().update();
-    }
   });
-
-  if (mouseOverObj(c1.lastX, c1.lastY, c1.radius)) {
-    c1.zoom();
-  }
-  if (mouseOverObj(c2.lastX, c2.lastY, c2.radius)) {
-    c2.zoom();
-  }
+  requestAnimationFrame(animate);
 }
 
-generateCircles(5);
+generateCircles(10);
 animate();

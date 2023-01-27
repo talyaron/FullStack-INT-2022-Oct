@@ -1,0 +1,2 @@
+
+const circleArray: Circle[] = [];
