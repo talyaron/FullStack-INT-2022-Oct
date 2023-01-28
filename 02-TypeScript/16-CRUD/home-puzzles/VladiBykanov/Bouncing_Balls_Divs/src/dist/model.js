@@ -30,10 +30,10 @@ var Circle = /** @class */ (function () {
         return this;
     };
     Circle.prototype.update = function () {
-        if (this.lastX + this.radius > window.innerWidth || this.lastX < 0) {
+        if (this.lastX + this.radius > wrapper.offsetWidth || this.lastX < 0) {
             this.speedDirectionX = -this.speedDirectionX;
         }
-        if (this.lastY + this.radius > window.innerHeight || this.lastY < 0) {
+        if (this.lastY + this.radius > wrapper.offsetHeight || this.lastY < 0) {
             this.speedDirectionY = -this.speedDirectionY;
         }
         this.lastX += this.speedDirectionX;

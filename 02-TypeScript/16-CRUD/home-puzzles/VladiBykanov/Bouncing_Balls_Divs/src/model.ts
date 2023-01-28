@@ -39,10 +39,10 @@ class Circle {
     return this;
   }
   update() {
-    if (this.lastX + this.radius > window.innerWidth || this.lastX < 0) {
+    if (this.lastX + this.radius > wrapper.offsetWidth || this.lastX < 0) {
       this.speedDirectionX = -this.speedDirectionX;
     }
-    if (this.lastY + this.radius > window.innerHeight || this.lastY < 0) {
+    if (this.lastY + this.radius > wrapper.offsetHeight || this.lastY < 0) {
       this.speedDirectionY = -this.speedDirectionY;
     }
 
@@ -60,6 +60,6 @@ class Circle {
     }
     handleSecondClickOnCircle(index);
     generateCircles(50, this.lastX, this.lastY, explosionArr, true);
-    setTimeout(() => explosionArr.splice(0), 500)
+    setTimeout(() => explosionArr.splice(0), 500);
   }
 }
