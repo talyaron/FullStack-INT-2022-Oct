@@ -1,0 +1,9 @@
+.allUsers {
+    display: none;
+    width: 100%;
+    height: 200px;
+    background-color: blue;
+    &__user {
+        background-color: goldenrod;
+    }
+}
