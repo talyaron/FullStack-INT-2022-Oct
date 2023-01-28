@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+</head>
+<body>
+    <form id="form">
+        <input type="text" placeholder="Name" name="name" required>
+        <input type="text" placeholder="Address" name="address" required>
+        <input type="email" placeholder="Email" name="email" required>
+        <input type="phone" placeholder="Phone" name="phone" required>
+        <input type="password" placeholder="Password" name="password" required>
+        <input type="color" name="color" required>
+        <input class="submit" type="submit" name="Submit">
+    </form>
+    <button class="show">Show profiles</button>
+    <div class="allUsers hide"></div>
+</body>
+</html>
