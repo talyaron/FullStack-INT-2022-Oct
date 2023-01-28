@@ -1,4 +1,6 @@
 const circleArray: Circle[] = [];
+
+const explosionArr: Circle[] = [];
 interface MouseCoordinates {
   x: number;
   y: number;
@@ -57,5 +59,6 @@ class Circle {
       return (this.color = newColor);
     }
     handleSecondClickOnCircle(index);
+    generateCircles(10, this.lastX, this.lastY, explosionArr);
   }
 }

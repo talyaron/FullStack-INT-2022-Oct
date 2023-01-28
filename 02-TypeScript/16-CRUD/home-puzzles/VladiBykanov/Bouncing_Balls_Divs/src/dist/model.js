@@ -1,4 +1,5 @@
 var circleArray = [];
+var explosionArr = [];
 var mouseLocation = { x: 0, y: 0 };
 var Circle = /** @class */ (function () {
     function Circle(lastX, lastY, speedDirectionX, speedDirectionY, radius, color) {
@@ -48,6 +49,7 @@ var Circle = /** @class */ (function () {
             return (this.color = newColor);
         }
         handleSecondClickOnCircle(index);
+        generateCircles(10, this.lastX, this.lastY, explosionArr);
     };
     return Circle;
 }());

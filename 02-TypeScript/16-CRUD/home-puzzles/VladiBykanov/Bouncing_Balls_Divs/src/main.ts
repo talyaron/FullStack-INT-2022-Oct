@@ -10,5 +10,5 @@ window.addEventListener("click", (e) => {
   });
 
 
-generateCircles(10);
+generateCircles(10, midScreenX, midScreenY, circleArray);
 animate();
