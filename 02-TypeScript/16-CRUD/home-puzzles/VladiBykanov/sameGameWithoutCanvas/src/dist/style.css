@@ -5,6 +5,17 @@
 }
 
 body {
+  overflow: hidden;
+}
+
+.wrapper {
   width: 100vw;
   height: 100vh;
+  background-color: darkcyan;
+}
+.wrapper .ball {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0 0 10px black;
 }
