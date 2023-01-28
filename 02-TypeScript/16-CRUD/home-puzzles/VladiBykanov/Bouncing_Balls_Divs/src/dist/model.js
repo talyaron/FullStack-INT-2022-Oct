@@ -49,7 +49,8 @@ var Circle = /** @class */ (function () {
             return (this.color = newColor);
         }
         handleSecondClickOnCircle(index);
-        generateCircles(10, this.lastX, this.lastY, explosionArr);
+        generateCircles(50, this.lastX, this.lastY, explosionArr, true);
+        setTimeout(function () { return explosionArr.splice(0); }, 500);
     };
     return Circle;
 }());

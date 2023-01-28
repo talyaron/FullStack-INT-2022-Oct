@@ -3,6 +3,10 @@ function animate() {
   circleArray.forEach((circle) => {
     circle.draw().update();
   });
+  if (explosionArr)
+    explosionArr.forEach((circle) => {
+      circle.draw().update();
+    });
 
   requestAnimationFrame(animate);
 }
@@ -11,10 +15,12 @@ function generateCircles(
   amount: number,
   locX: number,
   locY: number,
-  arr: Circle[]
+  arr: Circle[],
+  explosion: boolean
 ) {
   for (let i = 0; i < amount; i++) {
-    const radius = Math.random() * 50 + 20;
+    let radius = Math.random() * 50 + 20;
+    if (explosion) radius = 5;
     const locationX = locX;
     const locationY = locY;
     const speedDirectionX = Math.random() * 5 * randomDirection();
