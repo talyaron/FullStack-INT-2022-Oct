@@ -15,3 +15,4 @@ const tinkAudio = document.querySelector('#tinkSound') as HTMLAudioElement;
 const clapAudio = document.querySelector('#clapSound') as HTMLAudioElement;
 
 let score:number = 0;
+const liveScore = document.querySelector('.liveScore') as HTMLSpanElement;

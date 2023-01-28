@@ -8,3 +8,4 @@ var startTimer;
 var tinkAudio = document.querySelector('#tinkSound');
 var clapAudio = document.querySelector('#clapSound');
 var score = 0;
+var liveScore = document.querySelector('.liveScore');

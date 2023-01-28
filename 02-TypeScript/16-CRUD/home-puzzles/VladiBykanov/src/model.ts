@@ -54,18 +54,14 @@ class Circle {
   }
   handleClick() {
     const newColor = "red";
+    const index = circleArray.findIndex((circle) => circle.uid == this.uid);
     if (this.color != newColor) {
       score++;
+      liveScore.textContent = score.toString();
       tinkAudio.currentTime = 0;
       tinkAudio.play();
-      return this.color = newColor;
+      return (this.color = newColor);
     }
-    score += 5;
-    clapAudio.currentTime = 0;
-    clapAudio.play();
-    const index = circleArray.findIndex((circle) => circle.uid == this.uid);
-    circleArray.splice(index, 1);
-    time += 5; //add 5 seconds to timer when clicking circle for the second time
-    seconds.textContent = time.toString();
+    handleSecondClickOnCircle(index);
   }
 }

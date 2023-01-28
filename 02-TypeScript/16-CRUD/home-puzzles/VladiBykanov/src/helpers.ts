@@ -23,3 +23,13 @@ function checkForWin() {
     newGame();
   }
 }
+
+function handleSecondClickOnCircle(index: number) {
+  score += 5;
+  liveScore.textContent = score.toString();
+  clapAudio.currentTime = 0;
+  clapAudio.play();
+  circleArray.splice(index, 1);
+  time += 5; //add 5 seconds to timer when clicking circle for the second time
+  seconds.textContent = time.toString();
+}

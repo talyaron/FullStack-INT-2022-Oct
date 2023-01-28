@@ -41,19 +41,15 @@ var Circle = /** @class */ (function () {
     Circle.prototype.handleClick = function () {
         var _this = this;
         var newColor = "red";
+        var index = circleArray.findIndex(function (circle) { return circle.uid == _this.uid; });
         if (this.color != newColor) {
             score++;
+            liveScore.textContent = score.toString();
             tinkAudio.currentTime = 0;
             tinkAudio.play();
-            return this.color = newColor;
+            return (this.color = newColor);
         }
-        score += 5;
-        clapAudio.currentTime = 0;
-        clapAudio.play();
-        var index = circleArray.findIndex(function (circle) { return circle.uid == _this.uid; });
-        circleArray.splice(index, 1);
-        time += 5; //add 5 seconds to timer when clicking circle for the second time
-        seconds.textContent = time.toString();
+        handleSecondClickOnCircle(index);
     };
     return Circle;
 }());
