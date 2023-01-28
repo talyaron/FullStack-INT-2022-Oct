@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Style-->
+    <link rel="stylesheet" href="./dist/style.css">
+
+    <!--Google Fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Chewy|Lobster|Roboto">
+    <title>Balloon Pop Game</title>
+</head>
+<body>
+  <main class="game">
+    <section id="scoreboard" class="top-bar hide">
+      <span class="score">0</span>
+      <span class="heart-containers">&hearts;&hearts;&hearts;</span>
+    </section>
+        
+    <section id="start-screen" class="dialogue">
+      <div class="logo">
+        <h1>Balloon Pop!</h1>
+      </div>
+          
+      <span><button id="startGame">New Game</button></span>
+    </section>
+        
+    <section id="gameover-screen" class="hidden">
+      <h1>Game Over!</h1>
+      <span><button id="tryAgain">Try Again</button></span>
+    </section>
+  </main>
+
+  <!--Script-->
+  <script src="./dist/script.js"></script>
+    
+</body>
+</html>
