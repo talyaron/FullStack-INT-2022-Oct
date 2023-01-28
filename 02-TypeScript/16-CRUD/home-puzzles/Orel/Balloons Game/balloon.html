@@ -11,35 +11,41 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@100;300;400;700&display=swap"
         rel="stylesheet">
-        <script src="./ballon.js" defer></script>
+
+
+    <script src="./dist/helper.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/balloon.js" defer></script>
 
     <!-- Style Css -->
-    <link rel="stylesheet" href="../src/ballon.css">
+    <link rel="stylesheet" href="./dist/style.css">
     <title>Happy-New-Years</title>
 </head>
 
 <body>
     <section class="container">
-        
+
         <header>
-<div class="div-container">
-    <a href="" class="logo">H <span>N</span> Y</a>
-    <ul class="listMenu">
-        <li><button id="resetP">Rest Point </button></li>
-        <li><button id="startOver">Start Over </button></li>
-        
-    </ul>
-    
-    <div class="score-board">
-        <div class="lives"><span><img width="35px" src="./imgs/heart.png" alt=""></span></div>
-        <h3 class="speed">Speed : 0</h3>
-        <h3 class="score">Score : 0</h3>
-    </div>
-</div>
+            <div class="div-container">
+                <a href="" class="logo">H <span>N</span> Y</a>
+                <ul class="listMenu">
+                    <li><button id="resetP">Rest Point </button></li>
+                    <li><button id="startOver">Start Over </button></li>
+
+                </ul>
+
+                <div class="score-board">
+                    <div class="lives"><span><img width="35px" src="./imgs/heart.png" alt=""></span></div>
+                    <h3 class="speed">Speed : 0</h3>
+                    <h3 class="score">Score : 0</h3>
+                </div>
+            </div>
 
         </header>
         <div class="main-body-game">
-            <div class="happyNewYearsWellcom">
+            <div class="happyNewYearsWelcome">
                 <img id="imgNewYear" src="./imgs/newYears.png" alt="">
                 <h4 id="h4NewYear">Click Bellow To Start</h4>
                 <button id="startGameBtn">Start Game</button>
@@ -49,11 +55,10 @@
             </div>
 
 
-            <div class="container-ballons">
+            <div class="container-balloons">
             </div>
         </div>
     </section>
 </body>
 
 </html>
-
