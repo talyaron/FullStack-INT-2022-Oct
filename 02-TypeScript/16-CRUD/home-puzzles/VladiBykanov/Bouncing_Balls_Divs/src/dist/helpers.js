@@ -9,3 +9,11 @@ function handleSecondClickOnCircle(index) {
     clapAudio.play();
     circleArray.splice(index, 1);
 }
+var randomDirection = function () {
+    if (Math.random() > 0.5) {
+        return 1;
+    }
+    else {
+        return -1;
+    }
+};

@@ -4,8 +4,8 @@ window.addEventListener("click", function (e) {
     circleArray.forEach(function (circle) {
         if (isIntersect(mouseLocation, circle)) {
             circle.handleClick();
-            circle.speedDirectionX = circle.speedDirectionX * 2;
-            circle.speedDirectionY = circle.speedDirectionY * 2;
+            circle.speedDirectionX = 8;
+            circle.speedDirectionY = 8;
         }
     });
 });

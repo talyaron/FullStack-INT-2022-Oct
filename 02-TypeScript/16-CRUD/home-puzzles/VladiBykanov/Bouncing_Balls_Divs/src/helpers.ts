@@ -14,3 +14,11 @@ function handleSecondClickOnCircle(index: number) {
   clapAudio.play();
   circleArray.splice(index, 1);
 }
+
+const randomDirection = () => {
+  if (Math.random() > 0.5) {
+    return 1;
+  } else {
+    return -1;
+  }
+};
