@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link font-google Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <!-- link Font-awesome ICONS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link script Files -->
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/helper.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+
+    <!-- Link css Files -->
+    <link rel="stylesheet" href="./dist/style.css">
+
+    <title>Movies World</title>
+</head>
+
+<body>
+    <section class="web-container admin">
+        <header class="main-header center">
+            <div class="logo">
+                <a href="#"><img src="./images/logo.png"></a>
+            </div>
+            <ul class="nav-navbar center">
+                <li class="nav-list"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-list"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-list"><a class="nav-link" href="#">Services</a></li>
+                <li class="nav-list"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+
+            <div class="menu-burger ">
+                <button id="btnBurgerMenu" onclick="handlerClickBurger(event)">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="admin-collapse  ">
+                    <button id="addBtn" onclick="handlerClickAddMovie()">ADD</button>
+                    <button id="deleteBtn" onclick="handlerClickRemoveMovie()">DELETE</button>
+                    <button id="updateBtn" onclick="handlerClickUpdateMovie()">UPDATE</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="admin-menu  ">
+            <div class="admin-menu-divs add-movie active ">
+                <h2 class="titleAdmin">ADD MOVIE</h2>
+                <form id="addForm" onsubmit="handlerSubmitAdd(event)">
+                    <input name="url" type="url" placeholder="Enter URL IMAGE">
+                    <input name="name" type="text" placeholder="Enter MOVIE TITLE">
+                    <textarea name="des" id="" cols="30" rows="10" placeholder="Enter Description"></textarea>
+                    <div class="selectDiv">
+                        <label for="stars"> <i class="fa-solid fa-star"></i></label>
+                        <select name="stars" id="stars">
+                            <option name="1" value="1">1</option>
+                            <option name="2" value="2">2</option>
+                            <option name="3" value="3">3</option>
+                            <option name="4" value="4">4</option>
+                            <option name="5" value="5">5</option>
+                        </select>
+                    </div>
+                    <input name="release" type="text" min="0" max="4" placeholder="Enter release DATE">
+                    <button type="submit">ADD</button>
+                </form>
+            </div>
+            <div class="admin-menu-divs remove-movie ">
+                <h2 class="titleAdmin">REMOVE MOVIE</h2>
+                <form id="removeForm" onsubmit="handlerSubmitRemove(event)">
+                    <input oninput="handlerChanceRemove(event)" type="text"  name="name" placeholder="Enter MOVIE NAME ">
+                    <button type="submit">REMOVE</button>
+                </form>
+            </div>
+            <div class="admin-menu-divs update-movie ">
+                <h2 class="titleAdmin">UPDATE MOVIE</h2>
+                <form id="updateForm" onsubmit="handlerSubmitUpdate(event)">
+                    <input oninput="handlerChanceUpdate(event)" type="text" placeholder="Enter  MOVIE NAME">
+                    <input type="text" name="nameToChance" placeholder="ENTER NAME TO UPDATE" required>
+                    <button type="submit">UPDATE</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="container-body">
+            <div class="ad-gif">
+                <img src="./images/adMovie.jpg" alt="">
+            </div>
+                <h2 class="main-title-movies">
+                    MOVIES LIST
+                </h2>
+            <div class="container-movies center">
+           
+
+            </div>
+        </div>
+
+        <footer class="center">
+            <div class="social-media-footer">
+                <div class="facebook"><i class="fa-brands fa-facebook"></i></div>
+                <div class="twetter"><i class="fa-brands fa-twitter"></i></div>
+                <div class="whatsapp"><i class="fa-brands fa-whatsapp"></i></div>
+                <div class="insa"><i class="fa-brands fa-instagram"></i></div>
+            </div>
+
+            <ul class="footer-menu">
+                <li class="footer-list">
+                    <a class="footer-link" href="">
+                        Home
+                    </a>
+                </li>
+                <li class="footer-list">
+                    <a class="footer-link" href="">
+                        About
+                    </a>
+                </li>
+                <li class="footer-list">
+                    <a class="footer-link" href="">
+                        Services
+                    </a>
+                </li>
+                <li class="footer-list">
+                    <a class="footer-link" href="">
+                        Team
+                    </a>
+                </li>
+                <li class="footer-list">
+                    <a class="footer-link" href="">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+
+            <small>@2023 Orel Karako | All Right Reserved</small>
+        </footer>
+    </section>
+</body>
+
+</html>
