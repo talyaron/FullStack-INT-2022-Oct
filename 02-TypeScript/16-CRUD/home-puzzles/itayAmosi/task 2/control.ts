@@ -52,5 +52,3 @@ const popUpBalloons = function(){
     };
     };
     
-
-}
