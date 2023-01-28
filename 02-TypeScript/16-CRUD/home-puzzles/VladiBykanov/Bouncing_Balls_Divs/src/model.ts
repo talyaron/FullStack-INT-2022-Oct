@@ -24,7 +24,7 @@ class Circle {
     newBall.style.left = `${this.lastX}px`;
     newBall.style.top = `${this.lastY}px`;
     newBall.style.width = `${this.radius}px`;
-    newBall.style.backgroundColor = `${this.color}`;
+    newBall.style.background = `${this.color}`;
     newBall.style.boxShadow = `${this.boxShadow}`;
     wrapper.append(newBall);
     return this;
@@ -41,7 +41,7 @@ class Circle {
     this.lastY += this.speedDirectionY;
   }
   handleClick() {
-    const newColor = "red";
+    const newColor = "radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(255, 0, 0, 1) 52%)";
     const index = circleArray.findIndex((circle) => circle.uid == this.uid);
     if (this.color != newColor) {
       this.boxShadow = "0 0 30px black";

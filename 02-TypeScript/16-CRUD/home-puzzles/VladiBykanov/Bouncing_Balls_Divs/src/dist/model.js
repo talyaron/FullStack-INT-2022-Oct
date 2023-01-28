@@ -21,7 +21,7 @@ var Circle = /** @class */ (function () {
         newBall.style.left = this.lastX + "px";
         newBall.style.top = this.lastY + "px";
         newBall.style.width = this.radius + "px";
-        newBall.style.backgroundColor = "" + this.color;
+        newBall.style.background = "" + this.color;
         newBall.style.boxShadow = "" + this.boxShadow;
         wrapper.append(newBall);
         return this;
@@ -38,7 +38,7 @@ var Circle = /** @class */ (function () {
     };
     Circle.prototype.handleClick = function () {
         var _this = this;
-        var newColor = "red";
+        var newColor = "radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(255, 0, 0, 1) 52%)";
         var index = circleArray.findIndex(function (circle) { return circle.uid == _this.uid; });
         if (this.color != newColor) {
             this.boxShadow = "0 0 30px black";

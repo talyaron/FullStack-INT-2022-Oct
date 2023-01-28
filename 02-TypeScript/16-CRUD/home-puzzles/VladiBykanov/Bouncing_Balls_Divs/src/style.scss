@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   overflow: hidden;
 }
 
@@ -12,10 +12,17 @@ body{
   width: 100vw;
   height: 100vh;
   background-color: darkcyan;
-  .ball{
+  .ball {
     aspect-ratio: 1/1;
     border-radius: 50%;
     position: absolute;
+    // top: 100px;
+    // left: 400px;
+    // width: 100px;
+    // background: radial-gradient(
+    //   circle,
+    //   rgba(0, 0, 0, 1) 0%,
+    //   rgba(255, 0, 0, 1) 52%
+    // );
   }
 }
-

@@ -13,3 +13,6 @@ window.addEventListener("click", function (e) {
 });
 generateCircles(10);
 animate();
+// const ball = document.createElement('div')
+// ball.classList.add('ball')
+// wrapper.append(ball)
