@@ -27,11 +27,11 @@ var Circle = /** @class */ (function () {
         return this;
     };
     Circle.prototype.update = function () {
-        if (this.lastX + this.radius > window.innerWidth ||
+        if (this.lastX + this.radius * 1.2 > window.innerWidth ||
             this.lastX - this.radius < 0) {
             this.speedDirectionX = -this.speedDirectionX;
         }
-        if (this.lastY + this.radius > window.innerHeight ||
+        if (this.lastY + this.radius * 1.2 > window.innerHeight ||
             this.lastY - this.radius < 0) {
             this.speedDirectionY = -this.speedDirectionY;
         }

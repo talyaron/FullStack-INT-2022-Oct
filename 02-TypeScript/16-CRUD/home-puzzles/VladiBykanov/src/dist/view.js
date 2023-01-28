@@ -3,7 +3,7 @@ var ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth - 10;
 canvas.height = window.innerHeight - 10;
 var seconds = document.querySelector(".timer__timeLeft");
-var time;
+var time = 30;
 var startTimer;
 var tinkAudio = document.querySelector('#tinkSound');
 var clapAudio = document.querySelector('#clapSound');

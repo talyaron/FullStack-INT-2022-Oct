@@ -23,9 +23,6 @@ function newGame() {
     if (!amountOfCircles || /[a-zA-Z]/.test(amountOfCircles))
         return newGame();
     generateCircles(parseInt(amountOfCircles));
-    time = parseInt(amountOfCircles) * 3 + 1;
-    if (time > 30)
-        time = 30;
     startTimer = setInterval(function () {
         time--;
         seconds.textContent = time.toString();
