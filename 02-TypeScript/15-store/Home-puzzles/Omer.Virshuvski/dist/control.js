@@ -34,6 +34,16 @@ form1.addEventListener('submit', function (ev) {
         console.error(Error);
     }
 });
+var check = true;
 show.addEventListener('click', function () {
-    allUsers.style.display = "block";
+    if (check) {
+        allUsers.classList.remove("hide");
+        show.innerText = "Hide Profiles";
+        check = false;
+    }
+    else {
+        allUsers.classList.add("hide");
+        show.innerText = "Show Profiles";
+        check = true;
+    }
 });
