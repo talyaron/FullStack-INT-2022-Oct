@@ -6,5 +6,6 @@ function isIntersect(point, circle) {
         circle.radius);
 }
 function handleSecondClickOnCircle(index) {
+    clapAudio.play();
     circleArray.splice(index, 1);
 }

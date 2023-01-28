@@ -11,5 +11,6 @@ function isIntersect(point: MouseCoordinates, circle: Circle) {
 
 
 function handleSecondClickOnCircle(index: number) {
+  clapAudio.play();
   circleArray.splice(index, 1);
 }

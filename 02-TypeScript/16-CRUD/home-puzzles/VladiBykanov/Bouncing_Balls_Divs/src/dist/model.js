@@ -1,3 +1,5 @@
+var circleArray = [];
+var mouseLocation = { x: 0, y: 0 };
 var Circle = /** @class */ (function () {
     function Circle(lastX, lastY, speedDirectionX, speedDirectionY, radius, color) {
         this.lastX = lastX;
@@ -41,6 +43,7 @@ var Circle = /** @class */ (function () {
         var newColor = "radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(255, 0, 0, 1) 52%)";
         var index = circleArray.findIndex(function (circle) { return circle.uid == _this.uid; });
         if (this.color != newColor) {
+            tinkAudio.play();
             this.boxShadow = "0 0 30px black";
             return (this.color = newColor);
         }
@@ -48,4 +51,3 @@ var Circle = /** @class */ (function () {
     };
     return Circle;
 }());
-var mouseLocation = { x: 0, y: 0 };

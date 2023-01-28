@@ -1,3 +1,10 @@
+const circleArray: Circle[] = [];
+interface MouseCoordinates {
+  x: number;
+  y: number;
+}
+
+const mouseLocation: MouseCoordinates = { x: 0, y: 0 };
 class Circle {
   private uid: number;
   private boxShadow: string;
@@ -41,19 +48,14 @@ class Circle {
     this.lastY += this.speedDirectionY;
   }
   handleClick() {
-    const newColor = "radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(255, 0, 0, 1) 52%)";
+    const newColor =
+      "radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(255, 0, 0, 1) 52%)";
     const index = circleArray.findIndex((circle) => circle.uid == this.uid);
     if (this.color != newColor) {
+      tinkAudio.play();
       this.boxShadow = "0 0 30px black";
       return (this.color = newColor);
     }
     handleSecondClickOnCircle(index);
   }
 }
-
-interface MouseCoordinates {
-  x: number;
-  y: number;
-}
-
-const mouseLocation: MouseCoordinates = { x: 0, y: 0 };
