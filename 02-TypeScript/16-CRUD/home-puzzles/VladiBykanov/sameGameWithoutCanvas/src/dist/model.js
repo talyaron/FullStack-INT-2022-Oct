@@ -1,5 +1,4 @@
 var Circle = /** @class */ (function () {
-    // private lineWidth: number;
     function Circle(lastX, lastY, speedDirectionX, speedDirectionY, radius, color) {
         this.lastX = lastX;
         this.lastY = lastY;
@@ -14,7 +13,7 @@ var Circle = /** @class */ (function () {
         this.radius = radius;
         this.color = color;
         this.uid = Math.random() * 1000000;
-        // this.lineWidth = 0;
+        this.boxShadow = "0 0 10px white";
     }
     Circle.prototype.draw = function () {
         var newBall = document.createElement("div");
@@ -23,6 +22,7 @@ var Circle = /** @class */ (function () {
         newBall.style.top = this.lastY + "px";
         newBall.style.width = this.radius + "px";
         newBall.style.backgroundColor = "" + this.color;
+        newBall.style.boxShadow = "" + this.boxShadow;
         wrapper.append(newBall);
         return this;
     };
@@ -36,5 +36,16 @@ var Circle = /** @class */ (function () {
         this.lastX += this.speedDirectionX;
         this.lastY += this.speedDirectionY;
     };
+    Circle.prototype.handleClick = function () {
+        var _this = this;
+        var newColor = "red";
+        var index = circleArray.findIndex(function (circle) { return circle.uid == _this.uid; });
+        if (this.color != newColor) {
+            this.boxShadow = "0 0 30px black";
+            return (this.color = newColor);
+        }
+        handleSecondClickOnCircle(index);
+    };
     return Circle;
 }());
+var mouseLocation = { x: 0, y: 0 };

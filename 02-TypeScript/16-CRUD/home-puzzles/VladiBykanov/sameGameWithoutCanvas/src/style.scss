@@ -8,7 +8,7 @@ body{
   overflow: hidden;
 }
 
-.wrapper {
+.playground {
   width: 100vw;
   height: 100vh;
   background-color: darkcyan;
@@ -16,8 +16,6 @@ body{
     aspect-ratio: 1/1;
     border-radius: 50%;
     position: absolute;
-    // border: 2px solid black;
-    box-shadow: 0 0 10px black;
   }
 }
 

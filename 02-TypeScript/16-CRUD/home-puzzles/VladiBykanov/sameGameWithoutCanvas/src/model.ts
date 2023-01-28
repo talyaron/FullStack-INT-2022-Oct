@@ -1,6 +1,6 @@
 class Circle {
   private uid: number;
-  // private lineWidth: number;
+  private boxShadow: string;
   constructor(
     public lastX,
     public lastY,
@@ -16,7 +16,7 @@ class Circle {
     this.radius = radius;
     this.color = color;
     this.uid = Math.random() * 1000000;
-    // this.lineWidth = 0;
+    this.boxShadow = "0 0 10px white";
   }
   draw() {
     const newBall = document.createElement("div") as HTMLDivElement;
@@ -25,6 +25,7 @@ class Circle {
     newBall.style.top = `${this.lastY}px`;
     newBall.style.width = `${this.radius}px`;
     newBall.style.backgroundColor = `${this.color}`;
+    newBall.style.boxShadow = `${this.boxShadow}`;
     wrapper.append(newBall);
     return this;
   }
@@ -39,16 +40,20 @@ class Circle {
     this.lastX += this.speedDirectionX;
     this.lastY += this.speedDirectionY;
   }
-  //   handleClick() {
-  //     const newColor = "red";
-  //     const index = circleArray.findIndex((circle) => circle.uid == this.uid);
-  //     if (this.color != newColor) {
-  //       score++;
-  //       liveScore.textContent = score.toString();
-  //       tinkAudio.currentTime = 0;
-  //       tinkAudio.play();
-  //       return (this.color = newColor);
-  //     }
-  //     handleSecondClickOnCircle(index);
-  //   }
+  handleClick() {
+    const newColor = "red";
+    const index = circleArray.findIndex((circle) => circle.uid == this.uid);
+    if (this.color != newColor) {
+      this.boxShadow = "0 0 30px black";
+      return (this.color = newColor);
+    }
+    handleSecondClickOnCircle(index);
+  }
 }
+
+interface MouseCoordinates {
+  x: number;
+  y: number;
+}
+
+const mouseLocation: MouseCoordinates = { x: 0, y: 0 };
