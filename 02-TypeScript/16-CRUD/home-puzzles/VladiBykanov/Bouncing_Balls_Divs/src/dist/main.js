@@ -1,3 +1,4 @@
+var ballsCount = parseInt(prompt('Eneter how many balls you want to pop'));
 window.addEventListener("click", function (e) {
     var _a;
     _a = [e.x, e.y], mouseLocation.x = _a[0], mouseLocation.y = _a[1];
@@ -9,5 +10,5 @@ window.addEventListener("click", function (e) {
         }
     });
 });
-generateCircles(10, midScreenX, midScreenY, circleArray, false);
+generateCircles(ballsCount, midScreenX, midScreenY, circleArray, false);
 animate();
