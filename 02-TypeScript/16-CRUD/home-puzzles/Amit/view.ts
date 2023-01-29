@@ -1,0 +1,1 @@
+const scoreOnScreen:HTMLElement | null = document.querySelector(".score");
