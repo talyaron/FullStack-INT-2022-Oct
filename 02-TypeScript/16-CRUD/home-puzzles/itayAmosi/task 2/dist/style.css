@@ -1,17 +1,14 @@
-.balloon {
-  --balloonDimension: 20vmax;
+.balloons {
+  --balloonDimension: 5vmax;
   width: var(--balloonDimension);
   height: var(--balloonDimension);
   border-radius: 100% 100% 15% 100%;
   margin: 0 0 0 25px;
   transform: rotateZ(45deg);
-  position: fixed;
-  bottom: calc(-1 * var(--balloonDimension));
-  left: 0%;
   background-color: red;
 }
 
-.balloon::before {
+.balloons::before {
   content: "";
   width: 10%;
   height: 25%;
@@ -22,7 +19,7 @@
   border-radius: 100%;
 }
 
-.balloon::after {
+.balloons::after {
   content: "";
   width: 13%;
   height: 5%;
@@ -34,29 +31,34 @@
   transform: rotateZ(-45deg);
 }
 
-.balloon .string {
-  position: absolute;
-  background-color: black;
-  width: 2px;
-  height: 100px;
-  transform-origin: top center;
-  transform: rotateZ(-45deg);
-  top: 130px;
-  left: 130px;
+.box {
+  height: 300px;
+  background-color: teal;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  transition: all 1s;
 }
 
-.yellow {
-  background-color: rgba(150, 150, 0, 0.45);
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  max-width: 75ch;
+  margin: auto;
 }
-
-.green {
-  background-color: rgba(0, 150, 0, 0.45);
+.wrapper .box, .wrapper .box2 {
+  height: 300px;
+  background-color: teal;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  transition: all 1s;
 }
-
-.blue {
-  background-color: rgba(0, 0, 150, 0.45);
-}
-
-.gold {
-  background-color: rgba(0, 0, 150, 0.45);
+.wrapper .box2 {
+  background-color: #195757;
 }
