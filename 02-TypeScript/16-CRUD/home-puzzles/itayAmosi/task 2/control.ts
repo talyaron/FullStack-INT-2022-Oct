@@ -20,7 +20,7 @@ for (let i = 0; i < 33; i++) {
 }
 const card: any = document.querySelector('.balloon')
 function caterBalloons() {
-  const balloonSpeed = randomNumber(22, 56)
+  const balloonSpeed = randomNumber(40, 90)
   const balloonSize = randomNumber(45, getViewportWidth() / 5)
   const balloonPosition = randomNumber(
     0 - balloonSize / 2,
