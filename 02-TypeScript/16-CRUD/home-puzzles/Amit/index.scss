@@ -1,0 +1,87 @@
+body{
+    margin: 0;
+    
+}
+
+.balloon{
+    width: 5rem;
+    height: 7.5rem;
+    border-radius:80%;
+    background-color: white;
+    font-size: 3rem;
+    line-height: 7.5rem;
+    text-align: center;
+    vertical-align: middle;
+    position: fixed;
+    top: 60rem;
+    animation: StartFly 0.5s linear 1;
+    box-shadow:inset -10px -10px 0 rgba(0,0,0,0.12);
+    margin:20px 30px;
+    transition:transform 0.5s ease;
+    transform-origin:bottom center;
+    cursor: crosshair;
+    @keyframes StartFly{
+        0%{top: 33.7em;
+            left: 32em;}
+        100%{top: 33.7em;
+            left: 32em;}
+    }
+}
+
+.balloon:before {
+    content:"▲";
+    font-size:20px;
+    color:rgb(71, 96, 133);
+    display:block;
+    text-align:center;
+    width:100%;
+    position:absolute;
+    bottom:-67px;
+  }
+  
+  .balloon:after {
+    display:inline-block;
+    top:133px;
+    left: 40px;
+    position:absolute;
+    height:250px;
+    width:1px;
+    margin:0 auto;
+    content:"";
+    background:rgba(0,0,0,0.2); 
+  }
+
+
+
+.wrapper{
+    height: 50rem;
+    width: 70rem;
+    border: 0.5rem solid black;
+    background-image: url(https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8&w=1000&q=80);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+
+.score{
+    height: 4rem;
+    width: 13rem;
+    background-color: yellow;
+    border: 0.5rem solid black;
+    position: relative;
+    bottom: 50rem;
+    left: 75rem;
+    font-size: 2.5rem;
+    line-height: 4rem;
+    text-align: left;
+    vertical-align: middle;
+    padding: 1rem;
+    font-family: fantasy;
+    
+}
+
+
+  
+  
+  
