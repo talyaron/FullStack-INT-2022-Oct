@@ -5,7 +5,6 @@ const balls:NodeListOf<HTMLButtonElement> = document.querySelectorAll('.ball');
 
 balls.forEach(ball => {
     try {
-        console.dir(ball)
         const containerWidth = ballsContainer?.offsetWidth;
         const containerHeight = ballsContainer?.offsetHeight;
         const getRandomWidth = (min, max) => Math.random()*max;
@@ -29,7 +28,6 @@ balls.forEach(ball => {
             if (parseInt(numOfLives) <= 1){
                 ball.remove();
                 numOfBalls -=1;
-                console.log(numOfBalls)
             }
         })
 

@@ -4,7 +4,6 @@ newBalls.drawBalls(numOfBalls);
 var balls = document.querySelectorAll('.ball');
 balls.forEach(function (ball) {
     try {
-        console.dir(ball);
         var containerWidth = ballsContainer === null || ballsContainer === void 0 ? void 0 : ballsContainer.offsetWidth;
         var containerHeight = ballsContainer === null || ballsContainer === void 0 ? void 0 : ballsContainer.offsetHeight;
         var getRandomWidth = function (min, max) { return Math.random() * max; };
@@ -26,7 +25,6 @@ balls.forEach(function (ball) {
             if (parseInt(numOfLives) <= 1) {
                 ball.remove();
                 numOfBalls -= 1;
-                console.log(numOfBalls);
             }
         });
     }
