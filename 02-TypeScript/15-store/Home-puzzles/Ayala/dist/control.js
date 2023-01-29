@@ -1,27 +1,17 @@
-//פונקציות
 var form = document.querySelector("registration-form");
 var namNodeListOftype = document.querySelectorAll("name");
-function addEventListener(event) {
+function handleFormSubmit(ev) {
     try {
-        event.preventDefault();
-        var name = event.target.element.name.value;
-        var city = event.target.element.city.value;
-        var email = event.target.element.email.value;
-        var phone = event.target.element.phone.valueAsNumber;
-        var password = event.target.element.password.value;
-        var color = event.target.element.color.value;
-        titel.push(new Titel(name, city, email, phone, password, color));
-        console.log(Titel);
-        event.target.reset();
-        console.log(name);
-        // if (!name || !email || !phone || !city) {
-        //     throw new Error("Please fill out all fields.");
-        //   }
-        //   alert("Form submitted successfully!");
-        // } catch (error) {
-        //   console.error(error);
-        //   alert(error.message);
-        // }
+        ev.preventDefault();
+        var name = ev.target.elements.name.value;
+        var city = ev.target.elements.city.value;
+        var email = ev.target.elements.email.value;
+        var phone = ev.target.elements.phone.valueAsNumber;
+        var password = ev.target.elements.password.value;
+        var color = ev.target.elements.color.value;
+        var form_1 = new Form(name, city, email, phone, password, color);
+        forms.push(form_1);
+        console.log(form_1);
     }
     catch (error) {
         console.error(error);
