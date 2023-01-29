@@ -1,48 +1,23 @@
-//פונקציות
-
 const form = document.querySelector("registration-form");
-const namNodeListOftype  = document.querySelectorAll("name");
+const namNodeListOftype = document.querySelectorAll("name");
 
 
 
-
-function addEventListener(event) {
+function handleFormSubmit(ev) {
     try {
-        event.preventDefault()
-        const name = event.target.element.name.value;
-        const city = event.target.element.city.value;
-        const email = event.target.element.email.value;
-        const phone = event.target.element.phone.valueAsNumber;
-        const password = event.target.element.password.value;
-        const color = event.target.element.color.value;
-
-
-
-        titel.push(new Titel(name, city, email, phone, password, color,));
-        console.log(Titel)
-        event.target.reset()
-        console.log(name)
-
-      
-
-        // if (!name || !email || !phone || !city) {
-        //     throw new Error("Please fill out all fields.");
-        //   }
-      
-      
-        //   alert("Form submitted successfully!");
-        // } catch (error) {
-        //   console.error(error);
-        //   alert(error.message);
-        // }
-
-
-
-
-
+        ev.preventDefault();
+        const name = ev.target.elements.name.value;
+        const city = ev.target.elements.city.value;
+        const email = ev.target.elements.email.value;
+        const phone = ev.target.elements.phone.valueAsNumber;
+        const password = ev.target.elements.password.value;
+        const color = ev.target.elements.color.value;
+        const form = new Form(name, city, email, phone, password, color);
+        forms.push(form);
+        console.log(form);
     } catch (error) {
         console.error(error)
     }
-
 }
+
 

@@ -11,10 +11,17 @@ function handlerAddUser(ev: any) {
     }
 }
 
+function handleRemoveItem(uid:string){
+    try {
+        console.log(uid);
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 const inputElement = document.getElementById("file");
 inputElement!.addEventListener("change", handleFiles, false);
 function handleFiles() {
-  const fileList = this.files; /* now you can work with the file list */
+  const fileList = this.files as string;
   console.log(fileList);
 }

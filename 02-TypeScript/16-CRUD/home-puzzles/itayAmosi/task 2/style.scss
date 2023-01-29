@@ -1,0 +1,69 @@
+.balloons{
+    --balloonDimension: 5vmax;
+    width: var(--balloonDimension);
+    height: var(--balloonDimension);
+    border-radius: 100% 100% 15% 100%;
+    margin: 0 0 0 25px;
+    transform: rotateZ(45deg);
+    background-color: red;
+
+}
+.balloons::before{
+content: "";
+width: 10%;
+height: 25%;
+background: radial-gradient(circle, rgba(255,255,255,.7) 0%, rgba(255,255,255,.1)100%);
+position: absolute;
+left: 15%;
+top: 45%;
+border-radius: 100%;
+}
+.balloons::after{
+    content:"";
+    width: 13%;
+    height: 5%;
+    background-color: inherit;
+    position: absolute;
+    left: 92%;
+    top: 94%;
+    border-radius: 22%;
+    transform: rotateZ(-45deg);
+}
+.box{
+    height: 300px;
+    background-color: teal;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    transition: all 1s;
+  }
+  .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    max-width: 75ch;
+    margin: auto;
+  
+    .box, .box2 {
+      height: 300px;
+      background-color: teal;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      transition: all 1s;
+    }
+    .box2{
+     
+      background-color: rgb(25, 87, 87);
+    }
+  }
+  
+
+
+
+
+    

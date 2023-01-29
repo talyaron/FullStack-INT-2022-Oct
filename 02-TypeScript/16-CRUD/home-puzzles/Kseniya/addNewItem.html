@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Candy Shop</title>
+    <script src="./dist/main.js" defer></script>
+  </head>
+  <body>
+    <h1>Welcome to the Candy Shop</h1>
+    <a href="./store.html">back to the shop</a>
+    <form onsubmit="addItem(event)">
+      <input type="text" name="name" placeholder="item name" required />
+      <select name="candyType" required>
+        <option value="sweet">sweet</option>
+        <option value="salty">salty</option>
+        <option value="other">other</option>
+      </select>
+      <input type="number" name="price" placeholder="price" required />
+      <input type="submit" value="add item">
+    </form>
+    <div id="itemsRoot"></div>
+  </body>
+</html>
