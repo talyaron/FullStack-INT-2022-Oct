@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  background-image: linear-gradient(45deg, #09f9c1 26.8%, #97d5f2 64%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.h1,
+.live {
+  font-family: "Press Start 2P", cursive;
+  background-color: #fdfaf6;
+  border-radius: 20px;
+  padding: 20px;
+  color: orange;
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(4, 8rem);
+  grid-template-rows: repeat(4, 8rem);
+  grid-gap: 2rem;
+  perspective: 800px;
+}
+
+.card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: rotateY(0deg);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;
+}
+
+.reversedCard {
+  pointer-events: none;
+}
+
+.new_game {
+  pointer-events: all;
+}
+
+.fase,
+.back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+}
+
+.back {
+  background-color: aliceblue;
+  backface-visibility: hidden;
+}
+
+.toggleCard {
+  transform: rotateY(180deg);
+}
+
+.toggleCard2 {
+  transform: rotateY(0deg);
+}
+
+.fase {
+  transform: rotatey(-180deg);
+}
+
+.input-color {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  border-radius: 10%;
+  border: none;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.input-color2 {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 10%;
+  border: none;
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+.Winner {
+  position: absolute;
+  padding-right: 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 8%;
+  border-radius: 5%;
+  height: 400px;
+  width: 400px;
+  background-color: #f6a76e;
+  box-shadow: 5px 0px 20px 10px #555454;
+  opacity: 1;
+  display: none;
+}
+.Winner .Winner_title {
+  position: absolute;
+  top: 2rem;
+  font-family: "Press Start 2P", cursive;
+  font-size: xx-large;
+  color: #f7f0e3;
+}
+.Winner .fireworks {
+  margin-top: 4.9rem;
+  border-radius: 45%;
+  height: 190px;
+  width: 190px;
+}
+.Winner .new_game {
+  margin-top: 2rem;
+  border-radius: 20px;
+  padding: 0.5rem;
+  border: solid 2px white;
+  font-weight: bold;
+  background-color: #de3d5d;
+  color: white;
+  font-size: larger;
+}
+.Winner .new_game:hover {
+  background-color: crimson;
+}
+
+.a {
+  position: absolute;
+  padding-right: 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.b {
+  position: absolute;
+  padding-left: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
