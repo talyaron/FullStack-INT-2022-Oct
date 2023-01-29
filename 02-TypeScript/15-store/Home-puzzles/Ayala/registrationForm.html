@@ -15,28 +15,24 @@
 </head>
 
 <body>
-<div class="titel"></div>
+    <div class="form"></div>
     <h1>Registration Form </h1>
 
     <a href="./index.html">Registration</a>
 
-    <form onsubmit="addEventListener(event)">
-        <form id="registration-form">
+        <form id="registration-form" onsubmit="handleFormSubmit(event)">
             <input type="text" name="name" placeholder="name of product" required>
             <input type="city" name="city" placeholder="city">
             <input type="email" name="email" placeholder="email" required>
             <input type="phone" name="phone" placeholder="phone" required>
             <input type="password" name="password" placeholder="password" required>
             <input type="color" name="color" placeholder="color" required>
-            
-            <input type="submit" value="Submit">
+
+            <input type="submit" value="Sign Up">
         </form>
 
 
 
-
-
-    
 </body>
 
 </html>
