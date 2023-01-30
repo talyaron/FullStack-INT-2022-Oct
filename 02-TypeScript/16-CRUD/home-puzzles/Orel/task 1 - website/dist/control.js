@@ -92,6 +92,7 @@ function handlerSubmitAdd(ev) {
         var _a = ev.target.elements, url = _a.url, name = _a.name, stars = _a.stars, des = _a.des, release = _a.release;
         console.log(release.value);
         movies.push(new Movies(url.value, name.value, des.value, stars.value, Number(release.value)));
+        renderToLocalStorage(movies);
         return renderMovies();
     }
     catch (error) {

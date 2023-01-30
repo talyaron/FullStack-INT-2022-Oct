@@ -85,6 +85,7 @@ function handlerClickUpdateMovie() {
 
 // SUBMIT ------------------------------
 //ADD
+<<<<<<< HEAD
 function handlerSubmitAdd(ev: any) {
   try {
     ev.preventDefault();
@@ -103,6 +104,19 @@ function handlerSubmitAdd(ev: any) {
   } catch (error) {
     console.log(error);
   }
+=======
+function handlerSubmitAdd(ev:any){
+        try {
+                ev.preventDefault()
+            const {url , name , stars , des ,release} = ev.target.elements
+            console.log(release.value);
+                 movies.push(new Movies(url.value , name.value , des.value, stars.value  ,Number(release.value)))
+                 renderToLocalStorage(movies)
+                 return renderMovies()
+        } catch (error) {
+            console.log(error);
+        }
+>>>>>>> main
 }
 //REMOVE
 function handlerSubmitRemove(ev) {

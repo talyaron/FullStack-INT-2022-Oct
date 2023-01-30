@@ -1,2 +1,2 @@
-setInterval(generateBalloon, 1000);
-setInterval(moveBalloons, 300);
+setInterval(generateBalloon, 2000);
+setInterval(moveBalloons, 50);
