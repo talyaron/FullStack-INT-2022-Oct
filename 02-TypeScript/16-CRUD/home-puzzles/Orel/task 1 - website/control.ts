@@ -84,6 +84,7 @@ function handlerSubmitAdd(ev:any){
             const {url , name , stars , des ,release} = ev.target.elements
             console.log(release.value);
                  movies.push(new Movies(url.value , name.value , des.value, stars.value  ,Number(release.value)))
+                 renderToLocalStorage(movies)
                  return renderMovies()
         } catch (error) {
             console.log(error);
