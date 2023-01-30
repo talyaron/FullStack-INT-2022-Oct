@@ -1,19 +1,19 @@
 const form = document.querySelector("#theForm");
 
-function handleAddItem(ev: any) {
+function handleAddItem(ev: any): void {
   try {
     ev.preventDefault();
 
     console.log(ev);
 
     const name = ev.target.elements.name.value;
-    const color = ev.target.elements.color.value;
+    const img = imgSrc;
     const price = ev.target.elements.price.valueAsNumber;
     const category = ev.target.elements.category.value;
     const size = ev.target.elements.size.valueAsNumber;
     const sn = ev.target.elements.sn.value;
 
-    items.push(new Item(name, color, price, category, size, sn));
+    items.push(new Item(name, img, price, category, size, sn));
     console.log(items);
     ev.target.reset();
 
@@ -29,8 +29,8 @@ function handleAddItem(ev: any) {
 function handleChangerColor(ev) {
   try {
     console.log(ev);
-    const color = ev.target.value;
-    document.body.style.backgroundColor = color;
+    const img = ev.target.value;
+    document.body.style.backgroundImage = img;
   } catch (error) {
     console.error(error);
   }
@@ -59,7 +59,7 @@ function renderItems(items: Item[]): string {
       .map((item) => {
         console.log(`---${item.uid}---`);
         return `
-    <div class="item" style="background-color:${item.color}">
+       </ul> <img class="userImg" src="${item.img}"/>
       <h3>${item.name}</h3>
       <div>Price: ${item.price} <button onclick="handleUpdatePrice('${item.uid}')">Update</button></div>
       <div>Category: ${item.category}</div>
@@ -78,7 +78,7 @@ function renderItems(items: Item[]): string {
   }
 }
 
-function handleDeleteItem(uid: string) {
+function handleDeleteItem(uid: string): void {
   try {
     console.log(uid);
     const index = items.findIndex((item) => item.uid === uid);

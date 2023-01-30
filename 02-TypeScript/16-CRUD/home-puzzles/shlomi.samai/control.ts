@@ -1,7 +1,6 @@
 function handleAddItem(ev) {
   try {
     ev.preventDefault();
-    debugger;
     const name = ev.target.elements.name.value;
     const address = ev.target.elements.address.value;
     const email = ev.target.elements.email.value;
@@ -31,7 +30,6 @@ function handleAddItem(ev) {
 function render() {
   let page = "";
   let j = 0;
-  debugger;
   for (j = 0; j <= people.length - 1; j++) {
     page += `<div class="list"> 
             <h3>${people[j].name}</h3>
@@ -40,7 +38,8 @@ function render() {
             <h3>${people[j].phone}</h3>
             <h3>${people[j].password}</h3>
             <h3>${people[j].preferedColor}</h3>
-            <button onclick="handleDeleteItem('${people[j].uid}')">Remove</button>         
+            <h3>${people[j].uid}</h3>
+            <button onclick="handleDeleteItem('${people[j].uid}')">Remove</button>       
             <img src='${people[j].pictureURL}'/>
             </div>`;
   }
@@ -54,6 +53,7 @@ function render() {
 
 function handleDeleteItem(uid: string) {
   try {
+    debugger;
     console.log(uid);
     const index = people.findIndex((Person) => Person.uid === uid);
     if (index === -1) throw new Error("item not found");

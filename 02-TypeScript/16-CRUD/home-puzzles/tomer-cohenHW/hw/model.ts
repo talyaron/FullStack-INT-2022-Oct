@@ -3,7 +3,7 @@ class Item {
   
   constructor(
     public name: string,
-    public color: string,
+    public img: string,
     public price: number,
     public category: string,
     public size: number,
