@@ -4,6 +4,11 @@ class Balloon {
     ) {
         this.uid = uid();
     }
+
+    createBallon(){
+        //create dom element
+        //create event listenrs
+    }
 }
 
 const balloonsArray: Balloon[] = [];

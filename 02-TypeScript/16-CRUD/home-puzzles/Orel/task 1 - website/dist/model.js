@@ -65,4 +65,14 @@ var movies = [
         stars: 4,
         releaseDate: 2023
     },
+    {
+        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToYQxJjHOcThYvYHi2i4pZQrKRY_ZnSuMZzfo7rn6GQWx22FA9",
+        name: "Big Stan  ",
+        des: " 'Big Stan is a 2007 American prison comedy film starring, produced and directed by Rob Schneider in his directorial,",
+        stars: 3,
+        releaseDate: 2007
+    },
 ];
+function renderToLocalStorage(arr) {
+    localStorage.setItem("movies", JSON.stringify(movies));
+}

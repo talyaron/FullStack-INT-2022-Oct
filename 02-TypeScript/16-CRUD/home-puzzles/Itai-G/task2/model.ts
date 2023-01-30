@@ -8,8 +8,8 @@ class Balloons{
 }
 const balloons: Balloons [] = [];
 
-let xPos;
-let yPos;
-
 let xVel = 1;
 let yVel = 2;
+let score = 0;
+let xPos: number;
+let yPos : number;

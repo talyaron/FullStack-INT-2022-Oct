@@ -1,4 +1,6 @@
  function renderMovies() {
+    const getMovieFromStorage = localStorage.getItem("movies");
+    console.log(getMovieFromStorage);
     const containerMovie = document.querySelector('.container-movies')! as HTMLDivElement;
     containerMovie.innerHTML = ''
     movies.forEach(movie => {
