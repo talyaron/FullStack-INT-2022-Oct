@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Style-->
+    <link rel="stylesheet" href="./public/dist/style.css">
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <title>Registration Form</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="title">Registration</div>
+        <form onsubmit="hendleAddDetail(event)">
+            <div class="user_details">
+                <div class="input-box">
+                    <span class="details">Full Name</span>
+                    <input type="text" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Email</span>
+                    <input type="text" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Phone Number</span>
+                    <input type="text" name="phone" placeholder="Enter your number" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Password</span>
+                    <input type="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Your Image</span>
+                    <input type="file" name="image" id="user-image"required>
+                </div>
+                <div class="gender-details">
+                    <input type="radio" name="gender" value="Male" id="dot-1">
+                    <input type="radio" name="gender" value="Female" id="dot-2">
+                    <span class="gender-title">Gender</span>
+                    <div class="category">
+                        <label for="dot-1">
+                            <span class="dot one"></span>
+                            <span class="gender">Male</span>
+                        </label>
+                        <label for="dot-2">
+                            <span class="dot two"></span>
+                            <span class="gender">Female</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Register">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="profile"></div>
+
+    <!--Script-->
+    <script src="./public/dist/script.js"></script>
+    
+</body>
+</html>

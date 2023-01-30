@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>memory game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./dist/style.css" />
+
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/controler.js" defer></script>
+    <script src="./dist/app.js" defer></script>
+  </head>
+  <body>
+    <h1 class="h1">Lives:<span class="playerLivesCount live"></span></h1>
+    <br />
+    <section></section>
+    <input
+      class="input-color left"
+      type="color"
+      oninput="ChangerColor(event)"
+    />
+    <input
+      class="input-color2 right"
+      type="color"
+      oninput="ChangerColor2(event)"
+    />
+
+
+    <div class="Winner">
+        <span class="Winner_title">you won😍</span>
+        <img class="fireworks" src="./images/firework-gif.gif" alt="" srcset="" />
+        <button class="new_game" onClick="window.location.reload()">
+          new game
+        </button>
+      </div> 
+  
+      <div class="Winner loses ">
+        <span class="Winner_title">You lost</span>
+        <img
+          class="fireworks"
+          src="./images/crying-emoji-sad.gif"
+          alt=""
+          srcset=""
+        />
+        <button class="new_game" onClick="window.location.reload()">
+          new game
+        </button>
+      </div>
+      
+
+  
+
+
+  </body>
+</html>

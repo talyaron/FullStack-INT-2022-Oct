@@ -1,0 +1,9 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto;
+  input, textarea,select{
+    margin: 10px 0;
+  }
+}

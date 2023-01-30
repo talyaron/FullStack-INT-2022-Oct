@@ -1,11 +1,13 @@
 function addItem(event) {
     try {
+        event.preventDefault();
         var name = event.target.elements.name.value;
         var departement = event.target.elements.departement.value;
         var type = event.target.elements.type.value;
         var price = event.target.elements.price.valueAsNumber;
         var image = event.target.elements.image.value;
         clothesShopArr.push(new Item(name, departement, type, price, image));
+        showStore(clothesShopArr);
         event.target.reset();
     }
     catch (error) {
@@ -17,7 +19,7 @@ function showStore(clothesShopArr) {
         if (store && clothesShopArr.length != 0) {
             store.innerHTML = "";
             for (var i = 0; i < clothesShopArr.length; i++) {
-                store.innerHTML += "<div class= \"store__item\">\n                  <img class=\"store__item__detail\" id=\"image\" src='" + clothesShopArr[i].image + "' alt=\"image\"/>\n                  <h2 class=\"store__item__detail\" id=\"itemName\">" + clothesShopArr[i].name + "</h2>\n                  <h5 class=\"store__item__detail\" id=\"itemDepartment\">" + clothesShopArr[i].department + "</h5>\n                  <h5 class=\"store__item__detail\" id=\"itemType\">" + clothesShopArr[i].type + "</h5>\n                  <h3 class=\"store__item__detail\" id=\"itemPrice\">" + clothesShopArr[i].price + "</h3>\n                  </div>";
+                store.innerHTML += "<div class= \"store__item\">\n          <img class=\"store__item__detail\" id=\"image\" src='" + clothesShopArr[i].image + "' alt=\"image\"/>\n          <h2 class=\"store__item__detail\" id=\"itemName\">" + clothesShopArr[i].name + "</h2>\n          <h5 class=\"store__item__detail\" id=\"itemDepartment\">" + clothesShopArr[i].department + "</h5>\n          <h5 class=\"store__item__detail\" id=\"itemType\">" + clothesShopArr[i].type + "</h5>\n          <h3 class=\"store__item__detail\" id=\"itemPrice\">" + clothesShopArr[i].price + "</h3>\n          </div>";
             }
         }
         else {
