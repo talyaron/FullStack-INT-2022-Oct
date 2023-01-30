@@ -1,7 +1,3 @@
-
-
-
-
 function generateBalloon() {
  try {
   var balloon = document.createElement("div");
