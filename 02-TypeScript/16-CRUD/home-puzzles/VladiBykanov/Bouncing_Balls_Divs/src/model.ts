@@ -12,12 +12,12 @@ class Circle {
   private boxShadow: string;
   // give them a type.
   constructor(
-    public lastX,
-    public lastY,
-    public speedDirectionX,
-    public speedDirectionY,
-    public radius,
-    public color
+    public lastX: number,
+    public lastY: number,
+    public speedDirectionX: number,
+    public speedDirectionY: number,
+    public radius: number,
+    public color: string
   ) {
     this.lastX = lastX;
     this.lastY = lastY;
