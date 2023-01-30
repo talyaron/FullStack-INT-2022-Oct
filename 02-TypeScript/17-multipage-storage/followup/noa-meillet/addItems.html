@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store- Settings</title>
+    <link rel="stylesheet" href="./dist/style.css" />
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/addItems.js" defer></script>
+  </head>
+  <body onbeforeunload="handleSaveItems()">
+    <h2>Add products</h2>
+    <a href="./index.html">Store</a>
+    <h1>NOA Store</h1>
+    <form onsubmit="addItem(event)">
+      <input type="text" name="name" placeholder="name of product" required />
+      <br />
+      <select name="departement">
+        <option value="women">Women</option>
+        <option value="men">Men</option>
+        <option value="kids">Kids</option>
+        <option value="baby">Baby</option></select
+      ><br />
+      <select name="type">
+        <option value="shirt">Shirts</option>
+        <option value="sweatshirt">Sweatshirt</option>
+        <option value="dress">Dersses</option>
+        <option value="pants">Pants</option>
+        <option value="outwear">Outwear</option>
+        <option value="accesories">Accesories</option></select
+      ><br />
+      <input
+        type="number"
+        name="price"
+        placeholder="price of product"
+        required
+      /><br />
+      <input
+        type="text"
+        name="image"
+        placeholder="link to the image of the product"
+        required
+      /><br />
+      <input type="submit" value="Add Item" />
+    </form>
+    <div class="store"></div>
+  </body>
+</html>
