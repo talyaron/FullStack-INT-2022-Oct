@@ -15,11 +15,12 @@
 </head>
 
 <body>
+ <div class="store">
     <h1>Set product</h1>
-    <a href="./index.html">Store</a>
+    <!-- <a href="./index.html">Store</a> -->
     <form onsubmit="handleAddItem(event)">
         <input type="text" name="name" placeholder="name of product" required>
-        <input type="color" name="color" placeholder="color">
+        <input type="file" name="file" placeholder="image">
         <input type="number" name="price" placeholder="price" required>
         <select name="category">
             <option value="shows">Shows</option>
@@ -30,6 +31,7 @@
         <input type="text" name="sn" placeholder="serial number">
         <input type="submit" value="ADD">
     </form>
+</div>
     <div id="itemsRoot"></div>
 
 </body>

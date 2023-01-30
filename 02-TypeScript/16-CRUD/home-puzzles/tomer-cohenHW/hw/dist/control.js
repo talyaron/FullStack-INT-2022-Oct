@@ -4,12 +4,12 @@ function handleAddItem(ev) {
         ev.preventDefault();
         console.log(ev);
         var name = ev.target.elements.name.value;
-        var color = ev.target.elements.color.value;
+        var img = imgSrc;
         var price = ev.target.elements.price.valueAsNumber;
         var category = ev.target.elements.category.value;
         var size = ev.target.elements.size.valueAsNumber;
         var sn = ev.target.elements.sn.value;
-        items.push(new Item(name, color, price, category, size, sn));
+        items.push(new Item(name, img, price, category, size, sn));
         console.log(items);
         ev.target.reset();
         console.log(name);
@@ -24,8 +24,8 @@ function handleAddItem(ev) {
 function handleChangerColor(ev) {
     try {
         console.log(ev);
-        var color = ev.target.value;
-        document.body.style.backgroundColor = color;
+        var img = ev.target.value;
+        document.body.style.backgroundImage = img;
     }
     catch (error) {
         console.error(error);
@@ -53,7 +53,7 @@ function renderItems(items) {
         var html = items
             .map(function (item) {
             console.log("---" + item.uid + "---");
-            return "\n    <div class=\"item\" style=\"background-color:" + item.color + "\">\n      <h3>" + item.name + "</h3>\n      <div>Price: " + item.price + " <button onclick=\"handleUpdatePrice('" + item.uid + "')\">Update</button></div>\n      <div>Category: " + item.category + "</div>\n      <div>Size: " + item.size + "</div>\n      <div>S/N: " + item.sn + "</div>\n      <button onclick=\"handleDeleteItem('" + item.uid + "')\">Remove</button>\n    </div>\n    ";
+            return "\n       </ul> <img class=\"userImg\" src=\"" + item.img + "\"/>\n      <h3>" + item.name + "</h3>\n      <div>Price: " + item.price + " <button onclick=\"handleUpdatePrice('" + item.uid + "')\">Update</button></div>\n      <div>Category: " + item.category + "</div>\n      <div>Size: " + item.size + "</div>\n      <div>S/N: " + item.sn + "</div>\n      <button onclick=\"handleDeleteItem('" + item.uid + "')\">Remove</button>\n    </div>\n    ";
         })
             .join(" ");
         console.log(html);

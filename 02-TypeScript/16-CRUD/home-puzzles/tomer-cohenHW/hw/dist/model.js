@@ -1,7 +1,7 @@
 var Item = /** @class */ (function () {
-    function Item(name, color, price, category, size, sn) {
+    function Item(name, img, price, category, size, sn) {
         this.name = name;
-        this.color = color;
+        this.img = img;
         this.price = price;
         this.category = category;
         this.size = size;
