@@ -1,5 +1,5 @@
-var _items = getItemsFromStorage();
 renderItems(items, "rootItems");
+var _items = getItemsFromStorage();
 handleSaveItems();
 console.log(items);
 if (_items) {

@@ -1,5 +1,5 @@
-const _items = getItemsFromStorage();
 renderItems(items, "rootItems");
+const _items = getItemsFromStorage();
 handleSaveItems();
 console.log(items);
 
