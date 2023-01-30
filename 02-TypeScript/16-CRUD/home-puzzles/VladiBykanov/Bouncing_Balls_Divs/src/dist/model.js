@@ -41,10 +41,9 @@ var Circle = /** @class */ (function () {
         this.lastY += this.speedDirectionY;
     };
     Circle.prototype.handleClick = function () {
-        var _this = this;
         var newColor = "radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(255, 0, 0, 1) 52%)";
         //you should able to find it by the this keyword
-        var index = circleArray.findIndex(function (circle) { return circle.uid == _this.uid; });
+        var index = circleArray.indexOf(this);
         if (this.color != newColor) {
             tinkAudio.play();
             this.boxShadow = "0 0 30px black";
