@@ -7,7 +7,8 @@ var Balloons = /** @class */ (function () {
     return Balloons;
 }());
 var balloons = [];
-var xPos;
-var yPos;
 var xVel = 1;
 var yVel = 2;
+var score = 0;
+var xPos;
+var yPos;
