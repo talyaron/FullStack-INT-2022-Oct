@@ -1,11 +1,9 @@
-let score = 0;
-let xPos: number;
-let yPos : number;
-const gameWidth = document.querySelector("#game").clientWidth;
-const gameHeight = document.querySelector("#game").clientHeight;
+
+
 
 
 function generateBalloon() {
+ try {
   var balloon = document.createElement("div");
   balloon.classList.add("balloon");
   xPos = Math.random() * (gameWidth - 50);
@@ -17,9 +15,13 @@ function generateBalloon() {
   document.querySelector("#game").appendChild(balloon);
   balloons.push(balloon);
 }
-
+  catch (error) {
+    
+ }
+}
 
 function pop() {
+ try {
   this.style.display = "none";
   score++;
   document.querySelector("#score").innerHTML = score;
@@ -27,11 +29,19 @@ function pop() {
   let index = balloons.indexOf(this);
   balloons.splice(index, 1);
 }
+  catch (error) {
+  console.error(error)
+ }
+}
+
 
 for (let i = 0; i < 20; i++) {
   generateBalloon();
 }
+
+
 function moveBalloons() {
+ try {
   for (let i = 0; i < balloons.length; i++) {
     let balloon = balloons[i];
 
@@ -51,6 +61,7 @@ function moveBalloons() {
     balloon.style.top = yPos + "px";
   }
 }
-
-setInterval(generateBalloon , 2000)
-setInterval(moveBalloons, 50);
+  catch (error) {
+  console.error(error)
+ }
+}
