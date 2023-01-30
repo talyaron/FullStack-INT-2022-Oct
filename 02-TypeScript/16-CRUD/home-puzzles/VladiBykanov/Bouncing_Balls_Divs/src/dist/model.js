@@ -2,6 +2,7 @@ var circleArray = [];
 var explosionArr = [];
 var mouseLocation = { x: 0, y: 0 };
 var Circle = /** @class */ (function () {
+    // give them a type.
     function Circle(lastX, lastY, speedDirectionX, speedDirectionY, radius, color) {
         this.lastX = lastX;
         this.lastY = lastY;
@@ -42,6 +43,7 @@ var Circle = /** @class */ (function () {
     Circle.prototype.handleClick = function () {
         var _this = this;
         var newColor = "radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(255, 0, 0, 1) 52%)";
+        //you should able to find it by the this keyword
         var index = circleArray.findIndex(function (circle) { return circle.uid == _this.uid; });
         if (this.color != newColor) {
             tinkAudio.play();
