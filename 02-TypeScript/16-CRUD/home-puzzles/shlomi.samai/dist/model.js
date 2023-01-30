@@ -7,6 +7,7 @@ class Person {
         this.password = password;
         this.preferedColor = preferedColor;
         this.pictureURL = pictureURL;
+        this.uid = uid();
     }
 }
 const people = [];
