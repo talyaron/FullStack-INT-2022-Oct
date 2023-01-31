@@ -1,0 +1,63 @@
+*::after *::after {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background-color: #333;
+}
+
+.score{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 7vh;
+    color: gray;
+}
+.score > * {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 0 2vh;
+    margin: 1vh 0;
+}
+.score > :first-child {
+    text-align: right;
+    border-right: 1vh solid black ;
+}
+
+
+.paddle{
+    --position: 50;
+
+
+    position: absolute;
+    background-color: white;
+    top: calc(var(--position)* 1vh);
+    transform: translateY(-50%);
+    width: 1vh;
+    height: 13vh;
+}
+
+.paddlePlayer{
+    left: 1vw;
+}
+
+
+.paddlePc{
+    right: 1vw;
+}
+
+
+.ball{
+    --x: 50;
+    --y: 50;
+
+    position: absolute;
+    background-color: white;
+    left: calc(var(--x)* 1vw);
+    top: calc(var(--x)* 1vh);
+    transform: translate(-50% , -50%);
+    border-radius: 50%;
+    width: 2.5vh;
+    height: 2.5vh;
+}
