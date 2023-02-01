@@ -1,296 +1,187 @@
-.target {
-    display: grid;
-    // border: 1px solid black;
-    height: 450px;
-    width: 450px;
-    grid-template-columns: repeat(20, 1fr);
-    grid-template-rows: repeat(20, 1fr);
-    text-align: center;
-    color: aqua;;
-    font-size: 1.2rem;
-
-
-&__white-outer {
-    background-color: white;
-    grid-column: 1 / 21;
-    grid-row: 1 / 21;
-    border: 1px solid black;
-    color: black;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // cursor: none;
 }
 
-&__white-inner {
-    border: 1px solid black;
-    grid-column: 2 / 20;
-    grid-row: 2 / 20;
-    color: black;
+.cursor {
+    position: absolute;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 2;
+    transition: 0.3s transform ease;
+    transform-origin: 100% 100%;
 }
 
-&__black-outer {
-    border: 1px solid black;
-    background-color: black;
-    grid-column: 3 / 19;
-    grid-row: 3 / 19;
-}
-
-&__black-inner {
-    border: 1px solid black;
-    grid-column: 4 / 18;
-    grid-row: 4 / 18;
-    border: 1px solid white;
-}
-
-&__blue-outer {
-    border: 1px solid black;
-    background-color: blue;
-    grid-column: 5 / 17;
-    grid-row: 5 / 17;
-}
-
-&__blue-inner {
-    border: 1px solid black;
-    grid-column: 6 / 16;
-    grid-row: 6 / 16;
-}
-
-&__red-outer {
-    border: 1px solid black;
-    background-color: red;
-    grid-column: 7 / 15;
-    grid-row: 7 / 15;
-}
-
-&__red-inner {
-    border: 1px solid black;
-    grid-column: 8 / 14;
-    grid-row: 8 / 14;
-}
-
-&__gold-outer {
-    border: 1px solid black;
-    background-color: gold;
-    grid-column: 9 / 13;
-    grid-row: 9 / 13;
-}
-
-&__gold-inner {
-    border: 1px solid black;
-    grid-column: 10 / 12;
-    grid-row: 10 / 12;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-
-    // &__cross {
-    //     background-color: black;
-    //     height: 10px;
-    //     position: relative;
-    //     width: 2px;
-    
-    // }
-}
-
-div {
-    border-radius: 50%;
-}
-}
-
-
-// .cross:after {
-    // background-color: black;
-    // content: "";
-    // height: 2px;
-    // left: -4px;
-    // position: absolute;
-    // top: 4px;
-    // width: 10px;
-// }
 
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-image: url(https://static.vecteezy.com/system/resources/thumbnails/003/386/371/original/windy-plain-near-the-jungle-and-rocks-free-video.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 100vh;
-    background-color: #E6EE9C;
+    text-align: center;
 }
 
-
-
-
-
-// body {
-// 	margin: 0;
-// 	cursor: crosshair;
-// }
-
-// .wrap {
-// 	background: yellow;
-// 	height: 100vh;
-// 	width: 100vw;
-// 	position: relative;
-// }
-
-#scoreboard {
-    height: 100px;
-    width: 200px;
-    background: grey;
-    position: absolute;
-    top: 50px;
-    margin-left: 500px;
-}
-
-#scoreboard>span {
-    font-size: 2rem;
-}
-
-#score {
-    font-size: 2rem;
-}
-
-// .target-hider {
-// 	background: red;
-// 	height: 120px;
-// 	width: 750px;
-// 	margin-left: calc(50% - 375px);
-// 	margin-right: calc(50% - 375px);
-// 	margin-top: 500px;
-// 	position: absolute;
-// 	z-index: 10;
-// }
-
-// .target-holder {
-// 	background: brown;
-// 	height: 120px;
-// 	width: 750px;
-// 	margin-left: calc(50% - 375px);
-// 	margin-right: calc(50% - 375px);
-// 	margin-top: 500px;
-// 	position: absolute;
-// 	display: grid;
-// 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-// 	z-index: 10;
-// }
-
-// // @keyframes pop-up {
-// // 	10% {
-// // 		margin-top: -120px;
-// // 	}
-// // 	40% {
-// // 		margin-top: -120px;
-// // 	}
-// // 	50% {
-// // 		margin-top: 0;
-// // 	}
-// // }
-
-.tenth-circle {
-    background: white;
-    height: 118px;
-    width: 118px;
-    border: 1px solid black;
-    border-radius: 50%;
-    margin-left: auto;
-    margin-right: auto;
+.container {
     position: relative;
-    z-index: 1;
-    animation: pop-up 2s linear infinite;
+    height: 100%;
+    overflow: hidden;
+    display: grid;
+    justify-content: center;
+    gap: 3rem;
+
+    button {
+        outline: none;
+        // cursor: none;
+        color: rgb(255, 255, 255);
+        border: 2px solid rgb(192, 14, 26);
+        padding: 15px 45px;
+        font-size: 1.1rem;
+        margin-top: 3em;
+        background: transparent;
+        position: relative;
+        height: 55px;
+        width: 350px;
+        text-align: center;
+        margin-left: 3em;
+    }
+
+    .bloodSpot {
+        position: absolute;
+        height: 50px;
+        z-index: 2;
+        transform: translate(-50%, -50%);
+    }
+
+
+    .target {
+        display: grid;
+        // border: 1px solid black;
+        height: 450px;
+        width: 450px;
+        grid-template-columns: repeat(20, 1fr);
+        grid-template-rows: repeat(20, 1fr);
+        text-align: center;
+        color: aqua;
+        font-size: 1.2rem;
+
+
+        &__white-outer {
+            background-color: white;
+            grid-column: 1 / 21;
+            grid-row: 1 / 21;
+            border: 1px solid black;
+            color: black;
+        }
+
+        &__white-inner {
+            border: 1px solid black;
+            grid-column: 2 / 20;
+            grid-row: 2 / 20;
+            color: black;
+        }
+
+        &__black-outer {
+            border: 1px solid black;
+            background-color: black;
+            grid-column: 3 / 19;
+            grid-row: 3 / 19;
+        }
+
+        &__black-inner {
+            border: 1px solid black;
+            grid-column: 4 / 18;
+            grid-row: 4 / 18;
+            border: 1px solid white;
+        }
+
+        &__blue-outer {
+            border: 1px solid black;
+            background-color: blue;
+            grid-column: 5 / 17;
+            grid-row: 5 / 17;
+        }
+
+        &__blue-inner {
+            border: 1px solid black;
+            grid-column: 6 / 16;
+            grid-row: 6 / 16;
+        }
+
+        &__red-outer {
+            border: 1px solid black;
+            background-color: red;
+            grid-column: 7 / 15;
+            grid-row: 7 / 15;
+        }
+
+        &__red-inner {
+            border: 1px solid black;
+            grid-column: 8 / 14;
+            grid-row: 8 / 14;
+        }
+
+        &__gold-outer {
+            border: 1px solid black;
+            background-color: gold;
+            grid-column: 9 / 13;
+            grid-row: 9 / 13;
+        }
+
+        &__gold-inner {
+            border: 1px solid black;
+            grid-column: 10 / 12;
+            grid-row: 10 / 12;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+
+            // &__cross {
+            //     background-color: black;
+            //     height: 10px;
+            //     position: relative;
+            //     width: 2px;
+
+            // }
+        }
+
+        div {
+            border-radius: 50%;
+        }
+    }
+
+
+    // #scoreboard {
+    //     height: 100px;
+    //     width: 200px;
+    //     background: grey;
+    //     position: absolute;
+    //     top: 50px;
+    //     margin-left: 500px;
+    // }
+
+    #scoreboard>span {
+        font-size: 2rem;
+    }
+
+    #score {
+        font-size: 2rem;
+    }
+
+
+    .tenth-circle {
+        background: white;
+        height: 118px;
+        width: 118px;
+        border: 1px solid black;
+        border-radius: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        z-index: 1;
+        animation: pop-up 2s linear infinite;
+    }
 }
-
-// .ninth-circle {
-// 	background: white;
-// 	height: 106px;
-// 	width: 106px;
-// 	border: 1px solid black;
-// 	border-radius: 50%;
-// 	margin-left: 5px;
-// 	margin-top: 5px;
-// 	position: absolute;
-// }
-
-// .eigth-circle {
-// 	background: black;
-// 	height: 94px;
-// 	width: 94px;
-// 	border: 1px solid black;
-// 	border-radius: 50%;
-// 	margin-left: 5px;
-// 	margin-top: 5px;
-// 	position: absolute;
-// }
-
-// .seventh-circle {
-// 	background: black;
-// 	height: 82px;
-// 	width: 82px;
-// 	border: 1px solid white;
-// 	border-radius: 50%;
-// 	margin-left: 5px;
-// 	margin-top: 5px;
-// 	position: absolute;
-// }
-
-// .sixth-circle {
-// 	background: lightblue;
-// 	height: 70px;
-// 	width: 70px;
-// 	border: 1px solid black;
-// 	border-radius: 50%;
-// 	margin-left: 5px;
-// 	margin-top: 5px;
-// 	position: absolute;
-// }
-
-// .fifth-circle {
-// 	background: lightblue;
-// 	height: 58px;
-// 	width: 58px;
-// 	border: 1px solid black;
-// 	border-radius: 50%;
-// 	margin-left: 5px;
-// 	margin-top: 5px;
-// 	position: absolute;
-// }
-
-// .fourth-circle {
-// 	background: red;
-// 	height: 46px;
-// 	width: 46px;
-// 	border: 1px solid black;
-// 	border-radius: 50%;
-// 	margin-left: 5px;
-// 	margin-top: 5px;
-// 	position: absolute;
-// }
-
-// .third-circle {
-// 	background: red;
-// 	height: 34px;
-// 	width: 34px;
-// 	border: 1px solid black;
-// 	border-radius: 50%;
-// 	margin-left: 5px;
-// 	margin-top: 5px;
-// 	position: absolute;
-// }
-
-// .second-circle {
-// 	background: yellow;
-// 	height: 22px;
-// 	width: 22px;
-// 	border: 1px solid black;
-// 	border-radius: 50%;
-// 	margin-left: 5px;
-// 	margin-top: 5px;
-// 	position: absolute;
-// }
-
-// .bullseye {
-// 	background: yellow;
-// 	height: 10px;
-// 	width: 10px;
-// 	border: 1px solid black;
-// 	border-radius: 50%;
-// 	margin-left: 5px;
-// 	margin-top: 5px;
-// 	position: absolute;
-// }
