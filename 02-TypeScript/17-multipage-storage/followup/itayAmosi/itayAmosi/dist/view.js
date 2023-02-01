@@ -1,8 +1,4 @@
-var items = [];
-function handleSaveItems() {
-    console.log('save items');
-    localStorage.setItem('items', JSON.stringify(items));
-}
+var itemsRoot = document.querySelector('#itemsRoot');
 function getItemsFromStorage() {
     try {
         //get items from storage
@@ -10,9 +6,9 @@ function getItemsFromStorage() {
         if (!itemsString)
             throw new Error("Couldn't find items in storage");
         //convert to array
-        var items_1 = JSON.parse(itemsString);
-        return items_1;
-        console.log(items_1);
+        var items = JSON.parse(itemsString);
+        return items;
+        console.log(items);
     }
     catch (error) {
         console.error(error);
