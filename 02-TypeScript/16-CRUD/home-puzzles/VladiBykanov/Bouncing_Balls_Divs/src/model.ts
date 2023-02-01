@@ -54,13 +54,8 @@ class Circle {
     const newColor =
       "radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgba(255, 0, 0, 1) 52%)";
 
-<<<<<<< HEAD
-    //you should able to find it by the this keyword
-    const index = circleArray.findIndex((circle) => circle.uid == this.uid);
-=======
       //you should able to find it by the this keyword
     const index = circleArray.indexOf(this)
->>>>>>> main
     if (this.color != newColor) {
       tinkAudio.play();
       this.boxShadow = "0 0 30px black";

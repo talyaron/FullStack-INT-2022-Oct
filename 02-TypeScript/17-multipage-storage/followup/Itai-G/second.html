@@ -6,19 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Second</title>
-    <script src="./dist/second.js" defer></script>
+    <script src="./dist/control.js"></script>
     <script src="./dist/model.js" defer></script>
     <script src="./dist/index.js" defer></script>
+    <script src="./dist/second.js" defer></script>
 </head>
 
-<<<<<<< HEAD:02-TypeScript/17-multipage-storage/followup/basic/second.html
 <body onbeforeunload="handleSaveItems()">
-=======
-<body onbeforeunload="getItemsFromStorage()">
->>>>>>> 7c7a33c85d790276c299029578dac81d67746c3d:02-TypeScript/17-multipage-storage/Amit/second.html
     <h1>Second</h1>
-    <form>
-        <input type="text" name="text" id="shalom">
+    <form onsubmit="handleAddItem(event)">
+        <input type="text" name="text" id="name">
         <input type="submit" value="ADD">
     </form>
     <a href="./index.html">Go to main</a>
