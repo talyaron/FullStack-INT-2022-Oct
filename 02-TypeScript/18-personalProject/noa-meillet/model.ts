@@ -92,6 +92,7 @@ const clubCardsList: ClubCards[] = [
 
 //class for details about each user
 class Users {
+  clubCards?: ClubCards[] | undefined;
   constructor(
     public userId: string,
     public userPassword: string,
@@ -99,5 +100,13 @@ class Users {
     public dateOfBirth: string,
     public email: string,
     public clubCard?: ClubCards[]
-  ) {}
+  ) {
+    this.clubCard = this.getClubCardsForUser(this.userId);
+  }
+
+  getClubCardsForUser(id){
+    if (clubCardsList.length==0)
+      return undefined;
+    return clubCardsList.filter(user => user.userId == id);
+  }
 }
