@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Club Cards- Log In</title>
     <link rel="shortcut icon" href="./image/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./dist/style.css" />
+    <link rel="stylesheet" href="./dist/logIn.css" />
     <script src="./dist/view.js" defer></script>
     <script src="./dist/helpers.js" defer></script>
     <script src="./dist/model.js" defer></script>
@@ -14,7 +14,7 @@
     <script src="./dist/logIn.js" defer></script>
   </head>
   <body>
-    <form class="form">
+    <form class="form" onsubmit="goToUserProfile()">
       <input type="text" name="userId" id="idInput" placeholder="Enter your ID number"/>
       <br />
       <input type="password" name="userPassword" id="passwordInput" placeholder="enter your password"/>

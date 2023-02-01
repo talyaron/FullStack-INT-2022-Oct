@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,145 +15,27 @@
     <script src="./dist/main.js" defer></script>
     <link rel="stylesheet" href="./dist/second-style.css">
 </head>
+
 <body>
-    <div id="target" class="target">
-        <div class="target__white-outer hit">1</div>
-        <div class="target__black-outer hit">3</div>
-        <div class="target__white-inner hit">2</div>
-        <div class="target__black-inner hit">4</div>
-        <div class="target__blue-outer hit">5</div>
-        <div class="target__blue-inner hit">6</div>
-        <div class="target__red-outer hit">7</div>
-        <div class="target__red-inner hit">8</div>
-        <div class="target__gold-outer hit">9</div>
-        <div class="target__gold-inner hit">
-          <div class="target__gold-inner__cross hit">X</div>
-        </div>
-      </div>
-
-
-
-        <div id="scoreboard">
-            <span>score: </span>
-            <span id="score"></span>
-            <br>
-            <span>shots:</span>
-            <span id="shot-count"></span>
-        </div>
-        <!-- <div class="target-holder"> -->
-            <!-- <div class="target">
-                <div class="tenth-circle">
-                    <div class="ninth-circle">
-                        <div class="eigth-circle">
-                            <div class="seventh-circle">
-                                <div class="sixth-circle">
-                                    <div class="fifth-circle">
-                                        <div class="fourth-circle">
-                                            <div class="third-circle">
-                                                <div class="second-circle">
-                                                    <div class="bullseye">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="target">
-                <div class="tenth-circle">
-                    <div class="ninth-circle">
-                        <div class="eigth-circle">
-                            <div class="seventh-circle">
-                                <div class="sixth-circle">
-                                    <div class="fifth-circle">
-                                        <div class="fourth-circle">
-                                            <div class="third-circle">
-                                                <div class="second-circle">
-                                                    <div class="bullseye">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="target">
-                <div class="tenth-circle">
-                    <div class="ninth-circle">
-                        <div class="eigth-circle">
-                            <div class="seventh-circle">
-                                <div class="sixth-circle">
-                                    <div class="fifth-circle">
-                                        <div class="fourth-circle">
-                                            <div class="third-circle">
-                                                <div class="second-circle">
-                                                    <div class="bullseye">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="target">
-                <div class="tenth-circle">
-                    <div class="ninth-circle">
-                        <div class="eigth-circle">
-                            <div class="seventh-circle">
-                                <div class="sixth-circle">
-                                    <div class="fifth-circle">
-                                        <div class="fourth-circle">
-                                            <div class="third-circle">
-                                                <div class="second-circle">
-                                                    <div class="bullseye">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="target">
-                <div class="tenth-circle">
-                    <div class="ninth-circle">
-                        <div class="eigth-circle">
-                            <div class="seventh-circle">
-                                <div class="sixth-circle">
-                                    <div class="fifth-circle">
-                                        <div class="fourth-circle">
-                                            <div class="third-circle">
-                                                <div class="second-circle">
-                                                    <div class="bullseye">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="container">
+        <img src="./images/blood-spot.png" alt="blood-spot" class="bloodSpot">
+        <!-- <img src="./images/crosshair.png" alt="crosshair" class="crosshair"> -->
+        <button type="button">START GAME</button>
+        <div onclick="handleDisplayImage(event)" id="target" class="target">
+            <div class="target__white-outer hit">1</div>
+            <div class="target__black-outer hit">3</div>
+            <div class="target__white-inner hit">2</div>
+            <div class="target__black-inner hit">4</div>
+            <div class="target__blue-outer hit">5</div>
+            <div class="target__blue-inner hit">6</div>
+            <div class="target__red-outer hit">7</div>
+            <div class="target__red-inner hit">8</div>
+            <div class="target__gold-outer hit">9</div>
+            <div class="target__gold-inner hit">
+                <div class="target__gold-inner__cross hit">X</div>
             </div>
         </div>
-        <div class="target-hider"></div>
-    </div> -->
-
+    </div>
 </body>
+
 </html>
