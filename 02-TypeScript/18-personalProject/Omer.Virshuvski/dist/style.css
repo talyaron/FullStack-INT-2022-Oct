@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card, .test {
+  position: relative;
+  max-width: 200px;
+}
+.card img, .test img {
+  width: 100%;
+  aspect-ratio: 1/1;
+}
