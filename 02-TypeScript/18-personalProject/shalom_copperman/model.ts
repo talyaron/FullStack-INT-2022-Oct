@@ -22,3 +22,7 @@ class organization {
     }
 }
 const organizations: organization[]=[];
+organizations.push(new organization('latet','charity',50));
+organizations.push(new organization('yad sara','charity',120));
+organizations.push(new organization('yad vashem','charity',78));
+organizations.push(new organization('libi','charity',45));
