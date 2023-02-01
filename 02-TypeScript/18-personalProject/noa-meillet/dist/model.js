@@ -91,6 +91,12 @@ var Users = /** @class */ (function () {
         this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.clubCard = clubCard;
+        this.clubCard = this.getClubCardsForUser(this.userId);
     }
+    Users.prototype.getClubCardsForUser = function (id) {
+        if (clubCardsList.length == 0)
+            return undefined;
+        return clubCardsList.filter(function (user) { return user.userId == id; });
+    };
     return Users;
 }());
