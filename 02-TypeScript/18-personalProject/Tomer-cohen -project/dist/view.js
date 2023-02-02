@@ -7,10 +7,10 @@ function getReviewsFromStorage() {
         //convert to array
         var reviews = JSON.parse(reviewsString);
         return reviews;
-        console.log(reviews);
+        //   console.log(reviews);
     }
     catch (error) {
-        console.error(error);
+        //   console.error(error);
         return undefined;
     }
 }
@@ -22,7 +22,7 @@ function renderBookOptions() {
         return "<select name=\"bookId\">" + optionsHTML + "</select>";
     }
     catch (error) {
-        console.error(error);
+        //   console.error(error);
         return '';
     }
 }
