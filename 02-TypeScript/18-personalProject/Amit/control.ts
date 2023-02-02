@@ -42,129 +42,6 @@ function deleteLetterFromCell(): void { //clicking BACK
 }
 
 
-
-// function enter(): void { //clicking ENTER
-//     try {
-
-//         if (linesArray[currentLine][LAST_CELL_IN_LINE].innerText !== "") {
-//             let correctLetters: number = 0
-
-//             for (let i = WORD_LENGTH-1; i >= 0; i--) {
-
-//                 const checkedLetter = linesArray[currentLine][i];
-
-//                 if (solution?.includesLetter(checkedLetter.innerText)) {
-
-//                     if (checkedLetter.innerText === solution.name.toUpperCase()[i]) {
-//                         checkedLetter.style.backgroundColor = "orange"; //exact spot
-//                         correctLetters++
-//                         if (correctLetters === WORD_LENGTH) alert("you win!"); // change to animation with 2sec delay//
-//                     } else {
-//                         if (solution?.letterRepetitions(checkedLetter.innerText) === 1) {
-
-//                             //check if the checked letter wasn't painted blue/orange earlier
-//                             if (linesArray[currentLine][1] || linesArray[currentLine][2] || linesArray[currentLine][3] || linesArray[currentLine][4]) {
-//                                 if (
-//                                     ((linesArray[currentLine][1].style.backgroundColor === "blue" || "orange") && checkedLetter.innerText === linesArray[currentLine][1].innerText) ||
-//                                     ((linesArray[currentLine][2].style.backgroundColor === "blue" || "orange") && checkedLetter.innerText === linesArray[currentLine][2].innerText) ||
-//                                     ((linesArray[currentLine][3].style.backgroundColor === "blue" || "orange") && checkedLetter.innerText === linesArray[currentLine][3].innerText) ||
-//                                     ((linesArray[currentLine][4].style.backgroundColor === "blue" || "orange") && checkedLetter.innerText === linesArray[currentLine][4].innerText)
-//                                 ) {
-//                                     checkedLetter.style.backgroundColor = "blue";
-
-//                                 } else{
-//                                     checkedLetter.style.backgroundColor = "gray";
-//                                 }
-//                             }
-//                         }
-//                         if (solution?.letterRepetitions(checkedLetter.innerText) === 2) {
-
-//                             checkedLetter.style.backgroundColor = "blue";
-//                         }
-//                         if (solution?.letterRepetitions(checkedLetter.innerText) === 3) {
-//                             checkedLetter.style.backgroundColor = "blue";
-//                         }
-
-//                     }
-
-//                 }
-//             }
-//             currentLine++;
-//             currentCell = linesArray[currentLine][0]; // goes to the next line
-//         }
-
-//     } catch (error: unknown) {
-//         console.error(error);
-//     }
-// }
-
-
-
-
-
-
-
-
-
-
-
-// function enter(): void { //clicking ENTER
-//     try {
-
-//         if (linesArray[currentLine][LAST_CELL_IN_LINE].innerText !== "") { //user can click ENTER only if she typed a letter in the last cell 
-//             let correctLetters: number = 0
-
-//             // for(let i=0; i<1; i++){}
-//             if (linesArray[currentLine][0].innerText === solution?.name.toUpperCase()[0]) { //the 1st letter is on the exact spot
-//                 linesArray[currentLine][0].style.backgroundColor = "orange";
-//                 correctLetters++
-//             } else if (solution?.includesLetter(linesArray[currentLine][0].innerText)) {
-//                 linesArray[currentLine][0].style.backgroundColor = "blue";
-//             } else {
-//                 linesArray[currentLine][0].style.backgroundColor = "gray";
-//             }
-
-//             if (linesArray[currentLine][1].innerText === solution?.name.toUpperCase()[1]) { //the  2nd letter is on the exact spot
-//                 linesArray[currentLine][1].style.backgroundColor = "orange";
-//                 correctLetters++
-//             } else if (
-//                 (solution?.includesLetter(linesArray[currentLine][1].innerText)) &&
-//                 (solution?.letterRepetitions(linesArray[currentLine][1].innerText) === 1)
-//             ) {
-//                 linesArray[currentLine][1].style.backgroundColor = "blue";
-//             } else {
-//                 linesArray[currentLine][1].style.backgroundColor = "gray";
-//             }
-
-
-//             if (linesArray[currentLine][2].innerText === solution?.name.toUpperCase()[2]) { //the 3rd letter is on the exact spot
-//                 linesArray[currentLine][2].style.backgroundColor = "orange";
-//                 correctLetters++
-//             } else if (
-//                 (solution?.includesLetter(linesArray[currentLine][2].innerText)) &&
-//                 (solution?.letterRepetitions(linesArray[currentLine][2].innerText))
-//             ) {
-//                 linesArray[currentLine][1].style.backgroundColor = "blue";
-//             } else {
-//                 linesArray[currentLine][1].style.backgroundColor = "gray";
-//             }
-
-
-//             // if (correctLetters === WORD_LENGTH) alert("you win!"); // change to animation with 2sec delay//
-
-
-
-//             currentLine++;
-//             currentCell = linesArray[currentLine][0]; // goes to the next line
-//         }
-
-//     } catch (error: unknown) {
-//         console.error(error);
-//     }
-// }
-
-
-
 function enter(): void { //clicking ENTER
     try {
 
@@ -181,34 +58,68 @@ function enter(): void { //clicking ENTER
 
             const guess = wordsArray.find(({ name }) => name === guessName);
 
+            const foundLetters: string[] = [];
+
             if (guess) {
 
                 for (let i = 0; i < WORD_LENGTH; i++) {
 
                     const checkedLetter = linesArray[currentLine][i];
 
+                    if (solution?.includesLetter(checkedLetter.innerText)) {
 
-                    if (solution?.letterRepetitions(checkedLetter.innerText) === 1) { //each letter appears once in the solution
-                        if (guess?.letterRepetitions(checkedLetter.innerText) === 1) {
-                            if (solution?.includesLetter(checkedLetter.innerText)) {
-                                checkedLetter.style.backgroundColor = "blue";
+                        if (checkedLetter.innerText === solution.name.toUpperCase()[i]) { //exact spot
+                            foundLetters.push(checkedLetter.innerText);
+                            checkedLetter.style.backgroundColor = "orange";
 
-                                if (checkedLetter.innerText === solution.name.toUpperCase()[i]) {
-                                    checkedLetter.style.backgroundColor = "orange"; //exact spot
-                                    correctLetters++
-                                    if (correctLetters === WORD_LENGTH) alert("you win!"); // change to animation with 2sec delay//
+                            const keyOFCheckedLetter: HTMLDivElement | null = document.querySelector(`#${checkedLetter.innerText}`);
+                            if (keyOFCheckedLetter){
+                              keyOFCheckedLetter.style.backgroundColor = "orange";  
+                              keyOFCheckedLetter.style.borderColor = "orange";  
+                            } 
+                            correctLetters++
+                            if (correctLetters === WORD_LENGTH) alert("you win!"); // change to animation with 2sec delay//
+                        } else {
+                            const foundLettersAsString: string = foundLetters.join("");
+                            const foundLettersAsWord = new Word(foundLettersAsString);
+                         
+                            if (foundLettersAsWord && solution) {
+                                if ((foundLettersAsWord.letterRepetitions(checkedLetter.innerText)) < (solution.letterRepetitions(checkedLetter.innerText))) {
+                                    foundLetters.push(checkedLetter.innerText);
+                                    checkedLetter.style.backgroundColor = "blue";
+
+                                    const keyOFCheckedLetter: HTMLDivElement | null = document.querySelector(`#${checkedLetter.innerText}`);
+                                    if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "orange")) {
+                                        keyOFCheckedLetter.style.backgroundColor = "blue";
+                                        keyOFCheckedLetter.style.borderColor = "blue";
+                                    }
+                                } else {
+                                    checkedLetter.style.backgroundColor = "black";
+
+                                    const keyOFCheckedLetter: HTMLDivElement | null = document.querySelector(`#${checkedLetter.innerText}`);
+                                    if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "orange" || "blue")) {
+                                        keyOFCheckedLetter.style.backgroundColor = "black";
+                                        keyOFCheckedLetter.style.borderColor = "gray";
+                                    }
                                 }
                             }
-                        } //else
+                        }
+                    } else {
+                        checkedLetter.style.backgroundColor = "black";
+                        const keyOFCheckedLetter: HTMLDivElement | null = document.querySelector(`#${checkedLetter.innerText}`);
+                        if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "orange" || "blue")) {
+                            keyOFCheckedLetter.style.backgroundColor = "black";
+                        }
                     }
-
-
                 }
-
                 currentLine++;
+
                 currentCell = linesArray[currentLine][0]; // goes to the next line
-            } else (alert("the word is not on our dictionary yet"));
+            } else {
+                (alert("sorry, this word is not on our dictionary yet"));
+            }
         }
+
     } catch (error: unknown) {
         console.error(error);
     }
@@ -217,14 +128,7 @@ function enter(): void { //clicking ENTER
 
 
 
-
-
-
-
-
-
-
-function randomSolutionSelector(): Word | undefined { //return word
+function randomSolutionSelector(): Word | undefined {
     try {
         const randomIndex = getRandomInt(0, wordsArray.length - 1);
         if (!randomIndex) throw new Error("random index not found");
@@ -237,5 +141,6 @@ function randomSolutionSelector(): Word | undefined { //return word
         console.error(error);
         return undefined;
     }
-
 }
+
+
