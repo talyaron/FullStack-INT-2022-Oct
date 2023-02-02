@@ -33,5 +33,7 @@ body a {
   color: aqua;
 }
 body a:hover {
+  transition-property: color;
+  transition-duration: 1s;
   color: #f20ed4;
 }
