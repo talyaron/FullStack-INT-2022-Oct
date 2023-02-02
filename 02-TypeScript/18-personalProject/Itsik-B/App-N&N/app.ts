@@ -6,8 +6,24 @@ function startApp(){
   const firstName = (JSON.parse(localStorage.getItem("userName")!))
    const password = (JSON.parse  (localStorage.getItem("userPass")!));
  
-     welcomeH1.textContent = "welcome " + firstName;
-
+     welcomeH1.textContent = "welcome "+firstName;
+      renderNav()
     
+
+}
+
+function renderNav(){
+
+   const newc = document.querySelector(".newC")as HTMLDivElement;
+   const dairy = document.querySelector(".dairy")as HTMLDivElement;
+   const clinet = document.querySelector(".clinet")as HTMLDivElement;
+   const mlay = document.querySelector(".mlay")as HTMLDivElement;
+   const sapak = document.querySelector(".spak")as HTMLDivElement;
+   const tazrim = document.querySelector(".todo")as HTMLDivElement;
+   
+  // reder all the page from here
+
+  
+
 
 }
