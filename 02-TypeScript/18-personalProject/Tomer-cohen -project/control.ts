@@ -5,7 +5,7 @@ const userReviews:any= document.querySelector(`.userReview`)
 //מרנדרת על המסך את כל האובייקטים
 
 booksContiner.innerHTML = renderBooks(books);
-function renderreviews(reviews:UserReview[]):string{
+function renderReviews(reviews:UserReview[]):string{
     try {
         if(!reviews || !Array.isArray(reviews))
         throw new Error(`books is not an arry`);
@@ -19,7 +19,7 @@ function renderreviews(reviews:UserReview[]):string{
             <div><p>${reviews.stars}</p></div>
             </div> `;
         })
-        .join(``);
+        .join(` `);
         console.log(html);
         // const element = document.querySelector(`#${renderElementId}`);
         return html;
@@ -33,16 +33,16 @@ function addReview(ev:any){
     try {
         ev.preventDefault();
         const userName=ev.target.elements.userName.value;
-        const NameOfBook= ev.target.element.NameOfBook.value;
         const review= ev.target.elements.review.value;
         const stars= ev.target.elements.stars.value;
         
-        reviews.push(new UserReview(userName,NameOfBook,review,stars))
+        reviews.push(new UserReview(userName,review,stars))
         console.log(reviews);
         ev.target.reset()
         
         if(!userReviews) throw new Error(`userReviews is null`);
-        userReviews.innerHTML = renderreviews(reviews);
+        userReviews.innerHTML = renderReviews(reviews);
+
     } catch (error) {
         console.error(error);
     }
@@ -54,15 +54,16 @@ try {
 
     const html= books
     .map((book)=>{
+        console.log(renderReviews(book.reviews))
         return`
         <div class="box">
         <img  src="${book.picOfBook}" alt="">
         <div><h1>${book.name}</h1></div>
         <div><p>${book.summary}</p></div>
-        <div>${renderreviews(book.reviews)}</div>
+        <div class='box__review'>${renderReviews(book.reviews)}</div>
         </div> `;
     })
-    .join(``);
+    .join(` `);
     console.log(html);
     return html;
 } catch (error) {

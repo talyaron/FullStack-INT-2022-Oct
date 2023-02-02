@@ -9,9 +9,8 @@ var Book = /** @class */ (function () {
     return Book;
 }());
 var UserReview = /** @class */ (function () {
-    function UserReview(userName, NameOfBook, review, stars) {
+    function UserReview(userName, review, stars) {
         this.userName = userName;
-        this.NameOfBook = NameOfBook;
         this.review = review;
         this.stars = stars;
         this.uid = uid();

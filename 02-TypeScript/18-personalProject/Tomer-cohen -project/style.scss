@@ -41,8 +41,10 @@ body{
             width: 20vw;
             height: 20vh;
         }
-        p{
-            font-size: large;
+        &__review{
+            width: 20vw;
+            height: 10vh;
+            color: black;
         }
     }
 }
