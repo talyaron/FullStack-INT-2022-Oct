@@ -21,11 +21,12 @@ body{
     width: 100vw;
     height: 100vh;
     margin: 50px 0px;
+    position: relative;
    
  }
  nav li a{
     text-decoration: none;
-    font-size: 24px;
+    font-size: 26px;
     padding: 30px;
   
   
@@ -43,5 +44,17 @@ body{
     transition-duration: 1s;
    color:rgb(242, 14, 212);
     
+ }
+ .box{
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  width: 50vw;
+  margin-right: 250px;
+border: 3px solid black;
+ }
+
+ .newC, .dairy, .clinet, .mlay, .sapak, #todo{
+   display: none;
  }
 }
