@@ -41,6 +41,8 @@ body {
   width: 20vw;
   height: 20vh;
 }
-.booksContiner .box p {
-  font-size: large;
+.booksContiner .box__review {
+  width: 20vw;
+  height: 10vh;
+  color: black;
 }

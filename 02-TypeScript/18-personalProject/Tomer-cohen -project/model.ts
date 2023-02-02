@@ -13,7 +13,6 @@ class UserReview{
     uid:string;
     constructor(
         public userName:string,
-        public NameOfBook:string,
         public review:string,
         public stars:string,
     ){

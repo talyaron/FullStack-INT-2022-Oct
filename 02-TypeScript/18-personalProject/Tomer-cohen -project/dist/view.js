@@ -14,3 +14,15 @@ function getReviewsFromStorage() {
         return undefined;
     }
 }
+function renderBookOptions() {
+    try {
+        if (!books)
+            throw new Error("Couldnt find books");
+        var optionsHTML = books.map(function (book) { return "<option value=" + book.uid + ">" + book.name + "</option>"; });
+        return "<select name=\"bookId\">" + optionsHTML + "</select>";
+    }
+    catch (error) {
+        console.error(error);
+        return '';
+    }
+}
