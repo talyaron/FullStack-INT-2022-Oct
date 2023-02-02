@@ -1,7 +1,7 @@
 document.body.addEventListener('change', function () {
-    render(".card");
+    render(".main");
 });
 document.body.addEventListener('load', function () {
-    render(".card");
+    render(".main");
 });
-renderStore(".card");
+renderStore(".main");

@@ -12,3 +12,9 @@ function getItems() {
         return null;
     }
 }
+var ham = document.querySelector(".top__hamburger");
+var hamTop = document.querySelector(".top__hamburger__top");
+var hamMid = document.querySelector(".top__hamburger__mid");
+var hamBottom = document.querySelector(".top__hamburger__bottom");
+var menu = document.querySelector(".menu");
+var change = true;

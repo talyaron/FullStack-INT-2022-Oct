@@ -15,7 +15,7 @@ try {
         console.log(items);
         addItems(items);
         render(".test");
-        renderStore(".card");
+        renderStore(".main");
         ev.target.reset();
     });
 }

@@ -1,7 +1,7 @@
 document.body.addEventListener('change', () => {
-    render(".card")
+    render(".main")
 });
 document.body.addEventListener('load', () => {
-    render(".card")
+    render(".main")
 });
-renderStore(".card")
+renderStore(".main")

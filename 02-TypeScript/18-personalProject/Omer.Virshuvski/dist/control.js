@@ -22,7 +22,7 @@ function render(ele) {
         if (!items)
             throw new Error("Items empty");
         var html = items.map(function (item) {
-            return "\n            <div class=\"itemCard\">\n                <h2>" + item.name + "</h2>\n                <h4>Price: " + item.price + "</h4>\n                <h4>Size: " + item.size + "</h4>\n                <h4>Type: " + item.type + "</h4>\n                <img src=\"" + item.img + "\" alt=\"cart\">\n                <button onclick=\"deleteProduct('" + item.id + "')\">Delete</button>\n            </div>\n            ";
+            return "\n            <div class=\"main__card\">\n                <h2>" + item.name + "</h2>\n                <h4>Price: " + item.price + "</h4>\n                <h4>Size: " + item.size + "</h4>\n                <h4>Type: " + item.type + "</h4>\n                <img src=\"" + item.img + "\" alt=\"cart\">\n                <button onclick=\"deleteProduct('" + item.id + "')\">Delete</button>\n            </div>\n            ";
         }).join("\n");
         console.log(html);
         element.innerHTML = html;
@@ -45,7 +45,7 @@ function renderStore(ele) {
             throw new Error("Items empty");
         }
         var html = items.map(function (item) {
-            return "\n            <div class=\"itemCard\">\n                <h2>" + item.name + "</h2>\n                <h4>Price: " + item.price + "</h4>\n                <h4>Size: " + item.size + "</h4>\n                <h4>Type: " + item.type + "</h4>\n                <img src=\"" + item.img + "\" alt=\"cart\">\n            </div>\n            ";
+            return "\n            <div class=\"main__card\">\n                <h2>" + item.name + "</h2>\n                <h4>Price: " + item.price + "</h4>\n                <h4>Size: " + item.size + "</h4>\n                <h4>Type: " + item.type + "</h4>\n                <img src=\"" + item.img + "\" alt=\"cart\">\n            </div>\n            ";
         }).join("\n");
         console.log(html);
         element.innerHTML = html;
@@ -65,7 +65,7 @@ function deleteProduct(id) {
         temp.splice(i, 1);
         localStorage.setItem("items", JSON.stringify(temp));
         render(".test");
-        render(".card");
+        render(".main__card");
     }
     catch (error) {
         console.error(error);
@@ -74,3 +74,26 @@ function deleteProduct(id) {
 function hi(id, ele) {
     document.body.style.backgroundColor = "black";
 }
+ham.addEventListener('click', function () {
+    try {
+        if (!hamTop || !hamMid || !hamBottom || !menu)
+            throw new Error("No elements");
+        if (change) {
+            hamTop.classList.add("closeTop");
+            hamMid.classList.add("closeMid");
+            hamBottom.classList.add("closeBottom");
+            menu.classList.add("menuShow");
+            change = false;
+        }
+        else {
+            hamTop.classList.remove("closeTop");
+            hamMid.classList.remove("closeMid");
+            hamBottom.classList.remove("closeBottom");
+            menu.classList.remove("menuShow");
+            change = true;
+        }
+    }
+    catch (error) {
+        console.error(error);
+    }
+});

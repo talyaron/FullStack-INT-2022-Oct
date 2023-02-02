@@ -12,3 +12,9 @@ function getItems() {
         
     }
 }
+const ham = <HTMLElement>document.querySelector(".top__hamburger");
+const hamTop = <HTMLElement>document.querySelector(".top__hamburger__top");
+const hamMid = <HTMLElement>document.querySelector(".top__hamburger__mid");
+const hamBottom = <HTMLElement>document.querySelector(".top__hamburger__bottom");
+const menu = <HTMLElement>document.querySelector(".menu");
+let change = true;
