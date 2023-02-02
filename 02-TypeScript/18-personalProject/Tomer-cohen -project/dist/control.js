@@ -41,9 +41,10 @@ function renderreview(reviews) {
 function addReview(ev) {
     try {
         ev.preventDefault();
+        var userName = ev.target.elements.userName.value;
         var review = ev.target.elements.review.value;
         var stars = ev.target.elements.stars.value;
-        reviews.push(new UserReview(review, stars));
+        reviews.push(new UserReview(userName, review, stars));
         console.log(reviews);
         ev.target.reset();
         if (!userReviews)
@@ -53,4 +54,8 @@ function addReview(ev) {
     catch (error) {
         console.error(error);
     }
+}
+function saveReview() {
+    console.log("save reviews");
+    localStorage.setItem("reviews", JSON.stringify(reviews));
 }

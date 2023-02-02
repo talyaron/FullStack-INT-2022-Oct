@@ -52,20 +52,22 @@ function renderreview(reviews:UserReview[]):string{
 function addReview(ev:any){
     try {
         ev.preventDefault();
-
+        const userName=ev.target.elements.userName.value;
         const review= ev.target.elements.review.value;
         const stars= ev.target.elements.stars.value;
 
-        reviews.push(new UserReview(review,stars))
+        reviews.push(new UserReview(userName,review,stars))
         console.log(reviews);
         ev.target.reset()
 
         if(!userReviews) throw new Error(`userReviews is null`);
         userReviews.innerHTML = renderreview(reviews);
-
     } catch (error) {
         console.error(error);
     }
 }
-
+function saveReview() {
+    console.log(`save reviews`)
+    localStorage.setItem(`reviews`,JSON.stringify(reviews))
+}
 
