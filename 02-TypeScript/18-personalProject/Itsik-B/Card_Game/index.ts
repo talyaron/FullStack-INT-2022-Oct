@@ -2,6 +2,13 @@ let counter = 0;
 let firstCard = "";
 let secondCard = "";
 let cards = document.getElementsByClassName('card')!as HTMLCollectionOf<HTMLElement>
+
+setInterval(()=>{
+
+},1000)
+
+
+
 let cardsImg   = [
  "./images/bibi.jpeg",
  "./images/bibi.jpeg",
