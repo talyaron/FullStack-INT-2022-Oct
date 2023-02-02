@@ -8,5 +8,34 @@ body{
     font-family: 'Montserrat', sans-serif;
     height:100vh;
    
+ .targ{
+    display: flex;
+    justify-content: center;
+    color: rgb(242, 14, 212);
+    font-weight: bold;
+    
+ }
+ nav{
+    width: 100vw;
+    height: 100vh;
+    margin: 50px 0px;
+   
+ }
+ nav li a{
+    text-decoration: none;
+    font-size: 24px;
+    padding: 30px;
+  
+  
+ } 
 
+ li{
+    list-style-type: none;
+ }
+ a{
+    color: aqua;
+ }
+ a:hover{
+    color:rgb(242, 14, 212);
+ }
 }

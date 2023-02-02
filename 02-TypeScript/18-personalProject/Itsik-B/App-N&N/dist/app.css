@@ -7,3 +7,28 @@ body {
   font-family: "Montserrat", sans-serif;
   height: 100vh;
 }
+body .targ {
+  display: flex;
+  justify-content: center;
+  color: #f20ed4;
+  font-weight: bold;
+}
+body nav {
+  width: 100vw;
+  height: 100vh;
+  margin: 50px 0px;
+}
+body nav li a {
+  text-decoration: none;
+  font-size: 24px;
+  padding: 30px;
+}
+body li {
+  list-style-type: none;
+}
+body a {
+  color: aqua;
+}
+body a:hover {
+  color: #f20ed4;
+}
