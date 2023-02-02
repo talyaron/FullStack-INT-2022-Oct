@@ -9,7 +9,18 @@ var Product = /** @class */ (function () {
         this.size = size;
         this.id = uid();
         if (!img) {
-            this.img = Product.img;
+            if (this.type = "Hat") {
+                this.img = Product.imgHat;
+            }
+            else if (this.type = "Pants") {
+                this.img = Product.imgPants;
+            }
+            else if (this.type = "Shirt") {
+                this.img = Product.imgShirt;
+            }
+            else {
+                this.img = Product.img;
+            }
         }
         else {
             this.img = img;
@@ -43,5 +54,8 @@ var Product = /** @class */ (function () {
         this.size = size;
     };
     Product.img = "./photos/cart.png";
+    Product.imgShirt = "./photos/shirt.png";
+    Product.imgPants = "./photos/pants.png";
+    Product.imgHat = "./photos/hat.png";
     return Product;
 }());

@@ -11,8 +11,28 @@
     <script src="./dist/view.js" defer></script>
     <script src="./dist/mainPage.js" defer></script>
     <link rel="stylesheet" href="./dist/style.css">
+    <script src="https://kit.fontawesome.com/b628e2b5a6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/b628e2b5a6.css" crossorigin="anonymous">
 </head>
-<body>
-    
+<body onbeforeunload="saveReview()">
+    <div class="bar">
+        <div class="bar__user">
+            <a href="">user</a>
+            <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="bar__webName">Books Review</div>
+        <div class="bar__helprs">
+            <a href="">Contact Us</a>
+            <a href="">Info</a>
+            <a href="">Home</a>
+        </div>
+    </div>
+    <div class="search">
+        <input type="text" name="search" placeholder="Search Book">
+    </div>
+    <div class="booksContiner"></div>
+    <div class="addReview">
+        <a href="./addReview.html">ADD REVIEW</a>
+    </div>
 </body>
 </html>

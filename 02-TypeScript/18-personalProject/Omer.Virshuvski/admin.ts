@@ -1,4 +1,4 @@
-render(".test")
+render(".test", getItems())
 try {
     if(!form) throw new Error("Form not exists");
         form.addEventListener('submit', (ev:any) => {
@@ -14,8 +14,8 @@ try {
             items.push(new Product(name,type,price,size,img));
             console.log(items);
             addItems(items);
-            render(".test")
-            renderStore(".card")
+            render(".test", getItems())
+            renderStore(".main", getItems())
             ev.target.reset();
     })
 } catch (error) {
