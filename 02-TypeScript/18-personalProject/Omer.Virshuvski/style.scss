@@ -16,13 +16,13 @@ body {
 
 .test {
 
-    position: relative;
-    max-width: 200px;
-
-    img {
-        width: 100%;
-        aspect-ratio: 1/1;
-    }
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 20px;
 
 }
 
@@ -38,6 +38,7 @@ body {
     &__card {
         position: relative;
         max-width: 150px;
+        height: 250px;
         padding: 20px;
         border-radius: 10px;
         border: none;

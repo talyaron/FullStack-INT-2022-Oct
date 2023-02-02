@@ -10,18 +10,19 @@ function addItems(items:Product[]) {
     }
 }
     
-function render(ele:string) {
+function render(ele:string, items:Product[]) {
     try {
         
         const element = document.querySelector(ele.toString());
         if(!element) throw new Error("Element does not exits");
-        const items = getItems().sort(
-            (p1, p2) => 
-            (p1.name > p2.name) ? 1 : (p1.name < p2.name) ? -1 : 0);  
-        console.log(items);
-        
+
         
         if(!items) throw new Error("Items empty");
+        items.sort((function(a, b){
+            if(a.name < b.name) { return -1; }
+            if(a.name > b.name) { return 1; }
+            return 0;
+        }))
         const html = items.map((item) => {
             
             return `
@@ -45,15 +46,11 @@ function render(ele:string) {
     }
 }
 
-function renderStore(ele:string) {
+function renderStore(ele:string, items:Product[]) {
     try {
         
         const element = document.querySelector(ele.toString());
         if(!element) throw new Error("Element does not exits");
-        const items = getItems().sort(
-            (p1, p2) => 
-            (p1.name > p2.name) ? 1 : (p1.name < p2.name) ? -1 : 0);   
-        console.log(items);
         
         
         element.innerHTML = "No products at the moment";
@@ -83,23 +80,70 @@ function renderStore(ele:string) {
 }
 
 function deleteProduct(id:string) {
-    const temp:any = getItems();
+    const temp = getItems();
     try {
         if(!temp) throw new Error("Items empty");
         const i = temp.findIndex((item) => item.id == id.toString());
         if(i == -1) throw new Error("Item not found");
         temp.splice(i,1)
         localStorage.setItem("items", JSON.stringify(temp));
-        render(".test")
-        render(".main__card")
+        render(".test", getItems())
+        renderStore(".main", getItems())
     } catch (error) {
         console.error(error);
     } 
 }
 
-function hi(id:number, ele:string) {
-    document.body.style.backgroundColor = "black"
-}
+sortName.addEventListener('click', () => {
+    try {
+        const temp = getItems();
+        if(!temp) throw new Error("Items empty");
+        
+        temp.sort((function(a, b){
+            if(a.name < b.name) { return -1; }
+            if(a.name > b.name) { return 1; }
+            return 0;
+        }))
+        renderStore(".main", temp)
+    } catch (error) {
+        console.error(error);
+        
+    }
+})
+
+sortPrice.addEventListener('click', () => {
+    try {
+        const temp = getItems();
+        if(!temp) throw new Error("Items empty");
+        
+        temp.sort((function(a, b){
+            if(a.price > b.price) { return -1; }
+            if(a.price < b.price) { return 1; }
+            return 0;
+        }))
+        renderStore(".main", temp)
+    } catch (error) {
+        console.error(error);
+        
+    }
+})
+
+sortType.addEventListener('click', () => {
+    try {
+        const temp = getItems();
+        if(!temp) throw new Error("Items empty");
+        
+        temp.sort((function(a, b){
+            if(a.type > b.type) { return -1; }
+            if(a.type < b.type) { return 1; }
+            return 0;
+        }))
+        renderStore(".main", temp)
+    } catch (error) {
+        console.error(error);
+        
+    }
+})
 
 ham.addEventListener('click', () => {
     try {

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SelectUserHtml</title>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <form onsubmit="handleAddTask(event)">
+        <input type="text" name="name" placeholder="name" required />
+        <input type="text" name="category" placeholder="category" required />
+        <input type="text" name="description" placeholder="description" required />
+        <input type="date" name="dueDate" placeholder="dueDate"  />
+        <input type="submit" value="ADD">
+    </form>
+
+<div id="list">
+   <div class="availableTasks">task 1</div>
+   <div class="availableTasks">task 1</div>
+   <div class="availableTasks">task 1</div>
+   <div class="availableTasks">task 1</div>
+</div>
+
+
+</body>
+</html>

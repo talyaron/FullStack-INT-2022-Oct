@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap');
+
+body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background:linear-gradient(120deg,#2980b9, #8e44ad);
+    font-family: 'Montserrat', sans-serif;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+       
+    
+       .main, .main_Info{
+        margin: 250 250px;
+       }
+    
+    .container{
+        position: absolute;
+        width:400px;
+        height: 250px;
+        border-radius: 10%;
+        background-color: rgb(194, 42, 174);
+    
+       
+        .m_h1{
+         text-align: center;
+         border-bottom: 1px solid black;
+        }
+
+        form{
+            padding: 0 40px;
+
+            .formMain{
+                position: relative;
+                border-bottom: 2px solid #943593;
+                margin: 30px 0px;
+            }
+
+            .formMain, input{
+                width: 100%;
+                padding: 0 5px;
+                height: 30px;
+                font-size: 16px;
+                outline: none;
+                border: none;
+                background-color: rgb(104, 151, 240);
+            }
+            .btn_Login{
+             margin: 0px 125px;
+             background-color: rgb(104, 151, 240);
+             outline: none;
+             border: rgb(194, 42, 174);
+             font-size: 20px;
+             border-radius: 50%;
+            }
+        }
+    }
+}
+
