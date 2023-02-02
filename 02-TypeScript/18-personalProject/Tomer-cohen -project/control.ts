@@ -7,8 +7,9 @@ const userReviews:any= document.querySelector(`.userReview`)
 booksContiner.innerHTML = renderBooks(books);
 function renderReviews(reviews:UserReview[]):string{
     try {
-        if(!reviews || !Array.isArray(reviews))
-        throw new Error(`books is not an arry`);
+        console.log('renderReviews',reviews)
+        if(!Array.isArray(reviews))
+        throw new Error(`books is not an array`);
         
         const html= reviews
         .map((reviews)=>{
@@ -35,6 +36,7 @@ function addReview(ev:any){
         const userName=ev.target.elements.userName.value;
         const review= ev.target.elements.review.value;
         const stars= ev.target.elements.stars.value;
+        const bookId = ev.target.element.bookId.value;
         
         reviews.push(new UserReview(userName,review,stars))
         console.log(reviews);
@@ -51,10 +53,10 @@ function renderBooks(books:Book[]):string{
 try {
     if(!books || !Array.isArray(books))
     throw new Error(`books is not an arry`);
-
+console.log(books)
     const html= books
     .map((book)=>{
-        console.log(renderReviews(book.reviews))
+        console.log('render books', renderReviews(book.reviews))
         return`
         <div class="box">
         <img  src="${book.picOfBook}" alt="">

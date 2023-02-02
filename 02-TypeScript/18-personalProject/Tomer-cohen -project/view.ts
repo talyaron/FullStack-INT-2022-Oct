@@ -20,7 +20,7 @@ function getReviewsFromStorage():UserReview[] | undefined {
       if(!books) throw new Error("Couldnt find books");
 
       const optionsHTML = books.map(book=>`<option value=${book.uid}>${book.name}</option>`)
-      return `<select>${optionsHTML}</select>`
+      return `<select name="bookId">${optionsHTML}</select>`
       
     } catch (error) {
       console.error(error);
