@@ -1,91 +1,67 @@
-class GameState {
-    x: number;
-    y: number;
-    dx: number;
-    dy: number;
-    paddleHeight: number;
-    paddleWidth: number;
-    paddleX: number;
-  
-    constructor(canvas: HTMLCanvasElement | null) {
-      if (canvas) {
-        this.x = canvas.width/2;
-        this.y = canvas.height-30;
-        this.dx = 2;
-        this.dy = -2;
-        this.paddleHeight = 10;
-        this.paddleWidth = 75;
-        this.paddleX = (canvas.width-this.paddleWidth)/2;
-      }
+  class Ball {
+    constructor(
+      public pos: { x: number; y: number },
+      public velocity: { x: number; y: number },
+      public radius: number
+    ) {
+      this.pos = pos;
+      this.velocity = velocity;
+      this.radius = radius;
+    }
+
+    Update() {
+      this.pos.x += this.velocity.x;
+      this.pos.y += this.velocity.y;
+    }
+
+    draw() {
+      ctx.fillStyle = "#33ff00";
+      ctx.strokeStyle = "#33ff00";
+      ctx.beginPath();
+      ctx.arc(this.pos.x, this.pos.y, this.radius, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.stroke();
     }
   }
-  class GameDisplay{
-    canvas: HTMLCanvasElement | null;
-    ctx: CanvasRenderingContext2D | null;
-    paddleWidth: number;
 
-    constructor(canvasId: string){
-        this.canvas = document.getElementById(canvasId)as HTMLCanvasElement;
-        this.ctx = this.canvas ? this.canvas.getContext('2d'): null;
-        this.paddleWidth = 75;
-    }
-    clear(){
-        if(this.ctx){
-            this.ctx.clearRect(0, 0, this.canvas!.width, this.canvas!.height);
-        }
-        }
-        drawBall(x: number, y:number, ballRadius: number){
-            if(this.ctx){
-                this.ctx.beginPath();
-                this.ctx.arc(x, y, ballRadius , 0 , Math.PI*2);
-                this.ctx.fillStyle = "#0095DD";
-                this.ctx.fill();
-                this.ctx.closePath();
-            }
-        }
-        drawPaddle(x:number , y:number , paddleWidth:number, paddleHeight: number){
-            if(this.ctx){
-                this.ctx.beginPath();
-                this.ctx.rect(x, y, paddleWidth , paddleHeight);
-                this.ctx.fillStyle = "#0095DD";
-                this.ctx.fill();
-                this.ctx.closePath();
-            }
-        }
+  class Paddle {
+    constructor(
+      public pos: { x: number; y: number },
+      public velocity: { x: number; y: number },
+      public width: number,
+      public height: number
+    ) {
+      this.pos = pos;
+      this.velocity = velocity;
+      this.width = width;
+      this.height = height;
     }
 
-
-
-    class GameEngine {
-        display: GameDisplay;
-        ballX: number;
-        ballY: number;
-        ballRadius: number;
-        xSpeed: number;
-        ySpeed: number;
-      
-        constructor(display: GameDisplay) {
-          this.display = display;
-          this.ballX = 50;
-          this.ballY = 50;
-          this.ballRadius = 10;
-          this.xSpeed = 1;
-          this.ySpeed = 1;
-        }
-      
-        run() {
-          this.display.clear();
-          this.display.drawPaddle(this.leftPaddle, 'left',this.paddleWidth,this.paddleHeight);
-          this.display.drawPaddle(this.rightPaddle, 'right', this.paddleWidth,this.paddleHeight);
-          this.display.drawBall(this.ballX, this.ballY, this.ballRadius);
-          this.updateBallPosition();
-          requestAnimationFrame(this.run.bind(this));
-        }
-      
-        updateBallPosition() {
-          this.ballX += this.xSpeed;
-          this.ballY += this.ySpeed;
-        }
+    Update() {
+      if(keysPressed[keyUp]){
+        this.pos.y -= this.velocity.y
       }
-      
-      
+      if(keysPressed[keyDown]){
+        this.pos.y += this.velocity.y
+      }
+    }
+    draw() {
+      ctx.fillStyle = "#ggff00";
+      ctx.fillRect(this.pos.x, this.pos.y, this.width, this.height);
+    }
+  }
+
+  const ball = new Ball(vec2(200, 200), vec2(5, 5), 20);
+  const paddle1 = new Paddle (vec2(0,50), vec2(0,0), 20, 160);
+  const paddle2 = new Paddle (vec2(canvas.width - 20, 80), vec2(0,0), 20, 160);
+  const keysPressed: { [key: number]: boolean } = {};
+  const keyUp = "ArrowUp";
+  const keyDown = "ArrowDown";
+
+  window.addEventListener('keyup', function(e) {
+    keysPressed[e.key] = true;
+  });
+  window.addEventListener('keydown', function(e) {
+    keysPressed[e.key] = false;
+  });
+

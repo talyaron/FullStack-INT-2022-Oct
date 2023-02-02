@@ -41,3 +41,8 @@ body {
   width: 20vw;
   height: 20vh;
 }
+.booksContiner .box__review {
+  width: 20vw;
+  height: 10vh;
+  color: black;
+}
