@@ -1,5 +1,6 @@
 class Book{
     uid:string;
+    reviews:UserReview[] = [];
     constructor(
         public picOfBook: string,
         public name:string,

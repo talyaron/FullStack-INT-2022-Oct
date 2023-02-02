@@ -3,6 +3,7 @@ var Book = /** @class */ (function () {
         this.picOfBook = picOfBook;
         this.name = name;
         this.summary = summary;
+        this.reviews = [];
         this.uid = uid();
     }
     return Book;
