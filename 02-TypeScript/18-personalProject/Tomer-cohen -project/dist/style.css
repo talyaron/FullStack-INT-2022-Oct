@@ -41,3 +41,6 @@ body {
   width: 20vw;
   height: 20vh;
 }
+.booksContiner .box p {
+  font-size: large;
+}
