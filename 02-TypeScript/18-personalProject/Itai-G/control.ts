@@ -40,3 +40,4 @@ function ballCollisonWithEdges (ball:Ball){
         console.error("eroor")
     }
 }
+
