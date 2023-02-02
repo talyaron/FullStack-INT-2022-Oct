@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cursor {
+  position: absolute;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2;
+  transition: 0.3s transform ease;
+  transform-origin: 100% 100%;
+}
+
+body {
+  background-image: url(https://img.freepik.com/premium-vector/empty-kitchen-interior-design-with-furniture_1308-77125.jpg?w=2000);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  justify-content: center;
+  gap: 3rem;
+}
+.container button {
+  outline: none;
+  color: black;
+  border: 2px solid #c00e1a;
+  padding: 15px 45px;
+  font-size: 1.1rem;
+  margin-top: 3em;
+  background: transparent;
+  position: relative;
+  height: 55px;
+  width: 350px;
+  text-align: center;
+  margin-left: 3em;
+}
+.container .bloodSpot {
+  position: absolute;
+  height: 50px;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
+.container .mosquito {
+  height: 100px;
+}
+.container .bee {
+  width: 100px;
+}
+.container .img::selection {
+  background: transparent;
+}

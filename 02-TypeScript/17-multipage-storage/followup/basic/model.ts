@@ -1,1 +1,1 @@
-const items:Array<any> = [];
+const items:Array<string> = [];
