@@ -8,7 +8,8 @@ var book = /** @class */ (function () {
     return book;
 }());
 var UserReview = /** @class */ (function () {
-    function UserReview(review, stars) {
+    function UserReview(userName, review, stars) {
+        this.userName = userName;
         this.review = review;
         this.stars = stars;
         this.uid = uid();
