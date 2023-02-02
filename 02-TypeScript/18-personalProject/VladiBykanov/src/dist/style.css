@@ -1,0 +1,199 @@
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  font-family: Verdana, "Segoe UI", Tahoma, Geneva, sans-serif;
+}
+
+:root {
+  --div-size: calc(90vh / 21);
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.welcomePage {
+  aspect-ratio: 3/2;
+  width: 60vw;
+  background-color: darkgoldenrod;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.welcomePage .choices {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  gap: 1vw;
+}
+.welcomePage .choices .choice {
+  border: 1px solid white;
+  display: flex;
+  justify-content: center;
+  width: 45%;
+}
+.welcomePage .choices .choice img {
+  width: 100%;
+}
+.welcomePage .choices .choice:hover {
+  box-shadow: 0 0 50px black;
+  cursor: pointer;
+}
+.welcomePage button {
+  font-size: 1.5rem;
+  padding: 0.5em 2em;
+}
+
+.maze {
+  border: 5px solid black;
+  width: 90vh;
+  height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.maze b {
+  position: absolute;
+  font-size: 5vh;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+}
+.maze .winMessage {
+  color: #861a86;
+  background-color: #236a46;
+  opacity: 0;
+}
+.maze .loseMessage {
+  color: orange;
+  background-color: #8d1818;
+  opacity: 0;
+}
+.maze div {
+  width: var(--div-size);
+  height: var(--div-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.maze div svg {
+  width: calc(var(--div-size) - 1.5vh);
+}
+.maze .pacman {
+  border-radius: 50%;
+  background-color: darkorange;
+  position: relative;
+  transform: scaleY(1);
+}
+.maze .pacman .eye {
+  position: absolute;
+  width: 0.3vw;
+  height: 0.3vw;
+  border-radius: 50%;
+  top: 20%;
+  right: 50%;
+  background: #333333;
+}
+.maze .pacman .mouth {
+  background: #fff;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  animation-name: eat;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
+}
+@keyframes eat {
+  0% {
+    clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  }
+  25% {
+    clip-path: polygon(100% 60%, 44% 48%, 100% 40%);
+  }
+  50% {
+    clip-path: polygon(100% 50%, 44% 48%, 100% 50%);
+  }
+  75% {
+    clip-path: polygon(100% 59%, 44% 48%, 100% 35%);
+  }
+  100% {
+    clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  }
+}
+.maze .wall {
+  background-color: black;
+}
+.maze .point {
+  border-radius: 50%;
+  background-color: green;
+  border: calc(var(--div-size) / 3) solid white;
+  box-sizing: border-box;
+}
+.maze .cherry {
+  border-radius: 50%;
+  background-color: red;
+  border: calc(var(--div-size) / 3) solid white;
+  box-sizing: border-box;
+}
+.maze .blinky {
+  border: 0px;
+  border-radius: 0;
+  background-color: white;
+}
+.maze .blinky svg {
+  fill: purple;
+}
+.maze .pinky {
+  border: 0px;
+  border-radius: 0;
+  background-color: white;
+}
+.maze .pinky svg {
+  fill: pink;
+}
+.maze .inky {
+  border: 0px;
+  border-radius: 0;
+  background-color: white;
+}
+.maze .inky svg {
+  fill: blue;
+}
+.maze .clyde {
+  border: 0px;
+  border-radius: 0;
+  background-color: white;
+}
+.maze .clyde svg {
+  fill: darkgreen;
+}
+.maze .scaredGhost svg {
+  fill: aquamarine;
+}
+@keyframes scared {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.liveScore {
+  position: absolute;
+  color: darkblue;
+  font-size: 1.5rem;
+}
