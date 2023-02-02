@@ -54,7 +54,7 @@ class Paddle {
 const ball = new Ball(vec2(200, 200), vec2(5, 5), 20);
 const paddle1 = new Paddle(vec2(0, 50), vec2(0, 0), 20, 160);
 const paddle2 = new Paddle(vec2(canvas.width - 20, 80), vec2(0, 0), 20, 160);
-const keysPressed: { [key: string]: boolean } = {};
+const keysPressed = [];
 const keyUp = 38;
 const keyDown = 40;
 
