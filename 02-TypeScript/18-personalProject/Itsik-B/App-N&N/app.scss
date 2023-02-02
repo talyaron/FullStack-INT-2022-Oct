@@ -39,6 +39,9 @@ body{
     color: aqua;
  }
  a:hover{
-    color:rgb(242, 14, 212);
+    transition-property: color;
+    transition-duration: 1s;
+   color:rgb(242, 14, 212);
+    
  }
 }

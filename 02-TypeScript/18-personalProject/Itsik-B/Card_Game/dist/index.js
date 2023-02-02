@@ -2,6 +2,8 @@ var counter = 0;
 var firstCard = "";
 var secondCard = "";
 var cards = document.getElementsByClassName('card');
+setInterval(function () {
+}, 1000);
 var cardsImg = [
     "./images/bibi.jpeg",
     "./images/bibi.jpeg",
