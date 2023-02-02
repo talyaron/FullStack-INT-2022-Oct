@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Montserrat:ital,wght@1,300&display=swap");
 body {
   margin: 0px;
   padding: 0px;
@@ -11,7 +12,8 @@ body .targ {
   display: flex;
   justify-content: center;
   color: #f20ed4;
-  font-weight: bold;
+  font-family: "Lato", sans-serif;
+  font-size: 42px;
 }
 body nav {
   width: 100vw;
