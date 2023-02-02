@@ -18,13 +18,7 @@
 <body onbeforeunload="saveReview()">
     <form onsubmit="addReview(event)">
         <input type="text" name="userName" placeholder="Name">
-        <select name="NameOfBook">
-            <option value="none">none</option>
-            <option value="war zone">war zone</option>
-            <option value="corona">corona</option>
-            <option value="valorant">valorant</option>
-            <option value="covid-19">covid-19</option>
-        </select>
+        <div id="rootSelect"></div>
         <input type="date" name="dateOfRote" placeholder="date of review">
         <input type="text" name="review" placeholder="Your Review">
         <select name="stars">
