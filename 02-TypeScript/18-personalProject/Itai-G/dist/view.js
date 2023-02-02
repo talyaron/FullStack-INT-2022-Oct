@@ -1,4 +1,6 @@
-var canvas = document.getElementById('gameCanvas');
-var gameDisplay = new GameDisplay('gameCanvas');
-var gameEngine = new GameEngine(gameDisplay);
-gameEngine.run();
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext("2d");
+var width = canvas.width;
+var hight = canvas.height;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
