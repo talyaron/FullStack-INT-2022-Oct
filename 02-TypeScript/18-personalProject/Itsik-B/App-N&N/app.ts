@@ -1,11 +1,11 @@
 const welcomeH1 = document.querySelector(".targ")as HTMLHeadElement;
 startApp()
-const todo = document.querySelector(".todo")as HTMLDivElement;
+const todo = document.querySelector("#todo")as HTMLDivElement;
 
 function startApp(){
  
   const firstName = (JSON.parse(localStorage.getItem("userName")!))
-   const password = (JSON.parse  (localStorage.getItem("userPass")!));
+   const password = (JSON.parse(localStorage.getItem("userPass")!));
  
      welcomeH1.textContent = "welcome "+firstName;
       // renderNav()
@@ -29,20 +29,13 @@ function startApp(){
 // }
 
 
-function todolist(){
- 
-  const addme = document.querySelector(".addMession")as HTMLInputElement;
-  const btnM = document.querySelector("#btnadd")as HTMLButtonElement;
- const padd = document.querySelector(".pAdd")as HTMLDivElement;
- 
- btnM.addEventListener("click", ()=>{
-    let newP = document.createElement("p")as HTMLParagraphElement;
-    padd.appendChild(newP);
-    newP.innerHTML = addme.value
-    
-
- })
+function renderTodolist(){
+   try {
+  todo.style.display = "block"
+ } catch (error) {
+  console.error(error);
+ }
+ }
 
    
 
-}
