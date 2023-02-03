@@ -1,7 +1,7 @@
 function getReviewsFromStorage() {
     try {
         //get items from storage
-        var reviewsString = localStorage.getItem("reviews");
+        var reviewsString = localStorage.getItem("userReview");
         if (!reviewsString)
             throw new Error("Couldn't find items in storage");
         //convert to array
@@ -14,6 +14,7 @@ function getReviewsFromStorage() {
         return undefined;
     }
 }
+//   console.log(getReviewsFromStorage())
 function renderBookOptions() {
     try {
         if (!books)
