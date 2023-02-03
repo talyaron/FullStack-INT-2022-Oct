@@ -13,13 +13,8 @@ var score = 0;
 var startBtn = document.querySelector(".startBtn");
 startBtn.addEventListener("click", function () {
     try {
-        var container = document.querySelector(".container");
         if (!container)
             throw new Error("error");
-        var mosquito_1 = document.createElement("img");
-        container.appendChild(mosquito_1);
-        mosquito_1.setAttribute("class", "mosquito");
-        mosquito_1.setAttribute("src", "https://www.pngarts.com/files/4/Mosquito-Transparent-Background-PNG.png");
         var bee_1 = document.createElement("img");
         container.appendChild(bee_1);
         bee_1.setAttribute("class", "bee");
@@ -29,9 +24,9 @@ startBtn.addEventListener("click", function () {
         setInterval(function () {
             var randTop = Math.random() * (contWidth_1 - 100);
             var randLeft = Math.random() * (contHeight_1 - 100);
-            mosquito_1.style.position = "absolute";
-            mosquito_1.style.top = randTop + "px";
-            mosquito_1.style.left = randLeft + "px";
+            mosquito.style.position = "absolute";
+            mosquito.style.top = randTop + "px";
+            mosquito.style.left = randLeft + "px";
         }, 1500);
         setInterval(function () {
             var randTop = Math.random() * (contWidth_1 - 100);
@@ -44,7 +39,7 @@ startBtn.addEventListener("click", function () {
         window.addEventListener("click", function (e) {
             bloodSpot_1.style.top = e.pageY + "px";
             bloodSpot_1.style.left = e.pageX + "px";
-            if (e.target === mosquito_1) {
+            if (e.target === mosquito) {
                 score++;
                 startBtn.innerHTML = "SCORE: " + score;
             }
@@ -59,3 +54,8 @@ startBtn.addEventListener("click", function () {
         console.error(error);
     }
 });
+var container = document.querySelector(".container");
+var mosquito = document.createElement("img");
+container.appendChild(mosquito);
+mosquito.setAttribute("class", "mosquito");
+mosquito.setAttribute("src", "https://www.pngarts.com/files/4/Mosquito-Transparent-Background-PNG.png");

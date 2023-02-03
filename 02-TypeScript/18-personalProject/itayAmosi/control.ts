@@ -18,16 +18,10 @@ let score = 0;
 const startBtn: any = document.querySelector(".startBtn");
 startBtn.addEventListener(`click`, () => {
   try {
-    const container: any = document.querySelector(`.container`);
+
     if (!container) throw new Error("error");
 
-    const mosquito = document.createElement("img");
-    container.appendChild(mosquito);
-    mosquito.setAttribute("class", "mosquito");
-    mosquito.setAttribute(
-      "src",
-      "https://www.pngarts.com/files/4/Mosquito-Transparent-Background-PNG.png"
-    );
+
 
     const bee = document.createElement("img");
     container.appendChild(bee);
@@ -75,3 +69,13 @@ startBtn.addEventListener(`click`, () => {
     console.error(error);
   }
 });
+
+
+const container: any = document.querySelector(`.container`);
+const mosquito = document.createElement("img");
+container.appendChild(mosquito);
+mosquito.setAttribute("class", "mosquito");
+mosquito.setAttribute(
+  "src",
+  "https://www.pngarts.com/files/4/Mosquito-Transparent-Background-PNG.png"
+);
