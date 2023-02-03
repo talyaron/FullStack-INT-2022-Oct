@@ -22,13 +22,7 @@ startBtn.addEventListener("click", function () {
         var contWidth_1 = container.offsetWidth;
         var contHeight_1 = container.offsetHeight;
         setInterval(function () {
-            var randTop = Math.random() * (contWidth_1 - 100);
-            var randLeft = Math.random() * (contHeight_1 - 100);
-            mosquito.style.position = "absolute";
-            mosquito.style.top = randTop + "px";
-            mosquito.style.left = randLeft + "px";
-        }, 1500);
-        setInterval(function () {
+            mosquito.update();
             var randTop = Math.random() * (contWidth_1 - 100);
             var randLeft = Math.random() * (contHeight_1 - 100);
             bee_1.style.position = "absolute";
@@ -39,7 +33,7 @@ startBtn.addEventListener("click", function () {
         window.addEventListener("click", function (e) {
             bloodSpot_1.style.top = e.pageY + "px";
             bloodSpot_1.style.left = e.pageX + "px";
-            if (e.target === mosquito) {
+            if (e.offsetX == mosquito.positionX + 100 && e.offsetY == mosquito.positionY + 100) {
                 score++;
                 startBtn.innerHTML = "SCORE: " + score;
             }
@@ -54,8 +48,3 @@ startBtn.addEventListener("click", function () {
         console.error(error);
     }
 });
-var container = document.querySelector(".container");
-var mosquito = document.createElement("img");
-container.appendChild(mosquito);
-mosquito.setAttribute("class", "mosquito");
-mosquito.setAttribute("src", "https://www.pngarts.com/files/4/Mosquito-Transparent-Background-PNG.png");

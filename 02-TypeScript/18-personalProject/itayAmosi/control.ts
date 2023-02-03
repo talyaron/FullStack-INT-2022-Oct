@@ -22,6 +22,7 @@ startBtn.addEventListener(`click`, () => {
     if (!container) throw new Error("error");
 
 
+    
 
     const bee = document.createElement("img");
     container.appendChild(bee);
@@ -33,16 +34,9 @@ startBtn.addEventListener(`click`, () => {
 
     const contWidth = container.offsetWidth;
     const contHeight = container.offsetHeight;
-    setInterval(() => {
-      const randTop = Math.random() * (contWidth - 100);
-      const randLeft = Math.random() * (contHeight - 100);
-
-      mosquito.style.position = "absolute";
-      mosquito.style.top = randTop + "px";
-      mosquito.style.left = randLeft + "px";
-    }, 1500);
 
     setInterval(() => {
+      mosquito.update();
       const randTop = Math.random() * (contWidth - 100);
       const randLeft = Math.random() * (contHeight - 100);
 
@@ -56,7 +50,7 @@ startBtn.addEventListener(`click`, () => {
       bloodSpot.style.top = e.pageY + "px";
       bloodSpot.style.left = e.pageX + "px";
 
-      if (e.target === mosquito){ score++;
+      if (e.offsetX == mosquito.positionX + 100 && e.offsetY == mosquito.positionY + 100){ score++;
       startBtn.innerHTML = "SCORE: " +score;
     }else{
       if(e.target === bee)
@@ -70,12 +64,3 @@ startBtn.addEventListener(`click`, () => {
   }
 });
 
-
-const container: any = document.querySelector(`.container`);
-const mosquito = document.createElement("img");
-container.appendChild(mosquito);
-mosquito.setAttribute("class", "mosquito");
-mosquito.setAttribute(
-  "src",
-  "https://www.pngarts.com/files/4/Mosquito-Transparent-Background-PNG.png"
-);

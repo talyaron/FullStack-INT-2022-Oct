@@ -1,3 +1,21 @@
+const container: any = document.querySelector(`.container`);
+
+
+const contWidth = container.offsetWidth;
+const contHeight = container.offsetHeight;
+
+
+
+
+
+
+
+
+
+
+
+
+
 // const shoot = document.querySelector('.shoot');
 // const reset = document.querySelector('.reset');
 // const arrow = document.querySelector('.arrow');
@@ -11,43 +29,20 @@
 // 	arrow.style.display = 'block';
 // 	const arrowYPos = Math.floor(Math.random() * 280);
 // 	const arrowXPos = Math.floor(Math.random() * (700 - 300) + 400);
-	
+
 // 	const plusOrMinusOdds = Math.random();
 // 	let posOrNeg = '';
 // 	plusOrMinusOdds > 0.5 ? posOrNeg = '-' : '+';
-	
+
 // 	arrow.style.top = `${posOrNeg}${arrowYPos}px`;
 // 	arrow.style.right = `${arrowXPos}px`;
 // });
 
 // ************חץ פוגע במטרה
 
-
-
-
-
-
-
-
 // ******* מטרה זזה
 
-
-
-
-
-
-
-
-
 // סופר כדורים******
-
-
-
-
-
-
-
-
 
 // let points = 0
 
@@ -61,8 +56,5 @@
 // 		});
 // 	});
 // })
-
-
-
 
 // ********לוח תוצאות
