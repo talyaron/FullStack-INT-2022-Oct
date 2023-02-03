@@ -5,8 +5,16 @@
 
 body{
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-top: 150px;
+
+
 }
 
 #canvas{
     background-color: green;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}   

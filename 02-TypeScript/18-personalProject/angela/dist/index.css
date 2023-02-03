@@ -1,0 +1,160 @@
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.barItem {
+  min-height: 5rem;
+  min-width: 5rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-flex;
+  align-self: flex-end;
+  z-index: 5;
+  background-position: bottom;
+}
+
+.display {
+  display: none;
+  opacity: 0;
+}
+
+.bar {
+  background-image: url(../imgs/pub.png);
+  height: 100vh;
+  width: 100vw;
+  z-index: 2;
+}
+.bar__shelf {
+  border-bottom: solid 40px;
+  height: 160px;
+  border-color: #C55001;
+  background-image: repeating-linear-gradient(90deg, rgba(237, 151, 75, 0.25), rgba(238, 133, 88, 0.142) 1px, transparent 1px, transparent 7px);
+  background-size: 16px;
+  background-color: #f0d7a6;
+  display: flex;
+  z-index: -1;
+}
+.bar__shelf--timer {
+  height: 4rem;
+  width: 10rem;
+  background-color: #e2c5b2;
+  border: 0.5rem double black;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2em;
+}
+.bar__servingPoint {
+  height: auto;
+  width: 20rem;
+  display: flex;
+  align-items: flex-end;
+}
+.bar__servingPoint--shaker {
+  min-height: 5rem;
+  min-width: 5rem;
+  background-image: url(../imgs/shaker.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-flex;
+  margin-left: 20px;
+  align-self: flex-end;
+  z-index: 999;
+  background-position: bottom;
+}
+.bar__servingPoint--serve {
+  height: 3rem;
+  width: 5rem;
+  background-color: #e2c5b2;
+  border: 0.5rem double black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+.bar__scoreTab {
+  height: 3rem;
+  width: 28vw;
+  margin-left: 30%;
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  position: absolute;
+  left: 64vw;
+}
+.bar__scoreTab--highScore {
+  background-color: #e2c5b2;
+  border: 0.5rem double black;
+  font-size: x-large;
+  color: black;
+  width: auto;
+}
+.bar__scoreTab--points {
+  background-color: #e2c5b2;
+  border: 0.5rem double black;
+  font-size: x-large;
+  color: black;
+}
+.bar__customerDialog {
+  height: 6rem;
+  width: 25rem;
+  background-color: #e2c5b2;
+  border: 0.5rem double black;
+  font-size: x-large;
+  color: black;
+  border-radius: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.2rem;
+}
+.bar__hint {
+  height: auto;
+  width: 15rem;
+  background-color: #e2c5b2;
+  border: 0.5rem double black;
+  margin-left: 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.barItem:hover:after {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  left: 1rem;
+  top: 5rem;
+  background-color: #e2c5b2;
+  border-radius: 8px;
+  color: black;
+  content: attr(title);
+  width: auto;
+  height: 2rem;
+  align-items: center;
+}
+
+.barItem:hover {
+  cursor: grab;
+}
+
+.bar__servingPoint--shaker:hover:after {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  position: relative;
+  left: 1rem;
+  top: -1rem;
+  background-color: #e2c5b2;
+  border-radius: 8px;
+  color: black;
+  content: attr(title);
+  width: auto;
+  height: 2rem;
+  align-items: center;
+}

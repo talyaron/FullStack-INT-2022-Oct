@@ -1,3 +1,6 @@
+var container = document.querySelector(".container");
+var contWidth = container.offsetWidth;
+var contHeight = container.offsetHeight;
 // const shoot = document.querySelector('.shoot');
 // const reset = document.querySelector('.reset');
 // const arrow = document.querySelector('.arrow');

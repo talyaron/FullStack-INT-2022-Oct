@@ -4,13 +4,41 @@
   box-sizing: border-box;
 }
 
+.hide {
+  opacity: 0;
+}
+
 body {
   position: relative;
   overflow-x: hidden;
+  background-color: #F8F4EA;
 }
 body button,
 body .submit {
   cursor: pointer;
+  padding: 2px 4px;
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  border: 2px solid #E1D7C6;
+  transition: all ease 0.3s;
+}
+body button:hover, body .submit:hover {
+  padding: 2px 6px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+form > * {
+  width: 160px;
+  height: 30px;
+  padding: 5px;
+  margin: 3px 0;
 }
 
 .test {
@@ -23,7 +51,7 @@ body .submit {
   margin-top: 20px;
 }
 
-.main {
+.main, .cartMain {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -32,30 +60,39 @@ body .submit {
   width: 100%;
   margin-top: 20px;
 }
-.main__card {
-  position: relative;
-  max-width: 150px;
-  height: 250px;
-  padding: 20px;
-  border-radius: 10px;
-  border: none;
-  box-shadow: 0 0 6px 0px black;
-  margin: 0 5px 20px 5px;
+.main__card > *, .cartMain__card > * {
+  margin: 2px 0;
 }
-.main__card img {
-  width: 90%;
+.main__card, .cartMain__card {
+  position: relative;
+  width: 250px;
+  height: 275px;
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 2px 0px #555454;
+  margin: 0 5px 20px 5px;
+  background-color: white;
+}
+.main__card__imgDiv, .cartMain__card__imgDiv {
+  display: grid;
+  place-items: center;
+}
+.main__card img, .cartMain__card img {
+  width: 60%;
   aspect-ratio: 1/1;
 }
 
 .menu {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-evenly;
-  background-color: black;
-  width: 50%;
+  padding: 20px;
+  background-color: #ECE8DD;
+  width: 138px;
   position: absolute;
-  left: -50%;
+  left: -30%;
   top: 50px;
   height: 100vh;
   transition: all ease 0.5s;
@@ -70,8 +107,33 @@ body .submit {
   height: 50px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
   position: relative;
-  background-color: aqua;
+  background-color: #ECE8DD;
+}
+.top__cart {
+  cursor: pointer;
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+.top__cart img {
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+.top__cart__items {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  bottom: -3px;
+  right: -3px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: none;
+  background-color: red;
+  color: white;
 }
 .top__headline {
   position: absolute;

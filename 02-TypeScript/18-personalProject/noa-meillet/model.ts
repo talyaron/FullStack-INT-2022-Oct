@@ -97,7 +97,9 @@ class User {
     public userId: string,
     public userPassword: string,
     public userFullName: string,
-    public dateOfBirth: string,
+    public dayOfBirth: string,
+    public monthOfBirth: string,
+    public yeaOfBirth: string,
     public email: string,
     public phoneNumber: string,
     public clubCard?: ClubCards[]
@@ -111,7 +113,9 @@ const noaMeillet = new User(
   "209966001",
   "noa0512",
   "Noa Meillet",
-  "05/12/2001",
+  "05",
+  "12",
+  "2001",
   "noam@gmail.com",
   "0525643254"
 );
@@ -119,7 +123,9 @@ const sagivKelly = new User(
   "301154268",
   "sagiv1908",
   "Sagiv Kelly",
-  "19/08/2000",
+  "19",
+  "08",
+  "2000",
   "sagivk@gmail.com",
   "0529531221"
 );
@@ -127,7 +133,9 @@ const talVaknin = new User(
   "209966019",
   "tal0301",
   "Tal Vaknin",
-  "03/01/1999",
+  "03",
+  "01",
+  "1999",
   "talv@gmail.com",
   "0505785965"
 );
@@ -135,7 +143,9 @@ const nirJacob = new User(
   "052406521",
   "nir2511",
   "Nir Jacob",
-  "25/11/1986",
+  "25",
+  "11",
+  "1986",
   "nirj@gmail.com",
   "0548579658"
 );
@@ -143,7 +153,9 @@ const shalevLevi = new User(
   "332640564",
   "shalev0204",
   "shalev Levi",
-  "02/04/1978",
+  "02",
+  "04",
+  "1978",
   "shalevl@gmail.com",
   "0521225436"
 );
@@ -151,7 +163,9 @@ const hilaWasker = new User(
   "058796554",
   "hila2809",
   "Hila Wasker",
-  "28/09/2000",
+  "28",
+  "09",
+  "2000",
   "hilaw@gmail.com",
   "0525381648"
 );
@@ -159,7 +173,9 @@ const ethanAzriel = new User(
   "400625435",
   "ethan1405",
   "Ethan Azriel",
-  "14/05/1997",
+  "14",
+  "05",
+  "1997",
   "ethana@gmail.com",
   "0505649254"
 );
@@ -167,7 +183,9 @@ const jhonSmith = new User(
   "745820011",
   "jhon0805",
   "Jhon Smith",
-  "08/05/2000",
+  "08",
+  "05",
+  "2000",
   "jhons@gmail.com",
   "058-9405856"
 );
