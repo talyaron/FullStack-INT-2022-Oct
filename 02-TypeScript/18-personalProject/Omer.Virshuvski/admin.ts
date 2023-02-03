@@ -10,10 +10,9 @@ try {
             const price = ev.target.elements.price.value;
             const size = ev.target.elements.size.value;
             const img = ev.target.elements.img.value;
-            const items:Product[] = []
-            items.push(new Product(name,type,price,size,img));
-            console.log(items);
-            addItems(items);
+            const item = (new Product(name,type,price,size,img));
+            console.log(item);
+            addItems(item);
             render(".test", getItems())
             renderStore(".main", getItems())
             ev.target.reset();
