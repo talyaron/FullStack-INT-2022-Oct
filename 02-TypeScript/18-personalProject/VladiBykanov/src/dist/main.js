@@ -1,7 +1,8 @@
 console.log("Start");
-window.addEventListener("keydown", function (_a) {
-    var key = _a.key;
-    switch (key) {
+window.addEventListener("keydown", function (e) {
+    if (e.repeat)
+        return;
+    switch (e.key) {
         case "ArrowLeft":
             movePacman("left");
             break;

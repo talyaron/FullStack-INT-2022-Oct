@@ -5,10 +5,10 @@ var mapOne = [
     1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1,
     0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0,
     1, 0, 0, 0, 0, 9, 0, 9, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 9, 9, 9,
-    7, 9, 9, 9, 9, 9, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 9, 0, 0, 0, 0, 0, 0, 0,
-    9, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 9, 0, 3, 3, 3, 3, 3, 0, 9, 0, 1, 0, 0,
-    0, 0, 9, 9, 9, 9, 1, 9, 9, 0, 3, 3, 3, 3, 3, 0, 9, 9, 1, 9, 9, 9, 9, 0, 0, 0,
-    0, 1, 0, 9, 0, 3, 3, 3, 3, 3, 0, 9, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 9, 0,
+    9, 9, 9, 9, 9, 9, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 9, 0, 0, 0, 0, 0, 0, 0,
+    9, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 9, 0, 9, 9, 9, 9, 9, 0, 9, 0, 1, 0, 0,
+    0, 0, 9, 9, 9, 9, 1, 9, 9, 0, 9, 9, 9, 9, 9, 0, 9, 9, 1, 9, 9, 9, 9, 0, 0, 0,
+    0, 1, 0, 9, 0, 9, 9, 9, 9, 9, 0, 9, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 9, 0,
     0, 0, 0, 0, 0, 0, 9, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 9, 9, 9, 9, 5, 9, 9,
     9, 9, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 9, 0, 9, 0, 0, 0, 0, 1, 0,
     0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1,
@@ -24,7 +24,7 @@ var mapTwo = [
     1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1,
     0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0,
     1, 0, 0, 0, 0, 9, 0, 9, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 9, 9, 9,
-    7, 9, 9, 9, 9, 9, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 9, 9, 9, 9, 9, 9, 9, 9,
+    9, 9, 9, 9, 9, 9, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 9, 9, 9, 9, 9, 9, 9, 9,
     9, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 9, 0, 0, 0, 0, 0, 0, 0, 9, 0, 1, 0, 0,
     1, 0, 0, 1, 0, 0, 1, 0, 9, 0, 9, 9, 9, 9, 9, 0, 9, 0, 1, 0, 0, 1, 0, 0, 1, 0,
     0, 1, 0, 9, 0, 0, 0, 0, 0, 0, 0, 9, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 9, 9,
@@ -39,13 +39,14 @@ var mapTwo = [
 // 0 = wall
 // 1 = point
 // 2 = cherry
-// 3 = lair
-// an array that with hold all the divs and their classes
+// an array that wil hold all the divs and their classes
 var squares = [];
 var Pacman = /** @class */ (function () {
     function Pacman() {
-        this.velocity = 200;
-        this.currentIndex = 283;
+        this.pacmanSpeed = 150; // lower is faster
+        this.pacmanStrartingIndex = 283;
+        this.velocity = this.pacmanSpeed;
+        this.currentIndex = this.pacmanStrartingIndex;
     }
     Pacman.prototype.draw = function () {
         var eye = document.createElement("div");
@@ -56,9 +57,6 @@ var Pacman = /** @class */ (function () {
         squares[this.currentIndex].classList.add("pacman");
         squares[this.currentIndex].append(eye);
         squares[this.currentIndex].append(mouth);
-    };
-    Pacman.prototype.update = function () {
-        this.draw();
     };
     return Pacman;
 }());
@@ -90,4 +88,16 @@ var ghosts = [
     new Ghost("inky", 400, 300, 161),
     new Ghost("clyde", 418, 200, 153),
 ];
+var glide; //pacman glide interval
+var scaredGhostsTime; //scared ghosts timeout
+var score = 0;
+var cherryIndex = [];
+var movdeDown = 21;
+var moveUp = -21;
+var moveLeft = -1;
+var moveRight = 1;
 var directions = [moveLeft, moveRight, moveUp, movdeDown];
+var chosenMap = localStorage.getItem("userChoice");
+var palletsMapOne = 144;
+var palletsMapTwo = 161;
+var palletsThisGame;
