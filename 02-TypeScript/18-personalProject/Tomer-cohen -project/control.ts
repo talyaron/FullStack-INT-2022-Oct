@@ -2,25 +2,24 @@ const booksContiner: any= document.querySelector(`.booksContiner`);
 const userReviews:any= document.querySelector(`.userReview`)
 
 
-function addReview(ev:any){
-    try {
-        const userName=ev.target.elements.userName.value;
-        const review= ev.target.elements.review.value;
-        const stars= ev.target.elements.stars.value;
-        // const bookId = ev.target.element.bookId.value;
+// function addReview(ev:any){
+//     try {
+//         const userName=ev.target.elements.userName.value;
+//         const review= ev.target.elements.review.value;
+//         const stars= ev.target.elements.stars.value;
+//         const bookId = ev.target.element.bookId.value;
         
         
-        if(userReviews)
-        userReviews.innerHTML = renderReviews(reviews);
-        reviews.push(new UserReview(userName,review,stars))
-        console.log(reviews);
-        ev.target.reset()
-        
-        ev.preventDefault();
-    } catch (error) {
-        console.error(error);
-    }
-}
+//         if(userReviews)
+//         userReviews.innerHTML = renderReviews(reviews);
+//         reviews.push(new UserReview(userName,review,stars))
+//         console.log(reviews);
+//         ev.target.reset();
+//         ev.preventDefault();
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
 function renderReviews(reviews:UserReview[]){
     try {
         // console.log('renderReviews',reviews)
@@ -74,18 +73,17 @@ function renderBooks(books:Book[]):string{
 booksContiner.innerHTML = renderBooks(books);
 
 
-function saveReview() {
-    try {
-        if(reviews){
 
-        localStorage.setItem("html",JSON.stringify(UserReview))
-        // let reviews = JSON.parse(localStorage.getItem("reviews"));
-        
-        
-    }
-    } catch (error) {
-        console.error(error)
-    }
+
+function saveToLocalStorage(ev:any){
+    const userName=ev.target.elements.userName.value;
+    const review= ev.target.elements.review.value;
+    const stars= ev.target.elements.stars.value;
+    const book= ev.target.element.book.value;
+    const newReview= new UserReview(userName,review,stars,'tenibpekunbetidnbemdrs')
+
+    localStorage.setItem('userReview',JSON.stringify(newReview))
+
 }
 
 

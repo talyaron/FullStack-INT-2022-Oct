@@ -9,7 +9,7 @@ class Product {
     private static imgHat = "./photos/hat.png";
     public id: string;
     public img: string;
-    constructor(public name: string, public type: string, public price: number, public size: string, img: string) {
+    constructor(public name: string, public type: string, public price: number, public size: string, public color:string, img: string) {
         this.id = uid();
         if (!img) {
             if (this.type == "Hat") {
@@ -30,41 +30,5 @@ class Product {
         } else {
             this.img = img;
         }
-    }
-
-    getName() {
-        return this.name
-    }
-
-    getPrice() {
-        return this.price
-    }
-
-    getSize() {
-        return this.size
-    }
-
-    getType() {
-        return this.type
-    }
-
-    getId() {
-        return this.id
-    }
-
-    setName(name: string) {
-        this.name = name
-    }
-
-    setPrice(price: number) {
-        this.price = price
-    }
-
-    setType(type: string) {
-        this.type = type
-    }
-
-    setSize(size: string) {
-        this.size = size
     }
 }

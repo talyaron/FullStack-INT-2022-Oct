@@ -30,7 +30,7 @@ function render(ele, items) {
             return 0;
         }));
         var html = items.map(function (item) {
-            return "\n            <div class=\"main__card\">\n                <h3>" + item.name + "</h3>\n                <h4>Price: " + item.price + "$</h4>\n                <h4>Size: " + item.size + "</h4>\n                <h4>Type: " + item.type + "</h4>\n                <img src=\"" + item.img + "\" alt=\"cart\">\n                <button onclick=\"deleteProduct('" + item.id + "')\">Delete</button>\n            </div>\n            ";
+            return "\n            <div class=\"main__card\">\n                <div class=\"main__card__imgDiv\"><img src=\"" + item.img + "\" alt=\"cart\"></div>\n                <hr style=\"margin-bottom: 5px; border: 1px solid #E1D7C6\">\n                <h3>" + item.name + "</h3>\n                <h4>Price: " + item.price + "$</h4>\n                <h4>Size: " + item.size + "</h4>\n                <div style=\"display: flex; align-items: center;\"><h4 style=\"display: inline-block; margin-right: 3px;\">Color:</h4><div style=\"display: inline-block; background-color: " + item.color + "; width: 13px; height: 13px; border-radius: 50%; border: none;\"></div></div>\n                <button style=\"display: block;\" onclick=\"deleteProduct('" + item.id + "')\">Delete</button>\n            </div>\n            ";
         }).join("\n");
         console.log(html);
         element.innerHTML = html;
@@ -49,7 +49,7 @@ function renderStore(ele, items) {
             throw new Error("Items empty");
         }
         var html = items.map(function (item) {
-            return "\n            <div class=\"main__card\">\n                <h3>" + item.name + "</h3>\n                <h4>Price: " + item.price + "$</h4>\n                <h4>Size: " + item.size + "</h4>\n                <h4>Type: " + item.type + "</h4>\n                <img src=\"" + item.img + "\" alt=\"cart\">\n                <button onclick=\"addToCart('" + item.id + "')\">Add To Cart</button>\n            </div>\n            ";
+            return "\n            <div class=\"main__card\">\n                <div class=\"main__card__imgDiv\"><img src=\"" + item.img + "\" alt=\"cart\"></div>\n                <hr style=\"margin-bottom: 5px; border: 1px solid #E1D7C6\">\n                <h3>" + item.name + "</h3>\n                <h4>Price: " + item.price + "$</h4>\n                <h4>Size: " + item.size + "</h4>\n                <div style=\"display: flex; align-items: center;\">\n                    <h4 style=\"display: inline-block; margin-right: 3px;\">Color:</h4>\n                    <div style=\"display: inline-block; background-color: " + item.color + "; width: 13px; height: 13px; border-radius: 50%; border: none;\"></div>\n                </div>\n                <button onclick=\"addToCart('" + item.id + "')\">Add To Cart</button>\n            </div>\n            ";
         }).join("\n");
         console.log(html);
         element.innerHTML = html;
@@ -68,7 +68,7 @@ function renderCart(ele, items) {
             throw new Error("Items empty");
         }
         var html = items.map(function (item) {
-            return "\n            <div class=\"main__card\">\n                <h3>" + item.name + "</h3>\n                <h4>Price: " + item.price + "$</h4>\n                <h4>Size: " + item.size + "</h4>\n                <h4>Type: " + item.type + "</h4>\n                <img src=\"" + item.img + "\" alt=\"cart\">\n                <button onclick=\"deleteFromCart('" + item.id + "')\">Delete From Cart</button>\n            </div>\n            ";
+            return "\n            <div class=\"cartMain__card\">\n                <div class=\"cartMain__card__imgDiv\">\n                    <img src=\"" + item.img + "\" alt=\"cart\">\n                </div>\n                <div class=\"cartMain__card__text\">\n                    <h3>" + item.name + "</h3>\n                    <h4>Price: " + item.price + "$</h4>\n                    <h4>Size: " + item.size + "</h4>\n                    <div style=\"display: flex; align-items: center;\"><h4 style=\"display: inline-block; margin-right: 3px;\">Color:</h4><div style=\"display: inline-block; background-color: " + item.color + "; width: 13px; height: 13px; border-radius: 50%; border: none;\"></div></div>\n                </div>\n                <i onclick=\"deleteFromCart('" + item.id + "')\" class=\"fa-regular fa-trash-can fa-xl\"></i>\n            </div>\n            ";
         }).join("\n");
         console.log(html);
         element.innerHTML = html;
@@ -171,11 +171,11 @@ sortPrice.addEventListener('click', function () {
         if (!temp)
             throw new Error("Items empty");
         temp.sort((function (a, b) {
-            if (a.price - b.price) {
-                return 1;
-            }
-            if (a.price - b.price) {
+            if (parseInt(a.price.toString()) - parseInt(b.price.toString())) {
                 return -1;
+            }
+            if (parseInt(a.price.toString()) - parseInt(b.price.toString())) {
+                return 1;
             }
             return 0;
         }));

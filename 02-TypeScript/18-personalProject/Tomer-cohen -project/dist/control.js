@@ -1,22 +1,21 @@
 var booksContiner = document.querySelector(".booksContiner");
 var userReviews = document.querySelector(".userReview");
-function addReview(ev) {
-    try {
-        var userName = ev.target.elements.userName.value;
-        var review = ev.target.elements.review.value;
-        var stars = ev.target.elements.stars.value;
-        // const bookId = ev.target.element.bookId.value;
-        if (userReviews)
-            userReviews.innerHTML = renderReviews(reviews);
-        reviews.push(new UserReview(userName, review, stars));
-        console.log(reviews);
-        ev.target.reset();
-        ev.preventDefault();
-    }
-    catch (error) {
-        console.error(error);
-    }
-}
+// function addReview(ev:any){
+//     try {
+//         const userName=ev.target.elements.userName.value;
+//         const review= ev.target.elements.review.value;
+//         const stars= ev.target.elements.stars.value;
+//         const bookId = ev.target.element.bookId.value;
+//         if(userReviews)
+//         userReviews.innerHTML = renderReviews(reviews);
+//         reviews.push(new UserReview(userName,review,stars))
+//         console.log(reviews);
+//         ev.target.reset();
+//         ev.preventDefault();
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
 function renderReviews(reviews) {
     try {
         // console.log('renderReviews',reviews)
@@ -59,14 +58,11 @@ function renderBooks(books) {
 }
 ;
 booksContiner.innerHTML = renderBooks(books);
-function saveReview() {
-    try {
-        if (reviews) {
-            localStorage.setItem("html", JSON.stringify(UserReview));
-            // let reviews = JSON.parse(localStorage.getItem("reviews"));
-        }
-    }
-    catch (error) {
-        console.error(error);
-    }
+function saveToLocalStorage(ev) {
+    var userName = ev.target.elements.userName.value;
+    var review = ev.target.elements.review.value;
+    var stars = ev.target.elements.stars.value;
+    var book = ev.target.element.book.value;
+    var newReview = new UserReview(userName, review, stars, 'tenibpekunbetidnbemdrs');
+    localStorage.setItem('userReview', JSON.stringify(newReview));
 }

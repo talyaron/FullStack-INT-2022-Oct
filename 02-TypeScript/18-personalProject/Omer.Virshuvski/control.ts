@@ -30,12 +30,13 @@ function render(ele: string, items: Product[] | null) {
 
             return `
             <div class="main__card">
+                <div class="main__card__imgDiv"><img src="${item.img}" alt="cart"></div>
+                <hr style="margin-bottom: 5px; border: 1px solid #E1D7C6">
                 <h3>${item.name}</h3>
                 <h4>Price: ${item.price}$</h4>
                 <h4>Size: ${item.size}</h4>
-                <h4>Type: ${item.type}</h4>
-                <img src="${item.img}" alt="cart">
-                <button onclick="deleteProduct('${item.id}')">Delete</button>
+                <div style="display: flex; align-items: center;"><h4 style="display: inline-block; margin-right: 3px;">Color:</h4><div style="display: inline-block; background-color: ${item.color}; width: 13px; height: 13px; border-radius: 50%; border: none;"></div></div>
+                <button style="display: block;" onclick="deleteProduct('${item.id}')">Delete</button>
             </div>
             `
         }).join("\n");
@@ -64,11 +65,15 @@ function renderStore(ele: string, items: Product[] | null) {
 
             return `
             <div class="main__card">
+                <div class="main__card__imgDiv"><img src="${item.img}" alt="cart"></div>
+                <hr style="margin-bottom: 5px; border: 1px solid #E1D7C6">
                 <h3>${item.name}</h3>
                 <h4>Price: ${item.price}$</h4>
                 <h4>Size: ${item.size}</h4>
-                <h4>Type: ${item.type}</h4>
-                <img src="${item.img}" alt="cart">
+                <div style="display: flex; align-items: center;">
+                    <h4 style="display: inline-block; margin-right: 3px;">Color:</h4>
+                    <div style="display: inline-block; background-color: ${item.color}; width: 13px; height: 13px; border-radius: 50%; border: none;"></div>
+                </div>
                 <button onclick="addToCart('${item.id}')">Add To Cart</button>
             </div>
             `
@@ -97,13 +102,17 @@ function renderCart(ele: string, items: Product[] | null) {
         const html = items.map((item) => {
 
             return `
-            <div class="main__card">
-                <h3>${item.name}</h3>
-                <h4>Price: ${item.price}$</h4>
-                <h4>Size: ${item.size}</h4>
-                <h4>Type: ${item.type}</h4>
-                <img src="${item.img}" alt="cart">
-                <button onclick="deleteFromCart('${item.id}')">Delete From Cart</button>
+            <div class="cartMain__card">
+                <div class="cartMain__card__imgDiv">
+                    <img src="${item.img}" alt="cart">
+                </div>
+                <div class="cartMain__card__text">
+                    <h3>${item.name}</h3>
+                    <h4>Price: ${item.price}$</h4>
+                    <h4>Size: ${item.size}</h4>
+                    <div style="display: flex; align-items: center;"><h4 style="display: inline-block; margin-right: 3px;">Color:</h4><div style="display: inline-block; background-color: ${item.color}; width: 13px; height: 13px; border-radius: 50%; border: none;"></div></div>
+                </div>
+                <i onclick="deleteFromCart('${item.id}')" class="fa-regular fa-trash-can fa-xl"></i>
             </div>
             `
         }).join("\n");
@@ -203,8 +212,8 @@ sortPrice.addEventListener('click', () => {
         if (!temp) throw new Error("Items empty");
 
         temp.sort((function (a, b) {
-            if (a.price - b.price) { return 1; }
-            if (a.price - b.price) { return -1; }
+            if (parseInt(a.price.toString()) - parseInt(b.price.toString())) { return -1; }
+            if (parseInt(a.price.toString()) - parseInt(b.price.toString())) { return 1; }
             return 0;
         }))
         renderStore(".main", temp)
