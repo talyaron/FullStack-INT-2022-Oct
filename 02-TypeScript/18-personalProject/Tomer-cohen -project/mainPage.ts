@@ -1,7 +1,7 @@
-const _reviews = getReviewsFromStorage();
+// const _reviews = getReviewsFromStorage();
 
-if (_reviews) {
-    reviews.push(..._reviews);
-}
+// if (_reviews) {
+//     reviews.push(..._reviews);
+// }
 
 renderReviews(reviews);
