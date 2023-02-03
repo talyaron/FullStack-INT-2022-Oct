@@ -7,7 +7,8 @@
 }
 
 :root {
-  --div-size: calc(90vh / 21);
+  --boardSize: 80vh;
+  --div-size: calc(var(--boardSize) / 21);
 }
 
 .gameWrapper {
@@ -69,15 +70,15 @@
 }
 
 .maze {
-  border: 5px solid black;
-  width: 90vh;
-  height: 90vh;
+  box-shadow: 0 0 50px black;
+  width: var(--boardSize);
+  height: var(--boardSize);
   display: flex;
   flex-wrap: wrap;
   position: relative;
   background-color: white;
 }
-.maze b {
+.maze aside {
   position: absolute;
   font-size: 5vh;
   z-index: 1;
@@ -203,14 +204,19 @@
   filter: drop-shadow(3px 5px 2px black);
 }
 .maze .scaredGhost svg {
-  fill: aquamarine;
+  animation-name: scared;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
 }
 @keyframes scared {
   0% {
-    opacity: 1;
+    fill: #333333;
+  }
+  50% {
+    fill: aquamarine;
   }
   100% {
-    opacity: 0;
+    fill: #333333;
   }
 }
 

@@ -1,8 +1,8 @@
 console.log("Start");
 
-
-window.addEventListener("keydown", ({ key }) => {
-  switch (key) {
+window.addEventListener("keydown", (e) => {
+  if (e.repeat) return;
+  switch (e.key) {
     case "ArrowLeft":
       movePacman("left");
       break;
@@ -21,7 +21,6 @@ window.addEventListener("keydown", ({ key }) => {
 });
 
 startGame();
-
 
 const interval = setInterval(checkForScaredGhost, 1);
 const anotherInterval = setInterval(checkForGamneOver, 1);

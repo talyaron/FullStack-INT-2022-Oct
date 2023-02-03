@@ -1,17 +1,5 @@
 var mazeDiv = document.querySelector(".maze");
 var scoreEl = document.querySelector("#score");
-var chosenMap = localStorage.getItem("userChoice");
-var palletsMapOne = 144;
-var palletsMapTwo = 161;
-var palletsThisGame;
-var glide; //pacman glide interval
-var scaredGhostsTime; //scared ghosts timeout
-var score = 0;
-var movdeDown = 21;
-var moveUp = -21;
-var moveLeft = -1;
-var moveRight = 1;
-var cherryIndex = [];
 var winMessage = document.querySelector(".winMessage");
 var loseMessage = document.querySelector(".loseMessage");
 // const svgElement = document.createElement("svg");

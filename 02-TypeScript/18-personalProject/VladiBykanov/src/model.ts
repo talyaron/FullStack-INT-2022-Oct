@@ -43,17 +43,18 @@ const mapTwo: number[] = [
 // 2 = cherry
 // 3 = lair
 
-// an array that with hold all the divs and their classes
+// an array that wil hold all the divs and their classes
 const squares = [] as Array<HTMLElement>;
 
-
 class Pacman {
+  private pacmanSpeed: number = 150; // lower is faster
+  private pacmanStrartingIndex: number = 283;
   public currentIndex: number;
   //   public nextIndex: number;
   public velocity: number;
   constructor() {
-    this.velocity = 200;
-    this.currentIndex = 283;
+    this.velocity = this.pacmanSpeed;
+    this.currentIndex = this.pacmanStrartingIndex;
   }
   draw() {
     const eye = document.createElement("div") as HTMLDivElement;
@@ -64,9 +65,6 @@ class Pacman {
     squares[this.currentIndex].classList.add("pacman");
     squares[this.currentIndex].append(eye);
     squares[this.currentIndex].append(mouth);
-  }
-  update() {
-    this.draw();
   }
 }
 
@@ -88,7 +86,7 @@ class Ghost {
     this.currentIndex = startIndex;
     this.isScared = false;
     this.timerId = NaN;
-    this.resetIndex = resetIndex
+    this.resetIndex = resetIndex;
   }
   draw() {
     squares[this.currentIndex].classList.add(this.className, "ghost");
@@ -104,5 +102,18 @@ const ghosts = [
   new Ghost("clyde", 418, 200, 153),
 ];
 
+let glide: number; //pacman glide interval
+let scaredGhostsTime: number; //scared ghosts timeout
+let score = 0;
+let cherryIndex: number[] = [];
 
+const movdeDown = 21;
+const moveUp = -21;
+const moveLeft = -1;
+const moveRight = 1;
 const directions = [moveLeft, moveRight, moveUp, movdeDown];
+
+const chosenMap = localStorage.getItem("userChoice");
+const palletsMapOne = 144;
+const palletsMapTwo = 161;
+let palletsThisGame: number;

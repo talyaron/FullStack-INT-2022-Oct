@@ -7,7 +7,8 @@
 }
 
 :root {
-  --div-size: calc(90vh / 21);
+  --boardSize: 80vh;
+  --div-size: calc(var(--boardSize) / 21);
 }
 
 .gameWrapper {
@@ -69,14 +70,15 @@
 }
 
 .maze {
-  border: 5px solid black;
-  width: 90vh;
-  height: 90vh;
+  // border: 5px solid black;
+  box-shadow: 0 0 50px black;
+  width: var(--boardSize);
+  height: var(--boardSize);
   display: flex;
   flex-wrap: wrap;
   position: relative;
   background-color: white;
-  b {
+  aside {
     position: absolute;
     font-size: 5vh;
     z-index: 1;
@@ -154,21 +156,15 @@
   }
 
   .wall {
-    // outline: 1px solid white;
     background-color: black;
   }
   .point {
-    // outline: 1px solid white;
     border-radius: 50%;
     background-color: green;
     border: calc(var(--div-size) / 3) solid white;
     box-sizing: border-box;
   }
   .cherry {
-    // outline: 1px solid white;
-    // border-radius: 50%;
-    // background-color: red;
-    // border: calc(var(--div-size) / 3) solid white;
     box-sizing: border-box;
     svg{
       fill: red;
@@ -212,20 +208,24 @@
     }
   }
   .scaredGhost {
-    // animation-name: scared;
-    // animation-duration: 2s;
-    // animation-iteration-count: infinite;
     svg {
-      fill: aquamarine;
+      animation-name: scared;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
     }
   }
   @keyframes scared {
     0% {
-      opacity: 1;
+      fill: #333333;
+    }
+    50% {
+      fill: aquamarine;
     }
     100% {
-      opacity: 0;
+      fill: #333333;
     }
+
+    
   }
 }
 
