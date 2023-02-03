@@ -1,0 +1,1 @@
+renderStore(".main", getItems());

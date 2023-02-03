@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // cursor: none;
+}
+
+.cursor {
+    position: absolute;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 2;
+    transition: 0.3s transform ease;
+    transform-origin: 100% 100%;
+}
+
+
+body {
+    // background-image: url(https://static.vecteezy.com/system/resources/thumbnails/003/386/371/original/windy-plain-near-the-jungle-and-rocks-free-video.jpg);
+    background-image: url(https://img.freepik.com/premium-vector/empty-kitchen-interior-design-with-furniture_1308-77125.jpg?w=2000);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+}
+
+.container {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    display: grid;
+    justify-content: center;
+    gap: 3rem;
+
+    button {
+        outline: none;
+        // cursor: none;
+        color: black;
+        border: 2px solid rgb(192, 14, 26);
+        padding: 15px 45px;
+        font-size: 1.1rem;
+        margin-top: 3em;
+        background: transparent;
+        position: relative;
+        height: 55px;
+        width: 350px;
+        text-align: center;
+        margin-left: 3em;
+    }
+
+    .bloodSpot {
+        position: absolute;
+        height: 50px;
+        z-index: 2;
+        transform: translate(-50%, -50%);
+    }
+    .mosquito{
+        height: 100px;
+    }
+    .bee{
+        width: 100px;
+        // height: 10px;
+
+    }
+    .img::selection {
+        background: transparent;
+    }
+
+
+    // .target {
+    //     display: grid;
+    //     // border: 1px solid black;
+    //     height: 450px;
+    //     width: 450px;
+    //     grid-template-columns: repeat(20, 1fr);
+    //     grid-template-rows: repeat(20, 1fr);
+    //     text-align: center;
+    //     color: aqua;
+    //     font-size: 1.2rem;
+
+
+    //     &__white-outer {
+    //         background-color: white;
+    //         grid-column: 1 / 21;
+    //         grid-row: 1 / 21;
+    //         border: 1px solid black;
+    //         color: black;
+    //     }
+
+    //     &__white-inner {
+    //         border: 1px solid black;
+    //         grid-column: 2 / 20;
+    //         grid-row: 2 / 20;
+    //         color: black;
+    //     }
+
+    //     &__black-outer {
+    //         border: 1px solid black;
+    //         background-color: black;
+    //         grid-column: 3 / 19;
+    //         grid-row: 3 / 19;
+    //     }
+
+    //     &__black-inner {
+    //         border: 1px solid black;
+    //         grid-column: 4 / 18;
+    //         grid-row: 4 / 18;
+    //         border: 1px solid white;
+    //     }
+
+    //     &__blue-outer {
+    //         border: 1px solid black;
+    //         background-color: blue;
+    //         grid-column: 5 / 17;
+    //         grid-row: 5 / 17;
+    //     }
+
+    //     &__blue-inner {
+    //         border: 1px solid black;
+    //         grid-column: 6 / 16;
+    //         grid-row: 6 / 16;
+    //     }
+
+    //     &__red-outer {
+    //         border: 1px solid black;
+    //         background-color: red;
+    //         grid-column: 7 / 15;
+    //         grid-row: 7 / 15;
+    //     }
+
+    //     &__red-inner {
+    //         border: 1px solid black;
+    //         grid-column: 8 / 14;
+    //         grid-row: 8 / 14;
+    //     }
+
+    //     &__gold-outer {
+    //         border: 1px solid black;
+    //         background-color: gold;
+    //         grid-column: 9 / 13;
+    //         grid-row: 9 / 13;
+    //     }
+
+    //     &__gold-inner {
+    //         border: 1px solid black;
+    //         grid-column: 10 / 12;
+    //         grid-row: 10 / 12;
+    //         display: flex;
+    //         align-items: center;
+    //         justify-content: center;
+    //         color: black;
+
+    //         // &__cross {
+    //         //     background-color: black;
+    //         //     height: 10px;
+    //         //     position: relative;
+    //         //     width: 2px;
+
+    //         // }
+    //     }
+
+    //     div {
+    //         border-radius: 50%;
+    //     }
+    // }
+
+
+    // // #scoreboard {
+    // //     height: 100px;
+    // //     width: 200px;
+    // //     background: grey;
+    // //     position: absolute;
+    // //     top: 50px;
+    // //     margin-left: 500px;
+    // // }
+
+    // #scoreboard>span {
+    //     font-size: 2rem;
+    // }
+
+    // #score {
+    //     font-size: 2rem;
+    // }
+
+
+    // .tenth-circle {
+    //     background: white;
+    //     height: 118px;
+    //     width: 118px;
+    //     border: 1px solid black;
+    //     border-radius: 50%;
+    //     margin-left: auto;
+    //     margin-right: auto;
+    //     position: relative;
+    //     z-index: 1;
+    //     animation: pop-up 2s linear infinite;
+    // }
+}

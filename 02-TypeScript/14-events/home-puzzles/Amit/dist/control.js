@@ -55,29 +55,3 @@ function enter() {
         console.error(Error);
     }
 }
-// function enter(): void { //clicking ENTER
-//     try {
-//         if (linesArray[enterCounter][4].innerText !== "") {
-//             let correctLetters: number = 0;
-//             for (let i = 0; i < 5; i++) {
-//                 if (linesArray[enterCounter][i].innerText === solution[i]) { //exact spot
-//                     linesArray[enterCounter][i].style.backgroundColor = "orange";
-//                     correctLetters++;
-//                     if (correctLetters === 5) alert("you win!"); // change to animation with 2sec dealy//
-//                 } else if (solution.includes(linesArray[enterCounter][i].innerText)) {
-//                     if(linesArray[enterCounter][i].innerText === solution[i+1]){
-//                        linesArray[enterCounter][i].style.backgroundColor = "blue";
-//                     } 
-//                     if(linesArray[enterCounter][i].innerText === solution[i+2]) linesArray[enterCounter][i].style.backgroundColor = "blue";
-//                     if(linesArray[enterCounter][i].innerText === solution[i+3]) linesArray[enterCounter][i].style.backgroundColor = "blue";
-//                     if(linesArray[enterCounter][i].innerText === solution[i+4]) linesArray[enterCounter][i].style.backgroundColor = "blue";
-//                 }
-//             }
-//             enterCounter++;
-//             currentCell = linesArray[enterCounter][0]; // goes to the next line
-//         }
-//     }
-//     catch (error: unknown) {
-//     console.error(Error);
-//     }
-// }
