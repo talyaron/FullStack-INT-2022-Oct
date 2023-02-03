@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tipsy</title>
+    <link rel="stylesheet" href="./dist/index.css">
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="bar">
+        <div class="bar__shelf" id="shelf1">
+          <div class="bar__shelf--timer" id="=watch">
+            <div id ="timer" >00:00</div>
+            <div class="bar__scoreTab">
+              <div class="bar__scoreTab--highScore" id="highScore"></div>
+            <div class="bar__scoreTab--points" id="points"></div>
+            </div>
+          </div>
+        </div>
+        <div class="bar__shelf" id="shelf2"> </div>
+        <div class="bar__servingPoint">
+          <div class="bar__servingPoint--shaker" ondrop="drop(event)" ondragover="allowDrop(event)" title="shaker" id="shaker"></div>
+          <div class="bar__servingPoint--serve" onclick="serve()">serve</div>
+        </div>
+        
+        
+        <div class="bar__customerDialog" id="customerDialog"></div>
+        <div class="bar__hint" id="hint">
+          
+        </div>
+    </div>
+    
+
+    <script src="./dist/index.js"></script>
+</body>
+</html>
