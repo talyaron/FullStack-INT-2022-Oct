@@ -160,10 +160,11 @@
   box-sizing: border-box;
 }
 .maze .cherry {
-  border-radius: 50%;
-  background-color: red;
-  border: calc(var(--div-size) / 3) solid white;
   box-sizing: border-box;
+}
+.maze .cherry svg {
+  fill: red;
+  filter: drop-shadow(3px 5px 2px black);
 }
 .maze .blinky {
   border: 0px;
@@ -172,6 +173,7 @@
 }
 .maze .blinky svg {
   fill: purple;
+  filter: drop-shadow(3px 5px 2px black);
 }
 .maze .pinky {
   border: 0px;
@@ -179,7 +181,8 @@
   background-color: white;
 }
 .maze .pinky svg {
-  fill: pink;
+  fill: palevioletred;
+  filter: drop-shadow(3px 5px 2px black);
 }
 .maze .inky {
   border: 0px;
@@ -188,6 +191,7 @@
 }
 .maze .inky svg {
   fill: blue;
+  filter: drop-shadow(3px 5px 2px black);
 }
 .maze .clyde {
   border: 0px;
@@ -196,6 +200,7 @@
 }
 .maze .clyde svg {
   fill: darkgreen;
+  filter: drop-shadow(3px 5px 2px black);
 }
 .maze .scaredGhost svg {
   fill: aquamarine;

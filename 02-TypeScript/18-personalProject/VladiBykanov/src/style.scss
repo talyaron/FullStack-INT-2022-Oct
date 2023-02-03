@@ -166,10 +166,14 @@
   }
   .cherry {
     // outline: 1px solid white;
-    border-radius: 50%;
-    background-color: red;
-    border: calc(var(--div-size) / 3) solid white;
+    // border-radius: 50%;
+    // background-color: red;
+    // border: calc(var(--div-size) / 3) solid white;
     box-sizing: border-box;
+    svg{
+      fill: red;
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 1));
+    }
   }
   .blinky {
     border: 0px;
@@ -177,6 +181,7 @@
     background-color: white;
     svg {
       fill: purple;
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 1));
     }
   }
   .pinky {
@@ -184,7 +189,8 @@
     border-radius: 0;
     background-color: white;
     svg {
-      fill: pink;
+      fill: palevioletred;
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 1));
     }
   }
   .inky {
@@ -193,6 +199,7 @@
     background-color: white;
     svg {
       fill: blue;
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 1));
     }
   }
   .clyde {
@@ -201,6 +208,7 @@
     background-color: white;
     svg {
       fill: darkgreen;
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 1));
     }
   }
   .scaredGhost {
