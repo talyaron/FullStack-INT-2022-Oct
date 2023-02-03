@@ -35,5 +35,6 @@ var rndomY = function () { return Math.random() * (contHeight - 100); };
 var rndomX = function () { return Math.random() * (contWidth - 100); };
 var mosquito = new Bugs("Vladi", rndomX(), rndomY());
 // const vsfgb = new Bugs("drfg");
-// mosquito.draw();
+mosquito.draw();
+setTimeout(function () { return console.log(mosquito.positionX, mosquito.positionY); }, 500);
 // vsfgb.draw();

@@ -33,5 +33,7 @@ const rndomX = () => Math.random() * (contWidth - 100);
 
 const mosquito = new Bugs("Vladi", rndomX(), rndomY());
 // const vsfgb = new Bugs("drfg");
-// mosquito.draw();
+mosquito.draw();
+
+setTimeout (()=> console.log(mosquito.positionX, mosquito.positionY), 500 )
 // vsfgb.draw();

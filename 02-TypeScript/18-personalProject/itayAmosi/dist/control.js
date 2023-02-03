@@ -1,14 +1,3 @@
-// const rings = document.querySelectorAll(`.hit`) as NodeListOf<HTMLElement>;
-// rings.forEach((div) => {
-//   div.addEventListener(`click`, (event) => {
-//     console.log(div.innerHTML);
-//   });
-// });
-// function handleDisplayImage(event) {
-//   let shot = event.target.children[0];
-//   shot.src = "./Image-shot.jpeg";
-// console.dir(shot);
-// }
 var score = 0;
 var startBtn = document.querySelector(".startBtn");
 startBtn.addEventListener("click", function () {
@@ -22,18 +11,21 @@ startBtn.addEventListener("click", function () {
         var contWidth_1 = container.offsetWidth;
         var contHeight_1 = container.offsetHeight;
         setInterval(function () {
+            var elem = document.querySelector(".mosquito");
             mosquito.update();
             var randTop = Math.random() * (contWidth_1 - 100);
             var randLeft = Math.random() * (contHeight_1 - 100);
             bee_1.style.position = "absolute";
             bee_1.style.top = randTop + "px";
             bee_1.style.left = randLeft + "px";
+            elem.remove();
         }, 1000);
         var bloodSpot_1 = document.querySelector(".bloodSpot");
         window.addEventListener("click", function (e) {
             bloodSpot_1.style.top = e.pageY + "px";
             bloodSpot_1.style.left = e.pageX + "px";
-            if (e.offsetX == mosquito.positionX + 100 && e.offsetY == mosquito.positionY + 100) {
+            // console.log(e.target.className)
+            if (e.target.className === "mosquito") {
                 score++;
                 startBtn.innerHTML = "SCORE: " + score;
             }
