@@ -47,9 +47,9 @@ function movePacman(direction: string) {
   squares[pacman.currentIndex].classList.remove("pacman");
   switch (direction) {
     case "left":
-      if (checkForWall(pacman.currentIndex, -1)) {
+      if (checkForWall(pacman.currentIndex, moveLeft)) {
         clearInterval(glide);
-        squares[pacman.currentIndex].removeAttribute("style"); //removing the style attribute from square that pacman leaves
+        squares[pacman.currentIndex].removeAttribute("style");
         pacman.currentIndex -= 1;
         squares[pacman.currentIndex].style.transform = "scaleX(-1)";
         glide = setInterval(movePacman, pacman.velocity, "left");
@@ -61,7 +61,7 @@ function movePacman(direction: string) {
       break;
 
     case "right":
-      if (checkForWall(pacman.currentIndex, 1)) {
+      if (checkForWall(pacman.currentIndex, moveRight)) {
         clearInterval(glide);
         squares[pacman.currentIndex].removeAttribute("style");
         pacman.currentIndex += 1;
