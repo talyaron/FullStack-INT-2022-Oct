@@ -56,6 +56,11 @@ class Pacman {
     this.currentIndex = 283;
   }
   draw() {
+    const eye = document.createElement("div") as HTMLDivElement;
+    eye.classList.add("eye");
+    const mouth = document.createElement("div") as HTMLDivElement;
+    mouth.classList.add("mouth");
+    squares[pacman.currentIndex].innerHTML = "";
     squares[this.currentIndex].classList.add("pacman");
     squares[this.currentIndex].append(eye);
     squares[this.currentIndex].append(mouth);
@@ -74,7 +79,8 @@ class Ghost {
   constructor(
     public className: string,
     public startIndex: number,
-    public speed: number
+    public speed: number,
+    public resetIndex: number
   ) {
     this.className = className;
     this.startIndex = startIndex;
@@ -82,6 +88,7 @@ class Ghost {
     this.currentIndex = startIndex;
     this.isScared = false;
     this.timerId = NaN;
+    this.resetIndex = resetIndex
   }
   draw() {
     squares[this.currentIndex].classList.add(this.className, "ghost");
@@ -91,8 +98,11 @@ class Ghost {
 }
 
 const ghosts = [
-  new Ghost("blinky", 22, 250),
-  new Ghost("pinky", 40, 400),
-  new Ghost("inky", 400, 300),
-  new Ghost("clyde", 418, 200),
+  new Ghost("blinky", 22, 250, 279),
+  new Ghost("pinky", 40, 400, 287),
+  new Ghost("inky", 400, 300, 161),
+  new Ghost("clyde", 418, 200, 153),
 ];
+
+
+const directions = [moveLeft, moveRight, moveUp, movdeDown];

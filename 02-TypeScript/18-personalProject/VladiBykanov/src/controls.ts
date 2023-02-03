@@ -1,6 +1,5 @@
 function startGame() {
   if (chosenMap) {
-    console.log(chosenMap);
     if (chosenMap === "mapOne") {
       creatMaze(mapOne);
       palletsThisGame = palletsMapOne;
@@ -20,7 +19,7 @@ function startGame() {
 function creatMaze(map: number[]) {
   map.forEach((value, index) => {
     const square = document.createElement("div") as HTMLDivElement;
-    maze.appendChild(square);
+    mazeDiv.appendChild(square);
     squares.push(square);
     
     switch (value) {
@@ -76,10 +75,10 @@ function movePacman(direction: string) {
       break;
 
     case "up":
-      if (checkForWall(pacman.currentIndex, -width)) {
+      if (checkForWall(pacman.currentIndex, moveUp)) {
         clearInterval(glide);
         squares[pacman.currentIndex].removeAttribute("style");
-        pacman.currentIndex -= width;
+        pacman.currentIndex += moveUp;
         squares[pacman.currentIndex].style.transform = "rotate(-90deg)";
         glide = setInterval(movePacman, pacman.velocity, "up");
       }
@@ -87,20 +86,18 @@ function movePacman(direction: string) {
 
     case "down":
       if (
-        checkForWall(pacman.currentIndex, width) &&
-        !squares[pacman.currentIndex + width].classList.contains("lair")
+        checkForWall(pacman.currentIndex, movdeDown) &&
+        !squares[pacman.currentIndex + movdeDown].classList.contains("lair")
       ) {
         clearInterval(glide);
         squares[pacman.currentIndex].removeAttribute("style");
-        pacman.currentIndex += width;
+        pacman.currentIndex += movdeDown;
         squares[pacman.currentIndex].style.transform = "rotate(90deg)";
         glide = setInterval(movePacman, pacman.velocity, "down");
       }
       break;
   }
   pacman.draw();
-
-  
 
   checkForPoint();
   checkForCherry();
@@ -110,7 +107,6 @@ function movePacman(direction: string) {
 
 //move ghost function
 function moveGhost(ghost: Ghost) {
-  const directions = [-1, 1, -width, width];
   let direction = directions[Math.floor(Math.random() * directions.length)];
 
   ghost.timerId = setInterval(function test() {

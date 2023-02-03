@@ -1,19 +1,19 @@
-var maze = document.querySelector(".maze");
+var mazeDiv = document.querySelector(".maze");
 var scoreEl = document.querySelector("#score");
 var chosenMap = localStorage.getItem("userChoice");
-var palletsThisGame;
-var glide; //pacman glide interval
-var score = 0;
 var palletsMapOne = 144;
 var palletsMapTwo = 161;
-var width = 21;
+var palletsThisGame;
+var glide; //pacman glide interval
+var scaredGhostsTime; //scared ghosts timeout
+var score = 0;
+var movdeDown = 21;
+var moveUp = -21;
+var moveLeft = -1;
+var moveRight = 1;
 var cherryIndex = [];
 var winMessage = document.querySelector(".winMessage");
 var loseMessage = document.querySelector(".loseMessage");
-var eye = document.createElement("div");
-eye.classList.add("eye");
-var mouth = document.createElement("div");
-mouth.classList.add("mouth");
 // const svgElement = document.createElement("svg");
 // svgElement.setAttribute("xmlns", "http://www.w3.org/2000/svg");
 // svgElement.setAttribute("viewBox", "0 0 512 512");

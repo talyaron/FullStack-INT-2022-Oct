@@ -1,6 +1,5 @@
 function startGame() {
     if (chosenMap) {
-        console.log(chosenMap);
         if (chosenMap === "mapOne") {
             creatMaze(mapOne);
             palletsThisGame = palletsMapOne;
@@ -20,7 +19,7 @@ function startGame() {
 function creatMaze(map) {
     map.forEach(function (value, index) {
         var square = document.createElement("div");
-        maze.appendChild(square);
+        mazeDiv.appendChild(square);
         squares.push(square);
         switch (value) {
             case 0:
@@ -70,20 +69,20 @@ function movePacman(direction) {
             }
             break;
         case "up":
-            if (checkForWall(pacman.currentIndex, -width)) {
+            if (checkForWall(pacman.currentIndex, moveUp)) {
                 clearInterval(glide);
                 squares[pacman.currentIndex].removeAttribute("style");
-                pacman.currentIndex -= width;
+                pacman.currentIndex += moveUp;
                 squares[pacman.currentIndex].style.transform = "rotate(-90deg)";
                 glide = setInterval(movePacman, pacman.velocity, "up");
             }
             break;
         case "down":
-            if (checkForWall(pacman.currentIndex, width) &&
-                !squares[pacman.currentIndex + width].classList.contains("lair")) {
+            if (checkForWall(pacman.currentIndex, movdeDown) &&
+                !squares[pacman.currentIndex + movdeDown].classList.contains("lair")) {
                 clearInterval(glide);
                 squares[pacman.currentIndex].removeAttribute("style");
-                pacman.currentIndex += width;
+                pacman.currentIndex += movdeDown;
                 squares[pacman.currentIndex].style.transform = "rotate(90deg)";
                 glide = setInterval(movePacman, pacman.velocity, "down");
             }
@@ -97,7 +96,6 @@ function movePacman(direction) {
 }
 //move ghost function
 function moveGhost(ghost) {
-    var directions = [-1, 1, -width, width];
     var direction = directions[Math.floor(Math.random() * directions.length)];
     ghost.timerId = setInterval(function test() {
         // if the square in the direction the ghost is going not containing another ghost or a wall => then he can move here

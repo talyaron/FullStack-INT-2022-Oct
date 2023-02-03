@@ -1,23 +1,23 @@
-const maze = document.querySelector(".maze") as HTMLDivElement;
+const mazeDiv = document.querySelector(".maze") as HTMLDivElement;
 
 const scoreEl = document.querySelector("#score") as HTMLSpanElement;
 
 const chosenMap = localStorage.getItem("userChoice");
+const palletsMapOne = 144;
+const palletsMapTwo = 161;
 let palletsThisGame: number;
 
 let glide: number; //pacman glide interval
+let scaredGhostsTime:number; //scared ghosts timeout
 let score = 0;
-let palletsMapOne = 144;
-let palletsMapTwo = 161;
-let width = 21;
+const movdeDown = 21;
+const moveUp = -21;
+const moveLeft = -1;
+const moveRight = 1;
 let cherryIndex: number[] = [];
 const winMessage = document.querySelector(".winMessage") as HTMLHeadElement;
 const loseMessage = document.querySelector(".loseMessage") as HTMLHeadElement;
 
-const eye = document.createElement("div") as HTMLDivElement;
-eye.classList.add("eye");
-const mouth = document.createElement("div") as HTMLDivElement;
-mouth.classList.add("mouth");
 
 
 

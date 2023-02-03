@@ -48,6 +48,11 @@ var Pacman = /** @class */ (function () {
         this.currentIndex = 283;
     }
     Pacman.prototype.draw = function () {
+        var eye = document.createElement("div");
+        eye.classList.add("eye");
+        var mouth = document.createElement("div");
+        mouth.classList.add("mouth");
+        squares[pacman.currentIndex].innerHTML = "";
         squares[this.currentIndex].classList.add("pacman");
         squares[this.currentIndex].append(eye);
         squares[this.currentIndex].append(mouth);
@@ -59,16 +64,18 @@ var Pacman = /** @class */ (function () {
 }());
 var pacman = new Pacman();
 var Ghost = /** @class */ (function () {
-    function Ghost(className, startIndex, speed) {
+    function Ghost(className, startIndex, speed, resetIndex) {
         this.className = className;
         this.startIndex = startIndex;
         this.speed = speed;
+        this.resetIndex = resetIndex;
         this.className = className;
         this.startIndex = startIndex;
         this.speed = speed;
         this.currentIndex = startIndex;
         this.isScared = false;
         this.timerId = NaN;
+        this.resetIndex = resetIndex;
     }
     Ghost.prototype.draw = function () {
         squares[this.currentIndex].classList.add(this.className, "ghost");
@@ -78,8 +85,9 @@ var Ghost = /** @class */ (function () {
     return Ghost;
 }());
 var ghosts = [
-    new Ghost("blinky", 22, 250),
-    new Ghost("pinky", 40, 400),
-    new Ghost("inky", 400, 300),
-    new Ghost("clyde", 418, 200),
+    new Ghost("blinky", 22, 250, 279),
+    new Ghost("pinky", 40, 400, 287),
+    new Ghost("inky", 400, 300, 161),
+    new Ghost("clyde", 418, 200, 153),
 ];
+var directions = [moveLeft, moveRight, moveUp, movdeDown];

@@ -16,6 +16,8 @@ function checkForPoint() {
 }
 function checkForCherry() {
     if (squares[pacman.currentIndex].classList.contains("cherry")) {
+        if (scaredGhostsTime)
+            clearTimeout(scaredGhostsTime);
         cherryIndex = __spreadArrays(cherryIndex.filter(function (value) { return value !== pacman.currentIndex; }));
         squares[pacman.currentIndex].innerHTML = '';
         pacman.draw();
@@ -24,7 +26,7 @@ function checkForCherry() {
         squares[pacman.currentIndex].classList.remove("cherry");
         squares[pacman.currentIndex].classList.add("pacman");
         ghosts.forEach(function (ghost) { return (ghost.isScared = true); });
-        setTimeout(unScareGhosts, 10000);
+        scaredGhostsTime = setTimeout(unScareGhosts, 10000);
     }
 }
 function unScareGhosts() {
@@ -53,10 +55,8 @@ function checkForScaredGhost() {
         if (squares[pacman.currentIndex].classList.contains(ghost.className) &&
             ghost.isScared) {
             squares[pacman.currentIndex].classList.remove(ghost.className, "ghost", "scaredGhost");
-            squares[pacman.currentIndex].innerHTML = "";
-            squares[pacman.currentIndex].append(eye);
-            squares[pacman.currentIndex].append(mouth);
-            ghost.currentIndex = ghost.startIndex;
+            pacman.draw();
+            ghost.currentIndex = ghost.resetIndex;
             squares[ghost.currentIndex].classList.add("ghost", ghost.className);
             score += 100;
             scoreEl.textContent = score.toString();
