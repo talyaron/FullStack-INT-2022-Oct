@@ -85,6 +85,7 @@ function renderTodolist() {
         clinet.style.display = "none";
         mlay.style.display = "none";
         sapak.style.display = "none";
+        todoListRuns();
     }
     catch (error) {
         console.error(error);
@@ -93,4 +94,18 @@ function renderTodolist() {
 function todoListRuns() {
     var btnadd = document.querySelector("#btnadd");
     var inp = document.querySelector(".addMession");
+    var padd = document.querySelector(".pAdd");
+    inp.dir = "rtl";
+    btnadd.addEventListener("click", function () {
+        var newp = document.createElement("p");
+        padd.appendChild(newp);
+        newp.innerHTML = inp.value;
+        inp.value = "";
+        newp.addEventListener("click", function () {
+            newp.style.textDecoration = "line-through";
+        });
+        newp.addEventListener("dblclick", function () {
+            padd.removeChild(newp);
+        });
+    });
 }
