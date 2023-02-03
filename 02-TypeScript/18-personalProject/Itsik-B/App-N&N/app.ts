@@ -2,13 +2,12 @@
 // catch all navbar
 const welcomeH1 = document.querySelector(".targ")as HTMLHeadElement;
 startApp()
-
-const newc = document.querySelector("#newC")as HTMLDivElement;
-   const dairy = document.querySelector("#dairy")as HTMLDivElement;
-   const clinet = document.querySelector("#clinet")as HTMLDivElement;
-   const mlay = document.querySelector("#mlay")as HTMLDivElement;
-   const sapak = document.querySelector("#spak")as HTMLDivElement;
-   const todo = document.querySelector("#todo")as HTMLDivElement;
+let newc = document.querySelector("#newC")as HTMLDivElement;
+   let dairy = document.querySelector("#dairy")as HTMLDivElement;
+   let clinet = document.querySelector("#clinet")as HTMLDivElement;
+   let mlay = document.querySelector("#mlay")as HTMLDivElement;
+  let sapak = document.querySelector("#sapak")as HTMLDivElement;
+   let todo = document.querySelector("#todo")!as HTMLDivElement;
 
 
 
@@ -17,10 +16,12 @@ const newc = document.querySelector("#newC")as HTMLDivElement;
   const firstName = (JSON.parse(localStorage.getItem("userName")!))
    const password = (JSON.parse(localStorage.getItem("userPass")!));
      welcomeH1.textContent = "welcome "+firstName;
+
+     
       }
 
 
-   function renderNewcustomer(){
+   function renderNewCustomer(){
    try {
     todo.style.display = "none"
     newc.style.display = "block"
@@ -84,7 +85,6 @@ function renderSapakim(){
 
 function renderTodolist(){
    try {
-
   todo.style.display = "block"
   newc.style.display = "none"
   dairy.style.display = "none"
@@ -97,4 +97,10 @@ function renderTodolist(){
  }
 
    
-
+function todoListRuns(){
+   const btnadd = document.querySelector("#btnadd")as HTMLButtonElement;
+   const inp = document.querySelector
+   (".addMession")as HTMLInputElement;
+  
+   
+}

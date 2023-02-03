@@ -5,14 +5,14 @@ var newc = document.querySelector("#newC");
 var dairy = document.querySelector("#dairy");
 var clinet = document.querySelector("#clinet");
 var mlay = document.querySelector("#mlay");
-var sapak = document.querySelector("#spak");
+var sapak = document.querySelector("#sapak");
 var todo = document.querySelector("#todo");
 function startApp() {
     var firstName = (JSON.parse(localStorage.getItem("userName")));
     var password = (JSON.parse(localStorage.getItem("userPass")));
     welcomeH1.textContent = "welcome " + firstName;
 }
-function renderNewcustomer() {
+function renderNewCustomer() {
     try {
         todo.style.display = "none";
         newc.style.display = "block";
@@ -89,4 +89,8 @@ function renderTodolist() {
     catch (error) {
         console.error(error);
     }
+}
+function todoListRuns() {
+    var btnadd = document.querySelector("#btnadd");
+    var inp = document.querySelector(".addMession");
 }
