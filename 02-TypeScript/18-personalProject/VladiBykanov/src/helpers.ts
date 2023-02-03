@@ -1,7 +1,7 @@
 function checkForPoint() {
   if (squares[pacman.currentIndex].classList.contains("point")) {
     score++;
-    palletsLeft--;
+    palletsThisGame--;
     scoreEl.textContent = score.toString();
     squares[pacman.currentIndex].classList.remove("point");
     squares[pacman.currentIndex].classList.add("pacman");
@@ -35,7 +35,7 @@ function checkForGamneOver() {
 }
 
 function checkForWin() {
-  if (palletsLeft == 0) {
+  if (palletsThisGame == 0) {
     ghosts.forEach((ghost) => clearInterval(ghost.timerId));
     clearInterval(glide);
     setTimeout(() => {

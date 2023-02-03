@@ -4,11 +4,13 @@ const squareSize = maze.offsetHeight / 21;
 const scoreEl = document.querySelector("#score") as HTMLSpanElement;
 
 const chosenMap = localStorage.getItem("userChoice");
+let palletsThisGame:number;
 
 
+let glide: number; //pacman glide interval
 let score = 0;
-let palletsLeft = 144;
-const MAX_SCORE = 144;
+let palletsMapOne = 144;
+let palletsMapTwo = 161;
 let width = 21;
 const winMessage = document.querySelector(".winMessage") as HTMLHeadElement;
 const loseMessage = document.querySelector(".loseMessage") as HTMLHeadElement;

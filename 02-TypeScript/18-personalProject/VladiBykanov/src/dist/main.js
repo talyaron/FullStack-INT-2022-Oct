@@ -1,5 +1,4 @@
 console.log("Start");
-var glide;
 window.addEventListener("keydown", function (_a) {
     var key = _a.key;
     switch (key) {
