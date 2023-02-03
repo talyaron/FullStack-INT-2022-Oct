@@ -1,11 +1,12 @@
 class Book{
     uid:string;
-    reviews:UserReview[] = [];
+    reviews:UserReview[]=[];
     constructor(
         public picOfBook: string,
         public name:string,
         public summary:string,
     ){
+        // this.reviews= renderReviews(reviews)
         this.uid= uid()
     }
 }
@@ -29,3 +30,6 @@ books.push(new Book(`https://upload.wikimedia.org/wikipedia/he/c/cc/%D7%94%D7%90
 console.log(books)
 
 const reviews:UserReview[]=[];
+
+
+// console.log(UserReview)

@@ -2,4 +2,4 @@ var _reviews = getReviewsFromStorage();
 if (_reviews) {
     reviews.push.apply(reviews, _reviews);
 }
-renderreviews(reviews);
+renderReviews(reviews);

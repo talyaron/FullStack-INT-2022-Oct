@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <script src="./dist/second.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+</head>
+
+<body>
+    <h1>Main</h1>
+    <a href="./second.html">Go to Second</a>
+    <form onsubmit="handleAddItem(event)">
+        <input type="text" name="name" placeholder="name of product" required />
+        <input type="number" name="price" placeholder="price" required />
+        <input type="number" name="numberOfTablets" placeholder="number of tablets" required>
+        <select name="category">
+          <option value="supplements">Supplements</option>
+          <option value="medicines">Medicines</option>
+          <option value="cosmetics">Cosmetics</option>
+          <option value="optics">Optics</option>
+        </select>
+        <input type="text" name="sn" placeholder="serial number" />
+        <input type="submit" value="ADD" />
+      </form>
+    <div id="rootItems"></div>
+</body>
+
+</html>

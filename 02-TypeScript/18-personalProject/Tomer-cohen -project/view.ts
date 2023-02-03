@@ -7,9 +7,9 @@ function getReviewsFromStorage():UserReview[] | undefined {
       //convert to array
       const reviews = JSON.parse(reviewsString);
       return reviews;
-      console.log(reviews);
+    //   console.log(reviews);
     } catch (error) {
-      console.error(error);
+    //   console.error(error);
       return undefined;
     }
   }
@@ -23,7 +23,7 @@ function getReviewsFromStorage():UserReview[] | undefined {
       return `<select name="bookId">${optionsHTML}</select>`
       
     } catch (error) {
-      console.error(error);
+    //   console.error(error);
       return '';
     }
   }

@@ -7,23 +7,16 @@ var Word = /** @class */ (function () {
         return this.name.toUpperCase().includes(letter);
     };
     Word.prototype.letterRepetitions = function (letter) {
-        try {
-            var repetitions = 0;
-            for (var i = 0; i < WORD_LENGTH; i++) {
-                if (this.name.toUpperCase()[i] === letter)
-                    repetitions++;
-            }
-            console.log("repetitions=" + repetitions);
-            return repetitions;
+        var repetitions = 0;
+        for (var i = 0; i < WORD_LENGTH; i++) {
+            if (this.name.toUpperCase()[i] === letter)
+                repetitions++;
         }
-        catch (error) {
-            console.error(error);
-            return undefined;
-        }
+        return repetitions;
     };
     return Word;
 }());
-//blue = if the letter repeats 2 / 3 times 
+//////////////////////////////////////////////////////////////////////////
 var User = /** @class */ (function () {
     function User(streak) {
         this.streak = streak;
@@ -31,49 +24,31 @@ var User = /** @class */ (function () {
     }
     return User;
 }());
+///////////////////////////////////////////////////////////////////////////
 var wordsArray = [];
-wordsArray.push(new Word("aback"), new Word("abase"), new Word("abase"), new Word("abate"), new Word("abbey"), new Word("abbot"), new Word("abhor"), new Word("abide"), new Word("abled"), new Word("abode"), new Word("abort"), new Word("about"), new Word("above"), new Word("abuse"), new Word("abyss"), new Word("acorn"), new Word("acorn"), new Word("acrid"), new Word("actor"), new Word("acute"), new Word("adage"), new Word("adapt"), new Word("adept"), new Word("admin"), new Word("admit"), new Word("adobe"), new Word("adopt"), new Word("adorn"), new Word("adult"), new Word("affix"), new Word("afire"), new Word("afoot"), new Word("afoul"), new Word("after"), new Word("again"), new Word("agape"), new Word("agate"), new Word("agent"), new Word("agile"), new Word("aging"), new Word("aglow"), new Word("agony"), new Word("agree"), new Word("ahead"), new Word("aider"), new Word("aisle"), new Word("alarm"), new Word("album"), new Word("alert"), new Word("algae"), new Word("alibi"), new Word("alien"), new Word("align"), new Word("alike"), new Word("alive"), new Word("allay"), new Word("alley"), new Word("allot"), new Word("allow"), new Word("alloy"), new Word("aloft"), new Word("alone"), new Word("along"), new Word("aloof"), new Word("aloud"), new Word("alpha"), new Word("altar"), new Word("alter"), new Word("amass"), new Word("amaze"), new Word("amber"), new Word("amble"), new Word("amend"), new Word("amiss"), new Word("amity"), new Word("among"), new Word("ample"), new Word("amply"), new Word("amuse"), new Word("angel"), new Word("anger"), new Word("angle"), new Word("angry"), new Word("angst"), new Word("anime"), new Word("ankle"), new Word("annex"), new Word("annoy"), new Word("annul"), new Word("anode"), new Word("antic"), new Word("anvil"), new Word("aorta"), new Word("apart"), new Word("aphid"), new Word("aping"), new Word("apnea"), new Word("apple"), new Word("apply"), new Word("apron"), new Word("aptly"), new Word("arbor"), new Word("ardor"), new Word("arena"), new Word("argue"), new Word("arise"), new Word("armor"), new Word("aroma"), new Word("arose"), new Word("array"), new Word("arrow"), new Word("arson"), new Word("artsy"), new Word("ascot"), new Word("ashen"), new Word("aside"), new Word("askew"), new Word("assay"), new Word("asset"), new Word("atoll"), new Word("atone"), new Word("attic"), new Word("audio"), new Word("audit"), new Word("augur"), new Word("aunty"), new Word("avail"), new Word("avert"), new Word("avian"), new Word("avoid"), new Word("await"), new Word("awake"), new Word("award"), new Word("aware"), new Word("awash"), new Word("awful"), new Word("awoke"), new Word("axial"), new Word("axiom"), new Word("axion"), new Word("azure"));
-var x = ['bacon', 'badge'], badly, bagel, baggy, baker, baler, balmy, banal, banjo, barge, baron, basal, basic, basil, basin, basis, baste, batch, bathe, baton, batty, bawdy, bayou, beach, beady, beard, beast, beech, beefy, befit, began, begat, beget, begin, begun, being, belch, belie, belle, belly, below, bench, beret, berry, berth, beset, betel, bevel, bezel, bible, bicep, biddy, bigot, bilge, billy, binge, bingo, biome, birch, birth, bison, bitty, black, blade, blame, bland, blank, blare, blast, blaze, bleak, bleat, bleed, bleep, blend, bless, blimp, blind, blink, bliss, blitz, bloat, block, bloke, blond, blood, bloom, blown, bluer, bluff, blunt, blurb, blurt, blush, board, boast, bobby, boney, bongo, bonus, booby, boost, booth, booty, booze, boozy, borax, borne, bosom, bossy, botch, bough, boule, bound, bowel, boxer, brace, braid, brain, brake, brand, brash, brass, brave, bravo, brawl, brawn, bread;
-break breed;
-briar;
-bribe;
-brick;
-bride;
-brief;
-brine;
-bring;
-brink;
-briny;
-brisk;
-broad;
-broil;
-broke;
-brood;
-brook;
-broom;
-broth;
-brown;
-brunt;
-brush;
-brute;
-buddy;
-budge;
-buggy;
-bugle;
-build;
-built;
-bulge;
-bulky;
-bully;
-bunch;
-bunny;
-burly;
-burnt;
-burst;
-bused;
-bushy;
-butch;
-butte;
-buxom;
-buyer;
-bylaw;
+wordsArray.push(//A
+new Word("aback"), new Word("abase"), new Word("abase"), new Word("abate"), new Word("abbey"), new Word("abbot"), new Word("abhor"), new Word("abide"), new Word("abled"), new Word("abode"), new Word("abort"), new Word("about"), new Word("above"), new Word("abuse"), new Word("abyss"), new Word("acorn"), new Word("acorn"), new Word("acrid"), new Word("actor"), new Word("acute"), new Word("adage"), new Word("adapt"), new Word("adept"), new Word("admin"), new Word("admit"), new Word("adobe"), new Word("adopt"), new Word("adorn"), new Word("adult"), new Word("affix"), new Word("afire"), new Word("afoot"), new Word("afoul"), new Word("after"), new Word("again"), new Word("agape"), new Word("agate"), new Word("agent"), new Word("agile"), new Word("aging"), new Word("aglow"), new Word("agony"), new Word("agree"), new Word("ahead"), new Word("aider"), new Word("aisle"), new Word("alarm"), new Word("album"), new Word("alert"), new Word("algae"), new Word("alibi"), new Word("alien"), new Word("align"), new Word("alike"), new Word("alive"), new Word("allay"), new Word("alley"), new Word("allot"), new Word("allow"), new Word("alloy"), new Word("aloft"), new Word("alone"), new Word("along"), new Word("aloof"), new Word("aloud"), new Word("alpha"), new Word("altar"), new Word("alter"), new Word("amass"), new Word("amaze"), new Word("amber"), new Word("amble"), new Word("amend"), new Word("amiss"), new Word("amity"), new Word("among"), new Word("ample"), new Word("amply"), new Word("amuse"), new Word("angel"), new Word("anger"), new Word("angle"), new Word("angry"), new Word("angst"), new Word("anime"), new Word("ankle"), new Word("annex"), new Word("annoy"), new Word("annul"), new Word("anode"), new Word("antic"), new Word("anvil"), new Word("aorta"), new Word("apart"), new Word("aphid"), new Word("aping"), new Word("apnea"), new Word("apple"), new Word("apply"), new Word("apron"), new Word("aptly"), new Word("arbor"), new Word("ardor"), new Word("arena"), new Word("argue"), new Word("arise"), new Word("armor"), new Word("aroma"), new Word("arose"), new Word("array"), new Word("arrow"), new Word("arson"), new Word("artsy"), new Word("ascot"), new Word("ashen"), new Word("aside"), new Word("askew"), new Word("assay"), new Word("asset"), new Word("atoll"), new Word("atone"), new Word("attic"), new Word("audio"), new Word("audit"), new Word("augur"), new Word("aunty"), new Word("avail"), new Word("avert"), new Word("avian"), new Word("avoid"), new Word("await"), new Word("awake"), new Word("award"), new Word("aware"), new Word("awash"), new Word("awful"), new Word("awoke"), new Word("axial"), new Word("axiom"), new Word("axion"), new Word("azure"));
+wordsArray.push(//B
+new Word("bacon"), new Word("badge"), new Word("badly"), new Word("bagel"), new Word("baggy"), new Word("baker"), new Word("baler"), new Word("balmy"), new Word("banal"), new Word("banjo"), new Word("barge"), new Word("baron"), new Word("basal"), new Word("basic"), new Word("basil"), new Word("basin"), new Word("basis"), new Word("baste"), new Word("batch"), new Word("bathe"), new Word("baton"), new Word("batty"), new Word("bawdy"), new Word("bayou"), new Word("beach"), new Word("beady"), new Word("beard"), new Word("beast"), new Word("beech"), new Word("beefy"), new Word("befit"), new Word("began"), new Word("begat"), new Word("beget"), new Word("begin"), new Word("begun"), new Word("being"), new Word("belch"), new Word("belie"), new Word("belle"), new Word("belly"), new Word("below"), new Word("bench"), new Word("beret"), new Word("berry"), new Word("berth"), new Word("beset"), new Word("betel"), new Word("bevel"), new Word("bezel"), new Word("bible"), new Word("bicep"), new Word("biddy"), new Word("bigot"), new Word("bilge"), new Word("billy"), new Word("binge"), new Word("bingo"), new Word("biome"), new Word("birch"), new Word("birth"), new Word("bison"), new Word("bitty"), new Word("black"), new Word("blade"), new Word("blame"), new Word("bland"), new Word("blank"), new Word("blare"), new Word("blast"), new Word("blaze"), new Word("bleak"), new Word("bleat"), new Word("bleed"), new Word("bleep"), new Word("blend"), new Word("bless"), new Word("blimp"), new Word("blind"), new Word("blink"), new Word("bliss"), new Word("blitz"), new Word("bloat"), new Word("block"), new Word("bloke"), new Word("blond"), new Word("blood"), new Word("bloom"), new Word("blown"), new Word("bluer"), new Word("bluff"), new Word("blunt"), new Word("blurb"), new Word("blurt"), new Word("blush"), new Word("board"), new Word("boast"), new Word("bobby"), new Word("boney"), new Word("bongo"), new Word("bonus"), new Word("booby"), new Word("boost"), new Word("booth"), new Word("booty"), new Word("booze"), new Word("boozy"), new Word("borax"), new Word("borne"), new Word("bosom"), new Word("bossy"), new Word("botch"), new Word("bough"), new Word("boule"), new Word("bound"), new Word("bowel"), new Word("boxer"), new Word("brace"), new Word("braid"), new Word("brain"), new Word("brake"), new Word("brand"), new Word("brash"), new Word("brass"), new Word("brave"), new Word("bravo"), new Word("brawl"), new Word("brawn"), new Word("bread"), new Word("break"), new Word("breed"), new Word("briar"), new Word("bribe"), new Word("brick"), new Word("bride"), new Word("brief"), new Word("brine"), new Word("bring"), new Word("brink"), new Word("briny"), new Word("brisk"), new Word("broad"), new Word("broil"), new Word("broke"), new Word("brood"), new Word("brook"), new Word("broom"), new Word("broth"), new Word("brown"), new Word("brunt"), new Word("brush"), new Word("brute"), new Word("buddy"), new Word("budge"), new Word("buggy"), new Word("bugle"), new Word("build"), new Word("built"), new Word("bulge"), new Word("bulky"), new Word("bully"), new Word("bunch"), new Word("bunny"), new Word("burly"), new Word("burnt"), new Word("burst"), new Word("bused"), new Word("bushy"), new Word("butch"), new Word("butte"), new Word("buxom"), new Word("buyer"), new Word("bylaw"));
+wordsArray.push(//C                                          
+new Word("cabal"), new Word("cabby"), new Word("cabin"), new Word("cable"), new Word("cacao"), new Word("cache"), new Word("cacti"), new Word("caddy"), new Word("cadet"), new Word("cagey"), new Word("cairn"), new Word("camel"), new Word("cameo"), new Word("canal"), new Word("candy"), new Word("canny"), new Word("canoe"), new Word("canon"), new Word("caper"), new Word("caput"), new Word("carat"), new Word("cargo"), new Word("cargo"), new Word("carol"), new Word("carry"), new Word("carve"), new Word("caste"), new Word("catch"), new Word("cater"), new Word("catty"), new Word("caulk"), new Word("cause"), new Word("cavil"), new Word("cease"), new Word("cedar"), new Word("cello"), new Word("chafe"), new Word("chaff"), new Word("chain"), new Word("chair"), new Word("chalk"), new Word("champ"), new Word("chant"), new Word("chaos"), new Word("chard"), new Word("charm"), new Word("chart"), new Word("chase"), new Word("chasm"), new Word("cheap"), new Word("cheat"), new Word("check"), new Word("cheek"), new Word("cheer"), new Word("chess"), new Word("chest"), new Word("chick"), new Word("chide"), new Word("chief"), new Word("child"), new Word("chili"), new Word("chill"), new Word("chime"), new Word("china"), new Word("chirp"), new Word("chock"), new Word("choir"), new Word("choke"), new Word("chord"), new Word("chore"), new Word("chose"), new Word("chuck"), new Word("chump"), new Word("chunk"), new Word("churn"), new Word("chute"), new Word("cider"), new Word("cigar"), new Word("cinch"), new Word("circa"), new Word("civic"), new Word("civil"), new Word("clack"), new Word("claim"), new Word("clamp"), new Word("clang"), new Word("clank"), new Word("clash"), new Word("clasp"), new Word("class"), new Word("clean"), new Word("clear"), new Word("cleat"), new Word("cleft"), new Word("clerk"), new Word("click"), new Word("cliff"), new Word("climb"), new Word("cling"), new Word("clink"), new Word("cloak"), new Word("clock"), new Word("clone"), new Word("close"), new Word("cloth"), new Word("cloud"), new Word("clout"), new Word("clove"), new Word("clown"), new Word("cluck"), new Word("clued"), new Word("clump"), new Word("clung"), new Word("coach"), new Word("coast"), new Word("cobra"), new Word("cocoa"), new Word("colon"), new Word("color"), new Word("comet"), new Word("comfy"), new Word("comic"), new Word("comma"), new Word("conch"), new Word("condo"), new Word("conic"), new Word("copse"), new Word("coral"), new Word("corer"), new Word("corny"), new Word("couch"), new Word("cough"), new Word("could"), new Word("count"), new Word("coupe"), new Word("court"), new Word("coven"), new Word("cover"), new Word("covet"), new Word("covey"), new Word("cower"), new Word("coyly"), new Word("crack"), new Word("craft"), new Word("cramp"), new Word("crane"), new Word("crank"), new Word("crash"), new Word("crass"), new Word("crate"), new Word("crave"), new Word("crawl"), new Word("craze"), new Word("crazy"), new Word("creak"), new Word("cream"), new Word("credo"), new Word("creed"), new Word("creek"), new Word("creep"), new Word("creme"), new Word("crepe"), new Word("crept"), new Word("cress"), new Word("crest"), new Word("crick"), new Word("cried"), new Word("crier"), new Word("crime"), new Word("crimp"), new Word("crisp"), new Word("croak"), new Word("crock"), new Word("crone"), new Word("crony"), new Word("crook"), new Word("cross"), new Word("croup"), new Word("crowd"), new Word("crown"), new Word("crude"), new Word("cruel"), new Word("crumb"), new Word("crump"), new Word("crush"), new Word("crust"), new Word("crypt"), new Word("cubic"), new Word("cumin"), new Word("curio"), new Word("curly"), new Word("curry"), new Word("curse"), new Word("curve"), new Word("curvy"), new Word("cutie"), new Word("cyber"), new Word("cycle"), new Word("cynic"));
+wordsArray.push(//D                                         
+new Word("daddy"), new Word("daily"), new Word("dairy"), new Word("daisy"), new Word("dally"), new Word("dance"), new Word("dandy"), new Word("datum"), new Word("daunt"), new Word("dealt"), new Word("death"), new Word("debar"), new Word("debit"), new Word("debug"), new Word("debut"), new Word("decal"), new Word("decay"), new Word("decor"), new Word("decoy"), new Word("decry"), new Word("defer"), new Word("deign"), new Word("deity"), new Word("delay"), new Word("delta"), new Word("delve"), new Word("demon"), new Word("demur"), new Word("denim"), new Word("dense"), new Word("depot"), new Word("depth"), new Word("derby"), new Word("deter"), new Word("detox"), new Word("deuce"), new Word("devil"), new Word("diary"), new Word("dicey"), new Word("digit"), new Word("dilly"), new Word("dimly"), new Word("diner"), new Word("dingo"), new Word("dingy"), new Word("diode"), new Word("dirge"), new Word("dirty"), new Word("disco"), new Word("ditch"), new Word("ditto"), new Word("ditty"), new Word("diver"), new Word("dizzy"), new Word("dodge"), new Word("dodgy"), new Word("dogma"), new Word("doing"), new Word("donor"), new Word("donut"), new Word("dopey"), new Word("doubt"), new Word("dough"), new Word("dowdy"), new Word("dowel"), new Word("downy"), new Word("dowry"), new Word("dozen"), new Word("draft"), new Word("drain"), new Word("drake"), new Word("drama"), new Word("drank"), new Word("drape"), new Word("drawl"), new Word("drawn"), new Word("dread"), new Word("dream"), new Word("dress"), new Word("dried"), new Word("drier"), new Word("drift"), new Word("drill"), new Word("drink"), new Word("drive"), new Word("droit"), new Word("droll"), new Word("drone"), new Word("drool"), new Word("droop"), new Word("dross"), new Word("drove"), new Word("drown"), new Word("druid"), new Word("drunk"), new Word("dryer"), new Word("dryly"), new Word("duchy"), new Word("dully"), new Word("dummy"), new Word("dumpy"), new Word("dunce"), new Word("dusky"), new Word("dusty"), new Word("dutch"), new Word("duvet"), new Word("dwarf"), new Word("dwell"), new Word("dwelt"), new Word("dying"));
+wordsArray.push(//E                                         
+new Word("eager"), new Word("eagle"), new Word("early"), new Word("earth"), new Word("easel"), new Word("eaten"), new Word("eater"), new Word("ebony"), new Word("eclat"), new Word("edict"), new Word("edify"), new Word("eerie"), new Word("egret"), new Word("eight"), new Word("eject"), new Word("eking"), new Word("elate"), new Word("elbow"), new Word("elder"), new Word("elect"), new Word("elegy"), new Word("elfin"), new Word("elide"), new Word("elite"), new Word("elope"), new Word("elude"), new Word("email"), new Word("embed"), new Word("ember"), new Word("emcee"), new Word("empty"), new Word("enact"), new Word("endow"), new Word("enema"), new Word("enemy"), new Word("enjoy"), new Word("ennui"), new Word("ensue"), new Word("enter"), new Word("entry"), new Word("envoy"), new Word("epoch"), new Word("epoxy"), new Word("equal"), new Word("equip"), new Word("erase"), new Word("erect"), new Word("erode"), new Word("error"), new Word("erupt"), new Word("essay"), new Word("ester"), new Word("ether"), new Word("ethic"), new Word("ethos"), new Word("etude"), new Word("evade"), new Word("event"), new Word("every"), new Word("evict"), new Word("evoke"), new Word("exact"), new Word("exalt"), new Word("excel"), new Word("exert"), new Word("exile"), new Word("exist"), new Word("expel"), new Word("extol"), new Word("extra"), new Word("exult"), new Word("eying"));
+// wordsArray.push( //F                                         
+// new Word("_____"),
+// new Word("_____"),
+// new Word("_____"),
+// new Word("_____"),
+// new Word("_____"),
+// new Word("_____"),
+// new Word("_____"),
+// new Word("_____"),
+// new Word("_____"),
+// new Word("_____"),
+// new Word("_____"),
+// new Word("_____"),
+// new Word("_____"),
+// new Word("_____"),
+// )                       
