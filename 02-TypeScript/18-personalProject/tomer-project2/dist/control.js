@@ -1,6 +1,6 @@
 var booksContiner = document.querySelector(".booksContiner");
-booksContiner.innerHTML = renderBooks(books);
-function renderBooks(books) {
+booksContiner.innerHTML = renderBooks(books, 'renderElementID');
+function renderBooks(books, renderElementID) {
     try {
         if (!books || !Array.isArray(books))
             throw new Error("books is not an arry");
@@ -23,13 +23,20 @@ function saveToLocalStorage(ev) {
     var review = ev.target.elements.review.value;
     var stars = ev.target.elements.stars.value;
     var newReview = new UserReview(userName, review, stars);
-    localStorage.setItem('userReview', JSON.stringify(newReview));
+    localStorage.setItem('UserReview', JSON.stringify(newReview));
 }
-function addReviewToBook(book, userName, review, stars) {
-    // Create a new UserReview instance
-    var userReview = new UserReview(userName, review, stars);
-    // Add the new UserReview instance to the book's reviews
-    book.reviews.push(userReview);
-    // Add the book to the UserReview's books
-    userReview.books.push(book);
+function getItemsFromStorage() {
+    try {
+        //get items from storage
+        var BooksString = localStorage.getItem("UserReview");
+        if (!BooksString)
+            throw new Error("Couldn't find items in storage");
+        //convert to array
+        var books = JSON.parse(BooksString);
+        return books;
+    }
+    catch (error) {
+        console.error(error);
+    }
+    console.log(books);
 }
