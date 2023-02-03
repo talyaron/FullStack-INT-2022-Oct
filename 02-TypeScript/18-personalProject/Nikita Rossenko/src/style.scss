@@ -1,0 +1,313 @@
+* {
+    color: black;
+}
+html {
+    min-width: 100vw;
+    min-height: 100vh;
+}
+body {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+    display: flex;
+    background-color: #10171B;
+}
+.imageContainer{
+    width: 100vw;
+    height: 100vh;
+    background-size:cover;
+    z-index: -1;
+    background-image: url('../images/movie-theater.jpg');
+
+}
+
+.loginAndRegisterContainer{
+    background-color: white;
+    width: 30%;
+    min-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h1 {
+        position: absolute;
+        top: 20px;
+        font-size: 60px;
+    }
+
+    .main {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+        box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.5);
+        width: 100%;
+        height: 450px;
+        border: 3px;
+        gap: 20px;
+        left: 100px;
+        
+        h2 {
+            padding: 0;
+            margin: 0;
+            font-size: 50px;
+        }
+        a {
+            all: unset;
+            cursor: pointer;
+            text-decoration: underline
+        }
+        form {
+            width: 100%;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+
+            input {
+                height: 40px;
+                width: 260px;
+                font-size: 20px;
+                border-radius: 10px;
+                border: none;
+                box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+            }
+
+            #regitserPopMessage {
+                position: absolute;
+                bottom: 130px;
+                padding: 0;
+                margin: 0;
+                color: red;
+            }
+            #loginPopMessage {
+                position: absolute;
+                bottom: 165px;
+                padding: 0;
+                margin: 0;
+                color: red;
+            }
+
+            #submitBtn {
+                box-shadow:none;
+                width: 150px;
+                height: 45px;
+                transition : 500ms;
+                backface-visibility: hidden;
+                margin-top: 10px;
+                position: relative;
+                cursor: pointer;
+                display: inline-block;
+                white-space: nowrap;
+                background: linear-gradient(180deg,#f9f9f9 0%,#e0e0e0 100%);
+                border-radius: 50px;
+                padding: 4px 22px 5px 22px;
+                color: black;
+                font-size: 18px;
+                border: 1px solid #7F594A;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-weight: 900;
+                font-style: normal
+                
+              }
+                
+                #submitBtn:hover{ 
+                    background: #B4AAA1;
+                    border: 1px solid white;
+                }
+        }
+    }
+}
+
+.moviesContainer{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), #10171b), url('../images/movie-theater.jpg');
+    background-size:cover;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 60px;
+
+    .navBar{
+        width: 100%;
+        height: 60px;
+        background-color: #31211F;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        &__icons {
+            width: 100%;
+            max-width: 1546px;
+            height: 60px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h1 {
+                font-size: 30px;
+                color: white;
+                margin-left: 20px;
+            }
+            button {
+                box-shadow:none;
+                width: 80px;
+                height: 30px;
+                transition : 500ms;
+                backface-visibility: hidden;
+                position: relative;
+                cursor: pointer;
+                display: inline-block;
+                white-space: nowrap;
+                background: linear-gradient(180deg,#f9f9f9 0%,#e0e0e0 100%);
+                border-radius: 10px;
+                // padding: 10px 22px 10px 22px;
+                color: black;
+                font-size: 14px;
+                border: 1px solid #7F594A;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                font-weight: 900;
+                font-style: normal
+                
+            }
+                
+            button:hover{ 
+                    background: #B4AAA1;
+                    border: 1px solid white;
+            }
+
+        }
+
+    }
+    .username{
+            color: white;
+            width: auto;
+            height: 100px;
+            box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.5);
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #222f3889;
+
+            p {
+                margin-left: 10px;
+                margin-right: 10px;
+                color: white;
+                font-size: 30px;
+            }
+        }
+    .main{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        &__moviesContainer {
+            position: relative;
+            width: 1546px;
+            height: auto;
+            display: flex;
+            // grid-template-columns: repeat( 5, 1fr);
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            &__movie {
+                position: relative;
+                width: 300px;
+                height: 373px;
+                object-fit: cover;
+
+                &__details {
+                    position: absolute;
+                    display: none;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.85);
+                    justify-content: space-between;
+                    align-items: center;
+                    flex-direction: column;
+
+                    button {
+                        box-shadow:none;
+                        width: 85px;
+                        height: 35px;
+                        transition : 500ms;
+                        backface-visibility: hidden;
+                        position: relative;
+                        cursor: pointer;
+                        display: inline-block;
+                        white-space: nowrap;
+                        background: linear-gradient(180deg,#f9f9f9 0%,#e0e0e0 100%);
+                        border-radius: 10px;
+                        // padding: 10px 22px 10px 22px;
+                        color: black;
+                        font-size: 14px;
+                        border: 1px solid #7F594A;
+                        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                        font-weight: 900;
+                        font-style: normal
+                        
+                    }
+                        
+                    button:hover{ 
+                        transition : 500ms;
+                        background: #B4AAA1;
+                        border: 1px solid white;
+                    }
+
+                    h1 {
+                        margin-left: 10px;
+                        color: white;
+                    }
+                    p {
+                        margin-left: 10px;
+                        color: white;
+                    }
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            &__movie:hover {
+                .main__moviesContainer__movie__details{
+                    display: flex;
+                }
+            }
+        }
+    }
+    .footer{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 40px;
+        background-color: #31211F;
+        z-index: 1;
+
+        p {
+            margin-left: 20px;
+            color: rgb(178, 170, 170);
+        }
+    }
+}
