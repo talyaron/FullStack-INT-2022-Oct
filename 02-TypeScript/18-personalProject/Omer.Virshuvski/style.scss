@@ -4,14 +4,33 @@
     box-sizing: border-box;
 }
 
+.hide {
+    opacity: 0;
+}
+
 body {
     position: relative;
     overflow-x: hidden;
+    background-color: rgb(248, 233, 214);
 
     button,
     .submit {
         cursor: pointer;
     }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+form > * {
+    width: 160px;
+    height: 30px;
+    padding: 5px;
+    margin: 3px 0;
 }
 
 .test {
@@ -26,7 +45,7 @@ body {
 
 }
 
-.main {
+.main, .cartMain {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -37,15 +56,17 @@ body {
 
     &__card {
         position: relative;
-        max-width: 150px;
+        max-width: 170px;
         height: 250px;
         padding: 20px;
         border-radius: 10px;
         border: none;
         box-shadow: 0 0 6px 0px black;
         margin: 0 5px 20px 5px;
+        background-color: white;
 
         img {
+            padding-top: 10px;
             width: 90%;
             aspect-ratio: 1/1;
         }
@@ -78,8 +99,34 @@ body {
     height: 50px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
     position: relative;
     background-color: aqua;
+
+    &__cart {
+        cursor: pointer;
+        position: relative;
+        width: 30px;
+        height: 30px;
+        img {
+            width: 100%;
+            aspect-ratio: 1/1;
+        }
+        &__items {
+            display: grid;
+            place-items: center;
+            position: absolute;
+            bottom: -3px;
+            right: -3px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: none;
+            background-color: red;
+            color: white;
+        }
+    }
 
     &__headline {
         position: absolute;
