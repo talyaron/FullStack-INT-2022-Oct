@@ -10,26 +10,29 @@
     <script src="./dist/view.js" defer></script>
     <script src="./dist/control.js" defer></script>
     <script src="./dist/admin.js" defer></script>
+    <script src="https://kit.fontawesome.com/6cf7873aa7.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
     <a href="./store.html"><button>To store</button></a>
-    <form id="theForm">
-        <input type="text" name="name" placeholder="Name Of product">
-        <select name="type">
-            <option value="Hat">Hat</option>
-            <option value="Pants">Pants</option>
-            <option value="Shirt">Shirt</option>
-        </select>
-        <input type="number" name="price" placeholder="Price">
-        <select name="size">
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-        </select>
-        <input type="color" name="color">
-        <input type="text" name="img" placeholder="Image URL (Optional)">
-        <input type="submit" value="Submit" class="submit">
-    </form>
+    <div style="display: flex; align-items: center; width: 100vw; justify-content: center;">
+        <form id="theForm">
+            <input type="text" name="name" placeholder="Name Of product">
+            <select name="type">
+                <option value="Hat">Hat</option>
+                <option value="Pants">Pants</option>
+                <option value="Shirt">Shirt</option>
+            </select>
+            <input type="number" name="price" placeholder="Price">
+            <select name="size">
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+            </select>
+            <input type="color" name="color">
+            <input type="text" name="img" placeholder="Image URL (Optional)">
+            <input type="submit" value="Add" class="submit">
+        </form>
+    </div>
     <div class="test"></div>
 </body>
 </html>
