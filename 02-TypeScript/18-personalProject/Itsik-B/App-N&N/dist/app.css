@@ -19,11 +19,15 @@ body nav {
   width: 100vw;
   height: 100vh;
   margin: 50px 0px;
+  position: relative;
 }
 body nav li a {
   text-decoration: none;
-  font-size: 24px;
+  font-size: 26px;
   padding: 30px;
+}
+body li, body a {
+  width: 20%;
 }
 body li {
   list-style-type: none;
@@ -36,4 +40,16 @@ body a:hover {
   transition-property: color;
   transition-duration: 1s;
   color: #f20ed4;
+}
+body .box {
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  width: 50vw;
+  height: 70vh;
+  margin-right: 300px;
+  border: 3px solid black;
+}
+body #newC, body #dairy, body #clinet, body #mlay, body #sapak, body #todo {
+  display: none;
 }
