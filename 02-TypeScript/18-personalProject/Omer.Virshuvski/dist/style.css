@@ -11,11 +11,20 @@
 body {
   position: relative;
   overflow-x: hidden;
-  background-color: #f8e9d6;
+  background-color: #F8F4EA;
 }
 body button,
 body .submit {
   cursor: pointer;
+  padding: 2px 4px;
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  border: 2px solid #E1D7C6;
+  transition: all ease 0.3s;
+}
+body button:hover, body .submit:hover {
+  padding: 2px 6px;
 }
 
 form {
@@ -51,32 +60,39 @@ form > * {
   width: 100%;
   margin-top: 20px;
 }
+.main__card > *, .cartMain__card > * {
+  margin: 2px 0;
+}
 .main__card, .cartMain__card {
   position: relative;
-  max-width: 170px;
-  height: 250px;
+  width: 250px;
+  height: 275px;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
-  box-shadow: 0 0 6px 0px black;
+  box-shadow: 0 0 2px 0px #555454;
   margin: 0 5px 20px 5px;
   background-color: white;
 }
+.main__card__imgDiv, .cartMain__card__imgDiv {
+  display: grid;
+  place-items: center;
+}
 .main__card img, .cartMain__card img {
-  padding-top: 10px;
-  width: 90%;
+  width: 60%;
   aspect-ratio: 1/1;
 }
 
 .menu {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-evenly;
-  background-color: black;
-  width: 50%;
+  padding: 20px;
+  background-color: #ECE8DD;
+  width: 138px;
   position: absolute;
-  left: -50%;
+  left: -30%;
   top: 50px;
   height: 100vh;
   transition: all ease 0.5s;
@@ -94,7 +110,7 @@ form > * {
   justify-content: space-between;
   padding: 0 20px;
   position: relative;
-  background-color: aqua;
+  background-color: #ECE8DD;
 }
 .top__cart {
   cursor: pointer;

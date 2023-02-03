@@ -6,14 +6,14 @@ function total() {
     if(!temp || temp.length == 0) {
         totalPrice.innerHTML = ""
     } else {
-        totalPrice.innerHTML = `Total price: ${howMuch(temp)}`;
+        totalPrice.innerHTML = `Total price: ${howMuch(temp)}$`;
     }
 }
 
 function howMuch(items:Product[]):number {
     let num:number = 0;
     items.forEach(item => {
-        num += parseInt(item.price);
+        num += parseInt(item.price.toString());
     })
     return num;
 }

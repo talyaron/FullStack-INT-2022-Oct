@@ -6,13 +6,13 @@ function total() {
         totalPrice.innerHTML = "";
     }
     else {
-        totalPrice.innerHTML = "Total price: " + howMuch(temp);
+        totalPrice.innerHTML = "Total price: " + howMuch(temp) + "$";
     }
 }
 function howMuch(items) {
     var num = 0;
     items.forEach(function (item) {
-        num += parseInt(item.price);
+        num += parseInt(item.price.toString());
     });
     return num;
 }
