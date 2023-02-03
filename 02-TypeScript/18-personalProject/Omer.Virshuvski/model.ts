@@ -12,15 +12,15 @@ class Product {
     constructor(public name: string, public type: string, public price: number, public size: string, img: string) {
         this.id = uid();
         if (!img) {
-            if (this.type = "Hat") {
+            if (this.type == "Hat") {
 
                 this.img = Product.imgHat
             }
-            else if (this.type = "Pants") {
+            else if (this.type == "Pants") {
 
                 this.img = Product.imgPants
             }
-            else if (this.type = "Shirt") {
+            else if (this.type == "Shirt") {
 
                 this.img = Product.imgShirt
             } else {
