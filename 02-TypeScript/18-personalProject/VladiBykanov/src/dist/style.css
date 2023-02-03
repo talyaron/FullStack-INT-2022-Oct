@@ -10,7 +10,17 @@
   --div-size: calc(90vh / 21);
 }
 
-body {
+.gameWrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: darkblue;
+}
+
+.welcomePageWrapper {
+  background-color: darkblue;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -22,34 +32,40 @@ body {
   aspect-ratio: 3/2;
   width: 60vw;
   background-color: darkgoldenrod;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
-.welcomePage .choices {
+.welcomePage__choices {
   width: 100%;
   height: 70%;
   display: flex;
   justify-content: center;
   gap: 1vw;
 }
-.welcomePage .choices .choice {
-  border: 1px solid white;
+.welcomePage__choices__choice {
   display: flex;
   justify-content: center;
   width: 45%;
 }
-.welcomePage .choices .choice img {
+.welcomePage__choices__choice img {
   width: 100%;
 }
-.welcomePage .choices .choice:hover {
+.welcomePage__choices__choice:hover {
   box-shadow: 0 0 50px black;
   cursor: pointer;
 }
 .welcomePage button {
   font-size: 1.5rem;
   padding: 0.5em 2em;
+  border: none;
+  border-radius: 10px;
+}
+.welcomePage button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 .maze {
@@ -59,6 +75,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   position: relative;
+  background-color: white;
 }
 .maze b {
   position: absolute;

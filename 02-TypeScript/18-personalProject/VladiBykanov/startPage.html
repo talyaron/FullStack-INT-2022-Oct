@@ -9,17 +9,19 @@
     <script src="./src/dist/startPage.js"></script>
   </head>
   <body>
-    <div class="welcomePage">
-      <h1>Choose a map and start</h1>
-      <div class="choices">
-        <div class="choice">
-          <img class="mapOne" src="./img/PacmanMaze01.png" alt="" />
+    <div class="welcomePageWrapper">
+      <div class="welcomePage">
+        <h1>Choose a map and start</h1>
+        <div class="welcomePage__choices">
+          <div class="welcomePage__choices__choice">
+            <img class="mapOne" src="./img/mapOne.png" alt="" />
+          </div>
+          <div class="welcomePage__choices__choice">
+            <img class="mapTwo" src="./img/mapTwo.png" alt="" />
+          </div>
         </div>
-        <div class="choice">
-          <img class="mapTwo" src="./img/mapTwo.png" alt="" />
-        </div>
+        <button class="startGameBtn">START</button>
       </div>
-      <button class="startGameBtn">START</button>
     </div>
   </body>
 </html>
