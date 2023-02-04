@@ -6,18 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Starting Page</title>
     <link rel="stylesheet" href="./src/dist/style.css" />
-    <script src="./src/dist/startPage.js"></script>
+    <script src="./src/dist/startPage.js" defer></script>
   </head>
-  <body>
+  <body">
     <div class="welcomePageWrapper">
       <div class="welcomePage">
         <h1>Choose a map and start</h1>
         <div class="welcomePage__choices">
           <div class="welcomePage__choices__choice">
-            <img class="mapOne" src="./img/mapOne.png" alt="" />
+            <img class="img" id="mapOne" src="./img/mapOne.png" alt="" />
           </div>
           <div class="welcomePage__choices__choice">
-            <img class="mapTwo" src="./img/mapTwo.png" alt="" />
+            <img class="img" id="mapTwo" src="./img/mapTwo.png" alt="" />
           </div>
         </div>
         <button class="startGameBtn">START</button>

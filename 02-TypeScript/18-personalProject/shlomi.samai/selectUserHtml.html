@@ -8,26 +8,34 @@
     <script src="./dist/view.js" defer></script>
     <script src="./dist/helpers.js" defer></script>
     <script src="./dist/model.js" defer></script>
-    <script src="./dist/controlDad.js" defer></script>
+    <script src="./dist/control.js" defer></script>
     <link rel="stylesheet" href="./dist/style.css">
 </head>
 
 <body>
-    <a href="./dad.html">dad</a>
+    <!-- <a href="./dad.html">dad</a>
     <a href="./mom.html">mom</a>
     <a href="./danny.html">danny</a>
     <a href="./tommy.html">tommy</a>
-    <a href="./dudi.html">dudi</a>
+    <a href="./dudi.html">dudi</a> -->
 
     <form onsubmit="handleAddUser(event)">
         <input type="text" name="name" placeholder="name" required />
         <input type="text" name="nickName" placeholder="nickName" />
-        <input type="url" name="pictureURL" placeholder="pictureURL"  />
-        <input type="text" name="tasksarr" placeholder="tasksarr" required />
+        <input type="url" name="pictureURL" placeholder="pictureURL"/>
         <input type="submit" value="ADD">
     </form>
+    
     <div id="exsistingUsers"></div>
-    <div id="users"></div>
+    <!-- <form onsubmit="handleAddTask(event)">
+        <input type="text" name="name" placeholder="name" required />
+        <input type="text" name="category" placeholder="category" required />
+        <input type="text" name="description" placeholder="description" required />
+        <input type="date" name="dueDate" placeholder="dueDate"  />
+        <input type="submit" value="ADD">
+    </form> -->
+    <div id="newUsers"></div>
+    <div id="list"></div>
     
 
 

@@ -15,6 +15,8 @@
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--  Link script files -->
+
+    <script src="./dist/saveLocalStorage.js" defer></script>
     <script src="./dist/view.js" defer></script>
     <script src="./dist/helper.js" defer></script>
     <script src="./dist/model.js" defer></script>
@@ -23,10 +25,10 @@
     <!--  Link css files -->
     <link rel="stylesheet" href="./dist/index.css">
 
-    <title>Control Music</title>
+    <title>PhotoList</title>
 </head>
 
-<body onbeforeunload="beforeLoadRenderData()">
+<body onbeforeunload="dataFromStorage() , dataFromStorage1()">
     <section id="main-section">
         <div class="sticky-navbar">
             <div class="left-header">
@@ -34,7 +36,7 @@
                     <a href="./index.html">
                         <img src="./img/logo.png" width="100px" alt="icon-music-control">
                         <span class="logoTitle">
-                            ProList
+                            PhotoList
                         </span>
                     </a>
                 </div>
@@ -65,12 +67,12 @@
                 </div>
 
                 <ul class="list-down">
-                    <li><i class="fa-solid fa-square-plus"></i><span>Create Album</span></li>
-                    <li><i class="fa-brands fa-gratipay"></i><span>Liked Photos</span></li>
+                    <li onclick="handleClickCreateAlbumList(event)"><i class="fa-solid fa-square-plus"></i><span>Create Album</span></li>
+                    <li onclick="handleClickLikedPhotosList(event)"><i class="fa-brands fa-gratipay"></i><span>Liked Photos</span></li>
                     <div class="line"></div>
                 </ul>
 
-                <div class="container-playlist">
+                <div class="container-playlist" >
 
                 </div>
             </div>
@@ -112,7 +114,10 @@
         <div class="main-board-center active">
             <main class="container-main-app">
                 <div class="sections-home section active">
+                    <h1>Home Section</h1>
+
                     <div id="list1" class="list">
+        
                         <h4>Animals</h4>
                         <div class="recommended-list animalsList ">
                         </div>
@@ -130,13 +135,42 @@
                 </div>
                 <div class="sections-library section">
                     <h1>Library Section</h1>
-                    
                 </div>
-                <div class="sections-create-playlist section">
-                    <h1>Create playlist Section</h1>
+
+                <div class="sections-create-album section"  id="createAlbumSection">
+                    <h1>Create Album Section</h1>
+                    <form onsubmit="handleSubmitCreateAlbumsList(event)">
+                        <h4>ADD NEW LIST</h4>
+                        <div class="user-create-list">
+
+                            <input type="text" name="createListName" id="createListName" placeholder="ENTER New LIST NAME" required>
+                            <button type="submit">ADD</button>
+                        </div>
+                    </form>
+
+                    <form onsubmit="handleSubmitCreatePhoto(event)">
+                        <h4>ADD NEW PHOTO</h4>
+                        <div class="user-create-photo">
+                            <input type="text" name="photoNameCreateImage" id="photoNameCreateImage" placeholder="Enter Photo Name" required>
+                            <input type="date" name="photoDateCreateImage" id="photoDateCreateImage" placeholder="Enter Date or Details" required>
+                            <input type="url" name="photoSrcCreateImage" id="photoSrcCreateImage" placeholder="ENTER URL IMAGE" required>
+                            <span>
+                                <label for="selectList">Chose List To Put Photo</label >
+                                <select name="selectList" id="selectList" required>
+                          
+                              </select>
+                            </span>
+                        <button type="submit">ADD</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="sections-liked-songs section">
-                    <h1>sections-liked-songs</h1>
+
+                <div class="sections-liked-songs section" id="likedSongSection">
+                    <div id="list4" class="list">
+                        <h4>You Liked</h4>
+                        <div class="recommended-list likeSongList " style="pointer-events: none;">
+                        </div>
+                    </div>
                 </div>
 
         </div>

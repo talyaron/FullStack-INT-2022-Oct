@@ -1,15 +1,16 @@
 let storageData = getMatchUserDetail() as Array<Users[]> // LocalStorage DATA
 const lastUserIn = updateUsersArrayFromStorage()
-console.log(storageData);
-console.log(getMatchUserDetail());
+let usernameUser:string
+let emailUser:string 
 
 class Albums {
     constructor(
         public name: string,
-        public photos?: Photos[]
+        public photos: Photos[]
     ) { }
 
 }
+
 
 class Users {
     constructor(
@@ -33,7 +34,7 @@ class Photos {
 
 }
 
-const users:Users[] = [
+const users: Users[] = [
     {
         email: "orekarako@gmail.com",
         password: "123456",
@@ -44,21 +45,19 @@ const users:Users[] = [
 
     }
 ];
-console.log("users",users);
+console.log("users", users);
 
 const update = storageData
 
 const albums: Albums[] = []
 
-const photos: Photos[] = [
-    {
-        uId: "01010101",
-        photoName: "Orelkarako",
-        date: "1234",
-        src: "https://cf.ltkcdn.net/family/images/std/200821-800x533r1-family.jpg",
-    }
-];
+// set The Album to Album Local Storage
+
+
+console.log("albums New " , albums);
+
 const likedPhotos: Photos[] = [];
+
 const animals: Photos[] = [
 
     {
@@ -86,7 +85,6 @@ const animals: Photos[] = [
         src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRM0ZpNjOZUiorOad2OK0q9Dw2_hPakrXMLdQ&usqp=CAU",
     }
 ];
-
 const backgrounds: Photos[] = [
     {
         uId: "01010101",
@@ -120,30 +118,43 @@ const backgrounds: Photos[] = [
     }
 ];
 
-const Album1: Photos[] = [];
-const Album2: Photos[] = []
-const Album3: Photos[] = []
-
-photos.push(new Photos(
-    "My family Trip",
-    "2012",
-    "https://cf.ltkcdn.net/family/images/std/200821-800x533r1-family.jpg")
-)
 
 
 
 
 
-function updateUsersArrayFromStorage() {
-    const storageData= JSON.parse(localStorage.getItem("users")!)
-    const index = storageData.length
-    //@ts-ignore
-    const lastRegister = storageData[index - 1]
+
+//USERS LOCAL STORAGE
+
+function updateUsersArrayFromStorage():{}{
+    try {
+        const localStorageData = localStorage.getItem("users")!
+        if (!localStorageData) throw new Error("no found localStorage users")
+        const storageData = JSON.parse(localStorageData)
+
+        const index = storageData.length
+        //@ts-ignore
+        const lastRegister = storageData[index - 1]
         return lastRegister
+    } catch (error) {
+        console.error(error)
+        return {}
+    }
+}
+function updateUserToLocalStorage() :void{
+    try {
+        console.log("usersBeforeLoaded", users);
+        if (!users) throw new Error("not find users")
+        if (localStorage.length > users.length) return
+        localStorage.setItem("users", JSON.stringify(users))
+
+    } catch (error) {
+        console.log(error);
     }
 
+}
+function ifRefresh():void {
 
-function ifRefresh() {
     try {
         localStorage.setItem("userLogIn", "true")
     } catch (error) {
@@ -151,11 +162,10 @@ function ifRefresh() {
     }
 
 }
-
 function getMatchUserDetail(): Array<Users[]> | undefined {
     try {
         const dataJson = localStorage.getItem("users") as string;
-        if (dataJson === null || dataJson === undefined) throw new Error("Null or undefined")
+        if (dataJson === null || dataJson === undefined) throw new Error("dataJson fille not exist in the localStorage")
         const data = JSON.parse(dataJson)
         storageData = data
 
@@ -167,14 +177,29 @@ function getMatchUserDetail(): Array<Users[]> | undefined {
     }
 }
 
-function updateInfoToLocalStorage() {
+//PHOTOS LOCAL STORAGE
+function updatePhotosToLocalStorage() {
     try {
-        console.log("updateInfoToLocalStorage" , users);
-        if(!users) throw new Error("not find users")
-      localStorage.setItem("users", JSON.stringify(users))
-      
+        if (!albums) throw new Error("not find albums in local storage")
+        localStorage.setItem("albums", JSON.stringify(albums))
+
     } catch (error) {
-      console.log(error);
+        console.log(error);
     }
-  
-  }
+
+}
+
+function getAlbumFromStorage():Albums[] | undefined{
+    try {
+        const dataJson = localStorage.getItem("albums")
+        if (!dataJson) throw new Error("not find albums in local storage")
+const data = JSON.parse(dataJson)
+        return data
+
+    } catch (error) {
+        console.log(error);
+        return undefined
+    }
+}
+
+

@@ -1,7 +1,7 @@
 var storageData = getMatchUserDetail(); // LocalStorage DATA
 var lastUserIn = updateUsersArrayFromStorage();
-console.log(storageData);
-console.log(getMatchUserDetail());
+var usernameUser;
+var emailUser;
 var Albums = /** @class */ (function () {
     function Albums(name, photos) {
         this.name = name;
@@ -42,14 +42,8 @@ var users = [
 console.log("users", users);
 var update = storageData;
 var albums = [];
-var photos = [
-    {
-        uId: "01010101",
-        photoName: "Orelkarako",
-        date: "1234",
-        src: "https://cf.ltkcdn.net/family/images/std/200821-800x533r1-family.jpg"
-    }
-];
+// set The Album to Album Local Storage
+console.log("albums New ", albums);
 var likedPhotos = [];
 var animals = [
     {
@@ -109,16 +103,35 @@ var backgrounds = [
         src: "https://m.media-amazon.com/images/I/31qu4ixHZ3L._SY355_.jpg"
     }
 ];
-var Album1 = [];
-var Album2 = [];
-var Album3 = [];
-photos.push(new Photos("My family Trip", "2012", "https://cf.ltkcdn.net/family/images/std/200821-800x533r1-family.jpg"));
+//USERS LOCAL STORAGE
 function updateUsersArrayFromStorage() {
-    var storageData = JSON.parse(localStorage.getItem("users"));
-    var index = storageData.length;
-    //@ts-ignore
-    var lastRegister = storageData[index - 1];
-    return lastRegister;
+    try {
+        var localStorageData = localStorage.getItem("users");
+        if (!localStorageData)
+            throw new Error("no found localStorage users");
+        var storageData_1 = JSON.parse(localStorageData);
+        var index = storageData_1.length;
+        //@ts-ignore
+        var lastRegister = storageData_1[index - 1];
+        return lastRegister;
+    }
+    catch (error) {
+        console.error(error);
+        return {};
+    }
+}
+function updateUserToLocalStorage() {
+    try {
+        console.log("usersBeforeLoaded", users);
+        if (!users)
+            throw new Error("not find users");
+        if (localStorage.length > users.length)
+            return;
+        localStorage.setItem("users", JSON.stringify(users));
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 function ifRefresh() {
     try {
@@ -132,7 +145,7 @@ function getMatchUserDetail() {
     try {
         var dataJson = localStorage.getItem("users");
         if (dataJson === null || dataJson === undefined)
-            throw new Error("Null or undefined");
+            throw new Error("dataJson fille not exist in the localStorage");
         var data = JSON.parse(dataJson);
         storageData = data;
         return data;
@@ -142,14 +155,27 @@ function getMatchUserDetail() {
         return undefined;
     }
 }
-function updateInfoToLocalStorage() {
+//PHOTOS LOCAL STORAGE
+function updatePhotosToLocalStorage() {
     try {
-        console.log("updateInfoToLocalStorage", users);
-        if (!users)
-            throw new Error("not find users");
-        localStorage.setItem("users", JSON.stringify(users));
+        if (!albums)
+            throw new Error("not find albums in local storage");
+        localStorage.setItem("albums", JSON.stringify(albums));
     }
     catch (error) {
         console.log(error);
+    }
+}
+function getAlbumFromStorage() {
+    try {
+        var dataJson = localStorage.getItem("albums");
+        if (!dataJson)
+            throw new Error("not find albums in local storage");
+        var data = JSON.parse(dataJson);
+        return data;
+    }
+    catch (error) {
+        console.log(error);
+        return undefined;
     }
 }
