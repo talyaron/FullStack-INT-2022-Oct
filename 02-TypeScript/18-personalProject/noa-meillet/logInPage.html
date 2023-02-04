@@ -14,14 +14,19 @@
     <script src="./dist/logIn.js" defer></script>
   </head>
   <body>
-    <form class="form" onsubmit="goToUserProfile()">
-      <input type="text" name="userId" id="idInput" placeholder="Enter your ID number"/>
+    <form class="form" onsubmit="goToUserProfile(event)">
+      <input type="text" name="userId" class="input" placeholder="Enter your ID number" required/>
       <br />
-      <input type="password" name="userPassword" id="passwordInput" placeholder="enter your password"/>
+      <input type="password" name="userPassword" class="input" placeholder="Enter your password" required/>
       <br />
-      <input type="submit" value="Log in" />
+      <input type="submit" on value="Log in" />
     </form>
+    <a id="link_to_main" href="./index.html"></a>
     <h5>Don't have an account? Sign in here!</h5>
-    <button onclick="addUser()">Add image</button>
+    <button onclick="btnAdd()">Add</button>
+    <div class="addUser">
+      <form class="addUser__form" onsubmit="addUser(event)">
+      </form>
+    </div>
   </body>
 </html>

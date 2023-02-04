@@ -10,8 +10,19 @@ body {
   justify-content: center;
   align-items: center;
 }
-body .main, body .main_Info {
-  margin: 250 250px;
+body .main, body .main_Info span {
+  margin-top: -450px;
+  font-family: sans-serif;
+}
+body .span2 {
+  color: #6897f0;
+}
+body .span3 {
+  color: whitesmoke;
+}
+body .main_Info {
+  color: #f20ed4;
+  font-weight: bolder;
 }
 body .container {
   position: absolute;

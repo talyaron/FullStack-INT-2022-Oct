@@ -1,39 +1,40 @@
-// class Target {}
-// const one = document.getElementsByClassName("white-outer");
-// const two = document.getElementsByClassName("white-inner");
-// const three = document.getElementsByClassName("black-outer");
-// const Four = document.getElementsByClassName("black-inner");
-// const five = document.getElementsByClassName("blue-outer");
-// const six = document.getElementsByClassName("blue-inner");
-// const seven = document.getElementsByClassName("red-outer");
-// const eight = document.getElementsByClassName("red-inner");
-// const nine = document.getElementsByClassName("gold-outer");
-// const gold = document.getElementsByClassName("gold-inner");
-// const goldX = document.getElementsByClassName("cross");
-// let targets = [
-//   one,
-//   two,
-//   three,
-//   Four,
-//   five,
-//   six,
-//   seven,
-//   eight,
-//   nine,
-//   gold,
-//   goldX,
-// ];
-// // const targetArr = Array.from(document.getElementsByClassName("target")) as any;
-// // console.log(targetArr);
-// // const setAnimationParams: any = () => {
-// //   targetArr.forEach((e) => {
-// //     setTimeout(
-// //       () =>
-// //         (e.style.animation = `pop-up ${
-// //           Math.random() * 3 + 1
-// //         }s linear infinite`),
-// //       Math.random() * 5000
-// //     );
-// //   });
-// // };
-// // setInterval(setAnimationParams(), Math.random() * 5000);
+var User = /** @class */ (function () {
+    function User(name) {
+        this.name = name;
+    }
+    return User;
+}());
+var Bugs = /** @class */ (function () {
+    function Bugs(name, positionX, positionY, display) {
+        // this.positionX = positionX
+        // this.positionY = positionY
+        if (display === void 0) { display = 'flex'; }
+        this.name = name;
+        this.positionX = positionX;
+        this.positionY = positionY;
+        this.display = display;
+    }
+    Bugs.prototype.draw = function () {
+        var mosquito = document.createElement("img");
+        container.appendChild(mosquito);
+        mosquito.setAttribute("class", "mosquito");
+        mosquito.setAttribute("src", "https://www.pngarts.com/files/4/Mosquito-Transparent-Background-PNG.png");
+        mosquito.style.position = "absolute";
+        mosquito.style.top = this.positionY + "px";
+        mosquito.style.left = this.positionX + "px";
+        mosquito.style.display = this.display;
+    };
+    Bugs.prototype.update = function () {
+        this.draw();
+        this.positionX = "" + rndomX();
+        this.positionY = "" + rndomY();
+    };
+    return Bugs;
+}());
+var rndomY = function () { return Math.random() * (contHeight - 100); };
+var rndomX = function () { return Math.random() * (contWidth - 100); };
+var mosquito = new Bugs("Vladi", rndomX(), rndomY());
+// const vsfgb = new Bugs("drfg");
+mosquito.draw();
+setTimeout(function () { return console.log(mosquito.positionX, mosquito.positionY); }, 500);
+// vsfgb.draw();

@@ -1,5 +1,5 @@
-var _reviews = getReviewsFromStorage();
-if (_reviews) {
-    reviews.push.apply(reviews, _reviews);
-}
-renderreview(reviews, "userReview");
+// const _reviews = getReviewsFromStorage();
+// if (_reviews) {
+//     reviews.push(..._reviews);
+// }
+renderReviews(reviews);
