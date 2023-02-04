@@ -2,6 +2,8 @@ const imgElements = document.querySelectorAll(
   "img"
 ) as NodeListOf<HTMLImageElement>;
 
+window.onload = () => resetLocalStorage()
+
 window.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
 
@@ -17,3 +19,7 @@ window.addEventListener("click", (e) => {
     window.location.href = "index.html";
   }
 });
+
+function resetLocalStorage() {
+  localStorage.removeItem("userChoice");
+}
