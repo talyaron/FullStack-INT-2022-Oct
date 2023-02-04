@@ -268,11 +268,12 @@ function handleClickLikedPhotosList(ev) {
             alert("you must to login to enter Library");
         }
         else {
-            var sectionsLikedPhotos = document.querySelector('.liked-photos');
+            var sectionsLikedPhotos = document.getElementById('likedSongSection');
             var lists = document.querySelectorAll('.list ');
             lists.forEach(function (list) {
                 list.classList.add("active");
             });
+            sectionsLikedPhotos.classList.add("active");
             makeSectionsActive(sectionsLikedPhotos);
         }
     }
@@ -297,6 +298,30 @@ function handleClickLists(ev) {
     catch (error) {
         console.error(error);
     }
+}
+function handleClickAddToLike(ev) {
+    var photoSrc = ev.target.parentElement.querySelector('img').src;
+    var photoTitle = ev.target.parentElement.querySelector('h3').textContent;
+    var nameList = ev.target.parentElement.querySelector('p').textContent;
+    var PhotoDate = ev.target.parentElement.querySelector('small').textContent;
+    var Btn = ev.target.parentElement.querySelector('button');
+    console.log("photoSrc", photoSrc);
+    console.log("photoTitle", photoTitle);
+    console.log("nameList", nameList);
+    console.log(ev.target.parentElement);
+    if (Btn.style.color === "black") {
+        Btn.style.color = "red";
+        likedPhotos.push(new Photos(photoTitle, PhotoDate, photoSrc));
+    }
+    else if (Btn.style.color === "red") {
+        var index = likedPhotos.findIndex(function (photo) { return photo.photoName === nameList; });
+        if (!index)
+            throw new Error("not index found");
+        likedPhotos.splice(index, 1);
+        Btn.style.color = "black";
+    }
+    console.log(likedPhotos);
+    renderPhotoCard(likedPhotos, "likeSongList");
 }
 //--------------------------------------------------------------------------
 //---------------------------Handle Submit Function List Left-----------------
@@ -354,7 +379,7 @@ function handleSubmitCreatePhoto(ev) {
 function NewPhotoCard(namePhoto, date, src, albumName) {
     try {
         var index = Number(localStorage.getItem("userIndex"));
-        var patten = "\n    <div class=\"photo-card\">\n    <img src=\"" + src + "\" alt=\"\">\n    <h3>" + namePhoto + "</h3>\n    <p>" + users[index].username + "</p>\n    <small>" + date + "</small>\n    <button class=\"collapse-play\">\n    <i class=\"fa-solid fa-add\"></i>\n</button>\n</div>\n    ";
+        var patten = "\n    <div class=\"photo-card\">\n    <img src=\"" + src + "\" alt=\"\">\n    <h3>" + namePhoto + "</h3>\n    <p>" + users[index].username + "</p>\n    <small>" + date + "</small>\n    <button onclick=\"handleClickAddToLike(event)\" style=\"color:black; class=\"collapse-play\">\n    \u2665\n</button>\n</div>\n    ";
         // const findIndex  = albums.findIndex(album => album.name === albumName)
         // const photoArr = albums[findIndex].photos
         // photoArr.push(new Photos(namePhoto,date, src))
@@ -415,19 +440,3 @@ function renderLists() {
         return "";
     }
 }
-// function showALLlists(nameClassContainer:string){
-// try {
-//     const sectionsHome = document.querySelectorAll(`.${nameClassContainer} div`);
-//         sectionsHome.forEach(e=>{
-//             e.parentElement!.classList.add("active")})
-// } catch (error) {
-//     console.log(error);
-// }
-// }
-// getArrayPhotoAlbumWithName("Jungle")
-// function getArrayPhotoAlbumWithName(name:string){
-//      try {
-//      } catch (error) {
-//         console.log(error);
-//      }
-// }

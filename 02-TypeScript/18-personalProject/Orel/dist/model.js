@@ -101,6 +101,7 @@ var backgrounds = [
         src: "https://m.media-amazon.com/images/I/31qu4ixHZ3L._SY355_.jpg"
     }
 ];
+//USERS LOCAL STORAGE
 function updateUsersArrayFromStorage() {
     try {
         var localStorageData = localStorage.getItem("users");
@@ -113,6 +114,21 @@ function updateUsersArrayFromStorage() {
         return lastRegister;
     }
     catch (error) {
+        console.error(error);
+        return {};
+    }
+}
+function updateUserToLocalStorage() {
+    try {
+        console.log("usersBeforeLoaded", users);
+        if (!users)
+            throw new Error("not find users");
+        if (localStorage.length > users.length)
+            return;
+        localStorage.setItem("users", JSON.stringify(users));
+    }
+    catch (error) {
+        console.log(error);
     }
 }
 function ifRefresh() {
@@ -137,19 +153,7 @@ function getMatchUserDetail() {
         return undefined;
     }
 }
-function updateUserToLocalStorage() {
-    try {
-        console.log("usersBeforeLoaded", users);
-        if (!users)
-            throw new Error("not find users");
-        if (localStorage.length > users.length)
-            return;
-        localStorage.setItem("users", JSON.stringify(users));
-    }
-    catch (error) {
-        console.log(error);
-    }
-}
+//PHOTOS LOCAL STORAGE
 function updatePhotosToLocalStorage() {
     try {
         if (!albums)

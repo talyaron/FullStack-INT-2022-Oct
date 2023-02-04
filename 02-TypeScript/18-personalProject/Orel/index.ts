@@ -33,7 +33,9 @@ renderPhotoCard(animals ,"animalsList")
 
 renderPhotoCard(backgrounds ,"backgroundList")
 renderPhotoCard(backgrounds ,"backgroundList")
+
 // RENDER MAIN HOME PAGE PHOTOS
+
 if(insideTheUser()){
     changeProfileUserName()
     renderLists()

@@ -1,5 +1,5 @@
 // 
-let userIndex:number
+let userIndex: number
 
 function checkMatchUserDetails(emailUser: string, passwordUser: string): boolean {
     try {
@@ -11,10 +11,10 @@ function checkMatchUserDetails(emailUser: string, passwordUser: string): boolean
                 // userIndex = localStorage.users.findIndex( e => e.email == emailUser)
                 // console.log(userIndex);
                 userIndex = 0
-                localStorage.setItem("userIndex" , userIndex.toString())
+                localStorage.setItem("userIndex", userIndex.toString())
                 return true
             }
-           
+
         }
         return false
     } catch (error) {
@@ -26,7 +26,7 @@ function checkMatchUserDetails(emailUser: string, passwordUser: string): boolean
 function checksIfUserExists(emailUser: string): boolean {
     try {
         const find = users.filter(user => user.email === emailUser)
-        if(!find) throw new Error("the filter find not exist")
+        if (!find) throw new Error("the filter find not exist")
         if (find.length === 0) return false
         else return true
 
@@ -36,39 +36,39 @@ function checksIfUserExists(emailUser: string): boolean {
     }
 }
 function openMenuLogoutBtn() {
-try {
-    const collapseUserLogout = document.querySelector(".user-box-profile-collapse")! as HTMLDListElement;
-    const collapseUserLogoutIcon = document.querySelector(".user-box-profile i") as HTMLElement;
+    try {
+        const collapseUserLogout = document.querySelector(".user-box-profile-collapse")! as HTMLDListElement;
+        const collapseUserLogoutIcon = document.querySelector(".user-box-profile i") as HTMLElement;
 
-    const userBoxProfileClick = document.querySelector('.user-box-profile ')! as HTMLDListElement;;
-    userBoxProfileClick?.addEventListener('click', (e) => {
-        collapseUserLogout.classList.toggle('active')
-        if (collapseUserLogout.classList.contains('active')) {
-            collapseUserLogoutIcon.style.rotate = '180deg'
-        } else {
-            collapseUserLogoutIcon.style.rotate = '0deg'
-        }
-    })
-} catch (error) {
-    console.log(error);
-}
+        const userBoxProfileClick = document.querySelector('.user-box-profile ')! as HTMLDListElement;;
+        userBoxProfileClick?.addEventListener('click', (e) => {
+            collapseUserLogout.classList.toggle('active')
+            if (collapseUserLogout.classList.contains('active')) {
+                collapseUserLogoutIcon.style.rotate = '180deg'
+            } else {
+                collapseUserLogoutIcon.style.rotate = '0deg'
+            }
+        })
+    } catch (error) {
+        console.log(error);
+    }
 
 }
 function makeSectionsActive(element: HTMLElement) {
- try {
-            const containerMainAppDivs = document.querySelectorAll('.container-main-app div')
-            containerMainAppDivs.forEach(ele =>{
-                ele.classList.remove("active")
-            })
-            element.classList.add('active')
-            const buttons = document.querySelectorAll('.menu-navbar li button')
-            buttons.forEach(button =>{
-                button.classList.remove("active")
-            })
-           
- } catch (error) {
-    console.log(error);
- }
+    try {
+        const containerMainAppDivs = document.querySelectorAll('.container-main-app div')
+        containerMainAppDivs.forEach(ele => {
+            ele.classList.remove("active")
+        })
+        element.classList.add('active')
+        const buttons = document.querySelectorAll('.menu-navbar li button')
+        buttons.forEach(button => {
+            button.classList.remove("active")
+        })
+
+    } catch (error) {
+        console.log(error);
+    }
 
 }
 function logout() {
@@ -78,17 +78,17 @@ function logout() {
         console.log(error);
     }
 }
-function insideTheUser():boolean | undefined{
-try {
-    if(localStorage.getItem("userLogIn") === "true"){
-       return true
-    } else {
+function insideTheUser(): boolean | undefined {
+    try {
+        if (localStorage.getItem("userLogIn") === "true") {
+            return true
+        } else {
+            return false
+        }
+    } catch (error) {
+        console.log(error);
         return false
     }
-} catch (error) {
-    console.log(error);
-    return false
-}
 }
 //---------------------------- LOGIN-/-Sign-Up--Pages------------------
 
@@ -197,22 +197,22 @@ function handleClickLogOut() {
 //---------------------------Handle Click Function List Left-----------------
 //home
 function handleClickHomeList(ev: any) {
-try {
-    const sectionsHome = document.querySelector('.sections-home') as HTMLElement;
-    const lists = document.querySelectorAll('.list ');
-makeSectionsActive(sectionsHome)
-lists.forEach(list => {
-        list.classList.add("active")
-});
-} catch (error) {
-    console.log(error);
-}
+    try {
+        const sectionsHome = document.querySelector('.sections-home') as HTMLElement;
+        const lists = document.querySelectorAll('.list ');
+        makeSectionsActive(sectionsHome)
+        lists.forEach(list => {
+            list.classList.add("active")
+        });
+    } catch (error) {
+        console.log(error);
+    }
 }
 //search
 function handleClickSearchList(ev: any) {
     try {
-const sectionsSearch = document.querySelector('.sections-search') as HTMLElement;
-makeSectionsActive(sectionsSearch)
+        const sectionsSearch = document.querySelector('.sections-search') as HTMLElement;
+        makeSectionsActive(sectionsSearch)
     } catch (error) {
         console.log(error);
     }
@@ -221,17 +221,17 @@ makeSectionsActive(sectionsSearch)
 function handleClickLibraryList(ev: any) {
     try {
 
-        if(!insideTheUser()) {
-            alert("you must to login to enter Library") 
-        }else{
-      
+        if (!insideTheUser()) {
+            alert("you must to login to enter Library")
+        } else {
+
             const sectionsLibrary = document.querySelector('.sections-library') as HTMLElement;
             const lists = document.querySelectorAll('.list ');
             lists.forEach(list => {
-                    list.classList.add("active")
+                list.classList.add("active")
             });
             makeSectionsActive(sectionsLibrary)
-            
+
         }
 
     } catch (error) {
@@ -241,40 +241,40 @@ function handleClickLibraryList(ev: any) {
 //Create Album
 function handleClickCreateAlbumList(ev: any) {
     try {
-        
-        if(!insideTheUser()) {
 
-            alert("you must to login to enter Library") 
-        }else{
-      
+        if (!insideTheUser()) {
+
+            alert("you must to login to enter Library")
+        } else {
+
             const sectionsCreateAlbum = document.querySelector('.sections-create-album') as HTMLElement;
             const lists = document.querySelectorAll('.list ');
             lists.forEach(list => {
-                    list.classList.add("active")
+                list.classList.add("active")
             });
             makeSectionsActive(sectionsCreateAlbum)
             createListToOptions()
-            }
+        }
 
     } catch (error) {
         console.log(error);
     }
 }
 //Liked Song
-function handleClickLikedPhotosList(ev:any) {
+function handleClickLikedPhotosList(ev: any) {
     try {
-        
-        if(!insideTheUser()) {
-            alert("you must to login to enter Library") 
-        }else{
-            const sectionsLikedPhotos = document.querySelector('.liked-photos') as HTMLElement;
+
+        if (!insideTheUser()) {
+            alert("you must to login to enter Library")
+        } else {
+            const sectionsLikedPhotos = document.getElementById('likedSongSection') as HTMLElement;
             const lists = document.querySelectorAll('.list ');
             lists.forEach(list => {
-                    list.classList.add("active")
+                list.classList.add("active")
             });
+            sectionsLikedPhotos.classList.add("active")
+
             makeSectionsActive(sectionsLikedPhotos)
-            
-            
         }
 
     } catch (error) {
@@ -282,68 +282,94 @@ function handleClickLikedPhotosList(ev:any) {
     }
 }
 
-function handleClickLists(ev:any):void{
-try {
-    const sectionsHome = document.querySelectorAll('.sections-home div');
-    if(!sectionsHome) throw new Error("section Home Divs not exist")
-    sectionsHome.forEach(e=>{
-        e.classList.remove("active");
-        if((e.getAttribute("datalist") !== null) && e.getAttribute("datalist") === ev.target.textContent) {
+function handleClickLists(ev: any): void {
+    try {
+        const sectionsHome = document.querySelectorAll('.sections-home div');
+        if (!sectionsHome) throw new Error("section Home Divs not exist")
+        sectionsHome.forEach(e => {
+            e.classList.remove("active");
+            if ((e.getAttribute("datalist") !== null) && e.getAttribute("datalist") === ev.target.textContent) {
                 const element = e as HTMLElement;
-            element.classList.add("active")
-        }
-        console.log();
-    })
-} catch (error) {
-    console.error(error);
+                element.classList.add("active")
+            }
+            console.log();
+        })
+    } catch (error) {
+        console.error(error);
+    }
 }
+
+function handleClickAddToLike(ev: any) {
+    const photoSrc = ev.target.parentElement.querySelector('img').src
+    const photoTitle = ev.target.parentElement.querySelector('h3').textContent
+    const nameList = ev.target.parentElement.querySelector('p').textContent;
+    const PhotoDate = ev.target.parentElement.querySelector('small').textContent;
+    const Btn = ev.target.parentElement.querySelector('button') as HTMLButtonElement
+    console.log("photoSrc", photoSrc);
+    console.log("photoTitle", photoTitle);
+    console.log("nameList", nameList);
+    console.log(ev.target.parentElement);
+
+    if (Btn.style.color === "black") {
+        Btn.style.color = "red"
+        likedPhotos.push(new Photos(photoTitle, PhotoDate, photoSrc))
+    } else if (Btn.style.color === "red") {
+        const index = likedPhotos.findIndex(photo => photo.photoName === nameList)
+        if (!index) throw new Error("not index found")
+        likedPhotos.splice(index, 1)
+        Btn.style.color = "black"
+    }
+
+    console.log(likedPhotos);
+    renderPhotoCard(likedPhotos, "likeSongList")
+
 }
 //--------------------------------------------------------------------------
 //---------------------------Handle Submit Function List Left-----------------
-function createListToOptions(){
-try {
+function createListToOptions() {
+    try {
         // sent data list to options
         const selectList = document.getElementById('selectList') as HTMLSelectElement
-    selectList.innerHTML = ''
-        albums!.forEach(album =>{    
-                selectList.innerHTML += `<option value="${album.name}">${album.name}</option>`
+        selectList.innerHTML = ''
+        albums!.forEach(album => {
+            selectList.innerHTML += `<option value="${album.name}">${album.name}</option>`
             console.log(album.name);
-            }) 
+        })
         return
-} catch (error) {
-    console.error(error);
-    return ''
-}   
+    } catch (error) {
+        console.error(error);
+        return ''
+    }
 }
-function handleSubmitCreateAlbumsList(ev:any){
-try {
-    ev.preventDefault();
-const nameListValue = ev.target.elements.createListName.value.toString() as string
-console.log(nameListValue);
-createNewList(nameListValue , nameListValue ,"sections-library")
-createListToOptions()
-
-ev.target.reset()
-} catch (error) {
-    console.log(error);
-}
-}
-function handleSubmitCreatePhoto(ev:any){
+function handleSubmitCreateAlbumsList(ev: any) {
     try {
-            ev.preventDefault();
+        ev.preventDefault();
+        const nameListValue = ev.target.elements.createListName.value.toString() as string
+        console.log(nameListValue);
+        createNewList(nameListValue, nameListValue, "sections-library")
+        createListToOptions()
 
-const createListToListValue = ev.target.elements.selectList.value;
-const photoName = ev.target.elements.photoNameCreateImage.value as string
-const date = ev.target.elements.photoDateCreateImage.value as string
-const src = ev.target.elements.photoSrcCreateImage.value as string
+        ev.target.reset()
+    } catch (error) {
+        console.log(error);
+    }
+}
+function handleSubmitCreatePhoto(ev: any) {
+    try {
+        ev.preventDefault();
 
-const findIndex  = albums!.findIndex(album => album.name === createListToListValue)
-const photoArr = albums[findIndex].photos
-console.log(findIndex);
-console.log(albums[findIndex]);
-// make new Photo
-photoArr.push(new Photos(photoName , date , src))
-renderPhotoCard(photoArr, createListToListValue , "sections-library")
+        const createListToListValue = ev.target.elements.selectList.value;
+        const photoName = ev.target.elements.photoNameCreateImage.value as string
+        const date = ev.target.elements.photoDateCreateImage.value as string
+        const src = ev.target.elements.photoSrcCreateImage.value as string
+
+        const findIndex = albums!.findIndex(album => album.name === createListToListValue)
+        const photoArr = albums[findIndex].photos
+        console.log(findIndex);
+        console.log(albums[findIndex]);
+        // make new Photo
+        photoArr.push(new Photos(photoName, date, src))
+        renderPhotoCard(photoArr, createListToListValue, "sections-library")
         ev.target.reset()
     } catch (error) {
         console.error(error);
@@ -351,41 +377,41 @@ renderPhotoCard(photoArr, createListToListValue , "sections-library")
 }
 // Get and render Cards On DOM
 //--------------------------------
-function NewPhotoCard( namePhoto: string, date: string, src: string , albumName?:string):string{
-try {
-    const index = Number(localStorage.getItem("userIndex"))
-    const patten =
-        `
+function NewPhotoCard(namePhoto: string, date: string, src: string, albumName?: string): string {
+    try {
+        const index = Number(localStorage.getItem("userIndex"))
+        const patten =
+            `
     <div class="photo-card">
     <img src="${src}" alt="">
     <h3>${namePhoto}</h3>
     <p>${users[index].username}</p>
     <small>${date}</small>
-    <button class="collapse-play">
-    <i class="fa-solid fa-add"></i>
+    <button onclick="handleClickAddToLike(event)" style="color:black; class="collapse-play">
+    ♥
 </button>
 </div>
     `
 
-// const findIndex  = albums.findIndex(album => album.name === albumName)
-// const photoArr = albums[findIndex].photos
-// photoArr.push(new Photos(namePhoto,date, src))
-    albums.forEach(album=>{
-       if(album.name === albumName){
-        album.photos?.push(new Photos(
-            `${namePhoto}`,
-            `${date}`, 
-             `${src}`))
-       } 
-    })
-    return patten
-} catch (error) {
-    console.error(error);
-    return ''
-}
+        // const findIndex  = albums.findIndex(album => album.name === albumName)
+        // const photoArr = albums[findIndex].photos
+        // photoArr.push(new Photos(namePhoto,date, src))
+        albums.forEach(album => {
+            if (album.name === albumName) {
+                album.photos?.push(new Photos(
+                    `${namePhoto}`,
+                    `${date}`,
+                    `${src}`))
+            }
+        })
+        return patten
+    } catch (error) {
+        console.error(error);
+        return ''
+    }
 }
 // create New list
-function createNewList(nameList: string, titleList: string , classNameContainer:string): string {
+function createNewList(nameList: string, titleList: string, classNameContainer: string): string {
     const sectionsHome = document.querySelector(`.${classNameContainer}`)! as HTMLDListElement;
     const patten =
         `
@@ -396,74 +422,49 @@ function createNewList(nameList: string, titleList: string , classNameContainer:
 </div>
     `
     sectionsHome.innerHTML += patten
-   albums.push(new Albums(nameList , []))
+    albums.push(new Albums(nameList, []))
 
-   
+
     return patten
 }
 //Render All Cards On Dom
-function renderPhotoCard(cards: Array<Photos>, containerClass: string ,albumName?:string): string {
+function renderPhotoCard(cards: Array<Photos>, containerClass: string, albumName?: string): string {
     const mainContainer = document.querySelector(`.${containerClass}`) as HTMLElement
     mainContainer!.innerHTML = ''
-    if(mainContainer === undefined ) throw new Error('the Element not found')
+    if (mainContainer === undefined) throw new Error('the Element not found')
     let AllCards = ""
     cards.forEach(photo => {
         AllCards += NewPhotoCard(photo.photoName, photo.date.toString(), photo.src)
     });
 
     mainContainer!.innerHTML += AllCards
-        return AllCards
+    return AllCards
 }
-function changeProfileUserName():void{
+function changeProfileUserName(): void {
     const nameProfile = document.querySelector('.user-box-profile h5')! as HTMLDListElement
     nameProfile.textContent = users[Number(localStorage.getItem("userIndex"))].username
 }
 
-function renderLists():string | undefined{
-try {
-  
-    const containerPlaylist = document.querySelector(".container-playlist")! as HTMLDivElement
-    if(!containerPlaylist) throw new Error("the playlist container not exist")
-    containerPlaylist.innerHTML = '' 
-    let html = ''
+function renderLists(): string | undefined {
+    try {
 
-    albums.forEach(album=>{
-        const tamp = `
+        const containerPlaylist = document.querySelector(".container-playlist")! as HTMLDivElement
+        if (!containerPlaylist) throw new Error("the playlist container not exist")
+        containerPlaylist.innerHTML = ''
+        let html = ''
+        albums.forEach(album => {
+            const tamp = `
         <button onclick="handleClickLists(event)"   class="playlistBTN ${album.name}">
         ${album.name}
         </button>`
-        html += tamp;
-    })
+            html += tamp;
+        })
 
-    containerPlaylist.innerHTML += html
-return html
- }catch (error) {
-    console.error(error);
-    return ""
+        containerPlaylist.innerHTML += html
+        return html
+    } catch (error) {
+        console.error(error);
+        return ""
+    }
 }
-}
-
-
-
-// function showALLlists(nameClassContainer:string){
-// try {
-//     const sectionsHome = document.querySelectorAll(`.${nameClassContainer} div`);
-//         sectionsHome.forEach(e=>{
-//             e.parentElement!.classList.add("active")})
-
-    
-// } catch (error) {
-//     console.log(error);
-// }
-// }
-
-// getArrayPhotoAlbumWithName("Jungle")
-// function getArrayPhotoAlbumWithName(name:string){
-//      try {
-
-//      } catch (error) {
-//         console.log(error);
-//      }
-
-// }
 
