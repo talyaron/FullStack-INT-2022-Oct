@@ -274,6 +274,7 @@ function handleClickLikedPhotosList(ev:any) {
             });
             makeSectionsActive(sectionsLikedPhotos)
             
+            
         }
 
     } catch (error) {
@@ -336,7 +337,7 @@ const photoName = ev.target.elements.photoNameCreateImage.value as string
 const date = ev.target.elements.photoDateCreateImage.value as string
 const src = ev.target.elements.photoSrcCreateImage.value as string
 
-const findIndex  = getAlbumFromStorage()!.findIndex(album => album.name === createListToListValue)
+const findIndex  = albums!.findIndex(album => album.name === createListToListValue)
 const photoArr = albums[findIndex].photos
 console.log(findIndex);
 console.log(albums[findIndex]);

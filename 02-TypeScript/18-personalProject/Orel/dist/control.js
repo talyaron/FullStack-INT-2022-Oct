@@ -336,7 +336,7 @@ function handleSubmitCreatePhoto(ev) {
         var photoName = ev.target.elements.photoNameCreateImage.value;
         var date = ev.target.elements.photoDateCreateImage.value;
         var src = ev.target.elements.photoSrcCreateImage.value;
-        var findIndex = getAlbumFromStorage().findIndex(function (album) { return album.name === createListToListValue_1; });
+        var findIndex = albums.findIndex(function (album) { return album.name === createListToListValue_1; });
         var photoArr = albums[findIndex].photos;
         console.log(findIndex);
         console.log(albums[findIndex]);
