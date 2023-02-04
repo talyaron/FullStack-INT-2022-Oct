@@ -170,15 +170,7 @@ sortPrice.addEventListener('click', function () {
         var temp = getItems();
         if (!temp)
             throw new Error("Items empty");
-        temp.sort((function (a, b) {
-            if (parseInt(a.price.toString()) - parseInt(b.price.toString())) {
-                return -1;
-            }
-            if (parseInt(a.price.toString()) - parseInt(b.price.toString())) {
-                return 1;
-            }
-            return 0;
-        }));
+        temp.sort(function (a, b) { return a.price - b.price; });
         renderStore(".main", temp);
     }
     catch (error) {
