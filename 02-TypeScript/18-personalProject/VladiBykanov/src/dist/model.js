@@ -54,13 +54,12 @@ var Pacman = /** @class */ (function () {
         var mouth = document.createElement("div");
         mouth.classList.add("mouth");
         squares[pacman.currentIndex].innerHTML = "";
-        squares[this.currentIndex].classList.add("pacman", 'square');
+        squares[this.currentIndex].classList.add("pacman", "square");
         squares[this.currentIndex].append(eye);
         squares[this.currentIndex].append(mouth);
     };
     return Pacman;
 }());
-var pacman = new Pacman();
 var Ghost = /** @class */ (function () {
     function Ghost(className, startIndex, speed, resetIndex) {
         this.className = className;
@@ -72,7 +71,6 @@ var Ghost = /** @class */ (function () {
         this.speed = speed;
         this.currentIndex = startIndex;
         this.isScared = false;
-        this.timerId = NaN;
         this.resetIndex = resetIndex;
     }
     Ghost.prototype.draw = function () {
@@ -83,21 +81,26 @@ var Ghost = /** @class */ (function () {
     return Ghost;
 }());
 var ghosts = [
-    new Ghost("blinky", 22, 250, 279),
-    new Ghost("pinky", 40, 400, 287),
-    new Ghost("inky", 400, 300, 161),
-    new Ghost("clyde", 418, 200, 153),
+    new Ghost("purple", 22, 250, 279),
+    new Ghost("pink", 40, 400, 287),
+    new Ghost("blue", 400, 300, 161),
+    new Ghost("green", 418, 200, 153),
 ];
 var glide; //pacman glide interval
 var scaredGhostsTime; //scared ghosts timeout
 var score = 0;
 var cherryIndex = [];
-var movdeDown = 21;
-var moveUp = -21;
-var moveLeft = -1;
-var moveRight = 1;
-var directions = [moveLeft, moveRight, moveUp, movdeDown];
+var directions = {
+    moveLeft: -1,
+    moveRight: 1,
+    moveUp: -21,
+    movdeDown: 21
+};
+var randomDirection = function () {
+    return directions[Object.keys(directions)[Math.floor(Math.random() * Object.keys(directions).length)]];
+};
 var chosenMap = localStorage.getItem("userChoice");
 var palletsMapOne = 144;
 var palletsMapTwo = 161;
 var palletsThisGame;
+var gameOver;

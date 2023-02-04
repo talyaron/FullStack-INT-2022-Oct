@@ -3,9 +3,8 @@ var usersOptionsBtn1 = document.querySelector('.users-options-after-login');
 var usersOptionsBtn = document.querySelector('.users-options');
 //Update Date From array TO LocalStorage
 // updateInfoToLocalStorage()
-var usernameUser;
-var emailUser;
 if (lastUserIn) {
+    //@ts-ignore
     usernameUser = lastUserIn.username;
     emailUser = lastUserIn.email;
 }

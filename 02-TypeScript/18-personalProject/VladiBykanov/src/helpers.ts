@@ -15,7 +15,7 @@ function checkForCherry() {
     cherryIndex = [
       ...cherryIndex.filter((value) => value !== pacman.currentIndex),
     ];
-    squares[pacman.currentIndex].innerHTML = '';
+    squares[pacman.currentIndex].innerHTML = "";
     pacman.draw();
 
     score += 10;
@@ -32,13 +32,22 @@ function unScareGhosts() {
 }
 
 function checkForGamneOver() {
-  drawCherry();
   if (
     squares[pacman.currentIndex].classList.contains("ghost") &&
     !squares[pacman.currentIndex].classList.contains("scaredGhost")
   ) {
-    ghosts.forEach((ghost) => clearInterval(ghost.timerId));
+    gameOver = true;
+    ghosts.forEach((ghost) => {
+      squares[ghost.currentIndex].innerHTML = '';
+      squares[ghost.currentIndex].classList.remove(
+        ghost.className,
+        "ghost",
+        "scaredGhost"
+      );
+      clearInterval(ghost.timerId);
+    });
     loseMessage.style.opacity = "1";
+    finalScore[1].textContent = score.toString();
     clearInterval(glide);
   }
 }
@@ -49,6 +58,7 @@ function checkForWin() {
     clearInterval(glide);
     setTimeout(() => {
       winMessage.style.opacity = "1";
+      finalScore[0].textContent = score.toString();
     }, 200);
   }
 }

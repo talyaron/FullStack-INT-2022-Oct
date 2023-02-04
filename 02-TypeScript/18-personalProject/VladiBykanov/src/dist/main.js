@@ -1,4 +1,6 @@
-console.log("Start");
+var pacman = new Pacman();
+startGame();
+checkGameStatus();
 window.addEventListener("keydown", function (e) {
     if (e.repeat)
         return;
@@ -17,6 +19,10 @@ window.addEventListener("keydown", function (e) {
             break;
     }
 });
-startGame();
-var interval = setInterval(checkForScaredGhost, 1);
-var anotherInterval = setInterval(checkForGamneOver, 1);
+backToStartingPageBtn.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+        window.location.href = "startPage.html";
+        localStorage.removeItem('userChoice');
+    });
+});
+tryAgainBtn.forEach(function (btn) { return btn.addEventListener('click', startGame); });
