@@ -368,6 +368,49 @@ html {
   height: 250px;
   object-fit: cover;
 }
+#main-section .main-board-center main #createAlbumSection {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+#main-section .main-board-center main #createAlbumSection.active {
+  display: flex;
+}
+#main-section .main-board-center main #createAlbumSection form {
+  margin-top: 15px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#main-section .main-board-center main #createAlbumSection form div {
+  margin-top: 15px;
+  height: 100px;
+}
+#main-section .main-board-center main #createAlbumSection form div input, #main-section .main-board-center main #createAlbumSection form div select, #main-section .main-board-center main #createAlbumSection form div button {
+  padding: 10px 20px;
+}
+#main-section .main-board-center main #createAlbumSection form div button {
+  display: block;
+  width: 150px;
+  margin: 10px auto;
+  border-radius: 15px;
+  border: none;
+  font-weight: 700;
+  background-color: var(--gray-no-hover);
+  transition: all ease 0.2s;
+  cursor: pointer;
+}
+#main-section .main-board-center main #createAlbumSection form div button:hover {
+  background-color: #068827;
+  color: #fff;
+}
+#main-section .main-board-center main #createAlbumSection form div span {
+  margin-top: 15px;
+  display: block;
+}
 
 @media only screen and (max-width: 1600px) {
   html,
