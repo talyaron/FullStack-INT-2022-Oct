@@ -3,9 +3,8 @@ var usersOptionsBtn1 = document.querySelector('.users-options-after-login');
 var usersOptionsBtn = document.querySelector('.users-options');
 //Update Date From array TO LocalStorage
 // updateInfoToLocalStorage()
-var usernameUser;
-var emailUser;
 if (lastUserIn) {
+    //@ts-ignore
     usernameUser = lastUserIn.username;
     emailUser = lastUserIn.email;
 }
@@ -41,3 +40,13 @@ var lists = document.querySelectorAll('.list ');
 lists.forEach(function (list) {
     list.classList.add("active");
 });
+if (typeof getAlbumFromStorage() === typeof albums && getAlbumFromStorage() != undefined) {
+    var html_1 = '';
+    var sectionsLibrary_1 = document.querySelector(".sections-library");
+    var index = void 0;
+    getAlbumFromStorage().forEach(function (album) {
+        html_1 += createNewList(album.name, album.name, "sections-library");
+        sectionsLibrary_1.innerHTML = html_1;
+        renderPhotoCard(album.photos, album.name, "sections-library");
+    });
+}

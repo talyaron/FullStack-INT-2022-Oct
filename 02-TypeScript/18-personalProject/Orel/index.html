@@ -25,7 +25,7 @@
     <!--  Link css files -->
     <link rel="stylesheet" href="./dist/index.css">
 
-    <title>Control Music</title>
+    <title>PhotoList</title>
 </head>
 
 <body onbeforeunload="dataFromStorage() , dataFromStorage1()">
@@ -36,7 +36,7 @@
                     <a href="./index.html">
                         <img src="./img/logo.png" width="100px" alt="icon-music-control">
                         <span class="logoTitle">
-                            ProList
+                            PhotoList
                         </span>
                     </a>
                 </div>
@@ -151,12 +151,12 @@
                     <form onsubmit="handleSubmitCreatePhoto(event)">
                         <h4>ADD NEW PHOTO</h4>
                         <div class="user-create-photo">
-                            <input type="text" name="photoNameCreateImage" id="photoNameCreateImage" placeholder="Enter Photo Name">
-                            <input type="date" name="photoDateCreateImage" id="photoDateCreateImage" placeholder="Enter Date or Details">
-                            <input type="url" name="photoSrcCreateImage" id="photoSrcCreateImage" placeholder="ENTER URL IMAGE">
+                            <input type="text" name="photoNameCreateImage" id="photoNameCreateImage" placeholder="Enter Photo Name" required>
+                            <input type="date" name="photoDateCreateImage" id="photoDateCreateImage" placeholder="Enter Date or Details" required>
+                            <input type="url" name="photoSrcCreateImage" id="photoSrcCreateImage" placeholder="ENTER URL IMAGE" required>
                             <span>
-                                <label for="selectList">Chose List To Put Photo</label>
-                                <select name="selectList" id="selectList">
+                                <label for="selectList">Chose List To Put Photo</label >
+                                <select name="selectList" id="selectList" required>
                           
                               </select>
                             </span>
@@ -165,8 +165,12 @@
                     </form>
                 </div>
 
-                <div class="sections-liked-songs section">
-                    <h1>sections-liked-songs</h1>
+                <div class="sections-liked-songs section" id="likedSongSection">
+                    <div id="list4" class="list">
+                        <h4>You Liked</h4>
+                        <div class="recommended-list likeSongList " style="pointer-events: none;">
+                        </div>
+                    </div>
                 </div>
 
         </div>

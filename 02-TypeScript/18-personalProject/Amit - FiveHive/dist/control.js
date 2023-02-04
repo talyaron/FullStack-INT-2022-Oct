@@ -1,6 +1,7 @@
 var currentLine = 0;
 var WORD_LENGTH = 5;
 var LAST_CELL_IN_LINE = 4;
+var streak = 0;
 var currentCell = linesArray[0][0];
 function insertLetterToCell(letter) {
     try {
@@ -51,15 +52,17 @@ function enter() {
                     if (solution === null || solution === void 0 ? void 0 : solution.includesLetter(checkedLetter.innerText)) {
                         if (checkedLetter.innerText === solution.name.toUpperCase()[i]) { //exact spot
                             foundLetters.push(checkedLetter.innerText);
-                            checkedLetter.style.backgroundColor = "orange";
+                            checkedLetter.style.backgroundColor = "SeaGreen";
                             var keyOFCheckedLetter = document.querySelector("#" + checkedLetter.innerText);
                             if (keyOFCheckedLetter) {
-                                keyOFCheckedLetter.style.backgroundColor = "orange";
-                                keyOFCheckedLetter.style.borderColor = "orange";
+                                keyOFCheckedLetter.style.backgroundColor = "SeaGreen";
+                                keyOFCheckedLetter.style.borderColor = "SeaGreen";
                             }
                             correctLetters++;
-                            if (correctLetters === WORD_LENGTH)
+                            if (correctLetters === WORD_LENGTH) {
                                 alert("you win!"); // change to animation with 2sec delay//
+                                streak++;
+                            }
                         }
                         else {
                             var foundLettersAsString = foundLetters.join("");
@@ -67,17 +70,17 @@ function enter() {
                             if (foundLettersAsWord && solution) {
                                 if ((foundLettersAsWord.letterRepetitions(checkedLetter.innerText)) < (solution.letterRepetitions(checkedLetter.innerText))) {
                                     foundLetters.push(checkedLetter.innerText);
-                                    checkedLetter.style.backgroundColor = "blue";
+                                    checkedLetter.style.backgroundColor = "gold";
                                     var keyOFCheckedLetter = document.querySelector("#" + checkedLetter.innerText);
-                                    if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "orange")) {
-                                        keyOFCheckedLetter.style.backgroundColor = "blue";
-                                        keyOFCheckedLetter.style.borderColor = "blue";
+                                    if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "SeaGreen")) {
+                                        keyOFCheckedLetter.style.backgroundColor = "gold";
+                                        keyOFCheckedLetter.style.borderColor = "gold";
                                     }
                                 }
                                 else {
                                     checkedLetter.style.backgroundColor = "black";
                                     var keyOFCheckedLetter = document.querySelector("#" + checkedLetter.innerText);
-                                    if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "orange" || "blue")) {
+                                    if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "SeaGreen" || "gold")) {
                                         keyOFCheckedLetter.style.backgroundColor = "black";
                                         keyOFCheckedLetter.style.borderColor = "gray";
                                     }
@@ -86,11 +89,15 @@ function enter() {
                         }
                     }
                     else {
-                        checkedLetter.style.backgroundColor = "black";
+                        checkedLetter.style.backgroundColor = "gray";
                         var keyOFCheckedLetter = document.querySelector("#" + checkedLetter.innerText);
-                        if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "orange" || "blue")) {
+                        if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "SeaGreen" || "gold")) {
                             keyOFCheckedLetter.style.backgroundColor = "black";
                         }
+                    }
+                    if ((currentCell === cell0605) && (correctLetters !== WORD_LENGTH) && (solution)) {
+                        streak = 0;
+                        alert("better luck next time... the solution was: " + solution.name);
                     }
                 }
                 currentLine++;
