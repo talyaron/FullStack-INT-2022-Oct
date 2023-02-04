@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./dist/helpers.js"defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/model.js"defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/index.js"defer></script>
+    <link rel="stylesheet" href="./dist/style.css">
+</head>
+<body onbeforeunload="saveToLocalStorage(event)">
+    <div class="bar">
+        <div class="bar__user">
+            <a href="">user</a>
+            <i class="fa-solid fa-user"></i>
+        </div>
+        <div class="bar__webName">Books Review</div>
+        <div class="bar__helprs">
+            <a href="">Contact Us</a>
+            <a href="">Info</a>
+            <a href="">Home</a>
+        </div>
+    </div>
+    <div class="search">
+        <input type="text" name="search" placeholder="Search Book">
+    </div>
+    <div class="booksContiner">
+        
+        <div class="booksContiner__book">
+            <img src="https://www.e-vrit.co.il/Images/Products/YediotMasters/HarryPottter2_Master.jpg" alt="">
+            <h1>Harry poter1</h1>
+
+        </div>
+        <div class="booksContiner__book">
+            <img src="https://www.e-vrit.co.il/Images/Products/YediotMasters/HarryPottter2_Master.jpg" alt="">
+            <h1>Harry poter2</h1>
+
+        </div>
+        <div class="booksContiner__book" >
+            <img src="https://www.e-vrit.co.il/Images/Products/YediotMasters/HarryPottter2_Master.jpg" alt="">
+            <h1>Harry poter3</h1>
+          
+        </div>
+        <div class="booksContiner__book">
+            <img src="https://www.e-vrit.co.il/Images/Products/YediotMasters/HarryPottter2_Master.jpg" alt="">
+            <h1>Harry poter4</h1>
+            
+        </div>  
+
+    </div>
+    <div id="itemsRoot"></div>
+        <a href="./second.html">ADD REVIEW</a>
+    </div>
+</body>
+</html>
