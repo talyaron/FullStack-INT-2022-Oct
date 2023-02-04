@@ -1,5 +1,6 @@
 // 
 var userIndex;
+// USERS SETTING
 function checkMatchUserDetails(emailUser, passwordUser) {
     try {
         if (storageData === undefined)
@@ -56,28 +57,12 @@ function openMenuLogoutBtn() {
         console.log(error);
     }
 }
-function makeSectionsActive(element) {
-    try {
-        var containerMainAppDivs = document.querySelectorAll('.container-main-app div');
-        containerMainAppDivs.forEach(function (ele) {
-            ele.classList.remove("active");
-        });
-        element.classList.add('active');
-        var buttons = document.querySelectorAll('.menu-navbar li button');
-        buttons.forEach(function (button) {
-            button.classList.remove("active");
-        });
-    }
-    catch (error) {
-        console.log(error);
-    }
-}
 function logout() {
     try {
         localStorage.setItem("userLogIn", "false");
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 function insideTheUser() {
@@ -187,7 +172,7 @@ function handleSubmitLogIn(ev) {
         console.error(error);
     }
 }
-//----------------------------------------------------------------------
+//--------------------------------------------------------------------
 function handleClickLogOut() {
     try {
         logout();
@@ -268,11 +253,12 @@ function handleClickLikedPhotosList(ev) {
             alert("you must to login to enter Library");
         }
         else {
-            var sectionsLikedPhotos = document.querySelector('.liked-photos');
+            var sectionsLikedPhotos = document.getElementById('likedSongSection');
             var lists = document.querySelectorAll('.list ');
             lists.forEach(function (list) {
                 list.classList.add("active");
             });
+            sectionsLikedPhotos.classList.add("active");
             makeSectionsActive(sectionsLikedPhotos);
         }
     }
@@ -298,8 +284,32 @@ function handleClickLists(ev) {
         console.error(error);
     }
 }
+function handleClickAddToLike(ev) {
+    var photoSrc = ev.target.parentElement.querySelector('img').src;
+    var photoTitle = ev.target.parentElement.querySelector('h3').textContent;
+    var nameList = ev.target.parentElement.querySelector('p').textContent;
+    var PhotoDate = ev.target.parentElement.querySelector('small').textContent;
+    var Btn = ev.target.parentElement.querySelector('button');
+    console.log("photoSrc", photoSrc);
+    console.log("photoTitle", photoTitle);
+    console.log("nameList", nameList);
+    console.log(ev.target.parentElement);
+    if (Btn.style.color === "black") {
+        Btn.style.color = "red";
+        likedPhotos.push(new Photos(photoTitle, PhotoDate, photoSrc));
+    }
+    else if (Btn.style.color === "red") {
+        var index = likedPhotos.findIndex(function (photo) { return photo.photoName === nameList; });
+        if (!index)
+            throw new Error("not index found");
+        likedPhotos.splice(index, 1);
+        Btn.style.color = "black";
+    }
+    console.log(likedPhotos);
+    renderPhotoCard(likedPhotos, "likeSongList");
+}
 //--------------------------------------------------------------------------
-//---------------------------Handle Submit Function List Left-----------------
+//-------------------Handle Submit Function left List-----------------
 function createListToOptions() {
     try {
         // sent data list to options
@@ -349,85 +359,3 @@ function handleSubmitCreatePhoto(ev) {
         console.error(error);
     }
 }
-// Get and render Cards On DOM
-//--------------------------------
-function NewPhotoCard(namePhoto, date, src, albumName) {
-    try {
-        var index = Number(localStorage.getItem("userIndex"));
-        var patten = "\n    <div class=\"photo-card\">\n    <img src=\"" + src + "\" alt=\"\">\n    <h3>" + namePhoto + "</h3>\n    <p>" + users[index].username + "</p>\n    <small>" + date + "</small>\n    <button class=\"collapse-play\">\n    <i class=\"fa-solid fa-add\"></i>\n</button>\n</div>\n    ";
-        // const findIndex  = albums.findIndex(album => album.name === albumName)
-        // const photoArr = albums[findIndex].photos
-        // photoArr.push(new Photos(namePhoto,date, src))
-        albums.forEach(function (album) {
-            var _a;
-            if (album.name === albumName) {
-                (_a = album.photos) === null || _a === void 0 ? void 0 : _a.push(new Photos("" + namePhoto, "" + date, "" + src));
-            }
-        });
-        return patten;
-    }
-    catch (error) {
-        console.error(error);
-        return '';
-    }
-}
-// create New list
-function createNewList(nameList, titleList, classNameContainer) {
-    var sectionsHome = document.querySelector("." + classNameContainer);
-    var patten = "\n    <div id=\"" + nameList + "\" class=\"list\" class=\"" + nameList + "\">\n    <h4>" + titleList + "</h4>\n    <div class=\"recommended-list " + nameList + "\">\n    </div>\n</div>\n    ";
-    sectionsHome.innerHTML += patten;
-    albums.push(new Albums(nameList, []));
-    return patten;
-}
-//Render All Cards On Dom
-function renderPhotoCard(cards, containerClass, albumName) {
-    var mainContainer = document.querySelector("." + containerClass);
-    mainContainer.innerHTML = '';
-    if (mainContainer === undefined)
-        throw new Error('the Element not found');
-    var AllCards = "";
-    cards.forEach(function (photo) {
-        AllCards += NewPhotoCard(photo.photoName, photo.date.toString(), photo.src);
-    });
-    mainContainer.innerHTML += AllCards;
-    return AllCards;
-}
-function changeProfileUserName() {
-    var nameProfile = document.querySelector('.user-box-profile h5');
-    nameProfile.textContent = users[Number(localStorage.getItem("userIndex"))].username;
-}
-function renderLists() {
-    try {
-        var containerPlaylist = document.querySelector(".container-playlist");
-        if (!containerPlaylist)
-            throw new Error("the playlist container not exist");
-        containerPlaylist.innerHTML = '';
-        var html_1 = '';
-        albums.forEach(function (album) {
-            var tamp = "\n        <button onclick=\"handleClickLists(event)\"   class=\"playlistBTN " + album.name + "\">\n        " + album.name + "\n        </button>";
-            html_1 += tamp;
-        });
-        containerPlaylist.innerHTML += html_1;
-        return html_1;
-    }
-    catch (error) {
-        console.error(error);
-        return "";
-    }
-}
-// function showALLlists(nameClassContainer:string){
-// try {
-//     const sectionsHome = document.querySelectorAll(`.${nameClassContainer} div`);
-//         sectionsHome.forEach(e=>{
-//             e.parentElement!.classList.add("active")})
-// } catch (error) {
-//     console.log(error);
-// }
-// }
-// getArrayPhotoAlbumWithName("Jungle")
-// function getArrayPhotoAlbumWithName(name:string){
-//      try {
-//      } catch (error) {
-//         console.log(error);
-//      }
-// }

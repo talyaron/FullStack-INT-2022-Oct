@@ -1,4 +1,7 @@
-console.log("Start");
+const pacman = new Pacman();
+
+startGame();
+checkGameStatus();
 
 window.addEventListener("keydown", (e) => {
   if (e.repeat) return;
@@ -20,7 +23,11 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
-startGame();
+backToStartingPageBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    window.location.href = "startPage.html";
+    localStorage.removeItem('userChoice')
+  });
+});
 
-const interval = setInterval(checkForScaredGhost, 1);
-const anotherInterval = setInterval(checkForGamneOver, 1);
+tryAgainBtn.forEach(btn => btn.addEventListener('click', startGame))

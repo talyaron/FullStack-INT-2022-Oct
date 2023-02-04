@@ -1,6 +1,5 @@
 function dataFromStorage() {
     try {
-
         const dataFromStorageUsers = localStorage.getItem("users")
         if (!dataFromStorageUsers || dataFromStorageUsers == null) {
             updateUserToLocalStorage()
@@ -25,10 +24,11 @@ function dataFromStorage1() {
             updatePhotosToLocalStorage()
         } else if (getAlbumFromStorage()!.length <= albums.length) {
             updatePhotosToLocalStorage()
-        }
-        else {
+        } else if (albums[albums.length - 1].photos.length !== 0) {
+            updatePhotosToLocalStorage()
+        } else {
             const data = JSON.parse(dataFromStorageAlbums);
-            albums.push(...data)
+            albums.splice(0, albums.length, ...data)
 
         }
     } catch (error) {

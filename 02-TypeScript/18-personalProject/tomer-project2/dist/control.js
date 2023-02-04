@@ -18,25 +18,40 @@ function renderBooks(books, renderElementID) {
     }
 }
 ;
-function saveToLocalStorage(ev) {
+function renderReviews(reviews, renderElementID) {
+    try {
+        if (!reviews || !Array.isArray(reviews))
+            throw new Error('reviews is not an array');
+        console.log(reviews);
+        var reviewsHTML = reviews
+            .map(function (reviews) {
+            return "\n            <div class=\"reviewBox\">\n            <div><h1>" + reviews.userName + "</h1></div>\n            <div><p>" + reviews.review + "</p></div>\n            <div><p>" + reviews.stars + "</p></div>\n            ";
+        })
+            .join(' ');
+        return reviewsHTML;
+    }
+    catch (error) {
+        console.error(error);
+        return "";
+    }
+}
+function addReview(ev) {
     var userName = ev.target.elements.userName.value;
     var review = ev.target.elements.review.value;
     var stars = ev.target.elements.stars.value;
     var newReview = new UserReview(userName, review, stars);
+    reviews.push(new UserReview(userName, review, stars));
+    ev.target.reset();
+    console.log(reviews);
+    if (!reviewsRoot)
+        throw new Error("reviewsRoot is null");
+    renderReviews(reviews, 'reviewsRoot');
     localStorage.setItem('UserReview', JSON.stringify(newReview));
 }
-function getItemsFromStorage() {
-    try {
-        //get items from storage
-        var BooksString = localStorage.getItem("UserReview");
-        if (!BooksString)
-            throw new Error("Couldn't find items in storage");
-        //convert to array
-        var books = JSON.parse(BooksString);
-        return books;
-    }
-    catch (error) {
-        console.error(error);
-    }
-    console.log(books);
-}
+// function saveToLocalStorage(ev:any){
+//     const userName=ev.target.elements.userName.value;
+//     const review= ev.target.elements.review.value;
+//     const stars= ev.target.elements.stars.value;
+//     const newReview= new UserReview(userName,review,stars)
+//     localStorage.setItem('UserReview',JSON.stringify(newReview))
+// }

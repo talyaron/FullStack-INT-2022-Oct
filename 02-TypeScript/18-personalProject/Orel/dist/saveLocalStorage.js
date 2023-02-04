@@ -31,9 +31,12 @@ function dataFromStorage1() {
         else if (getAlbumFromStorage().length <= albums.length) {
             updatePhotosToLocalStorage();
         }
+        else if (albums[albums.length - 1].photos.length !== 0) {
+            updatePhotosToLocalStorage();
+        }
         else {
             var data = JSON.parse(dataFromStorageAlbums);
-            albums.push.apply(albums, data);
+            albums.splice.apply(albums, __spreadArrays([0, albums.length], data));
         }
     }
     catch (error) {
