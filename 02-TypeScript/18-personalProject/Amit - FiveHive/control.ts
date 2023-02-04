@@ -3,6 +3,7 @@ let currentLine: number = 0;
 const WORD_LENGTH = 5;
 const LAST_CELL_IN_LINE = 4;
 
+let streak: number = 0;
 
 let currentCell = linesArray[0][0];
 
@@ -57,7 +58,7 @@ function enter(): void { //clicking ENTER
             const guessName: string = _guess.join("").toLowerCase();
 
             const guess = wordsArray.find(({ name }) => name === guessName);
-
+            
             const foundLetters: string[] = [];
 
             if (guess) {
@@ -70,15 +71,18 @@ function enter(): void { //clicking ENTER
 
                         if (checkedLetter.innerText === solution.name.toUpperCase()[i]) { //exact spot
                             foundLetters.push(checkedLetter.innerText);
-                            checkedLetter.style.backgroundColor = "orange";
+                            checkedLetter.style.backgroundColor = "SeaGreen";
 
                             const keyOFCheckedLetter: HTMLDivElement | null = document.querySelector(`#${checkedLetter.innerText}`);
                             if (keyOFCheckedLetter){
-                              keyOFCheckedLetter.style.backgroundColor = "orange";  
-                              keyOFCheckedLetter.style.borderColor = "orange";  
+                              keyOFCheckedLetter.style.backgroundColor = "SeaGreen";  
+                              keyOFCheckedLetter.style.borderColor = "SeaGreen";  
                             } 
                             correctLetters++
-                            if (correctLetters === WORD_LENGTH) alert("you win!"); // change to animation with 2sec delay//
+                            if (correctLetters === WORD_LENGTH){
+                                 alert("you win!"); // change to animation with 2sec delay//
+                                 streak++
+                            } 
                         } else {
                             const foundLettersAsString: string = foundLetters.join("");
                             const foundLettersAsWord = new Word(foundLettersAsString);
@@ -86,18 +90,18 @@ function enter(): void { //clicking ENTER
                             if (foundLettersAsWord && solution) {
                                 if ((foundLettersAsWord.letterRepetitions(checkedLetter.innerText)) < (solution.letterRepetitions(checkedLetter.innerText))) {
                                     foundLetters.push(checkedLetter.innerText);
-                                    checkedLetter.style.backgroundColor = "blue";
+                                    checkedLetter.style.backgroundColor = "gold";
 
                                     const keyOFCheckedLetter: HTMLDivElement | null = document.querySelector(`#${checkedLetter.innerText}`);
-                                    if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "orange")) {
-                                        keyOFCheckedLetter.style.backgroundColor = "blue";
-                                        keyOFCheckedLetter.style.borderColor = "blue";
+                                    if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "SeaGreen")) {
+                                        keyOFCheckedLetter.style.backgroundColor = "gold";
+                                        keyOFCheckedLetter.style.borderColor = "gold";
                                     }
                                 } else {
                                     checkedLetter.style.backgroundColor = "black";
 
                                     const keyOFCheckedLetter: HTMLDivElement | null = document.querySelector(`#${checkedLetter.innerText}`);
-                                    if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "orange" || "blue")) {
+                                    if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "SeaGreen" || "gold")) {
                                         keyOFCheckedLetter.style.backgroundColor = "black";
                                         keyOFCheckedLetter.style.borderColor = "gray";
                                     }
@@ -105,12 +109,16 @@ function enter(): void { //clicking ENTER
                             }
                         }
                     } else {
-                        checkedLetter.style.backgroundColor = "black";
+                        checkedLetter.style.backgroundColor = "gray";
                         const keyOFCheckedLetter: HTMLDivElement | null = document.querySelector(`#${checkedLetter.innerText}`);
-                        if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "orange" || "blue")) {
+                        if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "SeaGreen" || "gold")) {
                             keyOFCheckedLetter.style.backgroundColor = "black";
                         }
                     }
+                if ((currentCell === cell0605) && (correctLetters !== WORD_LENGTH) && (solution)){
+                     streak = 0;
+                     alert(`better luck next time... the solution was: ${solution.name}`);
+                }    
                 }
                 currentLine++;
 
