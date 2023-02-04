@@ -54,7 +54,7 @@ var Pacman = /** @class */ (function () {
         var mouth = document.createElement("div");
         mouth.classList.add("mouth");
         squares[pacman.currentIndex].innerHTML = "";
-        squares[this.currentIndex].classList.add("pacman");
+        squares[this.currentIndex].classList.add("pacman", 'square');
         squares[this.currentIndex].append(eye);
         squares[this.currentIndex].append(mouth);
     };

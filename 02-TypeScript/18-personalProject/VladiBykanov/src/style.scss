@@ -70,7 +70,6 @@
 }
 
 .maze {
-  // border: 5px solid black;
   box-shadow: 0 0 50px black;
   width: var(--boardSize);
   height: var(--boardSize);
@@ -78,7 +77,7 @@
   flex-wrap: wrap;
   position: relative;
   background-color: white;
-  aside {
+  .endGameWindow {
     position: absolute;
     font-size: 5vh;
     z-index: 1;
@@ -99,7 +98,7 @@
     background-color: rgb(141, 24, 24);
     opacity: 0;
   }
-  div {
+  .square {
     width: var(--div-size);
     height: var(--div-size);
     display: flex;

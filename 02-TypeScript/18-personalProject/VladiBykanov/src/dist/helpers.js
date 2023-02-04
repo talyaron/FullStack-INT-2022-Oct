@@ -12,6 +12,7 @@ function checkForPoint() {
         scoreEl.textContent = score.toString();
         squares[pacman.currentIndex].classList.remove("point");
         squares[pacman.currentIndex].classList.add("pacman");
+        squares[pacman.currentIndex].classList.add("road");
     }
 }
 function checkForCherry() {
