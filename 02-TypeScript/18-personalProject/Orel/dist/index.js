@@ -41,3 +41,14 @@ var lists = document.querySelectorAll('.list ');
 lists.forEach(function (list) {
     list.classList.add("active");
 });
+if (typeof getAlbumFromStorage() === typeof albums && getAlbumFromStorage() != undefined) {
+    var html_1 = '';
+    var sectionsLibrary_1 = document.querySelector(".sections-library");
+    getAlbumFromStorage().forEach(function (album) {
+        html_1 += createNewList(album.name, album.name, "sections-library");
+        sectionsLibrary_1.innerHTML = html_1;
+        console.log("albumName ", album.name);
+        renderPhotoCard(album.photos, album.name, "sections-library");
+    });
+    renderLists();
+}
