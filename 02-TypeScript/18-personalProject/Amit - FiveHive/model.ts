@@ -16,7 +16,6 @@ class Word {
             }
             return repetitions;
     }
-
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -24,14 +23,18 @@ class Word {
 class User {
     uid: string;
     constructor(
+        public name: string,
+        public password: string,
         public streak: number,
-
     ) {
         this.uid = uid();
     }
 }
 
 /////////////////////////////////////////////////////////////////////////
+let loggedInUser: User | null = null;
+
+const users: User[] = [];
 
 const wordsArray: Word[] = [];
 

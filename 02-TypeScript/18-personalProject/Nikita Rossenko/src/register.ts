@@ -35,10 +35,10 @@ function registerHandler(e) {
             }
             return false;
         } else {
-            allUsersString = localStorage.getItem('allUsers');
-            if (allUsersString){
-                    if (allUsersString){
-                        const allUsersArray:Array<User> = JSON.parse(allUsersString);
+            const allUsersStringRegister = localStorage.getItem('allUsers');
+            if (allUsersStringRegister){
+                    if (allUsersStringRegister){
+                        const allUsersArray:Array<User> = JSON.parse(allUsersStringRegister);
                     if (allUsersArray.length > 0){
                         let userExist = false
                         allUsersArray.forEach(user => {

@@ -5,6 +5,7 @@ const LAST_CELL_IN_LINE = 4;
 
 let streak: number = 0;
 
+
 let currentCell = linesArray[0][0];
 
 
@@ -58,7 +59,7 @@ function enter(): void { //clicking ENTER
             const guessName: string = _guess.join("").toLowerCase();
 
             const guess = wordsArray.find(({ name }) => name === guessName);
-            
+
             const foundLetters: string[] = [];
 
             if (guess) {
@@ -74,19 +75,20 @@ function enter(): void { //clicking ENTER
                             checkedLetter.style.backgroundColor = "SeaGreen";
 
                             const keyOFCheckedLetter: HTMLDivElement | null = document.querySelector(`#${checkedLetter.innerText}`);
-                            if (keyOFCheckedLetter){
-                              keyOFCheckedLetter.style.backgroundColor = "SeaGreen";  
-                              keyOFCheckedLetter.style.borderColor = "SeaGreen";  
-                            } 
+                            if (keyOFCheckedLetter) {
+                                keyOFCheckedLetter.style.backgroundColor = "SeaGreen";
+                                keyOFCheckedLetter.style.borderColor = "SeaGreen";
+                            }
                             correctLetters++
-                            if (correctLetters === WORD_LENGTH){
-                                 alert("you win!"); // change to animation with 2sec delay//
-                                 streak++
-                            } 
+                            if (correctLetters === WORD_LENGTH) {
+                                alert("you win!"); // change to animation with 2sec delay//
+                                if (loggedInUser) updateStreak(loggedInUser.streak + 1);
+                                renderUserData(users, "userDataRoot");
+                            }
                         } else {
                             const foundLettersAsString: string = foundLetters.join("");
                             const foundLettersAsWord = new Word(foundLettersAsString);
-                         
+
                             if (foundLettersAsWord && solution) {
                                 if ((foundLettersAsWord.letterRepetitions(checkedLetter.innerText)) < (solution.letterRepetitions(checkedLetter.innerText))) {
                                     foundLetters.push(checkedLetter.innerText);
@@ -98,7 +100,7 @@ function enter(): void { //clicking ENTER
                                         keyOFCheckedLetter.style.borderColor = "gold";
                                     }
                                 } else {
-                                    checkedLetter.style.backgroundColor = "black";
+                                    checkedLetter.style.backgroundColor = "gray";
 
                                     const keyOFCheckedLetter: HTMLDivElement | null = document.querySelector(`#${checkedLetter.innerText}`);
                                     if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "SeaGreen" || "gold")) {
@@ -115,10 +117,11 @@ function enter(): void { //clicking ENTER
                             keyOFCheckedLetter.style.backgroundColor = "black";
                         }
                     }
-                if ((currentCell === cell0605) && (correctLetters !== WORD_LENGTH) && (solution)){
-                     streak = 0;
-                     alert(`better luck next time... the solution was: ${solution.name}`);
-                }    
+                    if ((currentCell === cell0605) && (correctLetters !== WORD_LENGTH) && (solution)) {
+                        if (loggedInUser) updateStreak(0);
+                        renderUserData(users, "userDataRoot");
+                        alert(`better luck next time... the solution was: ${solution.name}`);
+                    }
                 }
                 currentLine++;
 
@@ -132,8 +135,6 @@ function enter(): void { //clicking ENTER
         console.error(error);
     }
 }
-
-
 
 
 function randomSolutionSelector(): Word | undefined {
@@ -152,3 +153,88 @@ function randomSolutionSelector(): Word | undefined {
 }
 
 
+function handleLogin(ev: any) {
+    try {
+        ev.preventDefault();
+
+        const name = ev.target.elements.name.value;
+        const password = ev.target.elements.password.value;
+        let streak = 0;
+        const loggedInUser = new User(name, password, streak);
+        users.push(loggedInUser);
+        ev.target.reset();
+        handleSaveUsersData(loggedInUser);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+function renderUserData(users: User[], renderUserDataId: string): void {
+    try {
+        if (users.length === 0) throw new Error("users is empty");
+        console.log("users", users);
+        console.log("loggeinuser", loggedInUser);
+        const html = users.map((user) => {
+            return `
+        <h3>${user.name}</h3>
+        <div>streak: ${user.streak}</div>
+      `;
+        }).join(" ");
+        const element = document.querySelector(`#${renderUserDataId}`);
+        if (!element) throw new Error("Couldnt find element in the DOM");
+        element.innerHTML = html;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+function handleSaveUsersData(loggedInUser: User) {
+    localStorage.setItem('users', JSON.stringify(users));
+    localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+}
+
+
+function getUsersDataFromStorage(): User[] | undefined {
+    try {
+        const usersString = localStorage.getItem("users");
+        if (!usersString) throw new Error("Couldn't find users in storage");
+
+        const users = JSON.parse(usersString);
+        return users;
+    } catch (error) {
+        console.error(error);
+        return undefined;
+    }
+}
+
+
+function getLoggedInUserFromStorage(): User | undefined {
+    try {
+        const loggedInUserString = localStorage.getItem("loggedInUser");
+        if (!loggedInUserString) throw new Error("Couldn't find logged-in user in storage");
+
+        const loggedInUser = JSON.parse(loggedInUserString);
+        return loggedInUser;
+    } catch (error) {
+        console.error(error);
+        return undefined;
+    }
+}
+
+function updateStreak(streak: number) {
+    try {
+        if (loggedInUser) {
+            loggedInUser.streak = streak;
+            users.forEach(user => {
+                if (user.uid === loggedInUser?.uid) {
+                    user.streak = streak;
+                }
+            });
+            handleSaveUsersData(loggedInUser);
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
