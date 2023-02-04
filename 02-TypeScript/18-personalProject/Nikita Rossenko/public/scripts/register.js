@@ -29,10 +29,10 @@ function registerHandler(e) {
             return false;
         }
         else {
-            allUsersString = localStorage.getItem('allUsers');
-            if (allUsersString) {
-                if (allUsersString) {
-                    var allUsersArray = JSON.parse(allUsersString);
+            var allUsersStringRegister = localStorage.getItem('allUsers');
+            if (allUsersStringRegister) {
+                if (allUsersStringRegister) {
+                    var allUsersArray = JSON.parse(allUsersStringRegister);
                     if (allUsersArray.length > 0) {
                         var userExist_1 = false;
                         allUsersArray.forEach(function (user) {
