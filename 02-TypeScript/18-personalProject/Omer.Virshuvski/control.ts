@@ -211,11 +211,7 @@ sortPrice.addEventListener('click', () => {
         const temp = getItems();
         if (!temp) throw new Error("Items empty");
 
-        temp.sort((function (a, b) {
-            if (parseInt(a.price.toString()) - parseInt(b.price.toString())) { return -1; }
-            if (parseInt(a.price.toString()) - parseInt(b.price.toString())) { return 1; }
-            return 0;
-        }))
+        temp.sort((a,b)=>a.price-b.price);
         renderStore(".main", temp)
     } catch (error) {
         console.error(error);

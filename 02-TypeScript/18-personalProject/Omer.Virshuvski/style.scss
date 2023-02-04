@@ -249,8 +249,24 @@ form>* {
 
             img {
                 width: 50%;
+                max-width: 140px;
                 aspect-ratio: 1/1;
             }
         }
     }
+}
+
+.checkout {
+    &__totalPrice {
+        margin: 20px 0;
+        font-weight: bold;
+    }
+}
+
+.footer {
+    background-color: #ECE8DD;
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    bottom: 0;
 }
