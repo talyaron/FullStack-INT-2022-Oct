@@ -1,0 +1,29 @@
+body {
+  background-image: url(https://i0.wp.com/animationscreencaps.com/wp-content/uploads/2022/01/4kbugslife-animationscreencaps.com--scaled.jpg?fit=2560%2C1109&ssl=1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+}
+
+.container .form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 550px;
+  align-items: center;
+  margin-top: 12rem;
+  margin-left: 5rem;
+  padding: 1rem;
+}
+.container .form .input {
+  background-color: bisque;
+  width: 550px;
+  height: 3rem;
+}
+.container .form .btn {
+  background-color: mediumseagreen;
+  width: 450px;
+  height: 3rem;
+  font-size: 2rem;
+}

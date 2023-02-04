@@ -1,0 +1,236 @@
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  font-family: Verdana, "Segoe UI", Tahoma, Geneva, sans-serif;
+}
+
+:root {
+  --boardSize: 80vh;
+  --div-size: calc(var(--boardSize) / 21);
+}
+
+.gameWrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: darkblue;
+}
+
+.welcomePageWrapper {
+  background-color: darkblue;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.welcomePage {
+  aspect-ratio: 3/2;
+  width: 60vw;
+  background-color: darkgoldenrod;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  &__choices {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    gap: 1vw;
+    &__choice {
+      display: flex;
+      justify-content: center;
+      width: 45%;
+      img {
+        width: 100%;
+      }
+    }
+    &__choice:hover {
+      // box-shadow: 0 0 50px black;
+      cursor: pointer;
+    }
+  }
+  button {
+    font-size: 1.5rem;
+    padding: 0.5em 2em;
+    border: none;
+    border-radius: 10px;
+  }
+  button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
+
+.maze {
+  // border: 5px solid black;
+  box-shadow: 0 0 50px black;
+  width: var(--boardSize);
+  height: var(--boardSize);
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  background-color: white;
+  aside {
+    position: absolute;
+    font-size: 5vh;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+  }
+  .winMessage {
+    color: rgb(134, 26, 134);
+    background-color: rgb(35, 106, 70);
+    opacity: 0;
+  }
+  .loseMessage {
+    color: orange;
+    background-color: rgb(141, 24, 24);
+    opacity: 0;
+  }
+  div {
+    width: var(--div-size);
+    height: var(--div-size);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      width: calc(var(--div-size) - 1.5vh);
+    }
+  }
+  .pacman {
+    border-radius: 50%;
+    background-color: darkorange;
+    position: relative;
+    transform: scaleY(1);
+    .eye {
+      position: absolute;
+      width: 0.3vw;
+      height: 0.3vw;
+      border-radius: 50%;
+      top: 20%;
+      right: 50%;
+      background: #333333;
+    }
+    .mouth {
+      background: #fff;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+      animation-name: eat;
+      animation-duration: 0.2s;
+      animation-iteration-count: infinite;
+    }
+    @keyframes eat {
+      0% {
+        clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+      }
+      25% {
+        clip-path: polygon(100% 60%, 44% 48%, 100% 40%);
+      }
+
+      50% {
+        clip-path: polygon(100% 50%, 44% 48%, 100% 50%);
+      }
+
+      75% {
+        clip-path: polygon(100% 59%, 44% 48%, 100% 35%);
+      }
+
+      100% {
+        clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+      }
+    }
+  }
+
+  .wall {
+    background-color: black;
+  }
+  .point {
+    border-radius: 50%;
+    background-color: green;
+    border: calc(var(--div-size) / 3) solid white;
+    box-sizing: border-box;
+  }
+  .cherry {
+    box-sizing: border-box;
+    svg{
+      fill: red;
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 1));
+    }
+  }
+  .blinky {
+    border: 0px;
+    border-radius: 0;
+    background-color: white;
+    svg {
+      fill: purple;
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 1));
+    }
+  }
+  .pinky {
+    border: 0px;
+    border-radius: 0;
+    background-color: white;
+    svg {
+      fill: palevioletred;
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 1));
+    }
+  }
+  .inky {
+    border: 0px;
+    border-radius: 0;
+    background-color: white;
+    svg {
+      fill: blue;
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 1));
+    }
+  }
+  .clyde {
+    border: 0px;
+    border-radius: 0;
+    background-color: white;
+    svg {
+      fill: darkgreen;
+      filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 1));
+    }
+  }
+  .scaredGhost {
+    svg {
+      animation-name: scared;
+      animation-duration: 1s;
+      animation-iteration-count: infinite;
+    }
+  }
+  @keyframes scared {
+    0% {
+      fill: #333333;
+    }
+    50% {
+      fill: aquamarine;
+    }
+    100% {
+      fill: #333333;
+    }
+
+    
+  }
+}
+
+.liveScore {
+  position: absolute;
+  color: darkblue;
+  font-size: 1.5rem;
+}

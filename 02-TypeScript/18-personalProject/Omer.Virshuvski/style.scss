@@ -4,14 +4,48 @@
     box-sizing: border-box;
 }
 
+.hide {
+    opacity: 0;
+}
+
 body {
     position: relative;
     overflow-x: hidden;
+    background-color: #F8F4EA;
+
+    i {
+        cursor: pointer;
+    }
 
     button,
     .submit {
         cursor: pointer;
+        padding: 2px 4px;
+        color: black;
+        background-color: white;
+        border-radius: 5px;
+        border: 2px solid #E1D7C6;
+        transition: all ease .3s;
     }
+
+    button:hover,
+    .submit:hover {
+        padding: 2px 6px;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+form>* {
+    width: 160px;
+    height: 30px;
+    padding: 5px;
+    margin: 3px 0;
 }
 
 .test {
@@ -35,18 +69,28 @@ body {
     width: 100%;
     margin-top: 20px;
 
+    &__card>* {
+        margin: 2px 0;
+    }
+
     &__card {
         position: relative;
-        max-width: 150px;
-        height: 250px;
+        width: 250px;
+        height: 275px;
         padding: 20px;
-        border-radius: 10px;
+        border-radius: 5px;
         border: none;
-        box-shadow: 0 0 6px 0px black;
+        box-shadow: 0 0 2px 0px rgb(85, 84, 84);
         margin: 0 5px 20px 5px;
+        background-color: white;
+
+        &__imgDiv {
+            display: grid;
+            place-items: center;
+        }
 
         img {
-            width: 90%;
+            width: 60%;
             aspect-ratio: 1/1;
         }
 
@@ -58,12 +102,13 @@ body {
 .menu {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-evenly;
-    background-color: black;
-    width: 50%;
+    padding: 20px;
+    background-color: #ECE8DD;
+    width: 138px;
     position: absolute;
-    left: -50%;
+    left: -30%;
     top: 50px;
     height: 100vh;
     transition: all ease 0.5s;
@@ -78,8 +123,40 @@ body {
     height: 50px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
     position: relative;
-    background-color: aqua;
+    background-color: #ECE8DD;
+
+    h2 {
+        color: #579BB1;
+    }
+
+    &__cart {
+        cursor: pointer;
+        position: relative;
+        width: 30px;
+        height: 30px;
+
+        img {
+            width: 100%;
+            aspect-ratio: 1/1;
+        }
+
+        &__items {
+            display: grid;
+            place-items: center;
+            position: absolute;
+            bottom: -3px;
+            right: -3px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: none;
+            background-color: red;
+            color: white;
+        }
+    }
 
     &__headline {
         position: absolute;
@@ -120,4 +197,75 @@ body {
 
 .closeMid {
     opacity: 0;
+}
+
+.cartMain {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 70%;
+    margin-top: 20px;
+    position: relative;
+    
+    
+    &__card {
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 0 2px 0px rgb(85, 84, 84);
+        margin: 0 5px 20px 5px;
+        background-color: white;
+        width: 100%;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        
+        &__text > * {
+            margin: 0 2px;
+        }
+        
+        &__text {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+            width: 50%;
+            height: 100%;
+            padding-left: 5px;
+        }
+        
+
+        &__imgDiv {
+            border-right: 2px solid #E1D7C6;
+            width: 30%;
+            display: grid;
+            place-items: center;
+            position: relative;
+
+
+            img {
+                width: 50%;
+                aspect-ratio: 1/1;
+            }
+        }
+    }
+}
+
+.checkout {
+    &__totalPrice {
+        margin: 20px 0;
+        font-weight: bold;
+    }
+}
+
+.footer {
+    background-color: #ECE8DD;
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    bottom: 0;
 }

@@ -1,0 +1,42 @@
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
+function dataFromStorage() {
+    try {
+        var dataFromStorageUsers = localStorage.getItem("users");
+        if (!dataFromStorageUsers || dataFromStorageUsers == null) {
+            updateUserToLocalStorage();
+        }
+        else if (albums.length > getAlbumFromStorage.length) {
+            var data = JSON.parse(dataFromStorageUsers);
+            users.splice.apply(users, __spreadArrays([0], data));
+        }
+        else {
+            updateUserToLocalStorage();
+            console.log("users", users);
+        }
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+function dataFromStorage1() {
+    try {
+        var dataFromStorageAlbums = localStorage.getItem("albums");
+        if (!dataFromStorageAlbums || dataFromStorageAlbums === null) {
+            updatePhotosToLocalStorage();
+        }
+        else {
+            var data = JSON.parse(dataFromStorageAlbums);
+            albums.push.apply(albums, data);
+            updatePhotosToLocalStorage();
+        }
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
