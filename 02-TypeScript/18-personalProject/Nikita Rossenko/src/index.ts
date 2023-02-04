@@ -64,7 +64,6 @@ function showMovieSeats(id){
         if (seatsString){
             const seats = JSON.parse(seatsString);
             const seatsId = seats[id-1];
-            console.log(seatsId['seatsArray'])
 
             let seatsDiv = '<div class="SeatsContainer"><div class="SeatsContainer__screen"></div>'
             let seatIndex = 0;
@@ -152,5 +151,47 @@ function chooseSeats(info){
     }
 }
 
+function isAdmin(){
+    if (allUsersString){
+        const allUsersObject = JSON.parse(allUsersString);
+        console.log(allUsersObject)
+        for (let i = 0 ; i< allUsersObject.length ; i++){
+            if (allUsersObject[i].username == loggedInUser && allUsersObject[i].isAdmin == true){
+                const goHome = document.querySelector('#goHome')
+                if (goHome){
+                    goHome.insertAdjacentHTML('afterend', '<button onclick="addNewMovieContainer()" id="addNewMovie">Add New Movie</button>');
+                }
+                break;
+            }
+        }
+    }
+
+}
+
+function addNewMovieContainer(){
+    const moviesContainer = document.querySelector('.moviesContainer');
+
+    if (moviesContainer){
+        moviesContainer.insertAdjacentHTML('beforebegin', '<div class="addNewMovieContainer"><div class="closeAddMovie"></div><div class="addNewMovieContainer__info"><h1>Add New Movie</h1><form action="#" onsubmit="addNewMovie(event)"><input type="text"name="name"id="newMovieName"placeholder="Movie Name"/><input type="text"name="image"id="newMovieImage"placeholder="Image URL"/><select id="newMovieCategory" name="category" ><option value="Comedy">Comedy</option><option value="Action">Action</option><option value="Drama">Drama</option><option value="Fantasy">Fantasy</option><option value="Horror">Horror</option><option value="Mystery">Mystery</option><option value="Romance">Romance</option><option value="Thriller">Thriller</option></select><input type="submit"name="submit"id="addMovie"value="ADD"/></form></div></div>')
+    }
+
+    const addNewMovieContainer = document.querySelector('.addNewMovieContainer');
+    const closeAddMovie = document.querySelector('.closeAddMovie');
+    if (addNewMovieContainer && closeAddMovie){
+        closeAddMovie.addEventListener('click', e => {
+            addNewMovieContainer.remove();
+        })
+    }
+
+}
+
+function addNewMovie(info) {
+    info.preventDefault();
+    const newMovieName = info.target.elements.name.value;
+    const newMovieImage = info.target.elements.image.value;
+    const newMoviecategory = info.target.elements.category.value;
+    console.log(newMovieName,newMovieImage,newMoviecategory)
+}
+isAdmin();
 renderMovies();
 renderUsername();

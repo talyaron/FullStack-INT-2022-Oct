@@ -128,8 +128,8 @@ body {
 }
 
 .moviesContainer{
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.5), #10171b), url('../images/movie-theater.jpg');
     background-size:cover;
     display: flex;
@@ -139,7 +139,9 @@ body {
     gap: 60px;
 
     .navBar{
-        width: 100%;
+        z-index: 1;
+        position: fixed;
+        width: 100vw;
         height: 60px;
         background-color: #31211F;
         padding: 0;
@@ -157,6 +159,34 @@ body {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            z-index: 1;
+
+            &__menu {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 80px;
+                height: 100%;
+                
+                &__container{
+                    display: none;
+                    flex-direction: column;
+                    width: auto;
+                    height: auto;
+                    position: absolute;
+                    left: -10px;
+                    top: 60px;
+                    background-color:#31211F;
+                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                    padding: 12px 16px;
+                    z-index: 1;
+                    gap: 20px;
+                }
+            }
+            &__menu:hover .navBar__icons__menu__container {
+                display: flex;
+            }
 
             h1 {
                 font-size: 30px;
@@ -189,11 +219,15 @@ body {
                     background: #B4AAA1;
                     border: 1px solid white;
             }
+            #addNewMovie {
+                width: 150px;
+            }
 
         }
 
     }
     .username{
+        margin-top: 100px;
             color: white;
             width: auto;
             height: 100px;
@@ -249,8 +283,8 @@ body {
 
                     button {
                         box-shadow:none;
-                        width: 85px;
-                        height: 35px;
+                        width: 120px;
+                        height: 45px;
                         transition : 500ms;
                         backface-visibility: hidden;
                         position: relative;
@@ -261,7 +295,7 @@ body {
                         border-radius: 10px;
                         // padding: 10px 22px 10px 22px;
                         color: black;
-                        font-size: 14px;
+                        font-size: 18px;
                         border: 1px solid #7F594A;
                         font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
                         font-weight: 900;
@@ -299,6 +333,7 @@ body {
         }
     }
     .footer{
+        position: relative;
         display: flex;
         align-items: center;
         width: 100%;
@@ -313,7 +348,7 @@ body {
     }
 }
 
-@media only screen and (max-width: 1535px) {
+@media only screen and (max-width: 1540px) {
     .navBar__icons {
         max-width: 1250px;
     }
@@ -325,7 +360,7 @@ body {
     }
 }
 
-@media only screen and (max-width: 920px) {
+@media only screen and (max-width: 936px) {
     .navBar__icons {
         max-width: 625px;
     }
@@ -433,10 +468,73 @@ body {
   }
 
   .movieShowcase {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
     h1 {
         color: white;
     }
     p {
+        width: 480px;
         color: white;
+        font-size: 20px;
+    }
+  }
+
+  .addNewMovieContainer{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .closeAddMovie{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 500px;
+        height: auto;
+        background-color: #7f594a;
+        border-radius: 20px;
+        box-shadow: 0px 0px 30px 0px rgba(255, 255, 255, 0.774);
+        z-index: 3;
+        h1 {
+            color: white;
+        }
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 500px;
+            height: 300px;
+            flex-direction: column;
+            gap: 30px;
+
+
+            input, select{
+                height: 40px;
+                width: 260px;
+                font-size: 20px;
+                border-radius: 10px;
+                border: none;
+                box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+            }
+            #addMovie {
+                width: 100px;
+            }
+        }
     }
   }
