@@ -33,6 +33,12 @@ var Paddle = /** @class */ (function () {
         this.height = height;
     }
     Paddle.prototype.Update = function () {
+        if (isDownKeyPressed) {
+            this.pos.y -= this.velocity.y;
+        }
+        if (isUpKeyPressed) {
+            this.pos.y += this.velocity.y;
+        }
     };
     Paddle.prototype.draw = function () {
         ctx.fillStyle = "#ggff00";
@@ -40,6 +46,26 @@ var Paddle = /** @class */ (function () {
     };
     return Paddle;
 }());
-var ball = new Ball(vec2(200, 200), vec2(5, 5), 20);
-var paddle1 = new Paddle(vec2(0, 50), vec2(5, 5), 20, 160);
-var paddle2 = new Paddle(vec2(canvas.width + 468, 30), vec2(5, 5), 20, 160);
+var ball = new Ball({ x: 200, y: 200 }, { x: 5, y: 5 }, 20);
+var paddle1 = new Paddle({ x: 0, y: 50 }, { x: 0, y: 10 }, 20, 160);
+var paddle2 = new Paddle({ x: canvas.width - 20, y: 80 }, { x: 0, y: 10 }, 20, 160);
+var isUpKeyPressed = false;
+var isDownKeyPressed = false;
+window.addEventListener("keydown", function (e) {
+    if (e.keyCode === 38) {
+        isUpKeyPressed = true;
+        isDownKeyPressed = false;
+    }
+    else if (e.keyCode === 40) {
+        isUpKeyPressed = false;
+        isDownKeyPressed = true;
+    }
+});
+window.addEventListener("keyup", function (e) {
+    if (e.keyCode === 38) {
+        isUpKeyPressed = false;
+    }
+    else if (e.keyCode === 40) {
+        isDownKeyPressed = false;
+    }
+});

@@ -2,72 +2,89 @@ const booksContiner: any= document.querySelector(`.booksContiner`);
 const userReviews:any= document.querySelector(`.userReview`)
 
 
-//מרנדרת על המסך את כל האובייקטים
-
-function renderBooks(books:book[]):string{
-try {
-    if(!books || !Array.isArray(books))
-    throw new Error(`books is not an arry`);
-
-    const html= books
-    .map((books)=>{
-        return`
-        <div class="box">
-        <img  src="${books.picOfBook}" alt="">
-        <div><h1>${books.name}</h1></div>
-        <div><p>${books.summary}</p></div>
-        </div> `;
-    })
-    .join(``);
-    console.log(html);
-    return html;
-} catch (error) {
-    console.error(error);
-    return``;
-}
-};
-booksContiner.innerHTML = renderBooks(books);
-function renderreview(reviews:UserReview[]):string{
+// function addReview(ev:any){
+//     try {
+//         const userName=ev.target.elements.userName.value;
+//         const review= ev.target.elements.review.value;
+//         const stars= ev.target.elements.stars.value;
+//         const bookId = ev.target.element.bookId.value;
+        
+        
+//         if(userReviews)
+//         userReviews.innerHTML = renderReviews(reviews);
+//         reviews.push(new UserReview(userName,review,stars))
+//         console.log(reviews);
+//         ev.target.reset();
+//         ev.preventDefault();
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }
+function renderReviews(reviews:UserReview[]){
     try {
-        if(!reviews || !Array.isArray(reviews))
-        throw new Error(`books is not an arry`);
-    
+        // console.log('renderReviews',reviews)
+        if(!Array.isArray(reviews))
+        throw new Error(`books is not an array`);
+        
         const html= reviews
         .map((reviews)=>{
             return`
             <div class="box__review">
+            <div><p>${reviews.userName}</p></div>
             <div><h1>${reviews.review}</h1></div>
             <div><p>${reviews.stars}</p></div>
             </div> `;
         })
-        .join(``);
-        console.log(html);
+        .join(` `);
+        console.log(html)
+        // console.log(html);
+        // const element = document.querySelector(`#${renderElementId}`);
         return html;
     } catch (error) {
         console.error(error);
+        // return undefined;
+    }
+};
+
+function renderBooks(books:Book[]):string{
+    try {
+        if(!books || !Array.isArray(books))
+        throw new Error(`books is not an arry`);
+        // console.log(books)
+        const html2= books
+        .map((book)=>{
+            // console.log('render books', renderReviews(book.reviews))
+            return`
+            <div class="box">
+            <img  src="${book.picOfBook}" alt="">
+            <div><h1>${book.name}</h1></div>
+            <div><p>${book.summary}</p></div>
+            <div class='box__review'>${renderReviews(book.reviews)}</div>
+            </div> `;
+        })
+        .join(` `);
+        // console.log(html);
+        return html2;
+    } catch (error) {
+        // console.error(error);
         return``;
     }
-    };
+};
+booksContiner.innerHTML = renderBooks(books);
 
-function addReview(ev:any){
-    try {
-        ev.preventDefault();
-        const userName=ev.target.elements.userName.value;
-        const review= ev.target.elements.review.value;
-        const stars= ev.target.elements.stars.value;
 
-        reviews.push(new UserReview(userName,review,stars))
-        console.log(reviews);
-        ev.target.reset()
 
-        if(!userReviews) throw new Error(`userReviews is null`);
-        userReviews.innerHTML = renderreview(reviews);
-    } catch (error) {
-        console.error(error);
-    }
+
+function saveToLocalStorage(ev:any){
+    const userName=ev.target.elements.userName.value;
+    const review= ev.target.elements.review.value;
+    const stars= ev.target.elements.stars.value;
+    const book= ev.target.element.book.value;
+    const newReview= new UserReview(userName,review,stars,'tenibpekunbetidnbemdrs')
+
+    localStorage.setItem('userReview',JSON.stringify(newReview))
+
 }
-function saveReview() {
-    console.log(`save reviews`)
-    localStorage.setItem(`reviews`,JSON.stringify(reviews))
-}
+
+
 

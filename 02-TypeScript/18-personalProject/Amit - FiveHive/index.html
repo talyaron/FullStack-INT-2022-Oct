@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./dist/dictionary.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+    <script src="https://kit.fontawesome.com/0fcd7efe49.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./dist/style.css">
+    <title>Five Hive</title>
+</head>
+<body>
+    <h1>FIVE HIVE</h1>
+
+    <div class="iconsWrapper">
+        <div class="iconsWrapper__displayedIcon">
+            <i class="fa-solid fa-trophy"></i>
+            <div class="iconsWrapper__displayedIcon__displayedData">
+            <div id="userDataRoot"></div>
+            </div>
+        </div>
+        <div class="iconsWrapper__displayedIcon">
+            <i class="fa-regular fa-circle-question"></i>
+            <div class="iconsWrapper__displayedIcon__displayedData"> rules
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="board">
+        <div id="guess-1" class="board__line">
+            <div id="cell0101" class="board__line__cell"></div>
+            <div id="cell0102"class="board__line__cell"></div>
+            <div id="cell0103"class="board__line__cell"></div>
+            <div id="cell0104"class="board__line__cell"></div>
+            <div id="cell0105"class="board__line__cell"></div>
+        </div>
+        <div id="guess-2" class="board__line">
+            <div id="cell0201" class="board__line__cell"></div>
+            <div id="cell0202" class="board__line__cell"></div>
+            <div id="cell0203" class="board__line__cell"></div>
+            <div id="cell0204" class="board__line__cell"></div>
+            <div id="cell0205" class="board__line__cell"></div>
+        </div>
+        <div id="guess-3" class="board__line">
+            <div id="cell0301" class="board__line__cell"></div>
+            <div id="cell0302" class="board__line__cell"></div>
+            <div id="cell0303" class="board__line__cell"></div>
+            <div id="cell0304" class="board__line__cell"></div>
+            <div id="cell0305" class="board__line__cell"></div>
+        </div>
+        <div id="guess-4" class="board__line">
+            <div id="cell0401" class="board__line__cell"></div>
+            <div id="cell0402" class="board__line__cell"></div>
+            <div id="cell0403" class="board__line__cell"></div>
+            <div id="cell0404" class="board__line__cell"></div>
+            <div id="cell0405" class="board__line__cell"></div>
+        </div>
+        <div id="guess-5" class="board__line">
+            <div id="cell0501" class="board__line__cell"></div>
+            <div id="cell0502" class="board__line__cell"></div>
+            <div id="cell0503" class="board__line__cell"></div>
+            <div id="cell0504" class="board__line__cell"></div>
+            <div id="cell0505" class="board__line__cell"></div>
+        </div>
+        <div id="guess-6" class="board__line">
+            <div id="cell0601" class="board__line__cell"></div>
+            <div id="cell0602" class="board__line__cell"></div>
+            <div id="cell0603" class="board__line__cell"></div>
+            <div id="cell0604" class="board__line__cell"></div>
+            <div id="cell0605" class="board__line__cell"></div>
+        </div>
+    </div>
+    
+    
+   
+
+
+
+    <div class="keyboard">
+        <div class="keyboard__line">
+            <button id="Q"  type= "button" onclick= "insertLetterToCell('Q')" class="keyboard__line__key">Q</button>
+            <button id="W"  type= "button" onclick= "insertLetterToCell('W')" class="keyboard__line__key">W</button>
+            <button id="E"  type= "button" onclick= "insertLetterToCell('E')" class="keyboard__line__key">E</button>
+            <button id="R"  type= "button" onclick= "insertLetterToCell('R')" class="keyboard__line__key">R</button>
+            <button id="T"  type= "button" onclick= "insertLetterToCell('T')" class="keyboard__line__key">T</button>
+            <button id="Y"  type= "button" onclick= "insertLetterToCell('Y')" class="keyboard__line__key">Y</button>
+            <button id="U"  type= "button" onclick= "insertLetterToCell('U')" class="keyboard__line__key">U</button>
+            <button id="I"  type= "button" onclick= "insertLetterToCell('I')" class="keyboard__line__key">I</button>
+            <button id="O"  type= "button" onclick= "insertLetterToCell('O')" class="keyboard__line__key">O</button>
+            <button id="P"  type= "button" onclick= "insertLetterToCell('P')" class="keyboard__line__key">P</button>
+        </div>
+        <div class="keyboard__line">
+            <button id="A"  type= "button" onclick= "insertLetterToCell('A')" class="keyboard__line__key">A</button>
+            <button id="S"  type= "button" onclick= "insertLetterToCell('S')" class="keyboard__line__key">S</button>
+            <button id="D"  type= "button" onclick= "insertLetterToCell('D')" class="keyboard__line__key">D</button>
+            <button id="F"  type= "button" onclick= "insertLetterToCell('F')" class="keyboard__line__key">F</button>
+            <button id="G"  type= "button" onclick= "insertLetterToCell('G')" class="keyboard__line__key">G</button>
+            <button id="H"  type= "button" onclick= "insertLetterToCell('H')" class="keyboard__line__key">H</button>
+            <button id="J"  type= "button" onclick= "insertLetterToCell('J')" class="keyboard__line__key">J</button>
+            <button id="K"  type= "button" onclick= "insertLetterToCell('K')" class="keyboard__line__key">K</button>
+            <button id="L"  type= "button" onclick= "insertLetterToCell('L')" class="keyboard__line__key">L</button>
+        </div>
+        <div class="keyboard__line">
+            <button id="enter"  type= "button" onclick= "enter()" class="keyboard__line__key">ENTER</button>
+            <button id="Z"  type= "button" onclick= "insertLetterToCell('Z')" class="keyboard__line__key">Z</button>
+            <button id="X"  type= "button" onclick= "insertLetterToCell('X')" class="keyboard__line__key">X</button>
+            <button id="C"  type= "button" onclick= "insertLetterToCell('C')" class="keyboard__line__key">C</button>
+            <button id="V"  type= "button" onclick= "insertLetterToCell('V')" class="keyboard__line__key">V</button>
+            <button id="B"  type= "button" onclick= "insertLetterToCell('B')" class="keyboard__line__key">B</button>
+            <button id="N"  type= "button" onclick= "insertLetterToCell('N')" class="keyboard__line__key">N</button>
+            <button id="M"  type= "button" onclick= "insertLetterToCell('M')" class="keyboard__line__key">M</button>
+            <button id="back" type= "button" onclick= "deleteLetterFromCell()" class="keyboard__line__key">BACK</button>
+        </div>
+    </div>    
+    
+</body>
+</html>

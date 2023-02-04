@@ -1,13 +1,16 @@
-function addItems(items) {
-    if (getItems() != null) {
-        var temp_1 = getItems();
-        items.forEach(function (item) {
-            temp_1.push(item);
-        });
-        localStorage.setItem("items", JSON.stringify(temp_1));
+function addItems(item) {
+    try {
+        var temp = getItems();
+        if (temp != null) {
+            temp.push(item);
+            localStorage.setItem("items", JSON.stringify(temp));
+        }
+        else {
+            localStorage.setItem("items", JSON.stringify(item));
+        }
     }
-    else {
-        localStorage.setItem("items", JSON.stringify(items));
+    catch (error) {
+        console.error(error);
     }
 }
 function render(ele, items) {
@@ -27,7 +30,7 @@ function render(ele, items) {
             return 0;
         }));
         var html = items.map(function (item) {
-            return "\n            <div class=\"main__card\">\n                <h2>" + item.name + "</h2>\n                <h4>Price: " + item.price + "</h4>\n                <h4>Size: " + item.size + "</h4>\n                <h4>Type: " + item.type + "</h4>\n                <img src=\"" + item.img + "\" alt=\"cart\">\n                <button onclick=\"deleteProduct('" + item.id + "')\">Delete</button>\n            </div>\n            ";
+            return "\n            <div class=\"main__card\">\n                <div class=\"main__card__imgDiv\"><img src=\"" + item.img + "\" alt=\"cart\"></div>\n                <hr style=\"margin-bottom: 5px; border: 1px solid #E1D7C6\">\n                <h3>" + item.name + "</h3>\n                <h4>Price: " + item.price + "$</h4>\n                <h4>Size: " + item.size + "</h4>\n                <div style=\"display: flex; align-items: center;\"><h4 style=\"display: inline-block; margin-right: 3px;\">Color:</h4><div style=\"display: inline-block; background-color: " + item.color + "; width: 13px; height: 13px; border-radius: 50%; border: none;\"></div></div>\n                <button style=\"display: block;\" onclick=\"deleteProduct('" + item.id + "')\">Delete</button>\n            </div>\n            ";
         }).join("\n");
         console.log(html);
         element.innerHTML = html;
@@ -42,11 +45,30 @@ function renderStore(ele, items) {
         if (!element)
             throw new Error("Element does not exits");
         element.innerHTML = "No products at the moment";
-        if (items.length == 0) {
+        if (items == null || items.length == 0) {
             throw new Error("Items empty");
         }
         var html = items.map(function (item) {
-            return "\n            <div class=\"main__card\">\n                <h2>" + item.name + "</h2>\n                <h4>Price: " + item.price + "</h4>\n                <h4>Size: " + item.size + "</h4>\n                <h4>Type: " + item.type + "</h4>\n                <img src=\"" + item.img + "\" alt=\"cart\">\n            </div>\n            ";
+            return "\n            <div class=\"main__card\">\n                <div class=\"main__card__imgDiv\"><img src=\"" + item.img + "\" alt=\"cart\"></div>\n                <hr style=\"margin-bottom: 5px; border: 1px solid #E1D7C6\">\n                <h3>" + item.name + "</h3>\n                <h4>Price: " + item.price + "$</h4>\n                <h4>Size: " + item.size + "</h4>\n                <div style=\"display: flex; align-items: center;\">\n                    <h4 style=\"display: inline-block; margin-right: 3px;\">Color:</h4>\n                    <div style=\"display: inline-block; background-color: " + item.color + "; width: 13px; height: 13px; border-radius: 50%; border: none;\"></div>\n                </div>\n                <button onclick=\"addToCart('" + item.id + "')\">Add To Cart</button>\n            </div>\n            ";
+        }).join("\n");
+        console.log(html);
+        element.innerHTML = html;
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function renderCart(ele, items) {
+    try {
+        var element = document.querySelector(ele.toString());
+        if (!element)
+            throw new Error("Element does not exits");
+        element.innerHTML = "No items in cart";
+        if (items == null || items.length == 0) {
+            throw new Error("Items empty");
+        }
+        var html = items.map(function (item) {
+            return "\n            <div class=\"cartMain__card\">\n                <div class=\"cartMain__card__imgDiv\">\n                    <img src=\"" + item.img + "\" alt=\"cart\">\n                </div>\n                <div class=\"cartMain__card__text\">\n                    <h3>" + item.name + "</h3>\n                    <h4>Price: " + item.price + "$</h4>\n                    <h4>Size: " + item.size + "</h4>\n                    <div style=\"display: flex; align-items: center;\"><h4 style=\"display: inline-block; margin-right: 3px;\">Color:</h4><div style=\"display: inline-block; background-color: " + item.color + "; width: 13px; height: 13px; border-radius: 50%; border: none;\"></div></div>\n                </div>\n                <i onclick=\"deleteFromCart('" + item.id + "')\" class=\"fa-regular fa-trash-can fa-xl\"></i>\n            </div>\n            ";
         }).join("\n");
         console.log(html);
         element.innerHTML = html;
@@ -56,8 +78,8 @@ function renderStore(ele, items) {
     }
 }
 function deleteProduct(id) {
-    var temp = getItems();
     try {
+        var temp = getItems();
         if (!temp)
             throw new Error("Items empty");
         var i = temp.findIndex(function (item) { return item.id == id.toString(); });
@@ -67,6 +89,57 @@ function deleteProduct(id) {
         localStorage.setItem("items", JSON.stringify(temp));
         render(".test", getItems());
         renderStore(".main", getItems());
+        try {
+            deleteFromCart(id);
+        }
+        catch (error) {
+            console.error(error);
+        }
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function deleteFromCart(id) {
+    try {
+        var temp = getItemsInCart();
+        if (!temp)
+            throw new Error("Items empty");
+        var i = temp.findIndex(function (item) { return item.id == id.toString(); });
+        if (i == -1)
+            throw new Error("Item not found");
+        temp.splice(i, 1);
+        localStorage.setItem("cartItems", JSON.stringify(temp));
+        renderCart(".cartMain", getItemsInCart());
+        total();
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function addToCart(id) {
+    try {
+        var temp = getItemsInCart();
+        var tempItems = getItems();
+        if (!tempItems)
+            throw new Error("Items empty");
+        var i = tempItems.findIndex(function (item) { return item.id == id.toString(); });
+        if (i == -1)
+            throw new Error("Item not found");
+        if (!tempItems[i])
+            throw new Error("Item empty line 106");
+        console.log(typeof temp);
+        itemsInCart.classList.remove("hide");
+        if (temp != null) {
+            temp.push(tempItems[i]);
+            itemsInCart.innerHTML = temp.length.toString();
+            localStorage.setItem("cartItems", JSON.stringify(temp));
+        }
+        else {
+            itemsInCart.innerHTML = '1';
+            localStorage.setItem("cartItems", JSON.stringify(tempItems[i]));
+        }
+        renderCart(".cartMain", getItemsInCart());
     }
     catch (error) {
         console.error(error);
@@ -78,10 +151,10 @@ sortName.addEventListener('click', function () {
         if (!temp)
             throw new Error("Items empty");
         temp.sort((function (a, b) {
-            if (a.name < b.name) {
+            if (a.name.toLocaleLowerCase() < b.name.toLocaleLowerCase()) {
                 return -1;
             }
-            if (a.name > b.name) {
+            if (a.name.toLocaleLowerCase() > b.name.toLocaleLowerCase()) {
                 return 1;
             }
             return 0;
@@ -97,15 +170,7 @@ sortPrice.addEventListener('click', function () {
         var temp = getItems();
         if (!temp)
             throw new Error("Items empty");
-        temp.sort((function (a, b) {
-            if (a.price > b.price) {
-                return -1;
-            }
-            if (a.price < b.price) {
-                return 1;
-            }
-            return 0;
-        }));
+        temp.sort(function (a, b) { return a.price - b.price; });
         renderStore(".main", temp);
     }
     catch (error) {
@@ -132,26 +197,44 @@ sortType.addEventListener('click', function () {
         console.error(error);
     }
 });
-ham.addEventListener('click', function () {
-    try {
-        if (!hamTop || !hamMid || !hamBottom || !menu)
-            throw new Error("No elements");
-        if (change) {
-            hamTop.classList.add("closeTop");
-            hamMid.classList.add("closeMid");
-            hamBottom.classList.add("closeBottom");
-            menu.classList.add("menuShow");
-            change = false;
+ham.forEach(function (h) {
+    h.addEventListener('click', function () {
+        try {
+            if (!hamTop || !hamMid || !hamBottom || !menu)
+                throw new Error("No elements");
+            if (change) {
+                hamTop.forEach(function (t) {
+                    t.classList.add("closeTop");
+                });
+                hamMid.forEach(function (m) {
+                    m.classList.add("closeMid");
+                });
+                hamBottom.forEach(function (b) {
+                    b.classList.add("closeBottom");
+                });
+                menu.forEach(function (m) {
+                    m.classList.add("menuShow");
+                });
+                change = false;
+            }
+            else {
+                hamTop.forEach(function (t) {
+                    t.classList.remove("closeTop");
+                });
+                hamMid.forEach(function (m) {
+                    m.classList.remove("closeMid");
+                });
+                hamBottom.forEach(function (b) {
+                    b.classList.remove("closeBottom");
+                });
+                menu.forEach(function (m) {
+                    m.classList.remove("menuShow");
+                });
+                change = true;
+            }
         }
-        else {
-            hamTop.classList.remove("closeTop");
-            hamMid.classList.remove("closeMid");
-            hamBottom.classList.remove("closeBottom");
-            menu.classList.remove("menuShow");
-            change = true;
+        catch (error) {
+            console.error(error);
         }
-    }
-    catch (error) {
-        console.error(error);
-    }
+    });
 });

@@ -13,7 +13,11 @@ let inp_Name = document.querySelector(".inpn") as HTMLInputElement;
 
    localStorage.setItem("userName", JSON.stringify(inp_NameValue));
    localStorage.setItem("userPass", JSON.stringify(inp_passValue));
- 
+   
+    if(inp_Name.value == "" && inp_pass.value == ""){
+      alert("pls fill the login")
+      return false
+    }
     window.location.href = "app.html"
     startApp()
   }
