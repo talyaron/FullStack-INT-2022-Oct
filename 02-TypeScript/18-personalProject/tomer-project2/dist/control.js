@@ -1,5 +1,6 @@
 var booksContiner = document.querySelector(".booksContiner");
-booksContiner.innerHTML = renderBooks(books, 'renderElementID');
+var reviewsContiner = document.querySelector('#reviewsRoot');
+reviewsContiner.innerHTML = renderReviews(reviews, '_renderElementID');
 function renderBooks(books, renderElementID) {
     try {
         if (!books || !Array.isArray(books))
@@ -18,7 +19,7 @@ function renderBooks(books, renderElementID) {
     }
 }
 ;
-function renderReviews(reviews, renderElementID) {
+function renderReviews(reviews, _renderElementID) {
     try {
         if (!reviews || !Array.isArray(reviews))
             throw new Error('reviews is not an array');
@@ -36,17 +37,22 @@ function renderReviews(reviews, renderElementID) {
     }
 }
 function addReview(ev) {
-    var userName = ev.target.elements.userName.value;
-    var review = ev.target.elements.review.value;
-    var stars = ev.target.elements.stars.value;
-    var newReview = new UserReview(userName, review, stars);
-    reviews.push(new UserReview(userName, review, stars));
-    ev.target.reset();
-    console.log(reviews);
-    if (!reviewsRoot)
-        throw new Error("reviewsRoot is null");
-    renderReviews(reviews, 'reviewsRoot');
-    localStorage.setItem('UserReview', JSON.stringify(newReview));
+    try {
+        var userName = ev.target.elements.userName.value;
+        var review = ev.target.elements.review.value;
+        var stars = ev.target.elements.stars.value;
+        // let newReview= new UserReview(userName,review,stars)
+        reviews.push(new UserReview(userName, review, stars));
+        ev.target.reset();
+        if (!reviewsRoot)
+            throw new Error("reviewsRoot is null");
+        renderReviews(reviews, '#reviewsRoot');
+        localStorage.setItem('UserReview', JSON.stringify(reviews));
+        console.log(review);
+    }
+    catch (error) {
+        console.error(error);
+    }
 }
 // function saveToLocalStorage(ev:any){
 //     const userName=ev.target.elements.userName.value;

@@ -18,13 +18,17 @@ var Word = /** @class */ (function () {
 }());
 //////////////////////////////////////////////////////////////////////////
 var User = /** @class */ (function () {
-    function User(streak) {
+    function User(name, password, streak) {
+        this.name = name;
+        this.password = password;
         this.streak = streak;
         this.uid = uid();
     }
     return User;
 }());
 /////////////////////////////////////////////////////////////////////////
+var loggedInUser = null;
+var users = [];
 var wordsArray = [];
 wordsArray.push(//A
 new Word("aback"), new Word("abase"), new Word("abate"), new Word("abbey"), new Word("abbot"), new Word("abhor"), new Word("abide"), new Word("abled"), new Word("abode"), new Word("abort"), new Word("about"), new Word("above"), new Word("abuse"), new Word("abyss"), new Word("acorn"), new Word("acorn"), new Word("acrid"), new Word("actor"), new Word("acute"), new Word("adage"), new Word("adapt"), new Word("adept"), new Word("admin"), new Word("admit"), new Word("adobe"), new Word("adopt"), new Word("adorn"), new Word("adult"), new Word("affix"), new Word("afire"), new Word("afoot"), new Word("afoul"), new Word("after"), new Word("again"), new Word("agape"), new Word("agate"), new Word("agent"), new Word("agile"), new Word("aging"), new Word("aglow"), new Word("agony"), new Word("agree"), new Word("ahead"), new Word("aider"), new Word("aisle"), new Word("alarm"), new Word("album"), new Word("alert"), new Word("algae"), new Word("alibi"), new Word("alien"), new Word("align"), new Word("alike"), new Word("alive"), new Word("allay"), new Word("alley"), new Word("allot"), new Word("allow"), new Word("alloy"), new Word("aloft"), new Word("alone"), new Word("along"), new Word("aloof"), new Word("aloud"), new Word("alpha"), new Word("altar"), new Word("alter"), new Word("amass"), new Word("amaze"), new Word("amber"), new Word("amble"), new Word("amend"), new Word("amiss"), new Word("amity"), new Word("among"), new Word("ample"), new Word("amply"), new Word("amuse"), new Word("angel"), new Word("anger"), new Word("angle"), new Word("angry"), new Word("angst"), new Word("anime"), new Word("ankle"), new Word("annex"), new Word("annoy"), new Word("annul"), new Word("anode"), new Word("antic"), new Word("anvil"), new Word("aorta"), new Word("apart"), new Word("aphid"), new Word("aping"), new Word("apnea"), new Word("apple"), new Word("apply"), new Word("apron"), new Word("aptly"), new Word("arbor"), new Word("ardor"), new Word("arena"), new Word("argue"), new Word("arise"), new Word("armor"), new Word("aroma"), new Word("arose"), new Word("array"), new Word("arrow"), new Word("arson"), new Word("artsy"), new Word("ascot"), new Word("ashen"), new Word("aside"), new Word("askew"), new Word("assay"), new Word("asset"), new Word("atoll"), new Word("atone"), new Word("attic"), new Word("audio"), new Word("audit"), new Word("augur"), new Word("aunty"), new Word("avail"), new Word("avert"), new Word("avian"), new Word("avoid"), new Word("await"), new Word("awake"), new Word("award"), new Word("aware"), new Word("awash"), new Word("awful"), new Word("awoke"), new Word("axial"), new Word("axiom"), new Word("axion"), new Word("azure"));
