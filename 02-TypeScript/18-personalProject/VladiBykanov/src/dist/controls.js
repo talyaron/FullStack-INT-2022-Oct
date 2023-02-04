@@ -1,4 +1,8 @@
 function startGame() {
+    gameOver = false;
+    winMessage.style.opacity = "0";
+    loseMessage.style.opacity = "0";
+    pacman.currentIndex = pacman.pacmanStrartingIndex;
     if (chosenMap) {
         if (chosenMap === "mapOne") {
             creatMaze(mapOne);
@@ -12,6 +16,7 @@ function startGame() {
     pacman.draw();
     // draw ghosts to grid
     ghosts.forEach(function (ghost) {
+        ghost.currentIndex = ghost.startIndex;
         ghost.draw();
         moveGhost(ghost);
     });
@@ -40,13 +45,15 @@ function creatMaze(map) {
     });
 }
 function movePacman(direction) {
+    if (gameOver)
+        return;
     squares[pacman.currentIndex].classList.remove("pacman");
     switch (direction) {
         case "left":
-            if (checkForWall(pacman.currentIndex, moveLeft)) {
+            if (checkForWall(pacman.currentIndex, directions.moveLeft)) {
                 clearInterval(glide);
                 squares[pacman.currentIndex].removeAttribute("style");
-                pacman.currentIndex -= 1;
+                pacman.currentIndex += directions.moveLeft;
                 squares[pacman.currentIndex].style.transform = "scaleX(-1)";
                 glide = setInterval(movePacman, pacman.velocity, "left");
             }
@@ -57,10 +64,10 @@ function movePacman(direction) {
             }
             break;
         case "right":
-            if (checkForWall(pacman.currentIndex, moveRight)) {
+            if (checkForWall(pacman.currentIndex, directions.moveRight)) {
                 clearInterval(glide);
                 squares[pacman.currentIndex].removeAttribute("style");
-                pacman.currentIndex += 1;
+                pacman.currentIndex += directions.moveRight;
                 squares[pacman.currentIndex].style.transform = "scaleX(1)";
                 glide = setInterval(movePacman, pacman.velocity, "right");
             }
@@ -71,35 +78,33 @@ function movePacman(direction) {
             }
             break;
         case "up":
-            if (checkForWall(pacman.currentIndex, moveUp)) {
+            if (checkForWall(pacman.currentIndex, directions.moveUp)) {
                 clearInterval(glide);
                 squares[pacman.currentIndex].removeAttribute("style");
-                pacman.currentIndex += moveUp;
+                pacman.currentIndex += directions.moveUp;
                 squares[pacman.currentIndex].style.transform = "rotate(-90deg)";
                 glide = setInterval(movePacman, pacman.velocity, "up");
             }
             break;
         case "down":
-            if (checkForWall(pacman.currentIndex, movdeDown) &&
-                !squares[pacman.currentIndex + movdeDown].classList.contains("lair")) {
+            if (checkForWall(pacman.currentIndex, directions.movdeDown) &&
+                !squares[pacman.currentIndex + directions.movdeDown].classList.contains("lair")) {
                 clearInterval(glide);
                 squares[pacman.currentIndex].removeAttribute("style");
-                pacman.currentIndex += movdeDown;
+                pacman.currentIndex += directions.movdeDown;
                 squares[pacman.currentIndex].style.transform = "rotate(90deg)";
                 glide = setInterval(movePacman, pacman.velocity, "down");
             }
             break;
     }
     pacman.draw();
-    checkForPoint();
-    checkForCherry();
-    checkForGamneOver();
-    checkForWin();
 }
 //move ghost function
 function moveGhost(ghost) {
-    var direction = directions[Math.floor(Math.random() * directions.length)];
-    ghost.timerId = setInterval(function test() {
+    if (gameOver)
+        return;
+    var direction = randomDirection();
+    ghost.timerId = setInterval(function () {
         // if the square in the direction the ghost is going not containing another ghost or a wall => then he can move here
         if (checkForWall(ghost.currentIndex, direction) &&
             !squares[ghost.currentIndex + direction].classList.contains("ghost")) {
@@ -110,11 +115,20 @@ function moveGhost(ghost) {
         }
         //else => find another direction
         else {
-            direction = directions[Math.floor(Math.random() * directions.length)];
+            direction = randomDirection();
         }
         //Change ghost color if scared
         if (ghost.isScared) {
             squares[ghost.currentIndex].classList.add("scaredGhost");
         }
     }, ghost.speed);
+}
+function checkGameStatus() {
+    requestAnimationFrame(checkGameStatus);
+    checkForPoint();
+    checkForCherry();
+    checkForScaredGhost();
+    checkForGamneOver();
+    checkForWin();
+    drawCherry();
 }

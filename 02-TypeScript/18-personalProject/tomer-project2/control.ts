@@ -26,29 +26,56 @@ function renderBooks(books:Book[],renderElementID:string):string{
     }
 };
 
-function saveToLocalStorage(ev:any){
-    const userName=ev.target.elements.userName.value;
-    const review= ev.target.elements.review.value;
-    const stars= ev.target.elements.stars.value;
-    const newReview= new UserReview(userName,review,stars)
+function renderReviews(reviews:UserReview[],renderElementID:string){
+    try {
+        if(!reviews|| !Array.isArray(reviews))
+        throw new Error('reviews is not an array')
+        console.log(reviews)
+        const reviewsHTML= reviews
+        .map((reviews)=>{
+            return`
+            <div class="reviewBox">
+            <div><h1>${reviews.userName}</h1></div>
+            <div><p>${reviews.review}</p></div>
+            <div><p>${reviews.stars}</p></div>
+            `
+        })
+        .join(' ');
+        return reviewsHTML;
+    } catch (error) {
+        console.error(error);
+        return""
+    }
+}
 
+function addReview(ev:any){
+    const userName=ev.target.elements.userName.value;
+    const review=ev.target.elements.review.value;
+    const stars=ev.target.elements.stars.value;
+    const newReview= new UserReview(userName,review,stars)
+    reviews.push(new UserReview(userName,review,stars))
+    
+    ev.target.reset();
+    console.log(reviews);
+    if (!reviewsRoot) throw new Error("reviewsRoot is null");
+
+    renderReviews(reviews,'reviewsRoot')
     localStorage.setItem('UserReview',JSON.stringify(newReview))
+
 
 }
 
-function getItemsFromStorage() {
-    try {
-      //get items from storage
-      const BooksString = localStorage.getItem("UserReview");
-      if (!BooksString) throw new Error("Couldn't find items in storage");
-  
-      //convert to array
-      const books = JSON.parse(BooksString);
-      return books;
-    } catch (error) {
-        console.error(error);
-        
-    }
-    console.log(books);
-  }
+
+
+// function saveToLocalStorage(ev:any){
+//     const userName=ev.target.elements.userName.value;
+//     const review= ev.target.elements.review.value;
+//     const stars= ev.target.elements.stars.value;
+//     const newReview= new UserReview(userName,review,stars)
+
+
+//     localStorage.setItem('UserReview',JSON.stringify(newReview))
+
+// }
+
 

@@ -34,10 +34,14 @@ function unScareGhosts() {
     ghosts.forEach(function (ghost) { return (ghost.isScared = false); });
 }
 function checkForGamneOver() {
-    drawCherry();
     if (squares[pacman.currentIndex].classList.contains("ghost") &&
         !squares[pacman.currentIndex].classList.contains("scaredGhost")) {
-        ghosts.forEach(function (ghost) { return clearInterval(ghost.timerId); });
+        gameOver = true;
+        ghosts.forEach(function (ghost) {
+            squares[ghost.currentIndex].innerHTML = '';
+            squares[ghost.currentIndex].classList.remove(ghost.className, "ghost", "scaredGhost");
+            clearInterval(ghost.timerId);
+        });
         loseMessage.style.opacity = "1";
         finalScore[1].textContent = score.toString();
         clearInterval(glide);

@@ -182,39 +182,39 @@
   fill: red;
   filter: drop-shadow(3px 5px 2px black);
 }
-.maze .blinky {
+.maze .purple {
   border: 0px;
   border-radius: 0;
   background-color: white;
 }
-.maze .blinky svg {
+.maze .purple svg {
   fill: purple;
   filter: drop-shadow(3px 5px 2px black);
 }
-.maze .pinky {
+.maze .pink {
   border: 0px;
   border-radius: 0;
   background-color: white;
 }
-.maze .pinky svg {
+.maze .pink svg {
   fill: palevioletred;
   filter: drop-shadow(3px 5px 2px black);
 }
-.maze .inky {
+.maze .blue {
   border: 0px;
   border-radius: 0;
   background-color: white;
 }
-.maze .inky svg {
+.maze .blue svg {
   fill: blue;
   filter: drop-shadow(3px 5px 2px black);
 }
-.maze .clyde {
+.maze .green {
   border: 0px;
   border-radius: 0;
   background-color: white;
 }
-.maze .clyde svg {
+.maze .green svg {
   fill: darkgreen;
   filter: drop-shadow(3px 5px 2px black);
 }
