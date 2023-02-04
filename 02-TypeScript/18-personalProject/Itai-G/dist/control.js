@@ -1,7 +1,6 @@
 function gameUpdate() {
     ball.Update();
     paddle1.Update();
-    paddle2.Update();
     ballCollisonWithEdges(ball);
 }
 function gameDraw() {
@@ -10,8 +9,8 @@ function gameDraw() {
     paddle2.draw();
 }
 function gameLoop() {
-    window.requestAnimationFrame(gameLoop);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    window.requestAnimationFrame(gameLoop);
     gameUpdate();
     gameDraw();
 }
