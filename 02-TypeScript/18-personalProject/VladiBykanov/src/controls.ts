@@ -100,11 +100,6 @@ function movePacman(direction: string) {
       break;
   }
   pacman.draw();
-
-  checkForPoint();
-  checkForCherry();
-  checkForGamneOver();
-  checkForWin();
 }
 
 //move ghost function
@@ -136,4 +131,14 @@ function moveGhost(ghost: Ghost) {
       squares[ghost.currentIndex].classList.add("scaredGhost");
     }
   }, ghost.speed);
+}
+
+
+function checkGameStatus(){
+  requestAnimationFrame(checkGameStatus)
+  checkForPoint();
+  checkForCherry();
+  checkForScaredGhost();
+  checkForGamneOver();
+  checkForWin();
 }

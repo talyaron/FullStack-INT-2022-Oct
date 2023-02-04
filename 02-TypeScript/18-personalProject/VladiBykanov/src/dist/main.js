@@ -1,4 +1,5 @@
-console.log("Start");
+startGame();
+checkGameStatus();
 window.addEventListener("keydown", function (e) {
     if (e.repeat)
         return;
@@ -17,6 +18,3 @@ window.addEventListener("keydown", function (e) {
             break;
     }
 });
-startGame();
-var interval = setInterval(checkForScaredGhost, 1);
-var anotherInterval = setInterval(checkForGamneOver, 1);

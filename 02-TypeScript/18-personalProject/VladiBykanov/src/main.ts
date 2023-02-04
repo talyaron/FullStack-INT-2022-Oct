@@ -1,4 +1,5 @@
-console.log("Start");
+startGame();
+checkGameStatus();
 
 window.addEventListener("keydown", (e) => {
   if (e.repeat) return;
@@ -19,8 +20,3 @@ window.addEventListener("keydown", (e) => {
       break;
   }
 });
-
-startGame();
-
-const interval = setInterval(checkForScaredGhost, 1);
-const anotherInterval = setInterval(checkForGamneOver, 1);
