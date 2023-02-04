@@ -112,6 +112,7 @@ html {
 
 }
 
+//  made line from div
 .line {
     display: block;
     height: 1px;
@@ -236,7 +237,6 @@ html {
             }
 
             div.container-playlist {
-
                 display: flex;
                 flex-direction: column;
                 text-align: start;
@@ -363,6 +363,8 @@ html {
             padding: 16px;
             width: 100%;
 
+       
+
               .section {
                 display: none;
                 min-width: 700px;
@@ -454,6 +456,64 @@ button{
 
                 }
             }
+
+            #createAlbumSection{
+                display: none;
+                justify-content: center;
+                align-items: center;
+
+                &.active{
+                    display: flex;
+                }
+
+                
+                form{
+                    margin-top: 15px;
+                    width: 70%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    
+                    div{
+                        margin-top: 15px;
+                        height: 100px;
+                        input , select , button{
+            
+                            padding: 10px 20px;
+                        }
+
+                        button {
+                            
+                            display: block;
+                            width: 150px;
+                            margin:10px auto;
+                            border-radius: 15px;
+                            border: none;
+                            font-weight: 700;
+                            background-color: var(--gray-no-hover);
+                            transition: all ease 0.2s;
+                            cursor: pointer;
+                            &:hover{
+                                background-color: rgb(6, 136, 39);
+                                color: #fff;
+                            }
+
+                    
+                        }
+                        span{
+                            margin-top: 15px;
+                            display: block;
+                        }
+           
+                    }
+         
+                }
+
+            }
+
+
         }
     }
 }
