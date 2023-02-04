@@ -15,10 +15,11 @@ function handleAddTask(ev) {
         var category = ev.target.elements.category.value;
         var description = ev.target.elements.description.value;
         var dueDate = ev.target.elements.dueDate.value;
-        tasks.push(new Task(name, category, description, dueDate));
+        tasksDad.push(new Task(name, category, description, dueDate));
+        localStorage.setItem('tasksDad', JSON.stringify(tasksDad));
         ev.target.reset();
-        renderTask(tasks);
-        console.log(tasks);
+        renderTask(tasksDad);
+        console.log(tasksDad);
     }
     catch (error) {
         console.error(error);
@@ -30,7 +31,8 @@ function handleAddUser(ev) {
         var name = ev.target.elements.name.value;
         var nickName = ev.target.elements.nickName.value;
         var pictureURL = ev.target.elements.pictureURL.value;
-        users.push(new User(name, nickName, pictureURL));
+        var tasks = ev.target.elements.tasksArr.value;
+        users.push(new User(name, nickName, pictureURL, tasks));
         ev.target.reset();
         renderUser(users);
         console.log(users);
@@ -68,11 +70,12 @@ function renderUser(arr) {
 function handleDeleteItem(uid) {
     try {
         console.log(uid);
-        var index = tasks.findIndex(function (Task) { return Task.uid === uid; });
+        var index = tasksDad.findIndex(function (Task) { return Task.uid === uid; });
         if (index === -1)
             throw new Error("item not found");
-        tasks.splice(index, 1);
-        renderTask(tasks);
+        tasksDad.splice(index, 1);
+        renderTask(tasksDad);
+        localStorage.setItem("tasksDad", JSON.stringify(tasksDad));
     }
     catch (error) {
         console.error(error);
@@ -82,12 +85,12 @@ function handleUpdateItem(uid) {
     try {
         var description = void 0;
         description = prompt("Enter a new description:");
-        var index = tasks.findIndex(function (Task) { return Task.uid === uid; });
+        var index = tasksDad.findIndex(function (Task) { return Task.uid === uid; });
         if (index === -1)
             throw new Error("task not found");
         if (description)
-            tasks[index].description = description;
-        renderTask(tasks);
+            tasksDad[index].description = description;
+        renderTask(tasksDad);
     }
     catch (error) {
         console.error(error);

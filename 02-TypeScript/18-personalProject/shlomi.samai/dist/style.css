@@ -1,0 +1,49 @@
+.availableTasks {
+  height: 60px;
+  width: 200px;
+  background-color: aqua;
+}
+
+.userItem {
+  height: 60px;
+  width: 200px;
+  background-color: aqua;
+  border: 2px black solid;
+}
+
+.taskItem {
+  height: 200px;
+  width: 200px;
+  background-color: aqua;
+  border: 2px black solid;
+}
+
+.users {
+  height: 60px;
+  width: 200px;
+  background-color: aqua;
+}
+
+#list {
+  height: 60px;
+  width: 200px;
+  background-color: aqua;
+}
+
+.exsistingUsers {
+  height: 60px;
+  width: 200px;
+  background-color: aqua;
+}
+
+.button {
+  height: 60px;
+  width: 200px;
+  background-color: aqua;
+}
+
+.box5 {
+  height: 100px;
+  width: 200px;
+  background-color: red;
+}
