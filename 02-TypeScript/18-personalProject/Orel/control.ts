@@ -1,9 +1,6 @@
 // 
 let userIndex:number
 
-renderListsFromData()
-createListToOptions()
-
 function checkMatchUserDetails(emailUser: string, passwordUser: string): boolean {
     try {
         if (storageData === undefined) throw new Error("the storageData no exist")
@@ -11,8 +8,9 @@ function checkMatchUserDetails(emailUser: string, passwordUser: string): boolean
 
             //@ts-ignore
             if (emailUser === lastUserIn.email.toLowerCase() && passwordUser === lastUserIn.password) {
-             
-
+                // userIndex = localStorage.users.findIndex( e => e.email == emailUser)
+                // console.log(userIndex);
+                userIndex = 0
                 localStorage.setItem("userIndex" , userIndex.toString())
                 return true
             }
@@ -262,12 +260,17 @@ function handleClickCreateAlbumList(ev: any) {
 //Liked Song
 function handleClickLikedPhotosList(ev:any) {
     try {
+        
         if(!insideTheUser()) {
             alert("you must to login to enter Library") 
         }else{
-            const sectionsLikedPhotos = document.querySelector('liked-photos') as HTMLElement;
-            console.log(sectionsLikedPhotos);
+            const sectionsLikedPhotos = document.querySelector('.liked-photos') as HTMLElement;
+            const lists = document.querySelectorAll('.list ');
+            lists.forEach(list => {
+                    list.classList.add("active")
+            });
             makeSectionsActive(sectionsLikedPhotos)
+            
         }
 
     } catch (error) {
@@ -277,15 +280,15 @@ function handleClickLikedPhotosList(ev:any) {
 
 function handleClickLists(ev:any):void{
 try {
-    const sectionsLibrary= document.querySelectorAll('.sections-library div');
-    if(!sectionsLibrary) throw new Error("section Home Divs not exist")
-    sectionsLibrary.forEach(e=>{
+    const sectionsHome = document.querySelectorAll('.sections-home div');
+    if(!sectionsHome) throw new Error("section Home Divs not exist")
+    sectionsHome.forEach(e=>{
         e.classList.remove("active");
         if((e.getAttribute("datalist") !== null) && e.getAttribute("datalist") === ev.target.textContent) {
                 const element = e as HTMLElement;
             element.classList.add("active")
         }
-        console.log(sectionsLibrary);
+        console.log();
     })
 } catch (error) {
     console.error(error);
@@ -293,7 +296,21 @@ try {
 }
 //--------------------------------------------------------------------------
 //---------------------------Handle Submit Function List Left-----------------
-
+function createListToOptions(){
+try {
+        // sent data list to options
+        const selectList = document.getElementById('selectList') as HTMLSelectElement
+    selectList.innerHTML = ''
+        albums.forEach(album =>{    
+                selectList.innerHTML += `<option value="${album.name}">${album.name}</option>`
+            console.log(album.name);
+            }) 
+        return
+} catch (error) {
+    console.error(error);
+    return ''
+}   
+}
 function handleSubmitCreateAlbumsList(ev:any){
 try {
     ev.preventDefault();
@@ -316,11 +333,16 @@ const photoName = ev.target.elements.photoNameCreateImage.value as string
 const date = ev.target.elements.photoDateCreateImage.value as string
 const src = ev.target.elements.photoSrcCreateImage.value as string
 
+
+
 const findIndex  = albums.findIndex(album => album.name === createListToListValue)
+console.log(findIndex);
 const photoArr = albums[findIndex].photos
+
 // make new Photo
 photoArr.push(new Photos(photoName , date , src))
 renderPhotoCard(photoArr, createListToListValue , "sections-library")
+console.log(renderPhotoCard(photoArr, createListToListValue , "sections-library"));
 ev.target.reset()
 
     } catch (error) {
@@ -329,15 +351,120 @@ ev.target.reset()
 }
 // Get and render Cards On DOM
 //--------------------------------
+function NewPhotoCard( namePhoto: string, date: string, src: string , albumName?:string):string{
+try {
+    const index = Number(localStorage.getItem("userIndex"))
+    const patten =
+        `
+    <div class="photo-card">
+    <img src="${src}" alt="">
+    <h3>${namePhoto}</h3>
+    <p>${users[index].username}</p>
+    <small>${date}</small>
+    <button class="collapse-play">
+    <i class="fa-solid fa-add"></i>
+</button>
+</div>
+    `
 
-function renderListsFromData(){
-    try {
-            albums.forEach(album=>{
-                createNewList(album.name , album.name ,"sections-library")
-                return album
-            })
-    } catch (error) {
-        console.log(error);
-    }
+// const findIndex  = albums.findIndex(album => album.name === albumName)
+// const photoArr = albums[findIndex].photos
+// photoArr.push(new Photos(namePhoto,date, src))
+    albums.forEach(album=>{
+       if(album.name === albumName){
+        album.photos?.push(new Photos(
+            `${namePhoto}`,
+            `${date}`, 
+             `${src}`))
+       } 
+    })
+    return patten
+} catch (error) {
+    console.error(error);
+    return ''
 }
+}
+// create New list
+function createNewList(nameList: string, titleList: string , classNameContainer:string): string {
+    const sectionsHome = document.querySelector(`.${classNameContainer}`)! as HTMLDListElement;
+    const patten =
+        `
+    <div dataList="${nameList}" class="list">
+    <h4>${titleList}</h4>
+    <div class="recommended-list ${nameList}">
+    </div>
+</div>
+    `
+    sectionsHome.innerHTML += patten
+   albums.push(new Albums(nameList , []))
+
+   
+    return patten
+}
+//Render All Cards On Dom
+function renderPhotoCard(cards: Array<Photos>, containerClass: string ,albumName?:string): string {
+    const mainContainer = document.querySelector(`.${containerClass}`) as HTMLElement
+    if(mainContainer === undefined ) throw new Error('the Element not found')
+    let AllCards = ""
+
+    
+    cards.forEach(photo => {
+        AllCards += NewPhotoCard(photo.photoName, photo.date.toString(), photo.src)
+    });
+
+    mainContainer!.innerHTML += AllCards
+        return AllCards
+}
+function changeProfileUserName():void{
+    const nameProfile = document.querySelector('.user-box-profile h5')! as HTMLDListElement
+    nameProfile.textContent = users[Number(localStorage.getItem("userIndex"))].username
+}
+
+function renderLists():string | undefined{
+try {
+  
+    const containerPlaylist = document.querySelector(".container-playlist")! as HTMLDivElement
+    if(!containerPlaylist) throw new Error("the playlist container not exist")
+    containerPlaylist.innerHTML = '' 
+    let html = ''
+
+    albums.forEach(album=>{
+        const tamp = `
+        <button onclick="handleClickLists(event)" listName="${album.name}" class="playlistBTN ${album.name}">
+        ${album.name}
+        </button>`
+        html += tamp;
+    })
+
+    containerPlaylist.innerHTML += html
+return html
+ }catch (error) {
+    console.error(error);
+    return ""
+}
+}
+
+
+
+// function showALLlists(nameClassContainer:string){
+// try {
+//     const sectionsHome = document.querySelectorAll(`.${nameClassContainer} div`);
+//         sectionsHome.forEach(e=>{
+//             e.parentElement!.classList.add("active")})
+
+    
+// } catch (error) {
+//     console.log(error);
+// }
+// }
+
+// getArrayPhotoAlbumWithName("Jungle")
+// function getArrayPhotoAlbumWithName(name:string){
+//      try {
+
+//      } catch (error) {
+//         console.log(error);
+//      }
+
+// }
 

@@ -1,21 +1,21 @@
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 function dataFromStorage() {
     try {
         var dataFromStorageUsers = localStorage.getItem("users");
-        if (!dataFromStorageUsers || dataFromStorageUsers === null) {
+        if (!dataFromStorageUsers || dataFromStorageUsers == null) {
             updateUserToLocalStorage();
         }
         else {
             var data = JSON.parse(dataFromStorageUsers);
-            if (!data)
-                throw new Error("localStorage data not found");
-            if (users.length > data.length) {
-                updateUserToLocalStorage();
-            }
-            else {
-                users.push.apply(users, data);
-            }
-            userIndex = users.findIndex(function (e) { return e.username = usernameUser; });
-            localStorage.setItem("userIndex", userIndex.toString());
+            users.splice.apply(users, __spreadArrays([0], data));
+            console.log("users", users);
+            updateUserToLocalStorage();
         }
     }
     catch (error) {
@@ -30,14 +30,8 @@ function dataFromStorage1() {
         }
         else {
             var data = JSON.parse(dataFromStorageAlbums);
-            if (!data)
-                throw new Error("localStorage not found");
-            if (albums.length > data.length) {
-                updatePhotosToLocalStorage();
-            }
-            else {
-                albums.push.apply(albums, data);
-            }
+            albums.push.apply(albums, data);
+            updatePhotosToLocalStorage();
         }
     }
     catch (error) {

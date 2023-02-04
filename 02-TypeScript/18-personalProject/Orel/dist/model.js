@@ -1,7 +1,5 @@
 var storageData = getMatchUserDetail(); // LocalStorage DATA
 var lastUserIn = updateUsersArrayFromStorage();
-dataFromStorage();
-dataFromStorage1();
 var Albums = /** @class */ (function () {
     function Albums(name, photos) {
         this.name = name;

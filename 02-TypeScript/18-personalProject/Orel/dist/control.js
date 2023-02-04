@@ -1,7 +1,5 @@
 // 
 var userIndex;
-renderListsFromData();
-createListToOptions();
 function checkMatchUserDetails(emailUser, passwordUser) {
     try {
         if (storageData === undefined)
@@ -9,6 +7,9 @@ function checkMatchUserDetails(emailUser, passwordUser) {
         for (var i = 0; i < storageData.length; i++) {
             //@ts-ignore
             if (emailUser === lastUserIn.email.toLowerCase() && passwordUser === lastUserIn.password) {
+                // userIndex = localStorage.users.findIndex( e => e.email == emailUser)
+                // console.log(userIndex);
+                userIndex = 0;
                 localStorage.setItem("userIndex", userIndex.toString());
                 return true;
             }
@@ -280,16 +281,16 @@ function handleClickLikedPhotosList(ev) {
 }
 function handleClickLists(ev) {
     try {
-        var sectionsLibrary_1 = document.querySelectorAll('.sections-library div');
-        if (!sectionsLibrary_1)
+        var sectionsHome = document.querySelectorAll('.sections-home div');
+        if (!sectionsHome)
             throw new Error("section Home Divs not exist");
-        sectionsLibrary_1.forEach(function (e) {
+        sectionsHome.forEach(function (e) {
             e.classList.remove("active");
             if ((e.getAttribute("datalist") !== null) && e.getAttribute("datalist") === ev.target.textContent) {
                 var element = e;
                 element.classList.add("active");
             }
-            console.log(sectionsLibrary_1);
+            console.log();
         });
     }
     catch (error) {
@@ -336,10 +337,12 @@ function handleSubmitCreatePhoto(ev) {
         var date = ev.target.elements.photoDateCreateImage.value;
         var src = ev.target.elements.photoSrcCreateImage.value;
         var findIndex = albums.findIndex(function (album) { return album.name === createListToListValue_1; });
+        console.log(findIndex);
         var photoArr = albums[findIndex].photos;
         // make new Photo
         photoArr.push(new Photos(photoName, date, src));
         renderPhotoCard(photoArr, createListToListValue_1, "sections-library");
+        console.log(renderPhotoCard(photoArr, createListToListValue_1, "sections-library"));
         ev.target.reset();
     }
     catch (error) {
@@ -348,14 +351,82 @@ function handleSubmitCreatePhoto(ev) {
 }
 // Get and render Cards On DOM
 //--------------------------------
-function renderListsFromData() {
+function NewPhotoCard(namePhoto, date, src, albumName) {
     try {
+        var index = Number(localStorage.getItem("userIndex"));
+        var patten = "\n    <div class=\"photo-card\">\n    <img src=\"" + src + "\" alt=\"\">\n    <h3>" + namePhoto + "</h3>\n    <p>" + users[index].username + "</p>\n    <small>" + date + "</small>\n    <button class=\"collapse-play\">\n    <i class=\"fa-solid fa-add\"></i>\n</button>\n</div>\n    ";
+        // const findIndex  = albums.findIndex(album => album.name === albumName)
+        // const photoArr = albums[findIndex].photos
+        // photoArr.push(new Photos(namePhoto,date, src))
         albums.forEach(function (album) {
-            createNewList(album.name, album.name, "sections-library");
-            return album;
+            var _a;
+            if (album.name === albumName) {
+                (_a = album.photos) === null || _a === void 0 ? void 0 : _a.push(new Photos("" + namePhoto, "" + date, "" + src));
+            }
         });
+        return patten;
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
+        return '';
     }
 }
+// create New list
+function createNewList(nameList, titleList, classNameContainer) {
+    var sectionsHome = document.querySelector("." + classNameContainer);
+    var patten = "\n    <div dataList=\"" + nameList + "\" class=\"list\">\n    <h4>" + titleList + "</h4>\n    <div class=\"recommended-list " + nameList + "\">\n    </div>\n</div>\n    ";
+    sectionsHome.innerHTML += patten;
+    albums.push(new Albums(nameList, []));
+    return patten;
+}
+//Render All Cards On Dom
+function renderPhotoCard(cards, containerClass, albumName) {
+    var mainContainer = document.querySelector("." + containerClass);
+    if (mainContainer === undefined)
+        throw new Error('the Element not found');
+    var AllCards = "";
+    cards.forEach(function (photo) {
+        AllCards += NewPhotoCard(photo.photoName, photo.date.toString(), photo.src);
+    });
+    mainContainer.innerHTML += AllCards;
+    return AllCards;
+}
+function changeProfileUserName() {
+    var nameProfile = document.querySelector('.user-box-profile h5');
+    nameProfile.textContent = users[Number(localStorage.getItem("userIndex"))].username;
+}
+function renderLists() {
+    try {
+        var containerPlaylist = document.querySelector(".container-playlist");
+        if (!containerPlaylist)
+            throw new Error("the playlist container not exist");
+        containerPlaylist.innerHTML = '';
+        var html_1 = '';
+        albums.forEach(function (album) {
+            var tamp = "\n        <button onclick=\"handleClickLists(event)\" listName=\"" + album.name + "\" class=\"playlistBTN " + album.name + "\">\n        " + album.name + "\n        </button>";
+            html_1 += tamp;
+        });
+        containerPlaylist.innerHTML += html_1;
+        return html_1;
+    }
+    catch (error) {
+        console.error(error);
+        return "";
+    }
+}
+// function showALLlists(nameClassContainer:string){
+// try {
+//     const sectionsHome = document.querySelectorAll(`.${nameClassContainer} div`);
+//         sectionsHome.forEach(e=>{
+//             e.parentElement!.classList.add("active")})
+// } catch (error) {
+//     console.log(error);
+// }
+// }
+// getArrayPhotoAlbumWithName("Jungle")
+// function getArrayPhotoAlbumWithName(name:string){
+//      try {
+//      } catch (error) {
+//         console.log(error);
+//      }
+// }

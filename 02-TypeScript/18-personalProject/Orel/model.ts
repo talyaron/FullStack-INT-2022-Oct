@@ -1,10 +1,7 @@
 let storageData = getMatchUserDetail() as Array<Users[]> // LocalStorage DATA
 const lastUserIn = updateUsersArrayFromStorage()
 
-dataFromStorage()
-dataFromStorage1()
-renderListsFromData()
-createListToOptions()
+
 class Albums {
     constructor(
         public name: string,
