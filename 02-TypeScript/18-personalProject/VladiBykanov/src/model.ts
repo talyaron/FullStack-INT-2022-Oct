@@ -61,7 +61,7 @@ class Pacman {
     const mouth = document.createElement("div") as HTMLDivElement;
     mouth.classList.add("mouth");
     squares[pacman.currentIndex].innerHTML = "";
-    squares[this.currentIndex].classList.add("pacman");
+    squares[this.currentIndex].classList.add("pacman", 'square');
     squares[this.currentIndex].append(eye);
     squares[this.currentIndex].append(mouth);
   }
