@@ -20,7 +20,7 @@ function checkForCherry() {
         if (scaredGhostsTime)
             clearTimeout(scaredGhostsTime);
         cherryIndex = __spreadArrays(cherryIndex.filter(function (value) { return value !== pacman.currentIndex; }));
-        squares[pacman.currentIndex].innerHTML = '';
+        squares[pacman.currentIndex].innerHTML = "";
         pacman.draw();
         score += 10;
         scoreEl.textContent = score.toString();
@@ -39,6 +39,7 @@ function checkForGamneOver() {
         !squares[pacman.currentIndex].classList.contains("scaredGhost")) {
         ghosts.forEach(function (ghost) { return clearInterval(ghost.timerId); });
         loseMessage.style.opacity = "1";
+        finalScore[1].textContent = score.toString();
         clearInterval(glide);
     }
 }
@@ -48,6 +49,7 @@ function checkForWin() {
         clearInterval(glide);
         setTimeout(function () {
             winMessage.style.opacity = "1";
+            finalScore[0].textContent = score.toString();
         }, 200);
     }
 }

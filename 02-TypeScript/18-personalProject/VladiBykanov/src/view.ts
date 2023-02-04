@@ -2,10 +2,12 @@ const mazeDiv = document.querySelector(".maze") as HTMLDivElement;
 
 const scoreEl = document.querySelector("#score") as HTMLSpanElement;
 
-
 const winMessage = document.querySelector(".winMessage") as HTMLHeadElement;
 const loseMessage = document.querySelector(".loseMessage") as HTMLHeadElement;
+const finalScore = document.querySelectorAll(".finalScore") as NodeListOf<HTMLSpanElement>;
 
+console.log(finalScore);
+console.log(scoreEl);
 
 // const svgElement = document.createElement("svg");
 // svgElement.setAttribute("xmlns", "http://www.w3.org/2000/svg");
