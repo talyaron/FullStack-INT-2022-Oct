@@ -61,13 +61,12 @@ class Pacman {
     const mouth = document.createElement("div") as HTMLDivElement;
     mouth.classList.add("mouth");
     squares[pacman.currentIndex].innerHTML = "";
-    squares[this.currentIndex].classList.add("pacman", 'square');
+    squares[this.currentIndex].classList.add("pacman", "square");
     squares[this.currentIndex].append(eye);
     squares[this.currentIndex].append(mouth);
   }
 }
 
-const pacman = new Pacman();
 
 class Ghost {
   public currentIndex: number;
@@ -84,7 +83,6 @@ class Ghost {
     this.speed = speed;
     this.currentIndex = startIndex;
     this.isScared = false;
-    this.timerId = NaN;
     this.resetIndex = resetIndex;
   }
   draw() {
@@ -95,10 +93,10 @@ class Ghost {
 }
 
 const ghosts = [
-  new Ghost("blinky", 22, 250, 279),
-  new Ghost("pinky", 40, 400, 287),
-  new Ghost("inky", 400, 300, 161),
-  new Ghost("clyde", 418, 200, 153),
+  new Ghost("purple", 22, 250, 279),
+  new Ghost("pink", 40, 400, 287),
+  new Ghost("blue", 400, 300, 161),
+  new Ghost("green", 418, 200, 153),
 ];
 
 let glide: number; //pacman glide interval
@@ -106,13 +104,24 @@ let scaredGhostsTime: number; //scared ghosts timeout
 let score = 0;
 let cherryIndex: number[] = [];
 
-const movdeDown = 21;
-const moveUp = -21;
-const moveLeft = -1;
-const moveRight = 1;
-const directions = [moveLeft, moveRight, moveUp, movdeDown];
+const directions = {
+  moveLeft: -1,
+  moveRight: 1,
+  moveUp: -21,
+  movdeDown: 21,
+};
+
+const randomDirection = () =>
+  directions[
+    Object.keys(directions)[
+      Math.floor(Math.random() * Object.keys(directions).length)
+    ]
+  ];
 
 const chosenMap = localStorage.getItem("userChoice");
 const palletsMapOne = 144;
 const palletsMapTwo = 161;
 let palletsThisGame: number;
+
+
+let gameOver: boolean;

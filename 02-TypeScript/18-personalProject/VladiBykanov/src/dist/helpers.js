@@ -34,9 +34,9 @@ function unScareGhosts() {
     ghosts.forEach(function (ghost) { return (ghost.isScared = false); });
 }
 function checkForGamneOver() {
-    drawCherry();
     if (squares[pacman.currentIndex].classList.contains("ghost") &&
         !squares[pacman.currentIndex].classList.contains("scaredGhost")) {
+        gameOver = true;
         ghosts.forEach(function (ghost) { return clearInterval(ghost.timerId); });
         loseMessage.style.opacity = "1";
         finalScore[1].textContent = score.toString();

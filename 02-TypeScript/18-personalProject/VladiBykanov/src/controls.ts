@@ -1,4 +1,5 @@
 function startGame() {
+  gameOver = false;
   if (chosenMap) {
     if (chosenMap === "mapOne") {
       creatMaze(mapOne);
@@ -46,13 +47,14 @@ function creatMaze(map: number[]) {
 }
 
 function movePacman(direction: string) {
+  if (gameOver) return;
   squares[pacman.currentIndex].classList.remove("pacman");
   switch (direction) {
     case "left":
-      if (checkForWall(pacman.currentIndex, moveLeft)) {
+      if (checkForWall(pacman.currentIndex, directions.moveLeft)) {
         clearInterval(glide);
         squares[pacman.currentIndex].removeAttribute("style");
-        pacman.currentIndex -= 1;
+        pacman.currentIndex += directions.moveLeft;
         squares[pacman.currentIndex].style.transform = "scaleX(-1)";
         glide = setInterval(movePacman, pacman.velocity, "left");
       } else if (pacman.currentIndex == 210) {
@@ -63,10 +65,10 @@ function movePacman(direction: string) {
       break;
 
     case "right":
-      if (checkForWall(pacman.currentIndex, moveRight)) {
+      if (checkForWall(pacman.currentIndex, directions.moveRight)) {
         clearInterval(glide);
         squares[pacman.currentIndex].removeAttribute("style");
-        pacman.currentIndex += 1;
+        pacman.currentIndex += directions.moveRight;
         squares[pacman.currentIndex].style.transform = "scaleX(1)";
         glide = setInterval(movePacman, pacman.velocity, "right");
       } else if (pacman.currentIndex == 230) {
@@ -77,10 +79,10 @@ function movePacman(direction: string) {
       break;
 
     case "up":
-      if (checkForWall(pacman.currentIndex, moveUp)) {
+      if (checkForWall(pacman.currentIndex, directions.moveUp)) {
         clearInterval(glide);
         squares[pacman.currentIndex].removeAttribute("style");
-        pacman.currentIndex += moveUp;
+        pacman.currentIndex += directions.moveUp;
         squares[pacman.currentIndex].style.transform = "rotate(-90deg)";
         glide = setInterval(movePacman, pacman.velocity, "up");
       }
@@ -88,12 +90,14 @@ function movePacman(direction: string) {
 
     case "down":
       if (
-        checkForWall(pacman.currentIndex, movdeDown) &&
-        !squares[pacman.currentIndex + movdeDown].classList.contains("lair")
+        checkForWall(pacman.currentIndex, directions.movdeDown) &&
+        !squares[pacman.currentIndex + directions.movdeDown].classList.contains(
+          "lair"
+        )
       ) {
         clearInterval(glide);
         squares[pacman.currentIndex].removeAttribute("style");
-        pacman.currentIndex += movdeDown;
+        pacman.currentIndex += directions.movdeDown;
         squares[pacman.currentIndex].style.transform = "rotate(90deg)";
         glide = setInterval(movePacman, pacman.velocity, "down");
       }
@@ -104,9 +108,10 @@ function movePacman(direction: string) {
 
 //move ghost function
 function moveGhost(ghost: Ghost) {
-  let direction = directions[Math.floor(Math.random() * directions.length)];
+  if (gameOver) return;
+  let direction = randomDirection();
 
-  ghost.timerId = setInterval(function test() {
+  setInterval(() => {
     // if the square in the direction the ghost is going not containing another ghost or a wall => then he can move here
     if (
       checkForWall(ghost.currentIndex, direction) &&
@@ -123,7 +128,7 @@ function moveGhost(ghost: Ghost) {
     }
     //else => find another direction
     else {
-      direction = directions[Math.floor(Math.random() * directions.length)];
+      direction = randomDirection();
     }
 
     //Change ghost color if scared
@@ -133,12 +138,12 @@ function moveGhost(ghost: Ghost) {
   }, ghost.speed);
 }
 
-
-function checkGameStatus(){
-  requestAnimationFrame(checkGameStatus)
+function checkGameStatus() {
+  requestAnimationFrame(checkGameStatus);
   checkForPoint();
   checkForCherry();
   checkForScaredGhost();
   checkForGamneOver();
   checkForWin();
+  drawCherry();
 }

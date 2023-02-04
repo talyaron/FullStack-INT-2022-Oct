@@ -1,3 +1,4 @@
+var pacman = new Pacman();
 startGame();
 checkGameStatus();
 window.addEventListener("keydown", function (e) {
