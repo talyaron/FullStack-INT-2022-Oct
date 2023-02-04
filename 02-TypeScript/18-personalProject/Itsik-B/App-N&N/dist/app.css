@@ -26,6 +26,9 @@ body nav li a {
   font-size: 26px;
   padding: 30px;
 }
+body li, body a {
+  width: 20%;
+}
 body li {
   list-style-type: none;
   padding: 10px;
@@ -43,9 +46,9 @@ body .box {
   justify-content: center;
   display: flex;
   width: 50vw;
-  margin-right: 250px;
-  border: 3px solid black;
+  height: 70vh;
+  margin-right: 300px;
 }
-body .newC, body .dairy, body .clinet, body .mlay, body .sapak, body #todo {
+body #newC, body #dairy, body #clinet, body #mlay, body #sapak, body #todo {
   display: none;
 }

@@ -37,10 +37,10 @@ class Paddle {
     this.height = height;
   }
   Update() {
-    if (keysPressed[keyUp]) {
+    if (isDownKeyPressed) {
       this.pos.y -= this.velocity.y;
     }
-    if (keysPressed[keyDown]) {
+    if (isUpKeyPressed) {
       this.pos.y += this.velocity.y;
     }
   }
@@ -51,17 +51,26 @@ class Paddle {
   }
 }
 
-const ball = new Ball(vec2(200, 200), vec2(5, 5), 20);
-const paddle1 = new Paddle(vec2(0, 50), vec2(0, 0), 20, 160);
-const paddle2 = new Paddle(vec2(canvas.width - 20, 80), vec2(0, 0), 20, 160);
-const keysPressed: { [key: string]: boolean } = {};
-const keyUp = 38;
-const keyDown = 40;
-
-window.addEventListener("keyup", function (e) {
-  keysPressed[e.key] = false;
-});
+const ball = new Ball({ x: 200, y: 200 }, { x: 5, y: 5 }, 20);
+const paddle1 = new Paddle({ x: 0, y: 50 }, { x: 0, y: 10 }, 20, 160);
+const paddle2 = new Paddle({ x: canvas.width - 20, y: 80 }, { x: 0, y: 10 }, 20, 160);
+let isUpKeyPressed = false;
+let isDownKeyPressed = false;
 
 window.addEventListener("keydown", function (e) {
-  keysPressed[e.key] = true;
+  if (e.keyCode === 38) {
+    isUpKeyPressed = true;
+    isDownKeyPressed = false;
+  } else if (e.keyCode === 40) {
+    isUpKeyPressed = false;
+    isDownKeyPressed = true;
+  }
 });
+
+window.addEventListener("keyup", function (e) {
+  if (e.keyCode === 38) {
+  isUpKeyPressed = false;
+  } else if (e.keyCode === 40) {
+  isDownKeyPressed = false;
+  }
+  });

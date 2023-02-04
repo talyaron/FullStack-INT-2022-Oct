@@ -1,0 +1,40 @@
+body{
+margin: 0%;
+position: relative;
+height: 100vh;
+}
+
+.header{
+    height: 60px;
+    width: 100%;
+    background-color: rgb(22, 92, 221);
+    display: flex;
+    justify-content: space-between;
+
+        &__box1{
+            height:50%;
+            width: 10%;
+            background-color: orangered;
+    
+        }
+
+        &__box2{
+            height: 50%;
+            width: 10%;
+            background-color: rgb(208, 208, 59)
+        }
+
+        &__box3{
+            height: 50%;
+            width: 10%;
+            background-color:gray
+        }
+}
+
+@media screen and (max-width: 800px) {
+.header{
+    position: absolute;
+    bottom: 0;
+    
+}
+}

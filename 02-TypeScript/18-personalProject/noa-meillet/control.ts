@@ -42,7 +42,9 @@ function btnAdd() {
       <br />
       <lable>Enter your date of birth:</lable> 
       <br />
-      <input type="date" name="newUserDateOfBirth" class="input" required/>
+      <select name="day" onload="${addOptionToDayOfBirthElement()}" id="dayOfBirth" required>Day</select>
+      <select name="month" onload="${addOptionToMonthOfBirthElement()}" id="monthOfBirth" required>Month</select>
+      <select name="year" onload="${addOptionToYearOfBirthElement()}" id="yearOfBirth" required>Year</select>
       <br />
       <input type="email" name="newUserEmail" class="input" placeholder="Enter your email" required/>
       <br />
@@ -61,7 +63,9 @@ function addUser(event) {
     const newUserId = event.target.elements.newUserId.value;
     const newUserPassword = event.target.elements.newUserPassword.value;
     const newUserFullName = event.target.elements.newUserFullName.value;
-    const newUserDateOfBirth = event.target.elements.newUserDateOfBirth.value;
+    const newUserDayOfBirth = event.target.elements.day.value;
+    const newUserMonthOfBirth = event.target.elements.month.value;
+    const newUserYearOfBirth = event.target.elements.year.value;
     const newUserEmail = event.target.elements.newUserEmail.value;
     const newUserphone = event.target.elements.newUserphone.value;
     usersList.push(
@@ -69,7 +73,9 @@ function addUser(event) {
         newUserId,
         newUserPassword,
         newUserFullName,
-        newUserDateOfBirth,
+        newUserDayOfBirth,
+        newUserMonthOfBirth,
+        newUserYearOfBirth,
         newUserEmail,
         newUserphone
       )
@@ -88,20 +94,20 @@ function showClubCards() {
     if (!clubCards)
       throw new Error(`We don't have a culb cards div to show you your cards`);
     userClubCards.forEach(
-      (userCard) =>
+      userCard =>
         (clubCards.innerHTML += `
-  <div class"club_cards_store">
-    <h3>${userCard.store?.storeName}</h3>
-    <h4>Amount of points ${getAmountOfPoints(
-      userCard.store.amountOfPoints,
-      userCard.amountOfPoints
-    )}</h4>
-    <h4>Birthday discount: ${getBirthdayDiscount(
-      userCard.store.bdayDscntDuration,
-      userLogin.dateOfBirth
-    )}
-  </div>
-  `)
+          <div class"club_cards_store">
+          <h3>${userCard.store?.storeName}</h3>
+          <h4>Amount of points ${getAmountOfPoints(
+            userCard.store.amountOfPoints,
+            userCard.amountOfPoints
+          )}</h4>
+          <h4>Birthday discount: ${getBirthdayDiscount(
+            userCard.store.bdayDscntDuration,
+            userLogin.dateOfBirth
+          )}
+        </div>
+      `)
     );
   } catch (error) {
     console.error(`error loading club cards for user`);
