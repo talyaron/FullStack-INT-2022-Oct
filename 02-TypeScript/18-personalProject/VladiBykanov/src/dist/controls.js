@@ -1,5 +1,8 @@
 function startGame() {
     gameOver = false;
+    winMessage.style.opacity = "0";
+    loseMessage.style.opacity = "0";
+    pacman.currentIndex = pacman.pacmanStrartingIndex;
     if (chosenMap) {
         if (chosenMap === "mapOne") {
             creatMaze(mapOne);
@@ -13,6 +16,7 @@ function startGame() {
     pacman.draw();
     // draw ghosts to grid
     ghosts.forEach(function (ghost) {
+        ghost.currentIndex = ghost.startIndex;
         ghost.draw();
         moveGhost(ghost);
     });
@@ -100,7 +104,7 @@ function moveGhost(ghost) {
     if (gameOver)
         return;
     var direction = randomDirection();
-    setInterval(function () {
+    ghost.timerId = setInterval(function () {
         // if the square in the direction the ghost is going not containing another ghost or a wall => then he can move here
         if (checkForWall(ghost.currentIndex, direction) &&
             !squares[ghost.currentIndex + direction].classList.contains("ghost")) {

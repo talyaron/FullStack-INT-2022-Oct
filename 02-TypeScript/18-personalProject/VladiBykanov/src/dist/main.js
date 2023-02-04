@@ -19,3 +19,10 @@ window.addEventListener("keydown", function (e) {
             break;
     }
 });
+backToStartingPageBtn.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+        window.location.href = "startPage.html";
+        localStorage.removeItem('userChoice');
+    });
+});
+tryAgainBtn.forEach(function (btn) { return btn.addEventListener('click', startGame); });

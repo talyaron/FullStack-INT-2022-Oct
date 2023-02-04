@@ -47,7 +47,7 @@ const squares = [] as Array<HTMLElement>;
 
 class Pacman {
   private pacmanSpeed: number = 150; // lower is faster
-  private pacmanStrartingIndex: number = 283;
+  public pacmanStrartingIndex: number = 283;
   public currentIndex: number;
   //   public nextIndex: number;
   public velocity: number;
