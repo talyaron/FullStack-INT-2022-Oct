@@ -4,13 +4,13 @@
     background-color: aqua;
 }
 .userItem {
-    height: 60px;
+    height:250px;
     width: 200px;
     background-color: aqua;
-    border: 2px black solid; 
+    border: 2px black solid;
 }
 .taskItem {
-    height: 200px;
+    height: 400px;
     width: 200px;
     background-color: aqua;
     border: 2px black solid; 
@@ -28,18 +28,10 @@
 .exsistingUsers{
     height: 60px;
     width: 200px;
-    background-color: aqua;    
+    background-color: aqua;   
+    display: flex; 
 }
 
-
-
-.button{
-    height: 60px;
-    width: 200px;
-    background-color: aqua; 
+#newUsers{
+    display: flex;
 }
-.box5 {
-    height: 100px;
-    width: 200px;
-    background-color: hsl(0deg, 100%, 50%);
-  }

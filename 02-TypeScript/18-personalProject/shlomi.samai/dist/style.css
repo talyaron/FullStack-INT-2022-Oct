@@ -5,14 +5,14 @@
 }
 
 .userItem {
-  height: 60px;
+  height: 250px;
   width: 200px;
   background-color: aqua;
   border: 2px black solid;
 }
 
 .taskItem {
-  height: 200px;
+  height: 400px;
   width: 200px;
   background-color: aqua;
   border: 2px black solid;
@@ -34,16 +34,9 @@
   height: 60px;
   width: 200px;
   background-color: aqua;
+  display: flex;
 }
 
-.button {
-  height: 60px;
-  width: 200px;
-  background-color: aqua;
-}
-
-.box5 {
-  height: 100px;
-  width: 200px;
-  background-color: red;
+#newUsers {
+  display: flex;
 }
