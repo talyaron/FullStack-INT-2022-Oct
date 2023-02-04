@@ -11,13 +11,11 @@ function dataFromStorage() {
         if (!dataFromStorageUsers || dataFromStorageUsers == null) {
             updateUserToLocalStorage();
         }
-        else if (albums.length > getAlbumFromStorage.length) {
+        else {
             var data = JSON.parse(dataFromStorageUsers);
             users.splice.apply(users, __spreadArrays([0], data));
-        }
-        else {
-            updateUserToLocalStorage();
             console.log("users", users);
+            updateUserToLocalStorage();
         }
     }
     catch (error) {
@@ -30,10 +28,15 @@ function dataFromStorage1() {
         if (!dataFromStorageAlbums || dataFromStorageAlbums === null) {
             updatePhotosToLocalStorage();
         }
+        else if (getAlbumFromStorage().length <= albums.length) {
+            updatePhotosToLocalStorage();
+        }
+        else if (albums[albums.length - 1].photos.length !== 0) {
+            updatePhotosToLocalStorage();
+        }
         else {
             var data = JSON.parse(dataFromStorageAlbums);
-            albums.push.apply(albums, data);
-            updatePhotosToLocalStorage();
+            albums.splice.apply(albums, __spreadArrays([0, albums.length], data));
         }
     }
     catch (error) {

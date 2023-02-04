@@ -6,18 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Pacman GAME</title>
     <link rel="stylesheet" href="./src/dist/style.css" />
-    <script src="./src/dist/startPage.js" defer></script>
+    <script src="./src/dist/view.js" defer></script>
     <script src="./src/dist/helpers.js" defer></script>
     <script src="./src/dist/controls.js" defer></script>
-    <script src="./src/dist/view.js" defer></script>
     <script src="./src/dist/model.js" defer></script>
     <script src="./src/dist/main.js" defer></script>
   </head>
   <body>
     <div class="gameWrapper">
       <div class="maze">
-        <aside class="winMessage">YOU WIN!</aside>
-        <aside class="loseMessage">GAME OVER!</aside>
+        <div class="endGameWindow winMessage">
+          <h1>YOU WIN!</h1>
+          <p>Final Score: <span class="finalScore">0</span></p>
+          <button>Choose another map</button>
+          <button>Try again</button>
+        </div>
+        <div class="endGameWindow loseMessage">
+          <h1>GAME OVER!</h1>
+          <p>Final Score: <span class="finalScore">0</span></p>
+          <button>Choose another map</button>
+          <button>Try again</button>
+        </div>
       </div>
       <h1 class="liveScore">Score: <span id="score">0</span></h1>
     </div>

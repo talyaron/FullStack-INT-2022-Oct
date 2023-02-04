@@ -5,6 +5,7 @@ function checkForPoint() {
     scoreEl.textContent = score.toString();
     squares[pacman.currentIndex].classList.remove("point");
     squares[pacman.currentIndex].classList.add("pacman");
+    squares[pacman.currentIndex].classList.add("road");
   }
 }
 
@@ -14,7 +15,7 @@ function checkForCherry() {
     cherryIndex = [
       ...cherryIndex.filter((value) => value !== pacman.currentIndex),
     ];
-    squares[pacman.currentIndex].innerHTML = '';
+    squares[pacman.currentIndex].innerHTML = "";
     pacman.draw();
 
     score += 10;
@@ -38,6 +39,7 @@ function checkForGamneOver() {
   ) {
     ghosts.forEach((ghost) => clearInterval(ghost.timerId));
     loseMessage.style.opacity = "1";
+    finalScore[1].textContent = score.toString();
     clearInterval(glide);
   }
 }
@@ -48,6 +50,7 @@ function checkForWin() {
     clearInterval(glide);
     setTimeout(() => {
       winMessage.style.opacity = "1";
+      finalScore[0].textContent = score.toString();
     }, 200);
   }
 }

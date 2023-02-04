@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <div class="top">
+    <div class="top" style="position: fixed; top: 0; width: 100%; z-index: 3;">
         <div class="top__hamburger">
             <div class="top__hamburger__top"></div>
             <div class="top__hamburger__mid"></div>
@@ -29,15 +29,16 @@
             </div>
         </a>
         <h2 class="top__headline">Store</h2>
+        <div class="menu">
+            <a href="./admin.html"><button>To admin</button></a>
+            <a href="./cart.html"><button>To cart</button></a>
+            <button class="sortName">Sort by name</button>
+            <button class="sortType">Sort by type</button>
+            <button class="sortPrice">Sort by price</button>
+        </div>
     </div>
-    <div class="menu">
-        <a href="./admin.html"><button>To admin</button></a>
-        <a href="./cart.html"><button>To cart</button></a>
-        <button class="sortName">Sort by name</button>
-        <button class="sortType">Sort by type</button>
-        <button class="sortPrice">Sort by price</button>
-    </div>
-    <div class="main" style="padding-bottom: 50px; min-height: 95vh;"></div>
+    
+    <div class="main" style="padding-bottom: 50px; min-height: 95vh; padding-top: 60px;"></div>
     <div class="footer"></div>
 </body>
 
