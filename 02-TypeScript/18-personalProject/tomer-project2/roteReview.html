@@ -16,7 +16,7 @@
 </head>
 
 <body>
-    <form onsubmit="saveToLocalStorage(event)">
+    <form onsubmit="addReview(event)" >
         <input type="text" name="userName" placeholder="Name">
         <select name="books" id="">
             <option value="Books">Books</option>
@@ -37,7 +37,8 @@
         </select>
         <input type="submit" value="ADD REVIEW">
     </form>
-    <div></div>
+    <div id="reviewsRoot"></div>
+
     <a href="./webReview.html">back to the web</a>
 
 </body>

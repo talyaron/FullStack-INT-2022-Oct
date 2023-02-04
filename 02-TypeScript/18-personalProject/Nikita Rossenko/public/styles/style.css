@@ -145,7 +145,7 @@ body {
 }
 .moviesContainer .navBar__icons {
   width: 100%;
-  max-width: 1546px;
+  width: 1546px;
   height: 60px;
   position: relative;
   display: flex;
@@ -280,4 +280,114 @@ body {
 .moviesContainer .footer p {
   margin-left: 20px;
   color: #b2aaaa;
+}
+
+@media only screen and (max-width: 1535px) {
+  .navBar__icons {
+    max-width: 1250px;
+  }
+}
+@media only screen and (max-width: 1225px) {
+  .navBar__icons {
+    max-width: 935px;
+  }
+}
+@media only screen and (max-width: 920px) {
+  .navBar__icons {
+    max-width: 625px;
+  }
+}
+.SeatsContainer {
+  perspective: 1000px;
+  width: 600px;
+  height: 400px;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0px 0px 30px 0px black;
+  /* Selects the second row f*/
+}
+.SeatsContainer__seat {
+  background-color: #7f594a;
+  height: 36px;
+  width: 45px;
+  margin: 9px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+.SeatsContainer__seat:hover {
+  background-color: #a2a2a2;
+}
+.SeatsContainer__seat.selected {
+  background-color: #2ecc71;
+}
+.SeatsContainer__seat.occupied {
+  background-color: #fff;
+}
+.SeatsContainer__seat:nth-of-type(2) {
+  margin-right: 54px;
+}
+.SeatsContainer__seat:nth-last-of-type(2) {
+  margin-left: 54px;
+}
+.SeatsContainer__seat:not(.occupied) {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.SeatsContainer__row {
+  display: flex;
+}
+.SeatsContainer__screen {
+  background-color: #fff;
+  height: 70px;
+  width: 94%;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  transform: rotateX(-45deg);
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+}
+
+.showcase .SeatsContainer__seat:not(.occupied) {
+  cursor: default;
+  transform: scale(1);
+}
+
+.showcase {
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 30px 0px black;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: white;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.showcase li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.showcase li small {
+  margin-left: 2px;
+  color: white;
+}
+
+p.text {
+  margin: 5px 0;
+}
+
+p.text span {
+  color: #6feaf6;
+}
+
+.movieShowcase h1 {
+  color: white;
+}
+.movieShowcase p {
+  color: white;
 }

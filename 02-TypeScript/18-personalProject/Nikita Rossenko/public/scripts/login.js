@@ -14,7 +14,7 @@ function loginHandler(e) {
                 if (user.username.toLowerCase() === username.toLowerCase() && user.password === password) {
                     console.log("okay");
                     foundUser_1 = true;
-                    var isLoggedInString = "{\"isLoggedIn\":true,\"username\":\"" + username + "\"}";
+                    var isLoggedInString = "{\"isLoggedIn\":true,\"username\":\"" + user.username + "\"}";
                     localStorage.setItem('isLoggedIn', isLoggedInString);
                     location.href = 'index.html';
                 }
