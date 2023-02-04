@@ -32,6 +32,7 @@ renderPhotoCard(backgrounds, "backgroundList");
 if (insideTheUser()) {
     changeProfileUserName();
     renderLists();
+    createListToOptions();
 }
 // updateInfoToLocalStorage()
 getMatchUserDetail();
@@ -40,5 +41,3 @@ var lists = document.querySelectorAll('.list ');
 lists.forEach(function (list) {
     list.classList.add("active");
 });
-createListToOptions();
-renderLists();

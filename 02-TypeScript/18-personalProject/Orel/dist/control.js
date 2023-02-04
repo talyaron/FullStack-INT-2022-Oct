@@ -322,7 +322,6 @@ function handleSubmitCreateAlbumsList(ev) {
         console.log(nameListValue);
         createNewList(nameListValue, nameListValue, "sections-library");
         createListToOptions();
-        renderLists();
         ev.target.reset();
     }
     catch (error) {
@@ -342,8 +341,6 @@ function handleSubmitCreatePhoto(ev) {
         // make new Photo
         photoArr.push(new Photos(photoName, date, src));
         renderPhotoCard(photoArr, createListToListValue_1, "sections-library");
-        console.log(renderPhotoCard(photoArr, createListToListValue_1, "sections-library"));
-        ev.target.reset();
     }
     catch (error) {
         console.error(error);
@@ -382,6 +379,7 @@ function createNewList(nameList, titleList, classNameContainer) {
 //Render All Cards On Dom
 function renderPhotoCard(cards, containerClass, albumName) {
     var mainContainer = document.querySelector("." + containerClass);
+    mainContainer.innerHTML = '';
     if (mainContainer === undefined)
         throw new Error('the Element not found');
     var AllCards = "";

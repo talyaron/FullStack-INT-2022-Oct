@@ -49,6 +49,9 @@ console.log("users", users);
 const update = storageData
 
 const albums: Albums[] = []
+// set The Album to Album Local Storage
+
+console.log("albums New " , albums);
 
 const likedPhotos: Photos[] = [];
 
@@ -176,3 +179,17 @@ function updatePhotosToLocalStorage() {
     }
 
 }
+
+function getAlbumFromStorage():Albums[] | undefined{
+    try {
+        const dataJson = localStorage.getItem("albums")
+        if (!dataJson) throw new Error("not find albums in local storage")
+const data = JSON.parse(dataJson)
+        return data
+
+    } catch (error) {
+        console.log(error);
+        return undefined
+    }
+}
+

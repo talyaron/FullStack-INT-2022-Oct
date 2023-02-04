@@ -40,6 +40,8 @@ var users = [
 console.log("users", users);
 var update = storageData;
 var albums = [];
+// set The Album to Album Local Storage
+console.log("albums New ", albums);
 var likedPhotos = [];
 var animals = [
     {
@@ -156,5 +158,18 @@ function updatePhotosToLocalStorage() {
     }
     catch (error) {
         console.log(error);
+    }
+}
+function getAlbumFromStorage() {
+    try {
+        var dataJson = localStorage.getItem("albums");
+        if (!dataJson)
+            throw new Error("not find albums in local storage");
+        var data = JSON.parse(dataJson);
+        return data;
+    }
+    catch (error) {
+        console.log(error);
+        return undefined;
     }
 }

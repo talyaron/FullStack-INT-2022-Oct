@@ -3,12 +3,17 @@ try {
 
     const dataFromStorageUsers = localStorage.getItem("users")
 if(!dataFromStorageUsers || dataFromStorageUsers == null) {
-    updateUserToLocalStorage() 
-} else {
+   updateUserToLocalStorage() 
+} else 
+if(albums.length > getAlbumFromStorage.length){
     const data = JSON.parse(dataFromStorageUsers);
     users.splice(0 , ...data)
+}
+else{
+    updateUserToLocalStorage()
+
 console.log("users" ,users);
-updateUserToLocalStorage()
+
 }
 
 

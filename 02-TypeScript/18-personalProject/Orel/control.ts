@@ -318,7 +318,7 @@ const nameListValue = ev.target.elements.createListName.value.toString() as stri
 console.log(nameListValue);
 createNewList(nameListValue , nameListValue ,"sections-library")
 createListToOptions()
-renderLists()
+
 ev.target.reset()
 } catch (error) {
     console.log(error);
@@ -342,8 +342,6 @@ const photoArr = albums[findIndex].photos
 // make new Photo
 photoArr.push(new Photos(photoName , date , src))
 renderPhotoCard(photoArr, createListToListValue , "sections-library")
-console.log(renderPhotoCard(photoArr, createListToListValue , "sections-library"));
-ev.target.reset()
 
     } catch (error) {
         console.error(error);
@@ -404,10 +402,9 @@ function createNewList(nameList: string, titleList: string , classNameContainer:
 //Render All Cards On Dom
 function renderPhotoCard(cards: Array<Photos>, containerClass: string ,albumName?:string): string {
     const mainContainer = document.querySelector(`.${containerClass}`) as HTMLElement
+    mainContainer!.innerHTML = ''
     if(mainContainer === undefined ) throw new Error('the Element not found')
     let AllCards = ""
-
-    
     cards.forEach(photo => {
         AllCards += NewPhotoCard(photo.photoName, photo.date.toString(), photo.src)
     });

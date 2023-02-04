@@ -11,11 +11,13 @@ function dataFromStorage() {
         if (!dataFromStorageUsers || dataFromStorageUsers == null) {
             updateUserToLocalStorage();
         }
-        else {
+        else if (albums.length > getAlbumFromStorage.length) {
             var data = JSON.parse(dataFromStorageUsers);
             users.splice.apply(users, __spreadArrays([0], data));
-            console.log("users", users);
+        }
+        else {
             updateUserToLocalStorage();
+            console.log("users", users);
         }
     }
     catch (error) {

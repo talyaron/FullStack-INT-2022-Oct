@@ -35,9 +35,9 @@ renderPhotoCard(backgrounds ,"backgroundList")
 renderPhotoCard(backgrounds ,"backgroundList")
 // RENDER MAIN HOME PAGE PHOTOS
 if(insideTheUser()){
-
     changeProfileUserName()
     renderLists()
+    createListToOptions()
 }
 
 // updateInfoToLocalStorage()
@@ -48,5 +48,4 @@ lists.forEach(list => {
     list.classList.add("active")
 });
 
-createListToOptions()
-renderLists()
+
