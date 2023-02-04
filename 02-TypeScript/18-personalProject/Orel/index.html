@@ -151,12 +151,12 @@
                     <form onsubmit="handleSubmitCreatePhoto(event)">
                         <h4>ADD NEW PHOTO</h4>
                         <div class="user-create-photo">
-                            <input type="text" name="photoNameCreateImage" id="photoNameCreateImage" placeholder="Enter Photo Name">
-                            <input type="date" name="photoDateCreateImage" id="photoDateCreateImage" placeholder="Enter Date or Details">
-                            <input type="url" name="photoSrcCreateImage" id="photoSrcCreateImage" placeholder="ENTER URL IMAGE">
+                            <input type="text" name="photoNameCreateImage" id="photoNameCreateImage" placeholder="Enter Photo Name" required>
+                            <input type="date" name="photoDateCreateImage" id="photoDateCreateImage" placeholder="Enter Date or Details" required>
+                            <input type="url" name="photoSrcCreateImage" id="photoSrcCreateImage" placeholder="ENTER URL IMAGE" required>
                             <span>
-                                <label for="selectList">Chose List To Put Photo</label>
-                                <select name="selectList" id="selectList">
+                                <label for="selectList">Chose List To Put Photo</label >
+                                <select name="selectList" id="selectList" required>
                           
                               </select>
                             </span>

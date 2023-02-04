@@ -26,10 +26,13 @@ const dataFromStorageAlbums = localStorage.getItem("albums")
 
 if(!dataFromStorageAlbums || dataFromStorageAlbums === null) {
     updatePhotosToLocalStorage()
-    } else {
+    } else if(getAlbumFromStorage()!.length <= albums.length ){
+        updatePhotosToLocalStorage()
+    }
+    else{
         const data = JSON.parse(dataFromStorageAlbums);
         albums.push(...data)
-    updatePhotosToLocalStorage()
+
     }
     } catch (error) {
         console.log(error);

@@ -254,6 +254,7 @@ function handleClickCreateAlbumList(ev) {
                 list.classList.add("active");
             });
             makeSectionsActive(sectionsCreateAlbum);
+            createListToOptions();
         }
     }
     catch (error) {
@@ -335,12 +336,14 @@ function handleSubmitCreatePhoto(ev) {
         var photoName = ev.target.elements.photoNameCreateImage.value;
         var date = ev.target.elements.photoDateCreateImage.value;
         var src = ev.target.elements.photoSrcCreateImage.value;
-        var findIndex = albums.findIndex(function (album) { return album.name === createListToListValue_1; });
-        console.log(findIndex);
+        var findIndex = getAlbumFromStorage().findIndex(function (album) { return album.name === createListToListValue_1; });
         var photoArr = albums[findIndex].photos;
+        console.log(findIndex);
+        console.log(albums[findIndex]);
         // make new Photo
         photoArr.push(new Photos(photoName, date, src));
         renderPhotoCard(photoArr, createListToListValue_1, "sections-library");
+        ev.target.reset();
     }
     catch (error) {
         console.error(error);
@@ -371,7 +374,7 @@ function NewPhotoCard(namePhoto, date, src, albumName) {
 // create New list
 function createNewList(nameList, titleList, classNameContainer) {
     var sectionsHome = document.querySelector("." + classNameContainer);
-    var patten = "\n    <div dataList=\"" + nameList + "\" class=\"list\">\n    <h4>" + titleList + "</h4>\n    <div class=\"recommended-list " + nameList + "\">\n    </div>\n</div>\n    ";
+    var patten = "\n    <div id=\"" + nameList + "\" class=\"list\" class=\"" + nameList + "\">\n    <h4>" + titleList + "</h4>\n    <div class=\"recommended-list " + nameList + "\">\n    </div>\n</div>\n    ";
     sectionsHome.innerHTML += patten;
     albums.push(new Albums(nameList, []));
     return patten;
@@ -401,7 +404,7 @@ function renderLists() {
         containerPlaylist.innerHTML = '';
         var html_1 = '';
         albums.forEach(function (album) {
-            var tamp = "\n        <button onclick=\"handleClickLists(event)\" listName=\"" + album.name + "\" class=\"playlistBTN " + album.name + "\">\n        " + album.name + "\n        </button>";
+            var tamp = "\n        <button onclick=\"handleClickLists(event)\"   class=\"playlistBTN " + album.name + "\">\n        " + album.name + "\n        </button>";
             html_1 += tamp;
         });
         containerPlaylist.innerHTML += html_1;

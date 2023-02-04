@@ -53,15 +53,11 @@ lists.forEach(list => {
 if(typeof getAlbumFromStorage() === typeof albums && getAlbumFromStorage() != undefined){
     let html = ''
     const sectionsLibrary = document.querySelector(".sections-library")! as HTMLDivElement
+    let index:number
     getAlbumFromStorage()!.forEach((album) =>{
-
             html += createNewList(album.name, album.name , "sections-library") as string
-        sectionsLibrary.innerHTML = html
-        console.log("albumName " ,album.name);
- 
+        sectionsLibrary.innerHTML = html 
         renderPhotoCard(album.photos ,album.name , "sections-library" )
+    } )
 
-        
-    })
-    renderLists()
 }

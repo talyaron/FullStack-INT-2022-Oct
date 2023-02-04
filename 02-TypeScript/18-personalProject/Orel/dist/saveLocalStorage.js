@@ -28,10 +28,12 @@ function dataFromStorage1() {
         if (!dataFromStorageAlbums || dataFromStorageAlbums === null) {
             updatePhotosToLocalStorage();
         }
+        else if (getAlbumFromStorage().length <= albums.length) {
+            updatePhotosToLocalStorage();
+        }
         else {
             var data = JSON.parse(dataFromStorageAlbums);
             albums.push.apply(albums, data);
-            updatePhotosToLocalStorage();
         }
     }
     catch (error) {

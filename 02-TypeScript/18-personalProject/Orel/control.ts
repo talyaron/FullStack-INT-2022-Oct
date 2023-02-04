@@ -220,10 +220,11 @@ makeSectionsActive(sectionsSearch)
 //library
 function handleClickLibraryList(ev: any) {
     try {
-        
+
         if(!insideTheUser()) {
             alert("you must to login to enter Library") 
         }else{
+      
             const sectionsLibrary = document.querySelector('.sections-library') as HTMLElement;
             const lists = document.querySelectorAll('.list ');
             lists.forEach(list => {
@@ -242,16 +243,18 @@ function handleClickCreateAlbumList(ev: any) {
     try {
         
         if(!insideTheUser()) {
+
             alert("you must to login to enter Library") 
         }else{
+      
             const sectionsCreateAlbum = document.querySelector('.sections-create-album') as HTMLElement;
             const lists = document.querySelectorAll('.list ');
             lists.forEach(list => {
                     list.classList.add("active")
             });
             makeSectionsActive(sectionsCreateAlbum)
-     
-        }
+            createListToOptions()
+            }
 
     } catch (error) {
         console.log(error);
@@ -301,7 +304,7 @@ try {
         // sent data list to options
         const selectList = document.getElementById('selectList') as HTMLSelectElement
     selectList.innerHTML = ''
-        albums.forEach(album =>{    
+        albums!.forEach(album =>{    
                 selectList.innerHTML += `<option value="${album.name}">${album.name}</option>`
             console.log(album.name);
             }) 
@@ -333,16 +336,14 @@ const photoName = ev.target.elements.photoNameCreateImage.value as string
 const date = ev.target.elements.photoDateCreateImage.value as string
 const src = ev.target.elements.photoSrcCreateImage.value as string
 
-
-
-const findIndex  = albums.findIndex(album => album.name === createListToListValue)
-console.log(findIndex);
+const findIndex  = getAlbumFromStorage()!.findIndex(album => album.name === createListToListValue)
 const photoArr = albums[findIndex].photos
-
+console.log(findIndex);
+console.log(albums[findIndex]);
 // make new Photo
 photoArr.push(new Photos(photoName , date , src))
 renderPhotoCard(photoArr, createListToListValue , "sections-library")
-
+        ev.target.reset()
     } catch (error) {
         console.error(error);
     }
@@ -387,7 +388,7 @@ function createNewList(nameList: string, titleList: string , classNameContainer:
     const sectionsHome = document.querySelector(`.${classNameContainer}`)! as HTMLDListElement;
     const patten =
         `
-    <div dataList="${nameList}" class="list">
+    <div id="${nameList}" class="list" class="${nameList}">
     <h4>${titleList}</h4>
     <div class="recommended-list ${nameList}">
     </div>
@@ -427,7 +428,7 @@ try {
 
     albums.forEach(album=>{
         const tamp = `
-        <button onclick="handleClickLists(event)" listName="${album.name}" class="playlistBTN ${album.name}">
+        <button onclick="handleClickLists(event)"   class="playlistBTN ${album.name}">
         ${album.name}
         </button>`
         html += tamp;

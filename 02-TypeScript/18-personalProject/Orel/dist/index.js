@@ -44,11 +44,10 @@ lists.forEach(function (list) {
 if (typeof getAlbumFromStorage() === typeof albums && getAlbumFromStorage() != undefined) {
     var html_1 = '';
     var sectionsLibrary_1 = document.querySelector(".sections-library");
+    var index = void 0;
     getAlbumFromStorage().forEach(function (album) {
         html_1 += createNewList(album.name, album.name, "sections-library");
         sectionsLibrary_1.innerHTML = html_1;
-        console.log("albumName ", album.name);
         renderPhotoCard(album.photos, album.name, "sections-library");
     });
-    renderLists();
 }
