@@ -11,15 +11,6 @@
   --div-size: calc(var(--boardSize) / 21);
 }
 
-.gameWrapper {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background-color: darkblue;
-}
-
 .welcomePageWrapper {
   background-color: darkblue;
   height: 100vh;
@@ -29,9 +20,54 @@
   justify-content: space-around;
 }
 
+.loginPage {
+  position: absolute;
+  aspect-ratio: 2/3;
+  height: 80vh;
+  background-color: darkseagreen;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 1.5rem;
+  display: none;
+}
+.loginPage .inputDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loginPage .inputDiv input {
+  font-size: 1.5rem;
+  margin-bottom: 2em;
+  margin-top: 1em;
+  border: 1px solid rgba(0, 0, 0, 0.092);
+  outline: none;
+  padding: 0.2em;
+}
+.loginPage .buttonDiv {
+  margin-top: 2em;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.loginPage .buttonDiv button {
+  font-size: 1.5rem;
+  padding: 0.5em;
+  width: 40%;
+  border: none;
+  border-radius: 10px;
+}
+.loginPage .buttonDiv button:hover {
+  cursor: pointer;
+  background-color: goldenrod;
+}
+
 .welcomePage {
+  position: absolute;
   aspect-ratio: 3/2;
-  width: 60vw;
+  width: 80vw;
   background-color: darkgoldenrod;
   border-radius: 20px;
   display: flex;
@@ -68,6 +104,15 @@
   transform: scale(1.1);
 }
 
+.gameWrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: darkblue;
+}
+
 .maze {
   box-shadow: 0 0 50px black;
   width: var(--boardSize);
@@ -84,12 +129,28 @@
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   transition: all 0.5s;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.maze .endGameWindow button {
+  width: 30%;
+  padding: 0.5em;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #333333;
+  color: whitesmoke;
+}
+.maze .endGameWindow button:hover {
+  cursor: pointer;
+  transform: translate(5px, 5px);
+  transition: transform 0.5s;
 }
 .maze .winMessage {
-  color: #861a86;
+  color: lightcoral;
   background-color: #236a46;
   opacity: 0;
 }
@@ -159,46 +220,42 @@
   border: calc(var(--div-size) / 3) solid white;
   box-sizing: border-box;
 }
-.maze .cherry {
-  box-sizing: border-box;
-}
 .maze .cherry svg {
   fill: red;
   filter: drop-shadow(3px 5px 2px black);
 }
-.maze .blinky {
+.maze .ghost {
   border: 0px;
+}
+.maze .purple {
   border-radius: 0;
   background-color: white;
 }
-.maze .blinky svg {
+.maze .purple svg {
   fill: purple;
   filter: drop-shadow(3px 5px 2px black);
 }
-.maze .pinky {
-  border: 0px;
+.maze .pink {
   border-radius: 0;
   background-color: white;
 }
-.maze .pinky svg {
+.maze .pink svg {
   fill: palevioletred;
   filter: drop-shadow(3px 5px 2px black);
 }
-.maze .inky {
-  border: 0px;
+.maze .blue {
   border-radius: 0;
   background-color: white;
 }
-.maze .inky svg {
+.maze .blue svg {
   fill: blue;
   filter: drop-shadow(3px 5px 2px black);
 }
-.maze .clyde {
-  border: 0px;
+.maze .green {
   border-radius: 0;
   background-color: white;
 }
-.maze .clyde svg {
+.maze .green svg {
   fill: darkgreen;
   filter: drop-shadow(3px 5px 2px black);
 }

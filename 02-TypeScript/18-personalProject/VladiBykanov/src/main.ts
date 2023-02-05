@@ -1,26 +1,33 @@
-console.log("Start");
+const pacman = new Pacman();
+
+startGame();
+checkGameStatus();
 
 window.addEventListener("keydown", (e) => {
   if (e.repeat) return;
   switch (e.key) {
     case "ArrowLeft":
-      movePacman("left");
+      pacman.move(directions.moveLeft);
       break;
 
     case "ArrowRight":
-      movePacman("right");
+      pacman.move(directions.moveRight);
       break;
 
     case "ArrowUp":
-      movePacman("up");
+      pacman.move(directions.moveUp);
       break;
     case "ArrowDown":
-      movePacman("down");
+      pacman.move(directions.movdeDown);
       break;
   }
 });
 
-startGame();
+backToStartingPageBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    window.location.href = "startPage.html";
+    localStorage.removeItem('userChoice')
+  });
+});
 
-const interval = setInterval(checkForScaredGhost, 1);
-const anotherInterval = setInterval(checkForGamneOver, 1);
+tryAgainBtn.forEach(btn => btn.addEventListener('click', startGame))

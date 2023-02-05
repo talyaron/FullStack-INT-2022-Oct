@@ -10,10 +10,31 @@
     <script src="./dist/control.js" defer></script>
     <script src="./dist/model.js" defer></script>
     <script src="./dist/index.js" defer></script>
+    <script src="https://kit.fontawesome.com/0fcd7efe49.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./dist/style.css">
     <title>Five Hive</title>
 </head>
 <body>
+    <h1>FIVE HIVE</h1>
+
+    <div class="iconsWrapper">
+        <div class="iconsWrapper__displayedIcon">
+            <i class="fa-solid fa-trophy"></i>
+            <div class="iconsWrapper__displayedIcon__displayedData">
+            <div id="userDataRoot"></div>
+            </div>
+        </div>
+        <div class="iconsWrapper__displayedIcon">
+            <i class="fa-regular fa-circle-question"></i>
+            <div class="iconsWrapper__displayedIcon__displayedData"> rules
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            </div>
+        </div>
+    </div>
+
     <div class="board">
         <div id="guess-1" class="board__line">
             <div id="cell0101" class="board__line__cell"></div>
@@ -57,8 +78,12 @@
             <div id="cell0604" class="board__line__cell"></div>
             <div id="cell0605" class="board__line__cell"></div>
         </div>
+    </div>
+    
+    
+   
 
-    </div>    
+
 
     <div class="keyboard">
         <div class="keyboard__line">

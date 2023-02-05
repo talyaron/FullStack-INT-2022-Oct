@@ -86,13 +86,11 @@ var clubCardsList = [
 ];
 //class for details about each user
 var User = /** @class */ (function () {
-    function User(userId, userPassword, userFullName, dayOfBirth, monthOfBirth, yeaOfBirth, email, phoneNumber, clubCard) {
+    function User(userId, userPassword, userFullName, dateOfBirth, email, phoneNumber, clubCard) {
         this.userId = userId;
         this.userPassword = userPassword;
         this.userFullName = userFullName;
-        this.dayOfBirth = dayOfBirth;
-        this.monthOfBirth = monthOfBirth;
-        this.yeaOfBirth = yeaOfBirth;
+        this.dateOfBirth = dateOfBirth;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.clubCard = clubCard;
@@ -101,14 +99,14 @@ var User = /** @class */ (function () {
     return User;
 }());
 //data
-var noaMeillet = new User("209966001", "noa0512", "Noa Meillet", "05", "12", "2001", "noam@gmail.com", "0525643254");
-var sagivKelly = new User("301154268", "sagiv1908", "Sagiv Kelly", "19", "08", "2000", "sagivk@gmail.com", "0529531221");
-var talVaknin = new User("209966019", "tal0301", "Tal Vaknin", "03", "01", "1999", "talv@gmail.com", "0505785965");
-var nirJacob = new User("052406521", "nir2511", "Nir Jacob", "25", "11", "1986", "nirj@gmail.com", "0548579658");
-var shalevLevi = new User("332640564", "shalev0204", "shalev Levi", "02", "04", "1978", "shalevl@gmail.com", "0521225436");
-var hilaWasker = new User("058796554", "hila2809", "Hila Wasker", "28", "09", "2000", "hilaw@gmail.com", "0525381648");
-var ethanAzriel = new User("400625435", "ethan1405", "Ethan Azriel", "14", "05", "1997", "ethana@gmail.com", "0505649254");
-var jhonSmith = new User("745820011", "jhon0805", "Jhon Smith", "08", "05", "2000", "jhons@gmail.com", "058-9405856");
+var noaMeillet = new User("209966001", "noa0512", "Noa Meillet", "05/12/2001", "noam@gmail.com", "0525643254");
+var sagivKelly = new User("301154268", "sagiv1908", "Sagiv Kelly", "19/0/2000", "sagivk@gmail.com", "0529531221");
+var talVaknin = new User("209966019", "tal0301", "Tal Vaknin", "03/01/1999", "talv@gmail.com", "0505785965");
+var nirJacob = new User("052406521", "nir2511", "Nir Jacob", "25/11/1986", "nirj@gmail.com", "0548579658");
+var shalevLevi = new User("332640564", "shalev0204", "shalev Levi", "02/04/1978", "shalevl@gmail.com", "0521225436");
+var hilaWasker = new User("058796554", "hila2809", "Hila Wasker", "28/09/2000", "hilaw@gmail.com", "0525381648");
+var ethanAzriel = new User("400625435", "ethan1405", "Ethan Azriel", "14/05/1997", "ethana@gmail.com", "0505649254");
+var jhonSmith = new User("745820011", "jhon0805", "Jhon Smith", "08/05/2000", "jhons@gmail.com", "058-9405856");
 //array for all the users
 var usersList = [
     noaMeillet,

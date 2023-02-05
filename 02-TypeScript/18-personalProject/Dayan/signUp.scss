@@ -1,0 +1,163 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --baseShade1: #54cc85;
+    --baseShade2: #479264;
+    --whiteShade1: #ffffff;
+    --whiteShade2: #f8fafb;
+    --blackShade1: #231c3d;
+    --blackShade2: #575a7b;
+    --blackShade3: #999;
+    --blackShade4: #ccc;
+    --baseFontSize1: 1.6rem;
+    --baseFontSize2: 1.2rem;
+    --headingFontSize1: 4rem;
+    --headingFontSize2: 3.2rem;
+    --headingFontSize3: 2rem;
+    --headingFontSize4: 1.8rem;
+    --borderRadius1: 1rem;
+    --borderRadius2: 0.5rem;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--baseShade1);
+}
+
+.container{
+    max-width: 700px;
+    width: 100%;
+    background-color: var(--whiteShade2);
+    padding: 25px 30px;
+    border-radius: var(--borderRadius2);
+
+    .title{
+        font-size: var(--headingFontSize2);
+        font-weight: 500;
+        position: relative;
+
+        &::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 35px;
+            background: linear-gradient(135deg, var(--baseShade1), var(--blackShade2));
+        }
+    }
+
+    form{
+
+        .user-details{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px 0 12px 0;
+
+            .input-box{
+                margin-bottom: 15px;
+                width: calc(100% / 2 - 20px);
+
+                .details{
+                    display: block;
+                    font-weight: 500;
+                    margin-bottom: 5px;
+                    font-size: var(--baseFontSize1);
+                }
+
+                input{
+                    height: 45px;
+                    width: 100%;
+                    outline: none;
+                    border-radius: var(--borderRadius2);
+                    border: 1px solid var(--blackShade4);
+                    padding-left: 15px;
+                    font-size: var(--baseFontSize1);
+                    border-bottom-width: 2px;
+                    transition: all 0.3s ease;
+
+                    &:focus, &:valid{
+                        border-color: var(--baseShade2) ;
+                    }
+                }
+            }
+        }
+
+        .gender-details{
+
+            .gender-title{
+                font-size: var(--baseFontSize1);
+                font-weight: 500;
+            }
+
+            .category{
+                display: flex;
+                width: 30%;
+                margin: 14px 0;
+                justify-content: space-between;
+
+                label{
+                    display: flex;
+                    align-items: center;
+
+                    .dot{
+                        height: 18px;
+                        width: 18px;
+                        background: var(--blackShade4);
+                        border-radius: 50%;
+                        margin-right: 10px;
+                        border: 5px solid transparent;
+                        transition: all 0.3s ease;
+                    }
+
+                    .gender{
+                        font-size: var(--baseFontSize1);
+                    }
+                }
+            }
+
+            #dot-1:checked ~ .category label .one,
+            #dot-2:checked ~ .category label .two{
+                border-color: var(--blackShade4);
+                background:  var(--baseShade2);
+
+            }
+        }
+
+        input[type="radio"]{
+            display: none;
+        }
+
+        .button{
+            height: 45px;
+            margin: 45px 0;
+
+            input{
+                height: 100%;
+                width: 100%;
+                outline: none;
+                border-radius: var(--borderRadius2);
+                margin: 1rem 0;
+                font-size: var(--baseFontSize1);
+                border: none;
+                background-color: var(--baseShade1);
+                cursor: pointer;
+                color: var(--whiteShade1);
+                transition: all 0.5s ease;
+
+                &:hover{
+                    background-color: var(--baseShade2);
+                }
+            }
+        }
+    }
+}

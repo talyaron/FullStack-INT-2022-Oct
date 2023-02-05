@@ -20,7 +20,7 @@ function goToUserProfile(event): void {
         `${user.userFullName} the password don't match to your ID number... Try again`
       );
     } else {
-      if (!link) throw new Error(`We don't have any element to add your user`);
+      if (!link) throw new Error(`We can't show the user page`);
       userLogin = user;
       link.click();
     }
@@ -42,9 +42,7 @@ function btnAdd() {
       <br />
       <lable>Enter your date of birth:</lable> 
       <br />
-      <select name="day" onload="${addOptionToDayOfBirthElement()}" id="dayOfBirth" required>Day</select>
-      <select name="month" onload="${addOptionToMonthOfBirthElement()}" id="monthOfBirth" required>Month</select>
-      <select name="year" onload="${addOptionToYearOfBirthElement()}" id="yearOfBirth" required>Year</select>
+      <input type="date" name="newUserBirthday" class="input" required/>
       <br />
       <input type="email" name="newUserEmail" class="input" placeholder="Enter your email" required/>
       <br />
@@ -53,7 +51,7 @@ function btnAdd() {
       <input type="submit" value="Sign in" />
   `;
   } catch (error) {
-    console.error(`The form to add users hav a problem`);
+    console.error(`The form to add users have a problem`);
   }
 }
 
@@ -63,9 +61,7 @@ function addUser(event) {
     const newUserId = event.target.elements.newUserId.value;
     const newUserPassword = event.target.elements.newUserPassword.value;
     const newUserFullName = event.target.elements.newUserFullName.value;
-    const newUserDayOfBirth = event.target.elements.day.value;
-    const newUserMonthOfBirth = event.target.elements.month.value;
-    const newUserYearOfBirth = event.target.elements.year.value;
+    const newUserBirthday = event.target.elements.newUserBirthday.value;
     const newUserEmail = event.target.elements.newUserEmail.value;
     const newUserphone = event.target.elements.newUserphone.value;
     usersList.push(
@@ -73,42 +69,45 @@ function addUser(event) {
         newUserId,
         newUserPassword,
         newUserFullName,
-        newUserDayOfBirth,
-        newUserMonthOfBirth,
-        newUserYearOfBirth,
+        newUserBirthday,
         newUserEmail,
         newUserphone
       )
     );
+    if (!addUserDiv)
+      throw new Error(`We don't have any element to add your user`);
+    addUserDiv.innerHTML = `The user has been succesfully created`;
   } catch (error) {
-    console.error(`we didnt succeed to add the new user`);
+    console.error(`We didnt succeed to add the new user`);
   }
 }
 
-function showClubCards() {
+function showClubCards(clubCardsList) {
   try {
-    if (!userLogin) throw new Error(`error loading club cards for user`);
+    if (!userLogin) throw new Error(`No user is log to the system`);
+    if (clubCardsList.length == 0)
+      throw new Error(`There is no club cards registed in the system`);
     const userClubCards = clubCardsList.filter(
       (user) => user.userId == userLogin.userId
     );
     if (!clubCards)
       throw new Error(`We don't have a culb cards div to show you your cards`);
-    userClubCards.forEach(
-      userCard =>
-        (clubCards.innerHTML += `
-          <div class"club_cards_store">
-          <h3>${userCard.store?.storeName}</h3>
-          <h4>Amount of points ${getAmountOfPoints(
-            userCard.store.amountOfPoints,
-            userCard.amountOfPoints
-          )}</h4>
-          <h4>Birthday discount: ${getBirthdayDiscount(
-            userCard.store.bdayDscntDuration,
-            userLogin.dateOfBirth
-          )}
-        </div>
-      `)
-    );
+    if (!userClubCards)
+      clubCards.innerHTML += `There is no club member in any store... \n ${userLogin.userFullName}, it's time to go shopping`;
+    else {
+      clubCards.innerHTML = " ";
+      for (let i = 0; i < userClubCards.length; i++) {
+        clubCards.innerHTML += `<div class="club_cards_store">
+        <h3>Store: ${userClubCards[i].store.storeName}</h3>
+        <h4>Amount of points: ${getAmountOfPoints(
+          userClubCards[i].store.amountOfPoints,
+          userClubCards[i].amountOfPoints
+        )}</h4>
+        <h4>Birthday discount:yes or no</h4>
+      </div>
+    `;
+      }
+    }
   } catch (error) {
     console.error(`error loading club cards for user`);
   }
