@@ -9,7 +9,7 @@ const usersOptionsBtn = document.querySelector('.users-options')! as HTMLElement
 
 // of Login
 if (userLogInFromStorage === "true") {
-    if (!usersOptionsBtn || !usersOptionsBtn1) throw new Error("the Btn element not found")
+    if (!usersOptionsBtn || !usersOptionsBtn1) throw new Error("the button element not found")
     usersOptionsBtn.style.display = "none";
     usersOptionsBtn1.style.display = "flex";
 

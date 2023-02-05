@@ -6,7 +6,7 @@ var usersOptionsBtn = document.querySelector('.users-options');
 // of Login
 if (userLogInFromStorage === "true") {
     if (!usersOptionsBtn || !usersOptionsBtn1)
-        throw new Error("the Btn element not found");
+        throw new Error("the button element not found");
     usersOptionsBtn.style.display = "none";
     usersOptionsBtn1.style.display = "flex";
 }
