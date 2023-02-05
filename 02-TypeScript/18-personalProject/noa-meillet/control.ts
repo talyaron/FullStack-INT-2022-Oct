@@ -82,11 +82,10 @@ function addUser(event) {
   }
 }
 
-function showClubCards() {
+function showClubCards(clubCardsList) {
   try {
-    if (!userLogin) 
-      throw new Error(`No user is log to the system`);
-    if (clubCardsList.length==0)
+    if (!userLogin) throw new Error(`No user is log to the system`);
+    if (clubCardsList.length == 0)
       throw new Error(`There is no club cards registed in the system`);
     const userClubCards = clubCardsList.filter(
       (user) => user.userId == userLogin.userId
@@ -96,10 +95,9 @@ function showClubCards() {
     if (!userClubCards)
       clubCards.innerHTML += `There is no club member in any store... \n ${userLogin.userFullName}, it's time to go shopping`;
     else {
-      clubCards.innerHTML=' ';
-       for(let i=0;i < userClubCards.length;i++){
-        clubCards.innerHTML += `
-        <div class="club_cards_store">
+      clubCards.innerHTML = " ";
+      for (let i = 0; i < userClubCards.length; i++) {
+        clubCards.innerHTML += `<div class="club_cards_store">
         <h3>Store: ${userClubCards[i].store.storeName}</h3>
         <h4>Amount of points: ${getAmountOfPoints(
           userClubCards[i].store.amountOfPoints,
@@ -108,8 +106,7 @@ function showClubCards() {
         <h4>Birthday discount:yes or no</h4>
       </div>
     `;
-       }
-          
+      }
     }
   } catch (error) {
     console.error(`error loading club cards for user`);

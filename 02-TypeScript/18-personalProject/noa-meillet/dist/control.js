@@ -52,7 +52,7 @@ function addUser(event) {
         console.error("We didnt succeed to add the new user");
     }
 }
-function showClubCards() {
+function showClubCards(clubCardsList) {
     try {
         if (!userLogin)
             throw new Error("No user is log to the system");
@@ -64,9 +64,9 @@ function showClubCards() {
         if (!userClubCards)
             clubCards.innerHTML += "There is no club member in any store... \n " + userLogin.userFullName + ", it's time to go shopping";
         else {
-            clubCards.innerHTML = ' ';
+            clubCards.innerHTML = " ";
             for (var i = 0; i < userClubCards.length; i++) {
-                clubCards.innerHTML += "\n        <div class=\"club_cards_store\">\n        <h3>Store: " + userClubCards[i].store.storeName + "</h3>\n        <h4>Amount of points: " + getAmountOfPoints(userClubCards[i].store.amountOfPoints, userClubCards[i].amountOfPoints) + "</h4>\n        <h4>Birthday discount:yes or no</h4>\n      </div>\n    ";
+                clubCards.innerHTML += "<div class=\"club_cards_store\">\n        <h3>Store: " + userClubCards[i].store.storeName + "</h3>\n        <h4>Amount of points: " + getAmountOfPoints(userClubCards[i].store.amountOfPoints, userClubCards[i].amountOfPoints) + "</h4>\n        <h4>Birthday discount:yes or no</h4>\n      </div>\n    ";
             }
         }
     }
