@@ -8,13 +8,14 @@ html {
 }
 
 body {
-  position: absolute;
   width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
   overflow-x: hidden;
+  overflow-y: hidden;
   display: flex;
+  justify-content: space-between;
   background-color: #10171B;
 }
 
@@ -121,21 +122,8 @@ body {
   border: 1px solid white;
 }
 
-.moviesContainer {
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), #10171b), url("../images/movie-theater.jpg");
-  background-size: cover;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  gap: 60px;
-}
-.moviesContainer .navBar {
-  z-index: 1;
-  position: fixed;
-  width: 100vw;
+.navBar {
+  width: 100%;
   height: 60px;
   background-color: #31211F;
   padding: 0;
@@ -144,8 +132,9 @@ body {
   align-items: center;
   justify-content: center;
   gap: 20px;
+  z-index: 1;
 }
-.moviesContainer .navBar__icons {
+.navBar__icons {
   width: 100%;
   width: 1546px;
   height: 60px;
@@ -155,7 +144,7 @@ body {
   justify-content: space-between;
   z-index: 1;
 }
-.moviesContainer .navBar__icons__menu {
+.navBar__icons__menu {
   position: relative;
   display: flex;
   justify-content: center;
@@ -163,7 +152,7 @@ body {
   width: 80px;
   height: 100%;
 }
-.moviesContainer .navBar__icons__menu__container {
+.navBar__icons__menu__container {
   display: none;
   flex-direction: column;
   width: auto;
@@ -177,15 +166,15 @@ body {
   z-index: 1;
   gap: 20px;
 }
-.moviesContainer .navBar__icons__menu:hover .navBar__icons__menu__container {
+.navBar__icons__menu:hover .navBar__icons__menu__container {
   display: flex;
 }
-.moviesContainer .navBar__icons h1 {
+.navBar__icons h1 {
   font-size: 30px;
   color: white;
   margin-left: 20px;
 }
-.moviesContainer .navBar__icons button {
+.navBar__icons button {
   box-shadow: none;
   width: 80px;
   height: 30px;
@@ -204,12 +193,26 @@ body {
   font-weight: 900;
   font-style: normal;
 }
-.moviesContainer .navBar__icons button:hover {
+.navBar__icons button:hover {
   background: #B4AAA1;
   border: 1px solid white;
 }
-.moviesContainer .navBar__icons #addNewMovie {
+.navBar__icons #addNewMovie {
   width: 150px;
+}
+
+.moviesContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), #10171b), url("../images/movie-theater.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 60px;
+  overflow-y: auto;
 }
 .moviesContainer .username {
   margin-top: 100px;
@@ -230,6 +233,7 @@ body {
   font-size: 30px;
 }
 .moviesContainer .main {
+  position: relative;
   width: 100%;
   height: auto;
   display: flex;
@@ -425,6 +429,10 @@ p.text span {
   justify-content: center;
   width: 100%;
 }
+.movieShowcase img {
+  max-width: 500px;
+  max-height: 721px;
+}
 .movieShowcase h1 {
   color: white;
 }
@@ -437,9 +445,9 @@ p.text span {
 .addNewMovieContainer {
   position: absolute;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -448,7 +456,7 @@ p.text span {
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 3;
 }
 .addNewMovieContainer__info {
   display: flex;
@@ -460,7 +468,7 @@ p.text span {
   background-color: #7f594a;
   border-radius: 20px;
   box-shadow: 0px 0px 30px 0px rgba(255, 255, 255, 0.774);
-  z-index: 3;
+  z-index: 4;
 }
 .addNewMovieContainer__info h1 {
   color: white;

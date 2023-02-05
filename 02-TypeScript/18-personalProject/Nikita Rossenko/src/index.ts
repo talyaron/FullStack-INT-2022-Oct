@@ -190,7 +190,23 @@ function addNewMovie(info) {
     const newMovieName = info.target.elements.name.value;
     const newMovieImage = info.target.elements.image.value;
     const newMoviecategory = info.target.elements.category.value;
-    console.log(newMovieName,newMovieImage,newMoviecategory)
+    const moviesString = localStorage.getItem('movies');
+    const moviesSeatsString = localStorage.getItem('moviesSeats');
+
+    if (moviesString && moviesSeatsString){
+        const movies = JSON.parse(moviesString);
+        const moviesSeats = JSON.parse(moviesSeatsString);
+        const id = movies.length+1;
+        const movie = new Movie(newMovieName, id, newMovieImage,"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae dicta at officia facilis eligendi maiores, aperiam expedita nemo cumque, sequi explicabo. Quaerat nisi porro pariatur vitae, earum facilis obcaecati minus?",newMoviecategory);
+        const newMovieSeats = new MovieSeats(id,48);
+        movies.push(movie);
+        moviesSeats.push(newMovieSeats);
+        localStorage.setItem('movies',JSON.stringify(movies));
+        localStorage.setItem('moviesSeats',JSON.stringify(moviesSeats));
+
+        renderMovies();
+        location.href='index.html'
+    }
 }
 isAdmin();
 renderMovies();

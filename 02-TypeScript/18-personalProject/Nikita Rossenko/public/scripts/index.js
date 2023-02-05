@@ -165,7 +165,21 @@ function addNewMovie(info) {
     var newMovieName = info.target.elements.name.value;
     var newMovieImage = info.target.elements.image.value;
     var newMoviecategory = info.target.elements.category.value;
-    console.log(newMovieName, newMovieImage, newMoviecategory);
+    var moviesString = localStorage.getItem('movies');
+    var moviesSeatsString = localStorage.getItem('moviesSeats');
+    if (moviesString && moviesSeatsString) {
+        var movies = JSON.parse(moviesString);
+        var moviesSeats = JSON.parse(moviesSeatsString);
+        var id = movies.length + 1;
+        var movie = new Movie(newMovieName, id, newMovieImage, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae dicta at officia facilis eligendi maiores, aperiam expedita nemo cumque, sequi explicabo. Quaerat nisi porro pariatur vitae, earum facilis obcaecati minus?", newMoviecategory);
+        var newMovieSeats = new MovieSeats(id, 48);
+        movies.push(movie);
+        moviesSeats.push(newMovieSeats);
+        localStorage.setItem('movies', JSON.stringify(movies));
+        localStorage.setItem('moviesSeats', JSON.stringify(moviesSeats));
+        renderMovies();
+        location.href = 'index.html';
+    }
 }
 isAdmin();
 renderMovies();
