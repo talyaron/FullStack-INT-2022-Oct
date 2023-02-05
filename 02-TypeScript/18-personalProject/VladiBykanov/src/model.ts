@@ -65,8 +65,22 @@ class Pacman {
     squares[this.currentIndex].append(eye);
     squares[this.currentIndex].append(mouth);
   }
+  update(direction: number) {
+    squares[pacman.currentIndex].classList.remove("pacman");
+    clearInterval(glide);
+    squares[pacman.currentIndex].removeAttribute("style");
+    pacman.currentIndex += direction;
+    if (direction == 21) {
+      squares[pacman.currentIndex].style.transform = "rotate(90deg)";
+    } else if (direction == -21) {
+      squares[pacman.currentIndex].style.transform = "rotate(-90deg)";
+    } else {
+      squares[pacman.currentIndex].style.transform = `scaleX(${direction})`;
+    }
+    glide = setInterval(movePacman, pacman.velocity, direction);
+    this.draw()
+  }
 }
-
 
 class Ghost {
   public currentIndex: number;
@@ -122,6 +136,5 @@ const chosenMap = localStorage.getItem("userChoice");
 const palletsMapOne = 144;
 const palletsMapTwo = 161;
 let palletsThisGame: number;
-
 
 let gameOver: boolean;

@@ -58,6 +58,23 @@ var Pacman = /** @class */ (function () {
         squares[this.currentIndex].append(eye);
         squares[this.currentIndex].append(mouth);
     };
+    Pacman.prototype.update = function (direction) {
+        squares[pacman.currentIndex].classList.remove("pacman");
+        clearInterval(glide);
+        squares[pacman.currentIndex].removeAttribute("style");
+        pacman.currentIndex += direction;
+        if (direction == 21) {
+            squares[pacman.currentIndex].style.transform = "rotate(90deg)";
+        }
+        else if (direction == -21) {
+            squares[pacman.currentIndex].style.transform = "rotate(-90deg)";
+        }
+        else {
+            squares[pacman.currentIndex].style.transform = "scaleX(" + direction + ")";
+        }
+        glide = setInterval(movePacman, pacman.velocity, direction);
+        this.draw();
+    };
     return Pacman;
 }());
 var Ghost = /** @class */ (function () {

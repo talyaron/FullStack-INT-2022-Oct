@@ -6,16 +6,16 @@ window.addEventListener("keydown", function (e) {
         return;
     switch (e.key) {
         case "ArrowLeft":
-            movePacman("left");
+            movePacman(directions.moveLeft);
             break;
         case "ArrowRight":
-            movePacman("right");
+            movePacman(directions.moveRight);
             break;
         case "ArrowUp":
-            movePacman("up");
+            movePacman(directions.moveUp);
             break;
         case "ArrowDown":
-            movePacman("down");
+            movePacman(directions.movdeDown);
             break;
     }
 });

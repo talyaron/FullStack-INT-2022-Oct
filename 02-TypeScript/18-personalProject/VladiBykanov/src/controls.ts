@@ -50,17 +50,12 @@ function creatMaze(map: number[]) {
   });
 }
 
-function movePacman(direction: string) {
+function movePacman(direction: number) {
   if (gameOver) return;
-  squares[pacman.currentIndex].classList.remove("pacman");
   switch (direction) {
-    case "left":
+    case directions.moveLeft:
       if (checkForWall(pacman.currentIndex, directions.moveLeft)) {
-        clearInterval(glide);
-        squares[pacman.currentIndex].removeAttribute("style");
-        pacman.currentIndex += directions.moveLeft;
-        squares[pacman.currentIndex].style.transform = "scaleX(-1)";
-        glide = setInterval(movePacman, pacman.velocity, "left");
+        pacman.update(direction);
       } else if (pacman.currentIndex == 210) {
         squares[pacman.currentIndex].removeAttribute("style");
         pacman.currentIndex = 230;
@@ -68,13 +63,9 @@ function movePacman(direction: string) {
       }
       break;
 
-    case "right":
+    case directions.moveRight:
       if (checkForWall(pacman.currentIndex, directions.moveRight)) {
-        clearInterval(glide);
-        squares[pacman.currentIndex].removeAttribute("style");
-        pacman.currentIndex += directions.moveRight;
-        squares[pacman.currentIndex].style.transform = "scaleX(1)";
-        glide = setInterval(movePacman, pacman.velocity, "right");
+        pacman.update(direction);
       } else if (pacman.currentIndex == 230) {
         squares[pacman.currentIndex].removeAttribute("style");
         pacman.currentIndex = 210;
@@ -82,32 +73,18 @@ function movePacman(direction: string) {
       }
       break;
 
-    case "up":
+    case directions.moveUp:
       if (checkForWall(pacman.currentIndex, directions.moveUp)) {
-        clearInterval(glide);
-        squares[pacman.currentIndex].removeAttribute("style");
-        pacman.currentIndex += directions.moveUp;
-        squares[pacman.currentIndex].style.transform = "rotate(-90deg)";
-        glide = setInterval(movePacman, pacman.velocity, "up");
+        pacman.update(direction);
       }
       break;
 
-    case "down":
-      if (
-        checkForWall(pacman.currentIndex, directions.movdeDown) &&
-        !squares[pacman.currentIndex + directions.movdeDown].classList.contains(
-          "lair"
-        )
-      ) {
-        clearInterval(glide);
-        squares[pacman.currentIndex].removeAttribute("style");
-        pacman.currentIndex += directions.movdeDown;
-        squares[pacman.currentIndex].style.transform = "rotate(90deg)";
-        glide = setInterval(movePacman, pacman.velocity, "down");
+    case directions.movdeDown:
+      if (checkForWall(pacman.currentIndex, directions.movdeDown)) {
+        pacman.update(direction);
       }
       break;
   }
-  pacman.draw();
 }
 
 //move ghost function
@@ -129,7 +106,9 @@ function moveGhost(ghost: Ghost) {
       );
       ghost.currentIndex += direction;
       ghost.draw();
-      if (squares[ghost.currentIndex - direction].classList.contains("cherry")) {
+      if (
+        squares[ghost.currentIndex - direction].classList.contains("cherry")
+      ) {
         drawCherryOnIndex(ghost.currentIndex - direction);
       }
     }
