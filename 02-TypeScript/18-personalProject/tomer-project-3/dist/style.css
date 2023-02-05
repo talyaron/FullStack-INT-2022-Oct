@@ -103,7 +103,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 400px;
+  width: 250px;
+  gap: 30px;
   height: 100%;
   margin: 0 auto;
   padding: 20px;
@@ -215,4 +216,7 @@ body {
     font-size: 24px;
     min-width: 196px;
   }
+}
+.addReview {
+  padding-top: 1rem;
 }
