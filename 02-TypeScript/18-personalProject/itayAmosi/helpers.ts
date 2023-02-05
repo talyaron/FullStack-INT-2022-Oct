@@ -5,3 +5,5 @@ window.addEventListener('mousemove', (e) =>{
     crusor.style.left = e.pageX + 'px';
 
 });
+
+
