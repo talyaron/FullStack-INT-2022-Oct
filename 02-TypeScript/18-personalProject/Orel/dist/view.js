@@ -1,6 +1,7 @@
 function changeProfileUserName() {
     var nameProfile = document.querySelector('.user-box-profile h5');
-    nameProfile.textContent = users[Number(localStorage.getItem("userIndex"))].username;
+    console.log(nameProfile);
+    nameProfile.innerText = users[getUserIndexFromLocalStorage()].username;
 }
 function renderPhotoCard(cards, containerClass, albumName) {
     var mainContainer = document.querySelector("." + containerClass);
@@ -9,9 +10,9 @@ function renderPhotoCard(cards, containerClass, albumName) {
         throw new Error('the Element not found');
     var AllCards = "";
     cards.forEach(function (photo) {
-        AllCards += NewPhotoCard(photo.photoName, photo.date.toString(), photo.src);
+        AllCards += newPhotoCard(photo.photoName, photo.date.toString(), photo.src, photo.like);
     });
-    mainContainer.innerHTML += AllCards;
+    mainContainer.innerHTML = AllCards;
     return AllCards;
 }
 function renderLists() {
@@ -25,7 +26,7 @@ function renderLists() {
             var tamp = "\n        <button onclick=\"handleClickLists(event)\"   class=\"playlistBTN " + album.name + "\">\n        " + album.name + "\n        </button>";
             html_1 += tamp;
         });
-        containerPlaylist.innerHTML += html_1;
+        containerPlaylist.innerHTML = html_1;
         return html_1;
     }
     catch (error) {
@@ -34,25 +35,23 @@ function renderLists() {
     }
 }
 function createNewList(nameList, titleList, classNameContainer) {
-    var sectionsHome = document.querySelector("." + classNameContainer);
-    var patten = "\n    <div id=\"" + nameList + "\" class=\"list\" class=\"" + nameList + "\">\n    <h4>" + titleList + "</h4>\n    <div class=\"recommended-list " + nameList + "\">\n    </div>\n</div>\n    ";
-    sectionsHome.innerHTML += patten;
     albums.push(new Albums(nameList, []));
+    updatePhotosToLocalStorage();
+    return renderNewList(nameList, titleList, classNameContainer);
+}
+function renderNewList(nameList, titleList, classNameContainer) {
+    var sectionsHome = document.querySelector("." + classNameContainer);
+    var patten = "\n    <div id=\"" + nameList + "\" class=\"list\" class=\"" + nameList + "\">\n    <h4>" + titleList + "</h4>\n    <div class=\"recommended-list " + nameList + "-photos\">\n    </div>\n</div>\n    ";
+    sectionsHome.innerHTML += patten;
     return patten;
 }
-function NewPhotoCard(namePhoto, date, src, albumName) {
+function newPhotoCard(namePhoto, date, src, isLike) {
     try {
-        var index = Number(localStorage.getItem("userIndex"));
-        var patten = "\n    <div class=\"photo-card\">\n    <img src=\"" + src + "\" alt=\"\">\n    <h3>" + namePhoto + "</h3>\n    <p>" + users[index].username + "</p>\n    <small>" + date + "</small>\n    <button onclick=\"handleClickAddToLike(event)\" style=\"color:black; class=\"collapse-play\">\n    \u2665\n</button>\n</div>\n    ";
+        var index = getUserIndexFromLocalStorage();
+        var patten = "\n    <div class=\"photo-card\">\n    <img src=\"" + src + "\" alt=\"\">\n    <h3>" + namePhoto + "</h3>\n    <p>" + users[index].username + "</p>\n    <small>" + date + "</small>\n    <button onclick=\"handleClickAddToLike(event)\" style=\"color:" + (isLike ? "red" : "black") + "; class=\"collapse-play\">\n    \u2665\n</button>\n</div>\n    ";
         // const findIndex  = albums.findIndex(album => album.name === albumName)
         // const photoArr = albums[findIndex].photos
         // photoArr.push(new Photos(namePhoto,date, src))
-        albums.forEach(function (album) {
-            var _a;
-            if (album.name === albumName) {
-                (_a = album.photos) === null || _a === void 0 ? void 0 : _a.push(new Photos("" + namePhoto, "" + date, "" + src));
-            }
-        });
         return patten;
     }
     catch (error) {
