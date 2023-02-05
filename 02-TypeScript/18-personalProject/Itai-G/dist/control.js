@@ -67,7 +67,7 @@ function increseScore(ball, paddle1, paddle2) {
             if (player2Score) {
                 player2Score.innerHTML = paddle2.score.toString();
                 resetBall(ball);
-                if (paddle2.score == 10 && bigAd) {
+                if (paddle2.score == 10) {
                     setTimeout(function () {
                         bigAd.style.display = "block";
                     }, 500);
@@ -80,7 +80,7 @@ function increseScore(ball, paddle1, paddle2) {
             if (player1Score) {
                 player1Score.innerHTML = paddle1.score.toString();
                 resetBall(ball);
-                if (paddle1.score == 10 && bigAd) {
+                if (paddle1.score == 10) {
                     setTimeout(function () {
                         bigAd.style.display = "block";
                     }, 500);
