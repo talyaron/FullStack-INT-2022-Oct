@@ -2,11 +2,21 @@ class User {
     username: string;
     password: string;
     movies:Array<object>;
+    isAdmin:boolean;
 
     constructor(username, password) {
         this.username = username;
         this.password = password;
         this.movies = []
+        this.isAdmin = this.isNikita(username)
+    }
+
+    isNikita(username){
+        if (username.toLowerCase() == 'nikita'){
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 
@@ -15,12 +25,14 @@ class Movie {
     id: number;
     image: string;
     description: string;
+    category:string;
 
-    constructor(name, id, image, description) {
+    constructor(name, id, image, description,category) {
         this.name = name;
         this.id = id;
         this.image = image;
         this.description = description;
+        this.category = category;
     }
 }
 
