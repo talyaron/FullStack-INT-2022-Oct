@@ -98,19 +98,7 @@ function moveGhost(ghost: Ghost) {
       checkForWall(ghost.currentIndex, direction) &&
       !squares[ghost.currentIndex + direction].classList.contains("ghost")
     ) {
-      squares[ghost.currentIndex].innerHTML = "";
-      squares[ghost.currentIndex].classList.remove(
-        ghost.className,
-        "ghost",
-        "scaredGhost"
-      );
-      ghost.currentIndex += direction;
-      ghost.draw();
-      if (
-        squares[ghost.currentIndex - direction].classList.contains("cherry")
-      ) {
-        drawCherryOnIndex(ghost.currentIndex - direction);
-      }
+      ghost.update(direction)
     }
     //else => find another direction
     else {

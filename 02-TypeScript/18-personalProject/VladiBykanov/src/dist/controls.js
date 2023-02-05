@@ -89,13 +89,7 @@ function moveGhost(ghost) {
         // if the square in the direction the ghost is going not containing another ghost or a wall => then he can move here
         if (checkForWall(ghost.currentIndex, direction) &&
             !squares[ghost.currentIndex + direction].classList.contains("ghost")) {
-            squares[ghost.currentIndex].innerHTML = "";
-            squares[ghost.currentIndex].classList.remove(ghost.className, "ghost", "scaredGhost");
-            ghost.currentIndex += direction;
-            ghost.draw();
-            if (squares[ghost.currentIndex - direction].classList.contains("cherry")) {
-                drawCherryOnIndex(ghost.currentIndex - direction);
-            }
+            ghost.update(direction);
         }
         //else => find another direction
         else {
