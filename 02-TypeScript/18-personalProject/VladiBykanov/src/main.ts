@@ -7,18 +7,18 @@ window.addEventListener("keydown", (e) => {
   if (e.repeat) return;
   switch (e.key) {
     case "ArrowLeft":
-      movePacman("left");
+      pacman.move(directions.moveLeft);
       break;
 
     case "ArrowRight":
-      movePacman("right");
+      pacman.move(directions.moveRight);
       break;
 
     case "ArrowUp":
-      movePacman("up");
+      pacman.move(directions.moveUp);
       break;
     case "ArrowDown":
-      movePacman("down");
+      pacman.move(directions.movdeDown);
       break;
   }
 });

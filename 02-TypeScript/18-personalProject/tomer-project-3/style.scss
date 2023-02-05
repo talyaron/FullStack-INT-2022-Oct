@@ -45,3 +45,81 @@ body{
         }
 
 }
+
+#itemsRoot{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #24bed6;
+    border-radius: 10px;
+  
+    .item {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 20px;
+      border-bottom: 1px solid rgb(0, 0, 0);
+      background-color: rgb(249, 138, 138);
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+  
+  
+      .item-details {
+        display: flex;
+        flex-direction: column;
+  
+        .item-title {
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+  
+        .item-description {
+          font-size: 14px;
+          
+          color: rgb(48, 4, 4);
+        }
+      }
+    }
+  }
+  
+
+.review-form {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+  
+    .form-group {
+      margin: 20px 0;
+  
+      label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+  
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
+    }
+  
+    button[type="submit"] {
+      width: 150px;
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  }
