@@ -52,25 +52,31 @@ h3 {
 }
 
 h4 {
-	color: var(--grey);
+	color: var(--dark);
 	font-size: 0.875rem;
 	font-weight: 700;
 	margin-bottom: 0.5rem;
 }
 
+
+
 .greeting .title {
 	display: flex;
+	margin-left: 40%;
 }
 
 .greeting .title input {
 	margin-left: 0.5rem;
 	flex: 1 1 0%;
 	min-width: 0;
+	color: var(--business);
+	font-size: 1.5rem;
+	font-weight: 700;
+	
 }
 
-.greeting .title, 
-.greeting .title input {
-	color: var(--dark);
+.greeting .title{
+	color: var(--primary);
 	font-size: 1.5rem;
 	font-weight: 700;
 }
@@ -237,13 +243,15 @@ input:checked ~ .bubble::after {
 }
 
 a {
+
     text-decoration: none;
     color: #ddd;
     font-size: 19px;
     background-color: var(--primary);
 	padding: 10px;
+	margin: 20px;
     display: flex;
-	margin-left: 10px;
+	/* margin-left: 1700px; */
 	justify-content: center;
 	width: 100px;
     box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
