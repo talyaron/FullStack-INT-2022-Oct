@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Solitreo&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +13,7 @@ body {
     position: relative;
     overflow-x: hidden;
     background-color: #F8F4EA;
+    font-family: 'Quicksand', sans-serif;
 
     i {
         cursor: pointer;
@@ -26,6 +28,7 @@ body {
         border-radius: 5px;
         border: 2px solid #E1D7C6;
         transition: all ease .3s;
+        font-family: 'Quicksand', sans-serif;
     }
 
     button:hover,
@@ -76,13 +79,14 @@ form>* {
     &__card {
         position: relative;
         width: 250px;
-        height: 275px;
+        height: 280px;
         padding: 20px;
         border-radius: 5px;
         border: none;
         box-shadow: 0 0 2px 0px rgb(85, 84, 84);
         margin: 0 5px 20px 5px;
         background-color: white;
+        padding-bottom: 5px;
 
         &__imgDiv {
             display: grid;
@@ -108,10 +112,10 @@ form>* {
     background-color: #ECE8DD;
     width: 138px;
     position: absolute;
-    left: -30%;
+    left: -50%;
     top: 50px;
     height: 100vh;
-    transition: all ease 0.5s;
+    transition: all ease 0.3s;
     z-index: 100;
 }
 
@@ -130,6 +134,7 @@ form>* {
 
     h2 {
         color: #579BB1;
+        font-family: 'Solitreo', cursive;
     }
 
     &__cart {
@@ -153,8 +158,10 @@ form>* {
             height: 15px;
             border-radius: 50%;
             border: none;
-            background-color: red;
+            background-color: #579BB1;
             color: white;
+            font-weight: bolder;
+            font-size: 12px;
         }
     }
 

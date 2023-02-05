@@ -1,39 +1,38 @@
 class User {
-  constructor(public name: string) {}
+  constructor(public name: string, public age:string, public email:string) {}
 }
 
-class Bugs {
-  constructor(public name: string, public positionX, public positionY, public display = 'flex') {
-    // this.positionX = positionX
-    // this.positionY = positionY
-
+class Animal {
+  public positionX = randomX()
+  public positionY = randomY()
+  constructor(public name: string, public imageUrl: string, public display = 'flex') {
   }
   draw() {
-    const mosquito = document.createElement("img");
-    container.appendChild(mosquito);
-    mosquito.setAttribute("class", "mosquito");
-    mosquito.setAttribute(
-      "src",
-      "https://www.pngarts.com/files/4/Mosquito-Transparent-Background-PNG.png"
-    );
-    mosquito.style.position = "absolute";
-    mosquito.style.top = `${this.positionY}px`;
-    mosquito.style.left = `${this.positionX}px`;
-    mosquito.style.display = this.display;
+    const animal = document.createElement("img");
+    container.appendChild(animal);
+    animal.setAttribute("class", this.name);
+    animal.setAttribute(
+      "src", this.imageUrl);
+      // "https://www.pngarts.com/files/4/Mosquito-Transparent-Background-PNG.png"
+      animal.style.position = "absolute";
+      animal.style.top = `${this.positionY}px`;
+      animal.style.left = `${this.positionX}px`;
+      animal.style.display = this.display;
   }
   update(){
     this.draw();
-    this.positionX = `${rndomX()}`
-    this.positionY = `${rndomY()}`
+    this.positionX = randomX()
+    this.positionY = randomY()
   }
 }
-const rndomY = () => Math.random() * (contHeight - 100);
-const rndomX = () => Math.random() * (contWidth - 100);
+const randomY = () => Math.random() * (contHeight - 100);
+const randomX = () => Math.random() * (contWidth - 100);
 
 
-const mosquito = new Bugs("Vladi", rndomX(), rndomY());
+const mosquito = new Animal("mosquito", "https://www.pngarts.com/files/4/Mosquito-Transparent-Background-PNG.png");
+const bee = new Animal("bee", "https://www.freepnglogos.com/uploads/bee-png/bee-the-economic-value-pollination-modern-agriculture-8.png");
 // const vsfgb = new Bugs("drfg");
-mosquito.draw();
+// mosquito.draw();
 
 setTimeout (()=> console.log(mosquito.positionX, mosquito.positionY), 500 )
 // vsfgb.draw();
