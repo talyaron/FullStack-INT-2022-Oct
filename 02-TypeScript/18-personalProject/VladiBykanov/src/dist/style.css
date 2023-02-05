@@ -211,7 +211,6 @@ body {
   border-radius: 50%;
   background-color: darkorange;
   position: relative;
-  transform: scaleY(1);
 }
 .maze .pacman .eye {
   position: absolute;

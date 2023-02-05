@@ -233,8 +233,9 @@ var User = /** @class */ (function () {
     return User;
 }());
 var usersList = [
-    new User('vladb89', 'vladislav1989', 984),
-    new User('cruseder123', '12345678', 345),
-    new User('johnny123', '87654321', 254),
+    new User("vladb89", "vladislav1989", 984),
+    new User("cruseder123", "12345678", 345),
+    new User("johnny123", "87654321", 254),
 ];
-localStorage.setItem('users', JSON.stringify(usersList));
+if (!localStorage.getItem("users"))
+    localStorage.setItem("users", JSON.stringify(usersList));

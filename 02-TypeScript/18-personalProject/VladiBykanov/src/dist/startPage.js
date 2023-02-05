@@ -1,5 +1,5 @@
 var imgElements = document.querySelectorAll("img");
-window.onload = function () { return resetLocalStorage(); };
+window.onload = function () { return removeUserChoiceFromLocalStorage(); };
 window.addEventListener("click", function (e) {
     var target = e.target;
     if (target.nodeName == "IMG") {
@@ -13,6 +13,6 @@ window.addEventListener("click", function (e) {
         window.location.href = "index.html";
     }
 });
-function resetLocalStorage() {
+function removeUserChoiceFromLocalStorage() {
     localStorage.removeItem("userChoice");
 }

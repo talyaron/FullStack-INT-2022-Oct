@@ -2,7 +2,7 @@ const imgElements = document.querySelectorAll(
   "img"
 ) as NodeListOf<HTMLImageElement>;
 
-window.onload = () => resetLocalStorage()
+window.onload = () => removeUserChoiceFromLocalStorage()
 
 window.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
@@ -20,6 +20,6 @@ window.addEventListener("click", (e) => {
   }
 });
 
-function resetLocalStorage() {
+function removeUserChoiceFromLocalStorage() {
   localStorage.removeItem("userChoice");
 }
