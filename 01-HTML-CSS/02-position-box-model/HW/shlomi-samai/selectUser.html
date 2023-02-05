@@ -13,6 +13,13 @@
 </head>
 <body>
     <button onclick="renderusers(event)">start</button>
+    
+    <form class="form" onsubmit="handleaddUser(event)"> 
+        <input type="text" name="name" placeholder="enter mom/dad/son">
+        <input type="url" name="PictureURL" placeholder="PictureURL">
+        <input type="submit" value="ADD">
+    </form>
+    
     <div id="listofUsers"></div>
 
 </body>
