@@ -17,7 +17,7 @@ body{
         }
 
         &__videoName{
-            height: 100px;
+            height:50px;
             width: 790px;
             background-color: white;
             font-weight:bolder;
@@ -27,7 +27,7 @@ body{
         }
 
         &__videoViews{
-            height: 50px;
+            height: 30px;
             width: 790px;
             background-color: white;
             font-weight:bolder;
@@ -40,7 +40,7 @@ body{
         &__videoLikes{
             height: 50px;
             width: 790px;
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.993);
             font-weight:bolder;
             font-size:large;
             padding-top: 10px;
@@ -48,44 +48,47 @@ body{
             
         }
 
-        &__videoReviews{
+        &__reviewsDetails{
             height: 100px;
-            width: 790px;
-            background-color: white;
-            font-size:large;
-            padding-top: 10px;
-            padding-left: 10px;
-           
-        }
-
-        &__userNameReviews{
-            height: 50px;
             width: 800px;
-            color: black;
-            background-color: white;
-            font-size:large;
-            padding-top: 10px;
-            padding-left: 10px;
+            background-color: rgba(255, 255, 255, 0.967);
+            display: flex;
+            
 
-        }
+            &__userImgReviews{
+                height: 50px;
+                width: 790px;
+                // background-color: rgb(255, 255, 255);
+                padding-left: 10px;
+    
+                img{
+                    height: 50px;
+                    width: 80px;
+                    border-radius: 50%;
+                }
+    
+            }
 
-        &__userImgReviews{
-            height: 50px;
-            width: 790px;
-            color: rgb(37, 20, 184);
-            background-color: white;
-            font-size:large;
-            padding-top: 10px;
-            padding-left: 10px;
+            &__userNameReviews{
+                height: 20px;
+                width: 790px;
+                color: rgb(13, 69, 36);
+                font-size:x-large;
+                font-weight: bold;
+                padding-top: 10px;
+                
+            }
 
-            img{
-                height: 40px;
-                width: 60px;
-                border-radius: 50%;
+            &__videoReviews{
+                height: 20px;
+                width: 790px;
+                font-size:x-large;
+                padding-top: 10px;
+                padding-left: 10px;
+                font-style:italic;
             }
 
         }
-
 
     }
 }

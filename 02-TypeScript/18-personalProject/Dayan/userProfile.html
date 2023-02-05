@@ -11,8 +11,10 @@
     <!--stylesheet-->
     <link href="./public/dist/style.css" rel="stylesheet">
 
+    <link href="./public/dist/userProfile.css" rel="stylesheet">
+
     <!--media Queries-->
-    <link href="./public/dist/queries.css" rel="stylesheet">
+    <link rel="stylesheet" href="./public/dist/queries-userProfile.css">
 
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Poppins:wght@400;700&family=Raleway&display=swap" 
@@ -28,32 +30,34 @@
         <i class="fas fa-bars" id="ham-menu"></i>
         <ul id="nav-bar">
             <li>
-                <a href="./index.html">Home</a>
-            </li>
-            <li>
-                <a href="#class">Class</a>
-            </li>
-            <li>
-                <a href="#gallery">Gallery</a>
-            </li>
-            <li>
-                <a href="#library">Library</a>
+                <a href="./index.html">Back To Home</a>
             </li>
         </ul>
     </nav>
 
-    <!--Section: Class-->
-    <section class="class" id="class"></section>
+    <!--Section: Video Library-->
+    <section>
+        <h2 class="title"></h2>
+        <div class="container">
+            <div id="video_player">
+                <video controls id="main-Video" src=""></video>
+            </div>
+            <div class="playlistBx">
+                <div class="header">
+                    <div class="row">
+                        <span class="AllLessons"></span>
+                    </div>
+                </div>
+                <ul class="playlist" id="playlist"></ul>
+            </div>
+        </div>
+    </section>
 
-    <!--Section: Gallery-->
-    <section class="gallery" id="gallery"></section>
-
-    <!--Section: Library-->
-    <section class="library" id="library"></section>
-
+    <!--Model-->
+    <script src="./public/dist/model.js"></script>
 
     <!--Script-->
-    <script src="./public/dist/script.js"></script>
-    
+    <script src="./public/dist/userProfile.js"></script>
+
 </body>
 </html>

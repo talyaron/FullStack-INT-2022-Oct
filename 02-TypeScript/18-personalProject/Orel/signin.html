@@ -25,7 +25,7 @@
     <title>Document</title>
 </head>
 
-<body onbeforeunload="dataFromStorage() , dataFromStorage1()">
+<body onbeforeunload="dataFromStorage()">
     <section class="register-section">
         <div class="icon">
             <a href="./index.html">
@@ -45,7 +45,7 @@
 
                 <div class="email">
                     <label for="email">What's your email?</label>
-                    <input type="text" name="email" id="email" placeholder="What's your email?">
+                    <input type="email" name="email" id="email" placeholder="What's your email?" >
                     <p>
                         <i class="fa-solid fa-triangle-exclamation"></i>
                         <span id="errorMsgEmailInput"></span>
@@ -54,7 +54,7 @@
 
                 <div class="password">
                     <label for="password">Create a password</label>
-                    <input type="text" name="password" id="password" placeholder="Create a password">
+                    <input type="password" name="password" id="password" placeholder="Create a password">
                     <p class="">
                         <i class="fa-solid fa-triangle-exclamation"></i>
                         <span id="errorMsgPasswordInput">Please enter your password.</span>
@@ -63,7 +63,7 @@
 
                 <div class="username">
                     <label for="username">What should we call you?</label>
-                    <input type="text" name="pas" id="username" placeholder="Enter a profile name.">
+                    <input type="text" name="pas" id="username" placeholder="Enter a profile name." required>
                     <p>
                         <i class="fa-solid fa-triangle-exclamation"></i>
                         <span id="errorMsgPasswordInput">Please enter your password.</span>

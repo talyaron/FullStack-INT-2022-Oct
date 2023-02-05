@@ -86,10 +86,12 @@ function renderVideoHtml(video: Video): string {
     html += video.reviews
       .map((review) => {
         return `
-        <div class="videoWrapper__videoReviews">${review.review}</div>
-        <div class="videoWrapper__userNameReviews">${review.user.name}</div>
-        <div class="videoWrapper__userImgReviews">
+        <div class="videoWrapper__reviewsDetails">
+        <div class="videoWrapper__reviewsDetails__userImgReviews">
         <img src=${review.user.img} alt=""></div>
+        <div class="videoWrapper__reviewsDetails__userNameReviews">${review.user.name}</div>
+        <div class="videoWrapper__reviewsDetails__videoReviews">${review.review}</div>
+        </div> 
       `;
       })
       .join(" ");
