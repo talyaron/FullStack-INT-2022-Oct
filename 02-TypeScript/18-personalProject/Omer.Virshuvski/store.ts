@@ -1,7 +1,16 @@
-document.body.addEventListener('change', () => {
-    render(".card")
-});
-document.body.addEventListener('load', () => {
-    render(".card")
-});
-renderStore(".card")
+renderStore(".main", getItems())
+window.addEventListener('load', () => {
+    try {
+        const temp = getItemsInCart()
+        if (temp != null) {
+            if(temp.length != 0) {
+                itemsInCart.innerHTML = temp.length.toString();
+            } else {
+                itemsInCart.classList.add("hide")
+            }
+        } 
+    } catch (error) {
+        console.error(error);
+
+    }
+})

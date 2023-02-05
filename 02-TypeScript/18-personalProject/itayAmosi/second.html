@@ -5,37 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>A Bugs Life - Game</title>
     <script src="./dist/second.js" defer></script>
     <script src="./dist/view.js" defer></script>
     <script src="./dist/model.js" defer></script>
-    <script src="./dist/index.js" defer></script>
     <script src="./dist/helpers.js" defer></script>
     <script src="./dist/control.js" defer></script>
     <script src="./dist/main.js" defer></script>
     <link rel="stylesheet" href="./dist/second-style.css">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
 </head>
 
 <body>
     <div class="container">
         <img src="./images/blood-spot.png" alt="blood-spot" class="bloodSpot">
-        <!-- <img src="./images/crosshair.png" alt="crosshair" class="crosshair"> -->
-        <button type="button">START GAME</button>
-        <div onclick="handleDisplayImage(event)" id="target" class="target">
-            <div class="target__white-outer hit">1</div>
-            <div class="target__black-outer hit">3</div>
-            <div class="target__white-inner hit">2</div>
-            <div class="target__black-inner hit">4</div>
-            <div class="target__blue-outer hit">5</div>
-            <div class="target__blue-inner hit">6</div>
-            <div class="target__red-outer hit">7</div>
-            <div class="target__red-inner hit">8</div>
-            <div class="target__gold-outer hit">9</div>
-            <div class="target__gold-inner hit">
-                <div class="target__gold-inner__cross hit">X</div>
-            </div>
-        </div>
+        <!-- <img src="./images/crosshair.png" alt="crosshair" class="cursor"> -->
+        <img src="https://cdn-icons-png.flaticon.com/512/18/18554.png" alt="crosshair" class="cursor">
+        <button type="button" class="startBtn">START GAME</button>
+        <button type="button" class="timer">TIME</button>
+        <button type="button" class="endBtn"><a href="./index.html">END GAME</a></button>
+        <button type="button" class="scoreboard"><a href="./scoreboard.html">Scoreboard</a></button>
     </div>
+
 </body>
 
 </html>

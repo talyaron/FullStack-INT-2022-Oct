@@ -46,7 +46,7 @@ class ClubCards {
   constructor(
     public userId: string,
     public store: Store,
-    public amountOfPoints?: number
+    public amountOfPoints: number
   ) {}
 }
 
@@ -56,19 +56,19 @@ const noaDreamCard = new ClubCards("209966001", dreamCard, 201.5);
 const noatheNorthFace = new ClubCards("209966001", theNorthFace, 70.8);
 const sagivDreamCard = new ClubCards("301154268", dreamCard, 0);
 const sagivNike = new ClubCards("301154268", nike, 40.2);
-const sagivZometSefarim = new ClubCards("301154268", zometSefarim);
-const sagivZara = new ClubCards("301154268", zara);
+const sagivZometSefarim = new ClubCards("301154268", zometSefarim, 0);
+const sagivZara = new ClubCards("301154268", zara, 0);
 const talCastro = new ClubCards("209966019", castro, 57);
-const talAdidas = new ClubCards("209966019", adidas);
+const talAdidas = new ClubCards("209966019", adidas, 0);
 const nirColombia = new ClubCards("052406521", colombia, 32.3);
 const nirRenuar = new ClubCards("052406521", renuar, 6.17);
-const shalevZara = new ClubCards("332640564", zara);
+const shalevZara = new ClubCards("332640564", zara, 0);
 const hilaGolf = new ClubCards("058796554", golf, 41.2);
 const hilaDreamCard = new ClubCards("058796554", dreamCard, 94.7);
-const hilaHamashbir = new ClubCards("058796554", hamashbir);
+const hilaHamashbir = new ClubCards("058796554", hamashbir, 0);
 const ethanGolf = new ClubCards("400625435", golf, 15.2);
 const LaviDreamCard = new ClubCards("235588649", dreamCard, 85.6);
-const Lavi = new ClubCards("235588649", hamashbir);
+const Lavi = new ClubCards("235588649", hamashbir, 0);
 
 //array of all club cards for all the users
 const clubCardsList: ClubCards[] = [
@@ -91,7 +91,7 @@ const clubCardsList: ClubCards[] = [
 ];
 
 //class for details about each user
-class Users {
+class User {
   clubCards: ClubCards[] | undefined;
   constructor(
     public userId: string,
@@ -107,7 +107,7 @@ class Users {
 }
 
 //data
-const noaMeillet = new Users(
+const noaMeillet = new User(
   "209966001",
   "noa0512",
   "Noa Meillet",
@@ -115,15 +115,15 @@ const noaMeillet = new Users(
   "noam@gmail.com",
   "0525643254"
 );
-const sagivKelly = new Users(
+const sagivKelly = new User(
   "301154268",
   "sagiv1908",
   "Sagiv Kelly",
-  "19/08/2000",
+  "19/0/2000",
   "sagivk@gmail.com",
   "0529531221"
 );
-const talVaknin = new Users(
+const talVaknin = new User(
   "209966019",
   "tal0301",
   "Tal Vaknin",
@@ -131,7 +131,7 @@ const talVaknin = new Users(
   "talv@gmail.com",
   "0505785965"
 );
-const nirJacob = new Users(
+const nirJacob = new User(
   "052406521",
   "nir2511",
   "Nir Jacob",
@@ -139,7 +139,7 @@ const nirJacob = new Users(
   "nirj@gmail.com",
   "0548579658"
 );
-const shalevLevi = new Users(
+const shalevLevi = new User(
   "332640564",
   "shalev0204",
   "shalev Levi",
@@ -147,7 +147,7 @@ const shalevLevi = new Users(
   "shalevl@gmail.com",
   "0521225436"
 );
-const hilaWasker = new Users(
+const hilaWasker = new User(
   "058796554",
   "hila2809",
   "Hila Wasker",
@@ -155,7 +155,7 @@ const hilaWasker = new Users(
   "hilaw@gmail.com",
   "0525381648"
 );
-const ethanAzriel = new Users(
+const ethanAzriel = new User(
   "400625435",
   "ethan1405",
   "Ethan Azriel",
@@ -163,7 +163,7 @@ const ethanAzriel = new Users(
   "ethana@gmail.com",
   "0505649254"
 );
-const jhonSmith = new Users(
+const jhonSmith = new User(
   "745820011",
   "jhon0805",
   "Jhon Smith",
@@ -173,7 +173,7 @@ const jhonSmith = new Users(
 );
 
 //array for all the users
-const usersList: Users[] = [
+const usersList: User[] = [
   noaMeillet,
   sagivKelly,
   talVaknin,

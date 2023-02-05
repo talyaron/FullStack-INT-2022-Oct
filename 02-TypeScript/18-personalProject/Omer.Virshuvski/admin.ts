@@ -1,21 +1,21 @@
-render(".test")
+render(".test", getItems())
 try {
     if(!form) throw new Error("Form not exists");
         form.addEventListener('submit', (ev:any) => {
             ev.preventDefault();
             console.log(ev);
         
+            const color = ev.target.elements.color.value;
             const name = ev.target.elements.name.value;
             const type = ev.target.elements.type.value;
             const price = ev.target.elements.price.value;
             const size = ev.target.elements.size.value;
             const img = ev.target.elements.img.value;
-            const items:Product[] = []
-            items.push(new Product(name,type,price,size,img));
-            console.log(items);
-            addItems(items);
-            render(".test")
-            renderStore(".card")
+            const item = (new Product(name,type,price,size,color,img));
+            console.log(item);
+            addItems(item);
+            render(".test", getItems())
+            renderStore(".main", getItems())
             ev.target.reset();
     })
 } catch (error) {

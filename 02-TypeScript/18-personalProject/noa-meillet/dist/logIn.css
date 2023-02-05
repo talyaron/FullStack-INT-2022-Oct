@@ -1,0 +1,11 @@
+body {
+  margin: auto;
+}
+body .form {
+  border: 1px solid black;
+  width: 15rem;
+  margin: auto;
+}
+body .form .input {
+  margin: 1rem;
+}

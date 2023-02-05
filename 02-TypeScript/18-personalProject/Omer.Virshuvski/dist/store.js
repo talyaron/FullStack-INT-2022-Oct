@@ -1,7 +1,17 @@
-document.body.addEventListener('change', function () {
-    render(".card");
+renderStore(".main", getItems());
+window.addEventListener('load', function () {
+    try {
+        var temp = getItemsInCart();
+        if (temp != null) {
+            if (temp.length != 0) {
+                itemsInCart.innerHTML = temp.length.toString();
+            }
+            else {
+                itemsInCart.classList.add("hide");
+            }
+        }
+    }
+    catch (error) {
+        console.error(error);
+    }
 });
-document.body.addEventListener('load', function () {
-    render(".card");
-});
-renderStore(".card");

@@ -1,0 +1,45 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: georgia;
+
+}
+
+h1{
+    font-size: 60px;
+    text-align: center;
+    color: blue;
+    
+}
+.player{
+    font-size: 30px;
+    text-align: center;
+    color: red;
+    margin: 50px 0px;
+
+}
+
+
+#wapper{
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    gap: 5px;
+    grid-row: 30px;
+    grid-column: 30px;
+    max-width: 30cm;
+    margin-left: 35%;
+
+}
+    
+.box{
+    height: 120px;
+    background-color: rgb(205, 250, 255);
+    font-size: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

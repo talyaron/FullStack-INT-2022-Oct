@@ -1,68 +1,71 @@
-var GameState = /** @class */ (function () {
-    function GameState(canvas) {
-        if (canvas) {
-            this.x = canvas.width / 2;
-            this.y = canvas.height - 30;
-            this.dx = 2;
-            this.dy = -2;
-            this.paddleHeight = 10;
-            this.paddleWidth = 75;
-            this.paddleX = (canvas.width - this.paddleWidth) / 2;
-        }
+var Ball = /** @class */ (function () {
+    function Ball(pos, velocity, radius) {
+        this.pos = pos;
+        this.velocity = velocity;
+        this.radius = radius;
+        this.pos = pos;
+        this.velocity = velocity;
+        this.radius = radius;
     }
-    return GameState;
+    Ball.prototype.Update = function () {
+        this.pos.x += this.velocity.x;
+        this.pos.y += this.velocity.y;
+    };
+    Ball.prototype.draw = function () {
+        ctx.fillStyle = "#33ff00";
+        ctx.strokeStyle = "#33ff00";
+        ctx.beginPath();
+        ctx.arc(this.pos.x, this.pos.y, this.radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+    };
+    return Ball;
 }());
-var GameDisplay = /** @class */ (function () {
-    function GameDisplay(canvasId) {
-        this.canvas = document.getElementById(canvasId);
-        this.ctx = this.canvas ? this.canvas.getContext('2d') : null;
-        this.paddleWidth = 75;
+var Paddle = /** @class */ (function () {
+    function Paddle(pos, velocity, width, height) {
+        this.pos = pos;
+        this.velocity = velocity;
+        this.width = width;
+        this.height = height;
+        this.pos = pos;
+        this.velocity = velocity;
+        this.width = width;
+        this.height = height;
     }
-    GameDisplay.prototype.clear = function () {
-        if (this.ctx) {
-            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    Paddle.prototype.Update = function () {
+        if (isDownKeyPressed) {
+            this.pos.y -= this.velocity.y;
+        }
+        if (isUpKeyPressed) {
+            this.pos.y += this.velocity.y;
         }
     };
-    GameDisplay.prototype.drawBall = function (x, y, ballRadius) {
-        if (this.ctx) {
-            this.ctx.beginPath();
-            this.ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
-            this.ctx.fillStyle = "#0095DD";
-            this.ctx.fill();
-            this.ctx.closePath();
-        }
+    Paddle.prototype.draw = function () {
+        ctx.fillStyle = "#ggff00";
+        ctx.fillRect(this.pos.x, this.pos.y, this.width, this.height);
     };
-    GameDisplay.prototype.drawPaddle = function (x, y, paddleWidth, paddleHeight) {
-        if (this.ctx) {
-            this.ctx.beginPath();
-            this.ctx.rect(x, y, paddleWidth, paddleHeight);
-            this.ctx.fillStyle = "#0095DD";
-            this.ctx.fill();
-            this.ctx.closePath();
-        }
-    };
-    return GameDisplay;
+    return Paddle;
 }());
-var GameEngine = /** @class */ (function () {
-    function GameEngine(display) {
-        this.display = display;
-        this.ballX = 50;
-        this.ballY = 50;
-        this.ballRadius = 10;
-        this.xSpeed = 1;
-        this.ySpeed = 1;
+var ball = new Ball({ x: 200, y: 200 }, { x: 5, y: 5 }, 20);
+var paddle1 = new Paddle({ x: 0, y: 50 }, { x: 0, y: 10 }, 20, 160);
+var paddle2 = new Paddle({ x: canvas.width - 20, y: 80 }, { x: 0, y: 10 }, 20, 160);
+var isUpKeyPressed = false;
+var isDownKeyPressed = false;
+window.addEventListener("keydown", function (e) {
+    if (e.keyCode === 38) {
+        isUpKeyPressed = true;
+        isDownKeyPressed = false;
     }
-    GameEngine.prototype.run = function () {
-        this.display.clear();
-        this.display.drawPaddle(this.leftPaddle, 'left', this.paddleWidth, this.paddleHeight);
-        this.display.drawPaddle(this.rightPaddle, 'right', this.paddleWidth, this.paddleHeight);
-        this.display.drawBall(this.ballX, this.ballY, this.ballRadius);
-        this.updateBallPosition();
-        requestAnimationFrame(this.run.bind(this));
-    };
-    GameEngine.prototype.updateBallPosition = function () {
-        this.ballX += this.xSpeed;
-        this.ballY += this.ySpeed;
-    };
-    return GameEngine;
-}());
+    else if (e.keyCode === 40) {
+        isUpKeyPressed = false;
+        isDownKeyPressed = true;
+    }
+});
+window.addEventListener("keyup", function (e) {
+    if (e.keyCode === 38) {
+        isUpKeyPressed = false;
+    }
+    else if (e.keyCode === 40) {
+        isDownKeyPressed = false;
+    }
+});
