@@ -42,7 +42,7 @@ function checkForGamneOver() {
             squares[ghost.currentIndex].classList.remove(ghost.className, "ghost", "scaredGhost");
             clearInterval(ghost.timerId);
         });
-        loseMessage.style.opacity = "1";
+        loseMessage.style.transform = "translateY(0)";
         finalScore[1].textContent = score.toString();
         clearInterval(glide);
     }
@@ -52,7 +52,7 @@ function checkForWin() {
         ghosts.forEach(function (ghost) { return clearInterval(ghost.timerId); });
         clearInterval(glide);
         setTimeout(function () {
-            winMessage.style.opacity = "1";
+            winMessage.style.transform = "translateY(0)";
             finalScore[0].textContent = score.toString();
         }, 200);
     }

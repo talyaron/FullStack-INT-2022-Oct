@@ -46,7 +46,7 @@ function checkForGamneOver() {
       );
       clearInterval(ghost.timerId);
     });
-    loseMessage.style.opacity = "1";
+    loseMessage.style.transform = "translateY(0)";
     finalScore[1].textContent = score.toString();
     clearInterval(glide);
   }
@@ -57,7 +57,7 @@ function checkForWin() {
     ghosts.forEach((ghost) => clearInterval(ghost.timerId));
     clearInterval(glide);
     setTimeout(() => {
-      winMessage.style.opacity = "1";
+      winMessage.style.transform = "translateY(0)";
       finalScore[0].textContent = score.toString();
     }, 200);
   }

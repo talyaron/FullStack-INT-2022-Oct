@@ -11,6 +11,10 @@
   --div-size: calc(var(--boardSize) / 21);
 }
 
+body {
+  overflow: hidden;
+}
+
 .welcomePageWrapper {
   background-color: darkblue;
   height: 100vh;
@@ -31,6 +35,8 @@
   align-items: center;
   justify-content: space-evenly;
   font-size: 1.5rem;
+  transform: translateX(-100vw);
+  transition: transform 0.7s linear;
 }
 .loginPage .inputDiv {
   display: flex;
@@ -88,7 +94,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  display: none;
+  transition: transform 0.7s linear;
 }
 .welcomePage__choices {
   width: 100%;
@@ -106,8 +112,9 @@
 .welcomePage__choices__choice img {
   width: 100%;
 }
-.welcomePage .startGameBtn {
+.welcomePage__startGameBtn {
   position: relative;
+  padding: 0.5em 1em;
   font-size: 1.5rem;
   border: none;
   border-radius: 10px;
@@ -116,10 +123,10 @@
   z-index: 1;
   cursor: pointer;
 }
-.welcomePage .startGameBtn:hover {
+.welcomePage__startGameBtn:hover {
   color: whitesmoke;
 }
-.welcomePage .startGameBtn:before {
+.welcomePage__startGameBtn:before {
   content: "";
   position: absolute;
   border-radius: 10px;
@@ -131,7 +138,7 @@
   z-index: -1;
   transition: top 0.09s ease-in;
 }
-.welcomePage .startGameBtn:hover:before {
+.welcomePage__startGameBtn:hover:before {
   top: 0;
 }
 
@@ -183,12 +190,12 @@
 .maze .winMessage {
   color: lightcoral;
   background-color: #236a46;
-  opacity: 0;
+  transform: translateY(-100vh);
 }
 .maze .loseMessage {
   color: orange;
   background-color: #8d1818;
-  opacity: 0;
+  transform: translateY(100vh);
 }
 .maze .square {
   width: var(--div-size);
