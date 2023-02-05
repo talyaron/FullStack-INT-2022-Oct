@@ -4,21 +4,60 @@ body {
   position: relative;
 }
 
-h1 {
-  color: white;
-  font-size: 2rem;
-  margin-left: 42rem;
-  margin-top: 0rem;
-  color: seagreen;
-  height: 6rem;
-  width: 21rem;
-  font-size: 4rem;
-  padding-top: 1.5rem;
-}
-
 input {
   width: 15rem;
   height: 1.5rem;
+}
+
+h3 {
+  text-decoration: underline;
+  text-align: center;
+  margin: 0.5rem;
+}
+
+ul {
+  padding-bottom: 0;
+  margin: 0;
+}
+
+ol {
+  list-style-type: none;
+  margin: 0;
+  padding-top: 0;
+}
+
+.container {
+  width: 90rem;
+  height: 60rem;
+  position: relative;
+  top: 0rem;
+  right: 0rem;
+  border: 0.1rem solid black;
+}
+
+.green {
+  color: seagreen;
+}
+
+.yellow {
+  color: gold;
+}
+
+.gray {
+  color: gray;
+}
+
+.header {
+  color: white;
+  font-size: 2rem;
+  color: seagreen;
+  margin: auto;
+  height: 8rem;
+  width: 21rem;
+  font-size: 4rem;
+  position: relative;
+  top: 0rem;
+  right: -0.5rem;
 }
 
 .iconsWrapper {
@@ -26,7 +65,7 @@ input {
   height: 5rem;
   position: relative;
   top: -5rem;
-  left: 85rem;
+  left: 80rem;
   display: flex;
   flex-direction: row;
 }
@@ -41,40 +80,31 @@ input {
   font-size: 3rem;
   padding: 1rem;
 }
+.iconsWrapper__displayedIcon:hover {
+  color: gold;
+}
 .iconsWrapper__displayedIcon__displayedData {
-  width: 20rem;
-  height: 20rem;
+  width: 28rem;
+  height: 29rem;
   border: 0.2rem solid white;
+  background-color: #161313;
   position: relative;
   top: 1rem;
-  right: 8.5rem;
+  right: 16rem;
   display: none;
   flex-direction: column;
+  font-size: 1.6rem;
+  padding: 0.5rem;
+  color: white;
+  line-height: 2rem;
+}
+.iconsWrapper__displayedIcon__displayedData--userData {
+  height: auto;
+  width: 18rem;
+  text-align: center;
+  font-size: 2rem;
 }
 .iconsWrapper__displayedIcon:hover .iconsWrapper__displayedIcon__displayedData {
-  display: flex;
-}
-.iconsWrapper__rulesIcon {
-  width: 3rem;
-  height: 3rem;
-  display: block;
-  position: relative;
-  top: -33rem;
-  left: 90rem;
-  color: white;
-  font-size: 3rem;
-}
-.iconsWrapper__rulesIcon__rules {
-  width: 20rem;
-  height: 20rem;
-  border: 0.2rem solid white;
-  position: relative;
-  top: 1rem;
-  right: 8.5rem;
-  display: none;
-  flex-direction: column;
-}
-.iconsWrapper__rulesIcon:hover .rulesIcon__rules {
   display: flex;
 }
 
@@ -165,5 +195,28 @@ input {
   transition: 0.5s;
 }
 .logInWrapper__logInButton:active {
+  background-color: #4a0afb;
+}
+
+.newGameButton {
+  width: 10rem;
+  height: 6rem;
+  background-color: seagreen;
+  font-weight: 900;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  line-height: 1.5rem;
+  margin-top: 1rem;
+  box-shadow: 0rem 0rem 0.2rem 0.2rem #737171;
+  position: relative;
+  left: 15rem;
+  top: -47rem;
+}
+.newGameButton:hover {
+  background-color: white;
+  box-shadow: none;
+  transition: 0.5s;
+}
+.newGameButton:active {
   background-color: #4a0afb;
 }
