@@ -60,8 +60,10 @@ function enter() {
                             }
                             correctLetters++;
                             if (correctLetters === WORD_LENGTH) {
-                                alert("you win!"); // change to animation with 2sec delay//
-                                streak++;
+                                alert("you win!");
+                                if (loggedInUser)
+                                    updateStreak(loggedInUser.streak + 1);
+                                renderUserData(users, "userDataRoot");
                             }
                         }
                         else {
@@ -78,7 +80,7 @@ function enter() {
                                     }
                                 }
                                 else {
-                                    checkedLetter.style.backgroundColor = "black";
+                                    checkedLetter.style.backgroundColor = "gray";
                                     var keyOFCheckedLetter = document.querySelector("#" + checkedLetter.innerText);
                                     if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "SeaGreen" || "gold")) {
                                         keyOFCheckedLetter.style.backgroundColor = "black";
@@ -96,7 +98,9 @@ function enter() {
                         }
                     }
                     if ((currentCell === cell0605) && (correctLetters !== WORD_LENGTH) && (solution)) {
-                        streak = 0;
+                        if (loggedInUser)
+                            updateStreak(0);
+                        renderUserData(users, "userDataRoot");
                         alert("better luck next time... the solution was: " + solution.name);
                     }
                 }
@@ -123,5 +127,84 @@ function randomSolutionSelector() {
     catch (error) {
         console.error(error);
         return undefined;
+    }
+}
+function handleLogin(ev) {
+    try {
+        ev.preventDefault();
+        var name = ev.target.elements.name.value;
+        var password = ev.target.elements.password.value;
+        var streak_1 = 0;
+        var loggedInUser = new User(name, password, streak_1);
+        users.push(loggedInUser);
+        ev.target.reset();
+        handleSaveUsersData(loggedInUser);
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function renderUserData(users, renderUserDataId) {
+    try {
+        if (users.length === 0)
+            throw new Error("users is empty");
+        console.log("users", users);
+        console.log("loggeinuser", loggedInUser);
+        var html = users.map(function (user) {
+            return "\n        <h3>" + user.name + "</h3>\n        <div> Current streak: " + user.streak + "</div>\n      ";
+        }).join(" ");
+        var element = document.querySelector("#" + renderUserDataId);
+        if (!element)
+            throw new Error("Couldnt find element in the DOM");
+        element.innerHTML = html;
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleSaveUsersData(loggedInUser) {
+    localStorage.setItem('users', JSON.stringify(users));
+    localStorage.setItem('loggedInUser', JSON.stringify(loggedInUser));
+}
+function getUsersDataFromStorage() {
+    try {
+        var usersString = localStorage.getItem("users");
+        if (!usersString)
+            throw new Error("Couldn't find users in storage");
+        var users = JSON.parse(usersString);
+        return users;
+    }
+    catch (error) {
+        console.error(error);
+        return undefined;
+    }
+}
+function getLoggedInUserFromStorage() {
+    try {
+        var loggedInUserString = localStorage.getItem("loggedInUser");
+        if (!loggedInUserString)
+            throw new Error("Couldn't find logged-in user in storage");
+        var loggedInUser = JSON.parse(loggedInUserString);
+        return loggedInUser;
+    }
+    catch (error) {
+        console.error(error);
+        return undefined;
+    }
+}
+function updateStreak(streak) {
+    try {
+        if (loggedInUser) {
+            loggedInUser.streak = streak;
+            users.forEach(function (user) {
+                if (user.uid === (loggedInUser === null || loggedInUser === void 0 ? void 0 : loggedInUser.uid)) {
+                    user.streak = streak;
+                }
+            });
+            handleSaveUsersData(loggedInUser);
+        }
+    }
+    catch (error) {
+        console.error(error);
     }
 }

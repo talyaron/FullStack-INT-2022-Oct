@@ -1,3 +1,9 @@
+$primaryback:linear-gradient(120deg,#2980b9, #8e44ad);
+$pickcolor:rgb(194, 42, 174);
+$bluecolor:rgb(104, 151, 240);
+$aquacolor:rgb(14, 245, 245);
+$overallpink:rgb(242, 14, 212);
+
 #newC{
 height: 70vh;
 display: flex;
@@ -8,7 +14,7 @@ margin: 150px 0px;
 
 
 label{
-    color:rgb(242, 14, 212);
+    color:$overallpink;
     font-size: 24px;
     
 }

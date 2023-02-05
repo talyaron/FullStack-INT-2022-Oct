@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="./dist/login.css">
     <title>Document</title>
 </head>
-<body onbeforeunload="dataFromStorage() , dataFromStorage1()">
+<body onbeforeunload="dataFromStorage() ">
     <section class="login-section">
         <div class="icon">
             <a href="./index.html">
@@ -39,12 +39,12 @@
                 <h4>To continue, log in to ProList.</h4>
                 <div class="email">
                     <label for="emailLogin">Email address or username</label>
-                    <input type="text" name="emailLogin" id="emailLogin" placeholder="Email address or username">
+                    <input type="email" name="emailLogin" id="emailLogin" placeholder="Email address or username" >
                     <p ><i class="fa-solid fa-triangle-exclamation"></i><span id="errorMsgEmailInputLOG" >Please enter your ProList username or email address.</span> </p>
                 </div>
                 <div class="password">
                     <label for="passwordLogin">Password</label>
-                    <input type="text" name="passwordLogin" id="passwordLogin" placeholder="Password">
+                    <input type="password" name="passwordLogin" id="passwordLogin" placeholder="Password" >
                     <p  ><i class="fa-solid fa-triangle-exclamation"></i><span id="errorMsgPasswordInputLOG">Please enter your password.</span> </p>
                 </div>
                 <div >

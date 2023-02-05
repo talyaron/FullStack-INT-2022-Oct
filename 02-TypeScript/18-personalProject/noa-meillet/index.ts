@@ -1,1 +1,1 @@
-showClubCards();
+showClubCards(clubCardsList);

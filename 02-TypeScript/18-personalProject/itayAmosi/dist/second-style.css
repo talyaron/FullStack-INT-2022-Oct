@@ -2,11 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: none;
 }
 
 .cursor {
   position: absolute;
   height: 50px;
+  width: 50px;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 2;
@@ -30,10 +32,11 @@ body {
   justify-content: center;
   gap: 3rem;
 }
-.container button {
+.container .startBtn {
   outline: none;
+  cursor: none;
   color: black;
-  border: 2px solid #c00e1a;
+  border: 2px solid #0cea2e;
   padding: 15px 45px;
   font-size: 1.1rem;
   margin-top: 3em;
@@ -43,6 +46,54 @@ body {
   width: 350px;
   text-align: center;
   margin-left: 3em;
+}
+.container .timer {
+  outline: none;
+  cursor: none;
+  color: black;
+  border: 2px solid black;
+  padding: 15px 45px;
+  font-size: 1.1rem;
+  margin-top: 3em;
+  background: transparent;
+  position: relative;
+  height: 55px;
+  width: 350px;
+  text-align: center;
+  margin-left: 3em;
+  position: absolute;
+  right: 0;
+}
+.container .scoreboard {
+  outline: none;
+  cursor: none;
+  color: black;
+  border: 2px solid black;
+  padding: 15px 45px;
+  font-size: 1.1rem;
+  height: 55px;
+  width: 350px;
+  text-align: center;
+  margin-left: 3em;
+  display: none;
+}
+.container .endBtn {
+  outline: none;
+  cursor: none;
+  color: black;
+  border: 2px solid black;
+  padding: 15px 45px;
+  font-size: 1.1rem;
+  margin-top: 3em;
+  background: transparent;
+  position: absolute;
+  height: 55px;
+  width: 350px;
+  text-align: center;
+}
+.container .endBtn a {
+  outline: none;
+  cursor: none;
 }
 .container .bloodSpot {
   position: absolute;

@@ -1,22 +1,28 @@
-console.log("Start");
+var pacman = new Pacman();
+startGame();
+checkGameStatus();
 window.addEventListener("keydown", function (e) {
     if (e.repeat)
         return;
     switch (e.key) {
         case "ArrowLeft":
-            movePacman("left");
+            pacman.move(directions.moveLeft);
             break;
         case "ArrowRight":
-            movePacman("right");
+            pacman.move(directions.moveRight);
             break;
         case "ArrowUp":
-            movePacman("up");
+            pacman.move(directions.moveUp);
             break;
         case "ArrowDown":
-            movePacman("down");
+            pacman.move(directions.movdeDown);
             break;
     }
 });
-startGame();
-var interval = setInterval(checkForScaredGhost, 1);
-var anotherInterval = setInterval(checkForGamneOver, 1);
+backToStartingPageBtn.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+        window.location.href = "startPage.html";
+        localStorage.removeItem('userChoice');
+    });
+});
+tryAgainBtn.forEach(function (btn) { return btn.addEventListener('click', startGame); });
