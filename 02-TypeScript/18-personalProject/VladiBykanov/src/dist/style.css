@@ -31,7 +31,6 @@
   align-items: center;
   justify-content: space-evenly;
   font-size: 1.5rem;
-  display: none;
 }
 .loginPage .inputDiv {
   display: flex;
@@ -58,22 +57,38 @@
   width: 40%;
   border: none;
   border-radius: 10px;
-}
-.loginPage .buttonDiv button:hover {
   cursor: pointer;
-  background-color: goldenrod;
+  position: relative;
+  z-index: 1;
+}
+.loginPage .buttonDiv button:before {
+  content: "";
+  position: absolute;
+  border-radius: 10px;
+  background: goldenrod;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  right: 100%;
+  z-index: -1;
+  transition: right 0.2s linear;
+}
+.loginPage .buttonDiv button:hover:before {
+  right: 0;
 }
 
 .welcomePage {
   position: absolute;
   aspect-ratio: 3/2;
-  width: 80vw;
+  max-height: 80vh;
+  max-width: 80vw;
   background-color: darkgoldenrod;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  display: none;
 }
 .welcomePage__choices {
   width: 100%;
@@ -86,22 +101,38 @@
   display: flex;
   justify-content: center;
   width: 45%;
+  cursor: pointer;
 }
 .welcomePage__choices__choice img {
   width: 100%;
 }
-.welcomePage__choices__choice:hover {
-  cursor: pointer;
-}
-.welcomePage button {
+.welcomePage .startGameBtn {
+  position: relative;
   font-size: 1.5rem;
-  padding: 0.5em 2em;
   border: none;
   border-radius: 10px;
-}
-.welcomePage button:hover {
+  letter-spacing: 2px;
+  outline: 0;
+  z-index: 1;
   cursor: pointer;
-  transform: scale(1.1);
+}
+.welcomePage .startGameBtn:hover {
+  color: whitesmoke;
+}
+.welcomePage .startGameBtn:before {
+  content: "";
+  position: absolute;
+  border-radius: 10px;
+  background: #383736;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: -1;
+  transition: top 0.09s ease-in;
+}
+.welcomePage .startGameBtn:hover:before {
+  top: 0;
 }
 
 .gameWrapper {
