@@ -15,7 +15,7 @@ function startGame() {
   pacman.draw();
   // draw ghosts to grid
   ghosts.forEach((ghost) => {
-    ghost.currentIndex = ghost.startIndex
+    ghost.currentIndex = ghost.startIndex;
     ghost.draw();
     moveGhost(ghost);
   });
@@ -129,6 +129,9 @@ function moveGhost(ghost: Ghost) {
       );
       ghost.currentIndex += direction;
       ghost.draw();
+      if (squares[ghost.currentIndex - direction].classList.contains("cherry")) {
+        drawCherryOnIndex(ghost.currentIndex - direction);
+      }
     }
     //else => find another direction
     else {
@@ -149,5 +152,5 @@ function checkGameStatus() {
   checkForScaredGhost();
   checkForGamneOver();
   checkForWin();
-  drawCherry();
+  // drawCherry();
 }

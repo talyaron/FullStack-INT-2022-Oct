@@ -175,15 +175,14 @@
   border: calc(var(--div-size) / 3) solid white;
   box-sizing: border-box;
 }
-.maze .cherry {
-  box-sizing: border-box;
-}
 .maze .cherry svg {
   fill: red;
   filter: drop-shadow(3px 5px 2px black);
 }
-.maze .purple {
+.maze .ghost {
   border: 0px;
+}
+.maze .purple {
   border-radius: 0;
   background-color: white;
 }
@@ -192,7 +191,6 @@
   filter: drop-shadow(3px 5px 2px black);
 }
 .maze .pink {
-  border: 0px;
   border-radius: 0;
   background-color: white;
 }
@@ -201,7 +199,6 @@
   filter: drop-shadow(3px 5px 2px black);
 }
 .maze .blue {
-  border: 0px;
   border-radius: 0;
   background-color: white;
 }
@@ -210,7 +207,6 @@
   filter: drop-shadow(3px 5px 2px black);
 }
 .maze .green {
-  border: 0px;
   border-radius: 0;
   background-color: white;
 }

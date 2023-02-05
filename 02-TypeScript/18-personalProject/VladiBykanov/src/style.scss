@@ -182,14 +182,16 @@
     box-sizing: border-box;
   }
   .cherry {
-    box-sizing: border-box;
+    // box-sizing: border-box;
     svg{
       fill: red;
       filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 1));
     }
   }
-  .purple {
+  .ghost{
     border: 0px;
+  }
+  .purple {
     border-radius: 0;
     background-color: white;
     svg {
@@ -198,7 +200,6 @@
     }
   }
   .pink {
-    border: 0px;
     border-radius: 0;
     background-color: white;
     svg {
@@ -207,7 +208,6 @@
     }
   }
   .blue {
-    border: 0px;
     border-radius: 0;
     background-color: white;
     svg {
@@ -216,7 +216,6 @@
     }
   }
   .green {
-    border: 0px;
     border-radius: 0;
     background-color: white;
     svg {

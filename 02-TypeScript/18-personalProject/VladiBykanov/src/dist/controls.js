@@ -112,6 +112,9 @@ function moveGhost(ghost) {
             squares[ghost.currentIndex].classList.remove(ghost.className, "ghost", "scaredGhost");
             ghost.currentIndex += direction;
             ghost.draw();
+            if (squares[ghost.currentIndex - direction].classList.contains("cherry")) {
+                drawCherryOnIndex(ghost.currentIndex - direction);
+            }
         }
         //else => find another direction
         else {
@@ -130,5 +133,5 @@ function checkGameStatus() {
     checkForScaredGhost();
     checkForGamneOver();
     checkForWin();
-    drawCherry();
+    // drawCherry();
 }
