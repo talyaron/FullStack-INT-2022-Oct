@@ -77,8 +77,40 @@ var Pacman = /** @class */ (function () {
         else {
             squares[pacman.currentIndex].style.transform = "scaleX(" + direction + ")";
         }
-        glide = setInterval(movePacman, pacman.velocity, direction);
+        glide = setInterval(this.move, pacman.velocity, direction);
         this.draw();
+    };
+    Pacman.prototype.move = function (direction) {
+        if (gameOver)
+            return;
+        switch (direction) {
+            case directions.moveLeft:
+                if (checkForWall(pacman.currentIndex, directions.moveLeft)) {
+                    pacman.update(direction);
+                }
+                else if (pacman.currentIndex == 210) {
+                    pacman.update(direction);
+                }
+                break;
+            case directions.moveRight:
+                if (checkForWall(pacman.currentIndex, directions.moveRight)) {
+                    pacman.update(direction);
+                }
+                else if (pacman.currentIndex == 230) {
+                    pacman.update(direction);
+                }
+                break;
+            case directions.moveUp:
+                if (checkForWall(pacman.currentIndex, directions.moveUp)) {
+                    pacman.update(direction);
+                }
+                break;
+            case directions.movdeDown:
+                if (checkForWall(pacman.currentIndex, directions.movdeDown)) {
+                    pacman.update(direction);
+                }
+                break;
+        }
     };
     return Pacman;
 }());
@@ -108,6 +140,27 @@ var Ghost = /** @class */ (function () {
         if (squares[this.currentIndex - direction].classList.contains("cherry")) {
             drawCherryOnIndex(this.currentIndex - direction);
         }
+    };
+    Ghost.prototype.move = function () {
+        var _this = this;
+        if (gameOver)
+            return;
+        var direction = randomDirection();
+        this.timerId = setInterval(function () {
+            // if the square in the direction the ghost is going not containing another ghost or a wall => then he can move here
+            if (checkForWall(_this.currentIndex, direction) &&
+                !squares[_this.currentIndex + direction].classList.contains("ghost")) {
+                _this.update(direction);
+            }
+            //else => find another direction
+            else {
+                direction = randomDirection();
+            }
+            //Change ghost color if scared
+            if (_this.isScared) {
+                squares[_this.currentIndex].classList.add("scaredGhost");
+            }
+        }, this.speed);
     };
     return Ghost;
 }());

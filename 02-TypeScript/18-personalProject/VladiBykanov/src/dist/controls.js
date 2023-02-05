@@ -18,7 +18,7 @@ function startGame() {
     ghosts.forEach(function (ghost) {
         ghost.currentIndex = ghost.startIndex;
         ghost.draw();
-        moveGhost(ghost);
+        ghost.move();
     });
 }
 // function creatMaze(map: number[]) {
@@ -48,59 +48,57 @@ function startGame() {
 //     }
 //   });
 // }
-function movePacman(direction) {
-    if (gameOver)
-        return;
-    switch (direction) {
-        case directions.moveLeft:
-            if (checkForWall(pacman.currentIndex, directions.moveLeft)) {
-                pacman.update(direction);
-            }
-            else if (pacman.currentIndex == 210) {
-                pacman.update(direction);
-            }
-            break;
-        case directions.moveRight:
-            if (checkForWall(pacman.currentIndex, directions.moveRight)) {
-                pacman.update(direction);
-            }
-            else if (pacman.currentIndex == 230) {
-                pacman.update(direction);
-            }
-            break;
-        case directions.moveUp:
-            if (checkForWall(pacman.currentIndex, directions.moveUp)) {
-                pacman.update(direction);
-            }
-            break;
-        case directions.movdeDown:
-            if (checkForWall(pacman.currentIndex, directions.movdeDown)) {
-                pacman.update(direction);
-            }
-            break;
-    }
-}
+// function movePacman(direction: number) {
+//   if (gameOver) return;
+//   switch (direction) {
+//     case directions.moveLeft:
+//       if (checkForWall(pacman.currentIndex, directions.moveLeft)) {
+//         pacman.update(direction);
+//       } else if (pacman.currentIndex == 210) {
+//         pacman.update(direction);
+//       }
+//       break;
+//     case directions.moveRight:
+//       if (checkForWall(pacman.currentIndex, directions.moveRight)) {
+//         pacman.update(direction);
+//       } else if (pacman.currentIndex == 230) {
+//         pacman.update(direction);
+//       }
+//       break;
+//     case directions.moveUp:
+//       if (checkForWall(pacman.currentIndex, directions.moveUp)) {
+//         pacman.update(direction);
+//       }
+//       break;
+//     case directions.movdeDown:
+//       if (checkForWall(pacman.currentIndex, directions.movdeDown)) {
+//         pacman.update(direction);
+//       }
+//       break;
+//   }
+// }
 //move ghost function
-function moveGhost(ghost) {
-    if (gameOver)
-        return;
-    var direction = randomDirection();
-    ghost.timerId = setInterval(function () {
-        // if the square in the direction the ghost is going not containing another ghost or a wall => then he can move here
-        if (checkForWall(ghost.currentIndex, direction) &&
-            !squares[ghost.currentIndex + direction].classList.contains("ghost")) {
-            ghost.update(direction);
-        }
-        //else => find another direction
-        else {
-            direction = randomDirection();
-        }
-        //Change ghost color if scared
-        if (ghost.isScared) {
-            squares[ghost.currentIndex].classList.add("scaredGhost");
-        }
-    }, ghost.speed);
-}
+// function moveGhost(ghost: Ghost) {
+//   if (gameOver) return;
+//   let direction = randomDirection();
+//   ghost.timerId = setInterval(() => {
+//     // if the square in the direction the ghost is going not containing another ghost or a wall => then he can move here
+//     if (
+//       checkForWall(ghost.currentIndex, direction) &&
+//       !squares[ghost.currentIndex + direction].classList.contains("ghost")
+//     ) {
+//       ghost.update(direction)
+//     }
+//     //else => find another direction
+//     else {
+//       direction = randomDirection();
+//     }
+//     //Change ghost color if scared
+//     if (ghost.isScared) {
+//       squares[ghost.currentIndex].classList.add("scaredGhost");
+//     }
+//   }, ghost.speed);
+// }
 function checkGameStatus() {
     requestAnimationFrame(checkGameStatus);
     checkForPoint();

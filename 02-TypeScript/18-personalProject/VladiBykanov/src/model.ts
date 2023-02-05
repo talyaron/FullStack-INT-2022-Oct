@@ -79,8 +79,40 @@ class Pacman {
     } else {
       squares[pacman.currentIndex].style.transform = `scaleX(${direction})`;
     }
-    glide = setInterval(movePacman, pacman.velocity, direction);
+    glide = setInterval(this.move, pacman.velocity, direction);
     this.draw();
+  }
+  move(direction:number) {
+    if (gameOver) return;
+    switch (direction) {
+      case directions.moveLeft:
+        if (checkForWall(pacman.currentIndex, directions.moveLeft)) {
+          pacman.update(direction);
+        } else if (pacman.currentIndex == 210) {
+          pacman.update(direction);
+        }
+        break;
+
+      case directions.moveRight:
+        if (checkForWall(pacman.currentIndex, directions.moveRight)) {
+          pacman.update(direction);
+        } else if (pacman.currentIndex == 230) {
+          pacman.update(direction);
+        }
+        break;
+
+      case directions.moveUp:
+        if (checkForWall(pacman.currentIndex, directions.moveUp)) {
+          pacman.update(direction);
+        }
+        break;
+
+      case directions.movdeDown:
+        if (checkForWall(pacman.currentIndex, directions.movdeDown)) {
+          pacman.update(direction);
+        }
+        break;
+    }
   }
 }
 
@@ -118,6 +150,30 @@ class Ghost {
     if (squares[this.currentIndex - direction].classList.contains("cherry")) {
       drawCherryOnIndex(this.currentIndex - direction);
     }
+  }
+
+  move() {
+    if (gameOver) return;
+    let direction = randomDirection();
+
+    this.timerId = setInterval(() => {
+      // if the square in the direction the ghost is going not containing another ghost or a wall => then he can move here
+      if (
+        checkForWall(this.currentIndex, direction) &&
+        !squares[this.currentIndex + direction].classList.contains("ghost")
+      ) {
+        this.update(direction);
+      }
+      //else => find another direction
+      else {
+        direction = randomDirection();
+      }
+
+      //Change ghost color if scared
+      if (this.isScared) {
+        squares[this.currentIndex].classList.add("scaredGhost");
+      }
+    }, this.speed);
   }
 }
 
