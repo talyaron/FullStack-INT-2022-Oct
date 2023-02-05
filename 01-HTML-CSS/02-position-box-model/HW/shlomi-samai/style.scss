@@ -1,4 +1,12 @@
-
+.linkButton{
+    height: 100px;
+    width: 100px;
+}
+.form {
+    margin: auto;
+    position: relative;
+    left: 120px;
+}
 .list {
 
     height: auto;
@@ -16,7 +24,7 @@
     background-color:  rgba(255, 255, 255, 1);
     border: 5px black;
     width: 550px;
-    height: 600px;
+    height: 100%;
     margin:auto;
     margin-top: 30px;
     padding-top: 0.5%;
@@ -47,7 +55,7 @@
     margin-bottom: 8px;
 }
 
-input[type=text] {
+input[type=search] {
     width: 230px;
     height: 30px;
     box-sizing: border-box;
