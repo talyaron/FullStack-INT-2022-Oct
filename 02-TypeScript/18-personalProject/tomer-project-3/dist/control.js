@@ -1,36 +1,39 @@
-function saveToLocalStorage(ev) {
+function addToLocalStorage(event) {
     try {
-        ev.preventDefault();
-        console.log(ev);
-        var name = ev.target.elements.name.value;
-        var review = ev.target.elements.review.value;
-        var stars = ev.target.elements.stars.value;
+        event.preventDefault();
+        var name = event.target.elements.name.value;
+        var review = event.target.elements.review.value;
+        var stars = event.target.elements.stars.value;
+        event.target.reset();
         reviews.push(new UserReview(name, review, stars));
         console.log(reviews);
-        ev.target.reset();
         if (!itemsRoot)
             throw new Error("itemsRoot is null");
-        localStorage.setItem('reviews', JSON.stringify(reviews));
-        itemsRoot.innerHTML = renderReviews(reviews);
+        renderReviews(reviews, "itemsRoot");
     }
     catch (error) {
         console.error(error);
     }
 }
 ;
-function renderReviews(reviews) {
+function renderReviews(reviews, renderElementId) {
     try {
         if (!reviews || !Array.isArray(reviews))
             throw new Error('reviews is not an array');
         var html = reviews
             .map(function (review) {
-            return "\n            <div class=\"itemsRoot\">\n            <div class=\"item\">\n              <div class=\"item-details\">\n                <div class=\"item-title\">User Name: " + review.name + "</div>\n                <div class=\"item-description\">Star: " + review.stars + "</div>\n                <div class=\"item-description\">Review: " + review.review + "</div>\n\n              </div>\n            </div>\n        ";
+            return "\n            \n            <div class=\"item\">\n              <div class=\"item-details\">\n                <div class=\"item-title\">User Name: " + review.name + "</div>\n                <div class=\"item-description\">Star: " + review.stars + "</div>\n                <div class=\"item-description\">Review: " + review.review + "</div>\n\n              </div>\n            </div>\n        ";
         })
             .join(" ");
-        return html;
+        var element = document.querySelector("#" + renderElementId);
+        if (!element)
+            throw new Error("couldent find element ");
+        element.innerHTML = html;
     }
     catch (error) {
         console.error(error);
-        return '';
     }
+}
+function saveTolocalStorge() {
+    localStorage.setItem("reviews", JSON.stringify(reviews));
 }
