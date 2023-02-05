@@ -1,4 +1,3 @@
-var userLogin;
 function goToUserProfile(event) {
     try {
         event.preventDefault();
@@ -16,7 +15,8 @@ function goToUserProfile(event) {
         else {
             if (!link)
                 throw new Error("We can't show the user page");
-            userLogin = user;
+            localStorage.setItem("user id", user.userId);
+            localStorage.setItem("user name", user.userFullName);
             link.click();
         }
     }
@@ -26,9 +26,9 @@ function goToUserProfile(event) {
 }
 function btnAdd() {
     try {
-        if (!addUserDiv)
+        if (!form)
             throw new Error("We don't have any element to add your user");
-        addUserDiv.innerHTML = "\n      <input type=\"text\" name=\"newUserId\" class=\"input\" placeholder=\"Enter your ID number\" required/>\n      <br />\n      <input type=\"password\" name=\"newUserPassword\" class=\"input\" placeholder=\"Enter your password\" required/>\n      <br />\n      <input type=\"text\" name=\"newUserFullName\" class=\"input\" placeholder=\"Enter your full name           \" required/>\n      <br />\n      <lable>Enter your date of birth:</lable> \n      <br />\n      <input type=\"date\" name=\"newUserBirthday\" class=\"input\" required/>\n      <br />\n      <input type=\"email\" name=\"newUserEmail\" class=\"input\" placeholder=\"Enter your email\" required/>\n      <br />\n      <input type=\"text\" name=\"newUserphone\" class=\"input\" placeholder=\"Enter your phone number\" required/>\n      <br />\n      <input type=\"submit\" value=\"Sign in\" />\n  ";
+        form.innerHTML = "\n      <h3>Create a user:</h3>\n      <form class=\"form__sign_in\">\n      <input type=\"text\" name=\"newUserId\" class=\"input\" placeholder=\"Enter your ID number\" required/>\n      <br />\n      <input type=\"password\" name=\"newUserPassword\" class=\"input\" placeholder=\"Enter your password\" required/>\n      <br />\n      <input type=\"text\" name=\"newUserFullName\" class=\"input\" placeholder=\"Enter your full name           \" required/>\n      <br />\n      <lable>Enter your date of birth:</lable> \n      <br />\n      <input type=\"date\" name=\"newUserBirthday\" class=\"input\" required/>\n      <br />\n      <input type=\"email\" name=\"newUserEmail\" class=\"input\" placeholder=\"Enter your email\" required/>\n      <br />\n      <input type=\"text\" name=\"newUserPhone\" class=\"input\" placeholder=\"Enter your phone number\" required/>\n      <br />\n      <input type=\"submit\" id=\"sign_in_btn\" value=\"Sign In\" onclick=\"addUser(event)\"/>\n      </form>\n  ";
     }
     catch (error) {
         console.error("The form to add users have a problem");
@@ -42,11 +42,11 @@ function addUser(event) {
         var newUserFullName = event.target.elements.newUserFullName.value;
         var newUserBirthday = event.target.elements.newUserBirthday.value;
         var newUserEmail = event.target.elements.newUserEmail.value;
-        var newUserphone = event.target.elements.newUserphone.value;
-        usersList.push(new User(newUserId, newUserPassword, newUserFullName, newUserBirthday, newUserEmail, newUserphone));
-        if (!addUserDiv)
+        var newUserPhone = event.target.elements.newUserPhone.value;
+        usersList.push(new User(newUserId, newUserPassword, newUserFullName, newUserBirthday, newUserEmail, newUserPhone));
+        if (!form)
             throw new Error("We don't have any element to add your user");
-        addUserDiv.innerHTML = "The user has been succesfully created";
+        form.innerHTML = "<h1> The user has been succesfully created <h1>";
     }
     catch (error) {
         console.error("We didnt succeed to add the new user");
@@ -54,19 +54,19 @@ function addUser(event) {
 }
 function showClubCards(clubCardsList) {
     try {
-        if (!userLogin)
+        if (!localStorage.getItem("user id"))
             throw new Error("No user is log to the system");
         if (clubCardsList.length == 0)
             throw new Error("There is no club cards registed in the system");
-        var userClubCards = clubCardsList.filter(function (user) { return user.userId == userLogin.userId; });
+        var userClubCards = clubCardsList.filter(function (user) { return user.userId == localStorage.getItem("user id"); });
         if (!clubCards)
             throw new Error("We don't have a culb cards div to show you your cards");
         if (!userClubCards)
-            clubCards.innerHTML += "There is no club member in any store... \n " + userLogin.userFullName + ", it's time to go shopping";
+            clubCards.innerHTML += "There is no club member in any store... \n " + localStorage.getItem("user name") + ", it's time to go shopping";
         else {
-            clubCards.innerHTML = " ";
+            clubCards.innerHTML = "<h2>Welcome " + localStorage.getItem("user name") + "</h2>";
             for (var i = 0; i < userClubCards.length; i++) {
-                clubCards.innerHTML += "<div class=\"club_cards_store\">\n        <h3>Store: " + userClubCards[i].store.storeName + "</h3>\n        <h4>Amount of points: " + getAmountOfPoints(userClubCards[i].store.amountOfPoints, userClubCards[i].amountOfPoints) + "</h4>\n        <h4>Birthday discount:yes or no</h4>\n      </div>\n    ";
+                clubCards.innerHTML += "<div class=\"club_cards__store\">\n        <h3>Store: " + userClubCards[i].store.storeName + "</h3>\n        <h4>Amount of points: " + getAmountOfPoints(userClubCards[i].store.amountOfPoints, userClubCards[i].amountOfPoints) + "</h4>\n        <h4>Birthday discount:yes or no</h4>\n      </div>\n    ";
             }
         }
     }

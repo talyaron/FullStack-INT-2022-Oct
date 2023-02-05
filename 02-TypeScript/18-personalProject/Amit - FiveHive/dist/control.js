@@ -60,7 +60,7 @@ function enter() {
                             }
                             correctLetters++;
                             if (correctLetters === WORD_LENGTH) {
-                                alert("you win!"); // change to animation with 2sec delay//
+                                alert("you win!");
                                 if (loggedInUser)
                                     updateStreak(loggedInUser.streak + 1);
                                 renderUserData(users, "userDataRoot");
@@ -151,7 +151,7 @@ function renderUserData(users, renderUserDataId) {
         console.log("users", users);
         console.log("loggeinuser", loggedInUser);
         var html = users.map(function (user) {
-            return "\n        <h3>" + user.name + "</h3>\n        <div>streak: " + user.streak + "</div>\n      ";
+            return "\n        <h3>" + user.name + "</h3>\n        <div> Current streak: " + user.streak + "</div>\n      ";
         }).join(" ");
         var element = document.querySelector("#" + renderUserDataId);
         if (!element)
