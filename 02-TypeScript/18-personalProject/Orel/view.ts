@@ -1,6 +1,7 @@
-function changeProfileUserName(): void {
+function changeProfileUserName(): void{
     const nameProfile = document.querySelector('.user-box-profile h5')! as HTMLDListElement
-    nameProfile.textContent = users[Number(localStorage.getItem("userIndex"))].username
+    console.log(nameProfile);
+    nameProfile.innerText = users[getUserIndexFromLocalStorage()].username
 }
 
 function renderPhotoCard(cards: Array<Photos>, containerClass: string, albumName?: string): string {
@@ -9,10 +10,11 @@ function renderPhotoCard(cards: Array<Photos>, containerClass: string, albumName
     if (mainContainer === undefined) throw new Error('the Element not found')
     let AllCards = ""
     cards.forEach(photo => {
-        AllCards += NewPhotoCard(photo.photoName, photo.date.toString(), photo.src)
+        AllCards += newPhotoCard(photo.photoName, photo.date.toString(), photo.src,photo.like)
     });
 
-    mainContainer!.innerHTML += AllCards
+    mainContainer!.innerHTML = AllCards
+
     return AllCards
 }
 
@@ -31,7 +33,7 @@ function renderLists(): string | undefined {
             html += tamp;
         })
 
-        containerPlaylist.innerHTML += html
+        containerPlaylist.innerHTML = html
         return html
     } catch (error) {
         console.error(error);
@@ -40,25 +42,28 @@ function renderLists(): string | undefined {
 }
 
 function createNewList(nameList: string, titleList: string, classNameContainer: string): string {
+    albums.push(new Albums(nameList, []))
+    updatePhotosToLocalStorage(); 
+    return renderNewList(nameList,titleList,classNameContainer);
+}
+
+function renderNewList(nameList: string, titleList: string, classNameContainer: string) {
     const sectionsHome = document.querySelector(`.${classNameContainer}`)! as HTMLDListElement;
     const patten =
         `
     <div id="${nameList}" class="list" class="${nameList}">
     <h4>${titleList}</h4>
-    <div class="recommended-list ${nameList}">
+    <div class="recommended-list ${nameList}-photos">
     </div>
 </div>
     `
-    sectionsHome.innerHTML += patten
-    albums.push(new Albums(nameList, []))
-
-
+    sectionsHome.innerHTML += patten;
     return patten
 }
 
-function NewPhotoCard(namePhoto: string, date: string, src: string, albumName?: string): string {
+function newPhotoCard(namePhoto: string, date: string, src: string, isLike: boolean): string {
     try {
-        const index = Number(localStorage.getItem("userIndex"))
+        const index = getUserIndexFromLocalStorage()
         const patten =
             `
     <div class="photo-card">
@@ -66,7 +71,7 @@ function NewPhotoCard(namePhoto: string, date: string, src: string, albumName?: 
     <h3>${namePhoto}</h3>
     <p>${users[index].username}</p>
     <small>${date}</small>
-    <button onclick="handleClickAddToLike(event)" style="color:black; class="collapse-play">
+    <button onclick="handleClickAddToLike(event)" style="color:${ isLike ? "red" : "black"}; class="collapse-play">
     ♥
 </button>
 </div>
@@ -75,14 +80,6 @@ function NewPhotoCard(namePhoto: string, date: string, src: string, albumName?: 
         // const findIndex  = albums.findIndex(album => album.name === albumName)
         // const photoArr = albums[findIndex].photos
         // photoArr.push(new Photos(namePhoto,date, src))
-        albums.forEach(album => {
-            if (album.name === albumName) {
-                album.photos?.push(new Photos(
-                    `${namePhoto}`,
-                    `${date}`,
-                    `${src}`))
-            }
-        })
         return patten
     } catch (error) {
         console.error(error);

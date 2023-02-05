@@ -1,39 +1,48 @@
 // 
-var userIndex;
-// USERS SETTING
-function checkMatchUserDetails(emailUser, passwordUser) {
+//USERS LOCAL STORAGE
+function createListToOptions() {
     try {
-        if (storageData === undefined)
-            throw new Error("the storageData no exist");
-        for (var i = 0; i < storageData.length; i++) {
-            //@ts-ignore
-            if (emailUser === lastUserIn.email.toLowerCase() && passwordUser === lastUserIn.password) {
-                // userIndex = localStorage.users.findIndex( e => e.email == emailUser)
-                // console.log(userIndex);
-                userIndex = 0;
-                localStorage.setItem("userIndex", userIndex.toString());
-                return true;
-            }
-        }
-        return false;
+        // sent data list to options
+        var selectList_1 = document.getElementById('selectList');
+        selectList_1.innerHTML = '';
+        albums.forEach(function (album) {
+            selectList_1.innerHTML += "<option value=\"" + album.name + "\">" + album.name + "</option>";
+            console.log(album.name);
+        });
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
+    }
+}
+//------------------------------------ USERS SETTING
+function checkMatchUserDetails(emailUser, passwordUser) {
+    try {
+        if (!users)
+            throw new Error("the users no exist");
+        var userIndex = users.findIndex(function (user) { return emailUser.toLowerCase() === user.email.toLowerCase() && passwordUser === user.password; });
+        if (userIndex === -1)
+            return false;
+        else {
+            localStorage.setItem("userIndex", userIndex.toString());
+            return true;
+        }
+    }
+    catch (error) {
+        console.error(error);
         return false;
     }
 }
 function checksIfUserExists(emailUser) {
     try {
-        var find = users.filter(function (user) { return user.email === emailUser; });
-        if (!find)
-            throw new Error("the filter find not exist");
-        if (find.length === 0)
+        var userCur = users.find(function (user) { return user.email === emailUser; });
+        if (!userCur)
             return false;
-        else
+        else {
             return true;
+        }
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
         return false;
     }
 }
@@ -79,7 +88,7 @@ function insideTheUser() {
         return false;
     }
 }
-//---------------------------- LOGIN-/-Sign-Up--Pages------------------
+//---------------------------- LOGIN-/-Sign-Up--Pages
 // LOg in function
 function handleSubmitSignIn(ev) {
     try {
@@ -122,7 +131,7 @@ function handleSubmitSignIn(ev) {
             errorMsgPasswordInput.parentElement.classList.remove("empty");
         }
         users.push(new Users(email.value, password.value, username.value, gender.value, false));
-        // updateInfoToLocalStorage()
+        updateUsersToLocalStorage();
         ev.target.reset();
         return location.href = './login.html';
     }
@@ -155,9 +164,9 @@ function handleSubmitLogIn(ev) {
         }
         // אם יש התאמה תעשה משהו
         console.log(checkMatchUserDetails(emailLogin.value, passwordLogin.value));
+        console.log(emailLogin.value, passwordLogin.value);
         if (checkMatchUserDetails(emailLogin.value, passwordLogin.value)) {
             ifRefresh();
-            // updateInfoToLocalStorage()
             ev.target.reset();
             return location.href = './index.html';
         }
@@ -172,7 +181,6 @@ function handleSubmitLogIn(ev) {
         console.error(error);
     }
 }
-//--------------------------------------------------------------------
 function handleClickLogOut() {
     try {
         logout();
@@ -285,47 +293,36 @@ function handleClickLists(ev) {
     }
 }
 function handleClickAddToLike(ev) {
-    var photoSrc = ev.target.parentElement.querySelector('img').src;
+    var albumName = ev.target.parentElement.parentElement.parentElement.querySelector('h4').innerText;
     var photoTitle = ev.target.parentElement.querySelector('h3').textContent;
-    var nameList = ev.target.parentElement.querySelector('p').textContent;
-    var PhotoDate = ev.target.parentElement.querySelector('small').textContent;
-    var Btn = ev.target.parentElement.querySelector('button');
-    console.log("photoSrc", photoSrc);
-    console.log("photoTitle", photoTitle);
-    console.log("nameList", nameList);
-    console.log(ev.target.parentElement);
-    if (Btn.style.color === "black") {
-        Btn.style.color = "red";
-        likedPhotos.push(new Photos(photoTitle, PhotoDate, photoSrc));
+    var btnLike = ev.target.parentElement.querySelector('button');
+    console.log(albumName);
+    var currPhoto;
+    var isDefaultAlbum = ['Backgrounds', 'Animals'].includes(albumName);
+    if (isDefaultAlbum) {
+        var albumSelected = albumName === 'Animals' ? animals : backgrounds;
+        currPhoto = albumSelected.find(function (photo) { return photo.photoName === photoTitle; });
     }
-    else if (Btn.style.color === "red") {
-        var index = likedPhotos.findIndex(function (photo) { return photo.photoName === nameList; });
-        if (!index)
-            throw new Error("not index found");
-        likedPhotos.splice(index, 1);
-        Btn.style.color = "black";
+    else {
+        var currAlbum = albums.find(function (album) { return album.name === albumName; });
+        currPhoto = currAlbum.photos.find(function (photo) { return photo.photoName === photoTitle; });
     }
-    console.log(likedPhotos);
-    renderPhotoCard(likedPhotos, "likeSongList");
+    currPhoto.like = !currPhoto.like;
+    if (currPhoto.like) {
+        btnLike.style.color = "red";
+    }
+    else {
+        btnLike.style.color = "black";
+    }
+    if (!isDefaultAlbum)
+        updatePhotosToLocalStorage();
+    else if (albumName === 'Animals')
+        saveAnimalsToStorage();
+    else if (albumName === 'Background')
+        saveBackgroundToStorage();
+    renderPhotoCard(getLikesPhotos(), "likeSongList");
 }
-//--------------------------------------------------------------------------
-//-------------------Handle Submit Function left List-----------------
-function createListToOptions() {
-    try {
-        // sent data list to options
-        var selectList_1 = document.getElementById('selectList');
-        selectList_1.innerHTML = '';
-        albums.forEach(function (album) {
-            selectList_1.innerHTML += "<option value=\"" + album.name + "\">" + album.name + "</option>";
-            console.log(album.name);
-        });
-        return;
-    }
-    catch (error) {
-        console.error(error);
-        return '';
-    }
-}
+//----------------------Handle Submit Function left List-----------------
 function handleSubmitCreateAlbumsList(ev) {
     try {
         ev.preventDefault();
@@ -342,17 +339,17 @@ function handleSubmitCreateAlbumsList(ev) {
 function handleSubmitCreatePhoto(ev) {
     try {
         ev.preventDefault();
-        var createListToListValue_1 = ev.target.elements.selectList.value;
+        var albumName_1 = ev.target.elements.selectList.value;
         var photoName = ev.target.elements.photoNameCreateImage.value;
         var date = ev.target.elements.photoDateCreateImage.value;
         var src = ev.target.elements.photoSrcCreateImage.value;
-        var findIndex = albums.findIndex(function (album) { return album.name === createListToListValue_1; });
-        var photoArr = albums[findIndex].photos;
-        console.log(findIndex);
-        console.log(albums[findIndex]);
+        var currAlbum = albums.find(function (album) { return album.name === albumName_1; });
+        var albumPhotos = currAlbum.photos;
         // make new Photo
-        photoArr.push(new Photos(photoName, date, src));
-        renderPhotoCard(photoArr, createListToListValue_1, "sections-library");
+        albumPhotos.push(new Photos(photoName, date, src));
+        updatePhotosToLocalStorage();
+        var photoContainer = albumName_1 + "-photos";
+        renderPhotoCard(albumPhotos, photoContainer);
         ev.target.reset();
     }
     catch (error) {

@@ -1,43 +1,54 @@
 // 
-let userIndex: number
+//USERS LOCAL STORAGE
 
 
-// USERS SETTING
-function checkMatchUserDetails(emailUser: string, passwordUser: string): boolean {
+
+
+function createListToOptions(): void {
     try {
-        if (storageData === undefined) throw new Error("the storageData no exist")
-        for (let i = 0; i < storageData!.length; i++) {
+        // sent data list to options
+        const selectList = document.getElementById('selectList') as HTMLSelectElement
+        selectList.innerHTML = ''
+        albums!.forEach(album => {
+            selectList.innerHTML += `<option value="${album.name}">${album.name}</option>`
+            console.log(album.name);
+        })
 
-            //@ts-ignore
-            if (emailUser === lastUserIn.email.toLowerCase() && passwordUser === lastUserIn.password) {
-                // userIndex = localStorage.users.findIndex( e => e.email == emailUser)
-                // console.log(userIndex);
-                userIndex = 0
+    } catch (error) {
+        console.error(error);
+
+    }
+}
+//------------------------------------ USERS SETTING
+function checkMatchUserDetails(emailUser: string, passwordUser: string): boolean{
+    try {
+        if (!users) throw new Error("the users no exist")
+
+         const userIndex = users.findIndex(user=>emailUser.toLowerCase() === user.email.toLowerCase() && passwordUser === user.password)
+            if(userIndex === -1) return false 
+            else  {
                 localStorage.setItem("userIndex", userIndex.toString())
                 return true
             }
-
-        }
-        return false
     } catch (error) {
-        console.log(error);
-
+        console.error(error);
         return false
     }
 }
-function checksIfUserExists(emailUser: string): boolean {
+function checksIfUserExists(emailUser: string): boolean{
     try {
-        const find = users.filter(user => user.email === emailUser)
-        if (!find) throw new Error("the filter find not exist")
-        if (find.length === 0) return false
-        else return true
-
+        const userCur = users.find(user => user.email === emailUser)
+        if (!userCur) return false
+        else {
+            return true
+        }
     } catch (error) {
-        console.log(error);
+        console.error(error);
         return false
+
     }
 }
-function openMenuLogoutBtn() :void{
+function openMenuLogoutBtn(): void {
     try {
         const collapseUserLogout = document.querySelector(".user-box-profile-collapse")! as HTMLDListElement;
         const collapseUserLogoutIcon = document.querySelector(".user-box-profile i") as HTMLElement;
@@ -56,7 +67,7 @@ function openMenuLogoutBtn() :void{
     }
 
 }
-function logout() :void{
+function logout(): void {
     try {
         localStorage.setItem("userLogIn", "false")
     } catch (error) {
@@ -75,8 +86,7 @@ function insideTheUser(): boolean | undefined {
         return false
     }
 }
-//---------------------------- LOGIN-/-Sign-Up--Pages------------------
-
+//---------------------------- LOGIN-/-Sign-Up--Pages
 // LOg in function
 function handleSubmitSignIn(ev: any) {
     try {
@@ -117,7 +127,7 @@ function handleSubmitSignIn(ev: any) {
         }
 
         users.push(new Users(email.value, password.value, username.value, gender.value, false))
-        // updateInfoToLocalStorage()
+        updateUsersToLocalStorage()
         ev.target.reset()
         return location.href = './login.html';
 
@@ -150,9 +160,9 @@ function handleSubmitLogIn(ev: any) {
         }
         // אם יש התאמה תעשה משהו
         console.log(checkMatchUserDetails(emailLogin.value, passwordLogin.value));
+        console.log(emailLogin.value , passwordLogin.value );
         if (checkMatchUserDetails(emailLogin.value, passwordLogin.value)) {
             ifRefresh()
-            // updateInfoToLocalStorage()
             ev.target.reset()
             return location.href = './index.html';
         } else {
@@ -170,7 +180,6 @@ function handleSubmitLogIn(ev: any) {
         console.error(error);
     }
 }
-//--------------------------------------------------------------------
 function handleClickLogOut(): void {
     try {
         logout()
@@ -239,6 +248,7 @@ function handleClickCreateAlbumList(ev: any) {
             });
             makeSectionsActive(sectionsCreateAlbum)
             createListToOptions()
+
         }
 
     } catch (error) {
@@ -285,47 +295,36 @@ function handleClickLists(ev: any): void {
 }
 
 function handleClickAddToLike(ev: any) {
-    const photoSrc = ev.target.parentElement.querySelector('img').src
+    const albumName = ev.target.parentElement.parentElement.parentElement.querySelector('h4').innerText;
     const photoTitle = ev.target.parentElement.querySelector('h3').textContent
-    const nameList = ev.target.parentElement.querySelector('p').textContent;
-    const PhotoDate = ev.target.parentElement.querySelector('small').textContent;
-    const Btn = ev.target.parentElement.querySelector('button') as HTMLButtonElement
-    console.log("photoSrc", photoSrc);
-    console.log("photoTitle", photoTitle);
-    console.log("nameList", nameList);
-    console.log(ev.target.parentElement);
-
-    if (Btn.style.color === "black") {
-        Btn.style.color = "red"
-        likedPhotos.push(new Photos(photoTitle, PhotoDate, photoSrc))
-    } else if (Btn.style.color === "red") {
-        const index = likedPhotos.findIndex(photo => photo.photoName === nameList)
-        if (!index) throw new Error("not index found")
-        likedPhotos.splice(index, 1)
-        Btn.style.color = "black"
+    const btnLike = ev.target.parentElement.querySelector('button') as HTMLButtonElement
+    console.log(albumName);
+    let currPhoto: Photos | undefined;
+    const isDefaultAlbum = ['Backgrounds', 'Animals'].includes(albumName);
+    if (isDefaultAlbum) {
+        const albumSelected = albumName === 'Animals' ? animals : backgrounds;
+        currPhoto = albumSelected.find(photo => photo.photoName === photoTitle);
+    } else {
+        const currAlbum = albums.find(album => album.name === albumName);
+        currPhoto = currAlbum!.photos.find(photo => photo.photoName === photoTitle);
     }
 
-    console.log(likedPhotos);
-    renderPhotoCard(likedPhotos, "likeSongList")
+    currPhoto!.like = !currPhoto!.like;
+    if (currPhoto!.like) {
+        btnLike.style.color = "red";
+    } else {
+        btnLike.style.color = "black";
+    }
+
+    if (!isDefaultAlbum) updatePhotosToLocalStorage();
+    else if (albumName === 'Animals') saveAnimalsToStorage();
+    else if (albumName === 'Background') saveBackgroundToStorage()
+
+    renderPhotoCard(getLikesPhotos(), "likeSongList")
 
 }
-//--------------------------------------------------------------------------
-//-------------------Handle Submit Function left List-----------------
-function createListToOptions() {
-    try {
-        // sent data list to options
-        const selectList = document.getElementById('selectList') as HTMLSelectElement
-        selectList.innerHTML = ''
-        albums!.forEach(album => {
-            selectList.innerHTML += `<option value="${album.name}">${album.name}</option>`
-            console.log(album.name);
-        })
-        return
-    } catch (error) {
-        console.error(error);
-        return ''
-    }
-}
+//----------------------Handle Submit Function left List-----------------
+
 function handleSubmitCreateAlbumsList(ev: any) {
     try {
         ev.preventDefault();
@@ -343,20 +342,21 @@ function handleSubmitCreatePhoto(ev: any) {
     try {
         ev.preventDefault();
 
-        const createListToListValue = ev.target.elements.selectList.value;
+        const albumName = ev.target.elements.selectList.value;
         const photoName = ev.target.elements.photoNameCreateImage.value as string
         const date = ev.target.elements.photoDateCreateImage.value as string
         const src = ev.target.elements.photoSrcCreateImage.value as string
 
-        const findIndex = albums!.findIndex(album => album.name === createListToListValue)
-        const photoArr = albums[findIndex].photos
-        console.log(findIndex);
-        console.log(albums[findIndex]);
+        const currAlbum = albums!.find(album => album.name === albumName)
+        const albumPhotos = currAlbum!.photos;
         // make new Photo
-        photoArr.push(new Photos(photoName, date, src))
-        renderPhotoCard(photoArr, createListToListValue, "sections-library")
+        albumPhotos!.push(new Photos(photoName, date, src));
+        updatePhotosToLocalStorage()
+        const photoContainer = `${albumName}-photos`;
+        renderPhotoCard(albumPhotos, photoContainer)
         ev.target.reset()
     } catch (error) {
         console.error(error);
     }
 }
+

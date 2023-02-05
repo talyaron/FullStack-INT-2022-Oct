@@ -5,10 +5,6 @@ const usersOptionsBtn = document.querySelector('.users-options')! as HTMLElement
 //Update Date From array TO LocalStorage
 // updateInfoToLocalStorage()
 
-if (lastUserIn) {
-    //@ts-ignore
-    usernameUser = lastUserIn.username as string; emailUser = lastUserIn.email as string;
-}
 
 
 // of Login
@@ -25,40 +21,36 @@ if (userLogInFromStorage === "true") {
 
 }
 
-// Logout BTN ON 
-openMenuLogoutBtn()
-renderPhotoCard(animals, "animalsList")
-renderPhotoCard(animals, "animalsList")
-
-renderPhotoCard(backgrounds, "backgroundList")
-renderPhotoCard(backgrounds, "backgroundList")
-
-// RENDER MAIN HOME PAGE PHOTOS
-
-if (insideTheUser()) {
-    changeProfileUserName()
-    renderLists()
-    createListToOptions()
+function makeListActive() {
+    const lists = document.querySelectorAll('.list ');
+    lists.forEach(list => {
+        list.classList.add("active")
+    });
 }
 
-// updateInfoToLocalStorage()
-getMatchUserDetail()
-// make Show Home Page 
-const lists = document.querySelectorAll('.list ');
-lists.forEach(list => {
-    list.classList.add("active")
-});
 
-
-
-if (typeof getAlbumFromStorage() === typeof albums && getAlbumFromStorage() != undefined) {
-    let html = ''
-    const sectionsLibrary = document.querySelector(".sections-library")! as HTMLDivElement
-    let index: number
-    getAlbumFromStorage()!.forEach((album) => {
-        html += createNewList(album.name, album.name, "sections-library") as string
-        sectionsLibrary.innerHTML = html
-        renderPhotoCard(album.photos, album.name, "sections-library")
+function renderPhotoLibrary() {
+    if (!albums.length) return;
+    albums.forEach(({ name, photos }) => {
+        renderNewList(name, name, 'sections-library');
+        const photoContainer = `${name}-photos`;
+        renderPhotoCard(photos, photoContainer);
     })
 
+}
+
+function onInit() {
+    openMenuLogoutBtn()
+    renderPhotoCard(animals, "animalsList")
+    renderPhotoCard(backgrounds, "backgroundList")
+    if (insideTheUser()) {
+        changeProfileUserName()
+        renderLists()
+        createListToOptions()
+    }
+    // updateInfoToLocalStorage()
+    // make Show Home Page 
+    makeListActive()
+    renderPhotoLibrary()
+    renderPhotoCard(getLikesPhotos(), "likeSongList");
 }
