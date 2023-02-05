@@ -325,17 +325,17 @@ function handleClickAddToLike(ev: any) {
 }
 //----------------------Handle Submit Function left List-----------------
 
-function handleSubmitCreateAlbumsList(ev: any) {
+function handleSubmitCreateAlbumsList(ev: any):void{
     try {
         ev.preventDefault();
-        const nameListValue = ev.target.elements.createListName.value.toString() as string
-        console.log(nameListValue);
+        const nameListValue = ev.target.elements.createListName.value as string 
+        if(Number(nameListValue)) return alert("the value must to be string")
         createNewList(nameListValue, nameListValue, "sections-library")
         createListToOptions()
 
         ev.target.reset()
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 function handleSubmitCreatePhoto(ev: any) {
