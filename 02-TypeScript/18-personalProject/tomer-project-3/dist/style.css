@@ -42,3 +42,70 @@ body {
   width: 20vw;
   height: 20vh;
 }
+
+#itemsRoot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #24bed6;
+  border-radius: 10px;
+}
+#itemsRoot .item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  border-bottom: 1px solid black;
+  background-color: #f98a8a;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+}
+#itemsRoot .item .item-details {
+  display: flex;
+  flex-direction: column;
+}
+#itemsRoot .item .item-details .item-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#itemsRoot .item .item-details .item-description {
+  font-size: 14px;
+  color: #300404;
+}
+
+.review-form {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+.review-form .form-group {
+  margin: 20px 0;
+}
+.review-form .form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.review-form .form-group input,
+.review-form .form-group select,
+.review-form .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.review-form button[type=submit] {
+  width: 150px;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}

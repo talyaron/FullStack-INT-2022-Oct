@@ -28,10 +28,14 @@ function renderReviews(reviews: UserReview[]){
         const html = reviews
         .map((review) => {
             return `
-          <h3>${review.name}</h3>
-          <div>Review:${review.review}</div>
-          <div>Stars: ${review.stars}</div>
-        </div>
+            <div class="itemsRoot">
+            <div class="item">${review.stars}
+              <div class="item-icon"></div>
+              <div class="item-details">
+                <div class="item-title">${review.name}</div>
+                <div class="item-description">${review.review}</div>
+              </div>
+            </div>
         `;
           })
         .join(` `);

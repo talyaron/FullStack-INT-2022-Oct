@@ -12,21 +12,34 @@
     <script src="./dist/second.js" defer></script>
     <link rel="stylesheet" href="./dist/style.css">
 </head>
-<body>
+<div class="review-form">
     <form onsubmit="saveToLocalStorage(event)">
-        <input type="text" name="name" placeholder="Name">
-        <input type="text" name="review" placeholder="Your Review">
-        <select name="stars">
-            <option value="stars">amout of stars</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text"  name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="review">Title:</label>
+        <input type="text" name="review" required>
+      </div>
+      <div class="form-group">
+        <label for="stars">Rating:</label>
+        <select  name="stars" required>
+          <option value="">-- Select --</option>
+          <option value="1">1 Star</option>
+          <option value="2">2 Stars</option>
+          <option value="3">3 Stars</option>
+          <option value="4">4 Stars</option>
+          <option value="5">5 Stars</option>
         </select>
-        <input type="submit" value="ADD REVIEW">
+      </div>
+      <div class="form-group">
+      </div>
+      <button type="submit">Submit</button>
     </form>
-    <div id="itemsRoot"></div>
+  </div>
+    <div id="itemsRoot">
+    </div>
     <a href="./index.html">back to the web</a>  
 </body>
 </html>
