@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Responsive Website</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!--FontAwesome Icons CDN-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+        <!--stylesheet-->
+        <link href="./public/dist/style.css" rel="stylesheet">
+
+        <!--media Queries-->
+        <link href="./public/dist/queries.css" rel="stylesheet">
+
+        <!--Google Fonts-->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Poppins:wght@400;700&family=Raleway&display=swap" 
+        rel="stylesheet">
+
+    </head>
+    <body>
+
+        <!--Nav Bar-->
+        <nav>
+            <a href="#home" id="logo">YogaClinic</a>
+            <i class="fas fa-bars" id="ham-menu"></i>
+            <ul id="nav-bar">
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+                <li>
+                    <a href="#about">About</a>
+                </li>
+                <li>
+                    <a href="#benefits">Benefits</a>
+                </li>
+                <li>
+                    <a href="#subscribe">Subscribe</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!--Header-->
+        <header id="home">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Your Daily Yoga Practice</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse harum ad vero quia corporis excepturi earum vel rerum optio! Maiores quae voluptatem aspernatur quaerat voluptates reprehenderit corporis tempora molestiae dicta.</p>
+                </div>
+                <div class="hero-btns">
+                    <button onclick="window.location.href='login.html'" class="btn-primary">Sign In</button>
+                    <button onclick="window.location.href='signUp.html'" class="btn-secondary">Sign Up</button>
+                </div>
+            </div>
+            <img src="https://img.freepik.com/free-vector/people-enjoying-outdoor-yoga-class-park-women-sitting-grass-lotus-pose_74855-10991.jpg?w=1060&t=st=1669373194~exp=1669373794~hmac=a5fb1abd7f8a1abb589ea7fcacaa9690da3ec3040b33a1794cc53931f1dfe1a3" alt="hero-img">
+        </header>
+
+        <!--Section: About-->
+        <section class="about" id="about">
+            <div class="row">
+                <div class="column">
+                    <img src="https://img.freepik.com/premium-vector/mental-health-men-women-mutual-understanding-with-yourself-balance-healthy-mental-state-vector-illustration-isolated-white-background_529424-432.jpg?w=740">
+                </div>
+                <div class="column">
+                    <h2>About Us</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore blanditiis vitae, culpa quis sint commodi saepe ut dolores quod. Culpa omnis amet sit quidem in obcaecati quas vitae rem? Mollitia!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat corrupti harum sint blanditiis nesciunt sed, nobis aperiam nisi excepturi minus molestiae quas ipsa repudiandae, officiis, nihil laudantium ab doloremque distinctio.</p>
+                </div>
+            </div>
+        </section>
+
+        <!--Section: Benefits-->
+        <section class="benefits" id="benefits">
+            <h2>Benefits</h2>
+            <div class="row">
+                <div class="column">
+                    <div class="img-container">
+                        <img src="https://img.freepik.com/premium-vector/people-tree-sign-heart-color-green-white-background-vector-illustration_3482-5144.jpg?w=740" alt="icon">
+                    </div>
+                    <h3>Keep your mind healthy and strong</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente qui modi nostrum nisi vel deserunt numquam, libero cupiditate ea natus nam architecto fugiat eligendi et dicta tempore illum? Quae ratione aliquam, unde maiores modi expedita?</p>
+                </div>
+                <div class="column">
+                    <div class="img-container">
+                        <img src="https://img.freepik.com/premium-vector/love-nature-with-beauty-woman-face_698903-80.jpg?w=900" alt="icon">
+                    </div>
+                    <h3>Increase happiness and well being and reduce depression</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At, voluptas ducimus delectus asperiores saepe quaerat dolor aspernatur cupiditate facilis? Molestiae porro officiis iusto quibusdam, ducimus aut nulla possimus molestias consequuntur. Similique suscipit provident id iusto!</p>
+                </div>
+                <div class="column">
+                    <div class="img-container">
+                        <img src="https://img.freepik.com/premium-vector/life-meditation-leaf-vector-illustration_749504-21.jpg?w=740" alt="icon">
+                    </div>
+                    <h3>Reduce stress and promote relaxation</h3>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officia, ab corporis. Repellat natus consectetur, perspiciatis eaque exercitationem autem? Quia maxime alias debitis magnam ullam tempore officia consectetur quas nulla? Similique doloribus nobis ea totam nihil!</p>
+                </div>
+            </div>
+        </section>
+
+        <!--Section: Newsletters-->
+        <section class="newsletter" id="subscribe">
+            <h2>Subscribe To Newsletters</h2>
+            <div class="wrapper">
+                <h3>Awesome Newsletters To Yours Inbox</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae, dolorem.</p>
+                <form>
+                    <input type="email" placeholder="Your email...">
+                    <button class="btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+        <!--Footer-->
+        <footer>
+            <div class="footer-wrapper">
+                <div class="row">
+                    <div class="column">
+                        <h3>Phone</h3>
+                        <p>+972 123456789</p>
+                    </div>
+                    <div class="column">
+                        <h3>Email</h3>
+                        <p>yogaclinic@domain.com</p>
+                    </div>
+                    <div class="column">
+                        <h3>Address</h3>
+                        <p>Tel-Aviv, Israel</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <span>
+                        <i class="fab fa-instagram"></i>
+                    </span>
+                    <span>
+                        <i class="fab fa-facebook-f"></i>
+                    </span>
+                    <span>
+                        <i class="fab fa-twitter"></i>
+                    </span>
+                </div>
+            </div>
+        </footer>
+
+        <!--Copyright-->
+        <div class="copyright">
+            <p>Copyright &copf; 2023 by YogaClinic. All rights reserved.</p>
+        </div>
+
+        <!--Scroll To Button-->
+        <button id="scroll-top-btn">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+        <!--Script-->
+        <script src="./public/dist/script.js"></script>
+    
+    </body>
+</html>
