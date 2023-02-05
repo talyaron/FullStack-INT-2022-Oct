@@ -20,9 +20,54 @@
   justify-content: space-around;
 }
 
+.loginPage {
+  position: absolute;
+  aspect-ratio: 2/3;
+  height: 80vh;
+  background-color: darkseagreen;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 1.5rem;
+  display: none;
+}
+.loginPage .inputDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loginPage .inputDiv input {
+  font-size: 1.5rem;
+  margin-bottom: 2em;
+  margin-top: 1em;
+  border: 1px solid rgba(0, 0, 0, 0.092);
+  outline: none;
+  padding: 0.2em;
+}
+.loginPage .buttonDiv {
+  margin-top: 2em;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.loginPage .buttonDiv button {
+  font-size: 1.5rem;
+  padding: 0.5em;
+  width: 40%;
+  border: none;
+  border-radius: 10px;
+}
+.loginPage .buttonDiv button:hover {
+  cursor: pointer;
+  background-color: goldenrod;
+}
+
 .welcomePage {
+  position: absolute;
   aspect-ratio: 3/2;
-  width: 60vw;
+  width: 80vw;
   background-color: darkgoldenrod;
   border-radius: 20px;
   display: flex;

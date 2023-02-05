@@ -82,7 +82,7 @@ class Pacman {
     glide = setInterval(this.move, pacman.velocity, direction);
     this.draw();
   }
-  move(direction:number) {
+  move(direction: number) {
     if (gameOver) return;
     switch (direction) {
       case directions.moveLeft:
