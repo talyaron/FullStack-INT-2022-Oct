@@ -13,8 +13,7 @@ class Post {
 
 
     class Person {
-uid:string;
-
+    uid:string;
     constructor(
         public name: string,
         public address: string,
@@ -30,7 +29,7 @@ uid:string;
 }
 
 const people: Person[] = [];
-
+const posts: Post[] = [];
 console.log(people)
 
 

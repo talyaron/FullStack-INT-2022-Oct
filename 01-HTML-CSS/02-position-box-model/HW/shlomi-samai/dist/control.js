@@ -1,14 +1,11 @@
 function handleAddItem(ev) {
+    debugger;
     try {
         ev.preventDefault();
-        var name = ev.target.elements.name.value;
-        var address = ev.target.elements.address.value;
-        var email = ev.target.elements.email.value;
-        var phone = ev.target.elements.phone.valueAsNumber;
-        var password = ev.target.elements.password.value;
-        var preferedColor = ev.target.elements.preferedColor.value;
-        var pictureURL = ev.target.elements.pictureURL.value;
-        people.push(new Person(name, address, email, phone, password, preferedColor, pictureURL));
+        const name = ev.target.elements.name.value;
+        const BigPictureURL = ev.target.elements.BigPictureURL.value;
+        const smallPictureURL = ev.target.elements.smallPictureURL.value;
+        posts.push(new Post(name, BigPictureURL, smallPictureURL));
         ev.target.reset();
         render();
     }
@@ -17,13 +14,20 @@ function handleAddItem(ev) {
     }
 }
 function render() {
-    var page = "";
-    var j = 0;
-    for (j = 0; j <= people.length - 1; j++) {
-        page += "<div class=\"list\"> \n            <h3>" + people[j].name + "</h3>\n            <h3>" + people[j].address + "</h3>\n            <h3>" + people[j].email + "</h3>\n            <h3>" + people[j].phone + "</h3>\n            <h3>" + people[j].password + "</h3>\n            <h3>" + people[j].preferedColor + "</h3>\n            <h3>" + people[j].uid + "</h3>\n            <button onclick=\"handleDeleteItem('" + people[j].uid + "')\">Remove</button>       \n            <img src='" + people[j].pictureURL + "'/>\n            </div>";
+    let page = "";
+    let j = 0;
+    for (j = 0; j <= posts.length - 1; j++) {
+        page += `<div class="recurring_div">
+             <div class="recurring_div_headline"> 
+            <h3>${posts[j].name}</h3>
+            <h3>${posts[j].BigPictureURL}</h3>
+            <h3>${posts[j].uid}</h3>
+            <img src='${posts[j].smallPictureURL}'/>
+            <button onclick="handleDeleteItem('${post[j].uid}')">Remove</button>    
+            </div> `;
     }
     console.log(page);
-    var html = document.querySelector("#list");
+    const html = document.querySelector("#list");
     if (html !== null) {
         html.innerHTML = page;
         console.log(html);
@@ -31,12 +35,10 @@ function render() {
 }
 function handleDeleteItem(uid) {
     try {
-        debugger;
-        console.log(uid);
-        var index = people.findIndex(function (Person) { return Person.uid === uid; });
+        const index = posts.findIndex((Post) => Post.uid === uid);
         if (index === -1)
             throw new Error("item not found");
-        people.splice(index, 1);
+        posts.splice(index, 1);
         render();
     }
     catch (error) {
