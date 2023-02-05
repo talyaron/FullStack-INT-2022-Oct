@@ -343,10 +343,13 @@ function handleSubmitCreatePhoto(ev) {
         var photoName = ev.target.elements.photoNameCreateImage.value;
         var date = ev.target.elements.photoDateCreateImage.value;
         var src = ev.target.elements.photoSrcCreateImage.value;
+        var dateMounts = date.slice(5, date.length);
+        var dateYear = date.slice(0, 5);
+        var newDate = "< -- " + dateMounts + "-" + dateYear + " -- >";
         var currAlbum = albums.find(function (album) { return album.name === albumName_1; });
         var albumPhotos = currAlbum.photos;
         // make new Photo
-        albumPhotos.push(new Photos(photoName, date, src));
+        albumPhotos.push(new Photos(photoName, newDate, src));
         updatePhotosToLocalStorage();
         var photoContainer = albumName_1 + "-photos";
         renderPhotoCard(albumPhotos, photoContainer);

@@ -347,10 +347,14 @@ function handleSubmitCreatePhoto(ev: any) {
         const date = ev.target.elements.photoDateCreateImage.value as string
         const src = ev.target.elements.photoSrcCreateImage.value as string
 
+       const dateMounts = date.slice(5 , date.length) ;
+       const dateYear = date.slice(0 , 5) ;
+       const newDate = `< -- ${dateMounts}-${dateYear} -- >` as string
+
         const currAlbum = albums!.find(album => album.name === albumName)
         const albumPhotos = currAlbum!.photos;
         // make new Photo
-        albumPhotos!.push(new Photos(photoName, date, src));
+        albumPhotos!.push(new Photos(photoName, newDate , src));
         updatePhotosToLocalStorage()
         const photoContainer = `${albumName}-photos`;
         renderPhotoCard(albumPhotos, photoContainer)
