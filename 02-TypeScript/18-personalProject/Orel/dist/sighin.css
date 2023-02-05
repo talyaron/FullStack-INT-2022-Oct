@@ -78,7 +78,7 @@ section.register-section div.register-screen form div p.success {
   color: var(--success);
   display: block;
 }
-section.register-section div.register-screen form button {
+section.register-section div.register-screen form #submitBtnLogin {
   font-family: "Poppins", sans-serif;
   padding: 15px 25px;
   font-size: 1rem;
@@ -90,7 +90,7 @@ section.register-section div.register-screen form button {
   background-color: var(--green);
   transition: background-color ease 0.4s;
 }
-section.register-section div.register-screen form button:hover {
+section.register-section div.register-screen form #submitBtnLogin:hover {
   background-color: #53e053;
   font-size: 0.99rem;
 }
