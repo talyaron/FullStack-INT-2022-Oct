@@ -25,7 +25,7 @@ body {
   }
   p {
     color: white;
-    font-weight: 500;
+    font-weight: 600;
     opacity: .7;
     font-size: 1.4rem;
     margin-bottom: 60px;
@@ -33,6 +33,7 @@ body {
   }
     
   a {
+
     text-decoration: none;
     color: #ddd;
     font-size: 19px;

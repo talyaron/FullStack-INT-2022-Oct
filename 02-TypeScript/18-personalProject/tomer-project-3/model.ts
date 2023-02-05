@@ -18,4 +18,4 @@ class Book{
 
     }
 }
-const reviews: UserReview[ ]=[ ];
+const reviews: UserReview[]=[];
