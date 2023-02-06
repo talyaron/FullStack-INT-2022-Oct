@@ -62,7 +62,8 @@ var paddle1 = new Paddle({ x: 0, y: 50 }, { x: 0, y: 5 }, 20, 120, 0);
 var paddle2 = new Paddle({ x: canvas.width - 20, y: 80 }, { x: 0, y: 1.9 }, 20, 120, 0);
 var isUpKeyPressed = false;
 var isDownKeyPressed = false;
-gameOver = false;
+var gameOver;
+var req;
 window.addEventListener("keydown", function (e) {
     if (e.keyCode === 40) {
         isUpKeyPressed = true;

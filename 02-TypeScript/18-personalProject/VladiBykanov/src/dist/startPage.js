@@ -1,4 +1,9 @@
-window.onload = function () { return removeUserChoiceFromLocalStorage(); };
+window.onload = function () {
+    removeUserChoiceFromLocalStorage();
+    var getListFromLS = localStorage.getItem("users");
+    if (getListFromLS)
+        usersList.push.apply(usersList, JSON.parse(getListFromLS));
+};
 window.addEventListener("click", function (e) {
     var target = e.target;
     if (target.nodeName == "IMG") {
@@ -18,5 +23,13 @@ window.addEventListener("click", function (e) {
     }
     if (target.innerHTML === "Create New User") {
         addNewUserToLocalStorage();
+    }
+    if (target.innerHTML === "Login") {
+        if (verifyLogin()) {
+            moveToWelcomePage();
+        }
+        else {
+            alert("incorrect user name or password");
+        }
     }
 });

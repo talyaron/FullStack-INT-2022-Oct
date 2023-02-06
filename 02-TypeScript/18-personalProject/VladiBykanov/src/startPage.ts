@@ -1,4 +1,8 @@
-window.onload = () => removeUserChoiceFromLocalStorage();
+window.onload = () => {
+  removeUserChoiceFromLocalStorage();
+  const getListFromLS = localStorage.getItem("users");
+  if (getListFromLS) usersList.push.apply(usersList, JSON.parse(getListFromLS));
+};
 
 window.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
@@ -22,5 +26,13 @@ window.addEventListener("click", (e) => {
 
   if (target.innerHTML === "Create New User") {
     addNewUserToLocalStorage();
+  }
+
+  if (target.innerHTML === "Login") {
+    if (verifyLogin()) {
+      moveToWelcomePage();
+    } else {
+      alert("incorrect user name or password");
+    }
   }
 });
