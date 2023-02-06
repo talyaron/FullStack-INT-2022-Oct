@@ -26,8 +26,15 @@ window.addEventListener("keydown", (e) => {
 backToStartingPageBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
     window.location.href = "startPage.html";
-    localStorage.removeItem('userChoice')
+    localStorage.removeItem("userChoice");
   });
 });
 
-tryAgainBtn.forEach(btn => btn.addEventListener('click', startGame))
+tryAgainBtn.forEach((btn) => btn.addEventListener("click", startGame));
+
+scoreboardBtn.forEach((btn) =>
+  btn.addEventListener(
+    "click",
+    () => (window.location.href = "scoreBoard.html")
+  )
+);
