@@ -7,7 +7,9 @@ body {
   overflow: hidden;
   display: flex;
   justify-content: center;
-  margin-top: 12rem;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
   background-image: url("https://blog.sklambert.com/wp-content/uploads/2012/09/bg.png");
 }
 body #head {
@@ -17,9 +19,8 @@ body #head {
 }
 
 #canvas {
+  border: 5px solid white;
   display: flex;
-  width: 100%;
-  height: 100%;
   justify-content: center;
   align-items: center;
 }
@@ -40,6 +41,18 @@ h1 {
   right: 4rem;
 }
 
-#bigAd {
+.endGame {
+  color: red;
+  position: absolute;
+  background-color: darkgreen;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10rem;
+}
+
+#bigAdComputer {
   display: none;
 }

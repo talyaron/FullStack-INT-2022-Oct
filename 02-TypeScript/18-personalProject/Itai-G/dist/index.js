@@ -15,8 +15,10 @@ function gameDraw() {
     paddle2.draw();
 }
 function gameLoop() {
+    req = requestAnimationFrame(gameLoop);
+    if (gameOver)
+        return cancelAnimationFrame(req);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    window.requestAnimationFrame(gameLoop);
     gameUpdate();
     gameDraw();
 }

@@ -1,13 +1,14 @@
-const canvas =  <HTMLCanvasElement>document.getElementById('canvas');
+const canvas = <HTMLCanvasElement>document.getElementById("canvas");
 const ctx = <CanvasRenderingContext2D>canvas.getContext("2d");
-const bigAd= document.getElementById("bigAd")as htmldiv;
+const bigAd = document.getElementById("bigAd") as HTMLDivElement;
 
-canvas.width = window.innerWidth /1.2;
-canvas.height = window.innerHeight /1.5;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight * 0.7;
 
-document.onresize = ()=>{
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
-}
+document.onresize = () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight * 0.7;
+};
 
-
+let gameOver: boolean;
+let req:number;
