@@ -26,7 +26,7 @@ var mapTwo = [
     1, 0, 0, 0, 0, 9, 0, 9, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 9, 9, 9,
     9, 9, 9, 9, 9, 9, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 9, 9, 9, 9, 9, 9, 9, 9,
     9, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 9, 0, 0, 0, 0, 0, 0, 0, 9, 0, 1, 0, 0,
-    1, 0, 0, 1, 0, 0, 1, 0, 9, 0, 9, 9, 9, 9, 9, 0, 9, 0, 1, 0, 0, 1, 0, 0, 1, 0,
+    1, 0, 0, 1, 0, 0, 1, 9, 9, 0, 9, 9, 9, 9, 9, 0, 9, 9, 1, 0, 0, 1, 0, 0, 1, 0,
     0, 1, 0, 9, 0, 0, 0, 0, 0, 0, 0, 9, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 9, 9,
     9, 9, 9, 9, 9, 9, 9, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 9, 9, 9, 9, 5, 9, 9,
     9, 9, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 9, 0, 9, 0, 0, 0, 0, 1, 0,
@@ -172,7 +172,7 @@ var ghosts = [
 ];
 var glide; //pacman glide interval
 var scaredGhostsTime; //scared ghosts timeout
-var score = 0;
+var score;
 var cherryIndex = [];
 var directions = {
     moveLeft: -1,
@@ -220,3 +220,23 @@ var Maze = /** @class */ (function () {
 }());
 var mazeOne = new Maze(mapOne, "Map One");
 var mazeTwo = new Maze(mapTwo, "Map Two");
+var User = /** @class */ (function () {
+    function User(userName, password, highScore) {
+        if (highScore === void 0) { highScore = 0; }
+        this.userName = userName;
+        this.password = password;
+        this.highScore = highScore;
+    }
+    User.prototype.setHighScore = function (newScore) {
+        this.highScore = newScore;
+    };
+    return User;
+}());
+var preMadeUserList = [
+    new User("cruseder123", "12345678", 345),
+    new User("johnny123", "87654321", 254),
+    new User("vladb89", "vladislav1989", 984),
+];
+if (!localStorage.getItem("users"))
+    localStorage.setItem("users", JSON.stringify(preMadeUserList));
+var currentUser;

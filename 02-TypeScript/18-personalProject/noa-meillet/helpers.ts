@@ -20,3 +20,12 @@ function getAmountOfPoints(storePoints, userPoints): number | string {
   }
 }
 
+function newUserLogIn(newUserId, newUserFullName): void {
+  try {
+    if (!link) throw new Error(`We can't show the user page`);
+    localStorage.setItem("user id", newUserId);
+    localStorage.setItem("user name", newUserFullName);
+  } catch (error) {
+    console.error("We can't log with the new user to the system");
+  }
+}

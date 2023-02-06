@@ -1,10 +1,25 @@
-.linkButton {
-  height: 100px;
-  width: 100px;
+.bodyHomePage {
+  background-color: rgba(9, 179, 179, 0.555);
+}
+.bodyHomePage__userForm {
+  width: 550px;
+  height: 100%;
+  margin: auto;
+  margin-top: 30px;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  border-radius: 10px;
+  position: relative;
+  left: 70px;
+}
+.bodyHomePage__mainLogo {
+  width: 300px;
+  margin-left: 40%;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
 .form {
-  margin: auto;
   position: relative;
   left: 120px;
 }
@@ -21,7 +36,34 @@
   width: 100%;
 }
 
+#listofUsers {
+  display: flex;
+  flex-direction: row;
+  width: 1000px;
+  margin: auto;
+}
+
+.linkButton {
+  height: 100px;
+  width: 100px;
+}
+
+.userForm {
+  background-color: #c215c2;
+  border: 5px black;
+  width: 550px;
+  height: 100%;
+  margin: auto;
+  margin-top: 30px;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
 .recurring_div {
+  display: flex;
+  flex-direction: column;
   background-color: white;
   border: 5px black;
   width: 550px;
@@ -34,7 +76,24 @@
   border-radius: 10px;
 }
 
+.recurring_user {
+  display: flex;
+  flex-direction: column;
+  background-color: #ececee;
+  border: 5px black;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  margin-top: 30px;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
 .headline {
+  display: flex;
+  flex-direction: row;
   height: 90px;
   border: 1px solid rgba(0, 0, 0, 0.3151);
   border-radius: 10px;
@@ -42,6 +101,17 @@
   top: 0px;
   background-color: white;
   z-index: 1;
+}
+.headline__instegram_logo {
+  position: relative;
+  left: 10px;
+  top: 20px;
+  height: 70px;
+}
+.headline__formClass {
+  padding-left: 50%;
+  padding-top: 5%;
+  padding-left: 40%;
 }
 
 #id_heart {
@@ -68,10 +138,6 @@ input[type=search] {
   right: 100px;
 }
 
-.form_class {
-  padding-left: 73%;
-}
-
 .body_background_color {
   background-color: #cbcbcb;
 }
@@ -92,6 +158,8 @@ input[type=search] {
 }
 
 .bottom_headline {
+  display: flex;
+  flex-direction: row;
   height: 60px;
   border: 1px solid rgba(0, 0, 0, 0.3151);
   position: sticky;
@@ -100,7 +168,7 @@ input[type=search] {
   z-index: 1;
 }
 
-.story_div {
+#storyBox {
   background-color: #ececee;
   width: 650px;
   height: 100px;
@@ -113,19 +181,40 @@ input[type=search] {
   text-align: center;
 }
 
+#storyBox2 {
+  background-color: #ececee;
+  width: 650px;
+  height: 15px;
+  margin: auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+#storyBox3 {
+  background-color: #ececee;
+  width: 16%;
+  height: 15px;
+  margin: auto;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-evenly;
+  text-align: center;
+  position: relative;
+  top: 20px;
+}
+
 .frame {
   background-color: aliceblue;
   width: 800px;
   height: 100%;
   margin: auto;
   border-radius: 10px;
-}
-
-.instegram_logo {
-  position: relative;
-  left: 10px;
-  top: 20px;
-  height: 70px;
 }
 
 .img_story {
@@ -176,4 +265,30 @@ input[type=search] {
 .recurring_div_headline {
   display: flex;
   flex-direction: row;
+}
+
+@keyframes color {
+  0% {
+    background: #33CCCC;
+  }
+  20% {
+    background: #33CC36;
+  }
+  40% {
+    background: #B8CC33;
+  }
+  60% {
+    background: #FCCA00;
+  }
+  80% {
+    background: #33CC36;
+  }
+  100% {
+    background: #33CCCC;
+  }
+}
+body {
+  background: #33CCCC;
+  /* Fallback */
+  animation: color 9s infinite linear;
 }

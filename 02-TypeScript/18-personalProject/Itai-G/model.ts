@@ -29,12 +29,14 @@ class Paddle {
     public pos: { x: number; y: number },
     public velocity: { x: number; y: number },
     public width: number,
-    public height: number
+    public height: number,
+    public score: number
   ) {
     this.pos = pos;
     this.velocity = velocity;
     this.width = width;
     this.height = height;
+    this.score = 0;
   }
   Update() {
     if (isDownKeyPressed) {
@@ -49,28 +51,40 @@ class Paddle {
     ctx.fillStyle = "#ggff00";
     ctx.fillRect(this.pos.x, this.pos.y, this.width, this.height);
   }
+  
+  GetHalfWidth (){
+    return this.width / 2;
+  }
+  GetHalfHeight(){
+    return this.height /2;
+  }
+  GetCenter(){
+    return vec2(this.pos.x + this.GetHalfWidth(),this.pos.y + this.GetHalfHeight());
+  }
 }
 
-const ball = new Ball({ x: 200, y: 200 }, { x: 5, y: 5 }, 20);
-const paddle1 = new Paddle({ x: 0, y: 50 }, { x: 0, y: 10 }, 20, 160);
-const paddle2 = new Paddle({ x: canvas.width - 20, y: 80 }, { x: 0, y: 10 }, 20, 160);
+const ball = new Ball({ x: 200, y: 200 }, { x: 3, y: 3 }, 10);
+const paddle1 = new Paddle({ x: 0, y: 50 }, { x: 0, y: 5 }, 20, 120,0);
+const paddle2 = new Paddle({ x: canvas.width - 20, y: 80 }, { x: 0, y: 1.9 }, 20, 120,0);
 let isUpKeyPressed = false;
 let isDownKeyPressed = false;
+gameOver = false;
+
 
 window.addEventListener("keydown", function (e) {
-  if (e.keyCode === 38) {
+  if (e.keyCode === 40) {
     isUpKeyPressed = true;
     isDownKeyPressed = false;
-  } else if (e.keyCode === 40) {
+  } else if (e.keyCode === 38) {
     isUpKeyPressed = false;
     isDownKeyPressed = true;
   }
 });
 
 window.addEventListener("keyup", function (e) {
-  if (e.keyCode === 38) {
+  if (e.keyCode === 40) {
   isUpKeyPressed = false;
-  } else if (e.keyCode === 40) {
+  } else if (e.keyCode === 38) {
   isDownKeyPressed = false;
   }
   });

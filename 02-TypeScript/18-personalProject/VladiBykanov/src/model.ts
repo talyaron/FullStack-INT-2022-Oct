@@ -27,7 +27,7 @@ const mapTwo: number[] = [
   1, 0, 0, 0, 0, 9, 0, 9, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 9, 9, 9,
   9, 9, 9, 9, 9, 9, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 9, 9, 9, 9, 9, 9, 9, 9,
   9, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 9, 0, 0, 0, 0, 0, 0, 0, 9, 0, 1, 0, 0,
-  1, 0, 0, 1, 0, 0, 1, 0, 9, 0, 9, 9, 9, 9, 9, 0, 9, 0, 1, 0, 0, 1, 0, 0, 1, 0,
+  1, 0, 0, 1, 0, 0, 1, 9, 9, 0, 9, 9, 9, 9, 9, 0, 9, 9, 1, 0, 0, 1, 0, 0, 1, 0,
   0, 1, 0, 9, 0, 0, 0, 0, 0, 0, 0, 9, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 9, 9,
   9, 9, 9, 9, 9, 9, 9, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 9, 9, 9, 9, 5, 9, 9,
   9, 9, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 9, 0, 9, 0, 0, 0, 0, 1, 0,
@@ -186,7 +186,7 @@ const ghosts = [
 
 let glide: number; //pacman glide interval
 let scaredGhostsTime: number; //scared ghosts timeout
-let score = 0;
+let score:number;
 let cherryIndex: number[] = [];
 
 const directions = {
@@ -244,3 +244,25 @@ class Maze {
 
 const mazeOne = new Maze(mapOne, "Map One");
 const mazeTwo = new Maze(mapTwo, "Map Two");
+
+class User {
+  constructor(
+    public userName: string,
+    public password: string,
+    public highScore: number = 0
+  ) {}
+  setHighScore(newScore: number) {
+    this.highScore = newScore;
+  }
+}
+
+const preMadeUserList: User[] = [
+  new User("cruseder123", "12345678", 345),
+  new User("johnny123", "87654321", 254),
+  new User("vladb89", "vladislav1989", 984),
+];
+
+if (!localStorage.getItem("users"))
+  localStorage.setItem("users", JSON.stringify(preMadeUserList));
+
+let currentUser:User;
