@@ -1,0 +1,222 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+body {
+  background-color: #e887bd;
+  font-family: "Open Sans", sans-serif;
+}
+
+.nutBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+}
+.nutBar a:hover {
+  background-color: white;
+}
+.nutBar a:visited {
+  text-decoration: none;
+  color: orange;
+}
+
+.userIcon {
+  padding-left: 10px;
+}
+
+.infoContact {
+  padding-right: 10px;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus {
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap {
+  width: 30%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 36px;
+  padding: 10px;
+  text-align: center;
+}
+
+.bookContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.bookFrame {
+  width: 300px;
+  height: 400px;
+  border: 3px solid #333;
+  margin: 10px;
+  text-align: center;
+}
+
+.bookName {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.bookPicture {
+  width: 250px;
+  height: 300px;
+  margin-top: 10px;
+}
+
+#itemsRoot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  gap: 30px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #24bed6;
+  border-radius: 10px;
+}
+#itemsRoot .item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  border-bottom: 1px solid black;
+  background-color: #f98a8a;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+}
+#itemsRoot .item .item-details {
+  display: flex;
+  flex-direction: column;
+}
+#itemsRoot .item .item-details .item-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#itemsRoot .item .item-details .item-description {
+  font-size: 14px;
+  color: #300404;
+}
+
+.review-form {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+.review-form .form-group {
+  margin: 20px 0;
+}
+.review-form .form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.review-form .form-group input,
+.review-form .form-group select,
+.review-form .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+.review-form button[type=submit] {
+  width: 150px;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button-64 {
+  margin-left: 44%;
+  align-items: center;
+  background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  justify-content: center;
+  line-height: 1em;
+  max-width: 100%;
+  min-width: 140px;
+  padding: 3px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.button-64:active,
+.button-64:hover {
+  outline: 0;
+}
+
+.button-64 span {
+  background-color: #05062d;
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  transition: 300ms;
+}
+
+.button-64:hover span {
+  background: none;
+}
+
+@media (min-width: 768px) {
+  .button-64 {
+    font-size: 24px;
+    min-width: 196px;
+  }
+}
+.addReview {
+  padding-top: 1rem;
+}

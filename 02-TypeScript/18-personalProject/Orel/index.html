@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--  Link Font google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <!--  Link Font awesome ICONS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--  Link script files -->
+
+    <script src="./dist/saveLocalStorage.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/helper.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+    <!--  Link css files -->
+    <link rel="stylesheet" href="./dist/index.css">
+
+    <title>PhotoList</title>
+</head>
+
+<body onload="onInit()" class="active">
+    <section id="main-section">
+        <div class="sticky-navbar">
+            <div class="left-header">
+                <div class="icon">
+                    <a href="./index.html">
+                        <img src="./img/logo.png" width="100px" alt="icon-music-control">
+                        <span class="logoTitle">
+                            PhotoList
+                        </span>
+                    </a>
+                </div>
+                <div class="list-up">
+                    <ul class="menu-navbar">
+
+                        <li class="menu-list ">
+                            <button class="active" onclick="handleClickHomeList(event)" data="homePage">
+                                <i class="fa-solid fa-house-chimney"></i><span class="title-list">Home</span>
+                            </button>
+                        </li>
+
+                        <li class="menu-list">
+                            <button onclick="handleClickSearchList(event)" data="searchPage">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <span class="title-list">Search</span>
+                            </button>
+                        </li>
+
+                        <li class="menu-list">
+                            <button onclick="handleClickLibraryList(event)" data="libraryPage">
+                                <i class="fa-solid fa-book-open-reader"></i></i></i>
+                                <span class="title-list">Your Library</span>
+                            </button>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <ul class="list-down">
+                    <li onclick="handleClickCreateAlbumList(event)"><i class="fa-solid fa-square-plus"></i><span>Create Album</span></li>
+                    <li onclick="handleClickLikedPhotosList(event)"><i class="fa-brands fa-gratipay"></i><span>Liked Photos</span></li>
+                    <div class="line"></div>
+                </ul>
+
+                <div class="container-playlist" >
+
+                </div>
+            </div>
+
+            <div class="top-navbar">
+
+
+                <div class="arrow">
+                    <button>
+                        <i class="fa-solid fa-angle-left"></i>
+                    </button>
+                    <button>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </button>
+
+                </div>
+                <div class="users-options" style="display: none;">
+                    <a href="./signin.html"><button class="register-btn">Sign up</button></a>
+                    <a href="./login.html"><button class="log-in-btn">Log in</button></a>
+                </div>
+                <div class="users-options-after-login">
+                    <div class="user-box-profile ">
+                        <img src="./img/userwitoutimg.png" alt="">
+                        <h5>you username</h5>
+                        <i class="fa-solid fa-arrow-down"></i>
+                    </div>
+                    <div class="user-box-profile-collapse">
+                        <button onclick="handleClickLogOut()" class="logout-btn">
+                            <span class="logout-btn-text">
+                                Logout
+                            </span>
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-board-center active">
+            <main class="container-main-app">
+                <div class="sections-home section active">
+                    <h1>Home Section</h1>
+
+                    <div id="list1" class="list">
+        
+                        <h4>Animals</h4>
+                        <div class="recommended-list animalsList ">
+                        </div>
+                    </div>
+                    <div id="list2" class="list">
+                        <h4>Backgrounds</h4>
+                        <div class="recommended-list backgroundList">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="sections-search section ">
+                    <h1>Search Section</h1>
+
+                </div>
+                <div class="sections-library section">
+                    <h1>Library Section</h1>
+                </div>
+
+                <div class="sections-create-album section"  id="createAlbumSection">
+                    <h1>Create Album Section</h1>
+                    <form onsubmit="handleSubmitCreateAlbumsList(event)">
+                        <h4>ADD NEW LIST</h4>
+                        <div class="user-create-list">
+
+                            <input type="text" name="createListName" id="createListName" placeholder="ENTER New LIST NAME" required>
+                            <button type="submit">ADD</button>
+                        </div>
+                    </form>
+
+                    <form onsubmit="handleSubmitCreatePhoto(event)">
+                        <h4>ADD NEW PHOTO</h4>
+                        <div class="user-create-photo">
+                            <input type="text" name="photoNameCreateImage" id="photoNameCreateImage" placeholder="Enter Photo Name" required>
+                            <input type="date" name="photoDateCreateImage" id="photoDateCreateImage" placeholder="Enter Date or Details" required>
+                            <input type="url" name="photoSrcCreateImage" id="photoSrcCreateImage" placeholder="ENTER URL IMAGE" required>
+                            <span>
+                                <label for="selectList">Chose List To Put Photo</label >
+                                <select name="selectList" id="selectList" required>
+                          
+                              </select>
+                            </span>
+                        <button type="submit">ADD</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="sections-liked-songs section" id="likedSongSection">
+                    <div id="list4" class="list">
+                        <h4>You Liked</h4>
+                        <div class="recommended-list likeSongList " style="pointer-events: none;">
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+        </div>
+        </main>
+        </div>
+
+    </section>
+</body>
+
+</html>
