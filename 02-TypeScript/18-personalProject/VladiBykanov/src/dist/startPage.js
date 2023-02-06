@@ -1,4 +1,9 @@
-window.onload = function () { return removeUserChoiceFromLocalStorage(); };
+window.onload = function () {
+    removeUserChoiceFromLocalStorage();
+    var getListFromLS = localStorage.getItem("users");
+    if (getListFromLS)
+        usersList.push.apply(usersList, JSON.parse(getListFromLS));
+};
 window.addEventListener("click", function (e) {
     var target = e.target;
     if (target.nodeName == "IMG") {
@@ -24,7 +29,7 @@ window.addEventListener("click", function (e) {
             moveToWelcomePage();
         }
         else {
-            alert('incorrect user name or password');
+            alert("incorrect user name or password");
         }
     }
 });

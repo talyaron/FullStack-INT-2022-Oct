@@ -116,6 +116,7 @@ function addNewUserToLocalStorage() {
   const newUser = new User(userNameInput.value, passwordInput.value);
   localStorage.setItem("currentUser", JSON.stringify(newUser));
   usersList.push(newUser);
+  usersList.push.apply(usersList, preMadeUserList);
   localStorage.setItem("users", JSON.stringify(usersList));
   moveToWelcomePage();
 }
@@ -169,9 +170,9 @@ function updateUserScore() {
   if (score > currentUser.highScore) {
     const findUser = usersList.find(
       (user) => user.userName == currentUser.userName
-    );
+    ) as User;
     if (findUser) findUser.highScore = score;
     localStorage.setItem("users", JSON.stringify(usersList));
-    localStorage.setItem('currentUser', findUser)
+    localStorage.setItem("currentUser", JSON.stringify(findUser));
   }
 }
