@@ -30,7 +30,7 @@ body {
   align-items: center;
   justify-content: space-evenly;
   font-size: 1.5rem;
-  transition: transform 0.7s linear;
+  transition: transform 0.1s linear;
 }
 .loginPage .inputDiv {
   display: flex;
@@ -89,7 +89,7 @@ body {
   align-items: center;
   justify-content: space-around;
   transform: translateX(100vw);
-  transition: transform 0.7s linear;
+  transition: transform 0.1s linear;
 }
 .welcomePage__choices {
   width: 100%;
