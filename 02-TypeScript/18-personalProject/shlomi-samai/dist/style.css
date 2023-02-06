@@ -249,7 +249,7 @@ input[type=search] {
 
 .story_text {
   position: relative;
-  top: 3px;
+  top: 21px;
   font-size: 17px;
 }
 
@@ -291,4 +291,9 @@ body {
   background: #33CCCC;
   /* Fallback */
   animation: color 9s infinite linear;
+}
+
+.story {
+  display: flex;
+  flex-direction: column;
 }

@@ -4,15 +4,16 @@ function renderStory(users:User[]){
 let storyPage = "";
 let k = 0;
 for (k = 0; k <= users.length - 1; k++) {
-  storyPage += `<div> <img class="img_story" src="${users[k].pictureURL}" onclick="renderfilterUser(users,'${users[k].name}')" alt=""/>
-                </div> `
+  storyPage += `<div class="story"> <img class="img_story" src="${users[k].pictureURL}" onclick="renderfilterUser(users,'${users[k].name}')" alt=""/>
+                 <div class="story_text"> ${users[k].name}</div>
+                  </div> `
                  ;
 }
 const htmlStory: HTMLDivElement | null = document.querySelector("#storyBox");
 if (htmlStory !== null) {
   htmlStory.innerHTML = storyPage;
 }  
-render(posts)
+render(getItemsFromStorage())
 } 
 
 
@@ -83,19 +84,7 @@ function handleaddUser(ev) {
     ev.target.reset();
     localStorage.setItem("users", JSON.stringify(users));
   
-    // let page = "";
-    // let j = 0;
-    // for (j = 0; j <= users.length - 1; j++) {
-    //   page += `<div class="recurring_div">
-    //           <h3>${users[j].name}</h3>
-    //           <img src='${users[j].pictureURL}'/>
-    //           <a class="linkButton" href="./index.html">Enter</a>   
-    //           </div> `;
-    // }
-    // const html: HTMLDivElement | null = document.querySelector("#listofUsers");
-    // if (html !== null) {
-    //   html.innerHTML = page;
-    // }
+
   } catch (error) {
     console.error(error);
   }
