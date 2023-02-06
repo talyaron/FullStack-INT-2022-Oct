@@ -61,6 +61,8 @@ function resetBall(ball) {
 }
 function increseScore(ball, paddle1, paddle2) {
     try {
+        if (gameOver)
+            return;
         if (ball.pos.x <= ball.radius) {
             paddle2.score += 1;
             var player2Score = document.getElementById("player2Score");
@@ -68,9 +70,7 @@ function increseScore(ball, paddle1, paddle2) {
                 player2Score.innerHTML = paddle2.score.toString();
                 resetBall(ball);
                 if (paddle2.score == 10) {
-                    setTimeout(function () {
-                        bigAd.style.display = "block";
-                    }, 500);
+                    gameOver = true;
                 }
             }
         }
@@ -81,9 +81,7 @@ function increseScore(ball, paddle1, paddle2) {
                 player1Score.innerHTML = paddle1.score.toString();
                 resetBall(ball);
                 if (paddle1.score == 10) {
-                    setTimeout(function () {
-                        bigAd.style.display = "block";
-                    }, 500);
+                    gameOver = true;
                 }
             }
         }

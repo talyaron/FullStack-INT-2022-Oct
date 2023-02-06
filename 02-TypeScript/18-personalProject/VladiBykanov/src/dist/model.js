@@ -220,3 +220,22 @@ var Maze = /** @class */ (function () {
 }());
 var mazeOne = new Maze(mapOne, "Map One");
 var mazeTwo = new Maze(mapTwo, "Map Two");
+var User = /** @class */ (function () {
+    function User(userName, password, highScore) {
+        if (highScore === void 0) { highScore = 0; }
+        this.userName = userName;
+        this.password = password;
+        this.highScore = highScore;
+    }
+    User.prototype.setHighScore = function (newScore) {
+        this.highScore = newScore;
+    };
+    return User;
+}());
+var usersList = [
+    new User("cruseder123", "12345678", 345),
+    new User("johnny123", "87654321", 254),
+    new User("vladb89", "vladislav1989", 984),
+];
+if (!localStorage.getItem("users"))
+    localStorage.setItem("users", JSON.stringify(usersList));

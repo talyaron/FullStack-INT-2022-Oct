@@ -244,3 +244,23 @@ class Maze {
 
 const mazeOne = new Maze(mapOne, "Map One");
 const mazeTwo = new Maze(mapTwo, "Map Two");
+
+class User {
+  constructor(
+    public userName: string,
+    public password: string,
+    public highScore: number = 0
+  ) {}
+  setHighScore(newScore: number) {
+    this.highScore = newScore;
+  }
+}
+
+const usersList: User[] = [
+  new User("cruseder123", "12345678", 345),
+  new User("johnny123", "87654321", 254),
+  new User("vladb89", "vladislav1989", 984),
+];
+
+if (!localStorage.getItem("users"))
+  localStorage.setItem("users", JSON.stringify(usersList));

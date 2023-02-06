@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Starting Page</title>
     <link rel="stylesheet" href="./src/dist/style.css" />
+    <script src="./src/dist/view.js" defer></script>
+    <script src="./src/dist/helpers.js" defer></script>
+    <script src="./src/dist/controls.js" defer></script>
+    <script src="./src/dist/model.js" defer></script>
     <script src="./src/dist/startPage.js" defer></script>
   </head>
   <body>
@@ -14,13 +18,16 @@
         <h1>Choose a map and start</h1>
         <div class="welcomePage__choices">
           <div class="welcomePage__choices__choice">
-            <img class="img" id="mapOne" src="./img/mapOne.png" alt="" />
+            <img class="mapImg" id="mapOne" src="./img/mapOne.png" alt="" />
           </div>
           <div class="welcomePage__choices__choice">
-            <img class="img" id="mapTwo" src="./img/mapTwo.png" alt="" />
+            <img class="mapImg" id="mapTwo" src="./img/mapTwo.png" alt="" />
           </div>
         </div>
-        <button class="startGameBtn">START</button>
+        <div class="btnDiv">
+          <button class="welcomePage__button">START</button>
+          <button class="welcomePage__button">SCOREBOARD</button>
+        </div>
       </div>
       <div class="loginPage">
         <h1>Login Page</h1>

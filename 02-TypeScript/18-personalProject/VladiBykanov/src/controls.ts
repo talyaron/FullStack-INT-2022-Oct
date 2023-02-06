@@ -1,7 +1,7 @@
 function startGame() {
   gameOver = false;
-  winMessage.style.opacity = "0";
-  loseMessage.style.opacity = "0";
+  winMessage.style.transform = "translateY(-100vh)";
+  loseMessage.style.transform = "translateY(100vh)";
   pacman.currentIndex = pacman.pacmanStrartingIndex;
   if (chosenMap) {
     if (chosenMap === "mapOne") {

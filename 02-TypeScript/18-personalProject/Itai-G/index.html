@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./dist/style.css">
+    <link rel="stylesheet" href="./dist/style.css" />
     <script src="./dist/view.js" defer></script>
     <script src="./dist/helpers.js" defer></script>
     <script src="./dist/model.js" defer></script>
@@ -17,8 +17,11 @@
     <canvas id="canvas"></canvas>
     <h1 id="player1Score">0</h1>
     <h1 id="player2Score">0</h1>
-    <div id="bigAd">
-      <h1>Congratulations! You won the game!</h1>
+    <div class="endGame" id="bigAd">
+      Congratulations! You won the game!
+      <button>Reset</button>
     </div>
+    <div class="endGame" id="bigAdComputer">You lost!
+      <button>Reset</button></div>
   </body>
 </html>

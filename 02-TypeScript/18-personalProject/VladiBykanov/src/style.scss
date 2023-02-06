@@ -11,6 +11,10 @@
   --div-size: calc(var(--boardSize) / 21);
 }
 
+body{
+  overflow: hidden;
+}
+
 .welcomePageWrapper {
   background-color: darkblue;
   height: 100vh;
@@ -31,7 +35,8 @@
   align-items: center;
   justify-content: space-evenly;
   font-size: 1.5rem;
-  // display: none;
+  // transform: translateX(-100vw);
+  transition: transform .7s linear;
   .inputDiv {
     display: flex;
     flex-direction: column;
@@ -91,7 +96,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  display: none;
+  transform: translateX(100vw);
+  transition: transform .7s linear;
   &__choices {
     width: 100%;
     height: 70%;
@@ -108,8 +114,15 @@
       }
     }
   }
-  .startGameBtn {
+  .btnDiv{
+    // border: 1px solid black;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  &__button {
     position: relative;
+    padding: .5em 1em;
     font-size: 1.5rem;
     border: none;
     border-radius: 10px;
@@ -117,13 +130,14 @@
     outline: 0;
     z-index: 1;
     cursor: pointer;
+    width: 20vw;
   }
 
-  .startGameBtn:hover {
+  &__button:hover {
     color: whitesmoke;
   }
 
-  .startGameBtn:before {
+  &__button:before {
     content: "";
     position: absolute;
     border-radius: 10px;
@@ -136,7 +150,7 @@
     transition: top 0.09s ease-in;
   }
 
-  .startGameBtn:hover:before {
+  &__button:hover:before {
     top: 0;
   }
 }
@@ -168,7 +182,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    transition: all 0.5s;
+    transition: all .5s;
     font-family: Georgia, "Times New Roman", Times, serif;
     button {
       width: 30%;
@@ -188,12 +202,12 @@
   .winMessage {
     color: lightcoral;
     background-color: rgb(35, 106, 70);
-    opacity: 0;
+    transform: translateY(-100vh);
   }
   .loseMessage {
     color: orange;
     background-color: rgb(141, 24, 24);
-    opacity: 0;
+    transform: translateY(100vh);
   }
   .square {
     width: var(--div-size);
@@ -209,7 +223,7 @@
     border-radius: 50%;
     background-color: darkorange;
     position: relative;
-    transform: scaleY(1);
+    // transform: scaleY(1);
     .eye {
       position: absolute;
       width: 0.3vw;
