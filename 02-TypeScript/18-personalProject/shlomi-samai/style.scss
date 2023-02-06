@@ -1,25 +1,28 @@
 .bodyHomePage {
   background-color: rgba(9, 179, 179, 0.555);
-}
-.bodyHomePage__userForm {
-  width: 550px;
-  height: 100%;
-  margin: auto;
-  margin-top: 30px;
-  padding-top: 0.5%;
-  padding-bottom: 0.5%;
-  border-radius: 10px;
-  position: relative;
-  left: 70px;
-}
-.bodyHomePage__mainLogo {
-  width: 300px;
-  margin-left: 40%;
-  border: 1px solid black;
-  border-radius: 10px;
+  &__userForm {
+    //    background-color:  rgb(194, 21, 194);
+    //  border: 5px black;
+    width: 550px;
+    height: 100%;
+    margin: auto;
+    margin-top: 30px;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    //   border: 1px solid black;
+    border-radius: 10px;
+    position: relative;
+    left: 70px;
+  }
+  &__mainLogo {
+    width: 300px;
+    margin-left: 40%;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
 }
 
-.form {
+.form{
   position: relative;
   left: 120px;
 }
@@ -29,11 +32,11 @@
   width: 200px;
   margin: auto;
   background-color: rgba(0, 255, 255, 0.123);
+  img {
+    width: 100%;
+  }
   border: solid coral;
   padding: 50px;
-}
-.list img {
-  width: 100%;
 }
 
 #listofUsers {
@@ -47,9 +50,8 @@
   height: 100px;
   width: 100px;
 }
-
 .userForm {
-  background-color: #c215c2;
+  background-color: rgb(194, 21, 194);
   border: 5px black;
   width: 550px;
   height: 100%;
@@ -64,7 +66,7 @@
 .recurring_div {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 1);
   border: 5px black;
   width: 550px;
   height: 100%;
@@ -79,7 +81,7 @@
 .recurring_user {
   display: flex;
   flex-direction: column;
-  background-color: #ececee;
+  background-color: rgb(236,236,238);
   border: 5px black;
   width: 100%;
   height: 100%;
@@ -99,19 +101,19 @@
   border-radius: 10px;
   position: sticky;
   top: 0px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 1);
   z-index: 1;
-}
-.headline__instegram_logo {
-  position: relative;
-  left: 10px;
-  top: 20px;
-  height: 70px;
-}
-.headline__formClass {
-  padding-left: 50%;
-  padding-top: 5%;
-  padding-left: 40%;
+  &__instegram_logo {
+    position: relative;
+    left: 10px;
+    top: 20px;
+    height: 70px;
+  }
+  &__formClass {
+    padding-left: 50%;
+    padding-top: 5%;
+    padding-left: 40%;
+  }
 }
 
 #id_heart {
@@ -124,7 +126,7 @@
   margin-bottom: 8px;
 }
 
-input[type=search] {
+input[type="search"] {
   width: 230px;
   height: 30px;
   box-sizing: border-box;
@@ -138,8 +140,10 @@ input[type=search] {
   right: 100px;
 }
 
+
+
 .body_background_color {
-  background-color: #cbcbcb;
+  background-color: rgb(203, 203, 203);
 }
 
 .h1_design {
@@ -152,6 +156,7 @@ input[type=search] {
   width: 50px;
   height: 50px;
   border-radius: 100px;
+
   float: left;
   position: relative;
   right: 10;
@@ -164,12 +169,12 @@ input[type=search] {
   border: 1px solid rgba(0, 0, 0, 0.3151);
   position: sticky;
   bottom: 0px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 1);
   z-index: 1;
 }
 
 #storyBox {
-  background-color: #ececee;
+  background-color: rgb(236, 236, 238);
   width: 650px;
   height: 100px;
   margin: auto;
@@ -180,9 +185,8 @@ input[type=search] {
   justify-content: space-evenly;
   text-align: center;
 }
-
-#storyBox2 {
-  background-color: #ececee;
+#storyBox2{
+  background-color: rgb(236, 236, 238);
   width: 650px;
   height: 15px;
   margin: auto;
@@ -193,9 +197,8 @@ input[type=search] {
   justify-content: space-evenly;
   text-align: center;
 }
-
-#storyBox3 {
-  background-color: #ececee;
+#storyBox3{
+  background-color: rgb(236, 236, 238);
   width: 16%;
   height: 15px;
   margin: auto;
@@ -221,7 +224,7 @@ input[type=search] {
   border-radius: 180px;
   width: 50px;
   height: 50px;
-  border: 2px solid #ec2525;
+  border: 2px solid rgb(236, 37, 37);
   border-image: repeat;
   position: relative;
   top: 20px;
@@ -232,24 +235,22 @@ input[type=search] {
   border: 1px solid rgba(0, 0, 0, 0.3151);
   position: sticky;
   bottom: 0px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 1);
   z-index: 1;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   border-radius: 10px;
 }
-
 .img_bottom_headline {
   width: 30px;
   height: 30px;
   position: relative;
   top: 10px;
 }
-
 .story_text {
   position: relative;
-  top: 3px;
+  top: 21px;
   font-size: 17px;
 }
 
@@ -268,27 +269,20 @@ input[type=search] {
 }
 
 @keyframes color {
-  0% {
-    background: #33CCCC;
-  }
-  20% {
-    background: #33CC36;
-  }
-  40% {
-    background: #B8CC33;
-  }
-  60% {
-    background: #FCCA00;
-  }
-  80% {
-    background: #33CC36;
-  }
-  100% {
-    background: #33CCCC;
-  }
+  0%   { background: #33CCCC; }
+  20%  { background: #33CC36; }
+  40%  { background: #B8CC33; }
+  60%  { background: #FCCA00; }
+  80%  { background: #33CC36; }
+  100% { background: #33CCCC; }
 }
+
 body {
-  background: #33CCCC;
-  /* Fallback */
+  background: #33CCCC; /* Fallback */
   animation: color 9s infinite linear;
+}
+
+.story{
+  display: flex;
+  flex-direction: column;
 }
