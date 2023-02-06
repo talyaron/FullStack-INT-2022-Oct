@@ -11,10 +11,12 @@
     <script src="./dist/helpers.js" defer></script>
     <link rel="stylesheet" href="./dist/style.css">
 </head>
-<body>
-    <button onclick="renderusers(event)">start</button>
-    
-    <form class="form" onsubmit="handleaddUser(event)"> 
+<body class="bodyHomePage">
+   
+   
+    <!-- <button onclick="renderusers(event)">start</button> -->
+    <img class="bodyHomePage__mainLogo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_rMOjIqG32o9f41rbWHjgHvXFWZH7s8BmOw&usqp=CAU" alt="">
+    <form class="bodyHomePage__userForm" onsubmit="handleaddUser(event)"> 
         <input type="text" name="name" placeholder="enter mom/dad/son">
         <input type="url" name="PictureURL" placeholder="PictureURL">
         <input type="submit" value="ADD">

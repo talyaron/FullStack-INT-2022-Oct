@@ -1,9 +1,23 @@
+let page = "";
+let j = 0;
+for (j = 0; j <= users.length - 1; j++) {
+  page += `<div class="recurring_div">
+          <img src='${users[j].pictureURL}'/>
+          <a class="linkButton" href="./index.html">Enter</a>   
+          </div> `
+          ;
+}
+const html: HTMLDivElement | null = document.querySelector("#listofUsers");
+if (html !== null) {
+  html.innerHTML = page;
+}
+
+
 function renderusers(ev){
   let page = "";
   let j = 0;
   for (j = 0; j <= users.length - 1; j++) {
     page += `<div class="recurring_div">
-            <h3>${users[j].name}</h3>
             <img src='${users[j].pictureURL}'/>
             <a class="linkButton" href="./index.html">Enter</a>   
             </div> `;

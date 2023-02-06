@@ -1,12 +1,25 @@
-.linkButton{
-    height: 100px;
-    width: 100px;
+.bodyHomePage{
+background-color: rgba(9, 179, 179, 0.555);
+    &__userForm {
+    //    background-color:  rgb(194, 21, 194);
+      //  border: 5px black;
+        width: 550px;
+        height: 100%;
+        margin:auto;
+        margin-top: 30px;
+        padding-top: 0.5%;
+        padding-bottom: 0.5%;
+     //   border: 1px solid black;
+        border-radius: 10px;
+    }
+    &__mainLogo{
+        width: 300px;
+        margin-left: 35%;
+        border: 1px solid black;
+        border-radius: 10px;
+        }
 }
-.form {
-    margin: auto;
-    position: relative;
-    left: 120px;
-}
+
 .list {
 
     height: auto;
@@ -19,6 +32,35 @@
       border: solid coral;
       padding: 50px;
 }
+
+
+
+#listofUsers{
+    display: flex;   
+    flex-direction: row; 
+    width: 1000px;  
+    margin: auto;
+    
+}
+
+
+.linkButton{
+    height: 100px;
+    width: 100px;
+}
+.userForm {
+    background-color:  rgb(194, 21, 194);
+    border: 5px black;
+    width: 550px;
+    height: 100%;
+    margin:auto;
+    margin-top: 30px;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
 
 .recurring_div {
     background-color:  rgba(255, 255, 255, 1);

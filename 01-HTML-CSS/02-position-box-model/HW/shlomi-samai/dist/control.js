@@ -1,8 +1,17 @@
+var page = "";
+var j = 0;
+for (j = 0; j <= users.length - 1; j++) {
+    page += "<div class=\"recurring_div\">\n          <img src='" + users[j].pictureURL + "'/>\n          <a class=\"linkButton\" href=\"./index.html\">Enter</a>   \n          </div> ";
+}
+var html = document.querySelector("#listofUsers");
+if (html !== null) {
+    html.innerHTML = page;
+}
 function renderusers(ev) {
     var page = "";
     var j = 0;
     for (j = 0; j <= users.length - 1; j++) {
-        page += "<div class=\"recurring_div\">\n            <h3>" + users[j].name + "</h3>\n            <img src='" + users[j].pictureURL + "'/>\n            <a class=\"linkButton\" href=\"./index.html\">Enter</a>   \n            </div> ";
+        page += "<div class=\"recurring_div\">\n            <img src='" + users[j].pictureURL + "'/>\n            <a class=\"linkButton\" href=\"./index.html\">Enter</a>   \n            </div> ";
     }
     var html = document.querySelector("#listofUsers");
     if (html !== null) {
@@ -31,14 +40,14 @@ function handleaddUser(ev) {
         var PictureURL = ev.target.elements.PictureURL.value;
         users.push(new User(name, PictureURL));
         ev.target.reset();
-        var page = "";
-        var j = 0;
-        for (j = 0; j <= users.length - 1; j++) {
-            page += "<div class=\"recurring_div\">\n              <h3>" + users[j].name + "</h3>\n              <img src='" + users[j].pictureURL + "'/>\n              <a class=\"linkButton\" href=\"./index.html\">Enter</a>   \n              </div> ";
+        var page_1 = "";
+        var j_1 = 0;
+        for (j_1 = 0; j_1 <= users.length - 1; j_1++) {
+            page_1 += "<div class=\"recurring_div\">\n              <h3>" + users[j_1].name + "</h3>\n              <img src='" + users[j_1].pictureURL + "'/>\n              <a class=\"linkButton\" href=\"./index.html\">Enter</a>   \n              </div> ";
         }
-        var html = document.querySelector("#listofUsers");
-        if (html !== null) {
-            html.innerHTML = page;
+        var html_1 = document.querySelector("#listofUsers");
+        if (html_1 !== null) {
+            html_1.innerHTML = page_1;
         }
     }
     catch (error) {
