@@ -17,6 +17,32 @@ function addToLocalStorage(event:any){
 
 };
 
+function renderBooks(books:Book[],renderElementId):void{
+    try {   
+        if(!books|| !Array.isArray(books))
+        throw new Error(`books is not an array`)
+        const htmlBook= books
+        .map((books)=>{
+            return`
+            <div class="bookContainer">
+            <div class="bookFrame">
+              <div class="bookName">${books.name}</div>
+              <img src="${books.url}" alt="Book Picture" class="bookPicture">
+              <div class="summary">Summary: ${books.summary}</div>
+              <div class="price"> ${books.price}</div>
+            </div>
+            `
+        })
+        .join(` `)
+        const element = document.querySelector(`#${renderElementId}`);
+        if(!element) throw new Error(`couldent find element `)
+        element.innerHTML=htmlBook;
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+
 function renderReviews(reviews: UserReview[], renderElementId:string):void{
     try {
         
@@ -30,6 +56,8 @@ function renderReviews(reviews: UserReview[], renderElementId:string):void{
             <div class="item">
               <div class="item-details">
                 <div class="item-title">User Name: ${review.name}</div>
+                <div class="item-title">User Name: ${review.books}</div>
+
                 <div class="item-description">Star: ${review.stars}</div>
                 <div class="item-description">Review: ${review.review}</div>
 

@@ -4,3 +4,4 @@ if (_reviews) {
 }
 renderReviews(reviews, "itemsRoot");
 console.log(reviews);
+renderBooks(books, "bookContainer");
