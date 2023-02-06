@@ -12,10 +12,8 @@ var cardChk = 0;
 
 var memory = document.getElementById("game");
 var newGame; 
-var opacityD = document.getElementById("opacityD");
 var h1Res = document.getElementById("h1Res");
 var pRes = document.getElementById("pRes");
-
 var status = 0; 
 var gameOver = false; 
 
@@ -70,7 +68,7 @@ function cardClick(cardId) {
 	}
 	
 	if(gameOver == true) {
-		alert("Game is over. Click on the New Game button to start a new game");
+		alert("Game is over.");
 	}
 }
 
@@ -132,38 +130,16 @@ function newBoard() {
 	}
 
 }
-
-
-
-
-
 function displayResult() {
 	gameOver = true; 
-	
-	var width = window.innerWidth;
-	opacityD.style.display = "block";
-	result.style.display = "block";
-	result.style.left = (width/2) - (500/2) + "px"; 
-	result.style.top = 150 + "px";
-	
+		var width = window.innerWidth;
 	if(correct == 10) {
 		h1Res.innerHTML = "Congratulations! You won!";
-		pRes.innerHTML = "You've scored " + correct + " points.";
 	}
 	else {
 		h1Res.innerHTML = "Try again!";
-		pRes.innerHTML = "You've scored " + correct + " points.";
 	}
 }
-
-var okayButton = document.getElementById("okayButton");
-okayButton.addEventListener("click",okayClick);
-
-function okayClick() {
-	
-	opacityD.style.display = "none";
-}
-
 
 window.onload = newBoard();
 
