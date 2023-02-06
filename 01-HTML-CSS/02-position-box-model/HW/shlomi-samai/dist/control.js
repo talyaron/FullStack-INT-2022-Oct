@@ -1,28 +1,3 @@
-// let page = "";
-// let j = 0;
-// for (j = 0; j <= users.length - 1; j++) {
-//   page += `<div class="recurring_div">
-//           <img src='${users[j].pictureURL}'/>
-//           <a class="linkButton" href="./index.html">Enter</a>   
-//           </div> `
-//           ;
-// }
-// const html: HTMLDivElement | null = document.querySelector("#listofUsers");
-// if (html !== null) {
-//   html.innerHTML = page;
-// }
-// let storyPage = "";
-// let k = 0;
-// for (k = 0; k <= users.length - 1; k++) {
-//   storyPage += `<div> <img class="img_story" src="${users[k].pictureURL}" alt=""/>
-//                 <h1 class="story_text">${users[k].name}</h1> 
-//                 </div> `
-//                  ;
-// }
-// const htmlStory: HTMLDivElement | null = document.querySelector("#storyBox");
-// if (htmlStory !== null) {
-//   htmlStory.innerHTML = storyPage;
-// }
 function renderStory(users) {
     var storyPage = "";
     var k = 0;
@@ -33,6 +8,7 @@ function renderStory(users) {
     if (htmlStory !== null) {
         htmlStory.innerHTML = storyPage;
     }
+    render(posts);
 }
 function renderusers(users) {
     var page = "";
@@ -157,8 +133,8 @@ function filterUser(ev) {
     }
 }
 function renderfilterUser(posts, user) {
+    debugger;
     try {
-        debugger;
         var page = "";
         var j = 0;
         for (j = 0; j <= posts.length - 1; j++) {
@@ -170,9 +146,8 @@ function renderfilterUser(posts, user) {
         var html = document.querySelector("#list");
         if (html !== null) {
             html.innerHTML = page;
-            console.log(html);
         }
-        localStorage.setItem("posts", JSON.stringify(posts));
+        // localStorage.setItem("posts", JSON.stringify(posts));
     }
     catch (error) {
         alert("no post availble");

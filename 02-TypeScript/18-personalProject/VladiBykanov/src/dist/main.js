@@ -22,7 +22,10 @@ window.addEventListener("keydown", function (e) {
 backToStartingPageBtn.forEach(function (btn) {
     btn.addEventListener("click", function () {
         window.location.href = "startPage.html";
-        localStorage.removeItem('userChoice');
+        localStorage.removeItem("userChoice");
     });
 });
-tryAgainBtn.forEach(function (btn) { return btn.addEventListener('click', startGame); });
+tryAgainBtn.forEach(function (btn) { return btn.addEventListener("click", startGame); });
+scoreboardBtn.forEach(function (btn) {
+    return btn.addEventListener("click", function () { return (window.location.href = "scoreBoard.html"); });
+});
