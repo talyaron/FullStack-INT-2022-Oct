@@ -39,7 +39,10 @@ function checkForGamneOver() {
         gameOver = true;
         squares[pacman.currentIndex].classList.remove("pacman");
         if (score > currentUser.highScore) {
-            currentUser.highScore = score;
+            var findUser = usersList.find(function (user) { return user.userName == currentUser.userName; });
+            if (findUser)
+                findUser.highScore = score;
+            localStorage.setItem("users", JSON.stringify(usersList));
         }
         resetGhosts();
         loseMessage.style.transform = "translateY(0)";
@@ -53,7 +56,10 @@ function checkForWin() {
         squares[pacman.currentIndex].classList.remove("pacman");
         clearInterval(glide);
         if (score > currentUser.highScore) {
-            currentUser.highScore = score;
+            var findUser = usersList.find(function (user) { return user.userName == currentUser.userName; });
+            if (findUser)
+                findUser.highScore = score;
+            localStorage.setItem("users", JSON.stringify(usersList));
         }
         winMessage.style.transform = "translateY(0)";
         finalScore[0].textContent = score.toString();
@@ -88,7 +94,7 @@ function addNewUserToLocalStorage() {
     if (checkIfUserExists(userNameInput.value))
         return alert("user name is taken");
     var newUser = new User(userNameInput.value, passwordInput.value);
-    currentUser = newUser;
+    localStorage.setItem("currentUser", JSON.stringify(newUser));
     usersList.push(newUser);
     localStorage.setItem("users", JSON.stringify(usersList));
     moveToWelcomePage();
@@ -96,13 +102,13 @@ function addNewUserToLocalStorage() {
 function checkIfUserExists(name) {
     return usersList.some(function (user) { return user.userName == name; });
 }
-function checkPassword() {
+function verifyLogin() {
     var findUser = usersList.find(function (user) {
         return user.userName === userNameInput.value &&
             user.password === passwordInput.value;
     });
     if (findUser) {
-        currentUser = findUser;
+        localStorage.setItem("currentUser", JSON.stringify(findUser));
         return true;
     }
     return false;
@@ -119,4 +125,21 @@ function resetGhosts() {
         squares[ghost.currentIndex].classList.remove(ghost.className, "ghost", "scaredGhost");
         clearInterval(ghost.timerId);
     });
+}
+function getCurrentUserFromStorage() {
+    var getUserFromStorage = localStorage.getItem("currentUser");
+    if (getUserFromStorage)
+        currentUser = JSON.parse(getUserFromStorage);
+    var getListFromStorage = localStorage.getItem("users");
+    if (getListFromStorage)
+        usersList.push.apply(usersList, JSON.parse(getListFromStorage));
+}
+function updateUserScore() {
+    if (score > currentUser.highScore) {
+        var findUser = usersList.find(function (user) { return user.userName == currentUser.userName; });
+        if (findUser)
+            findUser.highScore = score;
+        localStorage.setItem("users", JSON.stringify(usersList));
+        localStorage.setItem('currentUser', findUser);
+    }
 }

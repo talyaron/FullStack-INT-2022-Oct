@@ -1,5 +1,5 @@
 function startGame() {
-  currentUser = usersList[1];
+  getCurrentUserFromStorage();
   gameOver = false;
   score = 0;
   scoreEl.textContent = '0';

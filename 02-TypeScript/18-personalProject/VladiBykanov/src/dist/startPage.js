@@ -20,7 +20,7 @@ window.addEventListener("click", function (e) {
         addNewUserToLocalStorage();
     }
     if (target.innerHTML === "Login") {
-        if (checkPassword()) {
+        if (verifyLogin()) {
             moveToWelcomePage();
         }
         else {

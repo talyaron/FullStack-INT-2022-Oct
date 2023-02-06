@@ -232,11 +232,11 @@ var User = /** @class */ (function () {
     };
     return User;
 }());
-var usersList = [
+var preMadeUserList = [
     new User("cruseder123", "12345678", 345),
     new User("johnny123", "87654321", 254),
     new User("vladb89", "vladislav1989", 984),
 ];
 if (!localStorage.getItem("users"))
-    localStorage.setItem("users", JSON.stringify(usersList));
+    localStorage.setItem("users", JSON.stringify(preMadeUserList));
 var currentUser;

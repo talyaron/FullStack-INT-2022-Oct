@@ -256,13 +256,13 @@ class User {
   }
 }
 
-const usersList: User[] = [
+const preMadeUserList: User[] = [
   new User("cruseder123", "12345678", 345),
   new User("johnny123", "87654321", 254),
   new User("vladb89", "vladislav1989", 984),
 ];
 
 if (!localStorage.getItem("users"))
-  localStorage.setItem("users", JSON.stringify(usersList));
+  localStorage.setItem("users", JSON.stringify(preMadeUserList));
 
 let currentUser:User;

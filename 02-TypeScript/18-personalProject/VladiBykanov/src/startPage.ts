@@ -25,7 +25,7 @@ window.addEventListener("click", (e) => {
   }
 
   if (target.innerHTML === "Login") {
-    if (checkPassword()) {
+    if (verifyLogin()) {
       moveToWelcomePage();
     }
     else{

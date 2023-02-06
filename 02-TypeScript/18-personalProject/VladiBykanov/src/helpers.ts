@@ -39,7 +39,11 @@ function checkForGamneOver() {
     gameOver = true;
     squares[pacman.currentIndex].classList.remove("pacman");
     if (score > currentUser.highScore) {
-      currentUser.highScore = score;
+      const findUser = usersList.find(
+        (user) => user.userName == currentUser.userName
+      );
+      if (findUser) findUser.highScore = score;
+      localStorage.setItem("users", JSON.stringify(usersList));
     }
     resetGhosts();
     loseMessage.style.transform = "translateY(0)";
@@ -54,7 +58,11 @@ function checkForWin() {
     squares[pacman.currentIndex].classList.remove("pacman");
     clearInterval(glide);
     if (score > currentUser.highScore) {
-      currentUser.highScore = score;
+      const findUser = usersList.find(
+        (user) => user.userName == currentUser.userName
+      );
+      if (findUser) findUser.highScore = score;
+      localStorage.setItem("users", JSON.stringify(usersList));
     }
     winMessage.style.transform = "translateY(0)";
     finalScore[0].textContent = score.toString();
@@ -106,7 +114,7 @@ function addNewUserToLocalStorage() {
     return alert("user name is taken");
 
   const newUser = new User(userNameInput.value, passwordInput.value);
-  currentUser = newUser;
+  localStorage.setItem("currentUser", JSON.stringify(newUser));
   usersList.push(newUser);
   localStorage.setItem("users", JSON.stringify(usersList));
   moveToWelcomePage();
@@ -116,14 +124,14 @@ function checkIfUserExists(name: string) {
   return usersList.some((user) => user.userName == name);
 }
 
-function checkPassword(): boolean {
+function verifyLogin(): boolean {
   const findUser = usersList.find(
     (user) =>
       user.userName === userNameInput.value &&
       user.password === passwordInput.value
   );
   if (findUser) {
-    currentUser = findUser;
+    localStorage.setItem("currentUser", JSON.stringify(findUser));
     return true;
   }
 
@@ -147,4 +155,23 @@ function resetGhosts() {
     );
     clearInterval(ghost.timerId);
   });
+}
+
+function getCurrentUserFromStorage() {
+  const getUserFromStorage = localStorage.getItem("currentUser");
+  if (getUserFromStorage) currentUser = JSON.parse(getUserFromStorage);
+  const getListFromStorage = localStorage.getItem("users");
+  if (getListFromStorage)
+    usersList.push.apply(usersList, JSON.parse(getListFromStorage));
+}
+
+function updateUserScore() {
+  if (score > currentUser.highScore) {
+    const findUser = usersList.find(
+      (user) => user.userName == currentUser.userName
+    );
+    if (findUser) findUser.highScore = score;
+    localStorage.setItem("users", JSON.stringify(usersList));
+    localStorage.setItem('currentUser', findUser)
+  }
 }
