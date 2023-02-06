@@ -101,10 +101,36 @@ function removeUserChoiceFromLocalStorage() {
 }
 
 function addNewUserToLocalStorage() {
-  if (userNameInput.value == "" || passwordInput.value == "") return alert ('Missing Input Field');
+  if (userNameInput.value == "" || passwordInput.value == "")
+    return alert("Missing Input Field");
+
+  if (checkIfUserExists(userNameInput.value))
+    return alert("user name is taken");
+
   const newUser = new User(userNameInput.value, passwordInput.value);
   usersList.push(newUser);
   localStorage.setItem("users", JSON.stringify(usersList));
+  moveToWelcomePage();
+}
+
+function checkIfUserExists(name: string) {
+  return usersList.some((user) => user.userName == name);
+}
+
+function checkPassword(): boolean {
+  if (
+    usersList.find(
+      (el) =>
+        el.userName === userNameInput.value &&
+        el.password === passwordInput.value
+    )
+  )
+    return true;
+
+  return false;
+}
+
+function moveToWelcomePage() {
   userNameInput.value = "";
   passwordInput.value = "";
   loginPage.style.transform = "translateX(-100vw)";
