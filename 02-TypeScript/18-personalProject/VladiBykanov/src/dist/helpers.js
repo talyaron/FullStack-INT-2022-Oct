@@ -37,6 +37,10 @@ function checkForGamneOver() {
     if (squares[pacman.currentIndex].classList.contains("ghost") &&
         !squares[pacman.currentIndex].classList.contains("scaredGhost")) {
         gameOver = true;
+        squares[pacman.currentIndex].classList.remove("pacman");
+        if (score > currentUser.highScore) {
+            currentUser.highScore = score;
+        }
         ghosts.forEach(function (ghost) {
             squares[ghost.currentIndex].innerHTML = "";
             squares[ghost.currentIndex].classList.remove(ghost.className, "ghost", "scaredGhost");
@@ -50,7 +54,11 @@ function checkForGamneOver() {
 function checkForWin() {
     if (palletsThisGame == 0) {
         ghosts.forEach(function (ghost) { return clearInterval(ghost.timerId); });
+        squares[pacman.currentIndex].classList.remove("pacman");
         clearInterval(glide);
+        if (score > currentUser.highScore) {
+            currentUser.highScore = score;
+        }
         setTimeout(function () {
             winMessage.style.transform = "translateY(0)";
             finalScore[0].textContent = score.toString();
@@ -86,6 +94,7 @@ function addNewUserToLocalStorage() {
     if (checkIfUserExists(userNameInput.value))
         return alert("user name is taken");
     var newUser = new User(userNameInput.value, passwordInput.value);
+    currentUser = newUser;
     usersList.push(newUser);
     localStorage.setItem("users", JSON.stringify(usersList));
     moveToWelcomePage();
@@ -94,11 +103,14 @@ function checkIfUserExists(name) {
     return usersList.some(function (user) { return user.userName == name; });
 }
 function checkPassword() {
-    if (usersList.find(function (el) {
-        return el.userName === userNameInput.value &&
-            el.password === passwordInput.value;
-    }))
+    var findUser = usersList.find(function (user) {
+        return user.userName === userNameInput.value &&
+            user.password === passwordInput.value;
+    });
+    if (findUser) {
+        currentUser = findUser;
         return true;
+    }
     return false;
 }
 function moveToWelcomePage() {

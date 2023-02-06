@@ -1,8 +1,8 @@
 function startGame() {
+    currentUser = usersList[1];
     gameOver = false;
     winMessage.style.transform = "translateY(-100vh)";
     loseMessage.style.transform = "translateY(100vh)";
-    pacman.currentIndex = pacman.pacmanStrartingIndex;
     if (chosenMap) {
         if (chosenMap === "mapOne") {
             mazeOne.createMaze();
@@ -13,13 +13,24 @@ function startGame() {
             palletsThisGame = palletsMapTwo;
         }
     }
+    pacman.currentIndex = pacman.pacmanStrartingIndex;
     pacman.draw();
     // draw ghosts to grid
     ghosts.forEach(function (ghost) {
+        ghost.isScared = false;
         ghost.currentIndex = ghost.startIndex;
         ghost.draw();
         ghost.move();
     });
+}
+function checkGameStatus() {
+    requestAnimationFrame(checkGameStatus);
+    checkForPoint();
+    checkForCherry();
+    checkForScaredGhost();
+    checkForGamneOver();
+    checkForWin();
+    // drawCherry();
 }
 // function creatMaze(map: number[]) {
 //   map.forEach((value, index) => {
@@ -99,12 +110,3 @@ function startGame() {
 //     }
 //   }, ghost.speed);
 // }
-function checkGameStatus() {
-    requestAnimationFrame(checkGameStatus);
-    checkForPoint();
-    checkForCherry();
-    checkForScaredGhost();
-    checkForGamneOver();
-    checkForWin();
-    // drawCherry();
-}

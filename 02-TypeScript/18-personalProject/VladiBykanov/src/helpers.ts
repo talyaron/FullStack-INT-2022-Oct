@@ -37,6 +37,10 @@ function checkForGamneOver() {
     !squares[pacman.currentIndex].classList.contains("scaredGhost")
   ) {
     gameOver = true;
+    squares[pacman.currentIndex].classList.remove("pacman");
+    if(score > currentUser.highScore){
+      currentUser.highScore = score;
+    }
     ghosts.forEach((ghost) => {
       squares[ghost.currentIndex].innerHTML = "";
       squares[ghost.currentIndex].classList.remove(
@@ -55,7 +59,11 @@ function checkForGamneOver() {
 function checkForWin() {
   if (palletsThisGame == 0) {
     ghosts.forEach((ghost) => clearInterval(ghost.timerId));
+    squares[pacman.currentIndex].classList.remove("pacman");
     clearInterval(glide);
+    if(score > currentUser.highScore){
+      currentUser.highScore = score;
+    }
     setTimeout(() => {
       winMessage.style.transform = "translateY(0)";
       finalScore[0].textContent = score.toString();
@@ -108,6 +116,7 @@ function addNewUserToLocalStorage() {
     return alert("user name is taken");
 
   const newUser = new User(userNameInput.value, passwordInput.value);
+  currentUser = newUser;
   usersList.push(newUser);
   localStorage.setItem("users", JSON.stringify(usersList));
   moveToWelcomePage();
@@ -118,14 +127,15 @@ function checkIfUserExists(name: string) {
 }
 
 function checkPassword(): boolean {
-  if (
-    usersList.find(
-      (el) =>
-        el.userName === userNameInput.value &&
-        el.password === passwordInput.value
-    )
-  )
+  const findUser = usersList.find(
+    (user) =>
+      user.userName === userNameInput.value &&
+      user.password === passwordInput.value
+  );
+  if (findUser) {
+    currentUser = findUser;
     return true;
+  }
 
   return false;
 }

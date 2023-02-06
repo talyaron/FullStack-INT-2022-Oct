@@ -239,3 +239,4 @@ var usersList = [
 ];
 if (!localStorage.getItem("users"))
     localStorage.setItem("users", JSON.stringify(usersList));
+var currentUser;
