@@ -24,6 +24,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  z-index: 0;
 }
 
 h1 {
@@ -52,9 +54,20 @@ h1 {
 }
 
 #bigAd {
-//   display: none;
+    
+    position: absolute;
+    background-color: green;
+    display: none;
 }
 
 #bigAdComputer {
-  display: none;
+    position: absolute;
+    display: none;
+}
+
+#resetBtn{
+    position: absolute;
+    align-items: center;
+    bottom: 18vh;
+    color: red;
 }

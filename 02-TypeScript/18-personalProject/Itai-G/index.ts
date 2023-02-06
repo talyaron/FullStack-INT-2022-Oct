@@ -20,8 +20,8 @@ function gameLoop(){
     req = requestAnimationFrame(gameLoop);
     if(gameOver) return cancelAnimationFrame(req)
     ctx.clearRect(0,0,canvas.width, canvas.height);
-    gameUpdate()
-    gameDraw()
+    gameUpdate();
+    gameDraw();
 }
 
 gameLoop();

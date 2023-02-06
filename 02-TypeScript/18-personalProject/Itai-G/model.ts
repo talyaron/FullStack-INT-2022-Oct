@@ -63,12 +63,12 @@ class Paddle {
   }
 }
 
-const ball = new Ball({ x: 200, y: 200 }, { x: 30, y: 30 }, 10);
+const ball = new Ball({ x: 200, y: 200 }, { x: 3, y: 3 }, 10);
 const paddle1 = new Paddle({ x: 0, y: 50 }, { x: 0, y: 5 }, 20, 120,0);
 const paddle2 = new Paddle({ x: canvas.width - 20, y: 80 }, { x: 0, y: 1.9 }, 20, 120,0);
 let isUpKeyPressed = false;
 let isDownKeyPressed = false;
-
+gameOver = false;
 
 
 window.addEventListener("keydown", function (e) {
