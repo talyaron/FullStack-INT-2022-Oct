@@ -35,6 +35,14 @@ body {
   font-size: 2rem;
   outline: none;
 }
+.container .form #start {
+  background-color: mediumseagreen;
+  width: 450px;
+  height: 3rem;
+  font-size: 2rem;
+  outline: none;
+  display: none;
+}
 .container .form .card {
   padding: 20px;
   border-radius: 10px;
