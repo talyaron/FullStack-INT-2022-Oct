@@ -276,4 +276,10 @@ form>* {
     height: 40px;
     position: absolute;
     bottom: 0;
+    display: grid;
+    place-items: center;
+}
+
+.--fa-inverse {
+    color: black;
 }
