@@ -172,7 +172,7 @@ var ghosts = [
 ];
 var glide; //pacman glide interval
 var scaredGhostsTime; //scared ghosts timeout
-var score = 0;
+var score;
 var cherryIndex = [];
 var directions = {
     moveLeft: -1,

@@ -190,18 +190,16 @@ body {
 }
 .maze .endGameWindow button:hover {
   cursor: pointer;
-  transform: translate(5px, 5px);
-  transition: transform 0.5s;
+  box-shadow: 0 0 20px black;
+  transition: box-shadow 0.5s;
 }
 .maze .winMessage {
   color: lightcoral;
   background-color: #236a46;
-  transform: translateY(-100vh);
 }
 .maze .loseMessage {
   color: orange;
   background-color: #8d1818;
-  transform: translateY(100vh);
 }
 .maze .square {
   width: var(--div-size);

@@ -38,18 +38,10 @@ function checkForGamneOver() {
   ) {
     gameOver = true;
     squares[pacman.currentIndex].classList.remove("pacman");
-    if(score > currentUser.highScore){
+    if (score > currentUser.highScore) {
       currentUser.highScore = score;
     }
-    ghosts.forEach((ghost) => {
-      squares[ghost.currentIndex].innerHTML = "";
-      squares[ghost.currentIndex].classList.remove(
-        ghost.className,
-        "ghost",
-        "scaredGhost"
-      );
-      clearInterval(ghost.timerId);
-    });
+    resetGhosts();
     loseMessage.style.transform = "translateY(0)";
     finalScore[1].textContent = score.toString();
     clearInterval(glide);
@@ -58,16 +50,14 @@ function checkForGamneOver() {
 
 function checkForWin() {
   if (palletsThisGame == 0) {
-    ghosts.forEach((ghost) => clearInterval(ghost.timerId));
+    resetGhosts();
     squares[pacman.currentIndex].classList.remove("pacman");
     clearInterval(glide);
-    if(score > currentUser.highScore){
+    if (score > currentUser.highScore) {
       currentUser.highScore = score;
     }
-    setTimeout(() => {
-      winMessage.style.transform = "translateY(0)";
-      finalScore[0].textContent = score.toString();
-    }, 200);
+    winMessage.style.transform = "translateY(0)";
+    finalScore[0].textContent = score.toString();
   }
 }
 
@@ -145,4 +135,16 @@ function moveToWelcomePage() {
   passwordInput.value = "";
   loginPage.style.transform = "translateX(-100vw)";
   welcomePage.style.transform = "translateY(0)";
+}
+
+function resetGhosts() {
+  ghosts.forEach((ghost) => {
+    squares[ghost.currentIndex].innerHTML = "";
+    squares[ghost.currentIndex].classList.remove(
+      ghost.className,
+      "ghost",
+      "scaredGhost"
+    );
+    clearInterval(ghost.timerId);
+  });
 }

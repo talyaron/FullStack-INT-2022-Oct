@@ -1,7 +1,9 @@
 function startGame() {
     currentUser = usersList[1];
     gameOver = false;
-    winMessage.style.transform = "translateY(-100vh)";
+    score = 0;
+    scoreEl.textContent = '0';
+    winMessage.style.transform = "translateY(100vh)";
     loseMessage.style.transform = "translateY(100vh)";
     if (chosenMap) {
         if (chosenMap === "mapOne") {

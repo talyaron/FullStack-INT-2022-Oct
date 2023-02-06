@@ -41,11 +41,7 @@ function checkForGamneOver() {
         if (score > currentUser.highScore) {
             currentUser.highScore = score;
         }
-        ghosts.forEach(function (ghost) {
-            squares[ghost.currentIndex].innerHTML = "";
-            squares[ghost.currentIndex].classList.remove(ghost.className, "ghost", "scaredGhost");
-            clearInterval(ghost.timerId);
-        });
+        resetGhosts();
         loseMessage.style.transform = "translateY(0)";
         finalScore[1].textContent = score.toString();
         clearInterval(glide);
@@ -53,16 +49,14 @@ function checkForGamneOver() {
 }
 function checkForWin() {
     if (palletsThisGame == 0) {
-        ghosts.forEach(function (ghost) { return clearInterval(ghost.timerId); });
+        resetGhosts();
         squares[pacman.currentIndex].classList.remove("pacman");
         clearInterval(glide);
         if (score > currentUser.highScore) {
             currentUser.highScore = score;
         }
-        setTimeout(function () {
-            winMessage.style.transform = "translateY(0)";
-            finalScore[0].textContent = score.toString();
-        }, 200);
+        winMessage.style.transform = "translateY(0)";
+        finalScore[0].textContent = score.toString();
     }
 }
 function checkForScaredGhost() {
@@ -118,4 +112,11 @@ function moveToWelcomePage() {
     passwordInput.value = "";
     loginPage.style.transform = "translateX(-100vw)";
     welcomePage.style.transform = "translateY(0)";
+}
+function resetGhosts() {
+    ghosts.forEach(function (ghost) {
+        squares[ghost.currentIndex].innerHTML = "";
+        squares[ghost.currentIndex].classList.remove(ghost.className, "ghost", "scaredGhost");
+        clearInterval(ghost.timerId);
+    });
 }

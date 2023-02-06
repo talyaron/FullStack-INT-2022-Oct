@@ -186,7 +186,7 @@ const ghosts = [
 
 let glide: number; //pacman glide interval
 let scaredGhostsTime: number; //scared ghosts timeout
-let score = 0;
+let score:number;
 let cherryIndex: number[] = [];
 
 const directions = {
