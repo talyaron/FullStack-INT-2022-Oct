@@ -144,6 +144,7 @@ body {
     font-weight: 600;
     border-radius: 30px;
     transition: 0.5s;
+    
 }
 .submit_btn:hover{
     color: #fff;
