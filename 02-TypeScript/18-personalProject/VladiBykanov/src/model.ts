@@ -257,9 +257,9 @@ class User {
 }
 
 const usersList: User[] = [
-  new User("vladb89", "vladislav1989", 984),
   new User("cruseder123", "12345678", 345),
   new User("johnny123", "87654321", 254),
+  new User("vladb89", "vladislav1989", 984),
 ];
 
 if (!localStorage.getItem("users"))

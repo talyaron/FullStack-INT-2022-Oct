@@ -12,6 +12,11 @@ window.addEventListener("click", function (e) {
             return alert("no map has been chosen");
         window.location.href = "index.html";
     }
+    if (target.innerHTML === "SCOREBOARD") {
+        if (!localStorage.getItem("users"))
+            return alert("scoreboard is empty");
+        window.location.href = "scoreBoard.html";
+    }
 });
 function removeUserChoiceFromLocalStorage() {
     localStorage.removeItem("userChoice");
