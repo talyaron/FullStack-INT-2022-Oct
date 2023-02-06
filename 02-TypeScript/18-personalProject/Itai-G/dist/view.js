@@ -7,5 +7,3 @@ document.onresize = function () {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight * 0.7;
 };
-var gameOver;
-var req;

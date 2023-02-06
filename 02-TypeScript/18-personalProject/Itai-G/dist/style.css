@@ -69,6 +69,12 @@ h1 {
 #resetBtn {
   position: absolute;
   align-items: center;
-  bottom: 18vh;
+  bottom: 1vh;
   color: red;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background-color: blue;
+  color: white;
+  font-size: 16px;
 }
