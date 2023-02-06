@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./dist/controls.js" defer></script>
+    <script src="./dist/view2.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+    <link rel="stylesheet" href="./dist/second.css">
+
+    <title>Personal Area</title>
+</head>
+<div class="topnav">
+    <a class="active" href="./main.html">Main</a>
+    <a href="#about">About</a>
+    <a href="./login.html">Change user</a>
+    <div class="search-container">
+      <form action="/action_page.php">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"><img src=" https://png.pngtree.com/png-clipart/20190614/original/pngtree-vector-search-icon-png-image_3782164.jpg" alt="" class="searchBtn"></i></button>
+      </form>
+    </div>
+  </div>
+<body onbeforeunload="handleSaveRecipe()">
+    <h1 class="myRecipe"></h1>
+    <div id="itemsRoot"></div>
+
+</body>
+</html>
