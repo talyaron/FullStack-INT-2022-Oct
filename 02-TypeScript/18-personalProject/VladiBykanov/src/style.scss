@@ -35,7 +35,7 @@ body{
   align-items: center;
   justify-content: space-evenly;
   font-size: 1.5rem;
-  transform: translateX(-100vw);
+  // transform: translateX(-100vw);
   transition: transform .7s linear;
   .inputDiv {
     display: flex;
@@ -114,7 +114,13 @@ body{
       }
     }
   }
-  &__startGameBtn {
+  .btnDiv{
+    // border: 1px solid black;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  &__button {
     position: relative;
     padding: .5em 1em;
     font-size: 1.5rem;
@@ -124,13 +130,14 @@ body{
     outline: 0;
     z-index: 1;
     cursor: pointer;
+    width: 20vw;
   }
 
-  &__startGameBtn:hover {
+  &__button:hover {
     color: whitesmoke;
   }
 
-  &__startGameBtn:before {
+  &__button:before {
     content: "";
     position: absolute;
     border-radius: 10px;
@@ -143,7 +150,7 @@ body{
     transition: top 0.09s ease-in;
   }
 
-  &__startGameBtn:hover:before {
+  &__button:hover:before {
     top: 0;
   }
 }

@@ -35,7 +35,6 @@ body {
   align-items: center;
   justify-content: space-evenly;
   font-size: 1.5rem;
-  transform: translateX(-100vw);
   transition: transform 0.7s linear;
 }
 .loginPage .inputDiv {
@@ -112,7 +111,12 @@ body {
 .welcomePage__choices__choice img {
   width: 100%;
 }
-.welcomePage__startGameBtn {
+.welcomePage .btnDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.welcomePage__button {
   position: relative;
   padding: 0.5em 1em;
   font-size: 1.5rem;
@@ -122,11 +126,12 @@ body {
   outline: 0;
   z-index: 1;
   cursor: pointer;
+  width: 20vw;
 }
-.welcomePage__startGameBtn:hover {
+.welcomePage__button:hover {
   color: whitesmoke;
 }
-.welcomePage__startGameBtn:before {
+.welcomePage__button:before {
   content: "";
   position: absolute;
   border-radius: 10px;
@@ -138,7 +143,7 @@ body {
   z-index: -1;
   transition: top 0.09s ease-in;
 }
-.welcomePage__startGameBtn:hover:before {
+.welcomePage__button:hover:before {
   top: 0;
 }
 
