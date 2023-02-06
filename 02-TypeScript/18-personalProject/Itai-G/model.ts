@@ -63,9 +63,9 @@ class Paddle {
   }
 }
 
-const ball = new Ball({ x: 200, y: 200 }, { x: 5, y: 5 }, 20);
-const paddle1 = new Paddle({ x: 0, y: 50 }, { x: 0, y: 10 }, 20, 160,0);
-const paddle2 = new Paddle({ x: canvas.width - 20, y: 80 }, { x: 0, y: 2 }, 20, 160,0);
+const ball = new Ball({ x: 200, y: 200 }, { x: 3, y: 3 }, 10);
+const paddle1 = new Paddle({ x: 0, y: 50 }, { x: 0, y: 5 }, 20, 120,0);
+const paddle2 = new Paddle({ x: canvas.width - 20, y: 80 }, { x: 0, y: 1.9 }, 20, 120,0);
 let isUpKeyPressed = false;
 let isDownKeyPressed = false;
 

@@ -1,11 +1,13 @@
 var User = /** @class */ (function () {
-    function User(name, age, email) {
+    function User(name, age, email, score) {
         this.name = name;
         this.age = age;
         this.email = email;
+        this.score = score;
     }
     return User;
 }());
+var users = [];
 var Animal = /** @class */ (function () {
     function Animal(name, imageUrl, display) {
         if (display === void 0) { display = 'flex'; }
