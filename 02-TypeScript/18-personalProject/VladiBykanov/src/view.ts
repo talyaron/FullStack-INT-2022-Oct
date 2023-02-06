@@ -26,4 +26,4 @@ const mapImgElement = document.querySelectorAll(
   ".mapImg"
 ) as NodeListOf<HTMLImageElement>;
 
-const usersList: User[] = [];
+let usersList: User[] = [];

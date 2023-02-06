@@ -169,9 +169,9 @@ function updateUserScore() {
   if (score > currentUser.highScore) {
     const findUser = usersList.find(
       (user) => user.userName == currentUser.userName
-    );
+    ) as User;
     if (findUser) findUser.highScore = score;
     localStorage.setItem("users", JSON.stringify(usersList));
-    localStorage.setItem('currentUser', findUser)
+    localStorage.setItem("currentUser", JSON.stringify(findUser));
   }
 }

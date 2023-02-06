@@ -140,6 +140,6 @@ function updateUserScore() {
         if (findUser)
             findUser.highScore = score;
         localStorage.setItem("users", JSON.stringify(usersList));
-        localStorage.setItem('currentUser', findUser);
+        localStorage.setItem("currentUser", JSON.stringify(findUser));
     }
 }
