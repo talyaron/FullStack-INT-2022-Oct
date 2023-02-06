@@ -32,6 +32,13 @@ body{
             margin: 5% 15% ;
             text-align: center;
         }
+
+        h1{
+            margin: 30% auto;
+            width: 80%;
+            text-align: center;
+        }
+        
         .input{
             margin: 4% 15% ;
         }
@@ -39,7 +46,13 @@ body{
         #log_in_btn , #sign_in_btn{
             color: #F3F3F3;
             background-color: #72b1a0;
-            margin: 4% 40% ;
+            margin: 3% 40% ;
+        }
+
+        #btn_new_user_login{
+            color: #F3F3F3;
+            background-color: #72b1a0;
+            margin: 5% 40% ;
         }
     }
     
