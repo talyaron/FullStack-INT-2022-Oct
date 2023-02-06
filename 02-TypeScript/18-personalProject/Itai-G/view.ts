@@ -10,5 +10,3 @@ document.onresize = () => {
   canvas.height = window.innerHeight * 0.7;
 };
 
-let gameOver: boolean;
-let req:number;

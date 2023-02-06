@@ -54,20 +54,25 @@ h1 {
 }
 
 #bigAd {
-    
-    position: absolute;
-    background-color: green;
-    display: none;
+  position: absolute;
+  background-color: green;
+  display: none;
 }
 
 #bigAdComputer {
-    position: absolute;
-    display: none;
+  position: absolute;
+  display: none;
 }
 
-#resetBtn{
-    position: absolute;
-    align-items: center;
-    bottom: 18vh;
-    color: red;
+#resetBtn {
+  position: absolute;
+  align-items: center;
+  bottom: 1vh;
+  color: red;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background-color: blue;
+  color: white;
+  font-size: 16px;
 }
