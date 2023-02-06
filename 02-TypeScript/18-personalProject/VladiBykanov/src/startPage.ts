@@ -1,14 +1,10 @@
-const imgElements = document.querySelectorAll(
-  "img"
-) as NodeListOf<HTMLImageElement>;
-
-window.onload = () => removeUserChoiceFromLocalStorage()
+window.onload = () => removeUserChoiceFromLocalStorage();
 
 window.addEventListener("click", (e) => {
   const target = e.target as HTMLElement;
 
   if (target.nodeName == "IMG") {
-    imgElements.forEach((img) => (img.style.boxShadow = "0 0 0 black"));
+    mapImgElement.forEach((img) => (img.style.boxShadow = "0 0 0 black"));
     target.style.boxShadow = "0 0 50px black";
     localStorage.setItem("userChoice", target.id);
   }
@@ -20,12 +16,11 @@ window.addEventListener("click", (e) => {
   }
 
   if (target.innerHTML === "SCOREBOARD") {
-    if (!localStorage.getItem("users"))
-      return alert("scoreboard is empty");
+    if (!localStorage.getItem("users")) return alert("scoreboard is empty");
     window.location.href = "scoreBoard.html";
   }
-});
 
-function removeUserChoiceFromLocalStorage() {
-  localStorage.removeItem("userChoice");
-}
+  if (target.innerHTML === "Create New User") {
+    addNewUserToLocalStorage();
+  }
+});

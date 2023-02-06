@@ -1,9 +1,8 @@
-var imgElements = document.querySelectorAll("img");
 window.onload = function () { return removeUserChoiceFromLocalStorage(); };
 window.addEventListener("click", function (e) {
     var target = e.target;
     if (target.nodeName == "IMG") {
-        imgElements.forEach(function (img) { return (img.style.boxShadow = "0 0 0 black"); });
+        mapImgElement.forEach(function (img) { return (img.style.boxShadow = "0 0 0 black"); });
         target.style.boxShadow = "0 0 50px black";
         localStorage.setItem("userChoice", target.id);
     }
@@ -17,7 +16,7 @@ window.addEventListener("click", function (e) {
             return alert("scoreboard is empty");
         window.location.href = "scoreBoard.html";
     }
+    if (target.innerHTML === "Create New User") {
+        addNewUserToLocalStorage();
+    }
 });
-function removeUserChoiceFromLocalStorage() {
-    localStorage.removeItem("userChoice");
-}
