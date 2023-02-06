@@ -23,4 +23,13 @@ window.addEventListener("click", (e) => {
   if (target.innerHTML === "Create New User") {
     addNewUserToLocalStorage();
   }
+
+  if (target.innerHTML === "Login") {
+    if (verifyLogin()) {
+      moveToWelcomePage();
+    }
+    else{
+      alert('incorrect user name or password')
+    }
+  }
 });

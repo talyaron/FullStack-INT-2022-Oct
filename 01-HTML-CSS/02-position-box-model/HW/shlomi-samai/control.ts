@@ -1,31 +1,6 @@
-// let page = "";
-// let j = 0;
-// for (j = 0; j <= users.length - 1; j++) {
-//   page += `<div class="recurring_div">
-//           <img src='${users[j].pictureURL}'/>
-//           <a class="linkButton" href="./index.html">Enter</a>   
-//           </div> `
-//           ;
-// }
-// const html: HTMLDivElement | null = document.querySelector("#listofUsers");
-// if (html !== null) {
-//   html.innerHTML = page;
-// }
-
-// let storyPage = "";
-// let k = 0;
-// for (k = 0; k <= users.length - 1; k++) {
-//   storyPage += `<div> <img class="img_story" src="${users[k].pictureURL}" alt=""/>
-//                 <h1 class="story_text">${users[k].name}</h1> 
-//                 </div> `
-//                  ;
-// }
-// const htmlStory: HTMLDivElement | null = document.querySelector("#storyBox");
-// if (htmlStory !== null) {
-//   htmlStory.innerHTML = storyPage;
-// }
 
 function renderStory(users:User[]){
+
 let storyPage = "";
 let k = 0;
 for (k = 0; k <= users.length - 1; k++) {
@@ -37,6 +12,7 @@ const htmlStory: HTMLDivElement | null = document.querySelector("#storyBox");
 if (htmlStory !== null) {
   htmlStory.innerHTML = storyPage;
 }  
+render(posts)
 } 
 
 
@@ -195,8 +171,8 @@ function filterUser(ev) {
 
 
 function renderfilterUser(posts:Post[],user:string) {
+  debugger;
   try {
-    debugger;
   let page = "";
   let j = 0;
   for (j = 0; j <= posts.length - 1; j++) {
@@ -218,9 +194,8 @@ function renderfilterUser(posts:Post[],user:string) {
   const html: HTMLDivElement | null = document.querySelector("#list");
   if (html !== null) {
     html.innerHTML = page;
-    console.log(html);
   }
-  localStorage.setItem("posts", JSON.stringify(posts));
+  // localStorage.setItem("posts", JSON.stringify(posts));
   } catch (error) {
     alert("no post availble")
     console.error(error); 
