@@ -1,3 +1,22 @@
+.bodyHomePage {
+  background-color: rgba(9, 179, 179, 0.555);
+}
+.bodyHomePage__userForm {
+  width: 550px;
+  height: 100%;
+  margin: auto;
+  margin-top: 30px;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  border-radius: 10px;
+}
+.bodyHomePage__mainLogo {
+  width: 300px;
+  margin-left: 35%;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
 .list {
   height: auto;
   width: 200px;
@@ -10,11 +29,36 @@
   width: 100%;
 }
 
+#listofUsers {
+  display: flex;
+  flex-direction: row;
+  width: 1000px;
+  margin: auto;
+}
+
+.linkButton {
+  height: 100px;
+  width: 100px;
+}
+
+.userForm {
+  background-color: #c215c2;
+  border: 5px black;
+  width: 550px;
+  height: 100%;
+  margin: auto;
+  margin-top: 30px;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
 .recurring_div {
   background-color: white;
   border: 5px black;
   width: 550px;
-  height: 600px;
+  height: 100%;
   margin: auto;
   margin-top: 30px;
   padding-top: 0.5%;
@@ -43,7 +87,7 @@
   margin-bottom: 8px;
 }
 
-input[type=text] {
+input[type=search] {
   width: 230px;
   height: 30px;
   box-sizing: border-box;

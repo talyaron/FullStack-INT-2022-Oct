@@ -1,6 +1,14 @@
 class User {
-  constructor(public name: string, public age:string, public email:string) {}
+  constructor(public name: string, public age:string, public email:string, public score:number) {}
 }
+
+
+const users:User[] = [];
+
+
+
+
+
 
 class Animal {
   public positionX = randomX()

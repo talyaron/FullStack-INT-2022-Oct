@@ -33,10 +33,10 @@ function renderPhotoLibrary() {
     });
 }
 function onInit() {
-    openMenuLogoutBtn();
-    renderPhotoCard(animals, "animalsList");
-    renderPhotoCard(backgrounds, "backgroundList");
     if (insideTheUser()) {
+        openMenuLogoutBtn();
+        renderPhotoCard(animals, "animalsList");
+        renderPhotoCard(backgrounds, "backgroundList");
         changeProfileUserName();
         renderLists();
         createListToOptions();

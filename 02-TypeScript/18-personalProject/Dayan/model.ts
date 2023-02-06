@@ -12,38 +12,45 @@ class User{
 
 const users:User[] = []
 
-//-----Class Gallery-----//
-class Gallery{
+//-----Class Video Library-----//
+class Video{
     constructor(
-        public name: string,
-        public src: string
+        public title: string,
+        public url: string,
+        public id: string | number,
     ){}
 }
 
-const gallery:Gallery[] = [
+const videoLibrary:Video[] = [
     {
-        name:"people practicing yoga",
-        src:"https://as1.ftcdn.net/v2/jpg/03/05/59/32/1000_F_305593240_tsLw1F5Nk22hVpuVUNjOPdQrE4WF6zyq.jpg"
+        title:"Full Body Yoga for Strength & Flexibility | 25 Minute At Home Mobility Routine",
+        url:"https://www.youtube.com/watch?v=Eml2xnoLpYE&t=1s",
+        id:"video_1"
     },
     {
-        name:"Young woman doing ashtanga yoga practice in a loft studio",
-        src:"https://as1.ftcdn.net/v2/jpg/02/11/45/70/1000_F_211457006_QhdmjtYqAklkJKOnW2VPsdGOaI14cLqs.jpg"
+        title:"15 Minute Yoga Stretch Break | Open Your Body & Feel Amazing!",
+        url:"https://www.youtube.com/watch?v=xfhfltT2Keo&t=1s",
+        id:"video_2"
     },
     {
-        name:"Beautiful Attractive Asian woman practice yoga Lotus pose",
-        src:"https://as2.ftcdn.net/v2/jpg/02/36/45/37/1000_F_236453770_5YHNr9dPQS6DyIcVqTfKy9sVj3XW70Q2.jpg"
+        title:"Yoga To Ease Into The Day | Full Body - 20 Minute Morning Yoga Flow",
+        url:"https://www.youtube.com/watch?v=-l2rrLp9ePk",
+        id:"video_3"
     },
     {
-        name:"Yoga lotus",
-        src:"https://as2.ftcdn.net/v2/jpg/01/02/21/19/1000_F_102211925_h0Gjs5gZnxDsDPePLeG8zGb2V5OHKvsr.jpg"
+        title:"15 MIN MORNING YOGA FLOW || Wake Up & Feel Energised",
+        url:"https://www.youtube.com/watch?v=Vr3h5X9kmUo",
+        id:"video_4"
     },
     {
-        name:"young asian beauty woman doing yoga at home",
-        src:"https://as2.ftcdn.net/v2/jpg/03/38/36/41/1000_F_338364178_OUyHx230AI63ccHeWLaWSUB71LuUog53.jpg"
+        title:"30-Minute Energizing Power Vinyasa Flow with Briohny Smyth",
+        url:"https://www.youtube.com/watch?v=A4ViwsLKoSY",
+        id:"video_5"
     },
     {
-        name:"woman practicing yoga at seashore",
-        src:"https://as2.ftcdn.net/v2/jpg/00/52/72/37/1000_F_52723787_gekCDsX7HyUc90VeiRWIIFPPr0x0bxM8.jpg"
-    }
+        title:"10 MIN YOGA FLOW - for Full Body Strength & Flowy Stretching",
+        url:"https://www.youtube.com/watch?v=_XBVI0HeegQ",
+        id:"video_6"
+    },
 ]
 

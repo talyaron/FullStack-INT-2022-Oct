@@ -1,5 +1,5 @@
 let score = 0;
-let time = 5;
+let time = 60;
 
 const startBtn: any = document.querySelector(".startBtn");
 const removeAnimalFromScreen = (className: string) => {
@@ -59,15 +59,49 @@ startBtn.addEventListener(`click`, () => {
   }
 });
 
-// const rules: any = document.querySelector("#rules");
-// rules.addEventListener(`click`, () => {
-// try {
-//   if(rules){
-//     rules.innerHTML = `<div class="card">
-//         <h1>This is's site</h1>
-//     </div>`;
-// }
-// } catch (error) {
+function addToLocalStorage(event: any) {
+  try {
+    event.preventDefault();
+    const name = event.target.elements.name.value;
+    const age = event.target.elements.age.value;
+    const email = event.target.elements.email.value;
+    event.target.reset();
+    users.push(new User(name, age, email, score));
+    console.log(users);
+    if (!itemsRoot) throw new Error("itemsRoot is null");
+    renderUsers(users, "itemsRoot");
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-// }
-// });
+function renderUsers(users: User[], renderElementId: string): void {
+  try {
+    if (!users || !Array.isArray(users))
+      throw new Error("users is not an array");
+
+    const html = users
+      .map((users) => {
+        return `
+          <li>*${users.name} <br> *33 *${users.email} *${users.score}</li> 
+      `;
+      })
+      .join(` `);
+    const element = document.querySelector(`#${renderElementId}`);
+    if (!element) throw new Error(`couldent find element `);
+    element.innerHTML = html;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function saveTolocalStorge() {
+  localStorage.setItem(`users`, JSON.stringify(users));
+}
+
+
+function btnAppears() {
+  const start: any = document.getElementById("start");
+  start.style.display = "block";
+
+}

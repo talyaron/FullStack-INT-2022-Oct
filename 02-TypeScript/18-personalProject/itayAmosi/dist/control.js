@@ -1,5 +1,5 @@
 var score = 0;
-var time = 5;
+var time = 60;
 var startBtn = document.querySelector(".startBtn");
 var removeAnimalFromScreen = function (className) {
     var elem = document.querySelector(className);
@@ -56,14 +56,45 @@ startBtn.addEventListener("click", function () {
         console.error(error);
     }
 });
-// const rules: any = document.querySelector("#rules");
-// rules.addEventListener(`click`, () => {
-// try {
-//   if(rules){
-//     rules.innerHTML = `<div class="card">
-//         <h1>This is's site</h1>
-//     </div>`;
-// }
-// } catch (error) {
-// }
-// });
+function addToLocalStorage(event) {
+    try {
+        event.preventDefault();
+        var name = event.target.elements.name.value;
+        var age = event.target.elements.age.value;
+        var email = event.target.elements.email.value;
+        event.target.reset();
+        users.push(new User(name, age, email, score));
+        console.log(users);
+        if (!itemsRoot)
+            throw new Error("itemsRoot is null");
+        renderUsers(users, "itemsRoot");
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function renderUsers(users, renderElementId) {
+    try {
+        if (!users || !Array.isArray(users))
+            throw new Error("users is not an array");
+        var html = users
+            .map(function (users) {
+            return "\n          <li>*" + users.name + " <br> *33 *" + users.email + " *" + users.score + "</li> \n      ";
+        })
+            .join(" ");
+        var element = document.querySelector("#" + renderElementId);
+        if (!element)
+            throw new Error("couldent find element ");
+        element.innerHTML = html;
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function saveTolocalStorge() {
+    localStorage.setItem("users", JSON.stringify(users));
+}
+function btnAppears() {
+    var start = document.getElementById("start");
+    start.style.display = "block";
+}

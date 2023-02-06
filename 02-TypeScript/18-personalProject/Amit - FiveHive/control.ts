@@ -81,7 +81,7 @@ function enter(): void { //clicking ENTER
                             }
                             correctLetters++
                             if (correctLetters === WORD_LENGTH) {
-                                alert("you win!"); // change to animation with 2sec delay//
+                                alert("you win!"); 
                                 if (loggedInUser) updateStreak(loggedInUser.streak + 1);
                                 renderUserData(users, "userDataRoot");
                             }
@@ -178,7 +178,7 @@ function renderUserData(users: User[], renderUserDataId: string): void {
         const html = users.map((user) => {
             return `
         <h3>${user.name}</h3>
-        <div>streak: ${user.streak}</div>
+        <div> Current streak: ${user.streak}</div>
       `;
         }).join(" ");
         const element = document.querySelector(`#${renderUserDataId}`);

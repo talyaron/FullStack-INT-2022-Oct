@@ -6,4 +6,12 @@ var UserReview = /** @class */ (function () {
     }
     return UserReview;
 }());
+var Book = /** @class */ (function () {
+    function Book(name, price, summary) {
+        this.name = name;
+        this.price = price;
+        this.summary = summary;
+    }
+    return Book;
+}());
 var reviews = [];

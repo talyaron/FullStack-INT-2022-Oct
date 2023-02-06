@@ -55,7 +55,7 @@ function renderVideoHtml(video) {
         debugger;
         html += video.reviews
             .map(function (review) {
-            return "\n        <div class=\"videoWrapper__videoReviews\">" + review.review + "</div>\n        <div class=\"videoWrapper__userNameReviews\">" + review.user.name + "</div>\n        <div class=\"videoWrapper__userImgReviews\">\n        <img src=" + review.user.img + " alt=\"\"></div>\n      ";
+            return "\n        <div class=\"videoWrapper__reviewsDetails\">\n        <div class=\"videoWrapper__reviewsDetails__userImgReviews\">\n        <img src=" + review.user.img + " alt=\"\"></div>\n        <div class=\"videoWrapper__reviewsDetails__userNameReviews\">" + review.user.name + "</div>\n        <div class=\"videoWrapper__reviewsDetails__videoReviews\">" + review.review + "</div>\n        </div> \n      ";
         })
             .join(" ");
         html += "</div>";

@@ -326,14 +326,15 @@ function handleClickAddToLike(ev) {
 function handleSubmitCreateAlbumsList(ev) {
     try {
         ev.preventDefault();
-        var nameListValue = ev.target.elements.createListName.value.toString();
-        console.log(nameListValue);
+        var nameListValue = ev.target.elements.createListName.value;
+        if (Number(nameListValue))
+            return alert("the value must to be string");
         createNewList(nameListValue, nameListValue, "sections-library");
         createListToOptions();
         ev.target.reset();
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 function handleSubmitCreatePhoto(ev) {
