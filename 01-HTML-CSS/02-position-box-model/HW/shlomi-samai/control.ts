@@ -1,32 +1,79 @@
-let page = "";
-let j = 0;
-for (j = 0; j <= users.length - 1; j++) {
-  page += `<div class="recurring_div">
-          <img src='${users[j].pictureURL}'/>
-          <a class="linkButton" href="./index.html">Enter</a>   
-          </div> `
-          ;
+// let page = "";
+// let j = 0;
+// for (j = 0; j <= users.length - 1; j++) {
+//   page += `<div class="recurring_div">
+//           <img src='${users[j].pictureURL}'/>
+//           <a class="linkButton" href="./index.html">Enter</a>   
+//           </div> `
+//           ;
+// }
+// const html: HTMLDivElement | null = document.querySelector("#listofUsers");
+// if (html !== null) {
+//   html.innerHTML = page;
+// }
+
+// let storyPage = "";
+// let k = 0;
+// for (k = 0; k <= users.length - 1; k++) {
+//   storyPage += `<div> <img class="img_story" src="${users[k].pictureURL}" alt=""/>
+//                 <h1 class="story_text">${users[k].name}</h1> 
+//                 </div> `
+//                  ;
+// }
+// const htmlStory: HTMLDivElement | null = document.querySelector("#storyBox");
+// if (htmlStory !== null) {
+//   htmlStory.innerHTML = storyPage;
+// }
+
+function renderStory(users:User[]){
+let storyPage = "";
+let k = 0;
+for (k = 0; k <= users.length - 1; k++) {
+  storyPage += `<div> <img class="img_story" src="${users[k].pictureURL}" onclick="renderfilterUser(users,'${users[k].name}')" alt=""/>
+                </div> `
+                 ;
 }
-const html: HTMLDivElement | null = document.querySelector("#listofUsers");
-if (html !== null) {
-  html.innerHTML = page;
-}
+const htmlStory: HTMLDivElement | null = document.querySelector("#storyBox");
+if (htmlStory !== null) {
+  htmlStory.innerHTML = storyPage;
+}  
+} 
 
 
-function renderusers(ev){
+
+
+function renderusers(users:User[]){
   let page = "";
   let j = 0;
   for (j = 0; j <= users.length - 1; j++) {
-    page += `<div class="recurring_div">
-            <img src='${users[j].pictureURL}'/>
-            <a class="linkButton" href="./index.html">Enter</a>   
+    page += `<div class="recurring_user">
+           <a href="./index.html"> <img src='${users[j].pictureURL}'/></a>
+             <button onclick="handleDeleteUser('${users[j].uid}')">Remove</button>  
             </div> `;
   }
+
+//   <a href="./selectUser.html"> <img
+//   class="img_bottom_headline" rc="" alt=""
+// /></a>
+
   const html: HTMLDivElement | null = document.querySelector("#listofUsers");
   if (html !== null) {
     html.innerHTML = page;
   }
- 
+  localStorage.setItem("users", JSON.stringify(users));
+}
+
+function handleDeleteUser(uid: string) {
+  try {
+    const index = users.findIndex((User) => User.uid === uid);
+    if (index === -1) throw new Error("item not found");
+    users.splice(index, 1);
+    renderusers(users);
+   
+    
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 
@@ -55,27 +102,28 @@ function handleaddUser(ev) {
     const name = ev.target.elements.name.value;
     const PictureURL = ev.target.elements.PictureURL.value;
 
-
     users.push(new User(name,PictureURL));
     
     ev.target.reset();
+    localStorage.setItem("users", JSON.stringify(users));
   
-    let page = "";
-    let j = 0;
-    for (j = 0; j <= users.length - 1; j++) {
-      page += `<div class="recurring_div">
-              <h3>${users[j].name}</h3>
-              <img src='${users[j].pictureURL}'/>
-              <a class="linkButton" href="./index.html">Enter</a>   
-              </div> `;
-    }
-    const html: HTMLDivElement | null = document.querySelector("#listofUsers");
-    if (html !== null) {
-      html.innerHTML = page;
-    }
+    // let page = "";
+    // let j = 0;
+    // for (j = 0; j <= users.length - 1; j++) {
+    //   page += `<div class="recurring_div">
+    //           <h3>${users[j].name}</h3>
+    //           <img src='${users[j].pictureURL}'/>
+    //           <a class="linkButton" href="./index.html">Enter</a>   
+    //           </div> `;
+    // }
+    // const html: HTMLDivElement | null = document.querySelector("#listofUsers");
+    // if (html !== null) {
+    //   html.innerHTML = page;
+    // }
   } catch (error) {
     console.error(error);
   }
+  renderusers(getUserFromStorage())
 }
 
 function render(posts:Post[]) {
@@ -147,6 +195,8 @@ function filterUser(ev) {
 
 
 function renderfilterUser(posts:Post[],user:string) {
+  try {
+    debugger;
   let page = "";
   let j = 0;
   for (j = 0; j <= posts.length - 1; j++) {
@@ -162,7 +212,8 @@ function renderfilterUser(posts:Post[],user:string) {
             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est minima officiis nam delectus, a, debitis dolore tempore doloremque fugiat ea, assumenda quos facere aspernatur eius ipsa voluptas qui pariatur. Doloremque!</p>
             <button onclick="handleDeleteItem('${posts[j].uid}')">Remove</button><button onclick="handleUpdatePic('${posts[j].uid}')">Update Picture</button></div>    
             </div> `;
-  }}
+  }
+}
   console.log(page);
   const html: HTMLDivElement | null = document.querySelector("#list");
   if (html !== null) {
@@ -170,5 +221,10 @@ function renderfilterUser(posts:Post[],user:string) {
     console.log(html);
   }
   localStorage.setItem("posts", JSON.stringify(posts));
+  } catch (error) {
+    alert("no post availble")
+    console.error(error); 
+  }
+
 }
 
