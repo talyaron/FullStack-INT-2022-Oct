@@ -60,7 +60,7 @@ function enter() {
                             }
                             correctLetters++;
                             if (correctLetters === WORD_LENGTH) {
-                                alert("you win!");
+                                alert("you win!"); // change to animation with 2sec delay//
                                 if (loggedInUser)
                                     updateStreak(loggedInUser.streak + 1);
                                 renderUserData(users, "userDataRoot");
@@ -146,17 +146,10 @@ function handleLogin(ev) {
 }
 function renderUserData(users, renderUserDataId) {
     try {
-        if (users.length === 0)
-            throw new Error("users is empty");
-        console.log("users", users);
-        console.log("loggeinuser", loggedInUser);
-        var html = users.map(function (user) {
-            return "\n        <h3>" + user.name + "</h3>\n        <div> Current streak: " + user.streak + "</div>\n      ";
-        }).join(" ");
-        var element = document.querySelector("#" + renderUserDataId);
-        if (!element)
-            throw new Error("Couldnt find element in the DOM");
-        element.innerHTML = html;
+        var userDataRoot = document.querySelector("#" + renderUserDataId);
+        if (userDataRoot) {
+            userDataRoot.innerHTML = "\n            <h3>" + users[users.length - 1].name + "</h3>\n            <div> Current streak: " + users[users.length - 1].streak + "</div>\n            ";
+        }
     }
     catch (error) {
         console.error(error);

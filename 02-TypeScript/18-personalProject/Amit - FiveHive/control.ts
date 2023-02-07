@@ -46,8 +46,8 @@ function deleteLetterFromCell(): void { //clicking BACK
 
 function enter(): void { //clicking ENTER
     try {
-
         if (linesArray[currentLine][LAST_CELL_IN_LINE].innerText !== "") {
+
             let correctLetters: number = 0;
 
             const _guess: string[] = [];
@@ -81,7 +81,7 @@ function enter(): void { //clicking ENTER
                             }
                             correctLetters++
                             if (correctLetters === WORD_LENGTH) {
-                                alert("you win!"); 
+                                alert("you win!"); // change to animation with 2sec delay//
                                 if (loggedInUser) updateStreak(loggedInUser.streak + 1);
                                 renderUserData(users, "userDataRoot");
                             }
@@ -172,18 +172,13 @@ function handleLogin(ev: any) {
 
 function renderUserData(users: User[], renderUserDataId: string): void {
     try {
-        if (users.length === 0) throw new Error("users is empty");
-        console.log("users", users);
-        console.log("loggeinuser", loggedInUser);
-        const html = users.map((user) => {
-            return `
-        <h3>${user.name}</h3>
-        <div> Current streak: ${user.streak}</div>
-      `;
-        }).join(" ");
-        const element = document.querySelector(`#${renderUserDataId}`);
-        if (!element) throw new Error("Couldnt find element in the DOM");
-        element.innerHTML = html;
+        const userDataRoot = document.querySelector(`#${renderUserDataId}`);
+        if (userDataRoot) {
+            userDataRoot.innerHTML = `
+            <h3>${users[users.length - 1].name}</h3>
+            <div> Current streak: ${users[users.length - 1].streak}</div>
+            `;
+        }
     } catch (error) {
         console.error(error);
     }

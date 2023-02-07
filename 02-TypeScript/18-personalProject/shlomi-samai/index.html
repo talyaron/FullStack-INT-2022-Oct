@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <link rel="stylesheet" href="./dist/style.css" />
+  </head>
+  
+  
+  <body class="body_background_color" onload="renderStory(getUserFromStorage())">
+   
+    <div class="frame">
+      <div class="headline">
+        <img class="headline__instegram_logo" src="Logo.PNG" alt="" />
+          <form class="headline__formClass" onsubmit="filterUser(event)">
+            <input type="text" name="name" placeholder="filter by user" />
+            <input type="submit" value="Filter" />
+          </form>
+      </div>
+
+          <div id="storyBox2">click to filter</div> 
+           <div id="storyBox"></div>
+
+
+
+
+      <form class="form" onsubmit="handleAddItem(event)">
+        <input type="text" name="name" placeholder="enter mom/dad/son" />
+        <input type="url" name="BigPictureURL" placeholder="smallPictureURL" />
+        <input type="url" name="smallPictureURL" placeholder="BigPictureURL"/>
+        <input type="submit" value="Add Picture" />
+      </form>
+
+
+      <div id="itemsRoot"></div>
+
+      <div id="list"></div>
+
+      <div class="bottom_headline">
+
+        <a href="./selectUser.html"> <img
+            class="img_bottom_headline"
+            src="data:image/png;base64,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"
+            alt=""
+          /></a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -66,8 +66,8 @@ function showClubCards(clubCardsList) {
         var userClubCards = clubCardsList.filter(function (user) { return user.userId == localStorage.getItem("user id"); });
         if (!clubCards)
             throw new Error("We don't have a culb cards div to show you your cards");
-        if (!userClubCards)
-            clubCards.innerHTML += "There is no club member in any store... \n " + localStorage.getItem("user name") + ", it's time to go shopping";
+        if (userClubCards.length == 0)
+            clubCards.innerHTML += "<h2>You don't have card member in any store... </h2> </br>\n                              <h2> " + localStorage.getItem("user name") + ", it's time to go shopping</h2>";
         else {
             clubCards.innerHTML = "<h2>Welcome " + localStorage.getItem("user name") + "</h2>";
             for (var i = 0; i < userClubCards.length; i++) {
@@ -113,4 +113,4 @@ function handleUpdateCard(cardList,storeName) {
   } catch (error) {
     console.error(error);
   }
-}*/ 
+}*/
