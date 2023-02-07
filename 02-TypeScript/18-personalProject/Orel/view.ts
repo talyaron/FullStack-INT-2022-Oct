@@ -41,10 +41,10 @@ function renderLists(): string | undefined {
 }
 
 function createNewList(nameList: string, titleList: string, classNameContainer: string): string {
-    albums.push(new Albums(nameList, []))
-    renderLists()
-    updatePhotosToLocalStorage(); 
 
+    albums.push(new Albums(nameList.split(' ').join(''), []))
+    updatePhotosToLocalStorage(); 
+    renderLists()
     return renderNewList(nameList,titleList,classNameContainer);
 }
 

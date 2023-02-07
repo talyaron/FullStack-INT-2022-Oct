@@ -34,9 +34,9 @@ function renderLists() {
     }
 }
 function createNewList(nameList, titleList, classNameContainer) {
-    albums.push(new Albums(nameList, []));
-    renderLists();
+    albums.push(new Albums(nameList.split(' ').join(''), []));
     updatePhotosToLocalStorage();
+    renderLists();
     return renderNewList(nameList, titleList, classNameContainer);
 }
 function renderNewList(nameList, titleList, classNameContainer) {
