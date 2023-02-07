@@ -123,7 +123,6 @@ body {
   outline: 0;
   z-index: 1;
   cursor: pointer;
-  width: 20vw;
 }
 .welcomePage__button:hover {
   color: whitesmoke;

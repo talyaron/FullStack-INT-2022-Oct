@@ -1,12 +1,14 @@
-var users = localStorage.getItem("users");
+var users = localStorage.getItem("signedUpUsers");
 var sortedUsers = JSON.parse(users).sort(function (a, b) { return b.highScore - a.highScore; });
 console.table(sortedUsers);
 var userNamesListElement = document.querySelector(".userNames");
 var userScoreListElement = document.querySelector(".userScore");
-var newPlayerBtn = document.querySelector(".newPlayerBtn");
-newPlayerBtn.addEventListener("click", function () {
-    localStorage.removeItem("currentUser");
-    window.location.href = "startPage.html";
+var newPlayerBtn = document.querySelectorAll(".newPlayerBtn");
+newPlayerBtn.forEach(function (btn) {
+    return btn.addEventListener("click", function () {
+        localStorage.removeItem("currentUser");
+        window.location.href = "startPage.html";
+    });
 });
 function renderScoreTable() {
     try {

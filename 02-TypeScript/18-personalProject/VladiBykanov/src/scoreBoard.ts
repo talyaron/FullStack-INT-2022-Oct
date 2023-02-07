@@ -1,4 +1,4 @@
-const users = localStorage.getItem("users") as string;
+const users = localStorage.getItem("signedUpUsers") as string;
 const sortedUsers = JSON.parse(users).sort(
   (a: User, b: User) => b.highScore - a.highScore
 );
@@ -12,14 +12,16 @@ const userScoreListElement = document.querySelector(
   ".userScore"
 ) as HTMLUListElement;
 
-const newPlayerBtn = document.querySelector(
+const newPlayerBtn = document.querySelectorAll(
   ".newPlayerBtn"
-) as HTMLButtonElement;
+) as NodeListOf<HTMLButtonElement>;
 
-newPlayerBtn.addEventListener("click", () => {
-  localStorage.removeItem("currentUser");
-  window.location.href = "startPage.html";
-});
+newPlayerBtn.forEach((btn) =>
+  btn.addEventListener("click", () => {
+    localStorage.removeItem("currentUser");
+    window.location.href = "startPage.html";
+  })
+);
 
 function renderScoreTable() {
   try {

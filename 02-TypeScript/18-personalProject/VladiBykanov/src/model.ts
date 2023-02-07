@@ -262,7 +262,7 @@ const preMadeUserList: User[] = [
   new User("vladb89", "vladislav1989", 984),
 ];
 
-if (!localStorage.getItem("users"))
-  localStorage.setItem("users", JSON.stringify(preMadeUserList));
+if (!localStorage.getItem('signedUpUsers'))
+  localStorage.setItem('signedUpUsers', JSON.stringify(preMadeUserList));
 
 let currentUser: User;
