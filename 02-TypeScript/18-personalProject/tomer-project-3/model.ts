@@ -1,10 +1,10 @@
 class UserReview{
-
     constructor(
-        
-      public  name:string,
+    //   public books:Book,
+      public name:string,
          public review:string,
         public stars:string,
+        public bookName: string
     ){
 
     }

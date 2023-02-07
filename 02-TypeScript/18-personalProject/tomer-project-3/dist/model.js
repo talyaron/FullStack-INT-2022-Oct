@@ -1,8 +1,11 @@
 var UserReview = /** @class */ (function () {
-    function UserReview(name, review, stars) {
+    function UserReview(
+    //   public books:Book,
+    name, review, stars, bookName) {
         this.name = name;
         this.review = review;
         this.stars = stars;
+        this.bookName = bookName;
     }
     return UserReview;
 }());
