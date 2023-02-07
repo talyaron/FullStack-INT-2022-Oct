@@ -46,12 +46,12 @@ const mapTwo: number[] = [
 const squares = [] as Array<HTMLElement>;
 
 class Pacman {
-  private pacmanSpeed: number = 150; // lower is faster
-  public pacmanStrartingIndex: number = 283;
   public currentIndex: number;
-  //   public nextIndex: number;
   public velocity: number;
-  constructor() {
+  constructor(
+    private pacmanSpeed: number,
+    public pacmanStrartingIndex: number
+  ) {
     this.velocity = this.pacmanSpeed;
     this.currentIndex = this.pacmanStrartingIndex;
   }
@@ -186,7 +186,7 @@ const ghosts = [
 
 let glide: number; //pacman glide interval
 let scaredGhostsTime: number; //scared ghosts timeout
-let score:number;
+let score: number;
 let cherryIndex: number[] = [];
 
 const directions = {
@@ -262,7 +262,7 @@ const preMadeUserList: User[] = [
   new User("vladb89", "vladislav1989", 984),
 ];
 
-if (!localStorage.getItem("users"))
-  localStorage.setItem("users", JSON.stringify(preMadeUserList));
+if (!localStorage.getItem('signedUpUsers'))
+  localStorage.setItem('signedUpUsers', JSON.stringify(preMadeUserList));
 
-let currentUser:User;
+let currentUser: User;

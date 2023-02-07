@@ -1,92 +1,136 @@
-body {
-  background-color: #fafafa;
-  color: #333;
-
-  &.darkTheme {
-      background-color: #333;
-      color: #ecf811;
-  }
-}
-
-
-
 header {
-  background-color: #333;
-  color: #fff;
-  padding: 1.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
 
-  h1 {
-      margin: 0;
-  }
+    // styles for the header title
+    h1 {
+        font-size: 24px;
+    }
 
-  nav {
-      ul {
-          list-style: none;
-          display: flex;
-          justify-content: space-between;
+    // styles for the navigation links
+    nav {
+        a {
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
 
-          li {
-              a {
-                  color: #fff;
-                  text-decoration: none;
-              }
-          }
-      }
-  }
+            // styles for link hover
+            &:hover {
+                color: #000;
+            }
+        }
+    }
 }
 
 main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 
-  #movieList {
-      list-style: none;
-      padding: 0;
-      height: 300px;
-      overflow-y: scroll;
-  
-      li {
-          background-color: #fff;
-          padding: 1rem;
-          margin-bottom: 1rem;
-  
-          h3 {
-              margin: 0;
-          }
-      }
-  }
-  
-  
+    // styles for the movie list section
+    .movie-list {
+        display: flex;
+        flex-wrap: wrap;
 
-  h2 {
-      text-align: center;
-  }
+        // styles for individual movie items
+        .movie {
+            width: 300px;
+            margin: 20px;
+            text-align: center;
 
-  ul {
-      display: flex;
-      justify-content: space-between;
+            // styles for movie images
+            img {
+                width: 100%;
+                height: auto;
+            }
 
-      li {
-          width: 33%;
-          text-align: center;
+            // styles for movie title
+            h3 {
+                font-size: 18px;
+                margin-top: 10px;
+            }
 
-          h3 {
-              margin-top: 1em;
-          }
+            // styles for movie description
+            p {
+                font-size: 14px;
+                margin: 10px 0;
+            }
+        }
+    }
 
-          p {
-              margin: 0;
-          }
+    // styles for the action button
+    button {
+        padding: 10px 20px;
+        margin-top: 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-weight: bold;
 
-          a {
-              display: block;
-              margin-top: 1em;
-          }
-      }
-  }
+        // styles for button hover
+        &:hover {
+            background-color: #000;
+        }
+    }
 }
 
+// styles for the review list section
+.review-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    // styles for individual review items
+    .review {
+        width: 300px;
+        margin: 20px;
+        text-align: center;
+        background-color: #eee;
+        padding: 20px;
+        border-radius: 5px;
+
+        // styles for review title
+        h3 {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        // styles for review description
+        p {
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        // styles for the review action button
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+
+            // styles for button hover
+            &:hover {
+                background-color: #000;
+            }
+        }
+    }
+}
+
+// styles for the footer section
 footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+
+
 }

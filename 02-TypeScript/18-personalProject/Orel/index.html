@@ -113,6 +113,8 @@
 
         <div class="main-board-center active">
             <main class="container-main-app">
+
+                <!-- lIST CONTAINER  -->
                 <div class="sections-home section active">
                     <h1>Home Section</h1>
 
@@ -129,10 +131,20 @@
                     </div>
 
                 </div>
-                <div class="sections-search section ">
-                    <h1>Search Section</h1>
 
+                <div class="sections-search section ">
+                    <h1 >Search List</h1>
+                    <form class="search-form" onsubmit="handleSubmitSearchSection(event)" >
+                        <input type="text" placeholder="Search album name" id="inputValueSearch">
+                        <button type="submit">Search</button>
+                    </form>
+                                <h4 id="searchSectionTitleList"></h4>
+                            <div class="recommended-list sections-search_photos">
+                            </div>
+       
                 </div>
+
+                
                 <div class="sections-library section">
                     <h1>Library Section</h1>
                 </div>

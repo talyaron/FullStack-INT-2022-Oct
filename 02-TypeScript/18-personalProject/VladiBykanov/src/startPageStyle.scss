@@ -32,7 +32,6 @@ body{
   align-items: center;
   justify-content: space-evenly;
   font-size: 1.5rem;
-  // transform: translateX(-100vw);
   transition: transform 0.1s linear;
   .inputDiv {
     display: flex;
@@ -112,7 +111,6 @@ body{
     }
   }
   .btnDiv {
-    // border: 1px solid black;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -127,7 +125,6 @@ body{
     outline: 0;
     z-index: 1;
     cursor: pointer;
-    width: 20vw;
   }
 
   &__button:hover {

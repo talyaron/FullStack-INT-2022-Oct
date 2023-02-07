@@ -3,6 +3,7 @@ var link = document.querySelector("#link_to_main");
 var clubCards = document.querySelector(".club_cards");
 function getUsersFromStorage() {
     try {
+        localStorage.setItem("users", JSON.stringify(usersList));
         var usersString = localStorage.getItem("users");
         if (!usersString)
             throw new Error("Couldn't find users in storage");
@@ -16,6 +17,7 @@ function getUsersFromStorage() {
 }
 function getCardsFromStorage() {
     try {
+        localStorage.setItem("cards", JSON.stringify(clubCardsList));
         var cardsString = localStorage.getItem("cards");
         if (!cardsString)
             throw new Error("Couldn't find cards in storage");

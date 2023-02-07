@@ -47,8 +47,8 @@ function onInit() {
         renderPhotoCard(animals, "animalsList")
         renderPhotoCard(backgrounds, "backgroundList")
         changeProfileUserName()
-        renderLists()
         createListToOptions()
+        renderLists()
     }
     // updateInfoToLocalStorage()
     // make Show Home Page 
