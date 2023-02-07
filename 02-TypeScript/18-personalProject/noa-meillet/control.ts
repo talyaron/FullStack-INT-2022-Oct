@@ -19,8 +19,7 @@ function goToUserProfile(event): void {
         `${user.userFullName} the password don't match to your ID number... Try again`
       );
     } else {
-      if (!link) 
-        throw new Error(`We can't show the user page`);
+      if (!link) throw new Error(`We can't show the user page`);
       localStorage.setItem("user id", user.userId);
       localStorage.setItem("user name", user.userFullName);
       link.click();
@@ -32,8 +31,7 @@ function goToUserProfile(event): void {
 
 function btnAdd() {
   try {
-    if (!form)
-      throw new Error(`We don't have any element to add your user`);
+    if (!form) throw new Error(`We don't have any element to add your user`);
     form.innerHTML = `
       <h3>Create a user:</h3>
       <form class="form__sign_in" onsubmit="addUser(event)">
@@ -78,12 +76,11 @@ function addUser(event) {
         newUserPhone
       )
     );
-    if (!form)
-      throw new Error(`We don't have any element to add your user`);
-      localStorage.setItem("users",JSON.stringify(usersList))
-      if(!link) throw new Error (`The user page cant be open`)
-      newUserLogIn(newUserId,newUserFullName);
-      form.innerHTML = `
+    if (!form) throw new Error(`We don't have any element to add your user`);
+    localStorage.setItem("users", JSON.stringify(usersList));
+    if (!link) throw new Error(`The user page cant be open`);
+    newUserLogIn(newUserId, newUserFullName);
+    form.innerHTML = `
     <h1> The user has been succesfully created <h1>
     <button onclick=link.click() id="btn_new_user_login">Log-In</button>`;
   } catch (error) {
@@ -94,19 +91,24 @@ function addUser(event) {
 function showClubCards(clubCardsList) {
   try {
     if (!localStorage.getItem("user id"))
-       throw new Error(`No user is log to the system`);
+      throw new Error(`No user is log to the system`);
     if (clubCardsList.length == 0)
       throw new Error(`There is no club cards registed in the system`);
-      localStorage.setItem("cards",JSON.stringify(clubCardsList))
-      const userClubCards = clubCardsList.filter(
+    localStorage.setItem("cards", JSON.stringify(clubCardsList));
+    const userClubCards = clubCardsList.filter(
       (user) => user.userId == localStorage.getItem("user id")
     );
     if (!clubCards)
       throw new Error(`We don't have a culb cards div to show you your cards`);
-    if (!userClubCards)
-      clubCards.innerHTML += `There is no club member in any store... \n ${localStorage.getItem("user name")}, it's time to go shopping`;
+    if (userClubCards.length==0)
+      clubCards.innerHTML += `<h2>You don't have card member in any store... </h2> </br>
+                              <h2> ${localStorage.getItem(
+                                "user name"
+                              )}, it's time to go shopping</h2>`;
     else {
-      clubCards.innerHTML = `<h2>Welcome ${localStorage.getItem("user name")}</h2>`;
+      clubCards.innerHTML = `<h2>Welcome ${localStorage.getItem(
+        "user name"
+      )}</h2>`;
       for (let i = 0; i < userClubCards.length; i++) {
         clubCards.innerHTML += `<div class="club_cards__store">
         <h3>Store: ${userClubCards[i].store.storeName}</h3>

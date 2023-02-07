@@ -52,9 +52,8 @@ body {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 .maze .endGameWindow button {
-  width: 30%;
-  padding: 0.5em;
-  font-size: 1.5rem;
+  padding: 0.5em 1em;
+  font-size: 1.2rem;
   border: none;
   border-radius: 10px;
   background-color: #333333;

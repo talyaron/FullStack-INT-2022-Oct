@@ -1,21 +1,22 @@
-<!--index.html-->
+<!--revies.html-->
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Deferring the loading of scripts -->
-    <script src="./dist/model.js" defer></script>
     <script src="./dist/view.js" defer></script>
-    <script src="./dist/control.js" defer></script>
     <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
     <script src="./dist/index.js" defer></script>
     <!-- Linking the stylesheet for the document -->
     <link rel="stylesheet" type="text/css" href="dist/style.css">
     <title>Movie Review Website</title>
-  </head>
+</head>
   <body>
-    <!-- Header section with website name and navigation links -->
+    <!-- header section with website title and navigation links -->
     <header>
       <h1>Movie Review Website</h1>
       <nav>
@@ -24,15 +25,21 @@
         <a href="#theme">Change Theme</a>
       </nav>
     </header>
-    <!-- Main content section displaying the list of movies -->
+    <!-- main section to display the list of movie reviews -->
     <main>
-      <h2>Movie List</h2>
-      <!-- Container for the movie elements -->
-      <div class="movie-list">
-        <!-- Placeholder for movie elements -->
+      <h2>Movie Reviews</h2>
+      <div class="review-list">
+        <!-- Repeat this block of code for each review in the `reviews` array -->
+        <div class="review">
+          <h3>Movie Title</h3>
+          <p>Review description</p>
+          <p>Username</p>
+          <button>Like</button>
+          <button>Unlike</button>
+        </div>
       </div>
     </main>
-    <!-- Footer section displaying the copyright information -->
+    <!-- footer section to display the copyright information -->
     <footer>
       <p>&copy; 2023 Movie Review Website</p>
     </footer>

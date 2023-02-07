@@ -13,14 +13,18 @@ const userScoreListElement = document.querySelector(
 ) as HTMLUListElement;
 
 function renderScoreTable() {
-  sortedUsers.forEach((user: User) => {
-    const liNameElement = document.createElement("li") as HTMLElement;
-    liNameElement.textContent = user.userName;
-    userNamesListElement.append(liNameElement);
-    const liScoreElement = document.createElement("li") as HTMLElement;
-    liScoreElement.textContent = user.highScore.toString();
-    userScoreListElement.append(liScoreElement);
-  });
+  try {
+    sortedUsers.forEach((user: User) => {
+      const liNameElement = document.createElement("li") as HTMLElement;
+      liNameElement.textContent = user.userName;
+      userNamesListElement.append(liNameElement);
+      const liScoreElement = document.createElement("li") as HTMLElement;
+      liScoreElement.textContent = user.highScore.toString();
+      userScoreListElement.append(liScoreElement);
+    });
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 renderScoreTable();

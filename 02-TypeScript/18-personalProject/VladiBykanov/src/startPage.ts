@@ -2,6 +2,7 @@ window.onload = () => {
   removeUserChoiceFromLocalStorage();
   const getListFromLS = localStorage.getItem("users");
   if (getListFromLS) usersList.push.apply(usersList, JSON.parse(getListFromLS));
+  if (localStorage.getItem("currentUser")) moveToWelcomePage();
 };
 
 window.addEventListener("click", (e) => {

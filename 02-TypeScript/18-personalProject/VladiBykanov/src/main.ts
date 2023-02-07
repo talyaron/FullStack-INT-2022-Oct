@@ -1,6 +1,5 @@
 const pacman = new Pacman();
 
-
 startGame();
 checkGameStatus();
 
