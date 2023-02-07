@@ -43,7 +43,6 @@ function onInit() {
 
 
     if (insideTheUser()) {
-
         openMenuLogoutBtn()
         renderPhotoCard(animals, "animalsList")
         renderPhotoCard(backgrounds, "backgroundList")

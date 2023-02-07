@@ -34,10 +34,19 @@ function renderLists() {
     }
 }
 function createNewList(nameList, titleList, classNameContainer) {
-    albums.push(new Albums(nameList.split(' ').join(''), []));
-    updatePhotosToLocalStorage();
-    renderLists();
-    return renderNewList(nameList, titleList, classNameContainer);
+    try {
+        if (nameList.split(' ').join("").length < nameList.length) {
+            nameList = nameList.split(' ').join("-");
+        }
+        albums.push(new Albums(nameList, []));
+        renderLists();
+        updatePhotosToLocalStorage();
+        return renderNewList(nameList, titleList, classNameContainer);
+    }
+    catch (error) {
+        console.log(error);
+        return '';
+    }
 }
 function renderNewList(nameList, titleList, classNameContainer) {
     var sectionsHome = document.querySelector("." + classNameContainer);
