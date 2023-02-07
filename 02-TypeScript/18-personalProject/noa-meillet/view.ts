@@ -4,6 +4,7 @@ const clubCards: HTMLDivElement | null = document.querySelector(".club_cards");
 
 function getUsersFromStorage(): User[] | undefined {
   try {
+    localStorage.setItem("users", JSON.stringify(usersList));
     const usersString = localStorage.getItem("users");
     if (!usersString) throw new Error("Couldn't find users in storage");
     const users = JSON.parse(usersString);
@@ -16,6 +17,7 @@ function getUsersFromStorage(): User[] | undefined {
 
 function getCardsFromStorage():ClubCards[] | undefined{
   try {
+    localStorage.setItem("cards", JSON.stringify(clubCardsList));
     const cardsString = localStorage.getItem("cards");
     if (!cardsString) throw new Error("Couldn't find cards in storage");
     const cards = JSON.parse(cardsString);

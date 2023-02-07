@@ -1,46 +1,38 @@
+<!--index.html-->
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./dist/view.js" defer></script>
-    <script src="./dist/helpers.js" defer></script>
+    <!-- Deferring the loading of scripts -->
     <script src="./dist/model.js" defer></script>
+    <script src="./dist/view.js" defer></script>
     <script src="./dist/control.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
     <script src="./dist/index.js" defer></script>
+    <!-- Linking the stylesheet for the document -->
     <link rel="stylesheet" type="text/css" href="dist/style.css">
     <title>Movie Review Website</title>
   </head>
   <body>
+    <!-- Header section with website name and navigation links -->
     <header>
       <h1>Movie Review Website</h1>
       <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Reviews</a></li>
-        </ul>
+        <a href="#">Home</a>
+        <a href="#review">Review</a>
+        <a href="#theme">Change Theme</a>
       </nav>
     </header>
+    <!-- Main content section displaying the list of movies -->
     <main>
-      <h2>Latest Reviews</h2>
-      <ul id="movieList">
-        <li class="movieItem">
-          <h3>Movie Title</h3>
-          <p>Movie Description</p>
-          <a href="#">Read Review</a>
-        </li>
-        <li class="movieItem">
-          <h3>Movie Title</h3>
-          <p>Movie Description</p>
-          <a href="#">Read Review</a>
-        </li>
-        <li class="movieItem">
-          <h3>Movie Title</h3>
-          <p>Movie Description</p>
-          <a href="#">Read Review</a>
-        </li>
-      </ul>
+      <h2>Movie List</h2>
+      <!-- Container for the movie elements -->
+      <div class="movie-list">
+        <!-- Placeholder for movie elements -->
+      </div>
     </main>
+    <!-- Footer section displaying the copyright information -->
     <footer>
       <p>&copy; 2023 Movie Review Website</p>
     </footer>

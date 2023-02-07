@@ -12,3 +12,9 @@ var userNameInput = document.querySelector("#userName");
 var passwordInput = document.querySelector("#password");
 var mapImgElement = document.querySelectorAll(".mapImg");
 var usersList = [];
+backToStartingPageBtn.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+        window.location.href = "startPage.html";
+        localStorage.removeItem("userChoice");
+    });
+});

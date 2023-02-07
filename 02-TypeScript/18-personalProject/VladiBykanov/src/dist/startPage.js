@@ -1,6 +1,6 @@
 window.onload = function () {
     removeUserChoiceFromLocalStorage();
-    var getListFromLS = localStorage.getItem("users");
+    var getListFromLS = localStorage.getItem('signedUpUsers');
     if (getListFromLS)
         usersList.push.apply(usersList, JSON.parse(getListFromLS));
     if (localStorage.getItem("currentUser"))
@@ -19,7 +19,7 @@ window.addEventListener("click", function (e) {
         window.location.href = "index.html";
     }
     if (target.innerHTML === "SCOREBOARD") {
-        if (!localStorage.getItem("users"))
+        if (!localStorage.getItem('signedUpUsers'))
             return alert("scoreboard is empty");
         window.location.href = "scoreBoard.html";
     }
