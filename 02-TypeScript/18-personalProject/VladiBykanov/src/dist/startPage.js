@@ -1,4 +1,11 @@
-window.onload = function () { return removeUserChoiceFromLocalStorage(); };
+window.onload = function () {
+    removeUserChoiceFromLocalStorage();
+    var getListFromLS = localStorage.getItem('signedUpUsers');
+    if (getListFromLS)
+        usersList.push.apply(usersList, JSON.parse(getListFromLS));
+    if (localStorage.getItem("currentUser"))
+        moveToWelcomePage();
+};
 window.addEventListener("click", function (e) {
     var target = e.target;
     if (target.nodeName == "IMG") {
@@ -12,7 +19,7 @@ window.addEventListener("click", function (e) {
         window.location.href = "index.html";
     }
     if (target.innerHTML === "SCOREBOARD") {
-        if (!localStorage.getItem("users"))
+        if (!localStorage.getItem('signedUpUsers'))
             return alert("scoreboard is empty");
         window.location.href = "scoreBoard.html";
     }
@@ -24,7 +31,7 @@ window.addEventListener("click", function (e) {
             moveToWelcomePage();
         }
         else {
-            alert('incorrect user name or password');
+            alert("incorrect user name or password");
         }
     }
 });

@@ -1,6 +1,5 @@
 function changeProfileUserName(): void{
     const nameProfile = document.querySelector('.user-box-profile h5')! as HTMLDListElement
-    console.log(nameProfile);
     nameProfile.innerText = users[getUserIndexFromLocalStorage()].username
 }
 
@@ -42,13 +41,26 @@ function renderLists(): string | undefined {
 }
 
 function createNewList(nameList: string, titleList: string, classNameContainer: string): string {
-    albums.push(new Albums(nameList, []))
-    updatePhotosToLocalStorage(); 
-    return renderNewList(nameList,titleList,classNameContainer);
+
+try {
+
+if(nameList.split(' ').join("").length < nameList.length){
+ nameList = nameList.split(' ').join("-")
+}
+albums.push(new Albums(nameList, []))
+renderLists()
+updatePhotosToLocalStorage(); 
+
+return renderNewList(nameList,titleList,classNameContainer);
+} catch (error) {
+    console.log(error);
+    return ''
+}
 }
 
 function renderNewList(nameList: string, titleList: string, classNameContainer: string) {
     const sectionsHome = document.querySelector(`.${classNameContainer}`)! as HTMLDListElement;
+
     const patten =
         `
     <div id="${nameList}" class="list" class="${nameList}">
@@ -100,7 +112,7 @@ function makeSectionsActive(element: HTMLElement) {
         })
 
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 
 }

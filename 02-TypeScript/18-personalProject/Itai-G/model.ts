@@ -68,7 +68,8 @@ const paddle1 = new Paddle({ x: 0, y: 50 }, { x: 0, y: 5 }, 20, 120,0);
 const paddle2 = new Paddle({ x: canvas.width - 20, y: 80 }, { x: 0, y: 1.9 }, 20, 120,0);
 let isUpKeyPressed = false;
 let isDownKeyPressed = false;
-gameOver = false;
+let gameOver: boolean;
+let req:number;
 
 
 window.addEventListener("keydown", function (e) {

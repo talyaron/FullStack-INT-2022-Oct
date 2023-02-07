@@ -24,7 +24,7 @@ function renderusers(users:User[]){
   let j = 0;
   for (j = 0; j <= users.length - 1; j++) {
     page += `<div class="recurring_user">
-           <a href="./index.html"> <img src='${users[j].pictureURL}'/></a>
+           <a href="./index.html"> <img class="userImg" src='${users[j].pictureURL}'/></a>
              <button onclick="handleDeleteUser('${users[j].uid}')">Remove</button>  
             </div> `;
   }
@@ -74,6 +74,7 @@ function handleAddItem(ev) {
 }
 
 function handleaddUser(ev) {
+  debugger;
   try {
     ev.preventDefault();
     const name = ev.target.elements.name.value;
