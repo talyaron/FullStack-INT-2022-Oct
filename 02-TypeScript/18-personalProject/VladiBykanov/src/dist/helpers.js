@@ -31,9 +31,8 @@ function checkForCherry() {
             score += 10;
             scoreEl.textContent = score.toString();
             squares[pacman.currentIndex].classList.remove("cherry");
-            squares[pacman.currentIndex].classList.add("pacman");
             ghosts.forEach(function (ghost) { return (ghost.isScared = true); });
-            scaredGhostsTime = setTimeout(unScareGhosts, 10000);
+            scaredGhostsTime = setTimeout(unScareGhosts, 5000);
         }
     }
     catch (error) {
@@ -98,6 +97,7 @@ function checkForScaredGhost() {
                 squares[pacman.currentIndex].classList.remove(ghost.className, "ghost", "scaredGhost");
                 pacman.draw();
                 ghost.currentIndex = ghost.resetIndex;
+                ghost.isScared = false;
                 squares[ghost.currentIndex].classList.add("ghost", ghost.className);
                 score += 100;
                 scoreEl.textContent = score.toString();
