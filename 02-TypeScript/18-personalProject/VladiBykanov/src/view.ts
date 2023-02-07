@@ -28,10 +28,10 @@ const mapImgElement = document.querySelectorAll(
 
 let usersList: User[] = [];
 
-
 backToStartingPageBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
     window.location.href = "startPage.html";
     localStorage.removeItem("userChoice");
   });
 });
+

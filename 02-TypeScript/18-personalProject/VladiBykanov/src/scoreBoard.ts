@@ -12,6 +12,15 @@ const userScoreListElement = document.querySelector(
   ".userScore"
 ) as HTMLUListElement;
 
+const newPlayerBtn = document.querySelector(
+  ".newPlayerBtn"
+) as HTMLButtonElement;
+
+newPlayerBtn.addEventListener("click", () => {
+  localStorage.removeItem("currentUser");
+  window.location.href = "startPage.html";
+});
+
 function renderScoreTable() {
   try {
     sortedUsers.forEach((user: User) => {

@@ -3,6 +3,11 @@ var sortedUsers = JSON.parse(users).sort(function (a, b) { return b.highScore - 
 console.table(sortedUsers);
 var userNamesListElement = document.querySelector(".userNames");
 var userScoreListElement = document.querySelector(".userScore");
+var newPlayerBtn = document.querySelector(".newPlayerBtn");
+newPlayerBtn.addEventListener("click", function () {
+    localStorage.removeItem("currentUser");
+    window.location.href = "startPage.html";
+});
 function renderScoreTable() {
     try {
         sortedUsers.forEach(function (user) {

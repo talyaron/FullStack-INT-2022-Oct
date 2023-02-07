@@ -23,12 +23,11 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
-
 tryAgainBtn.forEach((btn) => btn.addEventListener("click", startGame));
 
 scoreboardBtn.forEach((btn) =>
-  btn.addEventListener(
-    "click",
-    () => (window.location.href = "scoreBoard.html")
-  )
+  btn.addEventListener("click", () => {
+    updateUserScore();
+    window.location.href = "scoreBoard.html";
+  })
 );

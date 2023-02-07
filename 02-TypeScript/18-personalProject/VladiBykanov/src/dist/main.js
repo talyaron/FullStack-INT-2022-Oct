@@ -21,5 +21,8 @@ window.addEventListener("keydown", function (e) {
 });
 tryAgainBtn.forEach(function (btn) { return btn.addEventListener("click", startGame); });
 scoreboardBtn.forEach(function (btn) {
-    return btn.addEventListener("click", function () { return (window.location.href = "scoreBoard.html"); });
+    return btn.addEventListener("click", function () {
+        updateUserScore();
+        window.location.href = "scoreBoard.html";
+    });
 });
