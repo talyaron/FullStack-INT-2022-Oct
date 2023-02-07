@@ -5,4 +5,4 @@ if(_reviews){
 
 }
 renderReviews(reviews,"itemsRoot");
-console.log(reviews)
+// console.log(reviews)

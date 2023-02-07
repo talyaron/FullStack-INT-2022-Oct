@@ -76,12 +76,17 @@
   border-radius: 10px;
 }
 
+.userImg {
+  height: 100%;
+  width: 100%;
+}
+
 .recurring_user {
   display: flex;
   flex-direction: column;
   background-color: #ececee;
   border: 5px black;
-  width: 100%;
+  width: 300px;
   height: 100%;
   margin: auto;
   margin-top: 30px;
