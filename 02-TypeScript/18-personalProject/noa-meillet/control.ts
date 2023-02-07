@@ -76,13 +76,13 @@ function addUser(event) {
         newUserPhone
       )
     );
-    if (!form) throw new Error(`We don't have any element to add your user`);
     localStorage.setItem("users", JSON.stringify(usersList));
     if (!link) throw new Error(`The user page cant be open`);
     newUserLogIn(newUserId, newUserFullName);
-    form.innerHTML = `
-    <h1> The user has been succesfully created <h1>
-    <button onclick=link.click() id="btn_new_user_login">Log-In</button>`;
+    if (form)
+      form.innerHTML = `
+      <h1> The user has been succesfully created <h1>
+      <button onclick=link.click() id="btn_new_user_login">Log-In</button>`;
   } catch (error) {
     console.error(`We didnt succeed to add the new user`);
   }
@@ -94,13 +94,12 @@ function showClubCards(clubCardsList) {
       throw new Error(`No user is log to the system`);
     if (clubCardsList.length == 0)
       throw new Error(`There is no club cards registed in the system`);
-    localStorage.setItem("cards", JSON.stringify(clubCardsList));
     const userClubCards = clubCardsList.filter(
       (user) => user.userId == localStorage.getItem("user id")
     );
     if (!clubCards)
       throw new Error(`We don't have a culb cards div to show you your cards`);
-    if (userClubCards.length==0)
+    if (userClubCards.length == 0)
       clubCards.innerHTML += `<h2>You don't have card member in any store... </h2> </br>
                               <h2> ${localStorage.getItem(
                                 "user name"
@@ -115,7 +114,7 @@ function showClubCards(clubCardsList) {
         <h4>Amount of points: ${getAmountOfPoints(
           userClubCards[i].store.amountOfPoints,
           userClubCards[i].amountOfPoints
-        )}</h4>
+        )}</h4>    
        </div>
     `;
       }
@@ -126,37 +125,56 @@ function showClubCards(clubCardsList) {
 }
 
 /*
-<button id="set_points_btn" onclick="handleUpdateCard('${userClubCards}','${userClubCards[i].store.storeName}')">Set Points</button>
-        <button id="set_points_btn" onclick="handleDeleteCard('${userClubCards}','${userClubCards[i].store.storeName}')">Delete Card</button>    
-        
-function handleDeleteCard(cardList,storeName) {
-  try {
-    const index = cardList.findIndex((card) => card.store.storeName === storeName);
-    if (index === -1) throw new Error("item not found");
-    cardList.splice(index, 1);
 
-    if (!clubCards) throw new Error("store is available");
-    showClubCards(cardList);
+////....PROBLEM WITH THE LOCAL STORAGE....//////
+////....MY LOCAL STORAGE UPDATE MY DATA BUT WITHOUT REPLACING IT BY THE NEW DATA....////
+///....IT KEEP ACCUMULATE MY NEW DATA TO THE OLD DATA....//////
+
+//ADD TO THE INNERHTML
+<button id="set_points_btn" onclick="handleUpdateCard('${
+  userClubCards[i].userId
+}','${userClubCards[i].store.storeName}')">Set Points</button>
+<button id="delete_points_btn" onclick="handleDeleteCard('${
+  userClubCards[i].userId
+}','${userClubCards[i].store.storeName}')">Delete Card</button>
+
+//SET AND DELETE FUNCTION
+function handleUpdateCard(userId: string, storeName: string) {
+  try {
+    let newPoints;
+    newPoints = prompt(
+      "Enter the correct amount of your points for this store:"
+    );
+    while (!newPoints || isNaN(newPoints)) {
+      newPoints = prompt("You need to enter a number:");
+      newPoints = parseInt(newPoints);
+    }
+    const selectedClubCardIndex = clubCardsList.findIndex(
+      (card) => card.userId == userId && card.store.storeName == storeName
+    );
+    if (selectedClubCardIndex == -1) throw new Error("item not found");
+    clubCardsList[selectedClubCardIndex].amountOfPoints = newPoints;
+    if (!clubCards) throw new Error("ItemRoot is undefined");
+    localStorage.setItem("cards", JSON.stringify(clubCardsList));
+    showClubCards(clubCardsList);
   } catch (error) {
     console.error(error);
   }
 }
 
-function handleUpdateCard(cardList,storeName) {
+function handleDeleteCard(userId: string, storeName: string) {
   try {
-    let newPoints;
-    newPoints = prompt("Enter the correct amount of your points for this store:");
-    while (!newPoints || isNaN(newPoints)) {
-      newPoints = prompt("You need to enter a number:");
-      newPoints = parseInt(newPoints);
-    }
-    const index = cardList.find((card) => card.store.storeName === storeName);
+    const index = clubCardsList.findIndex(
+      (card) => card.userId == userId && card.store.storeName == storeName
+    );
     if (index === -1) throw new Error("item not found");
-    if (newPoints) index.amountOfPoints = newPoints;
+    clubCardsList.splice(index, 1);
 
-    if (!clubCards) throw new Error("ItemRoot is undefined");
-    showClubCards(cardList);
+    if (!clubCards) throw new Error("store is available");
+    localStorage.setItem("cards", JSON.stringify(clubCardsList));
+    showClubCards(clubCardsList);
   } catch (error) {
     console.error(error);
   }
-}*/
+}
+*/
