@@ -43,13 +43,13 @@ function onInit() {
 
 
     if (insideTheUser()) {
-        renderLists()
+
         openMenuLogoutBtn()
         renderPhotoCard(animals, "animalsList")
         renderPhotoCard(backgrounds, "backgroundList")
         changeProfileUserName()
-    
         createListToOptions()
+        renderLists()
     }
     // updateInfoToLocalStorage()
     // make Show Home Page 
