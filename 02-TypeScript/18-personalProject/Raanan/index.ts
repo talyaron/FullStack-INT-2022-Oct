@@ -1,25 +1,44 @@
-const displayMovies = (movies: Movie[]) => {
-  const movieList: Element | null = document.querySelector("#movieList");
-  movieList.innerHTML = "";
-  movies.forEach((movie) => {
-    const movieItem: Element | null = document.createElement("li");
-    movieItem.innerHTML = `
-      <h3>${movie.title}</h3>
-      <p>${movie.description}</p>
-      <a href="#">Read Review</a>
-      <button class="editMovie">Edit</button>
-    `;
-    movieItem.querySelector(".editMovie").addEventListener("click", () => {
-      const newTitle = prompt("Enter the new title:");
-      const newDescription = prompt("Enter the new description:");
-      if (newTitle && newDescription) {
-        movie.title = newTitle;
-        movie.description = newDescription;
-        displayMovies(latestMovies);
-      }
-    });
-    movieList.appendChild(movieItem);
-  });
-};
+// index.ts
+// index.ts
+import { MovieList, Movie } from "./model";
+import * as view from './view';
+import * as control from './control';
 
-displayMovies(latestMovies);
+// declare movieList variable of type MovieList
+let movieList: MovieList;
+
+window.onload = () => {
+  try {
+    // create a new instance of MovieList
+    movieList = new MovieList();
+
+    // initialize the movie list with pre-defined movies
+    MovieList.movies = [
+      new Movie("1", "The Shawshank Redemption", "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.", 9.2, "shawshank.jpg"),
+      new Movie("2", "The Godfather", "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.", 9.2, "godfather.jpg"),
+      new Movie("3", "The Godfather: Part II", "The early life and career of Vito Corleone in 1920s New York is portrayed while his son, Michael, expands and tightens his grip on his crime syndicate stretching from Lake Tahoe, Nevada to pre-revolution 1958 Cuba.", 9.0, "godfather2.jpg"),
+      new Movie("4", "The Dark Knight", "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice.", 9.0, "darkknight.jpg"),
+      new Movie("5", "12 Angry Men", "A dissenting juror in a murder trial slowly manages to convince the others that the case is not as obviously clear as it seemed in court.", 8.9, "12angrymen.jpg"),
+    ];
+
+    // get the movie container element
+    const movieContainer = document.getElementById('movie-container');
+
+    // check if the movie container element exists
+    if (movieContainer) {
+      // loop through each movie and render the movie element in the movie container
+      MovieList.movies.forEach((movie) => {
+        try {
+          // create a movie element using the createMovieElement method from the view module
+          const movieElement = view.createMovieElement(movie);
+          // append the movie element to the movie container
+          movieContainer.appendChild(movieElement);
+        } catch (error) {
+          console.error(error);
+        }
+      });
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
