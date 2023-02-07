@@ -13,21 +13,24 @@
     <script src="./dist/control.js" defer></script>
     <script src="./dist/index.js" defer></script>
     <link rel="icon" type="image/png" href="./images/favicon.png">
-</head>
+    <link rel="stylesheet" href="./dist/scoreboard-style.css"></head>
 
 <body onbeforeunload="getItemsFromStorage()">
     <h1>Scoreboard!</h1>
+    <div class="conteiner">
     <div id="itemsRoot"></div>
     <ul class="lu" onsubmit="addToLocalStorage(event)">
-        <li>*itayAmosi <br> *23 *itayAmosi@gmail.com *score: 145628</li>
-        <li>*tomer <br> *12 *tomer@gmail.com *score: 15</li>
-        <li>*itai <br> *28 *itai@gmail.com *score: 25</li>
-        <li>*vladi <br> *24 *vladi@gmail.com *score: 214</li>
-        <li>*matan <br> *33 *matan@gmail.com *score: 35</li>
-
+        <li>itayAmosi <br> --23 -- itayAmosi@gmail.com -- score: 145628</li><br>
+        <li>tomer <br> -- 12 -- tomer@gmail.com -- score: 15</li><br>
+        <li>itai <br> -- 28 -- itai@gmail.com -- score: 25</li><br>
+        <li>vladi <br> -- 24 -- vladi@gmail.com -- score: 214</li><br>
+        <li>matan <br> -- 33 -- matan@gmail.com -- score: 35</li><br>
     </ul>
-    <button><a href="./index.html">Back To GAME</a></button>
     <div id="itemsRoot"></div>
+
+    <button><a href="./index.html">Back To GAME</a></button>
+</div>
+
 </body>
 
 </html>
