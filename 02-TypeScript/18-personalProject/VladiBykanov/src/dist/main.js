@@ -1,4 +1,4 @@
-var pacman = new Pacman();
+var pacman = new Pacman(150, 283);
 startGame();
 checkGameStatus();
 window.addEventListener("keydown", function (e) {
@@ -18,12 +18,6 @@ window.addEventListener("keydown", function (e) {
             pacman.move(directions.movdeDown);
             break;
     }
-});
-backToStartingPageBtn.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-        window.location.href = "startPage.html";
-        localStorage.removeItem("userChoice");
-    });
 });
 tryAgainBtn.forEach(function (btn) { return btn.addEventListener("click", startGame); });
 scoreboardBtn.forEach(function (btn) {

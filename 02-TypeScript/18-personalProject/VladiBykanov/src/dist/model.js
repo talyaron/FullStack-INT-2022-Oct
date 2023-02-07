@@ -42,9 +42,9 @@ var mapTwo = [
 // an array that wil hold all the divs and their classes
 var squares = [];
 var Pacman = /** @class */ (function () {
-    function Pacman() {
-        this.pacmanSpeed = 150; // lower is faster
-        this.pacmanStrartingIndex = 283;
+    function Pacman(pacmanSpeed, pacmanStrartingIndex) {
+        this.pacmanSpeed = pacmanSpeed;
+        this.pacmanStrartingIndex = pacmanStrartingIndex;
         this.velocity = this.pacmanSpeed;
         this.currentIndex = this.pacmanStrartingIndex;
     }

@@ -27,3 +27,11 @@ const mapImgElement = document.querySelectorAll(
 ) as NodeListOf<HTMLImageElement>;
 
 let usersList: User[] = [];
+
+
+backToStartingPageBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    window.location.href = "startPage.html";
+    localStorage.removeItem("userChoice");
+  });
+});

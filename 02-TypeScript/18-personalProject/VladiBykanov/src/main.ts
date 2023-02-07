@@ -1,4 +1,4 @@
-const pacman = new Pacman();
+const pacman = new Pacman(150, 283);
 
 startGame();
 checkGameStatus();
@@ -23,12 +23,6 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
-backToStartingPageBtn.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    window.location.href = "startPage.html";
-    localStorage.removeItem("userChoice");
-  });
-});
 
 tryAgainBtn.forEach((btn) => btn.addEventListener("click", startGame));
 
