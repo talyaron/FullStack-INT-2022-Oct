@@ -1,6 +1,5 @@
 function changeProfileUserName() {
     var nameProfile = document.querySelector('.user-box-profile h5');
-    console.log(nameProfile);
     nameProfile.innerText = users[getUserIndexFromLocalStorage()].username;
 }
 function renderPhotoCard(cards, containerClass, albumName) {
@@ -36,6 +35,7 @@ function renderLists() {
 }
 function createNewList(nameList, titleList, classNameContainer) {
     albums.push(new Albums(nameList, []));
+    renderLists();
     updatePhotosToLocalStorage();
     return renderNewList(nameList, titleList, classNameContainer);
 }
@@ -72,6 +72,6 @@ function makeSectionsActive(element) {
         });
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }

@@ -11,7 +11,6 @@ function createListToOptions(): void {
         selectList.innerHTML = ''
         albums!.forEach(album => {
             selectList.innerHTML += `<option value="${album.name}">${album.name}</option>`
-            console.log(album.name);
         })
 
     } catch (error) {
@@ -63,7 +62,7 @@ function openMenuLogoutBtn(): void {
             }
         })
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 
 }
@@ -82,7 +81,7 @@ function insideTheUser(): boolean | undefined {
             return false
         }
     } catch (error) {
-        console.log(error);
+        console.error(error);
         return false
     }
 }
@@ -158,9 +157,7 @@ function handleSubmitLogIn(ev: any) {
         } else {
             errorMsgPasswordInputLog.parentElement!.classList.remove("empty")
         }
-        // אם יש התאמה תעשה משהו
-        console.log(checkMatchUserDetails(emailLogin.value, passwordLogin.value));
-        console.log(emailLogin.value , passwordLogin.value );
+
         if (checkMatchUserDetails(emailLogin.value, passwordLogin.value)) {
             ifRefresh()
             ev.target.reset()
@@ -185,7 +182,7 @@ function handleClickLogOut(): void {
         logout()
         location.reload();
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 //---------------------------Handle Click Function List Left-----------------
@@ -199,7 +196,7 @@ function handleClickHomeList(ev: any) {
             list.classList.add("active")
         });
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 //search
@@ -208,7 +205,7 @@ function handleClickSearchList(ev: any) {
         const sectionsSearch = document.querySelector('.sections-search') as HTMLElement;
         makeSectionsActive(sectionsSearch)
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 //library
@@ -229,7 +226,7 @@ function handleClickLibraryList(ev: any) {
         }
 
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 //Create Album
@@ -252,7 +249,7 @@ function handleClickCreateAlbumList(ev: any) {
         }
 
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 //Liked Song
@@ -273,7 +270,7 @@ function handleClickLikedPhotosList(ev: any) {
         }
 
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 
@@ -287,7 +284,7 @@ function handleClickLists(ev: any): void {
                 const element = e as HTMLElement;
                 element.classList.add("active")
             }
-            console.log();
+            console.error();
         })
     } catch (error) {
         console.error(error);
@@ -298,7 +295,6 @@ function handleClickAddToLike(ev: any) {
     const albumName = ev.target.parentElement.parentElement.parentElement.querySelector('h4').innerText;
     const photoTitle = ev.target.parentElement.querySelector('h3').textContent
     const btnLike = ev.target.parentElement.querySelector('button') as HTMLButtonElement
-    console.log(albumName);
     let currPhoto: Photos | undefined;
     const isDefaultAlbum = ['Backgrounds', 'Animals'].includes(albumName);
     if (isDefaultAlbum) {
@@ -363,4 +359,22 @@ function handleSubmitCreatePhoto(ev: any) {
         console.error(error);
     }
 }
+function handleSubmitSearchSection(ev: any) {
+    try {
+        ev.preventDefault();
+        const titleList = document.getElementById('searchSectionTitleList')! as HTMLElement;
+        const inputSearchValue = ev.target.elements.inputValueSearch.value
+            if(!inputSearchValue) return
+        const findSearchArr =  albums.find(album => album.name.toLocaleLowerCase() === inputSearchValue.toLocaleLowerCase())
+        if(!findSearchArr) return alert("the albums not found")
+        const {name , photos} = findSearchArr;
+        titleList.innerText = name
+                    const listSearchAlbum = document.getElementById('listSearchAlbum')
 
+                    
+                   renderPhotoCard(photos , "sections-search_photos");
+
+    } catch (error) {
+        console.error(error);
+    }
+}

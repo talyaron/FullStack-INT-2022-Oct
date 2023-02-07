@@ -1,6 +1,5 @@
 function changeProfileUserName(): void{
     const nameProfile = document.querySelector('.user-box-profile h5')! as HTMLDListElement
-    console.log(nameProfile);
     nameProfile.innerText = users[getUserIndexFromLocalStorage()].username
 }
 
@@ -43,7 +42,9 @@ function renderLists(): string | undefined {
 
 function createNewList(nameList: string, titleList: string, classNameContainer: string): string {
     albums.push(new Albums(nameList, []))
+    renderLists()
     updatePhotosToLocalStorage(); 
+
     return renderNewList(nameList,titleList,classNameContainer);
 }
 
@@ -100,7 +101,7 @@ function makeSectionsActive(element: HTMLElement) {
         })
 
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 
 }
