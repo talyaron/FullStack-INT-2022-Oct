@@ -30,13 +30,12 @@ function startGame() {
 }
 
 function checkGameStatus() {
-  requestAnimationFrame(checkGameStatus);
   checkForPoint();
   checkForCherry();
   checkForScaredGhost();
   checkForGamneOver();
   checkForWin();
-  // drawCherry();
+  requestAnimationFrame(checkGameStatus);
 }
 
 // function creatMaze(map: number[]) {

@@ -191,7 +191,12 @@ html {
   display: flex;
   flex-direction: column;
   text-align: start;
-  width: 50%;
+  overflow-y: scroll;
+  width: 100%;
+  height: calc(100% - 410px);
+}
+#main-section .sticky-navbar div.left-header div.container-playlist::-webkit-scrollbar {
+  display: none;
 }
 #main-section .sticky-navbar div.left-header div.container-playlist button {
   border: none;
@@ -367,6 +372,34 @@ html {
   width: 100%;
   height: 250px;
   object-fit: cover;
+}
+#main-section .main-board-center main .sections-search .search-form {
+  border-radius: 15px;
+  margin: 20px auto;
+}
+#main-section .main-board-center main .sections-search .search-form input {
+  border-radius: 15px 0 0 15px;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  background-color: var(--black-dark);
+}
+#main-section .main-board-center main .sections-search .search-form input::placeholder {
+  color: #ffffff;
+}
+#main-section .main-board-center main .sections-search .search-form button {
+  border-radius: 0 15px 15px 0;
+  padding: auto;
+  background-color: var(--gray-no-hover);
+  padding: 10px 20px;
+  margin-left: -7px;
+  border: none;
+  cursor: pointer;
+}
+#main-section .main-board-center main .sections-search .search-form button:hover {
+  background-color: var(--gray-no-hover);
+  box-shadow: 1px 1px 15px 10px rgba(0, 0, 0, 0.295);
 }
 #main-section .main-board-center main #createAlbumSection {
   display: none;

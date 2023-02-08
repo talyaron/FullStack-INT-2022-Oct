@@ -7,7 +7,6 @@ function createListToOptions() {
         selectList_1.innerHTML = '';
         albums.forEach(function (album) {
             selectList_1.innerHTML += "<option value=\"" + album.name + "\">" + album.name + "</option>";
-            console.log(album.name);
         });
     }
     catch (error) {
@@ -63,7 +62,7 @@ function openMenuLogoutBtn() {
         });
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 function logout() {
@@ -84,7 +83,7 @@ function insideTheUser() {
         }
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
         return false;
     }
 }
@@ -162,9 +161,6 @@ function handleSubmitLogIn(ev) {
         else {
             errorMsgPasswordInputLog.parentElement.classList.remove("empty");
         }
-        // אם יש התאמה תעשה משהו
-        console.log(checkMatchUserDetails(emailLogin.value, passwordLogin.value));
-        console.log(emailLogin.value, passwordLogin.value);
         if (checkMatchUserDetails(emailLogin.value, passwordLogin.value)) {
             ifRefresh();
             ev.target.reset();
@@ -187,7 +183,7 @@ function handleClickLogOut() {
         location.reload();
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 //---------------------------Handle Click Function List Left-----------------
@@ -202,7 +198,7 @@ function handleClickHomeList(ev) {
         });
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 //search
@@ -212,7 +208,7 @@ function handleClickSearchList(ev) {
         makeSectionsActive(sectionsSearch);
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 //library
@@ -231,7 +227,7 @@ function handleClickLibraryList(ev) {
         }
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 //Create Album
@@ -251,7 +247,7 @@ function handleClickCreateAlbumList(ev) {
         }
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 //Liked Song
@@ -271,7 +267,7 @@ function handleClickLikedPhotosList(ev) {
         }
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 function handleClickLists(ev) {
@@ -285,7 +281,7 @@ function handleClickLists(ev) {
                 var element = e;
                 element.classList.add("active");
             }
-            console.log();
+            console.error();
         });
     }
     catch (error) {
@@ -296,7 +292,6 @@ function handleClickAddToLike(ev) {
     var albumName = ev.target.parentElement.parentElement.parentElement.querySelector('h4').innerText;
     var photoTitle = ev.target.parentElement.querySelector('h3').textContent;
     var btnLike = ev.target.parentElement.querySelector('button');
-    console.log(albumName);
     var currPhoto;
     var isDefaultAlbum = ['Backgrounds', 'Animals'].includes(albumName);
     if (isDefaultAlbum) {
@@ -355,6 +350,25 @@ function handleSubmitCreatePhoto(ev) {
         var photoContainer = albumName_1 + "-photos";
         renderPhotoCard(albumPhotos, photoContainer);
         ev.target.reset();
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleSubmitSearchSection(ev) {
+    try {
+        ev.preventDefault();
+        var titleList = document.getElementById('searchSectionTitleList');
+        var inputSearchValue_1 = ev.target.elements.inputValueSearch.value;
+        if (!inputSearchValue_1)
+            return;
+        var findSearchArr = albums.find(function (album) { return album.name.toLocaleLowerCase() === inputSearchValue_1.toLocaleLowerCase(); });
+        if (!findSearchArr)
+            return alert("the albums not found");
+        var name = findSearchArr.name, photos = findSearchArr.photos;
+        titleList.innerText = name;
+        var listSearchAlbum = document.getElementById('listSearchAlbum');
+        renderPhotoCard(photos, "sections-search_photos");
     }
     catch (error) {
         console.error(error);

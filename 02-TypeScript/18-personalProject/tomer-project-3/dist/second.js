@@ -3,4 +3,4 @@ if (_reviews) {
     reviews.push.apply(reviews, _reviews);
 }
 renderReviews(reviews, "itemsRoot");
-console.log(reviews);
+// console.log(reviews)

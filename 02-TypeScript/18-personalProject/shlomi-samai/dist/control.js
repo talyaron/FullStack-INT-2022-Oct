@@ -14,7 +14,7 @@ function renderusers(users) {
     var page = "";
     var j = 0;
     for (j = 0; j <= users.length - 1; j++) {
-        page += "<div class=\"recurring_user\">\n           <a href=\"./index.html\"> <img src='" + users[j].pictureURL + "'/></a>\n             <button onclick=\"handleDeleteUser('" + users[j].uid + "')\">Remove</button>  \n            </div> ";
+        page += "<div class=\"recurring_user\">\n           <a href=\"./index.html\"> <img class=\"userImg\" src='" + users[j].pictureURL + "'/></a>\n             <button onclick=\"handleDeleteUser('" + users[j].uid + "')\">Remove</button>  \n            </div> ";
     }
     //   <a href="./selectUser.html"> <img
     //   class="img_bottom_headline" rc="" alt=""
@@ -53,6 +53,7 @@ function handleAddItem(ev) {
     }
 }
 function handleaddUser(ev) {
+    debugger;
     try {
         ev.preventDefault();
         var name = ev.target.elements.name.value;

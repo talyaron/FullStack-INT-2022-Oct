@@ -1,5 +1,27 @@
 
 
+function loadpostsPage(){
+  loadpostsToSorage();
+  render(getItemsFromStorage());
+  renderStory(getUserFromStorage())
+}
+
+function loadpostsToSorage(){
+  localStorage.setItem("posts", JSON.stringify(posts));
+}
+
+
+
+function loadUsersPage(){
+  loadUsersToSorage();
+  renderusers(getUserFromStorage());
+
+}
+
+function loadUsersToSorage(){
+  localStorage.setItem("users", JSON.stringify(users));
+}
+
 function getItemsFromStorage(){
     try {
       const postsString = localStorage.getItem("posts");
