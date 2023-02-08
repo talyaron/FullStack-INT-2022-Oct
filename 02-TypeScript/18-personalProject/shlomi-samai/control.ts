@@ -20,6 +20,7 @@ render(getItemsFromStorage())
 
 
 function renderusers(users:User[]){
+  debugger;
   let page = "";
   let j = 0;
   for (j = 0; j <= users.length - 1; j++) {
