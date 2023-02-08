@@ -2,7 +2,6 @@ function loadpostsPage() {
     loadpostsToSorage();
     render(getItemsFromStorage());
     renderStory(getUserFromStorage());
-    ף;
 }
 function loadpostsToSorage() {
     localStorage.setItem("posts", JSON.stringify(posts));
