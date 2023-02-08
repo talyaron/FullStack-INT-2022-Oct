@@ -2,13 +2,13 @@
 exports.__esModule = true;
 exports.handleRankingButtonClick = exports.createMovieListElement = exports.createMovieElement = exports.displayMovieList = void 0;
 // Displays the movie list on the page by updating the innerHTML of the `movieListElement` and adding click event listeners to the ranking buttons in the `rankingBar`.
-function displayMovieList(movieList, rankingBar, movieListElement) {
+function displayMovieList(MovieList, rankingBar, movieListElement) {
     try {
         // Clears the current content of the `movieListElement`.
         movieListElement.innerHTML = "";
         // Adds the movie elements to the `movieListElement`.
-        for (var _i = 0, movieList_1 = movieList; _i < movieList_1.length; _i++) {
-            var movie = movieList_1[_i];
+        for (var _i = 0, MovieList_1 = MovieList; _i < MovieList_1.length; _i++) {
+            var movie = MovieList_1[_i];
             var movieElement = createMovieElement(movie);
             movieListElement.appendChild(movieElement);
         }
@@ -16,7 +16,7 @@ function displayMovieList(movieList, rankingBar, movieListElement) {
         var rankingElements = rankingBar.querySelectorAll("button");
         for (var _a = 0, rankingElements_1 = rankingElements; _a < rankingElements_1.length; _a++) {
             var rankingElement = rankingElements_1[_a];
-            rankingElement.addEventListener("click", handleRankingButtonClick(movieList, rankingBar, movieListElement));
+            rankingElement.addEventListener("click", handleRankingButtonClick(MovieList, rankingBar, movieListElement));
         }
     }
     catch (error) {
@@ -24,37 +24,6 @@ function displayMovieList(movieList, rankingBar, movieListElement) {
     }
 }
 exports.displayMovieList = displayMovieList;
-// Creates a HTML element for a single movie
-function createMovieElement(movie) {
-    try {
-        // Create the main movie container element
-        var movieElement = document.createElement("div");
-        movieElement.classList.add("movie");
-        // Create the poster element and set its attributes
-        var posterElement = document.createElement("img");
-        posterElement.src = movie.poster;
-        posterElement.alt = "Poster for " + movie.name;
-        movieElement.appendChild(posterElement);
-        // Create the title element and set its inner text
-        var titleElement = document.createElement("h3");
-        titleElement.innerText = movie.name;
-        movieElement.appendChild(titleElement);
-        // Create the description element and set its inner text
-        var descriptionElement = document.createElement("p");
-        descriptionElement.innerText = movie.description;
-        movieElement.appendChild(descriptionElement);
-        // Create the ranking element and set its inner text
-        var rankingElement = document.createElement("p");
-        rankingElement.innerText = "Ranking: " + movie.ranking;
-        movieElement.appendChild(rankingElement);
-        return movieElement;
-    }
-    catch (error) {
-        console.error("Error creating movie element:", error);
-        return null;
-    }
-}
-exports.createMovieElement = createMovieElement;
 // Creates a HTML element for a single movie
 function createMovieElement(movie) {
     try {
@@ -97,6 +66,9 @@ function createMovieListElement(movies) {
             var movie = movies_1[_i];
             // Create a HTML element for each movie
             var movieElement = createMovieElement(movie);
+            if (!movieElement) {
+                return null;
+            }
             // Append the movie element to the movie list element
             movieListElement.appendChild(movieElement);
         }
@@ -114,24 +86,35 @@ exports.createMovieListElement = createMovieListElement;
 function handleRankingButtonClick(movieList, rankingBar, movieListElement) {
     return function (event) {
         try {
+            // Get the target element that was clicked
             var target = event.target;
-            var movieId_1 = parseInt(target.getAttribute("data-movie-id") || "0");
-            // prompt the user to enter a new ranking
-            var newRanking = prompt("Enter new ranking:");
-            // validate that the new ranking is a number
-            if (!newRanking || isNaN(newRanking)) {
+            // Get the movie id from the target element's data-movie-id attribute
+            var movieIdString = target.getAttribute("data-movie-id");
+            // Validate that movie id string is a valid number
+            if (!movieIdString || isNaN(Number(movieIdString))) {
+                console.error("Error: Invalid movie id.");
+                return;
+            }
+            // Convert the movie id string to a number
+            var movieId_1 = Number(movieIdString);
+            // Prompt the user to enter a new ranking
+            var newRankingString = prompt("Enter new ranking:");
+            // Validate that the new ranking string is a valid number
+            if (!newRankingString || isNaN(Number(newRankingString))) {
                 alert("Invalid ranking value. Please enter a number.");
                 return;
             }
-            // find the movie in the list
-            var movie = movieList.find(function (movie) { return movie.id === movieId_1; });
+            // Convert the new ranking string to a number
+            var newRanking = Number(newRankingString);
+            // Find the movie in the list
+            var movie = movieList.find(function (movie) { return movie.id.toString() === movieId_1.toString(); });
             if (!movie) {
                 console.error("Error: Could not find movie in list.");
                 return;
             }
-            // update the movie's ranking
-            movie.ranking = parseFloat(newRanking);
-            // redisplay the movie list
+            // Update the movie's ranking
+            movie.ranking = newRanking;
+            // Redisplay the movie list
             displayMovieList(movieList, rankingBar, movieListElement);
         }
         catch (error) {
