@@ -1,6 +1,3 @@
-"use strict";
-exports.__esModule = true;
-exports.Movie = void 0;
 // Define an array of review objects
 var reviews = [
     {
@@ -88,4 +85,3 @@ var Movie = /** @class */ (function () {
     }
     return Movie;
 }());
-exports.Movie = Movie;

@@ -3,7 +3,7 @@
 
 // Function to adjust the ranking of a movie by its ID
 // If the adjustment fails, the error message is logged to the console
-export function adjustRanking(movieId: string) {
+ function adjustRanking(movieId: string) {
     try {
         MovieList.adjustRanking(movieId, 1);
         updateMovieListDisplay();
@@ -14,7 +14,7 @@ export function adjustRanking(movieId: string) {
 
 // Function to sort the movie list by either ranking or name
 // If the sorting fails, the error message is logged to the console
-export function sortMovies(sortBy: "ranking" | "name") {
+ function sortMovies(sortBy: "ranking" | "name") {
     try {
         MovieList.sortMovies(sortBy);
         updateMovieListDisplay();
@@ -52,11 +52,11 @@ function updateMovieListDisplay() {
 //  reviews.html----------------------------------------------------------------
 
 // Define the functions that will handle the like and unlike buttons
-export function likeReview(id: number) {
+ function likeReview(id: number) {
     console.log(`Like review with ID ${id}`);
 }
 
-export function unlikeReview(id: number) {
+ function unlikeReview(id: number) {
     console.log(`Unlike review with ID ${id}`);
 }
 

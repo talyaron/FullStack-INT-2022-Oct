@@ -1,8 +1,11 @@
 // view.ts
 
-
 // Displays the movie list on the page by updating the innerHTML of the `movieListElement` and adding click event listeners to the ranking buttons in the `rankingBar`.
-export function displayMovieList(MovieList: Movie[], rankingBar: HTMLElement, movieListElement: HTMLElement): void {
+function displayMovieList(
+  MovieList: Movie[],
+  rankingBar: HTMLElement,
+  movieListElement: HTMLElement
+): void {
   try {
     // Clears the current content of the `movieListElement`.
     movieListElement.innerHTML = "";
@@ -16,16 +19,18 @@ export function displayMovieList(MovieList: Movie[], rankingBar: HTMLElement, mo
     // Adds click event listeners to the ranking buttons in the `rankingBar`.
     const rankingElements = rankingBar.querySelectorAll("button");
     for (const rankingElement of rankingElements) {
-      rankingElement.addEventListener("click", handleRankingButtonClick(MovieList, rankingBar, movieListElement));
+      rankingElement.addEventListener(
+        "click",
+        handleRankingButtonClick(MovieList, rankingBar, movieListElement)
+      );
     }
   } catch (error) {
     console.error("Error displaying movie list:", error);
   }
 }
 
-
 // Creates a HTML element for a single movie
-export function createMovieElement(movie: Movie): HTMLElement | null {
+function createMovieElement(movie: Movie): HTMLElement | null {
   try {
     // Create the main movie container element
     const movieElement = document.createElement("div");
@@ -59,9 +64,8 @@ export function createMovieElement(movie: Movie): HTMLElement | null {
   }
 }
 
-
 // Creates a HTML element that represents the entire movie list
-export function createMovieListElement(movies: Movie[]): HTMLElement | null {
+function createMovieListElement(movies: Movie[]): HTMLElement | null {
   try {
     // Create a div element to represent the movie list
     const movieListElement = document.createElement("div");
@@ -81,7 +85,6 @@ export function createMovieListElement(movies: Movie[]): HTMLElement | null {
 
     // Return the movie list element
     return movieListElement;
-
   } catch (error) {
     // Log an error message if something goes wrong
     console.error("Error creating movie list element:", error);
@@ -90,7 +93,7 @@ export function createMovieListElement(movies: Movie[]): HTMLElement | null {
 }
 
 // Handles the ranking button click event and updates the movie ranking
-export function handleRankingButtonClick(
+function handleRankingButtonClick(
   movieList: Movie[],
   rankingBar: HTMLElement,
   movieListElement: HTMLElement
@@ -101,7 +104,6 @@ export function handleRankingButtonClick(
       const target = event.target as HTMLElement;
       // Get the movie id from the target element's data-movie-id attribute
       const movieIdString = target.getAttribute("data-movie-id");
-
 
       // Validate that movie id string is a valid number
       if (!movieIdString || isNaN(Number(movieIdString))) {
@@ -125,7 +127,9 @@ export function handleRankingButtonClick(
       const newRanking = Number(newRankingString);
 
       // Find the movie in the list
-      const movie = movieList.find(movie => movie.id.toString() === movieId.toString());
+      const movie = movieList.find(
+        (movie) => movie.id.toString() === movieId.toString()
+      );
       if (!movie) {
         console.error("Error: Could not find movie in list.");
         return;
@@ -138,21 +142,18 @@ export function handleRankingButtonClick(
     } catch (error) {
       console.error("Error handling ranking button click:", error);
     }
-
   };
-
 }
 
 // reviews.ts----------------------------------------------------------------
 
 // Import the array of review objects from the Model
-import { reviews } from "./Model";
 
 // Get a reference to the element that will display the reviews
 const reviewList = document.querySelector(".review-list") as HTMLElement;
 
 // Loop through the array of reviews and generate the HTML for each one
-reviews.forEach(review => {
+reviews.forEach((review) => {
   const reviewElement = document.createElement("div");
   reviewElement.classList.add("review");
 
