@@ -1,7 +1,4 @@
-"use strict";
 // view.ts
-exports.__esModule = true;
-exports.handleRankingButtonClick = exports.createMovieListElement = exports.createMovieElement = exports.displayMovieList = void 0;
 // Displays the movie list on the page by updating the innerHTML of the `movieListElement` and adding click event listeners to the ranking buttons in the `rankingBar`.
 function displayMovieList(MovieList, rankingBar, movieListElement) {
     try {
@@ -24,7 +21,6 @@ function displayMovieList(MovieList, rankingBar, movieListElement) {
         console.error("Error displaying movie list:", error);
     }
 }
-exports.displayMovieList = displayMovieList;
 // Creates a HTML element for a single movie
 function createMovieElement(movie) {
     try {
@@ -55,7 +51,6 @@ function createMovieElement(movie) {
         return null;
     }
 }
-exports.createMovieElement = createMovieElement;
 // Creates a HTML element that represents the entire movie list
 function createMovieListElement(movies) {
     try {
@@ -82,7 +77,6 @@ function createMovieListElement(movies) {
         return null;
     }
 }
-exports.createMovieListElement = createMovieListElement;
 // Handles the ranking button click event and updates the movie ranking
 function handleRankingButtonClick(movieList, rankingBar, movieListElement) {
     return function (event) {
@@ -123,14 +117,12 @@ function handleRankingButtonClick(movieList, rankingBar, movieListElement) {
         }
     };
 }
-exports.handleRankingButtonClick = handleRankingButtonClick;
 // reviews.ts----------------------------------------------------------------
 // Import the array of review objects from the Model
-var Model_1 = require("./Model");
 // Get a reference to the element that will display the reviews
 var reviewList = document.querySelector(".review-list");
 // Loop through the array of reviews and generate the HTML for each one
-Model_1.reviews.forEach(function (review) {
+reviews.forEach(function (review) {
     var reviewElement = document.createElement("div");
     reviewElement.classList.add("review");
     var titleElement = document.createElement("h3");

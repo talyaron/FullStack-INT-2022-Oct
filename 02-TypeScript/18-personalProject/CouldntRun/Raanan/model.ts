@@ -71,7 +71,7 @@ class MovieList {
   }
 }
 
-export class Movie {
+class Movie {
   // Unique identifier for the movie
   id: string;
   // Title of the movie

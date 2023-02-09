@@ -1,7 +1,5 @@
 // index.ts
-import { MovieList, Movie } from "./model";
-import { createMovieElement } from './view';
-import * as control from './control';
+
 // index.ts
 
 
