@@ -1,4 +1,5 @@
 "use strict";
+// view.ts
 exports.__esModule = true;
 exports.handleRankingButtonClick = exports.createMovieListElement = exports.createMovieElement = exports.displayMovieList = void 0;
 // Displays the movie list on the page by updating the innerHTML of the `movieListElement` and adding click event listeners to the ranking buttons in the `rankingBar`.

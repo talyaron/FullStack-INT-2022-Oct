@@ -1,5 +1,5 @@
 // view.ts
-import { Movie, MovieListType } from "./model";
+
 
 // Displays the movie list on the page by updating the innerHTML of the `movieListElement` and adding click event listeners to the ranking buttons in the `rankingBar`.
 export function displayMovieList(movieList: Movie[], rankingBar: HTMLElement, movieListElement: HTMLElement): void {

@@ -1,3 +1,4 @@
+//better use querySelelctAll
 var cell0101 = document.querySelector("#cell0101");
 var cell0102 = document.querySelector("#cell0102");
 var cell0103 = document.querySelector("#cell0103");

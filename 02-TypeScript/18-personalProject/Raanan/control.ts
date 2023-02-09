@@ -1,6 +1,5 @@
 // control.ts
-import { MovieList } from "./model";
-import { createMovieElement, createMovieListElement } from "./view";
+
 
 // Function to adjust the ranking of a movie by its ID
 // If the adjustment fails, the error message is logged to the console

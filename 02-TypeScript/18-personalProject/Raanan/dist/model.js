@@ -1,8 +1,8 @@
 "use strict";
 exports.__esModule = true;
-exports.Movie = exports.MovieList = exports.reviews = void 0;
+exports.Movie = void 0;
 // Define an array of review objects
-exports.reviews = [
+var reviews = [
     {
         title: "The Matrix",
         description: "An action-packed sci-fi classic!",
@@ -14,7 +14,7 @@ exports.reviews = [
         description: "A mind-bending thriller!",
         username: "Jane Doe",
         id: 2
-    }
+    },
 ];
 var MovieList = /** @class */ (function () {
     function MovieList() {
@@ -69,7 +69,6 @@ var MovieList = /** @class */ (function () {
     MovieList.movies = [];
     return MovieList;
 }());
-exports.MovieList = MovieList;
 var Movie = /** @class */ (function () {
     /**
     

@@ -1,14 +1,12 @@
 "use strict";
+// control.ts
 exports.__esModule = true;
 exports.unlikeReview = exports.likeReview = exports.sortMovies = exports.adjustRanking = void 0;
-// control.ts
-var model_1 = require("./model");
-var view_1 = require("./view");
 // Function to adjust the ranking of a movie by its ID
 // If the adjustment fails, the error message is logged to the console
 function adjustRanking(movieId) {
     try {
-        model_1.MovieList.adjustRanking(movieId, 1);
+        MovieList.adjustRanking(movieId, 1);
         updateMovieListDisplay();
     }
     catch (error) {
@@ -20,7 +18,7 @@ exports.adjustRanking = adjustRanking;
 // If the sorting fails, the error message is logged to the console
 function sortMovies(sortBy) {
     try {
-        model_1.MovieList.sortMovies(sortBy);
+        MovieList.sortMovies(sortBy);
         updateMovieListDisplay();
     }
     catch (error) {
@@ -40,7 +38,7 @@ function updateMovieListDisplay() {
         for (var _i = 0, _a = MovieListType.movies; _i < _a.length; _i++) {
             var movie = _a[_i];
             // Creating a movie element for each movie
-            var movieElement = view_1.createMovieElement(movie);
+            var movieElement = createMovieElement(movie);
             // Appending the movie element to the movie list element
             movieListElement.appendChild(movieElement);
         }

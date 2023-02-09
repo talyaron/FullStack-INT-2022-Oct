@@ -1,8 +1,6 @@
 // index.ts
 // index.ts
-import { MovieList, Movie } from "./model";
-import * as view from './view';
-import * as control from './control';
+
 
 // declare movieList variable of type MovieList
 let movieList: MovieList;

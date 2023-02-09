@@ -1,5 +1,5 @@
 // model.ts
-export interface Review {
+interface Review {
   title: string;
   description: string;
   username: string;
@@ -7,22 +7,22 @@ export interface Review {
 }
 
 // Define an array of review objects
-export const reviews: Review[] = [
+const reviews: Review[] = [
   {
     title: "The Matrix",
     description: "An action-packed sci-fi classic!",
     username: "John Doe",
-    id: 1
+    id: 1,
   },
   {
     title: "Inception",
     description: "A mind-bending thriller!",
     username: "Jane Doe",
-    id: 2
-  }
+    id: 2,
+  },
 ];
 
-export class MovieList {
+class MovieList {
   public static movies: Movie[] = [];
 
   // Adjust the ranking of a movie
@@ -30,7 +30,7 @@ export class MovieList {
     try {
       const movieIndex = this.movies.findIndex((movie) => movie.id === movieId);
       if (movieIndex === -1) {
-        throw new Error(`Movie with id ${ movieId } not found`);
+        throw new Error(`Movie with id ${movieId} not found`);
       }
       this.movies[movieIndex].ranking += amount;
     } catch (error) {
@@ -92,7 +92,13 @@ export class Movie {
       @param ranking Ranking of the movie
       @param poster URL of the movie poster
       */
-  constructor(id: string, name: string, description: string, ranking: number, poster: string) {
+  constructor(
+    id: string,
+    name: string,
+    description: string,
+    ranking: number,
+    poster: string
+  ) {
     this.id = id;
     this.name = name;
     this.description = description;
@@ -100,4 +106,3 @@ export class Movie {
     this.poster = poster;
   }
 }
-
