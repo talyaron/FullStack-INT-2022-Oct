@@ -28,6 +28,7 @@ var FootballTeam = /** @class */ (function () {
     }
     return FootballTeam;
 }());
+//dont use let, use const
 var footballTeams = [];
 var storedFootballTeams = localStorage.getItem("footballTeams");
 if (storedFootballTeams) {
@@ -42,6 +43,7 @@ else {
         new FootballTeam("Manchester City", "./photos/Manchester_City.png", "Premier League"),
     ];
 }
+//should enter in to a function, and rune when needed.
 footballTeams.forEach(function (team) {
     var teamElement = document.createElement("div");
     teamElement.classList.add("teams");

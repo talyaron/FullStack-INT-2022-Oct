@@ -46,7 +46,7 @@ class FootballTeam {
   }
 }
 
-
+//dont use let, use const
 let footballTeams: FootballTeam[] = [];
 const storedFootballTeams = localStorage.getItem("footballTeams");
 if (storedFootballTeams) {
@@ -61,7 +61,7 @@ if (storedFootballTeams) {
   ];
 }
 
-
+//should enter in to a function, and rune when needed.
 
 footballTeams.forEach((team) => {
     const teamElement = document.createElement("div");
