@@ -20,12 +20,12 @@ function renderStory(users: User[]) {
 
 
 function renderusers(users: User[]) {
-  debugger;
+
   let page = "";
   let j = 0;
   for (j = 0; j <= users.length - 1; j++) {
     page += `<div class="recurring_user">
-           <a href="./index.html"> <img class="userImg" src='${users[j].pictureURL}'/></a>
+           <a href="./index.html"  > <img class="userImg" src='${users[j].pictureURL}'/></a>
              <button onclick="handleDeleteUser('${users[j].uid}')">Remove</button>  
             </div> `;
   }
@@ -38,6 +38,7 @@ function renderusers(users: User[]) {
   if (html !== null) {
     html.innerHTML = page;
   }
+  
   localStorage.setItem("users", JSON.stringify(users));
 }
 
@@ -76,6 +77,7 @@ function handleAddItem(ev) {
 
 function handleaddUser(ev) {
   try {
+
     ev.preventDefault();
     const name = ev.target.elements.name.value;
     const PictureURL = ev.target.elements.PictureURL.value;
@@ -108,11 +110,11 @@ function render(posts: Post[]) {
             <button onclick="handleDeleteItem('${posts[j].uid}')">Remove</button><button onclick="handleUpdatePic('${posts[j].uid}')">Update Picture</button></div>    
             </div> `;
   }
-  console.log(page);
+ 
   const html: HTMLDivElement | null = document.querySelector("#list");
   if (html !== null) {
     html.innerHTML = page;
-    console.log(html);
+    
   }
   localStorage.setItem("posts", JSON.stringify(posts));
 }
@@ -161,7 +163,6 @@ function filterUser(ev) {
 
 
 function renderfilterUser(posts: Post[], user: string) {
-  debugger;
   try {
     let page = "";
     let j = 0;
