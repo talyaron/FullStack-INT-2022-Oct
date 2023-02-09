@@ -32,15 +32,21 @@ function updateMovieListDisplay() {
     try {
         // Selecting the movie list element from the DOM
         var movieListElement = document.querySelector("#movie-list");
+        // Checking if the movie list element was found in the DOM
+        if (!movieListElement) {
+            throw new Error("Unable to find the movie list element in the DOM");
+        }
         // Clearing the inner HTML of the movie list element
         movieListElement.innerHTML = "";
         // Iterating over each movie in the movie list
-        for (var _i = 0, _a = MovieListType.movies; _i < _a.length; _i++) {
+        for (var _i = 0, _a = model_1.MovieList.movies; _i < _a.length; _i++) {
             var movie = _a[_i];
             // Creating a movie element for each movie
-            var movieElement = createMovieElement(movie);
-            // Appending the movie element to the movie list element
-            movieListElement.appendChild(movieElement);
+            var movieElement = view_1.createMovieElement(movie);
+            // Appending the movie element to the movie list element only if it's not null
+            if (movieElement) {
+                movieListElement.appendChild(movieElement);
+            }
         }
     }
     catch (error) {

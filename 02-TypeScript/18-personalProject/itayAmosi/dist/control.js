@@ -1,5 +1,5 @@
-var score = 0;
-var time = 60;
+var scores = 0;
+var time = 5;
 var startBtn = document.querySelector(".startBtn");
 var removeAnimalFromScreen = function (className) {
     var elem = document.querySelector(className);
@@ -44,12 +44,12 @@ startBtn.addEventListener("click", function () {
             bloodSpot_1.style.top = e.pageY + "px";
             bloodSpot_1.style.left = e.pageX + "px";
             if (((_a = e.target) === null || _a === void 0 ? void 0 : _a.className) === "mosquito") {
-                score++;
+                scores++;
             }
             else if (((_b = e.target) === null || _b === void 0 ? void 0 : _b.className) === "bee") {
-                score--;
+                scores--;
             }
-            startBtn.innerHTML = "SCORE: " + score;
+            startBtn.innerHTML = "SCORE: " + scores;
         });
     }
     catch (error) {
@@ -62,9 +62,9 @@ function addToLocalStorage(event) {
         var name = event.target.elements.name.value;
         var age = event.target.elements.age.value;
         var email = event.target.elements.email.value;
+        var score = event.target.elements.email.value;
         event.target.reset();
-        users.push(new User(name, age, email, score));
-        console.log(users);
+        users.push(new User(name, age, email, scores));
         if (!itemsRoot)
             throw new Error("itemsRoot is null");
         renderUsers(users, "itemsRoot");
@@ -79,7 +79,7 @@ function renderUsers(users, renderElementId) {
             throw new Error("users is not an array");
         var html = users
             .map(function (users) {
-            return "\n          <li>*" + users.name + " <br> *33 *" + users.email + " *" + users.score + "</li> \n      ";
+            return "<ul>\n          <li>" + users.name + " <br> -- " + users.age + " -- " + users.email + " -- score: " + users.score + "</li> </ul>\n      ";
         })
             .join(" ");
         var element = document.querySelector("#" + renderElementId);
@@ -94,6 +94,7 @@ function renderUsers(users, renderElementId) {
 function saveTolocalStorge() {
     localStorage.setItem("users", JSON.stringify(users));
 }
+0;
 function btnAppears() {
     var start = document.getElementById("start");
     start.style.display = "block";

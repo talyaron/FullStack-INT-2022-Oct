@@ -31,9 +31,8 @@ function checkForCherry() {
             score += 10;
             scoreEl.textContent = score.toString();
             squares[pacman.currentIndex].classList.remove("cherry");
-            squares[pacman.currentIndex].classList.add("pacman");
             ghosts.forEach(function (ghost) { return (ghost.isScared = true); });
-            scaredGhostsTime = setTimeout(unScareGhosts, 10000);
+            scaredGhostsTime = setTimeout(unScareGhosts, 5000);
         }
     }
     catch (error) {
@@ -58,7 +57,7 @@ function checkForGamneOver() {
                 var findUser = usersList.find(function (user) { return user.userName == currentUser.userName; });
                 if (findUser)
                     findUser.highScore = score;
-                localStorage.setItem("users", JSON.stringify(usersList));
+                localStorage.setItem('signedUpUsers', JSON.stringify(usersList));
             }
             resetGhosts();
             loseMessage.style.transform = "translateY(0)";
@@ -80,7 +79,7 @@ function checkForWin() {
                 var findUser = usersList.find(function (user) { return user.userName == currentUser.userName; });
                 if (findUser)
                     findUser.highScore = score;
-                localStorage.setItem("users", JSON.stringify(usersList));
+                localStorage.setItem('signedUpUsers', JSON.stringify(usersList));
             }
             winMessage.style.transform = "translateY(0)";
             finalScore[0].textContent = score.toString();
@@ -98,6 +97,7 @@ function checkForScaredGhost() {
                 squares[pacman.currentIndex].classList.remove(ghost.className, "ghost", "scaredGhost");
                 pacman.draw();
                 ghost.currentIndex = ghost.resetIndex;
+                ghost.isScared = false;
                 squares[ghost.currentIndex].classList.add("ghost", ghost.className);
                 score += 100;
                 scoreEl.textContent = score.toString();
@@ -142,7 +142,7 @@ function addNewUserToLocalStorage() {
         var newUser = new User(userNameInput.value, passwordInput.value);
         localStorage.setItem("currentUser", JSON.stringify(newUser));
         usersList.push(newUser);
-        localStorage.setItem("users", JSON.stringify(usersList));
+        localStorage.setItem('signedUpUsers', JSON.stringify(usersList));
         moveToWelcomePage();
     }
     catch (error) {
@@ -201,7 +201,7 @@ function getCurrentUserFromStorage() {
         var getUserFromStorage = localStorage.getItem("currentUser");
         if (getUserFromStorage)
             currentUser = JSON.parse(getUserFromStorage);
-        var getListFromStorage = localStorage.getItem("users");
+        var getListFromStorage = localStorage.getItem('signedUpUsers');
         if (getListFromStorage)
             usersList.push.apply(usersList, JSON.parse(getListFromStorage));
     }
@@ -215,7 +215,7 @@ function updateUserScore() {
             var findUser = usersList.find(function (user) { return user.userName == currentUser.userName; });
             if (findUser)
                 findUser.highScore = score;
-            localStorage.setItem("users", JSON.stringify(usersList));
+            localStorage.setItem('signedUpUsers', JSON.stringify(usersList));
             localStorage.setItem("currentUser", JSON.stringify(findUser));
         }
     }

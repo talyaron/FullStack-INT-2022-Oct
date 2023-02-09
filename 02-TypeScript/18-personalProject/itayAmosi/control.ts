@@ -1,5 +1,5 @@
-let score = 0;
-let time = 60;
+let scores: number = 0;
+let time = 5;
 
 const startBtn: any = document.querySelector(".startBtn");
 const removeAnimalFromScreen = (className: string) => {
@@ -48,11 +48,11 @@ startBtn.addEventListener(`click`, () => {
       bloodSpot.style.top = e.pageY + "px";
       bloodSpot.style.left = e.pageX + "px";
       if (e.target?.className === `mosquito`) {
-        score++;
+        scores++;
       } else if (e.target?.className === `bee`) {
-        score--;
+        scores--;
       }
-      startBtn.innerHTML = "SCORE: " + score;
+      startBtn.innerHTML = "SCORE: " + scores;
     });
   } catch (error) {
     console.error(error);
@@ -65,9 +65,11 @@ function addToLocalStorage(event: any) {
     const name = event.target.elements.name.value;
     const age = event.target.elements.age.value;
     const email = event.target.elements.email.value;
+    const score = event.target.elements.email.value;
+
     event.target.reset();
-    users.push(new User(name, age, email, score));
-    console.log(users);
+    users.push(new User(name, age, email, scores));
+
     if (!itemsRoot) throw new Error("itemsRoot is null");
     renderUsers(users, "itemsRoot");
   } catch (error) {
@@ -82,8 +84,8 @@ function renderUsers(users: User[], renderElementId: string): void {
 
     const html = users
       .map((users) => {
-        return `
-          <li>*${users.name} <br> *33 *${users.email} *${users.score}</li> 
+        return `<ul>
+          <li>${users.name} <br> -- ${users.age} -- ${users.email} -- score: ${users.score}</li> </ul>
       `;
       })
       .join(` `);
@@ -97,7 +99,7 @@ function renderUsers(users: User[], renderElementId: string): void {
 
 function saveTolocalStorge() {
   localStorage.setItem(`users`, JSON.stringify(users));
-}
+}0
 
 
 function btnAppears() {

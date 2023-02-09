@@ -10,7 +10,7 @@ var User = /** @class */ (function () {
 var users = [];
 var Animal = /** @class */ (function () {
     function Animal(name, imageUrl, display) {
-        if (display === void 0) { display = 'flex'; }
+        if (display === void 0) { display = "flex"; }
         this.name = name;
         this.imageUrl = imageUrl;
         this.display = display;
@@ -22,7 +22,6 @@ var Animal = /** @class */ (function () {
         container.appendChild(animal);
         animal.setAttribute("class", this.name);
         animal.setAttribute("src", this.imageUrl);
-        // "https://www.pngarts.com/files/4/Mosquito-Transparent-Background-PNG.png"
         animal.style.position = "absolute";
         animal.style.top = this.positionY + "px";
         animal.style.left = this.positionX + "px";
@@ -39,7 +38,3 @@ var randomY = function () { return Math.random() * (contHeight - 100); };
 var randomX = function () { return Math.random() * (contWidth - 100); };
 var mosquito = new Animal("mosquito", "https://www.pngarts.com/files/4/Mosquito-Transparent-Background-PNG.png");
 var bee = new Animal("bee", "https://www.freepnglogos.com/uploads/bee-png/bee-the-economic-value-pollination-modern-agriculture-8.png");
-// const vsfgb = new Bugs("drfg");
-// mosquito.draw();
-setTimeout(function () { return console.log(mosquito.positionX, mosquito.positionY); }, 500);
-// vsfgb.draw();

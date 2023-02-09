@@ -245,8 +245,13 @@ html {
                 display: flex;
                 flex-direction: column;
                 text-align: start;
-                width: 50%;
+                overflow-y:scroll ;
+                width: 100%;
+            height:calc(100% - 410px);
 
+            &::-webkit-scrollbar{
+                display: none;
+            }
                 button {
                     border: none;
                     color: var(--gray-no-hover);
@@ -402,6 +407,7 @@ html {
 
                 }
 
+   
                 .recommended-list,
                 .list-make {
                     margin-top: 25px;
@@ -461,7 +467,39 @@ button{
 
                 }
             }
-
+            .sections-search{
+                    .search-form{
+                     
+                        border-radius: 15px;
+                        margin:20px auto;
+                        input{
+                        
+                            border-radius: 15px 0 0 15px;
+                            padding: 10px 20px;
+                            border: none;
+                            outline: none;
+                            color: #ffffff;
+                            background-color: var(--black-dark);
+                            &::placeholder{
+                                color: #ffffff;
+                            }
+                        }
+                        button{
+                          
+                            border-radius: 0 15px 15px 0;
+                            padding: auto;
+                            background-color: var(--gray-no-hover);
+                            padding: 10px 20px;
+                            margin-left: -7px;
+                            border: none;
+                            cursor: pointer;
+                            &:hover{
+                                background-color: var(--gray-no-hover);
+                                box-shadow: 1px 1px 15px 10px rgba(0, 0, 0, 0.295);
+                            }
+                        }
+                    }
+            }
             #createAlbumSection{
                 display: none;
                 justify-content: center;
@@ -471,7 +509,7 @@ button{
                     display: flex;
                 }
 
-                
+
                 form{
                     margin-top: 15px;
                     width: 70%;

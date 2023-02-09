@@ -1,11 +1,15 @@
 // index.ts
+import { MovieList, Movie } from "./model";
+import { createMovieElement } from './view';
+import * as control from './control';
 // index.ts
 
 
 // declare movieList variable of type MovieList
 let movieList: MovieList;
 
-window.onload = () => {
+// wait for the window to load, then execute the code inside
+window.addEventListener("load", () => {
   try {
     // create a new instance of MovieList
     movieList = new MovieList();
@@ -21,16 +25,18 @@ window.onload = () => {
 
     // get the movie container element
     const movieContainer = document.getElementById('movie-container');
-
     // check if the movie container element exists
     if (movieContainer) {
       // loop through each movie and render the movie element in the movie container
       MovieList.movies.forEach((movie) => {
         try {
           // create a movie element using the createMovieElement method from the view module
-          const movieElement = view.createMovieElement(movie);
-          // append the movie element to the movie container
-          movieContainer.appendChild(movieElement);
+          const movieElement = createMovieElement(movie);
+          // check if the movie element is not null
+          if (movieElement) {
+            // append the movie element to the movie container
+            movieContainer.appendChild(movieElement);
+          }
         } catch (error) {
           console.error(error);
         }
@@ -39,4 +45,4 @@ window.onload = () => {
   } catch (error) {
     console.error(error);
   }
-}
+});

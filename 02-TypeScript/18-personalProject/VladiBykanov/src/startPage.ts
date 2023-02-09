@@ -1,6 +1,6 @@
 window.onload = () => {
   removeUserChoiceFromLocalStorage();
-  const getListFromLS = localStorage.getItem("users");
+  const getListFromLS = localStorage.getItem('signedUpUsers');
   if (getListFromLS) usersList.push.apply(usersList, JSON.parse(getListFromLS));
   if (localStorage.getItem("currentUser")) moveToWelcomePage();
 };
@@ -21,7 +21,7 @@ window.addEventListener("click", (e) => {
   }
 
   if (target.innerHTML === "SCOREBOARD") {
-    if (!localStorage.getItem("users")) return alert("scoreboard is empty");
+    if (!localStorage.getItem('signedUpUsers')) return alert("scoreboard is empty");
     window.location.href = "scoreBoard.html";
   }
 

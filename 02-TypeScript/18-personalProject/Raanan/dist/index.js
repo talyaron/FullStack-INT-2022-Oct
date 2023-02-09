@@ -1,8 +1,10 @@
 // index.ts
-// index.ts
+var model_1 = require("./model");
+var view_1 = require("./view");
 // declare movieList variable of type MovieList
 var movieList;
-window.onload = function () {
+// wait for the window to load, then execute the code inside
+window.addEventListener("load", function () {
     try {
         // create a new instance of MovieList
         movieList = new MovieList();
@@ -22,9 +24,12 @@ window.onload = function () {
             MovieList.movies.forEach(function (movie) {
                 try {
                     // create a movie element using the createMovieElement method from the view module
-                    var movieElement = view.createMovieElement(movie);
-                    // append the movie element to the movie container
-                    movieContainer_1.appendChild(movieElement);
+                    var movieElement = view_1.createMovieElement(movie);
+                    // check if the movie element is not null
+                    if (movieElement) {
+                        // append the movie element to the movie container
+                        movieContainer_1.appendChild(movieElement);
+                    }
                 }
                 catch (error) {
                     console.error(error);
@@ -35,4 +40,4 @@ window.onload = function () {
     catch (error) {
         console.error(error);
     }
-};
+});
