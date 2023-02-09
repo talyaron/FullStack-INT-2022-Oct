@@ -60,9 +60,7 @@ function swapTurns() {
 }
 function checkWin(currentClass) {
     return winnigCombinations.some(function (combination) {
-        return combination.every(function (index) {
-            return boxes[index].classList.contains(currentClass);
-        });
+        return combination.every(function (index) { return boxes[index].classList.contains(currentClass); });
     });
 }
 function isDraw() {

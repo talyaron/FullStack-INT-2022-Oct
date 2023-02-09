@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="./dist/helper.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+
+    <link rel="stylesheet" href="./dist/index.css">
+    <title>main-Shop</title>
+</head>
+
+<body>
+
+    <section>
+        <h1 class="main-title">Register</h1>
+        <form onsubmit="handlerAddUser(event)" class="container">
+            <input type="text" name="fullName" placeholder="Full Name" required>
+            <input type="text" name="address" placeholder="Address" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="number" name="phone" placeholder="Phone Number" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input id="file" type="file" name="file"  >
+            <button type="submit">Add</button>
+        </form>
+
+        <div class="users-container">
+            <table>
+            </table>
+ 
+        </div>
+
+
+
+
+
+    </section>
+</body>
+
+</html>
+
+
+
+
+

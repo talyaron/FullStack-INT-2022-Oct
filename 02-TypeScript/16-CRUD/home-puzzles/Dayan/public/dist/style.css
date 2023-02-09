@@ -1,0 +1,238 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: rgb(195, 34, 108);
+  background: linear-gradient(339deg, rgb(195, 34, 108) 34%, rgba(157, 97, 27, 0.9514180672) 76%);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  user-select: none;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+  font-family: "Lobster", cursive;
+}
+.game .top-bar {
+  align-items: center;
+  background: black;
+  border-bottom: 1px solid #000;
+  box-shadow: 1px 1px 10px #000;
+  color: #ccc;
+  display: flex;
+  font-size: 150%;
+  font-weight: 500;
+  justify-content: space-between;
+  padding: 0.5rem 1.5rem;
+  position: relative;
+  top: 0;
+  transition: all 500ms ease-in-out;
+  z-index: 1;
+}
+
+.top-bar.hide {
+  top: -50px;
+}
+
+.heart-containers {
+  color: rgba(210, 40, 55, 0.75);
+  font-size: 100%;
+  font-weight: 300;
+  text-shadow: 1px 1px 3px #333;
+  letter-spacing: 2px;
+}
+
+img {
+  bottom: -1000px;
+  position: absolute;
+  user-select: none;
+}
+
+.blink {
+  animation: lowlife 750ms ease-in-out infinite;
+  backface-visibility: hidden;
+}
+
+button {
+  width: 130px;
+  height: 40px;
+  border: none;
+  color: #ccc;
+  border-radius: 5px;
+  padding: 10px 25px;
+  cursor: pointer;
+  background-color: black;
+  display: block;
+  letter-spacing: 2px;
+  padding: 0.75rem;
+  position: relative;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+button:hover {
+  background: rgba(157, 97, 27, 0.9514180672);
+  color: white;
+  outline: none;
+}
+button:active {
+  box-shadow: none;
+  left: 1px;
+  outline: none;
+  top: 2px;
+}
+
+.dialogue {
+  align-self: center;
+  animation: bounceIn 800ms ease-in-out 1;
+  background: #ccc;
+  border-radius: 10px;
+  bottom: 50%;
+  box-shadow: 1px 1px 1rem #000;
+  display: flex;
+  flex-direction: column;
+  max-width: 75%;
+  min-width: 350px;
+  min-height: 25%;
+  opacity: 1;
+  padding: 2rem 1rem;
+  position: absolute;
+  top: 25%;
+}
+.dialogue h1 {
+  color: black;
+  display: block;
+  font-family: "Lobster", cursive;
+  font-size: 3rem;
+  margin: 0;
+  text-shadow: 1px 1px 10px #999;
+}
+.dialogue span {
+  padding: 1.5rem 0;
+}
+
+.dialogue.hide {
+  animation: bounceOut 800ms ease-in-out 1;
+  opacity: 0;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#start-screen, #gameover-screen {
+  justify-content: center;
+  text-align: center;
+  padding: 1rem 0;
+}
+#start-screen span, #gameover-screen span {
+  margin: 0 auto;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes bounceOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+@keyframes floatUp {
+  0% {
+    top: 1000px;
+  }
+  100% {
+    top: -1000px;
+  }
+}
+@keyframes lowlife {
+  0% {
+    color: rgba(210, 40, 55, 0.75);
+  }
+  50% {
+    color: rgba(210, 30, 45, 0.95);
+  }
+  100% {
+    color: rgba(210, 40, 55, 0.75);
+  }
+}
+@keyframes pop {
+  0% {
+    opacity: 1;
+    transform-origin: 50% 50%;
+    transform: scale(1, 1);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 50% 50%;
+    transform: scale(2, 2);
+    filter: blur(20px);
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  55% {
+    transform: scale(0.9);
+  }
+  80% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes wobble {
+  0% {
+    transform: translateX(0);
+  }
+  5% {
+    transform: translateX(31px);
+  }
+  30% {
+    transform: translateX(120px);
+  }
+  50% {
+    transform: translateX(92px);
+  }
+  80% {
+    transform: translateX(19px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}/*# sourceMappingURL=style.css.map */

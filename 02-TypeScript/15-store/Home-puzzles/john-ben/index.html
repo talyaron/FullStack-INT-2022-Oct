@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form </title>
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+</head>
+<body>
+     <!-- name, address, email, phone, password, prederd color , image -->
+
+     <div class="container">
+        <h2>Registration</h2>
+        <form id="myForm"   onsubmit ="hendleAddDetail(event)">
+            <label for="name">Name: </label>
+            <input type="text" id="name" name="name" placeholder="  First and last name" required><br>
+            <label for="address">Address: </label>
+            <input type="text" id="address" name="address" placeholder="  address" required><br>
+            <label for="email">Email: </label>
+            <input type="email" id="email" name="email" placeholder="  Email" required> <br>
+            <label for="phone">Phone: </label>
+            <input type="number" id="phone" name="phone" placeholder="  Phone (number only)" ><br>
+            <label for="pass">Password: </label>
+            <input type="password" id="pass" ondblclick="hendelViewPassword()" name="pass" placeholder="  Password"> <br>
+            <label for="image">Add Img: </label>
+            <input type="file" id="image" name="image" placeholder="  Add your image"><br>
+            <button type="submit" >Add</button> 
+        </form>
+     </div>
+     <div class="detail" ></div>
+     
+</body>
+</html>

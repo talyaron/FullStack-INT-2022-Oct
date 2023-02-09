@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  position: relative;
+  background-color: #d4d1cc;
+}
+
+.header {
+  width: 30rem;
+  height: 3rem;
+  position: relative;
+  top: 1rem;
+  left: 40rem;
+  font-size: 5rem;
+  color: #3811ba;
+  font-weight: 800;
+}
+
+.searchBox {
+  width: 30rem;
+  height: 3rem;
+  position: relative;
+  top: 5rem;
+  left: 38rem;
+  border: 0.1rem solid black;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  background-color: #2a2929;
+  color: #eae6e6;
+  padding: 0.5rem;
+}
+
+.results {
+  width: 50rem;
+  height: 200rem;
+  position: relative;
+  top: 5rem;
+  left: 30rem;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.results__contact {
+  width: 40rem;
+  height: 15rem;
+  position: relative;
+  top: 0rem;
+  left: 3rem;
+  border: 0.1rem solid black;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  margin-top: 0.7rem;
+}
+.results__contact__wrapper {
+  width: 39rem;
+  height: 11rem;
+  position: relative;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.5rem;
+  margin-top: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  color: #121111;
+  font-weight: 600;
+  gap: 1rem;
+}
+
+.addContcatsWrapper {
+  width: 24rem;
+  height: 26rem;
+  position: relative;
+  bottom: 199rem;
+  left: 2rem;
+  border: 0.1rem solid black;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  margin-top: 0.7rem;
+}
+.addContcatsWrapper__input {
+  width: 14rem;
+  height: 2rem;
+  border: 0.1rem solid black;
+  border-radius: 1rem;
+  font-size: 1rem;
+  background-color: #f3eded;
+  color: black;
+  padding-left: 0.5rem;
+}
+.addContcatsWrapper__input__inputImage {
+  border: 0.1rem solid 0;
+  color: red;
+}
+.addContcatsWrapper__addButton {
+  width: 10rem;
+  height: 2rem;
+  background-color: #ffe600;
+  border-radius: 0.5rem;
+  font-weight: 900;
+  vertical-align: middle;
+  font-size: 1rem;
+  box-shadow: 0rem 0rem 0.2rem 0.2rem #616161;
+}
+.addContcatsWrapper__addButton:hover {
+  background-color: white;
+  box-shadow: none;
+  transition: 0.5s;
+}
+.addContcatsWrapper__addButton:active {
+  background-color: #4a0afb;
+}
+
+.image {
+  width: 5rem;
+  height: 5rem;
+  border: 0.2rem solid black;
+  background-size: cover;
+  background-position: center;
+}

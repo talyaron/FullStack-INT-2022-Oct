@@ -1,0 +1,89 @@
+var form = document.querySelector("#theForm");
+function handleAddItem(ev) {
+    try {
+        ev.preventDefault();
+        console.log(ev);
+        var name = ev.target.elements.name.value;
+        var color = ev.target.elements.color.value;
+        var price = ev.target.elements.price.valueAsNumber;
+        var category = ev.target.elements.category.value;
+        var size = ev.target.elements.size.valueAsNumber;
+        var sn = ev.target.elements.sn.value;
+        items.push(new Item(name, color, price, category, size, sn));
+        // localStorage.setItem('items',JSON.stringify(items));
+        console.log(items);
+        ev.target.reset();
+        console.log(name);
+        if (!itemsRoot)
+            throw new Error("itemsRoot is null");
+        renderItems(items, "itemsRoot");
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleChangerColor(ev) {
+    try {
+        console.log(ev);
+        var color = ev.target.value;
+        document.body.style.backgroundColor = color;
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleViewPassword() {
+    try {
+        var passwordElement = document.querySelector("#pass");
+        console.dir(passwordElement);
+        if (passwordElement.type === "password") {
+            passwordElement.type = "text";
+        }
+        else {
+            passwordElement.type = "password";
+        }
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function renderItems(items, renderElementId) {
+    try {
+        if (!items || !Array.isArray(items))
+            throw new Error("items is not an array");
+        var html = items
+            .map(function (item) {
+            console.log("---" + item.uid + "---");
+            return "\n    <div class=\"item\" style=\"background-color:" + item.color + "\">\n      <h3>" + item.name + "</h3>\n      <div>Price: " + item.price + " <button onclick=\"handleUpdatePrice()\">Update</button></div>\n      <div>Category: " + item.category + "</div>\n      <div>Size: " + item.size + "</div>\n      <div>S/N: " + item.sn + "</div>\n      <button onclick=\"handleDeleteItem('" + item.uid + "')\">Remove</button>\n    </div>\n    ";
+        })
+            .join(" ");
+        console.log(html);
+        var element = document.querySelector("#" + renderElementId);
+        if (!element)
+            throw new Error("Couldnt find element in the DOM");
+        element.innerHTML = html;
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleDeleteItem(uid) {
+    try {
+        console.log(uid);
+        var index = items.findIndex(function (item) { return item.uid === uid; });
+        if (index === -1)
+            throw new Error("item not found");
+        items.splice(index, 1);
+        if (!itemsRoot)
+            throw new Error("ItemRoot is undefined");
+        renderItems(items, "itemsRoot");
+        // localStorage.setItem("items", JSON.stringify(items))
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleSaveItems() {
+    console.log('save items');
+    localStorage.setItem('items', JSON.stringify(items));
+}

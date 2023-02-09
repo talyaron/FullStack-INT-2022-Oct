@@ -2,8 +2,14 @@
   background: #4c6ca0;
   border: none;
   color: #fff;
-  padding: 10px 20px;
+  padding: 30px 50px;
   font-size: 16px;
   border-radius: 5px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  opacity: 0.6;
+}
+
+.btn:hover {
+  color: salmon;
+  opacity: 1;
 }

@@ -1,0 +1,69 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Itim", cursive;
+}
+
+.navbar {
+  display: flex;
+  width: 100%;
+  height: 80px;
+  background-color: #c3e6e2;
+}
+.navbar .navbarIcon {
+  width: 100px;
+}
+.navbar .menuWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar .menuWrapper a {
+  color: #306b82;
+  padding: 20px;
+}
+.navbar .menuWrapper a:hover {
+  background-color: #dcf3fc;
+  cursor: pointer;
+  height: 40px;
+}
+
+.locationSearch {
+  text-align: center;
+}
+.locationSearch #areaForm {
+  display: none;
+  color: #dee9ed;
+  width: 100%;
+  align-items: center;
+  background-color: #306b82;
+  flex-direction: column;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: block;
+}
+.wrapper #birdCardContainer {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+.wrapper #birdCardContainer .birdCard {
+  margin: 10px;
+  background-image: linear-gradient(60deg, gainsboro, rgba(154, 154, 154, 0.885));
+  width: 250px;
+  height: 400px;
+  text-align: center;
+}
+.wrapper #birdCardContainer .birdCard img {
+  width: 150px;
+  height: 150px;
+}
+.wrapper #birdCardContainer .birdCard .displayColor {
+  width: 100%;
+  height: 25px;
+}

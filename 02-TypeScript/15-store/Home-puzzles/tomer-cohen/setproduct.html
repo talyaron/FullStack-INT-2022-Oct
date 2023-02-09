@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  <script src="./dist/control.js" defer></script>
+  <script src="./dist/helpers.js"defer></script>
+  <script src="./dist/model.js"defer></script>
+  <script src="./dist/view.js"defer></script>
+  <script src="./dist/index.js"defer></script>
+  <link rel="stylesheet" href="./dist/style.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="formDiv">
+        <h3>can you put you details here and picture of your t-shirt</h3>
+        <form onsubmit="accountInfo(event)">
+          <select name="gender">
+            <option value="null">gender</option>
+            <option value="man">man</option>
+            <option value="woman">woman</option>
+          </select>
+          <input type="name" name="name" placeholder="enter Name" />
+          <input type="addres" name="address" placeholder="Enter address" />
+          <input type="email" name="email" placeholder="Enter Email"/>
+          <input type="phone" name="phone" placeholder="Enter Phone">
+          <input type="password" name="password" id="password" placeholder="Enter Password">
+          <input oninput="ChangerColor(event)" type="color" name="color">
+          <input type="submit" name="info">
+        </form>
+      </div>
+      <div class="card"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+form {
+    margin: 20px;
+}
+
+.userInputContainer{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    gap: 10px;
+    width: 930px;
+    height: 100%;
+
+    .usersInputCard {
+        width: 300px;
+        height: 500px;
+        // border: 1px solid black;
+        border-radius: 50px;
+        box-shadow: 5px 8px 35px 0px rgba(0,0,0,0.75);
+
+        img {
+            width: 100%;
+        }
+        p {
+            margin-left: 20px;
+        }
+
+    }
+}

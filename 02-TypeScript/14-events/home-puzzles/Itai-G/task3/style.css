@@ -1,0 +1,22 @@
+.wrapper {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  height: 400px;
+  width: 300px;
+  margin: auto;
+  margin-top: 30px;
+}
+
+div > div {
+  padding: 10px;
+  background-color: blue;
+  border: black 4px solid;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 60px;
+}

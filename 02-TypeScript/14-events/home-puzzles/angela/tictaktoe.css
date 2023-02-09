@@ -1,5 +1,5 @@
 .gameContainer {
-  height: auto;
+  height: 30rem;
   width: 25rem;
   background-color: pink;
   margin: auto;
@@ -26,7 +26,7 @@
 }
 .gameContainer__firstRow {
   width: 100%;
-  height: 5rem;
+  height: 25%;
   display: flex;
   justify-content: space-evenly;
 }
@@ -41,7 +41,7 @@
 }
 .gameContainer__secondRow {
   width: 100%;
-  height: 5rem;
+  height: 25%;
   display: flex;
   justify-content: space-evenly;
 }
@@ -56,7 +56,7 @@
 }
 .gameContainer__thirdRow {
   width: 100%;
-  height: 5rem;
+  height: 25%;
   display: flex;
   justify-content: space-evenly;
 }
