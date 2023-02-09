@@ -29,23 +29,41 @@
   height: 40px;
 }
 
-#birdCardContainer {
+.locationSearch {
+  text-align: center;
+}
+.locationSearch #areaForm {
+  display: none;
+  color: #dee9ed;
+  width: 100%;
+  align-items: center;
+  background-color: #306b82;
+  flex-direction: column;
+}
+
+.wrapper {
   width: 100%;
   height: 100%;
+  position: absolute;
+  display: block;
+}
+.wrapper #birdCardContainer {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
 }
-#birdCardContainer .birdCard {
+.wrapper #birdCardContainer .birdCard {
   margin: 10px;
   background-image: linear-gradient(60deg, gainsboro, rgba(154, 154, 154, 0.885));
   width: 250px;
-  height: 300px;
+  height: 400px;
   text-align: center;
 }
-#birdCardContainer .birdCard img {
-  width: 100px;
+.wrapper #birdCardContainer .birdCard img {
+  width: 150px;
+  height: 150px;
 }
-#birdCardContainer .birdCard .displayColor {
+.wrapper #birdCardContainer .birdCard .displayColor {
   width: 100%;
   height: 25px;
 }

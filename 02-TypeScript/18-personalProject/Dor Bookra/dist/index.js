@@ -1,6 +1,10 @@
-var _a;
+var _a, _b;
 hideUnhide(event);
 hideUnhide2(event);
+var birds = (_a = getBirdsFromStorage()) !== null && _a !== void 0 ? _a : [];
+var locations = (_b = getLocationFromStorage()) !== null && _b !== void 0 ? _b : [];
+pushToArray();
+addLocations();
 function sendBirdsToStorage() {
     try {
         if (!birds)
@@ -14,8 +18,9 @@ function sendBirdsToStorage() {
 function getBirdsFromStorage() {
     try {
         var birdsData = localStorage.getItem("birds");
-        if (!birdsData)
+        if (!birdsData) {
             throw new Error("could not retrieve birds");
+        }
         var data = JSON.parse(birdsData);
         renderForm(data, "birdCardContainer");
         return data;
@@ -24,46 +29,28 @@ function getBirdsFromStorage() {
         console.log(error);
     }
 }
-var birds = (_a = getBirdsFromStorage()) !== null && _a !== void 0 ? _a : [];
-function dataFromStorage2() {
+function sendLocationToStorage() {
     try {
-        var dataFromStorageItems = localStorage.getItem("items");
-        if (!dataFromStorageItems || dataFromStorageItems === null) {
-            updateItemsToLocalStorage();
-        }
-        else if (getItemsFromStorage().length < items.length) {
-            updateItemsToLocalStorage();
-        }
-        else {
-            var data = JSON.parse(dataFromStorageItems);
-            items.push.apply(items, data);
-        }
+        if (!locations)
+            throw new Error("could not find locations");
+        localStorage.setItem("locations", JSON.stringify(locations));
     }
     catch (error) {
         console.log(error);
     }
 }
-function updateItemsToLocalStorage() {
+function getLocationFromStorage() {
     try {
-        if (!items)
-            throw new Error("not find items in local storage");
-        localStorage.setItem("items", JSON.stringify(items));
-    }
-    catch (error) {
-        console.log(error);
-    }
-}
-function getItemsFromStorage() {
-    try {
-        var dataJson = localStorage.getItem("items");
-        if (!dataJson)
-            throw new Error("not find items in local storage");
-        var data = JSON.parse(dataJson);
+        var locationData = localStorage.getItem("locations");
+        if (!locationData) {
+            throw new Error("could not retrieve locations2");
+        }
+        var data = JSON.parse(locationData);
+        renderSelectLocation(data, "birdLocation");
+        renderSelectLocation(data, "birdSearch");
         return data;
     }
     catch (error) {
         console.log(error);
-        return undefined;
     }
 }
-renderItemForm(items, "itemCardContainer");

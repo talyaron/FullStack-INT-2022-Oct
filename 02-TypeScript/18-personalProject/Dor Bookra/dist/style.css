@@ -48,20 +48,16 @@
   width: 130px;
 }
 
-.addItemForm {
+.locationSearch {
   text-align: center;
 }
-.addItemForm #itemForm {
+.locationSearch #areaForm {
   display: none;
   color: #dee9ed;
   width: 100%;
   align-items: center;
   background-color: #306b82;
   flex-direction: column;
-}
-.addItemForm #itemForm #itemImg {
-  width: 15px;
-  height: 15px;
 }
 
 .intro {

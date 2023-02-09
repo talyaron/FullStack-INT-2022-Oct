@@ -5,12 +5,18 @@ function handleForm(ev) {
         var name = ev.target.elements.birdName.value;
         var size = ev.target.elements.birdSize.value;
         var color = ev.target.elements.birdColor.value;
-        var location = ev.target.elements.birdLocation.value;
+        var location = ev.target.elements.newLocation.value;
+        var area = ev.target.elements.birdLocation.value;
         var action = ev.target.elements.birdAction.value;
-        birds.push(new Bird(img, name, size, color, location, action));
+        birds.push(new Bird(img, name, size, color, area, action));
         sendBirdsToStorage();
+        locations.push(new Area(location));
+        sendLocationToStorage();
+        console.log(location);
         ev.target.reset();
         renderForm(birds, "birdCardContainer");
+        renderSelectLocation(locations, "birdLocation");
+        renderSelectLocation(locations, "birdSearch");
     }
     catch (error) {
         console.error(error);
@@ -22,7 +28,7 @@ function renderForm(birds, renderElementId) {
             throw new Error("birds is not an array");
         var html = birds
             .map(function (birds) {
-            return "\n        <div class=\"birdCard\">\n        <img src=\"" + birds.img + "\">\n        <h3>Bird Name: <br>" + birds.name + "</h3>\n        <h3>Color Of The Bird:</h3\n        <p> " + convertSize(birds.size) + "</p>\n        <h3>Color Of The Bird:</h3>\n        <div  class=\"displayColor\"  style= \"background-color:" + birds.color + "\"> </div>\n        <h3>Birds Location:</h3>\n        <p> " + birds.location + "</p>\n        <h3>Birds Action:</h3>\n        <p>" + birds.action + "</p>\n    </div>\n        ";
+            return "\n        <div class=\"birdCard\">\n        <img src=\"" + birds.img + "\">\n        <h3>Bird Name: </h3>\n       <h2 style=\" color: royalBlue;\">" + birds.name + "</h2>\n        <h3>Size Of The Bird:</h3\n        <p> " + convertSize(birds.size) + "</p>\n        <h3>Main Color Of The Bird:</h3>\n        <div  class=\"displayColor\"  style= \"background-color:" + birds.color + "\"> </div>\n        <h3>Birds Location:</h3>\n        <p> " + birds.area + "</p>\n        <h3>Birds Action:</h3>\n        <p>" + birds.action + "</p>\n    </div>\n        ";
         })
             .join(" ");
         var element = document.querySelector("#" + renderElementId);
@@ -34,28 +40,13 @@ function renderForm(birds, renderElementId) {
         console.error(error);
     }
 }
-function handleItemForm(ev) {
+function renderSelectLocation(locations, renderElementId) {
     try {
-        ev.preventDefault();
-        var img = ev.target.elements.itemImg.value;
-        var name = ev.target.elements.itemName.value;
-        var desc = ev.target.elements.itemDesc.value;
-        var price = ev.target.elements.itemPrice.value;
-        items.push(new item(img, name, desc, price));
-        ev.target.reset();
-        renderItemForm(items, "itemCardContainer");
-    }
-    catch (error) {
-        console.error(error);
-    }
-}
-function renderItemForm(items, renderElementId) {
-    try {
-        if (!items || !Array.isArray(items))
-            throw new Error("items is not an array");
-        var html = getItemsFromStorage()
-            .map(function (items) {
-            return "\n        <div class=\"itemCard\">\n        <img src=\"" + items.img + "\">\n        <h3>Item Name: <br>" + items.name + "</h3>\n        <h3>items Description:</h3>\n        <p> " + items.desc + "</p>\n        <h3>Price:</h3>\n        <p>" + items.price + "</p>\n    </div>\n        ";
+        if (!locations || !Array.isArray(locations))
+            throw new Error("locations is not an array");
+        var html = locations
+            .map(function (locations) {
+            return "\n         <option>\n         " + locations.locations + "\n         </option>";
         })
             .join(" ");
         var element = document.querySelector("#" + renderElementId);
@@ -64,6 +55,13 @@ function renderItemForm(items, renderElementId) {
         element.innerHTML = html;
     }
     catch (error) {
-        console.error(error);
+        console.log(error);
+    }
+}
+function findFromLocation(ev) {
+    try {
+        ev.preventDefault;
+    }
+    catch (error) {
     }
 }

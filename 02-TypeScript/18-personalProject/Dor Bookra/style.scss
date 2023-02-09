@@ -48,19 +48,15 @@
     }
 }
 
-.addItemForm{
+.locationSearch{
     text-align: center;
-    #itemForm{
+    #areaForm{
         display: none;
         color: rgb(222, 233, 237);
         width: 100%;
         align-items: center;
         background-color: rgb(48, 107, 130);
         flex-direction: column;
-            #itemImg{
-                width: 15px;
-                height: 15px;
-            }
       
     }
 }
@@ -80,6 +76,7 @@
         }
         p{
             font-size: 20px;
+           
             align-self: center;
         }
     .header2{

@@ -1,7 +1,6 @@
 const birdCardContainer = document.querySelector("#birdCardContainer");
-const itemCardContainer = document.querySelector("#itemCardContainer");
 const form = document.querySelector("#form");
-const itemForm = document.querySelector(".itemForm");
+const areaForm = document.querySelector("#areaForm");
 
 function hideUnhide(ev){
   
@@ -15,7 +14,7 @@ function hideUnhide(ev){
 
 function hideUnhide2(ev){
 
-    var form = document.getElementById("itemForm")!;
+    var form = document.getElementById("areaForm")!;
     if (form.style.display === "none") {
       form.style.display = "flex";
     } else {
