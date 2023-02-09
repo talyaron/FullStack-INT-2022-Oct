@@ -1,4 +1,4 @@
-<!--revies.html-->
+<!--reviews.html-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,12 +17,12 @@
 </head>
   <body>
     <!-- header section with website title and navigation links -->
-    <header>
-      <h1>Movie Review Website</h1>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#review">Review</a>
-        <a href="#theme">Change Theme</a>
+    <header class="header">
+      <h1 class="header__title">Movie Review Website</h1>
+      <nav class="header__nav">
+        <a class="header__link" href="#">Home</a>
+        <a class="header__link" href="#review">Review</a>
+        <a class="header__link" href="#theme">Change Theme</a>
       </nav>
     </header>
     <!-- main section to display the list of movie reviews -->
@@ -31,15 +31,16 @@
       <div class="review-list">
         <!-- Repeat this block of code for each review in the `reviews` array -->
         <div class="review">
-          <h3>Movie Title</h3>
-          <p>Review description</p>
-          <p>Username</p>
-          <button>Like</button>
-          <button>Unlike</button>
+          <h3 class="review-title">Movie Title</h3>
+          <p class="review-description">Review description</p>
+          <p class="review-username">Username</p>
+          <button class="review-like-button">Like</button>
+          <button class="review-unlike-button">Unlike</button>
+          <p class="review-like-count"></p>
+          <p class="review-unlike-count"></p>
         </div>
       </div>
-    </main>
-    <!-- footer section to display the copyright information -->
+    </main>    <!-- footer section to display the copyright information -->
     <footer>
       <p>&copy; 2023 Movie Review Website</p>
     </footer>

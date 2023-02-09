@@ -4,12 +4,10 @@ header {
     align-items: center;
     padding: 20px;
 
-    // styles for the header title
     h1 {
         font-size: 24px;
     }
 
-    // styles for the navigation links
     nav {
         a {
             padding: 10px;
@@ -17,7 +15,6 @@ header {
             color: #333;
             font-weight: bold;
 
-            // styles for link hover
             &:hover {
                 color: #000;
             }
@@ -31,30 +28,26 @@ main {
     align-items: center;
     padding: 20px;
 
-    // styles for the movie list section
     .movie-list {
         display: flex;
         flex-wrap: wrap;
-
-        // styles for individual movie items
+        width:fit-content;
+        
         .movie {
             width: 300px;
             margin: 20px;
             text-align: center;
 
-            // styles for movie images
             img {
                 width: 100%;
                 height: auto;
             }
 
-            // styles for movie title
             h3 {
                 font-size: 18px;
                 margin-top: 10px;
             }
 
-            // styles for movie description
             p {
                 font-size: 14px;
                 margin: 10px 0;
@@ -62,7 +55,6 @@ main {
         }
     }
 
-    // styles for the action button
     button {
         padding: 10px 20px;
         margin-top: 20px;
@@ -72,19 +64,16 @@ main {
         border-radius: 5px;
         font-weight: bold;
 
-        // styles for button hover
         &:hover {
             background-color: #000;
         }
     }
 }
 
-// styles for the review list section
 .review-list {
     display: flex;
     flex-wrap: wrap;
 
-    // styles for individual review items
     .review {
         width: 300px;
         margin: 20px;
@@ -93,19 +82,16 @@ main {
         padding: 20px;
         border-radius: 5px;
 
-        // styles for review title
         h3 {
             font-size: 18px;
             margin-top: 10px;
         }
 
-        // styles for review description
         p {
             font-size: 14px;
             margin: 10px 0;
         }
 
-        // styles for the review action button
         button {
             padding: 10px 20px;
             margin: 10px;
@@ -115,7 +101,6 @@ main {
             border-radius: 5px;
             font-weight: bold;
 
-            // styles for button hover
             &:hover {
                 background-color: #000;
             }
@@ -123,7 +108,6 @@ main {
     }
 }
 
-// styles for the footer section
 footer {
     display: flex;
     justify-content: center;
@@ -131,6 +115,4 @@ footer {
     padding: 20px;
     background-color: #333;
     color: #fff;
-
-
 }
