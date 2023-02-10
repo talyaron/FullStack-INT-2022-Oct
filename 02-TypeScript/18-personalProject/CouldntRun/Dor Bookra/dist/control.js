@@ -6,17 +6,16 @@ function handleForm(ev) {
         var size = ev.target.elements.birdSize.value;
         var color = ev.target.elements.birdColor.value;
         var location = ev.target.elements.newLocation.value;
-        var area = ev.target.elements.birdLocation.value;
         var action = ev.target.elements.birdAction.value;
-        birds.push(new Bird(img, name, size, color, area, action));
+        birds.push(new Bird(img, name, size, color, location, action));
         sendBirdsToStorage();
-        locations.push(new Area(location));
-        sendLocationToStorage();
-        console.log(location);
-        ev.target.reset();
         renderForm(birds, "birdCardContainer");
-        renderSelectLocation(locations, "birdLocation");
-        renderSelectLocation(locations, "birdSearch");
+        if (!checksIfLocationExists(locations, location)) {
+            locations.push(new Area(location));
+            sendLocationToStorage();
+            renderSelectLocation(locations, "birdSearch");
+        }
+        ev.target.reset();
     }
     catch (error) {
         console.error(error);
@@ -28,7 +27,7 @@ function renderForm(birds, renderElementId) {
             throw new Error("birds is not an array");
         var html = birds
             .map(function (birds) {
-            return "\n        <div class=\"birdCard\">\n        <img src=\"" + birds.img + "\">\n        <h3>Bird Name: </h3>\n       <h2 style=\" color: royalBlue;\">" + birds.name + "</h2>\n        <h3>Size Of The Bird:</h3\n        <p> " + convertSize(birds.size) + "</p>\n        <h3>Main Color Of The Bird:</h3>\n        <div  class=\"displayColor\"  style= \"background-color:" + birds.color + "\"> </div>\n        <h3>Birds Location:</h3>\n        <p> " + birds.area + "</p>\n        <h3>Birds Action:</h3>\n        <p>" + birds.action + "</p>\n    </div>\n        ";
+            return "\n        <div class=\"birdCard\">\n        <img src=\"" + birds.img + "\">\n        <h3>Bird Name: </h3>\n       <h2 style=\" color: royalBlue;\">" + birds.name + "</h2>\n        <h3>Size Of The Bird:</h3\n        <p> " + convertSize(birds.size) + "</p>\n        <h3>Main Color Of The Bird:</h3>\n        <div  class=\"displayColor\"  style= \"background-color:" + birds.color + "\"> </div>\n        <h3>Birds Location:</h3>\n        <p> " + birds.locations + "</p>\n        <h3>Birds Action:</h3>\n        <p>" + birds.action + "</p>\n    </div>\n        ";
         })
             .join(" ");
         var element = document.querySelector("#" + renderElementId);
@@ -58,10 +57,37 @@ function renderSelectLocation(locations, renderElementId) {
         console.log(error);
     }
 }
-function findFromLocation(ev) {
+function checksIfLocationExists(array, value) {
     try {
-        ev.preventDefault;
+        var locationPicked = array.find(function (array) { return array.locations.toLowerCase() === value.toLowerCase(); });
+        if (!locationPicked)
+            return false;
+        else {
+            return true;
+        }
     }
     catch (error) {
+        console.error(error);
+        return false;
+    }
+}
+function filterLocations(ev) {
+    try {
+        ev.preventDefault();
+        var birdsArray = [];
+        var inputSearchValue_1 = ev.target.elements.birdSearch.value;
+        if (inputSearchValue_1 === "None") {
+            renderForm(birds, "birdCardContainer");
+        }
+        else {
+            var findSearchArr = birds.filter(function (birds) { return birds.locations.toLocaleLowerCase() === inputSearchValue_1.toLocaleLowerCase(); });
+            if (!birdsArray)
+                return alert("no birds found");
+            birdsArray = findSearchArr;
+            renderForm(birdsArray, "birdCardContainer");
+        }
+    }
+    catch (error) {
+        console.error(error);
     }
 }

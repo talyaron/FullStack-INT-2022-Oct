@@ -30,11 +30,11 @@
     <div class ="addForm">
         <form id="form" onsubmit="handleForm(event)">
             <label for="birdImg">Add Encounter Image</label>
-            <input  id="birdImg" type="text" name="birdImg" >
+            <input  id="birdImg" type="text" name="birdImg" required>
             <label for="birdName">Add Bird Name</label>
-            <input   id="birdName" type="text" name="birdName">
+            <input   id="birdName" type="text" name="birdName" required>
             <label for="birdSize">What Size Was The Bird?</label>
-            <input id="birdSize" type="range" name="birdSize" list="values" step="25" value="50">
+            <input id="birdSize" type="range" name="birdSize" list="values" step="25" value="50" required>
             <datalist id="values">
                 <option value="0" label="Sparrow-sized"></option>
                 <option value="25" label="Robin-sized"></option>
@@ -44,23 +44,18 @@
             </datalist>
             <label for="birdColor">What Was The Birds Primary Color?</label>
             <input id="birdColor" type="color" name="birdColor">
-            <label for="birdLocation">Where Did The Encounter Happend?</label>
-                <select id="birdLocation">
-                    <option value="0"> none</option>
-                </select>            
-            <label for="newLocation">Location isnt mentioned? Add one now!</label>
-            <input  id="newLocation" type="text" name="newLocation" >
+            <label for="newLocation">Where Did The Encounter Happend?</label>
+            <input  style="text-transform: capitalize;" id="newLocation" type="text" placeholder="Desert/Forest/Plains" name="newLocation" required>
             <label for="birdAction">What Was The Bird Doing?</label>
-            <input  id="birdAction" type="text" name="birdAction" placeholder="Soaring/Flying/Eating">
+            <input  id="birdAction" type="text" name="birdAction" placeholder="Soaring/Flying/Eating" required>
             <input type="submit" value="Add Encounter">
          </form>
     </div>
     <div class="locationSearch">
-        <form id="areaForm" onchange="findFromLocation(event)">
+        <form id="areaForm" onsubmit="filterLocations(event)">
             <label for="birdLocation">Location Based Search:</label>
-        <select id="birdSearch">
-        </select>
-
+        <select name="birdSearch" id="birdSearch" > </select>
+            <input type="submit" value="Look it up!">
          </form>
     </div>
     <input type="submit" value=""></form>

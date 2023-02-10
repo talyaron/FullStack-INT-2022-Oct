@@ -1,10 +1,10 @@
 var Bird = /** @class */ (function () {
-    function Bird(img, name, size, color, area, action) {
+    function Bird(img, name, size, color, locations, action) {
         this.img = img;
         this.name = name;
         this.size = size;
         this.color = color;
-        this.area = area;
+        this.locations = locations;
         this.action = action;
         this.uid = uid();
     }
@@ -20,6 +20,9 @@ function addLocations() {
     var locationsArray = [];
     locationsArray = [
         {
+            locations: "None"
+        },
+        {
             locations: "Desert"
         },
         {
@@ -34,7 +37,6 @@ function addLocations() {
     ];
     if (locations.length < locationsArray.length) {
         locations.push.apply(locations, locationsArray);
-        renderSelectLocation(locations, "birdLocation");
         renderSelectLocation(locations, "birdSearch");
         return locations;
     }
@@ -47,7 +49,7 @@ function pushToArray() {
             name: "Peregrine Falcon",
             size: "75",
             color: "#644a12",
-            area: "Desert",
+            locations: "Desert",
             action: "Soaring",
             uid: "ldwuigr1y5fr8zpzvps"
         },
@@ -56,7 +58,7 @@ function pushToArray() {
             name: "Great Horned Owl",
             size: "75",
             color: "#b5ab7d",
-            area: "Trees",
+            locations: "Forest",
             action: "Soaring",
             uid: "ldwuiguqyi27n1u7ad"
         },
@@ -65,7 +67,7 @@ function pushToArray() {
             name: "Hoopoe",
             size: "25",
             color: "#c58e30",
-            area: "Plains",
+            locations: "Plains",
             action: "On The Ground",
             uid: "ldwuigf3y5fr8zpzvps"
         },
@@ -74,7 +76,7 @@ function pushToArray() {
             name: "Woodpecker",
             size: "25",
             color: "#ff0000",
-            area: "Trees",
+            locations: "Forest",
             action: "Pecking",
             uid: "ldwuigd2s5fr8zpzvps"
         },
@@ -83,7 +85,7 @@ function pushToArray() {
             name: "Egyptian Vulture",
             size: "75",
             color: "#ffffff",
-            area: "Desert",
+            locations: "Desert",
             action: "Soaring",
             uid: "ldwuigr1y5hn3zpzvps"
         },
@@ -92,7 +94,7 @@ function pushToArray() {
             name: "Rose-Ringed Parakeet",
             size: "50",
             color: "#0ddc09",
-            area: "Trees",
+            locations: "Forest",
             action: "Soaring",
             uid: "ldwuigr1y5fr8zpzvps"
         },
@@ -101,7 +103,7 @@ function pushToArray() {
             name: "Common Kingfisher",
             size: "25",
             color: "#3fcac1",
-            area: "River",
+            locations: "Lake",
             action: "Fishing",
             uid: "ldwuigr1y5fr2gpzvps"
         }

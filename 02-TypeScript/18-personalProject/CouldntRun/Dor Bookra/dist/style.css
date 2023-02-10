@@ -4,11 +4,18 @@
   font-family: "Itim", cursive;
 }
 
+body {
+  background-color: aliceblue;
+}
+
 .navbar {
   display: flex;
   width: 100%;
   height: 80px;
   background-color: #c3e6e2;
+}
+.navbar a {
+  text-decoration: none;
 }
 .navbar .navbarIcon {
   width: 100px;
@@ -29,39 +36,8 @@
   height: 40px;
 }
 
-.addForm {
-  text-align: center;
-}
-.addForm #form {
-  display: none;
-  color: #dee9ed;
-  width: 100%;
-  align-items: center;
-  flex-direction: column;
-  background-color: #306b82;
-}
-.addForm #form datalist {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  writing-mode: vertical-lr;
-  width: 130px;
-}
-
-.locationSearch {
-  text-align: center;
-}
-.locationSearch #areaForm {
-  display: none;
-  color: #dee9ed;
-  width: 100%;
-  align-items: center;
-  background-color: #306b82;
-  flex-direction: column;
-}
-
 .intro {
-  display: block;
+  display: inline-block;
 }
 .intro .aboutUs {
   display: flex;

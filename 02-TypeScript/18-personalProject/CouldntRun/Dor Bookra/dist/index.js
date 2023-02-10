@@ -46,7 +46,6 @@ function getLocationFromStorage() {
             throw new Error("could not retrieve locations2");
         }
         var data = JSON.parse(locationData);
-        renderSelectLocation(data, "birdLocation");
         renderSelectLocation(data, "birdSearch");
         return data;
     }

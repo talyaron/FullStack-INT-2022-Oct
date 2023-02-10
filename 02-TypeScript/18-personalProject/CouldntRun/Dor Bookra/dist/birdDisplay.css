@@ -29,6 +29,28 @@
   height: 40px;
 }
 
+.addForm {
+  text-align: center;
+}
+.addForm #form {
+  display: none;
+  color: #dee9ed;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  background-color: #306b82;
+}
+.addForm #form datalist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  writing-mode: vertical-lr;
+  width: 130px;
+}
+.addForm ::placeholder {
+  text-align: center;
+}
+
 .locationSearch {
   text-align: center;
 }
@@ -45,16 +67,18 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  display: block;
+  display: inline-block;
 }
 .wrapper #birdCardContainer {
   position: relative;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
 .wrapper #birdCardContainer .birdCard {
+  border: 3px solid #b188b7;
   margin: 10px;
-  background-image: linear-gradient(60deg, gainsboro, rgba(154, 154, 154, 0.885));
+  background-image: linear-gradient(20deg, #d4bce0, #76bfdc);
   width: 250px;
   height: 400px;
   text-align: center;

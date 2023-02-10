@@ -22,8 +22,6 @@
         <img src="./media/navbaricon.png" class="navbarIcon">
             <div class="menuWrapper">
                 <a href="./birdsDisplay.html">Birds</a>
-                <a onclick="hideUnhide(event)">Add Encounter</a>
-
             </div>
     </div>
     <div class ="addForm">
@@ -43,12 +41,8 @@
             </datalist>
             <label for="birdColor">What Was The Birds Primary Color?</label>
             <input id="birdColor" type="color" name="birdColor">
-            <label for="birdLocation">Where Did The Encounter Happend?</label>
-                <select id="birdLocation">
-                     <option value="0"> none</option>
-                </select>            
-            <label for="newLocation">Location isnt mentioned? Add one now!</label>
-            <input  id="newLocation" type="text" name="newLocation" >
+            <label for="newLocation">Where Did The Encounter Happend?</label>
+            <input  id="newLocation" type="text" name="newLocation" required     >
             <label for="birdAction">What Was The Bird Doing?</label>
             <input  id="birdAction" type="text" name="birdAction" placeholder="Soaring/Flying/Eating">
             <input type="submit" value="Add Encounter">

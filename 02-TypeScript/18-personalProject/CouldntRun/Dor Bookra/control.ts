@@ -5,20 +5,19 @@ function handleForm(ev){
         const name = ev.target.elements.birdName.value;
         const size = ev.target.elements.birdSize.value;
         const color = ev.target.elements.birdColor.value;
-            const location = ev.target.elements.newLocation.value;
-        const area = ev.target.elements.birdLocation.value;
+        const location = ev.target.elements.newLocation.value;
         const action = ev.target.elements.birdAction.value;
         
-        birds.push(new Bird(img, name, size, color, area, action))
+        birds.push(new Bird(img, name, size, color,location, action))
         sendBirdsToStorage()
-             locations.push(new Area(location))
-              sendLocationToStorage ()
-              console.log(location);
-              
-        ev.target.reset()
         renderForm(birds,"birdCardContainer");
-             renderSelectLocation(locations, "birdLocation")
-             renderSelectLocation(locations, "birdSearch")
+        if(!checksIfLocationExists(locations, location)){
+            locations.push(new Area(location))
+            sendLocationToStorage ()
+            renderSelectLocation(locations, "birdSearch")
+            
+        }
+        ev.target.reset()
     } 
     catch (error) {
         console.error(error);
@@ -43,7 +42,7 @@ function renderForm(birds:Bird[], renderElementId: string): void{
         <h3>Main Color Of The Bird:</h3>
         <div  class="displayColor"  style= "background-color:${birds.color}"> </div>
         <h3>Birds Location:</h3>
-        <p> ${birds.area}</p>
+        <p> ${birds.locations}</p>
         <h3>Birds Action:</h3>
         <p>${birds.action}</p>
     </div>
@@ -82,12 +81,37 @@ function renderSelectLocation(locations:Area[], renderElementId: string):void{
     }
 
 }
-
-function findFromLocation(ev){
+function checksIfLocationExists(array:Area[] , value:string ): boolean{
     try {
-        ev.preventDefault
-    } catch (error) {
+        const locationPicked = array.find(array => array.locations.toLowerCase() === value.toLowerCase())
         
-    }
+        if (!locationPicked) return false
+        else {
+            return true
+        }
+    } catch (error) {
+        console.error(error);
+        return false
 
+    }
+}
+function filterLocations(ev){
+    try {
+        ev.preventDefault();
+        let birdsArray:Bird[] = [];
+        const inputSearchValue = ev.target.elements.birdSearch.value
+        if(inputSearchValue === "None"){
+            renderForm(birds , "birdCardContainer");
+        }
+        else{
+
+        
+        const  findSearchArr =  birds.filter(birds => birds.locations.toLocaleLowerCase() === inputSearchValue.toLocaleLowerCase())
+        if(!birdsArray) return alert("no birds found")
+        birdsArray = findSearchArr
+         renderForm(birdsArray , "birdCardContainer");
+        }
+    } catch (error) {
+        console.error(error);
+    }
 }

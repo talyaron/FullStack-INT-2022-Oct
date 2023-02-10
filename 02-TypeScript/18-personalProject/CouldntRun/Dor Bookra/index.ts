@@ -27,6 +27,7 @@ function getBirdsFromStorage (){
     }
 }
 
+
 function sendLocationToStorage (){
     try {
         if (!locations) throw new Error("could not find locations")
@@ -41,7 +42,6 @@ function getLocationFromStorage (){
         const locationData = localStorage.getItem("locations")
         if(!locationData){ throw new Error("could not retrieve locations2")}
         const data = JSON.parse(locationData)
-        renderSelectLocation(data, "birdLocation");
         renderSelectLocation(data, "birdSearch");
         return data
     } catch (error) {

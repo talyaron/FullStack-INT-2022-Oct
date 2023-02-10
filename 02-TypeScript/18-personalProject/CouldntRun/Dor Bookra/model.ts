@@ -5,7 +5,7 @@ class Bird{
         public name: string ,
         public size: string ,
         public color: string ,
-        public area: string ,
+        public locations: string ,
         public action: string
     ) 
     {
@@ -28,6 +28,9 @@ function addLocations () {
 
     locationsArray = [
         {
+            locations: "None"
+        },
+        {
             locations: "Desert"
         },
         {
@@ -42,7 +45,6 @@ function addLocations () {
     ];
     if(locations.length < locationsArray.length){
         locations.push(...locationsArray)
-        renderSelectLocation(locations, "birdLocation")
         renderSelectLocation(locations, "birdSearch")
         return locations
     }
@@ -58,7 +60,7 @@ birdsArray = [
                     name: "Peregrine Falcon",
                     size: "75",
                     color: "#644a12",
-                    area: "Desert",
+                    locations: "Desert",
                     action: "Soaring",
                     uid: "ldwuigr1y5fr8zpzvps"
                 },
@@ -67,7 +69,7 @@ birdsArray = [
                     name: "Great Horned Owl",
                     size: "75",
                     color: "#b5ab7d",
-                    area: "Trees",
+                    locations: "Forest",
                     action: "Soaring",
                     uid: "ldwuiguqyi27n1u7ad"
                 },
@@ -76,7 +78,7 @@ birdsArray = [
                     name: "Hoopoe",
                     size: "25",
                     color: "#c58e30",
-                    area: "Plains",
+                    locations: "Plains",
                     action: "On The Ground",
                     uid: "ldwuigf3y5fr8zpzvps"
                 },
@@ -85,7 +87,7 @@ birdsArray = [
                     name: "Woodpecker",
                     size: "25",
                     color: "#ff0000",
-                    area: "Trees",
+                    locations: "Forest",
                     action: "Pecking",
                     uid: "ldwuigd2s5fr8zpzvps"
                 },
@@ -94,7 +96,7 @@ birdsArray = [
                     name: "Egyptian Vulture",
                     size: "75",
                     color: "#ffffff",
-                    area: "Desert",
+                    locations: "Desert",
                     action: "Soaring",
                     uid: "ldwuigr1y5hn3zpzvps"
                 },
@@ -103,7 +105,7 @@ birdsArray = [
                     name: "Rose-Ringed Parakeet",
                     size: "50",
                     color: "#0ddc09",
-                    area: "Trees",
+                    locations: "Forest",
                     action: "Soaring",
                     uid: "ldwuigr1y5fr8zpzvps"
                 }
@@ -112,7 +114,7 @@ birdsArray = [
                     name: "Common Kingfisher",
                     size: "25",
                     color: "#3fcac1",
-                    area: "River",
+                    locations: "Lake",
                     action: "Fishing",
                     uid: "ldwuigr1y5fr2gpzvps"
                 }
