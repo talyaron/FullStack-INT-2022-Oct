@@ -1,16 +1,23 @@
-function renderStory(users) {
+function renderStory() {
+    debugger;
+    const postsString = localStorage.getItem("users");
+    if (!postsString)
+        throw new Error("Couldn't find items in storage");
+    const newUsers = JSON.parse(postsString);
     let storyPage = "";
     let k = 0;
-    for (k = 0; k <= users.length - 1; k++) {
-        storyPage += `<div class="story"> <img class="img_story" src="${users[k].pictureURL}" onclick="renderfilterUser(users,'${users[k].name}')" alt=""/>
-                 <div class="story_text"> ${users[k].name}</div>
+    for (k = 0; k <= newUsers.length - 1; k++) {
+        storyPage += `<div class="story"> <img class="img_story" src="${newUsers[k].pictureURL}" onclick="renderfilterUser(newUsers,'${newUsers[k].name}')" alt=""/>
+                 <div class="story_text"> ${newUsers[k].name}</div>
                   </div> `;
     }
     const htmlStory = document.querySelector("#storyBox");
     if (htmlStory !== null) {
         htmlStory.innerHTML = storyPage;
     }
+    // loadUsersToSorage()
     render(getItemsFromStorage());
+    // loadUsersToSorage()
 }
 function renderusers(users) {
     let page = "";
@@ -32,11 +39,17 @@ function renderusers(users) {
 }
 function handleDeleteUser(uid) {
     try {
-        const index = users.findIndex((User) => User.uid === uid);
+        debugger;
+        const postsString = localStorage.getItem("users");
+        if (!postsString)
+            throw new Error("Couldn't find items in storage");
+        const newUsers = JSON.parse(postsString);
+        const index = newUsers.findIndex((User) => User.uid === uid);
         if (index === -1)
             throw new Error("item not found");
-        users.splice(index, 1);
-        renderusers(users);
+        newUsers.splice(index, 1);
+        localStorage.setItem("users", JSON.stringify(newUsers));
+        renderusers(newUsers);
     }
     catch (error) {
         console.error(error);
@@ -44,14 +57,18 @@ function handleDeleteUser(uid) {
 }
 function handleAddItem(ev) {
     try {
+        const postsString = localStorage.getItem("posts");
+        if (!postsString)
+            throw new Error("Couldn't find items in storage");
+        const items = JSON.parse(postsString);
         ev.preventDefault();
         const name = ev.target.elements.name.value;
         const BigPictureURL = ev.target.elements.BigPictureURL.value;
         const smallPictureURL = ev.target.elements.smallPictureURL.value;
-        posts.push(new Post(name, BigPictureURL, smallPictureURL));
+        items.push(new Post(name, BigPictureURL, smallPictureURL));
         ev.target.reset();
-        localStorage.setItem("posts", JSON.stringify(posts));
-        render(posts);
+        localStorage.setItem("posts", JSON.stringify(items));
+        render(items);
     }
     catch (error) {
         console.error(error);
@@ -59,17 +76,22 @@ function handleAddItem(ev) {
 }
 function handleaddUser(ev) {
     try {
+        debugger;
         ev.preventDefault();
+        const postsString = localStorage.getItem("users");
+        if (!postsString)
+            throw new Error("Couldn't find items in storage");
+        const newUsers = JSON.parse(postsString);
         const name = ev.target.elements.name.value;
         const PictureURL = ev.target.elements.PictureURL.value;
-        users.push(new User(name, PictureURL));
+        newUsers.push(new User(name, PictureURL));
         ev.target.reset();
-        localStorage.setItem("users", JSON.stringify(users));
+        localStorage.setItem("users", JSON.stringify(newUsers));
+        renderusers(newUsers);
     }
     catch (error) {
         console.error(error);
     }
-    renderusers(getUserFromStorage());
 }
 function render(posts) {
     let page = "";
@@ -95,11 +117,16 @@ function render(posts) {
 }
 function handleDeleteItem(uid) {
     try {
-        const index = posts.findIndex((Post) => Post.uid === uid);
+        const postsString = localStorage.getItem("posts");
+        if (!postsString)
+            throw new Error("Couldn't find items in storage");
+        const items = JSON.parse(postsString);
+        const index = items.findIndex((Post) => Post.uid === uid);
         if (index === -1)
             throw new Error("item not found");
-        posts.splice(index, 1);
-        render(posts);
+        items.splice(index, 1);
+        localStorage.setItem("posts", JSON.stringify(items));
+        render(items);
     }
     catch (error) {
         console.error(error);
@@ -107,15 +134,19 @@ function handleDeleteItem(uid) {
 }
 function handleUpdatePic(uid) {
     try {
-        const index = posts.findIndex((Post) => Post.uid === uid);
+        const postsString = localStorage.getItem("posts");
+        if (!postsString)
+            throw new Error("Couldn't find items in storage");
+        const items = JSON.parse(postsString);
+        const index = items.findIndex((Post) => Post.uid === uid);
         if (index === -1)
             throw new Error("item not found");
         const newPic = prompt("Enter a new URL pic");
         if (!newPic)
             throw new Error("Please enter a valid URL");
-        posts[index].smallPictureURL = newPic;
-        localStorage.setItem("posts", JSON.stringify(posts));
-        render(posts);
+        items[index].smallPictureURL = newPic;
+        localStorage.setItem("posts", JSON.stringify(items));
+        render(items);
     }
     catch (error) {
         console.error(error);
@@ -126,7 +157,11 @@ function filterUser(ev) {
         ev.preventDefault();
         const name = ev.target.elements.name.value;
         ev.target.reset();
-        renderfilterUser(posts, name);
+        const postsString = localStorage.getItem("posts");
+        if (!postsString)
+            throw new Error("Couldn't find items in storage");
+        const items = JSON.parse(postsString);
+        renderfilterUser(items, name);
     }
     catch (error) {
         console.error(error);

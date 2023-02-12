@@ -1,9 +1,10 @@
 
 
 function loadpostsPage() {
-  loadpostsToSorage();
-  render(getItemsFromStorage());
-  renderStory(getUserFromStorage())
+  debugger;
+  // loadpostsToSorage();
+  renderStory()
+  render(getItemsFromStorage())
 }
 
 function loadpostsToSorage() {
@@ -15,7 +16,7 @@ function loadpostsToSorage() {
 function loadUsersPage() {
   debugger;
   getUserFromStorage();
-  loadUsersToSorage();
+  // loadUsersToSorage();
   renderusers(getUserFromStorage());
 }
 

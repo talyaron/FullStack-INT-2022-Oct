@@ -1,7 +1,8 @@
 function loadpostsPage() {
-    loadpostsToSorage();
+    debugger;
+    // loadpostsToSorage();
+    renderStory();
     render(getItemsFromStorage());
-    renderStory(getUserFromStorage());
 }
 function loadpostsToSorage() {
     localStorage.setItem("posts", JSON.stringify(posts));
@@ -9,7 +10,7 @@ function loadpostsToSorage() {
 function loadUsersPage() {
     debugger;
     getUserFromStorage();
-    loadUsersToSorage();
+    // loadUsersToSorage();
     renderusers(getUserFromStorage());
 }
 function loadUsersToSorage() {
