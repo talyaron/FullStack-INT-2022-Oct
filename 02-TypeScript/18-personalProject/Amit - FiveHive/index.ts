@@ -1,5 +1,5 @@
 const solution = randomSolutionSelector();
-console.log(solution);
+console.log("solution:" , solution?.name);
 
 const _users = getUsersDataFromStorage();
 const _loggedInUser = getLoggedInUserFromStorage();
