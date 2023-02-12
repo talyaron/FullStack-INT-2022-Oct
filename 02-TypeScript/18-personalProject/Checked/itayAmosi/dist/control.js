@@ -1,5 +1,5 @@
 var scores = 0;
-var time = 5;
+var time = 60;
 var startBtn = document.querySelector(".startBtn");
 var removeAnimalFromScreen = function (className) {
     var elem = document.querySelector(className);
