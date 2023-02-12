@@ -68,7 +68,7 @@ function enter(): void { //clicking ENTER
                 for (let i = 0; i < WORD_LENGTH; i++) {
                     const checkedLetter = linesArray[currentLine][i];
 
-                    if (cell0605 !== currentCell) {
+                    if (checkedLetter !== linesArray[LAST_LINE][LAST_CELL_IN_LINE]) {
 
                         if (solution?.includesLetter(checkedLetter.innerText)) {
 
@@ -307,7 +307,7 @@ function win(users: User[]) {
     <div class=" gameEnd gameEnd--win">
         <div> You Win!</div>
         <div> Current streak: ${users[users.length - 1].streak}</div>
-        <a href="https://www.morfix.co.il/${solution.name}">Definiton</a>
+        <a href="https://www.morfix.co.il/${solution.name}">Translation</a>
     </div>
     `
 }
@@ -318,7 +318,7 @@ function lose(users: User[]) {
     <div class="gameEnd gameEnd--lose">
         <div> better luck next time... the solution was: ${solution.name}</div>
         <div> Current streak: 0</div>
-        <a href="https://www.morfix.co.il/${solution.name}">Definiton</a>
+        <a href="https://www.morfix.co.il/${solution.name}">Translation</a>
     </div>
     `
 }

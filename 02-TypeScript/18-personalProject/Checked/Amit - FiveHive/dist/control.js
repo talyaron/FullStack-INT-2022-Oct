@@ -50,7 +50,7 @@ function enter() {
             if (guess) {
                 for (var i = 0; i < WORD_LENGTH; i++) {
                     var checkedLetter = linesArray[currentLine][i];
-                    if (cell0605 !== currentCell) {
+                    if (checkedLetter !== linesArray[LAST_LINE][LAST_CELL_IN_LINE]) {
                         if (solution === null || solution === void 0 ? void 0 : solution.includesLetter(checkedLetter.innerText)) {
                             if (checkedLetter.innerText === solution.name.toUpperCase()[i]) { //exact spot
                                 foundLetters.push(checkedLetter.innerText);
@@ -267,12 +267,12 @@ function updateStreak(streak) {
 function win(users) {
     var winRoot = document.querySelector("#winRoot");
     if (winRoot)
-        winRoot.innerHTML = "\n    <div class=\" gameEnd gameEnd--win\">\n        <div> You Win!</div>\n        <div> Current streak: " + users[users.length - 1].streak + "</div>\n        <a href=\"https://www.morfix.co.il/" + solution.name + "\">Definiton</a>\n    </div>\n    ";
+        winRoot.innerHTML = "\n    <div class=\" gameEnd gameEnd--win\">\n        <div> You Win!</div>\n        <div> Current streak: " + users[users.length - 1].streak + "</div>\n        <a href=\"https://www.morfix.co.il/" + solution.name + "\">Translation</a>\n    </div>\n    ";
 }
 function lose(users) {
     var loseRoot = document.querySelector("#loseRoot");
     if (loseRoot && solution)
-        loseRoot.innerHTML = "\n    <div class=\"gameEnd gameEnd--lose\">\n        <div> better luck next time... the solution was: " + solution.name + "</div>\n        <div> Current streak: 0</div>\n        <a href=\"https://www.morfix.co.il/" + solution.name + "\">Definiton</a>\n    </div>\n    ";
+        loseRoot.innerHTML = "\n    <div class=\"gameEnd gameEnd--lose\">\n        <div> better luck next time... the solution was: " + solution.name + "</div>\n        <div> Current streak: 0</div>\n        <a href=\"https://www.morfix.co.il/" + solution.name + "\">Translation</a>\n    </div>\n    ";
 }
 function notValid() {
     var notValid = document.querySelector("#notValidRoot");
