@@ -7,7 +7,7 @@ function goToUserProfile(event) {
             throw new Error("We don't have any users that have an account to our site");
         var user = usersList.find(function (user) { return user.userId == userId_1; });
         if (!user) {
-            alert("We can't find an account that match to your ID number... You can create an account :)");
+            alert("We can't find an account that match to your ID number... You can create an account if you want :)");
         }
         else if (password != user.userPassword) {
             alert(user.userFullName + " the password don't match to your ID number... Try again");
@@ -28,7 +28,7 @@ function btnAdd() {
     try {
         if (!form)
             throw new Error("We don't have any element to add your user");
-        form.innerHTML = "\n      <h3>Create a user:</h3>\n      <form class=\"form__sign_in\" onsubmit=\"addUser(event)\">\n      <input type=\"text\" name=\"newUserId\" class=\"input\" placeholder=\"Enter your ID number\" required/>\n      <br />\n      <input type=\"password\" name=\"newUserPassword\" class=\"input\" placeholder=\"Enter your password\" required/>\n      <br />\n      <input type=\"text\" name=\"newUserFullName\" class=\"input\" placeholder=\"Enter your full name           \" required/>\n      <br />\n      <lable>Enter your date of birth:</lable> \n      <br />\n      <input type=\"date\" name=\"newUserBirthday\" class=\"input\" required/>\n      <br />\n      <input type=\"email\" name=\"newUserEmail\" class=\"input\" placeholder=\"Enter your email\" required/>\n      <br />\n      <input type=\"text\" name=\"newUserPhone\" class=\"input\" placeholder=\"Enter your phone number\" required/>\n      <br />\n      <input type=\"submit\" id=\"sign_in_btn\" value=\"Sign In\"/>\n      </form>\n  ";
+        form.innerHTML = "\n      <h3>Create a user:</h3>\n      <form class=\"form__sign_in\" onsubmit=\"addUser(event)\">\n      <input type=\"text\" name=\"newUserId\" class=\"input\" placeholder=\"Enter your ID number\" required/>\n      <br />\n      <input type=\"password\" name=\"newUserPassword\" class=\"input\" placeholder=\"Enter your password\" required/>\n      <br />\n      <input type=\"text\" name=\"newUserFullName\" class=\"input\" placeholder=\"Enter your full name\" required/>\n      <br />\n      <lable>Enter your date of birth:</lable> \n      <br />\n      <input type=\"date\" name=\"newUserBirthday\" class=\"input\" required/>\n      <br />\n      <input type=\"email\" name=\"newUserEmail\" class=\"input\" placeholder=\"Enter your email\" required/>\n      <br />\n      <input type=\"text\" name=\"newUserPhone\" class=\"input\" placeholder=\"Enter your phone number\" required/>\n      <br />\n      <input type=\"submit\" id=\"sign_in_btn\" value=\"Sign In\"/>\n      </form>\n  ";
     }
     catch (error) {
         console.error("The form to add users have a problem");
@@ -130,4 +130,4 @@ function handleDeleteCard(userId: string, storeName: string) {
     console.error(error);
   }
 }
-*/ 
+*/

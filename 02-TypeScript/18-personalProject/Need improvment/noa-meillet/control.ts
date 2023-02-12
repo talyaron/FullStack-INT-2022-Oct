@@ -12,7 +12,7 @@ function goToUserProfile(event): void {
     );
     if (!user) {
       alert(
-        `We can't find an account that match to your ID number... You can create an account :)`
+        `We can't find an account that match to your ID number... You can create an account if you want :)`
       );
     } else if (password != user.userPassword) {
       alert(
@@ -39,7 +39,7 @@ function btnAdd() {
       <br />
       <input type="password" name="newUserPassword" class="input" placeholder="Enter your password" required/>
       <br />
-      <input type="text" name="newUserFullName" class="input" placeholder="Enter your full name           " required/>
+      <input type="text" name="newUserFullName" class="input" placeholder="Enter your full name" required/>
       <br />
       <lable>Enter your date of birth:</lable> 
       <br />
