@@ -1,0 +1,1 @@
+renderArray(items)
