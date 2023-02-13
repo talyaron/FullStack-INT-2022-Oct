@@ -1,28 +1,25 @@
 .bodyHomePage {
   background-color: rgba(9, 179, 179, 0.555);
-  &__userForm {
-    //    background-color:  rgb(194, 21, 194);
-    //  border: 5px black;
-    width: 550px;
-    height: 100%;
-    margin: auto;
-    margin-top: 30px;
-    padding-top: 0.5%;
-    padding-bottom: 0.5%;
-    //   border: 1px solid black;
-    border-radius: 10px;
-    position: relative;
-    left: 70px;
-  }
-  &__mainLogo {
-    width: 300px;
-    margin-left: 40%;
-    border: 1px solid black;
-    border-radius: 10px;
-  }
+}
+.bodyHomePage__userForm {
+  width: 550px;
+  height: 100%;
+  margin: auto;
+  margin-top: 30px;
+  padding-top: 0.5%;
+  padding-bottom: 0.5%;
+  border-radius: 10px;
+  position: relative;
+  left: 70px;
+}
+.bodyHomePage__mainLogo {
+  width: 300px;
+  margin-left: 42%;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 
-.form{
+.form {
   position: relative;
   left: 120px;
 }
@@ -32,11 +29,11 @@
   width: 200px;
   margin: auto;
   background-color: rgba(0, 255, 255, 0.123);
-  img {
-    width: 100%;
-  }
   border: solid coral;
   padding: 50px;
+}
+.list img {
+  width: 100%;
 }
 
 #listofUsers {
@@ -50,8 +47,9 @@
   height: 100px;
   width: 100px;
 }
+
 .userForm {
-  background-color: rgb(194, 21, 194);
+  background-color: #c215c2;
   border: 5px black;
   width: 550px;
   height: 100%;
@@ -66,7 +64,7 @@
 .recurring_div {
   display: flex;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: white;
   border: 5px black;
   width: 550px;
   height: 100%;
@@ -78,7 +76,7 @@
   border-radius: 10px;
 }
 
-.userImg{
+.userImg {
   height: 100%;
   width: 100%;
 }
@@ -86,7 +84,7 @@
 .recurring_user {
   display: flex;
   flex-direction: column;
-  background-color: rgb(236,236,238);
+  background-color: #ececee;
   border: 5px black;
   width: 300px;
   height: 100%;
@@ -106,19 +104,19 @@
   border-radius: 10px;
   position: sticky;
   top: 0px;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: white;
   z-index: 1;
-  &__instegram_logo {
-    position: relative;
-    left: 10px;
-    top: 20px;
-    height: 70px;
-  }
-  &__formClass {
-    padding-left: 50%;
-    padding-top: 5%;
-    padding-left: 40%;
-  }
+}
+.headline__instegram_logo {
+  position: relative;
+  left: 10px;
+  top: 20px;
+  height: 70px;
+}
+.headline__formClass {
+  padding-left: 50%;
+  padding-top: 5%;
+  padding-left: 40%;
 }
 
 #id_heart {
@@ -131,7 +129,7 @@
   margin-bottom: 8px;
 }
 
-input[type="search"] {
+input[type=search] {
   width: 230px;
   height: 30px;
   box-sizing: border-box;
@@ -145,10 +143,8 @@ input[type="search"] {
   right: 100px;
 }
 
-
-
 .body_background_color {
-  background-color: rgb(203, 203, 203);
+  background-color: #cbcbcb;
 }
 
 .h1_design {
@@ -161,7 +157,6 @@ input[type="search"] {
   width: 50px;
   height: 50px;
   border-radius: 100px;
-
   float: left;
   position: relative;
   right: 10;
@@ -174,12 +169,12 @@ input[type="search"] {
   border: 1px solid rgba(0, 0, 0, 0.3151);
   position: sticky;
   bottom: 0px;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: white;
   z-index: 1;
 }
 
 #storyBox {
-  background-color: rgb(236, 236, 238);
+  background-color: #ececee;
   width: 650px;
   height: 100px;
   margin: auto;
@@ -190,8 +185,9 @@ input[type="search"] {
   justify-content: space-evenly;
   text-align: center;
 }
-#storyBox2{
-  background-color: rgb(236, 236, 238);
+
+#storyBox2 {
+  background-color: #ececee;
   width: 650px;
   height: 15px;
   margin: auto;
@@ -202,8 +198,9 @@ input[type="search"] {
   justify-content: space-evenly;
   text-align: center;
 }
-#storyBox3{
-  background-color: rgb(236, 236, 238);
+
+#storyBox3 {
+  background-color: #ececee;
   width: 16%;
   height: 15px;
   margin: auto;
@@ -229,7 +226,7 @@ input[type="search"] {
   border-radius: 180px;
   width: 50px;
   height: 50px;
-  border: 2px solid rgb(236, 37, 37);
+  border: 2px solid #ec2525;
   border-image: repeat;
   position: relative;
   top: 20px;
@@ -240,19 +237,21 @@ input[type="search"] {
   border: 1px solid rgba(0, 0, 0, 0.3151);
   position: sticky;
   bottom: 0px;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: white;
   z-index: 1;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   border-radius: 10px;
 }
+
 .img_bottom_headline {
   width: 30px;
   height: 30px;
   position: relative;
   top: 10px;
 }
+
 .story_text {
   position: relative;
   top: 21px;
@@ -274,25 +273,40 @@ input[type="search"] {
 }
 
 @keyframes color {
-  0%   { background: #33CCCC; }
-  20%  { background: #33CC36; }
-  40%  { background: #B8CC33; }
-  60%  { background: #FCCA00; }
-  80%  { background: #33CC36; }
-  100% { background: #33CCCC; }
+  0% {
+    background: #33CCCC;
+  }
+  20% {
+    background: #33CC36;
+  }
+  40% {
+    background: #B8CC33;
+  }
+  60% {
+    background: #FCCA00;
+  }
+  80% {
+    background: #33CC36;
+  }
+  100% {
+    background: #33CCCC;
+  }
 }
-
 body {
-  background: #33CCCC; /* Fallback */
+  background: #33CCCC;
+  /* Fallback */
   animation: color 9s infinite linear;
 }
 
-.story{
+.story {
   display: flex;
   flex-direction: column;
 }
 
 .releaseFilter{
-width: 20px;
-height: 20px;
-}
+  width: 60px;
+  height: 20px;
+  position: relative;
+  top: 40px;
+  right: 20px;
+  }

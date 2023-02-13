@@ -1,7 +1,7 @@
 
 
 function loadpostsPage() {
-  debugger;
+
   // loadpostsToSorage();
   renderStory()
   render(getItemsFromStorage())
@@ -14,7 +14,7 @@ function loadpostsToSorage() {
 
 
 function loadUsersPage() {
-  debugger;
+
   getUserFromStorage();
   // loadUsersToSorage();
   renderusers(getUserFromStorage());
@@ -28,7 +28,7 @@ function loadUsersToSorage() {
 
 function getItemsFromStorage() {
   try {
-    debugger;
+
     const postsString = localStorage.getItem("posts");
     if (!postsString) throw new Error("Couldn't find items in storage");
     const items = JSON.parse(postsString);

@@ -1,6 +1,6 @@
 
 function renderStory() {
-  debugger;
+ 
 
   const postsString = localStorage.getItem("users");
   if (!postsString) throw new Error("Couldn't find items in storage");
@@ -51,7 +51,7 @@ function renderusers(users: User[]) {
 
 function handleDeleteUser(uid: string) {
   try {
-    debugger;
+
     const postsString = localStorage.getItem("users");
     if (!postsString) throw new Error("Couldn't find items in storage");
     const newUsers = JSON.parse(postsString);
@@ -93,7 +93,7 @@ function handleAddItem(ev) {
 
 function handleaddUser(ev) {
   try {
-    debugger;
+   
     ev.preventDefault();
 
     const postsString = localStorage.getItem("users");
