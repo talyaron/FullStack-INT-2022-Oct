@@ -1,0 +1,21 @@
+#title{
+    font-weight: bold;
+}
+.bold{
+    font-weight: bold;
+}
+
+.lightText{
+    color: gray;
+}
+
+.studentsButtonWarpper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+}
+
+.deleteButton{
+    color: rgb(71, 71, 255);
+}
