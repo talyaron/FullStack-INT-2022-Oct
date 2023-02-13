@@ -41,7 +41,7 @@ var box = [
     { row1: 6, row2: 7, row3: 8, col1: 3, col2: 4, col3: 5 },
     { row1: 6, row2: 7, row3: 8, col1: 6, col2: 7, col3: 8 },
 ];
-var Difficult = [
+var difficult = [
     [3, 0, 6, 5, 0, 8, 4, 0, 0],
     [5, 2, 0, 0, 0, 0, 0, 0, 0],
     [0, 8, 7, 0, 0, 0, 0, 3, 1],

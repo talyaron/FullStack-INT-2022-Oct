@@ -28,33 +28,33 @@ function handleLogin(event){
     console.log(userName);
     
     users.push(new Users(userName, password, level));
-    const setStorg = localStorage.setItem("user", users[users.length-1].uid)
+    console.log(users)
+    const tmpUser = `${users[users.length-1].userName}-${users[users.length-1].level}`
+    const setStorg = localStorage.setItem("user", tmpUser)
     
-    window.location.href = "EstiMauda/sodoku.html"
-    // renderUsers(users)
-
+    
+    location.href = 'soduko.html'
+ 
   } catch (error) {
     console.error(error)   
   }
 }
 
 
-function renderUsers(users: Users[]): void {
-  try {
-    if (!users || !Array.isArray(users))
-      throw new Error("items is not an array");
+// function renderUsers(users: Users[]): void {
+//   try {
+//     if (!users || !Array.isArray(users))
+//       throw new Error("items is not an array");
       
 
-      // const storgUser = localStorage.setItem("user", )
+//       // const storgUser = localStorage.setItem("user", )
       
 
-    // const element = document.querySelector("h2") as HTMLElement;
-    // element.innerHTML = `${users.userName} Welcome to ${users.level} game` ;
-  } catch (error) {
-    console.error(error);
-  }
-}
-// function handleAddUsers(ev: any) {
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
+// // function handleAddUsers(ev: any) {
 //   try {
 //       ev.preventDefault();
 

@@ -5,14 +5,15 @@ var indexCol = 0;
 var grayBox = true;
 function drawBox() {
     try {
+        console.log(tmpArr);
         var html = "";
         if (document.querySelector(".sodoku__box__input") != null) {
             document.querySelector(".sodoku__box__input").remove;
         }
         for (var i = 0; i < numBox; i++) {
             var easyStr = "";
-            if ((easy[indexRow][indexCol]) != 0)
-                easyStr = (easy[indexRow][indexCol]).toString();
+            if ((tmpArr[indexRow][indexCol]) != 0)
+                easyStr = (tmpArr[indexRow][indexCol]).toString();
             if (((i % 9 == 0 || i % 9 == 1 || i % 9 == 2) && i < 21) ||
                 ((i % 9 == 6 || i % 9 == 7 || i % 9 == 8) && i < 27) ||
                 ((i % 9 == 3 || i % 9 == 4 || i % 9 == 5) && (i > 27 && i < 53)) ||

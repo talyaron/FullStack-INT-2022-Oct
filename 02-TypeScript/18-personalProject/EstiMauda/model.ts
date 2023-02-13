@@ -1,6 +1,7 @@
-
+    
 class Users {
   uid: string;
+ 
 
   constructor(
     public userName: string,
@@ -10,7 +11,9 @@ class Users {
     this.uid = uid();
   }
 }
+
 const users: Users[] = [];
+
 
 
 const rowBox = [
@@ -57,7 +60,7 @@ const box : {row1: number, row2:number, row3:number, col1: number, col2: number,
 
 
 
-const Difficult = [
+const difficult = [
     [3, 0, 6, 5, 0, 8, 4, 0, 0],
     [5, 2, 0, 0, 0, 0, 0, 0, 0],
     [0, 8, 7, 0, 0, 0, 0, 3, 1],
