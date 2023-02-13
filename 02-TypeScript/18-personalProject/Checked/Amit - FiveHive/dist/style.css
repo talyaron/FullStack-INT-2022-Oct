@@ -131,6 +131,20 @@ ol {
   text-align: center;
   vertical-align: middle;
   color: white;
+  transition: all 2s;
+  transform-style: preserve-3d;
+}
+.board__line__cell__transtionDelay02Cell {
+  transition-delay: 1s;
+}
+.board__line__cell__transtionDelay03Cell {
+  transition-delay: 2s;
+}
+.board__line__cell__transtionDelay04Cell {
+  transition-delay: 3s;
+}
+.board__line__cell__transtionDelay05Cell {
+  transition-delay: 4s;
 }
 
 .keyboard {
@@ -163,6 +177,89 @@ ol {
   background-color: gray;
   border-radius: 0.8rem;
   border: 0.2rem solid gray;
+  transition-delay: 5s;
+}
+
+.newGameButton {
+  width: 10rem;
+  height: 6rem;
+  background-color: seagreen;
+  font-weight: 900;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  line-height: 1.5rem;
+  margin-top: 1rem;
+  box-shadow: 0rem 0rem 0.2rem 0.2rem #737171;
+  position: relative;
+  left: 15rem;
+  top: -47rem;
+}
+.newGameButton:hover {
+  background-color: white;
+  box-shadow: none;
+  transition: 0.5s;
+}
+.newGameButton:active {
+  background-color: #4a0afb;
+}
+
+.gameEnd {
+  width: 28rem;
+  height: 28rem;
+  background-color: black;
+  z-index: 2;
+  position: absolute;
+  top: 4.5rem;
+  left: 30.5rem;
+  font-size: 3rem;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 5.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 2s;
+}
+.gameEnd--win {
+  border: 0.5rem solid seagreen;
+  color: seagreen;
+}
+.gameEnd--lose {
+  border: 0.5rem solid red;
+  color: red;
+}
+
+.notValid {
+  width: 15rem;
+  height: 4rem;
+  background-color: #cfc3c3;
+  z-index: 2;
+  position: absolute;
+  margin: auto;
+  top: 4.6rem;
+  left: 37.5rem;
+  font-size: 2rem;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 3.5rem;
+  transition: all 2s;
+  color: #040404;
+  animation: pop 2s linear 1;
+  opacity: 0;
+  border-radius: 2%;
+}
+@keyframes pop {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .logInWrapper {
@@ -195,28 +292,5 @@ ol {
   transition: 0.5s;
 }
 .logInWrapper__logInButton:active {
-  background-color: #4a0afb;
-}
-
-.newGameButton {
-  width: 10rem;
-  height: 6rem;
-  background-color: seagreen;
-  font-weight: 900;
-  font-size: 1.5rem;
-  padding: 0.5rem;
-  line-height: 1.5rem;
-  margin-top: 1rem;
-  box-shadow: 0rem 0rem 0.2rem 0.2rem #737171;
-  position: relative;
-  left: 15rem;
-  top: -47rem;
-}
-.newGameButton:hover {
-  background-color: white;
-  box-shadow: none;
-  transition: 0.5s;
-}
-.newGameButton:active {
   background-color: #4a0afb;
 }

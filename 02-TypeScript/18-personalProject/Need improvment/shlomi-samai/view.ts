@@ -1,9 +1,10 @@
 
 
 function loadpostsPage() {
-  loadpostsToSorage();
-  render(getItemsFromStorage());
-  renderStory(getUserFromStorage())
+  debugger;
+  // loadpostsToSorage();
+  renderStory()
+  render(getItemsFromStorage())
 }
 
 function loadpostsToSorage() {
@@ -13,7 +14,9 @@ function loadpostsToSorage() {
 
 
 function loadUsersPage() {
-  loadUsersToSorage();
+  debugger;
+  getUserFromStorage();
+  // loadUsersToSorage();
   renderusers(getUserFromStorage());
 }
 
@@ -21,8 +24,11 @@ function loadUsersToSorage() {
   localStorage.setItem("users", JSON.stringify(users));
 }
 
+
+
 function getItemsFromStorage() {
   try {
+    debugger;
     const postsString = localStorage.getItem("posts");
     if (!postsString) throw new Error("Couldn't find items in storage");
     const items = JSON.parse(postsString);
@@ -38,8 +44,8 @@ function getUserFromStorage() {
   try {
     const postsString = localStorage.getItem("users");
     if (!postsString) throw new Error("Couldn't find items in storage");
-    const users = JSON.parse(postsString);
-    return (users)
+    const newUsers = JSON.parse(postsString);
+    return (newUsers)
 
   }
   catch (error) {
