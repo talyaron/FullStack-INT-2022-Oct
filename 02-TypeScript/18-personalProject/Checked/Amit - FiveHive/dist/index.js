@@ -1,5 +1,5 @@
 var solution = randomSolutionSelector();
-console.log(solution);
+console.log("solution:", solution === null || solution === void 0 ? void 0 : solution.name);
 var _users = getUsersDataFromStorage();
 var _loggedInUser = getLoggedInUserFromStorage();
 if (_users) {

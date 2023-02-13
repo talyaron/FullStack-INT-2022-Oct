@@ -1,6 +1,7 @@
 var currentLine = 0;
 var WORD_LENGTH = 5;
 var LAST_CELL_IN_LINE = 4;
+var LAST_LINE = 5;
 var streak = 0;
 var currentCell = linesArray[0][0];
 function insertLetterToCell(letter) {
@@ -49,66 +50,128 @@ function enter() {
             if (guess) {
                 for (var i = 0; i < WORD_LENGTH; i++) {
                     var checkedLetter = linesArray[currentLine][i];
-                    if (solution === null || solution === void 0 ? void 0 : solution.includesLetter(checkedLetter.innerText)) {
-                        if (checkedLetter.innerText === solution.name.toUpperCase()[i]) { //exact spot
-                            foundLetters.push(checkedLetter.innerText);
-                            checkedLetter.style.backgroundColor = "SeaGreen";
-                            var keyOFCheckedLetter = document.querySelector("#" + checkedLetter.innerText);
-                            if (keyOFCheckedLetter) {
-                                keyOFCheckedLetter.style.backgroundColor = "SeaGreen";
-                                keyOFCheckedLetter.style.borderColor = "SeaGreen";
+                    if (checkedLetter !== linesArray[LAST_LINE][LAST_CELL_IN_LINE]) {
+                        if (solution === null || solution === void 0 ? void 0 : solution.includesLetter(checkedLetter.innerText)) {
+                            if (checkedLetter.innerText === solution.name.toUpperCase()[i]) { //exact spot
+                                foundLetters.push(checkedLetter.innerText);
+                                checkedLetter.style.transform = "rotateX(360deg)";
+                                checkedLetter.style.backgroundColor = "SeaGreen";
+                                var keyOFCheckedLetter = document.querySelector("#" + checkedLetter.innerText);
+                                if (keyOFCheckedLetter) {
+                                    keyOFCheckedLetter.style.backgroundColor = "SeaGreen";
+                                    keyOFCheckedLetter.style.borderColor = "SeaGreen";
+                                }
+                                correctLetters++;
+                                if (correctLetters === WORD_LENGTH) {
+                                    if (loggedInUser) {
+                                        updateStreak(loggedInUser.streak + 1);
+                                        renderUserData(users, "userDataRoot");
+                                    }
+                                    setTimeout(win, 8000, users);
+                                }
                             }
-                            correctLetters++;
-                            if (correctLetters === WORD_LENGTH) {
-                                alert("you win!"); // change to animation with 2sec delay//
-                                if (loggedInUser)
-                                    updateStreak(loggedInUser.streak + 1);
-                                renderUserData(users, "userDataRoot");
+                            else {
+                                var foundLettersAsString = foundLetters.join("");
+                                var foundLettersAsWord = new Word(foundLettersAsString);
+                                if (foundLettersAsWord && solution) {
+                                    if ((foundLettersAsWord.letterRepetitions(checkedLetter.innerText)) < (solution.letterRepetitions(checkedLetter.innerText))) {
+                                        foundLetters.push(checkedLetter.innerText);
+                                        checkedLetter.style.transform = "rotateX(360deg)";
+                                        checkedLetter.style.backgroundColor = "gold";
+                                        var keyOFCheckedLetter = document.querySelector("#" + checkedLetter.innerText);
+                                        if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "SeaGreen")) {
+                                            keyOFCheckedLetter.style.backgroundColor = "gold";
+                                            keyOFCheckedLetter.style.borderColor = "gold";
+                                        }
+                                    }
+                                    else {
+                                        checkedLetter.style.transform = "rotateX(360deg)";
+                                        checkedLetter.style.backgroundColor = "gray";
+                                        var keyOFCheckedLetter = document.querySelector("#" + checkedLetter.innerText);
+                                        if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "SeaGreen" || "gold")) {
+                                            keyOFCheckedLetter.style.backgroundColor = "black";
+                                            keyOFCheckedLetter.style.borderColor = "gray";
+                                        }
+                                    }
+                                }
                             }
                         }
                         else {
-                            var foundLettersAsString = foundLetters.join("");
-                            var foundLettersAsWord = new Word(foundLettersAsString);
-                            if (foundLettersAsWord && solution) {
-                                if ((foundLettersAsWord.letterRepetitions(checkedLetter.innerText)) < (solution.letterRepetitions(checkedLetter.innerText))) {
-                                    foundLetters.push(checkedLetter.innerText);
-                                    checkedLetter.style.backgroundColor = "gold";
-                                    var keyOFCheckedLetter = document.querySelector("#" + checkedLetter.innerText);
-                                    if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "SeaGreen")) {
-                                        keyOFCheckedLetter.style.backgroundColor = "gold";
-                                        keyOFCheckedLetter.style.borderColor = "gold";
-                                    }
+                            checkedLetter.style.transform = "rotateX(360deg)";
+                            checkedLetter.style.backgroundColor = "gray";
+                            var keyOFCheckedLetter = document.querySelector("#" + checkedLetter.innerText);
+                            if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "SeaGreen" || "gold")) {
+                                keyOFCheckedLetter.style.backgroundColor = "black";
+                            }
+                        }
+                    }
+                    else if (solution) {
+                        if (solution === null || solution === void 0 ? void 0 : solution.includesLetter(checkedLetter.innerText)) {
+                            if (checkedLetter.innerText === solution.name.toUpperCase()[i]) { //exact spot
+                                foundLetters.push(checkedLetter.innerText);
+                                checkedLetter.style.transform = "rotateX(360deg)";
+                                checkedLetter.style.backgroundColor = "SeaGreen";
+                                var keyOFCheckedLetter = document.querySelector("#" + checkedLetter.innerText);
+                                if (keyOFCheckedLetter) {
+                                    keyOFCheckedLetter.style.backgroundColor = "SeaGreen";
+                                    keyOFCheckedLetter.style.borderColor = "SeaGreen";
                                 }
-                                else {
-                                    checkedLetter.style.backgroundColor = "gray";
-                                    var keyOFCheckedLetter = document.querySelector("#" + checkedLetter.innerText);
-                                    if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "SeaGreen" || "gold")) {
-                                        keyOFCheckedLetter.style.backgroundColor = "black";
-                                        keyOFCheckedLetter.style.borderColor = "gray";
+                                correctLetters++;
+                                if (correctLetters === WORD_LENGTH) {
+                                    if (loggedInUser) {
+                                        updateStreak(loggedInUser.streak + 1);
+                                        renderUserData(users, "userDataRoot");
+                                    }
+                                    setTimeout(win, 8000, users);
+                                }
+                                else if (loggedInUser) {
+                                    updateStreak(0);
+                                    renderUserData(users, "userDataRoot");
+                                    setTimeout(lose, 8000, users);
+                                }
+                            }
+                            else {
+                                var foundLettersAsString = foundLetters.join("");
+                                var foundLettersAsWord = new Word(foundLettersAsString);
+                                if (foundLettersAsWord && solution) {
+                                    if ((foundLettersAsWord.letterRepetitions(checkedLetter.innerText)) < (solution.letterRepetitions(checkedLetter.innerText))) {
+                                        foundLetters.push(checkedLetter.innerText);
+                                        checkedLetter.style.transform = "rotateX(360deg)";
+                                        checkedLetter.style.backgroundColor = "gold";
+                                        var keyOFCheckedLetter = document.querySelector("#" + checkedLetter.innerText);
+                                        if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "SeaGreen")) {
+                                            keyOFCheckedLetter.style.backgroundColor = "gold";
+                                            keyOFCheckedLetter.style.borderColor = "gold";
+                                        }
+                                    }
+                                    else {
+                                        checkedLetter.style.transform = "rotateX(360deg)";
+                                        checkedLetter.style.backgroundColor = "gray";
+                                        var keyOFCheckedLetter = document.querySelector("#" + checkedLetter.innerText);
+                                        if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "SeaGreen" || "gold")) {
+                                            keyOFCheckedLetter.style.backgroundColor = "black";
+                                            keyOFCheckedLetter.style.borderColor = "gray";
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
-                    else {
-                        checkedLetter.style.backgroundColor = "gray";
-                        var keyOFCheckedLetter = document.querySelector("#" + checkedLetter.innerText);
-                        if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "SeaGreen" || "gold")) {
-                            keyOFCheckedLetter.style.backgroundColor = "black";
+                        else {
+                            checkedLetter.style.transform = "rotateX(360deg)";
+                            checkedLetter.style.backgroundColor = "gray";
+                            var keyOFCheckedLetter = document.querySelector("#" + checkedLetter.innerText);
+                            if (keyOFCheckedLetter && (keyOFCheckedLetter.style.backgroundColor !== "SeaGreen" || "gold")) {
+                                keyOFCheckedLetter.style.backgroundColor = "black";
+                            }
                         }
-                    }
-                    if ((currentCell === cell0605) && (correctLetters !== WORD_LENGTH) && (solution)) {
-                        if (loggedInUser)
-                            updateStreak(0);
-                        renderUserData(users, "userDataRoot");
-                        alert("better luck next time... the solution was: " + solution.name);
                     }
                 }
                 currentLine++;
-                currentCell = linesArray[currentLine][0]; // goes to the next line
+                if (currentLine < LAST_LINE + 1)
+                    currentCell = linesArray[currentLine][0]; // goes to the next line    
             }
             else {
-                (alert("sorry, this word is not on our dictionary yet"));
+                notValid();
             }
         }
     }
@@ -200,4 +263,19 @@ function updateStreak(streak) {
     catch (error) {
         console.error(error);
     }
+}
+function win(users) {
+    var winRoot = document.querySelector("#winRoot");
+    if (winRoot)
+        winRoot.innerHTML = "\n    <div class=\" gameEnd gameEnd--win\">\n        <div> You Win!</div>\n        <div> Current streak: " + users[users.length - 1].streak + "</div>\n        <a href=\"https://www.morfix.co.il/" + solution.name + "\">Translation</a>\n    </div>\n    ";
+}
+function lose(users) {
+    var loseRoot = document.querySelector("#loseRoot");
+    if (loseRoot && solution)
+        loseRoot.innerHTML = "\n    <div class=\"gameEnd gameEnd--lose\">\n        <div> better luck next time... the solution was: " + solution.name + "</div>\n        <div> Current streak: 0</div>\n        <a href=\"https://www.morfix.co.il/" + solution.name + "\">Translation</a>\n    </div>\n    ";
+}
+function notValid() {
+    var notValid = document.querySelector("#notValidRoot");
+    if (notValid && solution)
+        notValid.innerHTML = "\n    <div class=\"notValid\"> Not in word list </div>";
 }

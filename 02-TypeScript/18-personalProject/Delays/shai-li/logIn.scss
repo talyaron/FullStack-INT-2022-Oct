@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  padding: 0;
+  // background-color: aqua;
+  background-color: rgb(58, 120, 66);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-image: url(https://images.pexels.com/photos/6965700/pexels-photo-6965700.jpeg?auto=compress&cs=tinysrgb&w=600);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.container {
+  display: flex;
+  margin-left: 6rem;
+  margin-top: 6rem;
+
+  input {
+    display: block;
+    text-align: center;
+    margin: 2rem;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: rgb(223, 225, 227);
+  }
+
+  h3 {
+    margin-left: 6rem;
+  }
+
+  button {
+    margin-left: 6rem;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    background-color: rgb(56, 55, 55);
+  }
+}
