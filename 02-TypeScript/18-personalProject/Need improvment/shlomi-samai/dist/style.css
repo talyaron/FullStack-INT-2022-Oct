@@ -14,7 +14,7 @@
 }
 .bodyHomePage__mainLogo {
   width: 300px;
-  margin-left: 40%;
+  margin-left: 42%;
   border: 1px solid black;
   border-radius: 10px;
 }
@@ -304,6 +304,9 @@ body {
 }
 
 .releaseFilter{
-  width: 20px;
+  width: 60px;
   height: 20px;
+  position: relative;
+  top: 40px;
+  right: 20px;
   }
