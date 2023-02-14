@@ -1,0 +1,1 @@
+export const CREATE_STUDENT_HEADERS = ['FIrst Name *', 'Last Name *', 'Age *', 'Profession *']
