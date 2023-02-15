@@ -10,14 +10,14 @@ function renderUsers(arr) {
 function handleSubmit(e) {
     e.preventDefault();
     e.stopPropagation();
-    var gender = e.target.elements.gender.value;
-    var firstName = e.target.elements.firstName.value;
-    var lastName = e.target.elements.lastName.value;
-    var password = e.target.elements.password.value;
-    var userName = e.target.elements.userName.value;
-    var dob = e.target.elements.dob.value;
-    var phone = e.target.elements.phone.value;
-    var location = e.target.elements.location.value;
+    var gender = this.elements.gender.value;
+    var firstName = this.elements.firstName.value;
+    var lastName = this.elements.lastName.value;
+    var password = this.elements.password.value;
+    var userName = this.elements.userName.value;
+    var dob = this.elements.dob.value;
+    var phone = this.elements.phone.value;
+    var location = this.elements.location.value;
     var image = imgSrc;
     var arr = [gender, firstName, lastName, password, userName, dob, phone, location, image];
     if (arr.some(function (ele) { return ele == ''; }))
