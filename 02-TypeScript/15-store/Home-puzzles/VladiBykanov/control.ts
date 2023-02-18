@@ -21,14 +21,14 @@ function renderUsers(arr: User[]) {
 function handleSubmit(e) {
   e.preventDefault();
   e.stopPropagation();
-  const gender = e.target.elements.gender.value;
-  const firstName = e.target.elements.firstName.value;
-  const lastName = e.target.elements.lastName.value;
-  const password = e.target.elements.password.value;
-  const userName = e.target.elements.userName.value;
-  const dob = e.target.elements.dob.value;
-  const phone = e.target.elements.phone.value;
-  const location = e.target.elements.location.value;
+  const gender = this.elements.gender.value;
+  const firstName = this.elements.firstName.value;
+  const lastName = this.elements.lastName.value;
+  const password = this.elements.password.value;
+  const userName = this.elements.userName.value;
+  const dob = this.elements.dob.value;
+  const phone = this.elements.phone.value;
+  const location = this.elements.location.value;
   const image = imgSrc;
   const arr = [gender, firstName, lastName, password, userName, dob, phone, location, image];
   if(arr.some(ele => ele == '' )) return errMsg.style.display = 'flex'
