@@ -1,0 +1,226 @@
+:root {
+  --main-color: #eb9b00;
+  --text-color: #ffff;
+  --background-color: #232323;
+  --main-font-family: "Poppins", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body,
+html {
+  overflow-x: hidden;
+  background-color: var(--background-color);
+  width: 100vw;
+  height: 100vh;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+section.web-container {
+  background-color: var(--background-color);
+  font-family: var(--main-font-family);
+  width: initial;
+}
+section.web-container header.main-header {
+  padding: 0 16px;
+  width: inherit;
+  justify-content: space-between;
+}
+section.web-container header.main-header .logo a {
+  text-decoration: none;
+}
+section.web-container header.main-header .logo a img {
+  width: 85px;
+}
+section.web-container header.main-header ul.nav-navbar li {
+  list-style: none;
+  margin: 10px;
+}
+section.web-container header.main-header ul.nav-navbar li a {
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--text-color);
+  transition: color ease 0.4s;
+}
+section.web-container header.main-header ul.nav-navbar li a:hover {
+  color: var(--main-color);
+}
+section.web-container header.main-header div.menu-burger {
+  position: relative;
+}
+section.web-container header.main-header div.menu-burger button#btnBurgerMenu {
+  border: none;
+  font-size: 1.3rem;
+  color: var(--text-color);
+  background-color: var(--main-color);
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+}
+section.web-container header.main-header div.menu-burger .admin-collapse {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 39px;
+  height: 30px;
+  padding: 10px;
+  background-color: var(--main-color);
+  border-radius: 20px 0 0 20px;
+  border-bottom: 1px solid rgb(13, 13, 11);
+}
+section.web-container header.main-header div.menu-burger .admin-collapse.active {
+  display: flex;
+}
+section.web-container header.main-header div.menu-burger .admin-collapse button {
+  padding: 5px 10px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin: 0 10px;
+  cursor: pointer;
+  border: none;
+  background-color: rgba(46, 40, 30, 0.396);
+  border-radius: 20px;
+  transition: color ease 0.4s;
+  font-weight: bold;
+}
+section.web-container header.main-header div.menu-burger .admin-collapse button:hover {
+  color: #232323;
+}
+section.web-container .admin-menu {
+  display: none;
+  width: 100%;
+  padding: 10px;
+  background-color: var(--main-color);
+}
+section.web-container .admin-menu.active {
+  display: block;
+}
+section.web-container .admin-menu .admin-menu-divs {
+  display: none;
+  text-align: center;
+}
+section.web-container .admin-menu .admin-menu-divs.active {
+  display: block;
+}
+section.web-container .admin-menu .admin-menu-divs form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+section.web-container .admin-menu .admin-menu-divs form input {
+  padding: 7px;
+  width: 50%;
+}
+section.web-container .admin-menu .admin-menu-divs form .selectDiv {
+  border: 1px solid black;
+  display: flex;
+}
+section.web-container .admin-menu .admin-menu-divs form .selectDiv select {
+  border: none;
+  outline: none;
+  background-color: inherit;
+}
+section.web-container .admin-menu .admin-menu-divs form button {
+  padding: 5px 10px;
+}
+section.web-container .admin-menu .admin-menu-divs form textarea {
+  width: 50%;
+  font-family: var(--main-font-family);
+}
+section.web-container .container-body {
+  text-align: center;
+  width: inherit;
+}
+section.web-container .container-body .ad-gif img {
+  width: 100%;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+section.web-container .container-body .main-title-movies {
+  padding: 15px;
+  background-color: var(--main-color);
+}
+section.web-container .container-body .container-movies {
+  margin: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: stretch;
+  height: 100%;
+}
+section.web-container .container-body .container-movies .movie {
+  background-color: var(--main-color);
+  width: 200px;
+  height: 250px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+section.web-container .container-body .container-movies .movie:active {
+  scale: 1.2;
+}
+section.web-container .container-body .container-movies .movie:hover {
+  height: 500px;
+  margin-bottom: -250px;
+  z-index: 999;
+}
+section.web-container .container-body .container-movies .movie .img {
+  width: 100%;
+}
+section.web-container .container-body .container-movies .movie .img img {
+  width: inherit;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+section.web-container footer {
+  z-index: 9999;
+  width: var(--background-color);
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+section.web-container footer .social-media-footer {
+  display: flex;
+  margin: auto;
+  font-size: 1.5rem;
+  color: var(--main-color);
+}
+section.web-container footer .social-media-footer div {
+  margin: 15px;
+  transition: color ease-in 0.1s;
+  cursor: pointer;
+}
+section.web-container footer .social-media-footer div:hover {
+  color: var(--text-color);
+}
+section.web-container footer .footer-menu {
+  display: flex;
+}
+section.web-container footer .footer-menu li {
+  font-size: 1.4rem;
+  list-style: none;
+}
+section.web-container footer .footer-menu li a {
+  margin: 15px;
+  text-decoration: none;
+  color: var(--text-color);
+}
+section.web-container footer small {
+  color: var(--text-color);
+  padding: 15px;
+}

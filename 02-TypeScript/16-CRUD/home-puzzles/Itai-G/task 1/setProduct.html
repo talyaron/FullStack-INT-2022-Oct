@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store - set product</title>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+    <link rel="stylesheet" href="./dist/style.css">
+</head>
+
+<body>
+    <h1>Add product +</h1>
+    <a href="./index.html">Store</a>
+    <form onsubmit="handleAddItem(event)">
+        <input type="text" name="name" placeholder="name of product" required>
+        <select name="color">
+            <option value="black">Black</option>
+            <option value="blue">Blue</option>
+            <option value="red">Red</option>
+            <option value="pink">Pink</option>
+            <option value="green">Green</option>
+            <option value="yellow">Yellow</option>
+            <option value="white">White</option>
+        </select>
+        <input type="number" name="price" placeholder="price" required>
+        <select name="category">
+            <option value="ps5Games">Ps5 Game</option>
+            <option value="xbox">Xbox Game</option>
+            <option value="nintendo">NiNTendo Game</option>
+        </select>
+        <input type="text" name="sn" placeholder="serial number">
+        <input type="url" name="img" placeholder="pictureURL">
+        <input type="submit" value="ADD">
+    </form>
+    <div id="itemsRoot"></div>
+
+</body>
+
+</html>

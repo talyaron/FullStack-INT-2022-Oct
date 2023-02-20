@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: black;
+}
+
+.container{
+    // border: 1px solid black;
+    background-color: white;
+    height: 80vh;
+    aspect-ratio: 1/1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    .box{
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 8rem;
+
+    }
+    .box:hover{
+        background-color: gainsboro;
+    }
+}
+
+.player{
+  color: whitesmoke;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  span{
+    font-size: 2em;
+    font-weight: bold;
+    background-color: darkolivegreen;
+  }
+}
+
+.buttons{
+  position: absolute;
+  top: 2vh;
+  width: 30vw;
+  display: flex;
+  justify-content: space-between;
+  button{
+    width: 12vw;
+    padding: .3em;
+    font-size: .8rem;
+  }
+}
+
+.playerOWin{
+  position: absolute;
+  background-color: darkorange;
+  padding: .5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  display: none;
+}
+.playerXWin{
+  position: absolute;
+  background-color: darkorange;
+  padding: .5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  display: none;
+}
+
+.draw{
+  position: absolute;
+  background-color: darkorange;
+  padding: .5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  // display: none;
+}

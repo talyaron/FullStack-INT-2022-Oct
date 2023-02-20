@@ -1,0 +1,29 @@
+#mainHome {
+  display: flex;
+  margin-top: 70px;
+  height: 300px;
+}
+
+.mainImg {
+    margin-left: 5rem;
+}
+.picFrame {
+  animation-name: picFrame;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+
+}
+
+@keyframes picFrame {
+  0% {
+    border: 50px solid blanchedalmond;
+  }
+
+  50% {
+    border: 50px solid darksalmon;
+  }
+
+  100% {
+    border: 50px solid blanchedalmond;
+  }
+}

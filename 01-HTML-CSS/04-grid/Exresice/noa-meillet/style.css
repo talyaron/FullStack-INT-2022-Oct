@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+}
+
+.grid_container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(4, 2fr);
+  grid-template-rows: repeat(3, 2fr);
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid_container__grid_item {
+  background-color: lightblue;
+  width: 40px;
+  height: 40px;
+  margin: auto;
+}

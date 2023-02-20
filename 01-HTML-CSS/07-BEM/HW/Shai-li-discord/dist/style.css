@@ -1,0 +1,168 @@
+body {
+  margin: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  background-color: #343232;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+.container .groups {
+  height: 100%;
+  width: 5vw;
+  background-color: #343232;
+  display: flex;
+  flex-direction: column;
+}
+.container .groups__appName {
+  font-size: 0.9rem;
+  color: #9b9797;
+  text-align: center;
+  padding-top: 10px;
+}
+.container .groups hr {
+  width: 60px;
+  height: 0.3px;
+  border-width: 0;
+  background-color: #9b9797;
+}
+.container .groups__group {
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 50%;
+  background-color: #555657;
+  color: #2cb12c;
+  font-size: 2rem;
+  margin: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .groups__group img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.container .groups__group--discord {
+  border-radius: 30%;
+}
+
+.home {
+  width: 20vw;
+  height: 100vh;
+  background-color: #565252;
+  margin-top: 20px;
+  border-top-left-radius: 10px;
+}
+.home input {
+  background-color: #343232;
+  border: none;
+  margin-left: 40px;
+  margin-top: 7px;
+  border-radius: 7px;
+  padding: 5px;
+}
+.home__categories {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 3rem;
+  margin: 2rem 3rem;
+  color: #a3a29f;
+  opacity: 80%;
+}
+.home__categories:hover {
+  background-color: #696b6c;
+}
+.home h5 {
+  text-align: left;
+  margin-left: 20px;
+  color: #c7c7c7;
+}
+.home__members {
+  display: flex;
+  flex-direction: column;
+  padding: 0.7rem;
+  gap: 1rem;
+}
+.home__members__member {
+  color: #e9eeee;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  padding: 5px;
+}
+.home__members__member img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100px;
+  align-items: center;
+}
+.home__members__member .name {
+  padding: 10px;
+}
+
+.rightBlock {
+  height: 100vh;
+  width: 100vw;
+  background-color: #5e6262;
+  margin-top: 20px;
+  color: #dedddd;
+}
+.rightBlock__topNav {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px;
+}
+.rightBlock__stages {
+  display: flex;
+  flex-direction: row;
+}
+.rightBlock__stages__stage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.rightBlock__stages__stage__title {
+  font-size: large;
+  margin-right: 15rem;
+  margin-left: 4rem;
+}
+.rightBlock .userContainer {
+  width: 30vw;
+  height: 20vh;
+  background-color: #3b3a3a;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: row;
+}
+.rightBlock .userContainer img {
+  height: 40px;
+  width: 40px;
+  border-radius: 30%;
+  margin: 0.5rem;
+}
+.rightBlock .userContainer__name {
+  margin-top: 1rem;
+  font-size: medium;
+}
+.rightBlock .userContainer__headphones {
+  width: 70px;
+  position: relative;
+  left: 700px;
+  bottom: 110px;
+  border: 2px #18191b solid;
+  border-radius: 20%;
+  display: flex;
+}
+.rightBlock .userContainer__headphones i {
+  margin-left: 5px;
+}
+.rightBlock .userContainer__caption {
+  margin-top: 4.5rem;
+  font-variant-position: initial;
+}

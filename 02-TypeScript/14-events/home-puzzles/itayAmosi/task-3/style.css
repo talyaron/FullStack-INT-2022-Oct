@@ -1,0 +1,23 @@
+.container {
+  margin-top: 8rem;
+  display: grid;
+  grid-template-columns: 75px 75px 75px;
+  justify-content: center;
+  gap: 30px;
+  margin: auto;
+}
+
+.box {
+  width: 95px;
+  height: 95px;
+  background-color: rgb(179, 151, 151);
+  display: grid;
+  border: 3px solid black;
+  text-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+h1 {
+  text-align: center;
+}

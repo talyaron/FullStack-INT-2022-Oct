@@ -1,0 +1,9 @@
+.myPicture {
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px black;
+  max-width: 300px;
+  max-height: 300px;
+}
+.myPicture img {
+  width: 100%;
+}

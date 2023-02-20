@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birding-Spot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link rel="icon" href="./media/favicon.png">
+    <link rel="stylesheet" href="./dist/style.css">
+    <link rel="stylesheet" href="./dist/birdDisplay.css">
+    <script src="./dist/helper.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+</head>
+<body onbeforeunload=" getBirdsFromStorage(), getLocationFromStorage ()">
+    <div class="navbar">
+        <img src="./media/navbaricon.png" class="navbarIcon">
+            <div class="menuWrapper">
+                <a href="./birdsDisplay.html">Birds</a>
+            </div>
+    </div>
+    
+    
+    <section class="intro">
+    <div class="aboutUs">
+        <img src="./media/sitelogo1.png" alt="">
+        <p><span>About Birding-Spot</span><br> Birding-Spot is all about birding! our site will help you to locate exactly the bird youre looking for!<br>Encountered a bird!? please fill up the form and help others with their birding journey!  </p>   
+    </div> 
+    <div class="header2">       
+        <img src="./media/sitelogo2.jpg" alt="">
+        <p><span>Become one with nature!</span><br>Birding requires a lot of patience, its all about becoming one with nature and not interrupting with the birds natural behavior. <br>Only then youll be able to really take in whats happening under our noses on a daily basis!</p>
+        </div> 
+    <div class="header3">
+        <img src="./media/sitelogo3.png" alt="">
+
+        <p><span>We Care</span><br>We care about nature deeply! Please when youre birding around dont leave any debris or leftovers that may harm nature. </p> 
+    </div>
+    </section>
+</body>
+</html>

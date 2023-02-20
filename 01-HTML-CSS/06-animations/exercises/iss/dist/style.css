@@ -1,0 +1,41 @@
+.circle {
+  background-color: #860707;
+  width: 200px;
+  height: 200px;
+  display: grid;
+  position: relative;
+  animation-name: iss;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  grid-template-columns: 1fr 1fr;
+}
+
+.in-circle {
+  background-color: yellow;
+  border-radius: 100%;
+  width: 90%;
+  height: 90%;
+  margin: auto;
+}
+
+@keyframes iss {
+  0% {
+    top: 0px;
+    grid-gap: 0px;
+    border-radius: 20%;
+  }
+  50% {
+    top: 20px;
+    grid-gap: 100px;
+    border-radius: 100%;
+  }
+  100% {
+    top: 0px;
+    grid-gap: 0px;
+    border-radius: 20%;
+  }
+}
+.test {
+  font-weight: 400;
+}

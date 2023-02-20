@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+}
+
+.header {
+  display: flex;
+  position: sticky;
+  width: 100vw;
+  height: 50px;
+  background-color: red;
+  justify-content: space-between;
+  box-sizing: border-box;
+}

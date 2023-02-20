@@ -1,0 +1,31 @@
+.box {
+  height: 100px;
+  width: 200px;
+  background-color: rgb(255, 145, 0);
+}
+
+.box3 {
+  height: 100px;
+  width: 200px;
+  background-color: rgb(119, 0, 255);
+}
+
+.box4 {
+  height: 100px;
+  width: 200px;
+  background-color: #33ff00;
+}
+
+.box5 {
+  height: 100px;
+  width: 200px;
+  background-color: hsl(0deg, 100%, 50%);
+}
+
+.wrapper {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 50px;
+  gap: 50px;
+}

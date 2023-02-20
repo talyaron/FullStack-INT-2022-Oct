@@ -1,0 +1,17 @@
+.boxContainer {
+    display: grid;
+    grid-template-columns: repeat(3,200px);
+    width: 600px;
+    height: 600px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+}
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    border: 1px solid black;
+    font-size: 35px;
+}

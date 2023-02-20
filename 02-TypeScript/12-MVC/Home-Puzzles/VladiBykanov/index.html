@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlackJack App</title>
+    <link rel="stylesheet" href="./dist/style.css" />
+    <link rel="stylesheet" href="./dist/responsive.css" />
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/Controllers.js" defer></script>
+    <script src="./dist/Models.js" defer></script>
+    <script src="./dist/app.js" defer></script>
+  </head>
+  <body>
+    <div class="gameContainer">
+      <div class="gameContainer__title">
+        <h1>Black Jack</h1>
+        <h3 class="gameContainer__title__userMessage">Want to play a game?</h3>
+      </div>
+      <div class="gameContainer__playerArea">
+        <div class="gameContainer__playerArea__score">House Score: <span id="houseScore">0</span></div>
+        <div class="houseCardsDiv">
+          <img
+            src="./PNG-cards-1.3/card_back_red.png"
+            alt="Card's back side - red"
+            class="displayedCard"
+            id="houseFirstCard"
+          />
+          <img
+            src="./PNG-cards-1.3/card_back_red.png"
+            alt="Card's back side - red"
+            class="displayedCard"
+            id="houseSecondCard"
+          />
+        </div>
+      </div>
+      <div class="gameContainer__playerArea">
+        <div class="gameContainer__playerArea__score">User Score: <span id="userScore">0</span></div>
+        <div id="userCards">
+          <img
+            src="./PNG-cards-1.3/card_back_red.png"
+            alt="Card's back side - red"
+            class="displayedCard"
+          />
+          <img
+            src="./PNG-cards-1.3/card_back_red.png"
+            alt="Card's back side - red"
+            class="displayedCard"
+          />
+        </div>
+      </div>
+      <div class="gameContainer__buttonGrid">
+        <button id="newGameBtn">New Game</button>
+        <button id="getCardButton">Get a card</button>
+        <button id="holdBtn">Hold</button>
+      </div>
+    </div>
+  </body>
+</html>

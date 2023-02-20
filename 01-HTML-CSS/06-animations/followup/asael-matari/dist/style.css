@@ -1,0 +1,35 @@
+.ball {
+  background-color: navy;
+  border-radius: 100px;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation-name: bounce;
+  animation-duration: 6s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes bounce {
+  25% {
+    background-color: pink;
+    top: 50px;
+    right: -20px;
+  }
+  50% {
+    background-color: #2200ff;
+    top: 0px;
+    right: -60px;
+  }
+  75% {
+    background-color: #5116da;
+    top: 50px;
+    right: -100px;
+  }
+  100% {
+    background-color: #010000;
+    top: 0px;
+    right: -140px;
+  }
+}

@@ -1,0 +1,16 @@
+#imgs {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  width: 100vw;
+  height: 100vh;
+}
+#imgs img {
+  width: 15%;
+}

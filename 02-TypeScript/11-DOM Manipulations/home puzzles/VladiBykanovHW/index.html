@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product List</title>
+    <link rel="stylesheet" href="./dist/style.css" />
+  </head>
+  <body>
+    <div class="inputArea">
+      <label for="search">Search product by name:</label>
+      <input
+        type="text"
+        name="search"
+        id="search"
+        placeholder="Levi's, Tommy, Nike..."
+      />
+      <button class="addNewItemForm">Add new Item</button>
+    </div>
+    <form class="addItemForm">
+      <h2>Add new Item</h2>
+      <label for="newItemPrice">Add Item price:</label>
+      <input
+        type="number"
+        name="newItemPrice"
+        class="newItemPrice"
+        placeholder="135"
+      />
+      <label for="newItemName">Add Item Name:</label>
+      <input
+        type="text"
+        name="newItemName"
+        class="newItemName"
+        placeholder="Carhartt WIP - SHORT WATCH UNISEX"
+      />
+      <label for="newItemDepartment">Add Item Department:</label>
+      <input
+        type="text"
+        name="newItemDepartment"
+        class="newItemDepartment"
+        placeholder="Accessories"
+      />
+      <label for="newItemType">Add Item Type:</label>
+      <input
+        type="text"
+        name="newItemType"
+        class="newItemType"
+        placeholder="Hat"
+      />
+      <label for="newItemLink">Add a link with item's photo:</label>
+      <input
+        type="text"
+        name="newItemLink"
+        class="newItemLink"
+        placeholder="https://img01.ztat.net/article/spp-media..."
+      />
+      <input type="submit" value="Submit">
+    </form>
+    <ul class="displayedList"></ul>
+    <script src="./dist/app.js"></script>
+  </body>
+</html>

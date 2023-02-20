@@ -1,0 +1,196 @@
+.wrapper {
+  width: 400px;
+  height: 750px;
+  border-radius: 30px;
+  background-color: #0b0909;
+  margin: auto;
+}
+.wrapper__topMenu {
+  width: 100%;
+  height: 30px;
+  background-color: #21473f;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+.wrapper__topMenu__phoneStatus {
+  width: 100%;
+  height: 20px;
+  background-color: #164030;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.wrapper__topMenu__phoneStatus__clock {
+  width: 25px;
+  height: 25px;
+}
+.wrapper__topMenu__phoneStatus__clock p {
+  color: white;
+  height: 100%;
+  width: 100%;
+  margin-top: 2px;
+  margin-left: 10px;
+}
+.wrapper__topMenu__phoneStatus__rightStatus {
+  height: 25px;
+  width: 80px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px;
+}
+.wrapper__topMenu__phoneStatus__rightStatus__wifiIcon {
+  width: 20px;
+  height: 25px;
+}
+.wrapper__topMenu__phoneStatus__rightStatus__wifiIcon i {
+  color: white;
+}
+.wrapper__topMenu__phoneStatus__rightStatus__dataIcon {
+  width: 20px;
+  height: 25px;
+}
+.wrapper__topMenu__phoneStatus__rightStatus__dataIcon i {
+  color: white;
+}
+.wrapper__topMenu__phoneStatus__rightStatus__batteryIcon {
+  width: 20px;
+  height: 25px;
+}
+.wrapper__topMenu__phoneStatus__rightStatus__batteryIcon i {
+  color: white;
+}
+.wrapper__centerMenu {
+  width: 100%;
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #21473f;
+  padding-top: 10px;
+  color: white;
+  margin: 0;
+  font-size: large;
+}
+.wrapper__centerMenu__whatsappLogo {
+  padding-left: 10px;
+}
+.wrapper__centerMenu__rigthIcons {
+  width: 50px;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.wrapper__centerMenu__rigthIcons__searchIcon {
+  width: 25px;
+  height: 30px;
+}
+.wrapper__centerMenu__rigthIcons__searchIcon i {
+  color: white;
+}
+.wrapper__centerMenu__rigthIcons__menuIcon {
+  width: 20px;
+  height: 30px;
+}
+.wrapper__centerMenu__rigthIcons__menuIcon i {
+  color: white;
+}
+.wrapper__bottomMenu {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #21473f;
+  font-size: small;
+  padding-top: 10px;
+}
+.wrapper__bottomMenu__cameraIcon {
+  width: 70px;
+  height: 30px;
+  color: white;
+  padding-left: 20px;
+}
+.wrapper__bottomMenu__chatMenu {
+  width: 70px;
+  height: 30px;
+  color: white;
+}
+.wrapper__bottomMenu__statusMenu {
+  width: 70px;
+  height: 30px;
+  color: white;
+}
+.wrapper__bottomMenu__callsMenu {
+  width: 70px;
+  height: 30px;
+  color: white;
+  text-decoration: underline 2px;
+  text-decoration-color: white;
+}
+.wrapper__callsList {
+  width: 100%;
+  height: 640px;
+  background-color: white;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+.wrapper__callsList__call1 {
+  width: 100%;
+  height: 70px;
+  border: 1px solid rgba(89, 86, 86, 0.181);
+  display: flex;
+  justify-content: space-between;
+}
+.wrapper__callsList__call1__leftItem {
+  width: 70px;
+  height: 70px;
+}
+.wrapper__callsList__call1__leftItem i {
+  color: #4bc64b;
+  font-size: 3em;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+.wrapper__callsList__call1__leftItem--red {
+  color: #bb2f2f;
+}
+.wrapper__callsList__call1__centerItems {
+  width: 200px;
+  height: 70px;
+  margin-right: 90px;
+}
+.wrapper__callsList__call1__centerItems__userName {
+  width: 90px;
+  height: 30px;
+  padding-top: 10px;
+  font-weight: bold;
+}
+.wrapper__callsList__call1__centerItems__bottom {
+  width: 150px;
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+.wrapper__callsList__call1__centerItems__bottom__arrowIcon {
+  width: 30px;
+  height: 30px;
+}
+.wrapper__callsList__call1__centerItems__bottom__arrowIcon i {
+  color: green;
+}
+.wrapper__callsList__call1__centerItems__bottom__callTime {
+  width: 170px;
+  height: 30px;
+  color: gray;
+}
+.wrapper__callsList__call1__rigthItems__videoIcon {
+  border: none;
+  width: 30px;
+  height: 30px;
+  margin-top: 25px;
+  margin-right: 5px;
+}
+.wrapper__callsList__call1__rigthItems__videoIcon i {
+  color: #4bc64b;
+  font-size: 20px;
+}

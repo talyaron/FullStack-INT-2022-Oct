@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap");
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background: linear-gradient(120deg, #2980b9, #8e44ad);
+  font-family: "Montserrat", sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .main, body .main_Info span {
+  margin-top: -450px;
+  font-family: sans-serif;
+}
+body .span2 {
+  color: #6897f0;
+}
+body .span3 {
+  color: whitesmoke;
+}
+body .main_Info {
+  color: #f20ed4;
+  font-weight: bolder;
+}
+body .container {
+  position: absolute;
+  width: 400px;
+  height: 250px;
+  border-radius: 10%;
+  background-color: #c22aae;
+}
+body .container .m_h1 {
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+body .container form {
+  padding: 0 40px;
+}
+body .container form .formMain {
+  position: relative;
+  border-bottom: 2px solid #943593;
+  margin: 30px 0px;
+}
+body .container form .formMain, body .container form input {
+  width: 100%;
+  padding: 0 5px;
+  height: 30px;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  background-color: #6897f0;
+}
+body .container form .btn_Login {
+  margin: 0px 125px;
+  background-color: #6897f0;
+  outline: none;
+  border: #c22aae;
+  font-size: 20px;
+  border-radius: 50%;
+}

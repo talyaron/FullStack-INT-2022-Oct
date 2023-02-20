@@ -1,0 +1,17 @@
+.NavBarTitles{
+   font-weight: 500;
+   cursor: pointer;
+   padding-right: 50px;
+   padding-left: 50px;
+   padding-bottom: 50px;
+   align-items: center;
+}
+
+.NavBarTitles:hover{
+    color: rgb(255, 73, 112);
+ }
+
+ .activeTitle {
+    color: rgb(255, 73, 112);
+ }
+

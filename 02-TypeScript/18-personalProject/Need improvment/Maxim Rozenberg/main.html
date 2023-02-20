@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <script src="./dist/controls.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+    <link rel="stylesheet" href="./dist/main.css">
+</head>
+<body onbeforeunload="handleSaveRecipe()">
+    <h1 class="mainHeader"> </h1>
+    <div class="headDiv">
+        <a href="second.html"><button >My Recipes</button></a>
+       <a href="https://www.feastingathome.com/15-cozy-fall-dinners-vegetarian/" target="_blank"> <button>Popular Veggi recipes</button></a>
+       <a href="https://www.slurrp.com/discover/recipes/non-vegetarian?type=food&for=discover&dietTypes=Non_Vegetarian&page=1" target="_blank"> <button>Popular Non Veggi recipes</button></a>
+    </div>
+    <h2>Here you can Add your favorite recipe</h2>
+    <form onsubmit="handleRecipeToArray(event)" class="mainForm">
+        <label for="category">Category of recipe</label>
+        <select name="category" id="category">
+            <option value="Vegi">Vegi</option>
+            <option value="noneVegi">Non Vegi</option>
+            <option value="bake">Bakery</option>
+          </select> <br>
+          <label for="name">name of the recipe</label>
+          <input type="text" name="name" id="name"><br>
+          <label for="ingredients">Ingredients</label>
+          <input type="text" name="ingredients" id="ingredients"><br>
+          <label for="preparation"><b>how to make:</b></label>
+          <textarea name="preparation" id="" cols="50" rows="20"></textarea> <br>
+          <label for="image">Image Url</label>
+          <input type="url" name="image" id="image"> <br>
+          <input type="submit" value="Add">
+    </form>
+</html>
+<img src="" alt="" srcset="">

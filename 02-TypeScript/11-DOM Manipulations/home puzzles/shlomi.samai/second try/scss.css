@@ -1,0 +1,11 @@
+.body {
+  margin: 0%;
+}
+
+.list {
+  height: 100px;
+  width: 100px;
+}
+.list img {
+  width: 100%;
+}

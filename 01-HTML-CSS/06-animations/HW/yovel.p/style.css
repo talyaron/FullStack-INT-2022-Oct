@@ -1,0 +1,223 @@
+body {
+  margin: 0;
+}
+
+.pacman {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.pacman__map {
+  width: 70%;
+  height: 95%;
+  background: rgb(53, 79, 126);
+  border: 3px solid black;
+  position: relative;
+}
+.pacman__map .top {
+  width: 80%;
+  height: 4%;
+  background: white;
+  position: absolute;
+  left: 9%;
+  top: 10px;
+  border: none;
+}
+.pacman__map .bottom {
+  width: 80%;
+  height: 4%;
+  background: white;
+  position: absolute;
+  bottom: 10px;
+  left: 9%;
+  border: none;
+}
+.pacman__map .right {
+  width: 3%;
+  height: 93%;
+  background-color: white;
+  position: absolute;
+  top: 14px;
+  left: 9%;
+}
+.pacman__map .left {
+  width: 3%;
+  height: 93%;
+  background: white;
+  position: absolute;
+  top: 14px;
+  right: 11%;
+}
+.pacman__map .center {
+  height: 30%;
+  width: 30%;
+  border: 30px solid white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-animation-name: pacmanout;
+          animation-name: pacmanout;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+}
+.pacman__map .centerleft {
+  width: 25%;
+  height: 4%;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+}
+.pacman__map .centerright {
+  width: 23%;
+  height: 4%;
+  background: white;
+  position: absolute;
+  top: 50%;
+  right: 12%;
+}
+
+.dots {
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
+}
+.dots .dots__left {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  background: black;
+  border-radius: 50%;
+  z-index: 1;
+  top: 380px;
+  left: 15%;
+  -webkit-animation-name: dotsfade;
+          animation-name: dotsfade;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  animation-direction: reverse;
+}
+.dots .dots__right {
+  position: relative;
+  width: 15px;
+  height: 15px;
+  background: black;
+  border-radius: 50%;
+  z-index: 1;
+  top: 380px;
+  left: 700px;
+  -webkit-animation-name: dotsfade;
+          animation-name: dotsfade;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  animation-direction: reverse;
+}
+
+@-webkit-keyframes dotsfade {
+  from {
+    background: black;
+  }
+  to {
+    background: white;
+  }
+}
+
+@keyframes dotsfade {
+  from {
+    background: black;
+  }
+  to {
+    background: white;
+  }
+}
+.pacmanface {
+  width: 40px;
+  height: 40px;
+  background: rgb(255, 255, 0);
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  position: relative;
+  top: 47%;
+  left: 36%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  -webkit-animation-name: pacmanfacemove;
+          animation-name: pacmanfacemove;
+  -webkit-animation-duration: 7s;
+          animation-duration: 7s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+.pacmanface .pacmanfaceeye {
+  top: 5px;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  background: rgb(255, 255, 255);
+  z-index: 2;
+  border-radius: 50%;
+  box-shadow: 1px 4px 8px 2px black;
+}
+
+@-webkit-keyframes pacmanfacemove {
+  0% {
+    top: 47%;
+    left: 36%;
+  }
+  20% {
+    top: 47%;
+    left: 9%;
+  }
+  40% {
+    top: 4%;
+    left: 9%;
+  }
+  60% {
+    top: 2%;
+    left: 60%;
+  }
+  80% {
+    top: 47%;
+    left: 64%;
+  }
+}
+
+@keyframes pacmanfacemove {
+  0% {
+    top: 47%;
+    left: 36%;
+  }
+  20% {
+    top: 47%;
+    left: 9%;
+  }
+  40% {
+    top: 4%;
+    left: 9%;
+  }
+  60% {
+    top: 2%;
+    left: 60%;
+  }
+  80% {
+    top: 47%;
+    left: 64%;
+  }
+}

@@ -1,0 +1,31 @@
+.card {
+  padding: 2px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px beige;
+  overflow: hidden;
+}
+
+img {
+  border-radius: 15px;
+  padding: 2px 2px;
+  width: 50vh;
+  border: 2px solid grey;
+  margin: 5px, 5px;
+}
+
+h1 {
+  justify-content: center;
+  font-size: xx-large;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+h2 {
+  font-size: large;
+  text-align: center;
+  color: green;
+  font-weight: bold;
+  text-decoration: underline;
+}

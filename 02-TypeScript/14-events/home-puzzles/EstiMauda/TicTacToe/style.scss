@@ -1,0 +1,55 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family: georgia;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz5fJ7zAnYVu56Z8ox36kH1A-j0xR2MzNnoo8kHZJ-maz3PyOmgUw_Cg1_FnD6iHyEj0U&usqp=CAU);
+    opacity: 5;
+}
+
+h1{
+    font-size: 60px;
+    text-align: center;
+    color: blue;
+    text-shadow: 2px 2px white ;
+    
+
+    
+}
+#player{
+    font-size: 40px;
+    text-align: center;
+    color: red;
+    text-shadow: 2px 2px white ;
+    margin-bottom: 10px;
+}
+
+
+#wapper{
+    
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 5px;
+    grid-row: 30px;
+    grid-column: 30px;
+    max-width: 30cm;
+    margin-left: 38%;
+    
+    }
+
+.box{
+    height: 100px;
+    background-color: rgb(156, 196, 200);
+    font-size: 45px;
+    display: flex;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 
+                rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    justify-content: center;
+    align-items: center 
+      
+}

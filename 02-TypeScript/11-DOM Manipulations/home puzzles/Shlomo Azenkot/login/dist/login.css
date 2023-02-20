@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:300");
+body {
+  background-color: #a44b4b;
+}
+
+.login {
+  position: absolute;
+  left: 25%;
+  top: 10%;
+  font-size: 60px;
+  text-align: center;
+  color: #f30303;
+  font-family: "Lilita One", cursive;
+}
+
+.container {
+  position: relative;
+  margin: auto;
+  margin-top: 15vh;
+  background-color: #d5d4d4;
+  width: 380px;
+  height: 420px;
+  box-shadow: 5px 10px 20px 10px black;
+}
+.container__input {
+  position: relative;
+  height: 30%;
+}
+
+label {
+  margin-left: 10%;
+  color: white;
+  font-size: medium;
+  font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+input {
+  margin-left: 10%;
+  color: black;
+  font-weight: bold;
+  font-size: larger;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 2px 5px 10px #515151;
+}
+
+button {
+  background-color: #fb0000;
+  font-size: larger;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-left: 40%;
+}
+
+button:hover {
+  background-color: #810101;
+}
+
+span {
+  position: relative;
+  left: 45px;
+  color: red;
+  font-weight: lighter;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 15px;
+}
+
+.gradient-border {
+  --border-width: 3px;
+  position: relative;
+  border-radius: 20px;
+  width: 380px;
+  height: 420px;
+  font-family: Lato, sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: white;
+  background: #222;
+  border-radius: var(--border-width);
+}
+.gradient-border::after {
+  position: absolute;
+  content: "";
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+  z-index: -1;
+  width: calc(100% + var(--border-width) * 2);
+  height: calc(100% + var(--border-width) * 2);
+  background: linear-gradient(60deg, #5f86f2, #a65ff2, #f25fd0, #f25f61, #f2cb5f, #abf25f, #5ff281, #5ff2f0);
+  background-size: 300% 300%;
+  background-position: 0 50%;
+  border-radius: calc(2 * var(--border-width));
+  animation: moveGradient 4s alternate infinite;
+}
+
+@keyframes moveGradient {
+  50% {
+    background-position: 100% 50%;
+  }
+}

@@ -1,0 +1,85 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: georgia;
+  background-color: #566f54;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #022b15;
+}
+
+.container {
+  margin: auto;
+  width: 400px;
+  height: 450px;
+  font-size: 20px;
+  color: #131f17;
+  border: 2px solid black;
+}
+.container form {
+  margin-left: 10px;
+  margin: auto;
+}
+.container label {
+  display: inline-block;
+  width: 100px;
+  text-align: left;
+}
+.container input {
+  text-align: left;
+  border: 3px solid #a79e9e;
+  height: 30px;
+  display: table-cell;
+  width: 60%;
+  margin: 10px 0px;
+}
+.container #pass {
+  background-image: url(https://cdn-icons-png.flaticon.com/128/2767/2767146.png);
+  background-position: right;
+  background-size: 20px;
+  background-repeat: no-repeat;
+}
+.container #colorDiv {
+  margin: 10px;
+}
+.container ץ .color {
+  width: 30px;
+}
+.container #image {
+  display: inline-block;
+  width: 200px;
+}
+.container button {
+  text-align: center;
+  align-items: center;
+  height: 50px;
+  width: 110px;
+  background-color: #08482a;
+  color: white;
+  font-size: 30px;
+  margin-left: 40%;
+}
+
+.detail {
+  right: 0;
+  margin-left: 10px;
+}
+
+.userDiv {
+  display: flex;
+  margin-top: 20px;
+  color: #9eb6a6;
+  font-size: 30px;
+  margin-left: 750px;
+}
+
+.creatDiv {
+  font-size: 30px;
+  text-align: center;
+}

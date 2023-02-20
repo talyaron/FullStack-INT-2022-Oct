@@ -1,0 +1,25 @@
+.wapper{
+    margin-top: 8rem;
+    display: grid;
+    grid-template-columns: 75px 75px 75px 75px 75px;
+    justify-content: center;
+    gap: 70px;
+    margin: 80px;
+    .box{
+        // background-color: white;
+        width: 100px;
+        height: 100px;
+        border: 1px  solid black;
+    }
+    .p1{
+        // background-color: white;
+        width: 100px;
+        height: 100px;
+        border: 1px  solid black;
+    }
+}
+    h1{
+        display: grid;
+        text-align: center;
+        padding-top: 30px;
+    }

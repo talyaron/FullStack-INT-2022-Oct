@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>class asignment</title>
+    <link rel="stylesheet" href="./dist/style.css" />
+  </head>
+  <body>
+    <div class="startPage">
+      <h1>Pre made list</h1>
+      <p id="listOutput">
+      </p>
+      <button id="makeListBtn">Make your own list</button>
+    </div>
+    <div class="inputPage">
+      <h4>Calculate the average income of your group</h4>
+      <div class="nameBox">
+        <p>Enter full name</p>
+        <input type="text" id="name" placeholder="John Doe" />
+      </div>
+      <div class="salaryBox">
+        <p>Enter salary</p>
+        <input type="text" id="salary" placeholder="7,500₪" />
+      </div>
+      <div class="Buttons">
+        <button id="saveBtn">Save Input</button>
+        <button id="calculateBtn">Calculate Average</button>
+        <button id="resetBtn">Reset Data</button>
+      </div>
+      <div class="output">Type in your data</div>
+      <div class="listDiv">
+        <span>List of names</span>
+        <ul class="listOfNames"></ul>
+      </div>
+    </div>
+
+    <script src="./dist/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,232 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+  background: #00d5ff;
+  min-width: 100vh;
+}
+
+.wrapper {
+  margin: 4000px 0 0 4000px;
+  display: flex;
+  flex-direction: row;
+  padding-top: 100px;
+  margin: 0 auto;
+}
+.wrapper__img1 {
+  margin: 10px;
+  /*       סוג האנימציה    */
+  animation-name: img;
+  /*  כמה זמן להריץ אץ האנימציה  */
+  animation-iteration-count: 2;
+  -webkit-animation-duration: 2s;
+  /*       סוג אפקט מעבר  */
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  animation-name: img;
+  border-radius: 100%;
+}
+.wrapper__img2 {
+  margin: 10px;
+  animation-name: img;
+  animation-iteration-count: 2;
+  -webkit-animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  border-radius: 100px;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  animation-name: img;
+}
+.wrapper__img3 {
+  margin: 10px;
+  animation-name: img;
+  animation-duration: 5s;
+  animation-iteration-count: 2;
+  -webkit-animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  border-radius: 100px;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  animation-name: img;
+}
+.wrapper__img4 {
+  margin: 10px;
+  animation-duration: 2s;
+  animation-iteration-count: 2;
+  -webkit-animation-duration: 2s;
+  animation-name: img;
+  animation-timing-function: ease-in-out;
+  border-radius: 100px;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  animation-name: img;
+}
+.wrapper__img5 {
+  margin: 10px;
+  animation-name: bimg;
+  animation-duration: 5s;
+  animation-iteration-count: 2;
+  -webkit-animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  border-radius: 100px;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  animation-name: img;
+}
+
+@keyframes img {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 180px;
+  }
+  100% {
+    top: 0px;
+  }
+  80% {
+    top: 100px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+.wrapper2 {
+  margin: 4000px 0 0 4000px;
+  display: flex;
+  flex-direction: row;
+  padding-top: 100px;
+  margin: 0 auto;
+}
+.wrapper2__round1 {
+  margin: 10px;
+  /*       סוג האנימציה    */
+  animation-name: ball;
+  /*  כמה זמן להריץ אץ האנימציה  */
+  animation-duration: 10s;
+  animation-duration: 3s;
+  /*       סוג אפקט מעבר  */
+  animation-timing-function: ease-in-out;
+  border-radius: 100px;
+  position: relative;
+  animation-name: ball;
+  width: 300px;
+  height: 300px;
+  animation-name: ball;
+  animation-duration: 5s;
+}
+.wrapper2__round2 {
+  margin: 10px;
+  animation-name: ball;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  border-radius: 100px;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  animation-name: ball;
+  animation-duration: 5s;
+}
+.wrapper2__round3 {
+  margin: 10px;
+  animation-name: ball;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  border-radius: 100px;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  animation-name: ball;
+  animation-duration: 5s;
+  animation-duration: 1s;
+  animation-duration: 5s;
+}
+.wrapper2__round4 {
+  margin: 10px;
+  animation-duration: 2s;
+  animation-name: ball;
+  animation-timing-function: ease-in-out;
+  border-radius: 100px;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  animation-name: ball;
+  animation-duration: 5s;
+}
+.wrapper2__round5 {
+  margin: 10px;
+  animation-name: ball;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  border-radius: 100px;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  animation-name: ball;
+  animation-duration: 5s;
+  -webkit-animation-duration: 100s;
+  will-change: transform;
+}
+.wrapper2__round6 {
+  margin: 10px;
+  animation-name: ball;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  border-radius: 100px;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  animation-name: ball;
+  animation-duration: 5s;
+  -webkit-animation-duration: 100s;
+  will-change: transform;
+}
+.wrapper2__round7 {
+  margin: 10px;
+  animation-name: ball;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  border-radius: 100px;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  animation-name: ball;
+  animation-duration: 5s;
+  -webkit-animation-duration: 100s;
+  will-change: transform;
+}
+
+@keyframes ball {
+  0% {
+    background-color: white;
+    left: 0px;
+    righttop: 10px;
+  }
+  25% {
+    background-color: white;
+    bottom: 200px;
+    top: 0px;
+  }
+  50% {
+    background-color: white;
+    left: 200px;
+    top: 200px;
+  }
+  75% {
+    background-color: white;
+    left: 0px;
+    top: 200px;
+  }
+  100% {
+    background-color: white;
+    right: 0px;
+    top: 0px;
+  }
+}

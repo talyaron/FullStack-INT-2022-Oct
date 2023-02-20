@@ -1,0 +1,25 @@
+.header {
+  background-color: pink;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+.header__item {
+  background-color: teal;
+  padding: 20px;
+}
+.header__item--important {
+  font-size: 2rem;
+  color: white;
+}
+
+.btn {
+  background-color: blue;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  border: none;
+}
+.btn--danger {
+  background-color: red;
+}
