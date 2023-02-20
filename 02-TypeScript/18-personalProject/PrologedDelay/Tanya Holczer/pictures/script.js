@@ -13,7 +13,6 @@ var cardChk = 0;
 var memory = document.getElementById("game");
 var newGame; 
 var h1Res = document.getElementById("h1Res");
-var pRes = document.getElementById("pRes");
 var status = 0; 
 var gameOver = false; 
 
@@ -39,21 +38,16 @@ function cardClick(cardId) {
 		back = document.getElementById("back" + cardNum);
 		front.style.transform = "rotateY(-180deg)";
 		back.style.transform = "rotateY(0deg)";
-		
-
 		cardTextRec.push(back.innerHTML);
 		cardRec.push(cardNum); 
 		flipIndex++;
 		record[cardNum-1] = 1;
-		
 		if(flipIndex == 2) {
 			if(cardTextRec[0] == cardTextRec[1]) {
 				correct++;
-				scoreEl.innerHTML = "Score: " + correct; 
 				cardRec = [];
 				cardTextRec = [];
 				flipIndex = 0;
-				
 				if(correct == 10) {
 					setTimeout(function(){displayResult();},600); 
 				}
@@ -140,7 +134,6 @@ function displayResult() {
 		h1Res.innerHTML = "Try again!";
 	}
 }
-
 window.onload = newBoard();
 
 

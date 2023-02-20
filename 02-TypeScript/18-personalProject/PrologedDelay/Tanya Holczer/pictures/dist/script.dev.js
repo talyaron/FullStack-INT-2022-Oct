@@ -13,7 +13,6 @@ var cardChk = 0;
 var memory = document.getElementById("game");
 var newGame;
 var h1Res = document.getElementById("h1Res");
-var pRes = document.getElementById("pRes");
 var status = 0;
 var gameOver = false;
 memory.addEventListener("click", function (e) {
@@ -44,7 +43,6 @@ function cardClick(cardId) {
     if (flipIndex == 2) {
       if (cardTextRec[0] == cardTextRec[1]) {
         correct++;
-        scoreEl.innerHTML = "Score: " + correct;
         cardRec = [];
         cardTextRec = [];
         flipIndex = 0;
