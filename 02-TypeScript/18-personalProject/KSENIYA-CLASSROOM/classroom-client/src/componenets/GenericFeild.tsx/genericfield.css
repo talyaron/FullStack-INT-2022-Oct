@@ -1,0 +1,11 @@
+.formWrapper{
+    padding-top: 1rem;
+}
+
+.formTitle{
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+.formField{
+    padding-bottom: 1rem;
+}

@@ -1,3 +1,7 @@
+interface User{
+  
+}
+
 function startGame() {
   try {
     getCurrentUserFromStorage();

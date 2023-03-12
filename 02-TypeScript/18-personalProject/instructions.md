@@ -8,3 +8,4 @@ If you do not have a idea for a project, build a store with an admin page and a 
 The project should be ready in one week.
 
 Doing the store project will give you maximum of 90 points.
+done
