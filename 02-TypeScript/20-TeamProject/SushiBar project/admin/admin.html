@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SushiBar-Admin Page</title>
+    <link rel="stylesheet" href="./dist/admin.css">
+    <link rel="shortcut icon" href="/images/favicon (2).ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/6cf7873aa7.js" crossorigin="anonymous" defer></script>
+    
+    <script src="../customer/dist/control.js" defer></script>
+    <script src="../customer/dist/view.js" defer></script>
+    <script src="../customer/dist/index.js" defer></script>
+    
+    <script src="./dist/views.js" defer></script>
+    <script src="./dist/models.js" defer></script>
+    <script src="./dist/admin.js" defer></script>
+</head>
+<body>
+    <div class="top">
+        <i onclick="window.location.href='../main/mainPage.html'" class="fa-solid fa-arrow-left fa-2xl"></i>
+        <h1>ADMIN PAGE</h1>
+        <img src="../images/logo.png" alt="sushi-logo">
+    </div>
+    <div class="display"></div>
+    <a href="#theForm"><button id="formBtn">Add</button></a>
+    <div id="change"></div>
+    <form class="form none" id="theForm">
+        <input type="text" name="name" placeholder="Name" required>
+        <textarea name="details"cols="30" rows="10" placeholder="Details" required></textarea>
+        <input type="number" name="price" placeholder="Price" required>
+        <select name="type" id="type">
+            <option value="Starters">Starters</option>
+            <option value="Drinks">Drinks</option>
+            <option value="Sushi">Sushi</option>
+        </select>
+        <input type="text" name="img" placeholder="Image URL (optional)">
+        <input class="btn" type="submit" value="Submit">
+    </form>
+</body>
+</html>

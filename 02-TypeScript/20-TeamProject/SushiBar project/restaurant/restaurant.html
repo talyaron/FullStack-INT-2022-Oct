@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="shortcut icon"
+      href="../images/favicon (2).ico"
+      type="image/x-icon"
+    />
+    <title>SushiBar-Restaurants</title>
+    <link rel="stylesheet" href="./dist/restaurant.css" />
+    <script src="https://kit.fontawesome.com/6cf7873aa7.js" crossorigin="anonymous" defer></script>
+    <script src="./dist/restaurant.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+  </head>
+</head>
+<body onload="showRestaurant()">
+    <div class="top">
+        <h1>SUSHI BAR</h1>
+        <img src="../images/logo.png" alt="sushi-logo" onclick="goToHomePage()"> 
+        <a id="link_to_home_page" href="../main/mainPage.html"></a>
+    </div>
+    <h1>RESTAURANTS</h1>
+    <hr>
+    <img id="option_img" src="../images/option-img.png" onclick="showOption()" onload="showRestaurant()"/>
+    <div class="more-page">
+      <a href="../main/mainPage.html">Home</a> <br>
+      <br />
+      <a href="../contact-us/contactUs.html">Contact us</a> <br>
+      <br />
+      <a href="../login/adminLogInPage.html">Admin</a>
+      <img src="../images/close-img.png" alt="colse-img" onclick="closeOption()">
+    </div>
+    <div class="show_restaurants">
+    </div>
+</body>
+</html>

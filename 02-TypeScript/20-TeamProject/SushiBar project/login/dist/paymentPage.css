@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ubuntu&display=swap");
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  background-color: #EDDBC7;
+  margin-bottom: 20px;
+}
+.top img {
+  width: 50px;
+  aspect-ratio: 1/1;
+}
+.top h1 {
+  font-family: "Open Sans", sans-serif;
+}
+.top i {
+  cursor: pointer;
+}
+
+.customer_details {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+  gap: 10px;
+}
+.customer_details .btn {
+  cursor: pointer;
+  color: white;
+  width: 70px;
+  height: 30px;
+  font-size: larger;
+  border: none;
+  border-radius: 5px;
+  background-color: #A7727D;
+  margin-left: 100%;
+}
+.customer_details .btn:hover {
+  color: #c6c5c5;
+}
+.customer_details .restaurantList {
+  display: none;
+}

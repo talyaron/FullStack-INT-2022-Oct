@@ -1,0 +1,1 @@
+const menuElement = document.querySelector('.menu');
