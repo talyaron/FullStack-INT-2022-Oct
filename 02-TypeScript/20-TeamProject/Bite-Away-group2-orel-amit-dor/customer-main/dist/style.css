@@ -1,0 +1,285 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 35px;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  position: relative;
+  background-image: url("./../img/background.jpg");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+.container-customer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  margin: 0;
+}
+.container-customer__title {
+  width: 100%;
+  font-size: 3em;
+  margin-bottom: 15px;
+  color: white;
+}
+.container-customer__searchBox {
+  padding: 7px 14px;
+  width: 70%;
+  margin: auto;
+  border: none;
+  border-radius: 15px;
+  font-size: 1.5rem;
+  background-color: #f8f8f8;
+  color: black;
+}
+.container-customer__restaurant-root {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  text-align: center;
+  flex-wrap: wrap;
+  color: white;
+}
+.container-customer__result-root {
+  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+}
+.container-customer__restaurant-card {
+  overflow: hidden;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.829), rgba(255, 255, 255, 0.733));
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 15px;
+  font-size: 1.5rem;
+  margin-top: 0.7rem;
+}
+.container-customer__restaurant-card p {
+  margin-left: 20px;
+  margin-bottom: 10px;
+  text-align: start;
+  font-size: 1.2rem;
+  color: white;
+}
+.container-customer__title-restaurant {
+  text-transform: uppercase;
+  text-decoration: underline;
+  color: #fb7e09;
+  margin: 5px;
+  font-size: 1.5rem;
+}
+.container-customer__img-restaurant {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 2px rgba(233, 190, 1, 0.767) solid;
+}
+.container-customer__btn-restaurant {
+  font-weight: 700;
+  background-color: sandybrown;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 10px;
+  outline: none;
+  border-radius: 15px;
+  border: none;
+  padding: 7px 14px;
+}
+.container-customer__btn-restaurant:hover {
+  scale: 1.09;
+}
+.container-customer__menu {
+  display: none;
+  border-radius: 15px;
+  background-color: #9b8d8d;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  height: auto;
+}
+.container-customer__menu-close {
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 0px;
+  font-size: 2rem;
+  background-color: inherit;
+  border: none;
+}
+.container-customer__menu-close:hover {
+  color: white;
+}
+.container-customer__container-courses {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: darkgray;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.container-customer__courses-card {
+  position: relative;
+  border-radius: 15px;
+  cursor: pointer;
+  width: 150px;
+  background-color: rgba(24, 24, 24, 0.418);
+  height: 310px;
+}
+.container-customer__courses-card:hover {
+  scale: 1.05;
+}
+.container-customer__courses-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+.container-customer__courses-card-name {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.container-customer__courses-des {
+  margin: 5px;
+}
+.container-customer__courses-btn {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 15px;
+  padding: 10px;
+  width: 50px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: #6c6c6c;
+}
+.container-customer__courses-btn i {
+  font-size: 1.4rem;
+  color: #130e0e;
+}
+.container-customer__courses-btn i:hover {
+  color: #c7c4c4;
+}
+.container-customer__courses-btn i:active {
+  color: orange;
+}
+.container-customer__cart__course__cart__course {
+  width: 100vw;
+  height: 100vh;
+}
+.container-customer__cart {
+  display: none;
+  border-radius: 15px;
+  position: relative;
+  background-color: white;
+  flex-direction: column;
+  text-align: center;
+  width: 80vw;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.container-customer__cart h1 {
+  padding: 10px;
+}
+.container-customer__cart.active {
+  display: flex;
+}
+.container-customer__cart__sum {
+  font-size: 1.5rem;
+  padding: 10px 20px;
+}
+.container-customer__cart__course {
+  padding: 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 0.1rem solid black;
+}
+.container-customer__cart__course__name {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: black;
+}
+.container-customer__cart__course__price {
+  padding: 3px 10px;
+  font-weight: 100;
+  background-color: #6c6c6c83;
+  border-radius: 15px;
+  color: black;
+}
+.container-customer__cart__course__removeBtn {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+}
+.container-customer__cart__course__removeBtn i {
+  font-size: 1.5rem;
+}
+.container-customer__cart__course__removeBtn i:hover {
+  scale: 1.1;
+}
+.container-customer__cart__course__img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.container-customer__cartRoot-close {
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 2rem;
+}
+.container-customer__cartRoot-close:hover {
+  scale: 1.1;
+}
+.container-customer__cartRoot-close:active {
+  scale: 0.9;
+}
+.container-customer__cartRoot-submit {
+  background-color: #005e00;
+  color: #fafafa;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  height: 50px;
+  border-radius: 0 0 15px 15px;
+  font-size: 1.4rem;
+}
+
+.cart {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.cart i {
+  color: gold;
+  font-size: 2rem;
+}

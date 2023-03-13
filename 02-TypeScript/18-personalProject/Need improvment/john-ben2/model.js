@@ -6,12 +6,12 @@ function store(){ //stores items in the localStorage
         name: name,
     }
 
-    localStorage.setItem('name',JSON.stringify(user));  
+    localStorage.setItem(name,JSON.stringify(user));  
     //converting object to string
 }
 
 
 
-onload =function(){ //ensures the page is loaded before functions are executed.
-    document.getElementById("login").onsubmit = store
-}
+// onload =function(){ //ensures the page is loaded before functions are executed.
+//     document.getElementById("login").onsubmit = store
+// }

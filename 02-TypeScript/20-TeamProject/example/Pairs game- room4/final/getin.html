@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pairs</title>
+    <script src="./dist/index.js" defer></script>
+    <script src="./dist/getin.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/scoreBoard.js" defer></script>
+    <!-- <link rel="stylesheet" href="./dist/scoreBoard.css"> -->
+    <link rel="stylesheet" href="./dist/getin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body onload="renderusers(getPlayersFromStorage())">
+    <div class="container">
+       <p> The ultimate memory game </p>
+
+       <div id="choosePlayerHeadline">Click on your picture to login </div>
+       <div id="listofUsers"></div>
+        
+       <label for="file" id="uplodebtn">Create new profile</label>
+
+       <form action="getin.html" id="form">
+        <div class="container__login">
+            <input type="text" placeholder="enter your name" id="name" name="name" required>
+            <input type="date" name="dob" id="dob" required>
+            <div class="container__login--pfp" id="container">
+                <img src="./imgs/blue.jpeg" alt="" id="photo">
+                <input type="file" id="file" name="file" required>
+            </div>
+            <div onclick="ageCalculator()" id="send">
+                <a href="inex.html">
+                    <button class="button" type="submit"  onsubmit="renderusers(getPlayersFromStorage())">create user</button>
+                </a>
+                
+
+        </div>
+        </div>
+       </form>
+
+
+    
+</body>
+</html>
+

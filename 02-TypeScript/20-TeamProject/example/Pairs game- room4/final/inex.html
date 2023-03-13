@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pairs</title> 
+    <script src="./dist/index.js" defer></script>
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="./dist/getin.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/scoreBoard.js" defer></script>
+    <!-- <link rel="stylesheet" href="./dist/scoreBoard.css"> -->
+    <!-- <link rel="stylesheet" href="./dist/getin.css"> -->
+    
+</head>
+<body>
+<div class="nameOfGame"><h1>The ultimate memory game</h1></div>
+
+    
+        <form class="formSelectLevel" onsubmit="hendleLevel(event)">
+      <label for="levels"></label>
+          <select id="levels" name="levels" class="selectVal">
+            
+              <option value="level1">Level 1= 3 pairs</option>
+              <option value="level2">Level 2= 6 pairs</option>
+              <option value="level3">Level 3= 10 pairs</option>
+          </select>
+          <input type="submit" class="selectVal" value="select level of difficulty to start">
+      </form>
+<div class="timer">
+    <h1 class="time">00:00</h1>
+    <button class="start">Start/ Resume timer</button>
+    <button class="stop">Pause timer</button>
+    <button class="resume">Restart</button>
+    </div>    
+    <div id="score"></div>
+
+  <div class="winnerMas" id="winnerMas">
+    <a href="scoreBoard.html">score borad</a>
+  </div>
+  
+    <main>
+        <div class="level1">😀</div>
+        <div class="level1">😀</div>
+        <div class="level1">❤️</div>
+        <div class="level1">❤️</div>
+        <div class="level1">😇</div>
+        <div class="level1">😇</div>
+        <div class="level2">🦁</div>
+        <div class="level2">🦁</div>
+        <div class="level2">🗿</div>
+        <div class="level2">🗿</div>
+        <div class="level2">🗽</div>
+        <div class="level2">🗽</div>
+        <div class="level3">😂</div>
+        <div class="level3">😂</div>
+        <div class="level3">🤩</div>
+        <div class="level3">🤩</div>
+        <div class="level3">🤯</div>
+        <div class="level3">🤯</div>
+        <div class="level3">⏰</div>
+        <div class="level3">⏰</div>
+    </main>
+    <div>
+</div>
+    
+        <a href=""></a>
+
+</body>
+</html>
