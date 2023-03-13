@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <script src="./dist/controls.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/helpers.js"defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+    <link rel="stylesheet" href="./dist/login.css">
+</head>
+<body onbeforeunload="handleSaveUsers()">
+    
+    <h1>Welcome to Your Favorite recipes</h1>
+    <h3>Please Log in</h3>
+    <form onsubmit="enterToMainPage(event)" class="loginForm">
+        <input type="text" required name="name" placeholder="Enter Name" />
+        <input type="text" required name="lastName" placeholder="Enter Last Name" />
+        <input type="email" required name="email" placeholder="Enter Email" /> <br>
+        <input type="submit" value="log in">
+    </form>
+    
+</body>
+</html>

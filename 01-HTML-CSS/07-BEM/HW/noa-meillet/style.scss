@@ -1,0 +1,345 @@
+body{
+    margin: 0;
+    color: white;
+}
+
+.page{
+    background-color: black;
+    display: grid;
+    grid-template-columns: 0.2fr 0.25fr 2fr; 
+    grid-template-rows: 1fr 50fr; 
+    gap: 5px;
+    grid-template-areas: 
+    "monitor_bar monitor_bar monitor_bar"
+    "user_bar menu_bar home_page"
+    "user_bar menu_bar home_page";
+    
+    &__monitor_bar{ 
+        grid-area: monitor_bar; 
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        position: relative;
+        
+        h4{
+            margin: 2px;
+            color: lightgray;
+        }
+
+        &__page_service{
+            margin-left: 80%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            img{
+                width: 10%;
+                margin-left: 5%;
+            }
+        }
+        
+    }
+
+    &__user_bar{ 
+        grid-area: user_bar;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        #logo{
+            border-radius: 20%;
+            width:35%;
+            margin-left: 2%;
+        }
+
+        img{
+            border-radius: 100%;
+            width: 40%;
+            margin-bottom: 5%;
+        }
+    }
+
+    &__menu{ 
+        grid-area: menu_bar; 
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        background-color: rgb(83, 83, 83);
+
+        &__search_bar{
+            margin-left: 2%;
+            input{
+                color: lightgray;
+                background-color: black;
+                border-radius: 10%;
+            }
+        }
+
+        &__services{
+            
+            &__srv{
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                justify-content: start;
+
+                img{
+                    width: 20%;
+                    height: 10%;
+                }
+
+                h4{
+                    margin: 0;
+                    padding: 3%;
+                }
+            }
+        }
+
+        &__direct_msg{
+            
+            &__msg{
+                display: flex;
+                flex-direction: row;
+                justify-content: start;
+                margin-left: 5%;
+
+                img{
+                    border-radius: 100%;
+                    width: 20%;
+                    height: 10%;
+                }
+
+                &__description{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+
+                    h5{
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        &__usr_profile{
+           position: absolute;
+           bottom: 0.5%;
+           display: flex;
+           flex-direction: row;
+           justify-content: space-between;
+           background-color: black;
+
+           #__usr_info{
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+           }
+
+           img{
+            border-radius: 100%;
+            height: 5%;
+            width: 15%;
+           }
+        }
+    }
+
+    &__home_page{ 
+        grid-area: home_page; 
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        grid-template-rows: 1% 98%;
+        gap: 2px;
+        grid-template-areas:
+          "home_page_menu home_page_menu"
+          "live_stage activities";
+        background-color: rgb(113, 112, 112);
+        
+        &__menu{
+            grid-area: home_page_menu;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between; 
+            position: relative;
+
+           &__icon{
+                display: flex;
+                flex-direction: row;
+                justify-content: start;
+
+                img{
+                    width: 100%;
+                    height: 15%;
+                }
+
+                h4{
+                    margin: 0;
+                    padding: 15%;
+                }
+           }
+
+           &__services{
+                display: flex;
+                flex-direction: row;
+                justify-content: start;
+                position: absolute;
+                left: 94%;
+
+                img{
+                    border-radius: 100%;
+                    width: 25%;
+                    margin-right: 10%;
+                }
+           }
+        }
+
+        &__live_stages{
+            grid-area: live_stage;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            border-right: 1px solid black;
+
+            &__live_stage{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                background-color: rgb(77, 77, 77);
+                margin: 2%;
+              
+
+                &__server_info{
+                    position: relative;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    img{
+                        padding: 2%;
+                        width: 20%;
+                        height: 70%;
+                        border-radius: 10%;
+                    }
+                    
+                    h4{
+                        margin: 0;
+                        padding: 5%;
+                    }
+
+                    &__usr_online{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        padding-left: 35%;
+                        border-radius: 20%;
+
+                        img{
+                            width: 50%;
+                            height: 20%;
+                            margin-right: 5px;
+                        }
+
+                        h5{
+                            margin: 0;
+                            margin-right: 5px;
+                            padding: 5%;
+                        }
+                       
+                    }
+                }
+
+                &__usr_online{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    padding: 2%;
+
+                    img{
+                        border-radius: 100%;
+                        width: 40%;
+                    }
+
+                    h6{
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        &__activities{
+            grid-area: activities;  
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+
+            &__activitie{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                background-color: rgb(76, 76, 76);
+                border-radius: 5%;
+                margin: 2%;
+
+                &__usr_info{
+                    display: grid;
+                    grid-template-columns: 0.2fr 2fr;
+                    grid-template-rows: 1fr 2fr;
+                    gap: 2px;
+                    grid-template-areas:
+                    "usr_icon usr_name"
+                    "usr_icon usr_description";
+
+                    img{
+                        grid-area: usr_icon;
+                        margin: 10% ;
+                        width: 80%;
+                        border-radius: 100%;
+                    }
+
+                    h5{
+                        grid-area: usr_name;
+                        margin: 0;
+                    }
+
+                    h6{
+                        grid-area: usr_description;
+                        margin: 0;
+                    }
+                }
+
+                &__server{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    &__name{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        
+                        img{
+                            width: 40%;
+                            height: 40%;
+                            border-radius: 100%;
+                            margin: 5%;
+                        }
+                    }
+
+                    &__users{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        padding: 2%;
+
+                        img{
+                            width: 50%;
+                            height: 30%;
+                            border-radius: 100%;
+                            margin-left: 5px;
+                        }
+                    }
+                }
+            }
+
+        }
+    } 
+}

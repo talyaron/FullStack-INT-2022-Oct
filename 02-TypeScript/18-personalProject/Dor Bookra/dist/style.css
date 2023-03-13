@@ -1,0 +1,96 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Itim", cursive;
+}
+
+.navbar {
+  display: flex;
+  width: 100%;
+  height: 80px;
+  background-color: #c3e6e2;
+}
+.navbar .navbarIcon {
+  width: 100px;
+}
+.navbar .menuWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar .menuWrapper a {
+  color: #306b82;
+  padding: 20px;
+}
+.navbar .menuWrapper a:hover {
+  background-color: #dcf3fc;
+  cursor: pointer;
+  height: 40px;
+}
+
+.addForm {
+  text-align: center;
+}
+.addForm #form {
+  display: none;
+  color: #dee9ed;
+  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  background-color: #306b82;
+}
+.addForm #form datalist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  writing-mode: vertical-lr;
+  width: 130px;
+}
+
+.addItemForm {
+  text-align: center;
+}
+.addItemForm #itemForm {
+  display: none;
+  color: #dee9ed;
+  width: 100%;
+  align-items: center;
+  background-color: #306b82;
+  flex-direction: column;
+}
+.addItemForm #itemForm #itemImg {
+  width: 15px;
+  height: 15px;
+}
+
+.intro {
+  display: block;
+}
+.intro .aboutUs {
+  display: flex;
+}
+.intro img {
+  padding: 2rem;
+  height: 300px;
+}
+.intro span {
+  font-size: 30px;
+}
+.intro p {
+  font-size: 20px;
+  align-self: center;
+}
+.intro .header2 {
+  padding: 5rem 0 5rem 0;
+  display: flex;
+}
+.intro .header2 img {
+  padding-left: 7rem;
+}
+.intro .header3 {
+  display: flex;
+}
+.intro .header3 img {
+  padding-left: 7rem;
+}
