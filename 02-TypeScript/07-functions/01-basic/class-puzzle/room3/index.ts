@@ -3,4 +3,4 @@ function multy(a:number,b:number): number {
     return n;
 }
 
-console.log(multy(5,10))
+console.log(m
