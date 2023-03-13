@@ -10,6 +10,4 @@ app.get('/', (req, res) => {
   app.listen(PORT, ()=>{
     console.log(`port listen at: ${PORT}`)
 })  
-
-
 console.log(numbers)
