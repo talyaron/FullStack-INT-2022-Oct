@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--FontAwesome Icons CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+    <!--stylesheet-->
+    <link href="./public/dist/style.css" rel="stylesheet">
+
+    <link href="./public/dist/userProfile.css" rel="stylesheet">
+
+    <!--media Queries-->
+    <link rel="stylesheet" href="./public/dist/queries-userProfile.css">
+
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Poppins:wght@400;700&family=Raleway&display=swap" 
+    rel="stylesheet"> 
+    
+    <title>User Profile</title>
+</head>
+<body>
+
+    <!--Nav Bar-->
+    <nav>
+        <a href="#home" id="logo">YogaClinic</a>
+        <i class="fas fa-bars" id="ham-menu"></i>
+        <ul id="nav-bar">
+            <li>
+                <a href="./index.html">Back To Home</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!--Section: Video Library-->
+    <section>
+        <h2 class="title"></h2>
+        <div class="container">
+            <div id="video_player">
+                <video controls id="main-Video" src=""></video>
+            </div>
+            <div class="playlistBx">
+                <div class="header">
+                    <div class="row">
+                        <span class="AllLessons"></span>
+                    </div>
+                </div>
+                <ul class="playlist" id="playlist"></ul>
+            </div>
+        </div>
+    </section>
+
+    <!--Model-->
+    <script src="./public/dist/model.js"></script>
+
+    <!--Script-->
+    <script src="./public/dist/userProfile.js"></script>
+
+</body>
+</html>

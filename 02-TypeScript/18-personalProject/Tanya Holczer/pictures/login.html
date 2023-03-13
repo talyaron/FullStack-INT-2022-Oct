@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login form</title>
+    <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+    <div class="container">
+        <div class="form_box">
+            <div class="btn_box">
+                <div id="btn"></div>
+                <button type="button" class="toggle_btn" >Log in</button>
+                <button type="button" class="toggle_btn" >Register</button>
+            </div>
+            <div class="welcome">
+                <img id="welcome_paw" src="./pictures/welcome.png" alt="welcome">
+            </div>
+          
+            <form id="login" class="input_group">
+                <div class="form_div">
+                    <input id="email" type="email" class="form_input" placeholder=" ">
+                    <label for="" class="form_label">email</label>
+                </div>
+                <div class="form_div">
+                    <input type="password" class="form_input" placeholder=" ">
+                    <label for="" class="form_label">Password</label>
+                </div>
+                <input type="checkbox" class="checkbox"><span>Remember Password</span>
+                
+                <button type="button" id="submitted" class="submit_btn" onclick="window.location.href = 'index.html';">Log in</button>
+           
+        </div>
+    </div>
+    <script src="./login.js"></script> 
+</body>
+</html>
