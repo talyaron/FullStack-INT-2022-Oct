@@ -1,4 +1,4 @@
-const fs = require(`node:fs`)
+const fs = require('node:fs');
 
 console.log("hi world")
 
@@ -9,7 +9,11 @@ const y = Math.random()*x.b;
 console.log("Y is equal to ",y);
 
 
-fs.readFile('/pwd.txt', utf8, (err, data) => {
-    if (err) throw err;
-    console.log(data);
-  });
+fs.readFile("./pwd.txt", 'utf8', (err, data) => {
+    try {
+        if (err) throw err;
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    });
