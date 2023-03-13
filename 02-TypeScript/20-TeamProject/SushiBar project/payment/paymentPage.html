@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="shortcut icon"
+      href="../images/favicon (2).ico"
+      type="image/x-icon"
+    />
+    <title>SushiBar-Payment</title>
+    <link rel="stylesheet" href="./dist/paymentPage.css" />
+    <script src="https://kit.fontawesome.com/6cf7873aa7.js" crossorigin="anonymous" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="../restaurant/dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+  </head>
+</head>
+<body onload="calculateTotalOrder()">
+    <div class="top">
+        <a id="i" class="fa-solid fa-arrow-left fa-xl" href="../orderPage/index.html"></a>
+        <h1>SUSHI BAR</h1>
+        <img src="../images/logo.png" alt="sushi-logo" onclick="goToHomePage()"> 
+        <a id="link_to_home_page" href="../main/mainPage.html"></a>
+    </div>
+    <h1>Payment Page</h1> <br>
+    <h2 class="total_to_pay"> </h2> <br>
+    <hr>
+    <form class="customer_details" onsubmit="showPaymentForm(event)">
+        <input type="text" name="fullName" class="input" placeholder="Enter your full name" required/>
+        <input type="text" name="phoneNumber" class="input" minlength = "10" maxlength = "11" placeholder="Enter your phone number" required/>
+        <input type="email" name="email" class="input" placeholder="Enter your email adress" required/>
+        <div class="adressChoice">
+            <input type="radio" name="adress" class="input" id="choice1" onclick="takeawayChecked()"/>
+            <label for="choice1">Takeaway</label>
+            <input type="radio" name="adress" class="input" id="choice2" onclick="deliverChecked()"/>
+            <label for="choice2">Deliver</label>
+        </div>
+        <select class="restaurant_list"></select>
+        <div class="adress"></div>
+    </form>
+    <form class="payment_form" onsubmit="pay(event)">
+        <div class="payment_choice"></div>
+        <div class="card_details"></div>
+    </form>
+</body>
+</html>

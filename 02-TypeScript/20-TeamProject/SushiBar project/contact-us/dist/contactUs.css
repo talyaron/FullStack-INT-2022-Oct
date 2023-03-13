@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ubuntu&display=swap");
+body {
+  scroll-behavior: smooth;
+  background-color: #F9F5E7;
+  font-family: "Open Sans", sans-serif;
+}
+body .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  background-color: #EDDBC7;
+  margin-bottom: 20px;
+}
+body .top img {
+  width: 50px;
+  aspect-ratio: 1/1;
+}
+body .top h1 {
+  font-family: "Open Sans", sans-serif;
+}
+body .top #i {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+body .top #link_to_home_page {
+  display: none;
+}
+body h1 {
+  margin: 2% auto;
+  height: 5%;
+  width: fit-content;
+  text-align: center;
+}
+body #option_img {
+  position: absolute;
+  width: 7%;
+  margin-left: 4%;
+  top: 3%;
+}
+body .more-page {
+  display: none;
+  text-align: center;
+  color: white;
+  width: 60%;
+  position: absolute;
+  margin-left: 10%;
+  top: 5%;
+  background-color: rgba(79, 20, 42, 0.85);
+  z-index: 1;
+  border: 1px solid black;
+}
+body .more-page img {
+  position: absolute;
+  top: 1%;
+  left: 92%;
+  width: 7%;
+}
+body .more-page a {
+  color: white;
+  font-size: 2rem;
+  text-decoration: none;
+}
+body hr {
+  width: 90%;
+  border: solid #A7727D 2px;
+  border-bottom: none;
+}
+body .contact {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+  margin: 2% auto;
+  width: 60%;
+  align-items: center;
+}
+body .contact .column1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  margin: 5% auto;
+  width: 45%;
+  align-items: center;
+}
+body .contact .column1 img {
+  width: 35%;
+}
+body .contact .column2 {
+  display: flex;
+  flex-direction: column;
+  margin: 5% auto;
+  width: 45%;
+  position: relative;
+}
+body .contact h2 {
+  padding: 11% 0;
+}

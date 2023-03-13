@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ubuntu&display=swap");
+body {
+  scroll-behavior: smooth;
+  background-color: #F9F5E7;
+  font-family: "Open Sans", sans-serif;
+}
+body .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  background-color: #EDDBC7;
+  margin-bottom: 20px;
+}
+body .top img {
+  width: 50px;
+  aspect-ratio: 1/1;
+}
+body .top h1 {
+  font-family: "Open Sans", sans-serif;
+  width: 60%;
+}
+body .top #i {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+}
+body .top #link_to_home_page {
+  display: none;
+}
+body h1, body h2 {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+}
+body h2 {
+  padding: 0 1%;
+  width: fit-content;
+  background-color: white;
+}
+body hr {
+  width: 90%;
+  border: solid #A7727D 2px;
+  border-bottom: none;
+}
+body .customer_details, body .payment_form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 2% auto;
+  gap: 10px;
+  font-size: medium;
+}
+body .customer_details .input, body .customer_details .restaurant_list, body .payment_form .input, body .payment_form .restaurant_list {
+  font-family: "Ubuntu", sans-serif;
+}
+body .customer_details .btn, body .payment_form .btn {
+  background: linear-gradient(to bottom right, #A7727D, #e13e5f);
+  border: 0;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: large;
+  font-weight: 500;
+  line-height: 2.5;
+  text-align: center;
+  margin: 2% 0 2% 100%;
+  width: 4rem;
+  height: 50%;
+}
+body .customer_details .btn:hover, body .payment_form .btn:hover {
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5), -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5), 0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
+}
+body .customer_details .btn:focus, body .payment_form .btn:focus {
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5), -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5), 0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
+}
+body .customer_details .restaurant_list, body .payment_form .restaurant_list {
+  display: none;
+}
+body .customer_details .cardDetails, body .payment_form .cardDetails {
+  display: grid;
+  grid-template-areas: "cardNumber cardNumber cardNumber cardNumber" "cardEDate cardEDate cardCvv cardCvv" "id id id id";
+  margin: 0 auto;
+  gap: 10px;
+}
+body .customer_details #cardNumber, body .payment_form #cardNumber {
+  grid-area: cardNumber;
+}
+body .customer_details #cardEDate, body .payment_form #cardEDate {
+  grid-area: cardEDate;
+  width: 100%;
+}
+body .customer_details #cardCvv, body .payment_form #cardCvv {
+  grid-area: cardCvv;
+  width: 70%;
+}
+body .customer_details #id, body .payment_form #id {
+  grid-area: id;
+}
