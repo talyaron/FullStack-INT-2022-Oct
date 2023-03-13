@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/style.css" />
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+  </head>
+  <body>
+    <h1 id="head">Pong Game By itai</h1>
+    <canvas id="canvas"></canvas>
+    <h1 id="player1Score">0</h1>
+    <h1 id="player2Score">0</h1>
+    <div class="endGame" id="bigAd">
+      Congratulations! You won the game!
+      <button id="resetBtn">Reset</button>
+    </div>
+    <div class="endGame" id="bigAdComputer">You lost!
+      <button onclick="resetGame()" id="resetBtn">Reset</button></div>
+  </body>
+</html>
