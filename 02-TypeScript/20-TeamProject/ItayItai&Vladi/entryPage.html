@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board Register</title>
+    <script
+      src="https://kit.fontawesome.com/0d9e773bea.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="icon" type="image/png" href="./img/kanban3.png" />
+    <link rel="stylesheet" href="./style/dist/button.css" />
+    <link rel="stylesheet" href="./style/dist/entryPage.css" />
+    <link rel="stylesheet" href="./style/dist/responsive.css" />
+    <script src="./src/dist/helpers.js" defer></script>
+    <script src="./src/dist/control.js" defer></script>
+    <script src="./src/dist/view.js" defer></script>
+    <script src="./src/dist/model.js" defer></script>
+    <script src="./src/dist/main.js" defer></script>
+  </head>
+  <body>
+    <div class="mainContainer">
+      <div class="signUpContainer">
+        <form id="signUpForm">
+          <h1>Create Account</h1>
+          <select name="gender" id="gender">
+            <option value="">Gender</option>
+            <option value="male">male</option>
+            <option value="female">female</option>
+            <option value="other">other</option>
+          </select>
+          <input
+            minlength="3"
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            required
+          />
+
+          <input
+            minlength="3"
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+            required
+          />
+
+          <input
+            minlength="5"
+            type="text"
+            name="userName"
+            placeholder="User Name"
+            required
+          />
+
+          <input
+            minlength="8"
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+          />
+          <input
+            minlength="8"
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            required
+          />
+
+          <input type="email" name="email" placeholder="Email" required />
+
+          <input
+            minlength="8"
+            type="tel"
+            name="phoneNumber"
+            placeholder="Phone Number"
+            required
+          />
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+      <!-- --------------New Container-------------- -->
+      <div class="signInContainer">
+        <form id="signInForm">
+          <h1>Sign in</h1>
+          <input
+            minlength="5"
+            name="userName"
+            type="text"
+            placeholder="User Name"
+            id="userNameInput"
+            required
+          />
+          <input
+            minlength="8"
+            name="password"
+            type="password"
+            placeholder="Password"
+            id="passwordInput"
+            required
+          />
+          <a href="./forgotPassword.html">Forgot your password?</a>
+          <button id="signInBtn">Sign In</button>
+        </form>
+      </div>
+      <!-- --------------New Container-------------- -->
+      <div class="overlayContainer">
+        <div class="overlay">
+          <div class="panel signIn">
+            <h1>Welcome Back!</h1>
+            <p>To keep working with us please login with your personal info</p>
+            <button id="signInPanel">Sign In</button>
+          </div>
+          <div class="panel signUp">
+            <h1>Hello Friend!</h1>
+            <p>Enter your personal details and start working with us</p>
+            <button id="signUpPanel">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

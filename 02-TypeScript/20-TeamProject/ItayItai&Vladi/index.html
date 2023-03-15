@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board Main</title>
+    <link rel="icon" type="image/png" href="./img/kanban3.png" />
+    <link rel="stylesheet" href="./style/dist/button.css" />
+    <link rel="stylesheet" href="./style/dist/profileWindow.css" />
+    <link rel="stylesheet" href="./style/dist/createBoardWindow.css" />
+    <link rel="stylesheet" href="./style/dist/mainStyle.css" />
+    <link rel="stylesheet" href="./style/dist/topNavBar.css" />
+    <link rel="stylesheet" href="./style/dist/responsive.css" />
+    <script src="./src/dist/view.js" defer></script>
+    <script src="./src/dist/helpers.js" defer></script>
+    <script src="./src/dist/control.js" defer></script>
+    <script src="./src/dist/model.js" defer></script>
+    <script src="./src/dist/main.js" defer></script>
+    <script src="./src/dist/icons.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/0d9e773bea.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="mainpageContainer">
+      <nav class="topNav">
+        <div class="leftSideDiv">
+          <!-- <img
+            src="./img/Logo.png"
+          /> -->
+          <h1>Your "IVI" board</h1>
+          <button class="topNav__btn createBoardWindowBtn">Create Board</button>
+          <input
+            type="text"
+            class="topNav__search"
+            placeholder="&#xF002; Search..."
+          />
+        </div>
+        <div class="topNav__iconDiv">
+          <i
+            class="fa-solid fa-user topNav__iconDiv__profile profileIcon"
+            title="Profile Info"
+          ></i>
+        </div>
+      </nav>
+      <main class="mainpageContainer__main">
+        <h1>Welcome to Kanban "IVI"</h1>
+        <div class="mainpageContainer__main__boards">
+          <h3>Your Boards</h3>
+          <div class="mainpageContainer__main__boards__boardArea"></div>
+        </div>
+      </main>
+    </div>
+    <div class="profileWindow">
+      <i
+        class="fa-regular fa-pen-to-square editprofileBtn"
+        title="Edit Profile Info"
+      ></i>
+      <i
+        class="fa-solid fa-arrow-right-from-bracket exitProfilePage"
+        title="Back To Page"
+      ></i>
+      <button class="signOutbtn">Sign out</button>
+      <div class="profile"></div>
+    </div>
+    <div class="newBoardWindow">
+      <h1>Create New Board</h1>
+      <label for="boardName">Name your board:</label>
+      <input type="text" name="boardName" id="boardName" required />
+      <button id="boardImageBtn">Choose Background Image</button>
+      <img id="imageCreateWindow" src="./img/Logo.png" alt="KanbanLogo" />
+      <div>
+        <button class="createBoardBtn">CREATE</button>
+        <button class="cancelCreateBoardBtn">CANCEL</button>
+      </div>
+      <div class="backgroundSelectionDiv">
+        <img class="backgroundImage" src="./img/blueBrickWall.jpg" alt="" />
+        <img class="backgroundImage" src="./img/bright-light.jpg" alt="" />
+        <img
+          class="backgroundImage"
+          src="./img/do-something-great.jpg"
+          alt=""
+        />
+        <img class="backgroundImage" src="./img/NASA.jpg" alt="" />
+        <img class="backgroundImage" src="./img/pink-sea.jpg" alt="" />
+        <img class="backgroundImage" src="./img/purple-flower.jpg" alt="" />
+        <img class="backgroundImage" src="./img/sea.jpg" alt="" />
+        <img class="backgroundImage" src="./img/wall-painting.jpg" alt="" />
+        <img
+          class="backgroundImage"
+          src="./img/passion-led-us-here.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+  </body>
+</html>
