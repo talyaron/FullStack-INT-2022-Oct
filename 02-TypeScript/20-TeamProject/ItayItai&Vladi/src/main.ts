@@ -104,9 +104,9 @@ if (window.location.pathname.endsWith("board.html")) {
   });
   renderBoardInBoardPage();
 
-  addListBtn.addEventListener("click", () =>
-    List.createList(newListInput.value)
-  );
+  addListBtn.addEventListener("click", () => {
+    List.createList(newListInput.value);
+  });
 
   editBoardBtn.addEventListener("click", () => {
     currentBoard.edit(nameInputEle.value, imageDisplayedInEdit.src);
@@ -127,18 +127,19 @@ if (window.location.pathname.endsWith("board.html")) {
     });
   });
 
-  boardContainer.addEventListener("dragover", ({ clientX }) => {
+  boardContainer.addEventListener("dragover", (e) => {
     let cardIsDragged = false;
     cards.forEach((card) => {
-      if (card.classList.contains("isDragging")) {
+      if (card.classList.contains("is-dragging")) {
         cardIsDragged = true;
       }
     });
 
     if (cardIsDragged) return;
+    e.preventDefault();
 
-    const leftList = insertLeftOfLisk(boardContainer, clientX);
-    const curList = boardContainer.querySelector(".isDragging") as HTMLElement;
+    const leftList = insertLeftOfLisk(boardContainer, e.clientX);
+    const curList = boardContainer.querySelector(".is-draggin") as HTMLElement;
 
     if (!leftList) {
       boardContainer.insertBefore(curList, trashCanDiv);
@@ -159,6 +160,9 @@ if (window.location.pathname.endsWith("board.html")) {
       ) as HTMLTextAreaElement;
       if (newCardTextArea.value == "") return;
       createCardElement(newCardTextArea.value, listElement);
+      let successcardMsg = `<i class="fa-solid fa-circle-check"></i>Add new card: ${newCardTextArea.value}`;
+      notification(successcardMsg);
+      saveNotificationToLocalStorage(successcardMsg, currentBoard, currentUser);
       newCardTextArea.value = "";
     }
     if (target.classList.contains("cancelEditBoardBtn")) {
@@ -175,15 +179,22 @@ if (window.location.pathname.endsWith("board.html")) {
     }
   });
 
-  trashCan.addEventListener("drop", () => {
+  trashCan.addEventListener("drop", (event) => {
+    event.preventDefault();
     const confirmDelete = confirm("Are you sure you want to delete?");
     if (confirmDelete) {
-      const element = document.querySelector(".isDragging") as HTMLDivElement;
-      element.remove();
+      const element = document.getElementById(
+        event.dataTransfer!.getData("Text")
+      );
+      let successDeleteMsg = `<i class="fa-solid fa-circle-xmark"></i> Delete - ${(element?.textContent)}`;
+      notification(successDeleteMsg);
+      saveNotificationToLocalStorage(
+        successDeleteMsg,
+        currentBoard,
+        currentUser
+      );
+      element?.parentNode?.removeChild(element);
       currentBoard.update();
     }
-  });
-  document.addEventListener("dragover", (event) => {
-    event.preventDefault();
   });
 }

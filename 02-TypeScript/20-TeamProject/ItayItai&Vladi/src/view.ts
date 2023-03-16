@@ -31,7 +31,13 @@ const recoveredPassword = document.querySelector(
 const profileWindow = document.querySelector(
   ".profileWindow"
 ) as HTMLDivElement;
+const notifictionWindow = document.querySelector(
+  ".notifictionWindow"
+) as HTMLDivElement;
 const profileDiv = document.querySelector(".profile") as HTMLDivElement;
+const notificationsDiv = document.querySelector(
+  ".notifications"
+) as HTMLDivElement;
 const newBoardWindow = document.querySelector(
   ".newBoardWindow"
 ) as HTMLDivElement;
@@ -83,7 +89,9 @@ const imageDisplayedInEdit = document.querySelector(
   "#imageEditWindow"
 ) as HTMLImageElement;
 const trashCan = document.querySelector("#trash") as HTMLElement;
-const trashCanDiv = document.querySelector(".boardContainer__main__trashDiv") as HTMLDivElement;
+const trashCanDiv = document.querySelector(".trashDiv") as HTMLDivElement;
+let noteBox = document.getElementById("notificationBox") as HTMLDivElement;
+const editInfoBtns = document.querySelectorAll(".editInfo");
 
 //Buttons
 const addListBtn = document.querySelector("#addListBtn") as HTMLButtonElement;
@@ -93,6 +101,7 @@ const editBoardBtn = document.querySelector(
 const updatedBoardImageBtn = document.querySelector(
   "#updatedBoardImageBtn"
 ) as HTMLButtonElement;
+// const editProfileInfo = document.querySelector(".editprofileBtn") as HTMLButtonElement;
 
 // Input
 const newListInput = document.querySelector(
