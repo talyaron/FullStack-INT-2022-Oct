@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="./style/dist/createBoardWindow.css" />
     <link rel="stylesheet" href="./style/dist/trashStyle.css" />
     <link rel="stylesheet" href="./style/dist/responsive.css" />
+    <link rel="stylesheet" href="./style/dist/notification.css" />
     <script src="./src/dist/view.js" defer></script>
     <script src="./src/dist/helpers.js" defer></script>
     <script src="./src/dist/control.js" defer></script>
@@ -30,7 +31,8 @@
     <div class="boardContainer">
       <nav class="topNav">
         <div class="leftSideDiv">
-          <img src="./img/Logo.png" alt="" />
+          <!-- <img src="./img/Logo.png" alt="" /> -->
+          <h1>Your "IVI" board</h1>
           <input
             placeholder="New List..."
             id="newListInput"
@@ -47,28 +49,34 @@
             class="fa-solid fa-hand-point-left backToMainIcon"
             title="Back To Main"
           ></i>
-          <!-- <i
+          <i
             class="fa-solid fa-bell notificationsIcon"
             title="Notifications"
-          ></i> -->
+          ></i>
           <i class="fa-solid fa-user profileIcon" title="Profile Info"></i>
         </div>
       </nav>
+      <div id="notificationBox"></div>
       <main class="boardContainer__main">
-        <div class="boardContainer__main__trashDiv">
+        <div class="trashDiv">
           <i
             title="Drag here to delete"
             class="fa-solid fa-trash-can"
             id="trash"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
           ></i>
+        </div>
+        <div class="notifictionWindow">
+          <i
+            class="fa-solid fa-arrow-right-from-bracket exitNotifictionsPage"
+            title="Back To Page"
+          ></i>
+          <div class="notifications"></div>
         </div>
       </main>
     </div>
     <div class="profileWindow">
-      <!-- <i
-        class="fa-regular fa-pen-to-square editprofileBtn"
-        title="Edit Profile Info"
-      ></i> -->
       <i
         class="fa-solid fa-arrow-right-from-bracket exitProfilePage"
         title="Back To Page"
@@ -106,13 +114,5 @@
         />
       </div>
     </div>
-
-    <!-- <div id="warningWindow">
-      <h2>Are you sure you want to delete?</h2>
-      <div>
-        <button class="xMark"><i class="fa-solid fa-xmark"></i></button>
-        <button class="vMark"><i class="fa-solid fa-check"></i></button>
-      </div>
-    </div> -->
   </body>
 </html>
