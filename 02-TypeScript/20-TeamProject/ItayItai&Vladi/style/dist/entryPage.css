@@ -107,14 +107,6 @@ span {
   transition: transform 0.6s ease-in-out;
   padding: 1em;
 }
-.mainContainer .overlayContainer .overlay .panel h1 {
-  background: linear-gradient(90deg, #edff00 0%, #ff9e00 69%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 1.7rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-  font-weight: bold;
-}
 .mainContainer .overlayContainer .overlay .signUp {
   right: 0;
 }

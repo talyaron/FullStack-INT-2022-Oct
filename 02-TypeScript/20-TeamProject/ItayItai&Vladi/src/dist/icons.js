@@ -5,7 +5,7 @@ window.addEventListener("click", function (e) {
         displayProfile(currentUser);
     }
     if (target.classList.contains("notificationsIcon")) {
-        // nothing yet...
+        displayNotifictions();
     }
     if (target.classList.contains("signOutbtn")) {
         localStorage.removeItem("currentUser");
@@ -13,6 +13,9 @@ window.addEventListener("click", function (e) {
     }
     if (target.classList.contains("exitProfilePage")) {
         profileWindow.style.display = "none";
+    }
+    if (target.classList.contains("exitNotifictionsPage")) {
+        notifictionWindow.style.display = "none";
     }
     if (target.classList.contains("backToMainIcon")) {
         localStorage.removeItem("currentBoard");

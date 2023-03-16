@@ -4,7 +4,6 @@
   background-color: #f4f4f4;
   height: 90vh;
   max-width: 90vw;
-  // aspect-ratio: 1/1;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -16,7 +15,7 @@
   flex-direction: column;
   align-items: center;
   display: none;
-  h1{
+  h1 {
     font-size: 2rem;
   }
   input {
@@ -26,7 +25,7 @@
     outline: none;
     border: 1px solid rgba(0, 0, 0, 0.238);
   }
-  button{
+  button {
     height: 2rem;
   }
   img {
@@ -57,7 +56,6 @@
 #warningWindow {
   position: absolute;
   background-color: #000000c1;
-  // box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.502);
   width: 40%;
   aspect-ratio: 3/1;
   display: flex;
