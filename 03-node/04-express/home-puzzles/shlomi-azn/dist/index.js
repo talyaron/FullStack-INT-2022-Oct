@@ -12,6 +12,6 @@ app.get('/', function (req, res) {
     res.send(indexFile);
 });
 app.get('/login', function (req, res) {
-    res.send("<h1> login</h1>");
+    res.send("<h1> lyy688gin</h1>");
 });
 app.listen(3000);
