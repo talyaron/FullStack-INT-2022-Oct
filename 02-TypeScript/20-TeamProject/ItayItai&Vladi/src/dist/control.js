@@ -1,7 +1,6 @@
 function handleSignUp(e) {
     try {
         e.preventDefault();
-        // e.stopPropagation();
         var gender = this.elements.gender.value;
         var firstName = this.elements.firstName.value;
         var lastName = this.elements.lastName.value;
@@ -29,7 +28,7 @@ function handleSignUp(e) {
         this.reset();
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 function handleSignIn(e) {
@@ -47,7 +46,7 @@ function handleSignIn(e) {
         }
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 function handleRecovery(e) {
@@ -75,18 +74,67 @@ function handleRecovery(e) {
         passwordDisplayDiv.style.display = "flex";
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 function displayProfile(user) {
     try {
         profileWindow.style.display = "flex";
         if (user) {
-            return (profileDiv.innerHTML = "\n        <ul>\n          <h1>About you:</h1>\n          <li>Name: " + user.firstName + " " + user.lastName + "</li>\n          <li>Gender: " + user.gender + "</li>\n          <li>Email: " + user.email + "</li>\n          <li>Phone Number: " + user.phoneNumber + "</li>\n          <li>User Name: " + user.userName + "</li>\n          <li>Password: " + user.password + "</li>\n        </ul>\n        ");
+            profileDiv.innerHTML = "\n        <ul>\n          <h1>About you:</h1>\n          <li>Name: <span class=\"user-info\">" + user.firstName + " " + user.lastName + "</span>\n          </li>\n          <li>Gender: <span class=\"user-info\">" + user.gender + "</span>\n          </li>\n          <li>Email: <span class=\"user-info\">" + user.email + "</span>\n          </li>\n          <li>Phone Number: <span class=\"user-info\">" + user.phoneNumber + "</span>\n          </li>\n          <li>User Name: <span class=\"user-info\">" + user.userName + "</span>\n          </li>\n          <li>Password: <span class=\"user-info\">" + user.password + "</span>\n          </li>\n        </ul>\n      ";
+            // const editProfileInfoBtns = document.querySelectorAll('.editInfo');
+            // editProfileInfoBtns.forEach((editBoardBtn)=>{
+            //   editBoardBtn.addEventListener("click",()=>{
+            //     const userProfileInfoTitle = editBoardBtn.parentNode as HTMLElement;
+            //     const userProfileInfoText = userProfileInfoTitle.querySelector(".user-info") as HTMLElement;
+            //     const editprofileInput = document.createElement("input");
+            //     editprofileInput.type = "text";
+            //     editprofileInput.value = userProfileInfoText.textContent!;
+            //     editprofileInput.classList.add("editUserInput");
+            //     userProfileInfoTitle.replaceChild(editprofileInput, userProfileInfoText);
+            //     editprofileInput.focus();
+            //     const saveButton = document.createElement("button");
+            //     saveButton.textContent = "Save";
+            //     saveButton.classList.add("saveInfo");
+            //     userProfileInfoTitle.insertBefore(saveButton, editBoardBtn.nextSibling);
+            //     const cancelButton = document.createElement("button");
+            //     cancelButton.textContent = "Cancel";
+            //     cancelButton.classList.add("cancelEdit");
+            //     userProfileInfoTitle.insertBefore(cancelButton, editBoardBtn.nextSibling);
+            //     editBoardBtn.style.display = "none";
+            //     saveButton.addEventListener("click", () => {
+            //       const newContent = editprofileInput.value.trim();
+            //       userProfileInfoTitle.replaceChild(userProfileInfoText, editprofileInput);
+            //       userProfileInfoText.textContent = newContent;
+            //       editBoardBtn.style.display = "inline-block";
+            //       saveButton.remove();
+            //       cancelButton.remove();
+            //     });
+            //     cancelButton.addEventListener("click", () => {
+            //       userProfileInfoTitle.replaceChild(userProfileInfoText, editprofileInput);
+            //       editBoardBtn.style.display = "inline-block";
+            //       saveButton.remove();
+            //       cancelButton.remove();
+            //     });
+            //   });
+            // });
         }
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
+    }
+}
+function displayNotifictions() {
+    try {
+        var notifications = localStorage.getItem("notifications-" + currentUser.uid);
+        if (notifications) {
+            var notificationss = JSON.parse(notifications);
+            notifictionWindow.style.display = "flex";
+            return (notificationsDiv.innerHTML = "\n      <ul>\n      <h3>notifications :</h3>\n      <li>" + notificationss + "</li>\n    </ul>\n          ");
+        }
+    }
+    catch (error) {
+        console.error(error);
     }
 }
 function updateUserBoardList(userToUpdate, boardToUpdate) {
@@ -120,7 +168,7 @@ function checkIfUserExists(userName, password) {
         return userList.find(function (user) { return user.userName === userName && user.password === password; });
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 function renderBoardsToMain(listOFBoards) {
@@ -132,7 +180,7 @@ function renderBoardsToMain(listOFBoards) {
             .join("");
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 function createBoard(boardName, boardImage) {
@@ -154,128 +202,127 @@ function createBoard(boardName, boardImage) {
         }
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
     }
 }
 function makeListFunctional(listContainer) {
-    try {
-        listContainer.addEventListener("dragstart", function (ev) {
-            if (listContainer != ev.target)
-                return;
-            listContainer.classList.add("isDragging");
-        });
-        listContainer.addEventListener("dragend", function () {
-            listContainer.classList.remove("isDragging");
-        });
-        listContainer.addEventListener("dragover", dragginCard);
-        var editListBtn = listContainer.querySelector(".editListBtn");
-        editListBtn.addEventListener("click", editList);
-        var newCardTextArea_1 = listContainer.querySelector(".newCardTextArea");
-        newCardTextArea_1.addEventListener("keyup", function (event) {
-            if (event.key === "Enter") {
-                if (newCardTextArea_1.value.trim() !== "") {
-                    createCardElement(newCardTextArea_1.value.trim(), listContainer);
-                    newCardTextArea_1.value = "";
-                }
+    listContainer.addEventListener("dragstart", function () {
+        listContainer.classList.add("is-draggin");
+    });
+    listContainer.addEventListener("dragend", function () {
+        listContainer.classList.remove("is-draggin");
+    });
+    listContainer.addEventListener("dragover", dragginCard);
+    var editListBtn = listContainer.querySelector(".editListBtn");
+    editListBtn.addEventListener("click", editList);
+    var newCardTextArea = listContainer.querySelector(".newCardTextArea");
+    newCardTextArea.addEventListener("keyup", function (event) {
+        if (event.key === "Enter") {
+            if (newCardTextArea.value.trim() !== "") {
+                createCardElement(newCardTextArea.value.trim(), listContainer);
+                var successcardMsg = "<i class=\"fa-solid fa-circle-check\"></i>Add new card: " + newCardTextArea.value;
+                notification(successcardMsg);
+                saveNotificationToLocalStorage(successcardMsg, currentBoard, currentUser);
+                newCardTextArea.value = "";
             }
-        });
-    }
-    catch (error) {
-        console.log(error);
-    }
+        }
+    });
 }
 function dragginCard(_a) {
     var clientY = _a.clientY;
-    try {
-        var cardIsDragged_1 = false;
-        cards.forEach(function (card) {
-            if (card.classList.contains("isDragging")) {
-                cardIsDragged_1 = true;
-            }
-        });
-        if (!cardIsDragged_1)
-            return;
-        // e.preventDefault();
-        var bottomTask = insertAboveTask(this, clientY);
-        var curTask = document.querySelector(".isDragging");
-        if (!bottomTask) {
-            this.appendChild(curTask);
+    var cardIsDragged = false;
+    cards.forEach(function (card) {
+        if (card.classList.contains("is-dragging")) {
+            cardIsDragged = true;
         }
-        else {
-            this.insertBefore(curTask, bottomTask);
-        }
-        currentBoard.update();
+    });
+    if (!cardIsDragged)
+        return;
+    var bottomTask = insertAboveTask(this, clientY);
+    var curTask = document.querySelector(".is-dragging");
+    if (!bottomTask) {
+        this.appendChild(curTask);
     }
-    catch (error) {
-        console.log(error);
+    else {
+        this.insertBefore(curTask, bottomTask);
     }
+    currentBoard.update();
 }
 function editList() {
-    try {
-        var listTitle_1 = this.parentNode;
-        var listTitleText_1 = listTitle_1.querySelector("h2");
-        var editListInput_1 = document.createElement("input");
-        editListInput_1.type = "text";
-        editListInput_1.value = listTitleText_1.textContent;
-        editListInput_1.classList.add("editListInput");
-        listTitle_1.replaceChild(editListInput_1, listTitleText_1);
-        editListInput_1.focus();
-        editListInput_1.addEventListener("keyup", function (event) {
-            if (event.key === "Enter") {
-                listTitle_1.replaceChild(listTitleText_1, editListInput_1);
-                listTitleText_1.textContent = editListInput_1.value.trim();
-                currentBoard.update();
-            }
-        });
-    }
-    catch (error) {
-        console.log(error);
-    }
+    var listTitle = this.parentNode;
+    var listTitleText = listTitle.querySelector("h2");
+    var editListInput = document.createElement("input");
+    editListInput.type = "text";
+    editListInput.value = listTitleText.textContent;
+    editListInput.classList.add("editListInput");
+    listTitle.replaceChild(editListInput, listTitleText);
+    editListInput.focus();
+    editListInput.addEventListener("keyup", function (event) {
+        if (event.key === "Enter") {
+            listTitle.replaceChild(listTitleText, editListInput);
+            listTitleText.textContent = editListInput.value.trim();
+            var successcardMsg = "<i class=\"fa-solid fa-circle-check\"></i>New List Name: " + editListInput.value;
+            notification(successcardMsg);
+            saveNotificationToLocalStorage(successcardMsg, currentBoard, currentUser);
+            currentBoard.update();
+        }
+    });
+    editListInput.addEventListener("blur", function (event) {
+        var newListTitle = document.createElement("h2");
+        newListTitle.textContent = editListInput.value.trim();
+        editListInput.replaceWith(newListTitle);
+        currentBoard.update();
+    });
 }
 function createCardElement(cardName, list) {
-    try {
-        var card_1 = document.createElement("div");
-        card_1.classList.add("boardContainer__main__list__card");
-        card_1.setAttribute("draggable", "true");
-        card_1.setAttribute("id", "" + uid());
-        card_1.innerHTML = "\n    <p>" + cardName + "</p>\n    <i class=\"fa-regular fa-pen-to-square editCardBtn\"></i>\n    ";
-        var cardTitle = list.querySelector(".boardContainer__main__list__header");
-        list.insertBefore(card_1, cardTitle.nextSibling);
-        var editCardBtn = card_1.querySelector(".editCardBtn");
-        editCardBtn.addEventListener("click", function () {
-            var cardTitle = card_1.querySelector(".boardContainer__main__list__card > p");
-            if (!cardTitle) {
-                console.error("Card title element not found!");
-                return;
+    var card = document.createElement("div");
+    card.classList.add("boardContainer__main__list__card");
+    card.setAttribute("draggable", "true");
+    card.setAttribute("ondragstart", "drag(event)");
+    card.setAttribute("id", "" + uid());
+    card.innerHTML = "\n  <h2>" + cardName + "</h2>\n  <i class=\"fa-regular fa-pen-to-square editCardBtn\"></i>\n  ";
+    var cardTitle = list.querySelector(".boardContainer__main__list__header");
+    list.insertBefore(card, cardTitle.nextSibling);
+    var editCardBtn = card.querySelector(".editCardBtn");
+    editCardBtn.addEventListener("click", function () {
+        var cardTitle = card.querySelector(".boardContainer__main__list__card > h2");
+        if (!cardTitle) {
+            console.error("Card title element not found!");
+            return;
+        }
+        var editCardInput = document.createElement("input");
+        editCardInput.type = "text";
+        editCardInput.value = cardTitle.textContent;
+        editCardInput.classList.add("editCardInput");
+        editCardInput.addEventListener("keyup", function (event) {
+            if (event.key === "Enter") {
+                var newCardTitle = document.createElement("h2");
+                newCardTitle.textContent = editCardInput.value.trim();
+                var successcardMsg = "<i class=\"fa-solid fa-circle-check\"></i>New Card Name: " + editCardInput.value;
+                notification(successcardMsg);
+                saveNotificationToLocalStorage(successcardMsg, currentBoard, currentUser);
+                editCardInput.replaceWith(newCardTitle);
             }
-            var editCardInput = document.createElement("input");
-            editCardInput.type = "text";
-            editCardInput.value = cardTitle.textContent;
-            editCardInput.classList.add("editCardInput");
-            editCardInput.addEventListener("keyup", function (event) {
-                if (event.key === "Enter") {
-                    var newCardTitle = document.createElement("p");
-                    newCardTitle.textContent = editCardInput.value.trim();
-                    editCardInput.replaceWith(newCardTitle);
-                }
-            });
-            cardTitle.replaceWith(editCardInput);
-            editCardInput.focus();
+        });
+        editCardInput.addEventListener("blur", function () {
+            var newCardTitle = document.createElement("h2");
+            newCardTitle.textContent = editCardInput.value.trim();
+            editCardInput.replaceWith(newCardTitle);
             currentBoard.update();
         });
-        card_1.addEventListener("dragstart", function (ev) {
-            card_1.classList.add("isDragging");
-        });
-        card_1.addEventListener("dragend", function () {
-            card_1.classList.remove("isDragging");
-        });
+        cardTitle.replaceWith(editCardInput);
+        editCardInput.focus();
         currentBoard.update();
-        // Add new card to cards variable
-        cards = document.querySelectorAll(".boardContainer__main__list__card");
-    }
-    catch (error) {
-        console.log(error);
-    }
+    });
+    card.addEventListener("dragstart", function () {
+        card.classList.add("is-dragging");
+    });
+    card.addEventListener("dragend", function () {
+        card.classList.remove("is-dragging");
+    });
+    currentBoard.update();
+    // Add new card to cards variable
+    cards = document.querySelectorAll(".boardContainer__main__list__card");
 }
 function renderBoardInBoardPage() {
     try {
@@ -290,6 +337,45 @@ function renderBoardInBoardPage() {
         });
     }
     catch (error) {
-        console.log(error);
+        console.error(error);
     }
+}
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+function drag(ev) {
+    ev.dataTransfer.setData("Text", ev.target.id);
+}
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("Text");
+    var el = document.getElementById(data);
+    // el?.parentNode?.removeChild(el); => delete without Warning //
+    currentBoard.update();
+}
+function saveNotificationToLocalStorage(notification, board, user) {
+    var userNotifications = JSON.parse(localStorage.getItem("notifications-" + user.uid) || "[]");
+    userNotifications.push(notification);
+    localStorage.setItem("notifications-" + user.uid, JSON.stringify(userNotifications));
+    var boardNotifications = JSON.parse(localStorage.getItem("notifications-board-" + board.uid) || "[]");
+    boardNotifications.push(notification);
+    localStorage.setItem("notifications-board-" + board.uid, JSON.stringify(boardNotifications));
+}
+function notification(msg) {
+    var note = document.createElement("div");
+    note.classList.add("notification");
+    note.innerHTML = msg;
+    noteBox.appendChild(note);
+    if (msg.includes("Delete")) {
+        note.classList.add("Delete");
+    }
+    if (msg.includes("List")) {
+        note.classList.add("List");
+    }
+    if (msg.includes("card")) {
+        note.classList.add("card");
+    }
+    setTimeout(function () {
+        note.remove();
+    }, 6000);
 }

@@ -1,5 +1,5 @@
-// import { readFile } from "node:fs";
-const fs = require('node:fs');
+import { readFile } from "node:fs";
+// const fs = require('node:fs');
 
 console.log("Hi all....");
 
@@ -7,7 +7,7 @@ const x = { a: 1, b: 3 };
 const y = Math.random() * x.b;
 console.log("Y is equal to ", y);
 
-fs.readFile("./pwd.txt", 'utf8', (err, data) => {
+readFile("./pwd.txt", 'utf8', (err, data) => {
   try {
     if (err) throw err;
     console.log(data);

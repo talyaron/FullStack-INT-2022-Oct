@@ -5,7 +5,7 @@ window.addEventListener("click", (e) => {
     displayProfile(currentUser);
   }
   if (target.classList.contains("notificationsIcon")) {
-    // nothing yet...
+    displayNotifictions();
   }
 
   if (target.classList.contains("signOutbtn")) {
@@ -16,6 +16,9 @@ window.addEventListener("click", (e) => {
   if (target.classList.contains("exitProfilePage")) {
     profileWindow.style.display = "none";
   }
+  if (target.classList.contains("exitNotifictionsPage")) {
+    notifictionWindow.style.display = "none";
+  }
   if (target.classList.contains("backToMainIcon")) {
     localStorage.removeItem("currentBoard");
     window.location.href = "index.html";
@@ -23,7 +26,6 @@ window.addEventListener("click", (e) => {
   if (target.classList.contains("editBoardIcon")) {
     editBoardWindow.style.display = "flex";
     nameInputEle.value = currentBoard.name;
-    imageDisplayedInEdit.src = currentBoard.backgroundImage
-
+    imageDisplayedInEdit.src = currentBoard.backgroundImage;
   }
 });

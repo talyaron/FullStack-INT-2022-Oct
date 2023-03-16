@@ -8,6 +8,7 @@ class User {
     public email: string,
     public phoneNumber: string,
     public boardList: Board[] = [],
+    public notifiction: string[] = [],
     public uid: string = Math.random().toString(36).slice(2)
   ) {}
 
@@ -25,11 +26,12 @@ class User {
           obj.email,
           obj.phoneNumber,
           obj.boardList,
+          obj.notifiction,
           obj.uid
         );
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
@@ -45,7 +47,7 @@ class User {
         }
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 }
@@ -74,7 +76,7 @@ class Board {
         );
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
@@ -85,7 +87,7 @@ class Board {
       );
       localStorage.setItem("currentBoard", JSON.stringify(findBoard));
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 
@@ -107,10 +109,10 @@ class Board {
       ".boardContainer__main__list"
     );
     listElements.forEach((list) => {
-      const listName = list.querySelector("h2")?.innerHTML as string;
+      const listName = list.querySelector("h1")?.innerHTML as string;
       const cardsArr: string[] = [];
       list
-        .querySelectorAll("p")
+        .querySelectorAll("h2")
         .forEach((card) => cardsArr.push(card.innerHTML));
       const newList = new List(listName, Array.from(cardsArr));
       this.lists.push(newList);
@@ -144,6 +146,9 @@ class List {
     if (newListInput.value == "") return;
     const newList = new List(listName);
     boardContainer.insertBefore(newList.createListElement(), trashCanDiv);
+    let successListMsg = `<i class="fa-solid fa-circle-check"></i> Add new List: ${newListInput.value}`;
+    notification(successListMsg);
+    saveNotificationToLocalStorage(successListMsg, currentBoard, currentUser);
     newListInput.value = "";
   }
   createListElement() {
@@ -151,19 +156,18 @@ class List {
     listContainer.classList.add("boardContainer__main__list");
     listContainer.setAttribute("draggable", "true");
     listContainer.setAttribute("id", `${this.uid}`);
-    // listContainer.setAttribute("ondragstart", `drag(event)`);
-
+    listContainer.setAttribute("ondragstart", `drag(event)`);
     const header = document.createElement("div");
     header.classList.add("boardContainer__main__list__header");
     header.setAttribute("id", `${this.name}_header`);
     header.innerHTML = `
     <div class="listTitle">
-      <h2>${this.name}</h2>
+      <h1>${this.name}</h1>
       <i class="fa-regular fa-pen-to-square editListBtn"></i>
       </div>
       <div class="boardContainer__main__list__header--addCard">
-        <textarea maxlength="50" class="newCardTextArea" cols="30" rows="2" placeholder="Task..."></textarea>
-        <button class="newCardBtn">New Card</button>
+        <textarea maxlength="30" class="newCardTextArea" cols="30" rows="2" placeholder="Task..."></textarea>
+        <button class="newCardBtn" title="Add Card">+</button>
       </div>
     `;
     listContainer.appendChild(header);
@@ -171,6 +175,7 @@ class List {
     makeListFunctional(listContainer);
     boardContainer.insertBefore(listContainer, trashCanDiv);
     currentBoard.update();
+
     return listContainer;
   }
 }
@@ -191,7 +196,7 @@ const preMadeUserList: User[] = [
     "Gelberg",
     "male",
     "itaiG",
-    "12345",
+    "12345678",
     "itaiGel@gmail.com",
     "0541234567"
   ),
