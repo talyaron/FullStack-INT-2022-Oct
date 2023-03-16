@@ -94,15 +94,11 @@ header{
             padding: 51px 0 40px 0;
         }
 
-        #restartBtn{
-            border-radius: 5px;
-            outline: none;
-            border: 2px solid rgb(35, 53, 105);
-            background-color: rgb(117, 141, 214);
-            color: white;
-            font-size: 2.5rem;
-            font-weight: bold;
-            padding: 20px 20px;
+
+        .backToMainPage{
+            text-decoration: none;
+            color: black;
+            font-size: 30px;
         }
 
 
