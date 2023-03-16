@@ -1,0 +1,2 @@
+## init ##
+npm init --y
