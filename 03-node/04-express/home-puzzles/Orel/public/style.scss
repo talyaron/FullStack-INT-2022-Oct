@@ -1,0 +1,18 @@
+:root{
+    --main-color:#0000;
+    --main-background:#fff;
+    --main-hover-color:lightgrey;
+}
+
+// RESET
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ text-decoration: none;
+ list-style: none;
+}
+
+body{
+    background-color: salmon;
+}
