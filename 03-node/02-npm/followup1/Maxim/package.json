@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "nodemon": "^2.0.21",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
