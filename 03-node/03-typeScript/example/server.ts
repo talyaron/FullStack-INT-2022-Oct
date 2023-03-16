@@ -1,2 +1,3 @@
-const x:number = 5;
-console.log('x =',x);
+import { v4 } from 'uuid';
+
+console.log("hello", v4());
