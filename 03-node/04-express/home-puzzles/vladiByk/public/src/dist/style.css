@@ -1,0 +1,119 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Verdana, "Segoe UI", Tahoma, Geneva, sans-serif;
+}
+
+img,
+embed,
+object,
+video {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+.navBar {
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 2rem;
+  background-color: whitesmoke;
+}
+.navBar .links {
+  display: flex;
+  gap: 2rem;
+}
+.navBar .links a {
+  text-decoration: none;
+  color: inherit;
+}
+.navBar .links a:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.entryPageContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.entryPageContainer .main {
+  height: 80%;
+  aspect-ratio: 1.5/1;
+  margin: auto;
+  background: blue no-repeat center/contain;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  color: #fff;
+  text-shadow: 0 0 30px black;
+}
+
+.learnMoreBtn {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: white;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.learnMoreBtn:before {
+  content: "";
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-learnMoreBtn 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-learnMoreBtn {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+.learnMoreBtn:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
