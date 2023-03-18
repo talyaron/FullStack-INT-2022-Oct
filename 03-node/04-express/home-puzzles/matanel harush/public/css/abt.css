@@ -20,7 +20,7 @@ body {
     background-image: url('../img/bg.jpg');
     background-size: cover;
     background-position: center;
-    overflow: hidden;
+    overflow: auto;
   }
 
   body::before {
@@ -42,3 +42,114 @@ body {
     height: 100%;
     z-index: -1;
   }
+
+  .line-1{
+    font-family: 'Anonymous Pro', monospace;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+.anim-typewriter{
+    animation: typewriter 3s steps(15) 1s 1 normal both,
+               blinkTextCursor 500ms steps(15) infinite normal;
+    animation-fill-mode: forwards; /* Add this line to keep the last frame of the animation */
+}
+
+@keyframes typewriter{
+    from{width: 0;}
+    to{width: 16em;}
+}
+
+@keyframes blinkTextCursor{
+    from{border-right-color: rgba(255,255,255,.75);}
+    to{border-right-color: transparent;}
+}
+
+
+.skillbar{
+  z-index: 1;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 30rem;
+  
+}
+
+.skillbar h1{
+  color: white;
+}
+@keyframes load{
+  from {
+    width: 0%
+  }
+}
+@-webkit-keyframes load{
+  from {
+    width: 0%
+  }
+}
+@-moz-keyframes load{
+  from {
+    width: 0%
+  }
+}
+@-o-keyframes load{
+  from {
+    width: 0%
+  }
+}
+
+.bar{
+  background-color: #EEE;
+  padding: 2px;
+  border-radius: 15px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #FFF;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+.bar::before{
+  content:  attr(data-skill);
+  background-color: #f3b0ff;
+  display: inline-block;
+  padding: 5px 0 5px 10px;
+  border-radius: inherit;
+  animation: load 2s 0s;
+  -webkit-animation: load 2s 0s;
+  -moz-animation: load 2s 0s;
+  -o-animation: load 2s 0s;
+}
+
+.bar.front::before{
+  background-color: #ffcc33;
+}
+.bar.back::before{
+  background-color: #a6cfe3;
+}
+
+.bar.learning::before{
+  width: calc(80% - 10px);
+}
+.bar.basic::before{
+  width: calc(40% - 10px);
+}
+.bar.intermediate::before{
+  width: calc(60% - 10px);
+}
+.bar.advanced::before{
+  width: calc(80% - 10px);
+}
+.bar.expert::before{
+  width: calc(100% - 10px);
+}
