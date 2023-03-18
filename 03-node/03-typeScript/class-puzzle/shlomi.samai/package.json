@@ -8,11 +8,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "@types/node": "^18.15.3",
-    "ts-node": "^10.9.1",
-    "tslib": "^2.5.0",
-    "typescript": "^5.0.2"
-  }
+  "dependencies": {
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {},
+  "description": ""
 }
