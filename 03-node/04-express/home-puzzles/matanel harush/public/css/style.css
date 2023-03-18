@@ -125,7 +125,7 @@
     width: 3.5em;
     height: 3.5em;
     border-radius: 50%;
-    background-color: hsl(4, 98%, 60%);
+    background-color: #86f572;
     box-shadow: 0 2px 5px 0 hsla(0, 0%, 0%, .26);  
     color: hsl(0, 0%, 100%);
     text-align: center;
@@ -161,7 +161,7 @@
     top: 0;
     right: 0;
     z-index: -2;
-    background-color: hsl(4, 98%, 60%);
+    background-color: #a0fd9031;
     transition: all .3s ease;
   }
   
@@ -189,7 +189,7 @@
     border-radius: 50%;
     text-align: center;
     line-height: 3;
-    background-color: hsla(0,0%,0%,.1);
+    background-color: hsla(130, 19%, 53%, 0.356);
     transition: transform .3s ease, background .2s ease;
   }
   
@@ -215,41 +215,4 @@
   
   .circular-menu.active .menu-item:nth-child(4) {
     transform: translate3d(-7em,1em,0);
-  }
-  
-  /**
-   * The other theme for this menu
-   */
-  
-  .circular-menu.circular-menu-left {
-    right: auto; 
-    left: 1em;
-  }
-  
-  .circular-menu.circular-menu-left .floating-btn {
-    background-color: hsl(217, 89%, 61%);
-  }
-  
-  .circular-menu.circular-menu-left:after {
-    background-color: hsl(217, 89%, 61%);
-  }
-  
-  .circular-menu.circular-menu-left.active .floating-btn i {
-    transform: rotate(90deg);
-  }
-  
-  .circular-menu.circular-menu-left.active .menu-item:nth-child(1) {
-    transform: translate3d(-1em,-7em,0);
-  }
-  
-  .circular-menu.circular-menu-left.active .menu-item:nth-child(2) {
-    transform: translate3d(3.5em,-6.3em,0);
-  }
-  
-  .circular-menu.circular-menu-left.active .menu-item:nth-child(3) {
-    transform: translate3d(6.5em,-3.2em,0);
-  }
-  
-  .circular-menu.circular-menu-left.active .menu-item:nth-child(4) {
-    transform: translate3d(7em,1em,0);
   }
