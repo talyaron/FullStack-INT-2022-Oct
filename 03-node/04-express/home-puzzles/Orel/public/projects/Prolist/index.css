@@ -1,0 +1,105 @@
+:root {
+  --black-dark: #090909;
+  --gray-dark: 121212;
+  --gray-light: #1d1d1d;
+  --gray-no-hover:#b2b2b2;
+  --purple: #af2896;
+  --blue1: #509bf5;
+  --blue2: #0d72ea;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: "Poppins", sans-serif;
+  width: 100vw;
+  height: 100vh;
+}
+
+.line {
+  width: 80%;
+  height: 1px;
+  background-color: var(--gray-no-hover);
+  opacity: 0.2;
+}
+
+section#main-section {
+  width: inherit;
+  height: inherit;
+  background-color: var(--gray-light);
+}
+section#main-section header {
+  padding: 15px;
+  width: 420px;
+  height: inherit;
+  background-color: var(--black-dark);
+  text-align: start;
+}
+section#main-section header div {
+  margin: 20px 0;
+}
+section#main-section header div.icon a {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+section#main-section header div.icon a img {
+  z-index: 2;
+  width: 100px;
+}
+section#main-section header div.icon a span {
+  font-weight: 500;
+  color: white;
+  font-size: 2rem;
+  margin-left: -15px;
+}
+section#main-section header div.list-up {
+  font-weight: 500;
+}
+section#main-section header div.list-up .menu-navbar li button {
+  width: 100%;
+  text-align: start;
+  cursor: pointer;
+  color: var(--gray-no-hover);
+  background-color: transparent;
+  font-size: 1.2rem;
+  padding: 10px;
+}
+section#main-section header div.list-up .menu-navbar li button span {
+  font-weight: 700;
+  margin-left: 20px;
+}
+section#main-section header div.list-up .menu-navbar li button i {
+  font-size: 1.7rem;
+}
+section#main-section header div.list-up .menu-navbar li button.active {
+  color: white;
+}
+section#main-section header .list-down {
+  color: var(--gray-no-hover);
+}
+section#main-section header .list-down li {
+  width: 100%;
+  text-align: start;
+  cursor: pointer;
+  color: var(--gray-no-hover);
+  background-color: transparent;
+  font-size: 1.2rem;
+  padding: 10px;
+}
+section#main-section header .list-down li span {
+  font-weight: 700;
+  margin-left: 20px;
+}
+section#main-section header .list-down li i {
+  font-size: 2rem;
+}
+section#main-section header .list-down li.active {
+  color: white;
+}

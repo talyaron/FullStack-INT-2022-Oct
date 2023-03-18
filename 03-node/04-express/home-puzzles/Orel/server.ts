@@ -1,19 +1,27 @@
 import express from "express";
-import fs from "fs";
-const app = express();
-app.use(express.static('public'));
-app.use(express.json());
 
-app.get('/', function (req, res) {
-    const indexFile = fs.readFileSync("./public/index.html", {
-        encoding: "utf8",
-        flag: "r",
-      })
-      res.send(indexFile)
+
+const app = express()
+const port = 3000;
+
+
+app.use(express.static("public"))
+app.use(express.json())
+
+app.get('/style.css', (req, res)=>{
+    res.sendFile(__dirname + "/public/dist/style.css");
+  });
+
+app.get('/index.html' , (req ,res)=>{
+    res.sendFile(__dirname + "/" + "index.html");
+})
+
+app.get('/project1.html' , (req ,res)=>{
+    res.sendFile(__dirname + "/public//projects/" + "Prolist/index.html");
 })
 
 
 
-app.listen(3000 , ()=>{
-    console.log("port On ");
+app.listen(port , ()=>{
+    console.log(`Port On ${port}`);
 })

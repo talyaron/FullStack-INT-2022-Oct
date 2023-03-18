@@ -1,17 +1,19 @@
 "use strict";
 exports.__esModule = true;
 var express_1 = require("express");
-var fs_1 = require("fs");
 var app = express_1["default"]();
-app.use(express_1["default"].static('public'));
+var port = 3000;
+app.use(express_1["default"].static("public"));
 app.use(express_1["default"].json());
-app.get('/', function (req, res) {
-    var indexFile = fs_1["default"].readFileSync("./public/index.html", {
-        encoding: "utf8",
-        flag: "r"
-    });
-    res.send(indexFile);
+app.get('/style.css', function (req, res) {
+    res.sendFile(__dirname + "/public/dist/style.css");
 });
-app.listen(3000, function () {
-    console.log("port On ");
+app.get('/index.html', function (req, res) {
+    res.sendFile(__dirname + "/" + "index.html");
+});
+app.get('/project1.html', function (req, res) {
+    res.sendFile(__dirname + "/public//projects/" + "Prolist/index.html");
+});
+app.listen(port, function () {
+    console.log("Port On " + port);
 });
