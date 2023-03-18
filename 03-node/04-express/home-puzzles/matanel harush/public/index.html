@@ -6,7 +6,9 @@
   <title>Matanel Harush - Full Stack Developer</title>
   <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/style.css"/>
+  <link rel="stylesheet" href="./css/fade.css">
+  <link rel="stylesheet" href="./css/menu.css">
 </head>
 <body>
   <!-- <nav>
@@ -18,40 +20,40 @@
     </ul>
   </nav> -->
   
-
+  <div class="fadein">
   
  
-  <div id="particles-js"></div>  
-  <script src="../particles/particles.js"></script>
-  <script src="../particles/app.js"></script>
+        <div id="particles-js"></div>  
+        <script src="../particles/particles.js"></script>
+        <script src="../particles/app.js"></script>
 
-  <div class="container">
-    <a>Matanel</a>
-    <div class="stack" style="--stacks: 3;">
-      <span style="--index: 0;">Full Stack</span>
-      <span style="--index: 1;">Full Stack</span>
-      <span style="--index: 2;">Full Stack</span>
-    </div>
-    <span class="right">Developer</span>
+        <div class="container">
+          <a>Matanel</a>
+          <div class="stack" style="--stacks: 3;">
+            <span style="--index: 0;">Full Stack</span>
+            <span style="--index: 1;">Full Stack</span>
+            <span style="--index: 2;">Full Stack</span>
+          </div>
+          <span class="right">Developer</span>
+        </div>
+
+
+
+        <div id="circularMenu" class="circular-menu">
+
+          <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
+            <i class="fa fa-plus"></i>
+          </a>
+        
+          <menu class="items-wrapper">
+            <a id="main" href="/" class="menu-item fa-solid fa-house"></a>
+            <a id="about" href="/about" class="menu-item fa-solid fa-info"></a>
+            <a id="contact" href="/contact" class="menu-item fa-solid fa-message"></a>
+            <a href="#" class="menu-item fa-solid fa-briefcase"></a>
+          </menu>
+        
+        </div>
   </div>
-
-
-
-  <div id="circularMenu" class="circular-menu">
-
-    <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
-      <i class="fa fa-plus"></i>
-    </a>
-  
-    <menu class="items-wrapper">
-      <a href="/" class="menu-item fa-solid fa-house"></a>
-      <a href="/about" class="menu-item fa-solid fa-info"></a>
-      <a href="/contact" class="menu-item fa-solid fa-message"></a>
-      <a href="#" class="menu-item fa-solid fa-briefcase"></a>
-    </menu>
-  
-  </div>
-
 
 
 </body>

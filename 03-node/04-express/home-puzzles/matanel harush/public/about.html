@@ -3,16 +3,35 @@
   <head>
     <meta charset="UTF-8">
     <title>About Page</title>
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/abt.css">
+    <link rel="stylesheet" href="./css/fade.css">
+    <link rel="stylesheet" href="./css/menu.css">
   </head>
   <body>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
+
+    <div class="fadein">
 
 
-    <h4>About - WIP</h4>
+      <div id="particles-js"></div>  
+      <script src="../particles/particles.js"></script>
+      <script src="../particles/app.js"></script>
+
+      <div id="circularMenu" class="circular-menu">
+
+        <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
+          <i class="fa fa-plus"></i>
+        </a>
+      
+        <menu class="items-wrapper">
+          <a id="main" href="/" class="menu-item fa-solid fa-house"></a>
+          <a id="about" href="/about" class="menu-item fa-solid fa-info"></a>
+          <a id="contact" href="/contact" class="menu-item fa-solid fa-message"></a>
+          <a id="portfolio" href="#" class="menu-item fa-solid fa-briefcase"></a>
+        </menu>
+      
+      </div>
+    </div>          
+      <script src="./js/main.js"></script>
 </html>
