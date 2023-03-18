@@ -1,13 +1,23 @@
-import express from 'express'
-import fs from 'fs'
-const app = express()
+import express from 'express';
+import fs from 'fs';
+
+const app = express();
 
 app.get('/', function (req, res) {
+  const webPage = fs.readFileSync('./index.html', { encoding: 'utf8', flag: 'r' });
+  res.send(webPage);
+});
 
-    const webPage = fs.readFileSync('./input2.txt',
-    {encoding:'utf8', flag:'r'})
-    res.send('<h1 class="test_class" style="background-color:green">Test</h1> <ul><li style="color:green">1</li><li style="color:red">2</li><li style="color:blue">3</li><li style="color:aqua">4</li></ul>')
-  })
+app.get('/about', function (req, res) {
+  const webPage = fs.readFileSync('./about.html', { encoding: 'utf8', flag: 'r' });
+  res.send(webPage);
+});
 
-  app.listen(5000)
- 
+app.get('/contact', function (req, res) {
+  const webPage = fs.readFileSync('./contact.html', { encoding: 'utf8', flag: 'r' });
+  res.send(webPage);
+});
+
+app.listen(5000, function () {
+  console.log('Server is listening on port 5000');
+});
