@@ -5,43 +5,46 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>APP</title>
-  <script src="./dist/control.js" defer></script>
-  <script src="./dist/model.js" defer></script>
-  <script src="./dist/view.js" defer></script>
-  <script src="./dist/index.js" defer></script>
+  <title>Recipes</title>
+  <script src="./dist/control.js"defer></script>
+  <script src="./dist/model.js"defer></script>
+  <script src="./dist/view.js"defer></script>
   <link rel="stylesheet" href="./dist/style.css">
 </head>
 
-<body onload="handleLoad()">
+<body>
+<!-- <body onload = "handleLoad()"> -->
+ <!-- <body onbeforeunload="handleSaveItems()"> -->
+  <!-- <body onload="handleLoad()" -->
 
-  </header>
+     <!-- onbeforeunload="saveTolocalStorge()">  --> 
 
-  <h2> Recipes</h2>
-  <button><a href="./App.html"> לעמוד הבית </a></button>
+  <h2>  המתכונים</h2>
+  
 
  
+    
   <form class="form" onsubmit="handleAddItem(event)">
     <input type="text" name="name" placeholder="name of product" required class="form__input form__input--required" />
     <br>
     <input type="text" name="image" placeholder=" image " required class="form__input form__input--required" />
     <br>
-    <input type="number" name="price" placeholder="price" required class="form__input form__input--required" />
+    <input type="text" name="link" placeholder="link" required class="form__input form__input--required" />
     <br>
     <select name="category" class="form__select">
       <option value="chocolata cake"> עוגות </option>
       <option value="cookies">עוגיות </option>
-      <option value="mousse"> קקינוחים</option>
+      <option value="mousse"> קינוחים</option>
      
     </select>
-    
-    <input type="submit" value="ADD" class="form__submit" />
+   
+ 
+      <input type="submit" value="ADD" class="form__submit"/>
   </form>
 
+  <button><a href="./index.html">  רשימת המתכונים </a></button>
 
-
-
-
+ 
 </body>
 
 </html>
