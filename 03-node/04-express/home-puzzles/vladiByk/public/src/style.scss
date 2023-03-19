@@ -1,0 +1,225 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Verdana, "Segoe UI", Tahoma, Geneva, sans-serif;
+}
+img,
+embed,
+object,
+video {
+  max-width: 100%;
+  max-height: 100%;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+.navBar {
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 2rem;
+  background-color: #222;
+  color: whitesmoke;
+  .links {
+    display: flex;
+    gap: 2rem;
+  }
+}
+
+.entryPageContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  .containerBackground {
+    position: absolute;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 138, 255);
+    background: linear-gradient(
+      50deg,
+      rgba(0, 138, 255, 1) 0%,
+      rgba(15, 20, 79, 1) 40%
+    );
+  }
+  .backgroundShape {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 138, 255, 1);
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 80% 100%);
+  }
+  .main {
+    height: 80%;
+    max-width: 80%;
+    aspect-ratio: 1.5/1;
+    margin: auto;
+    background: rgb(0, 138, 255);
+    background: linear-gradient(
+      270deg,
+      rgba(0, 138, 255, 1) 0%,
+      rgba(15, 20, 79, 1) 66%
+    );
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.274);
+    border-radius: 20px;
+    padding: 2rem;
+    display: flex;
+    &__text {
+      height: 100%;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: space-around;
+      color: #fff;
+      text-shadow: 0 0 30px black;
+      padding: 1rem;
+      h1 {
+        font-family: cursive;
+        word-spacing: 2px;
+        letter-spacing: 1px;
+      }
+      h2 {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 2rem;
+      }
+      .discription {
+        width: 100%;
+        text-align: justify;
+      }
+    }
+    .myImg{
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img{
+        // width: 70%;
+        // border-radius: 10px;
+        clip-path: ellipse(40% 50% at 50% 50%);
+      }
+    }
+  }
+}
+
+.learnMoreBtn {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.learnMoreBtn:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-learnMoreBtn 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-learnMoreBtn {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.learnMoreBtn:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  li {
+    margin: 0 1rem;
+    display: flex;
+  }
+}
+
+a {
+  display: block;
+  position: relative;
+  padding: 0.2em 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: hotpink;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+a:hover::after,
+a:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+
+li a::after {
+  opacity: 1;
+  transform: scale(0);
+  transform-origin: center;
+}
+
+li a:hover::after,
+li a:focus::after {
+  transform: scale(1);
+}

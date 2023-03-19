@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <!-- Font Google Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome ICON Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- JS files Link -->
+    <script src="./dist/index.js" defer></script>
+
+    <!-- Style Css link -->
+    <link rel="stylesheet" href="./dist/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="loading-ani active">
+        <img src="./img/loading.gif" width="200" height="200">
+
+    </div>
+    <section class="home-container">
+        <header class="home-container__header">
+            <nav class="home-container__navbar">
+
+                <a class="home-container__logo" href="./index.html">
+                    <img class="home-container__logo_img" src="./img/logo.png" alt="logo">
+                </a>
+
+                <ul class="home-container__nav-navbar">
+                    <li class="home-container__nav-list" onclick="handleClickDesign()">
+                        DESIGNERS
+                    </li>
+                    <li class="home-container__nav-list" onclick="handleClickProjects()">
+                        PROJECT
+                    </li>
+                    <li class="home-container__nav-list" onclick="handleClickSkills()">
+                       SKILLS
+                    </li>
+                    <li class="home-container__nav-list" onclick="handleClickMore()">
+                       MORE
+                    </li>
+                </ul>
+
+            </nav>
+
+            <div class="home-container__join" onclick="handleJoinNow()">
+                <span>JOIN NOW</span>
+                <div class="home-container__join-circle">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+        </header>
+
+        <div class="home-container__container-img">
+            <div class="home-container__container-img_div">
+                <img src="./img/magicTree.png" alt="magicTree">
+                <div class="home-container__container-img-desMenu">
+                    <div class="container-desMenu">
+                        <h1></h1>
+                        <div id="desMenuRoot">
+          
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
