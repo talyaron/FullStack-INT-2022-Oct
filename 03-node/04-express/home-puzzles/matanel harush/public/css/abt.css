@@ -5,14 +5,19 @@
   }
 
 
-html, body {
+  html {
+    overflow: hidden;
     width: 100%;
     height: 100%;
-    font-family: Arial;
   }
+  
 
 
 body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-family: Arial;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,8 +25,8 @@ body {
     background-image: url('../img/bg.jpg');
     background-size: cover;
     background-position: center;
-    overflow: auto;
-  }
+    overflow: hidden;
+    }
 
   body::before {
     content: "";
@@ -47,7 +52,7 @@ body {
     font-family: 'Anonymous Pro', monospace;
     color: white;
     position: absolute;
-    top: 50%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 0;
@@ -60,13 +65,17 @@ body {
 }
 
 
-.anim-typewriter{
-    animation: typewriter 3s steps(15) 1s 1 normal both,
+.fntsi{
+  font-size: 4rem;
+}
+
+.anim-greet{
+    animation: greet 3s steps(15) 1s 1 normal both,
                blinkTextCursor 500ms steps(15) infinite normal;
     animation-fill-mode: forwards; /* Add this line to keep the last frame of the animation */
 }
 
-@keyframes typewriter{
+@keyframes greet{
     from{width: 0;}
     to{width: 16em;}
 }
@@ -77,13 +86,17 @@ body {
 }
 
 
-.skillbar{
-  z-index: 1;
-  width: 50%;
-  margin: 0 auto;
-  margin-top: 30rem;
-  
-}
+.skillbar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  }
 
 .skillbar h1{
   color: white;
@@ -110,7 +123,7 @@ body {
 }
 
 .bar{
-  background-color: #EEE;
+  background-color: #eeeeee65;
   padding: 2px;
   border-radius: 15px;
   margin-bottom: 5px;
@@ -121,35 +134,79 @@ body {
 }
 .bar::before{
   content:  attr(data-skill);
-  background-color: #f3b0ff;
+  background-color: #87df8431;
   display: inline-block;
   padding: 5px 0 5px 10px;
   border-radius: inherit;
-  animation: load 2s 0s;
-  -webkit-animation: load 2s 0s;
-  -moz-animation: load 2s 0s;
-  -o-animation: load 2s 0s;
+  animation: load 5s 0s;
+  -webkit-animation: load 5s 0s;
+  -moz-animation: load 5s 0s;
+  -o-animation: load 5s 0s;
 }
 
 .bar.front::before{
-  background-color: #ffcc33;
+  background-color: #87df84d5;
 }
-.bar.back::before{
-  background-color: #a6cfe3;
+
+.bar.back.basic::before{
+  background-color: #87df845d;
+}
+
+.bar.back.intermediate::before{
+  background-color: #87df8488;
 }
 
 .bar.learning::before{
-  width: calc(80% - 10px);
+  width: calc(20% - 10px);
 }
 .bar.basic::before{
-  width: calc(40% - 10px);
+  width: calc(25% - 10px);
 }
 .bar.intermediate::before{
   width: calc(60% - 10px);
 }
 .bar.advanced::before{
-  width: calc(80% - 10px);
+  width: calc(90% - 10px);
 }
 .bar.expert::before{
-  width: calc(100% - 10px);
+  width: calc(95% - 10px);
+}
+
+
+.var-highlight{
+	color: #C0AD60;
+}
+.string-highlight{
+	color: rgba(253, 149, 90, 0.8);
+}
+
+#typewriter{
+    color: white;
+		font-size: 2em;
+		font-family: "Courier New";
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+
+		&:after{
+			content: "|";
+			animation: blink 500ms linear infinite alternate;
+		}
+}
+
+@-webkit-keyframes blink{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
+}
+
+@-moz-keyframes blink{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
+}
+
+@keyframes blink{
+	0%{opacity: 0;}
+	100%{opacity: 1;}
 }

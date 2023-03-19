@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/abt.css">
     <link rel="stylesheet" href="./css/fade.css">
     <link rel="stylesheet" href="./css/menu.css">
+    <script defer src="./js/typwr.js"></script>
   </head>
   <body>
 
@@ -21,17 +22,35 @@
 
 
 
-      <p class="line-1 anim-typewriter">Hi my name is Matanel Harush</p>
+      <p class="line-1 anim-greet fntsi">Hi my name is Matanel Harush</p>
 
       <div class="skillbar">
         <h1>My progress</h1>
-        <div class="bar learning" data-skill="TDD"></div>
-        <div class="bar back basic" data-skill="Python"></div>
-        <div class="bar back intermediate" data-skill="C#"></div>
-        <div class="bar front advanced" data-skill="CSS3"></div>
+        <br>
+        <div class="bar learning" data-skill="Python"></div>
+        <div class="bar back basic" data-skill="React"></div>
+        <div class="bar back intermediate" data-skill="JS/TS"></div>
+        <div class="bar front advanced" data-skill="CSS"></div>
         <div class="bar front expert" data-skill="HTML5"></div>
     
       </div>
+
+
+
+      <br>
+      <br>
+
+      <pre id="typewriter">
+        <span class="var-highlight">var</span> object = {
+            name: <span class="string-highlight">'Matanel'</span>,
+            type: <span class="string-highlight">'Dev'</span>,
+            location: <span class="string-highlight">'unknown'</span>,
+            properties:[<span class="string-highlight">'JS/TS'</span>,
+                        <span class="string-highlight">'HTML'</span>,
+                        <span class="string-highlight">'EXPRESS.JS'</span>];
+                        <span class="string-highlight">'INT PROJECT'</span>];
+        }; </pre>
+
       <div id="circularMenu" class="circular-menu">
 
         <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
@@ -42,10 +61,11 @@
           <a id="main" href="/" class="menu-item fa-solid fa-house"></a>
           <a id="about" href="/about" class="menu-item fa-solid fa-info"></a>
           <a id="contact" href="/contact" class="menu-item fa-solid fa-message"></a>
-          <a id="portfolio" href="#" class="menu-item fa-solid fa-briefcase"></a>
+          <a id="work" href="/work" class="menu-item fa-solid fa-briefcase"></a>
         </menu>
         <div id="transition-overlay"></div>
       </div>
     <!-- </div>           -->
       <script src="./js/main.js"></script>
+      </body>
 </html>

@@ -21,13 +21,16 @@
 
 
 const transitionOverlay = document.getElementById('transition-overlay');
+const menuItems = document.querySelectorAll('.menu-item');
 
-document.getElementById('about').addEventListener('click', (event) => {
-  event.preventDefault();
-
-  transitionOverlay.style.pointerEvents = 'auto';
-
-  setTimeout(() => {
-    window.location.href = event.target.href;
-  }, 1000);
+menuItems.forEach(item => {
+  item.addEventListener('click', (event) => {
+    event.preventDefault();
+    transitionOverlay.style.pointerEvents = 'auto';
+    setTimeout(() => {
+      window.location.href = event.target.href;
+    }, 1000);
+  });
 });
+
+
