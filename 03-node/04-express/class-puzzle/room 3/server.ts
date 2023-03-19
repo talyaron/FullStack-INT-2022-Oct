@@ -12,7 +12,7 @@ app.get("/", function (req, res) {
 });
 
 app.get("/login", function (req, res) {
-  res.send(`<h1>Login</h1>`);
+  res.send(`<h1>lol</h1>`);
 });
 
 app.listen(3000);

@@ -1,14 +1,17 @@
 {
   "liveServer.settings.port": 5503,
-  "compile-hero.disable-compile-files-on-did-save-code": false,
+  "compile-hero.disable-compile-files-on-did-save-code": true,
   "cSpell.words": [
+    "Carmeli",
     "divs",
     "imgs",
     "Karako",
     "Nemo",
+    "Prolist",
     "Sahandrin",
     "Sheva",
     "Succ",
+    "Yoram",
     "בבית",
     "בהרי",
     "במקום",
