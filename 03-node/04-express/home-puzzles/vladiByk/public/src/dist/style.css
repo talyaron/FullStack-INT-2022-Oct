@@ -19,7 +19,7 @@ body {
 }
 
 .navBar {
-  padding: 0 2rem;
+  padding: 0 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,20 +27,12 @@ body {
   top: 0;
   width: 100%;
   height: 2rem;
-  background-color: whitesmoke;
+  background-color: #222;
+  color: whitesmoke;
 }
 .navBar .links {
   display: flex;
   gap: 2rem;
-}
-.navBar .links a {
-  text-decoration: none;
-  color: inherit;
-}
-.navBar .links a:hover {
-  cursor: pointer;
-  transform: scale(1.2);
-  transition: all 0.3s ease-in-out;
 }
 
 .entryPageContainer {
@@ -48,19 +40,66 @@ body {
   height: 100%;
   display: flex;
 }
+.entryPageContainer .containerBackground {
+  position: absolute;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  background: #008aff;
+  background: linear-gradient(50deg, #008aff 0%, #0f144f 40%);
+}
+.entryPageContainer .backgroundShape {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: #008aff;
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 80% 100%);
+}
 .entryPageContainer .main {
   height: 80%;
+  max-width: 80%;
   aspect-ratio: 1.5/1;
   margin: auto;
-  background: blue no-repeat center/contain;
+  background: #008aff;
+  background: linear-gradient(270deg, #008aff 0%, #0f144f 66%);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.274);
   border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+}
+.entryPageContainer .main__text {
+  height: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
+  align-items: start;
+  justify-content: space-around;
   color: #fff;
   text-shadow: 0 0 30px black;
+  padding: 1rem;
+}
+.entryPageContainer .main__text h1 {
+  font-family: cursive;
+  word-spacing: 2px;
+  letter-spacing: 1px;
+}
+.entryPageContainer .main__text h2 {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 2rem;
+}
+.entryPageContainer .main__text .discription {
+  width: 100%;
+  text-align: justify;
+}
+.entryPageContainer .main .myImg {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.entryPageContainer .main .myImg img {
+  clip-path: ellipse(40% 50% at 50% 50%);
 }
 
 .learnMoreBtn {
@@ -116,4 +155,51 @@ body {
   left: 0;
   top: 0;
   border-radius: 10px;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+ul li {
+  margin: 0 1rem;
+  display: flex;
+}
+
+a {
+  display: block;
+  position: relative;
+  padding: 0.2em 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: hotpink;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+
+a:hover::after,
+a:focus::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+
+li a::after {
+  opacity: 1;
+  transform: scale(0);
+  transform-origin: center;
+}
+
+li a:hover::after,
+li a:focus::after {
+  transform: scale(1);
 }
