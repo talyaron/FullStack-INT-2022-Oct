@@ -60,7 +60,7 @@ function getList() {
     });
 }
 function createBreedList(breedList) {
-    var collapseList = document.getElementById('name');
+    var collapseList = document.getElementById('names');
     var html = "\n        " + Object.keys(breedList).map(function (breed) { return "\n        <option type=" + breed + ">" + breed + "</option>\n        "; }).join('') + "\n        \n        ";
     collapseList.innerHTML = html;
 }
@@ -68,15 +68,23 @@ function handleSubmitForm(ev) {
     try {
         var barkSound = new Audio();
         barkSound.src = "./bark.wav";
-        var imgElement_1 = document.getElementById('imgElement');
+        var imgElementContainer_1 = document.querySelector('.container-main__container-img');
         ev.preventDefault();
-        var valueTarget = ev.target.elements.name.value;
-        fetch("https://dog.ceo/api/breed/" + valueTarget + "/images/random").then(function (response) { return response.json(); }).then(function (data) {
-            imgElement_1.src = data.message;
+        var valueTarget_1 = ev.target.elements.name.value;
+        fetch("https://dog.ceo/api/breed/" + valueTarget_1 + "/images/random").then(function (response) { return response.json(); }).then(function (data) {
+            imgElementContainer_1.innerHTML = "\n        <img ) name=\"dog-" + valueTarget_1 + "\" src=\"" + data.message + "\" onclick=\"handleClickBreed(event)\" title=\"" + valueTarget_1 + "\">\n        ";
         });
         barkSound.play();
     }
     catch (error) {
         console.error(error);
+    }
+}
+function handleClickBreed(ev) {
+    try {
+        window.open("https://www.google.com/search?q=" + ev.target.name);
+    }
+    catch (error) {
+        console.log(error);
     }
 }

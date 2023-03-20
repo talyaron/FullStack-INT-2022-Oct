@@ -93,18 +93,23 @@ body {
   width: 75px;
 }
 .container-main__container-img {
-  object-fit: cover;
   overflow: hidden;
   padding-top: 20px;
   margin: auto;
   max-height: 540px;
-  width: 80%;
 }
 .container-main__container-img img {
+  cursor: pointer;
+  object-fit: cover;
+  width: 50vh;
   animation: IMGshowedUp 10s infinite 2s;
   border: 3px solid rgba(90, 68, 68, 0.432);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.527);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.247);
   border-radius: 25px;
+  transition: filter 0.5s ease;
+}
+.container-main__container-img img:hover {
+  filter: invert(12%);
 }
 
 @keyframes showedUp {
@@ -120,12 +125,12 @@ body {
 }
 @keyframes IMGshowedUp {
   0% {
-    width: 50%;
+    width: 50vh;
   }
   50% {
-    width: 40%;
+    width: 40vh;
   }
   100% {
-    width: 50%;
+    width: 50vh;
   }
 }
