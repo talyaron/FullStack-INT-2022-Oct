@@ -76,7 +76,7 @@ function handleSubmitFormRegister(ev) {
                     break;
             }
             ev.target.reset();
-            var newUrl = "./../../../login/login.html";
+            var newUrl = "./Bite-Away-group2-orel-amit-dor/login.html";
             window.location.replace(newUrl);
         }
         else {
@@ -111,7 +111,7 @@ function checksIfUserExists(emailUser) {
 }
 function handleLoginPage() {
     try {
-        var newUrl = "./../../../login/login.html";
+        var newUrl = "./../../login/login.html";
         window.location.replace(newUrl);
     }
     catch (error) {

@@ -89,8 +89,9 @@ function handleSubmitFormRegister(ev: any) {
                     saveInLocalStorage(couriers, "couriers");
                     break;
             }
+        
             ev.target.reset();
-            let newUrl = "./../../../login/login.html";
+            let newUrl =  `./Bite-Away-group2-orel-amit-dor/login.html`;
             window.location.replace(newUrl);
         } else {
             alert("the user exist in the system please try anther Email")
@@ -126,7 +127,7 @@ function checksIfUserExists(emailUser: string): boolean{
 
 function handleLoginPage(){
     try {
-        let newUrl = "./../../../login/login.html";
+        let newUrl = "./../../login/login.html";
         window.location.replace(newUrl);
     } catch (error) {
         console.error(error);
