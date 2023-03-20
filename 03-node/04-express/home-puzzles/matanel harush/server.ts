@@ -23,6 +23,11 @@ app.get('/contact', function (req, res) {
   res.send(webPage);
 });
 
+app.get('/work', function (req, res) {
+  const webPage = fs.readFileSync(path.join(publicPath, 'work.html'), { encoding: 'utf8', flag: 'r' });
+  res.send(webPage);
+});
+
 app.listen(3000, function () {
   console.log('Server is listening on port 3000');
 });
