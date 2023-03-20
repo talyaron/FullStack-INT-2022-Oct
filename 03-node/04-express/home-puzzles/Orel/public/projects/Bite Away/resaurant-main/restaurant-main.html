@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <!-- link Google font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@200;300;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Link JavaScript Files -->
+    <script src="../src/dist/helper.js" defer></script>
+    <script src="../src/dist/model.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+
+    <!--  Link Css Style -->
+    <link rel="stylesheet" href="./dist/style.css">
+
+    <title>My Restaurant</title>
+</head>
+
+<body onload="renderRestaurantHeader(), renderMenuRest(), renderActiveOrders(), renderRestaurantProfileImage()">
+    <div class="container">
+        <h1 class="container__restTitle" id="restaurantHeader">restaurant name</h1>
+        <form class="container__formRestImg" onsubmit="handleRestaurantProfileImage(event)">
+            <input class="container__imgUrl-input" type="url" name="imageUrl"
+                placeholder="paste a url of the desired image" size="30">
+            <button class="container__btn-url-input" type="submit">update image</button>
+            <div onclick="handleOpenForm()" class="container__collapse-formMenu">
+                <i class="fa-regular fa-square-caret-down"></i>
+            </div>
+        </form>
+
+
+        <div id="restaurantProfileImageRoot"></div>
+
+
+
+        <form class="container__formMenu" onsubmit="handleAddCourse(event)">
+            <input type="text" name="name" placeholder="course name" required>
+            <input type="number" name="price" placeholder="price" required>
+            <input type="text" name="description" placeholder="description" required>
+            <input type="url" name="imageUrl" placeholder="paste a url of the course's photo" size="30">
+            <input type="submit" value="Add to Menu" />
+        </form>
+        <div class="activeOrders">
+            <div class="active-orders" onclick="handleClickActiveOrder()">
+                <h3>Active Orders</h3>
+                <div class="btn-collapse">
+                </div>
+                <i class="fa-solid fa-sort-down"></i>
+            </div>
+            <div class="container__active-order-box" id="activeOrderRoot"></div>
+        </div>
+
+        <div class="container__menu">
+            <h2 class="container__menu-title"> Menu</h2>
+            <div class="container__menu-container" id="courseRoot"></div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
