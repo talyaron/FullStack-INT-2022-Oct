@@ -150,6 +150,8 @@ body {
   width: 35rem;
 }
 .home-container__container-img-desMenu {
+  overflow: scroll;
+  min-width: 700px;
   box-shadow: inset 1px 0.5px 35px 3px rgba(0, 0, 0, 0.685), 20px 115px 80px 250px #cdad673a;
   overflow: hidden;
   display: none;
