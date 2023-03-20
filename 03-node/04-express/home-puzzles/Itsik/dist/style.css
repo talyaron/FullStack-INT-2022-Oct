@@ -8,7 +8,7 @@
 
 body {
   height: 100vh;
-  background-image: url();
+  background-color: black;
 }
 
 .nav {
@@ -55,7 +55,7 @@ body {
 .all_main {
   width: 500px;
   height: 500px;
-  background-color: black;
+  background-color: red;
   color: white;
   border-radius: 15%;
 }
