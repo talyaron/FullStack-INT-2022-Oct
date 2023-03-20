@@ -180,6 +180,7 @@ body {
       font-weight: 700;
       margin-top: 5px;
   }
+  
   .portfo .p-info span
   {
       display: block;
@@ -234,7 +235,7 @@ body {
     width: 230px;
     height: 250px;  
     opacity: 1;
-    background: url("../img/logo.jpg") no-repeat;
+    background: url("../img/logo.png") no-repeat;
     background-size: cover;
     background-position: center;
   }
@@ -245,7 +246,7 @@ body {
     width: 230px;
     height: 250px;  
     opacity: 1;
-    background: url("../img/logo.jpg") no-repeat;
+    background: url("../img/logo.png") no-repeat;
     background-size: cover;
     background-position: center;
   }
@@ -257,7 +258,7 @@ body {
     width: 230px;
     height: 250px;  
     opacity: 1;
-    background: url("../img/logo.jpg") no-repeat;
+    background: url("../img/logo.png") no-repeat;
     background-size: cover;
     background-position: center;
   }
@@ -268,7 +269,7 @@ body {
     width: 230px;
     height: 250px;  
     opacity: 1;
-    background: url("../img/logo.jpg") no-repeat;
+    background: url("../img/logo.png") no-repeat;
     background-size: cover;
     background-position: center;
   }
@@ -279,20 +280,20 @@ body {
     width: 230px;
     height: 250px;  
     opacity: 1;
-    background: url("../img/logo.jpg") no-repeat;
+    background: url("../img/logo.png") no-repeat;
     background-size: cover;
     background-position: center;
   }
   .portfo .p-info:hover #first::after
   {
       bottom: -50px;
-      right: 50px;
-      width: 230px;
+      left: -150px;
+      width: 450px;
       height: 250px;  
       opacity: 1;
-      background: url("../img/logo.jpg") no-repeat;
+      background: url("../img/bbc.png") no-repeat;
       background-size: cover;
-      background-position: center;
+      /* background-position: center; */
   }
   @keyframes animate
   {
