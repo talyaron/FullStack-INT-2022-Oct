@@ -6,20 +6,15 @@ const selectElement = document.querySelector(
   "#dogBreedOptions"
 ) as HTMLSelectElement;
 
-// console.log(selectElement.value);
+imageGeneratorBtn.addEventListener("click", () =>
+  displayImage(selectElement.value)
+);
 
-imageGeneratorBtn.addEventListener("click", displayImage);
-
-function getImageFromAPI(breed: string) {
-  return fetch(`https://dog.ceo/api/breed/${breed}/images`)
+async function displayImage(breed: string) {
+  const imageList: [] = await fetch(`https://dog.ceo/api/breed/${breed}/images`)
     .then((res) => res.json())
-    .then((data) => data.message);
-}
-
-async function displayImage() {
-  const imageList: [] = await getImageFromAPI(selectElement.value);
+    .then((data) => data.message)
+    .catch((err) => console.error(err));
   const randomIndex = Math.floor(Math.random() * imageList.length);
   imgElement.src = imageList[randomIndex];
 }
-
-// displayImage();

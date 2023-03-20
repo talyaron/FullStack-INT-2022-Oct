@@ -37,19 +37,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var imgElement = document.querySelector("#dogImg");
 var imageGeneratorBtn = document.querySelector("#imageGeneratorBtn");
 var selectElement = document.querySelector("#dogBreedOptions");
-// console.log(selectElement.value);
-imageGeneratorBtn.addEventListener("click", displayImage);
-function getImageFromAPI(breed) {
-    return fetch("https://dog.ceo/api/breed/" + breed + "/images")
-        .then(function (res) { return res.json(); })
-        .then(function (data) { return data.message; });
-}
-function displayImage() {
+imageGeneratorBtn.addEventListener("click", function () {
+    return displayImage(selectElement.value);
+});
+function displayImage(breed) {
     return __awaiter(this, void 0, void 0, function () {
         var imageList, randomIndex;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, getImageFromAPI(selectElement.value)];
+                case 0: return [4 /*yield*/, fetch("https://dog.ceo/api/breed/" + breed + "/images")
+                        .then(function (res) { return res.json(); })
+                        .then(function (data) { return data.message; })["catch"](function (err) { return console.error(err); })];
                 case 1:
                     imageList = _a.sent();
                     randomIndex = Math.floor(Math.random() * imageList.length);
@@ -59,4 +57,3 @@ function displayImage() {
         });
     });
 }
-// displayImage();
