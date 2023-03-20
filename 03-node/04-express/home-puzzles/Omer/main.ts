@@ -1,5 +1,7 @@
 const toSecond = document.getElementById("toSecond");
 if(toSecond) {
+    console.log("hi");
+    
     toSecond.addEventListener('click', () => {
         console.log("hi");
         
