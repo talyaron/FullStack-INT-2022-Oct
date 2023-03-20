@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(227, 226, 226);
+    position: relative;
+    min-height: 100vh;
+}
+h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

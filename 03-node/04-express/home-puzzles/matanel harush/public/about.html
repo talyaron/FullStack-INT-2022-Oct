@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Matanel Harush - About</title>
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./css/abt.css">
+    <link rel="stylesheet" href="./css/fade.css">
+    <link rel="stylesheet" href="./css/menu.css">
+    <script defer src="./js/typwr.js"></script>
+  </head>
+  <body>
+
+    <!-- <div class="fadein"> -->
+
+
+      <div id="particles-js"></div>  
+      <script src="../particles/particles.js"></script>
+      <script src="../particles/app.js"></script>
+
+
+
+
+      <p class="line-1 anim-greet fntsi">Hi my name is Matanel Harush</p>
+
+      <div class="skillbar">
+        <h1>My progress</h1>
+        <br>
+        <div class="bar learning" data-skill="Python"></div>
+        <div class="bar back basic" data-skill="React"></div>
+        <div class="bar back intermediate" data-skill="JS/TS"></div>
+        <div class="bar front advanced" data-skill="CSS"></div>
+        <div class="bar front expert" data-skill="HTML5"></div>
+    
+      </div>
+
+
+
+      <br>
+      <br>
+
+      <pre id="typewriter">
+        <span class="var-highlight">app.</span>listen {
+            (3000,<span class="string-highlight"> function)</span>,
+            console.log<span class="string-highlight">(Server is running)</span>,
+            properties:[<span class="string-highlight">'MTN-HARUSH'</span>,
+                        <span class="string-highlight">'EXPRESS.JS'</span>];
+                        <span class="string-highlight">'INT PROJECT'</span>];
+        };;</pre>
+
+
+        <!-- app.listen(3000, function () {
+          console.log('Server is listening on port 3000');
+        }); -->
+
+
+      <div id="circularMenu" class="circular-menu">
+
+        <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
+          <i class="fa fa-plus"></i>
+        </a>
+      
+        <menu class="items-wrapper">
+          <a id="main" href="/" class="menu-item fa-solid fa-house"></a>
+          <a id="about" href="/about" class="menu-item fa-solid fa-info"></a>
+          <a id="contact" href="/contact" class="menu-item fa-solid fa-message"></a>
+          <a id="work" href="/work" class="menu-item fa-solid fa-briefcase"></a>
+        </menu>
+        <div id="transition-overlay"></div>
+      </div>
+    <!-- </div>           -->
+      <script src="./js/main.js"></script>
+      </body>
+</html>

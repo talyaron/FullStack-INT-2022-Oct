@@ -1,0 +1,114 @@
+body{
+height: 3500px;
+width: 100vw;
+}
+.container {
+  height: 100%;
+  width: 100%;
+  background-color: blanchedalmond;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+h2{
+  font-family:cursive;
+  color: cornflowerblue;
+}
+span{
+  font-family:cursive;
+  color: rgb(221, 95, 22);
+}
+.link {
+  color: red;
+  width: 150px;
+  height: 100px;
+  border-radius: 25%;
+  background-color: black;
+  margin-top: 15%;
+  height: 15%;
+  position: fixed;
+  font-size: 120%;
+}
+.divImmageLOGIN {
+  width: 30%;
+  height: 20%;
+  background-image: url(./images/login/Screenshot\ 2023-03-19\ 203712.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.divImmageMAIN {
+  width: 30%;
+  height: 30%;
+  background-image: url(./images/main/Screenshot\ 2023-03-19\ 204037.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:contain;
+}
+.divImmageBOARD {
+  width: 50%;
+  height: 40%;
+  background-image: url(./images/board/Screenshot\ 2023-03-19\ 202104.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:contain;
+}
+.divImmageLOGINmiddle {
+  width: 50%;
+  height: 40%;
+  background-image: url(./images/login/Screenshot\ 2023-03-19\ 204443.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:contain;
+}
+.divImmageMAINmiddle {
+  width: 50%;
+  height: 40%;
+  background-image: url(./images/main/Screenshot\ 2023-03-19\ 204524.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:contain;
+}
+.divImmageBOARDmiddle {
+  width: 50%;
+  height: 40%;
+  background-image: url(./images/board/Screenshot\ 2023-03-19\ 202710.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:contain;
+}
+
+.final{
+  width: 99%;
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+}
+h1{
+  font-family:cursive;
+  color: magenta;
+  margin-top: 10%;
+}
+
+.divimageLOGIN{
+background-image: url(./images/login/Screenshot\ 2023-03-19\ 204443.png);
+background-repeat: no-repeat;
+background-position: center;
+background-size:contain;
+width: 33.3%;
+}
+.divimageBOARD{
+background-image: url(./images/board/Screenshot\ 2023-03-19\ 203528.png);
+background-repeat: no-repeat;
+background-position: center;
+background-size:contain;
+width: 33.3%;
+}
+.divimageMAIN{
+background-image: url(./images/main/Screenshot\ 2023-03-19\ 204818.png);
+background-repeat: no-repeat;
+background-position: center;
+background-size:contain;
+width: 33.3%;
+}
