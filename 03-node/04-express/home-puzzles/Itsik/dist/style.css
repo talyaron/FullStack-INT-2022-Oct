@@ -6,14 +6,14 @@
   box-sizing: border-box;
 }
 
-.body {
+body {
   height: 100vh;
-  background-image: url("./images/25101.jpg");
+  background-image: url();
 }
 
 .nav {
   font-family: "Ubuntu", sans-serif;
-  background-color: black;
+  background-color: cornflowerblue;
   color: white;
   display: flex;
   justify-content: center;
