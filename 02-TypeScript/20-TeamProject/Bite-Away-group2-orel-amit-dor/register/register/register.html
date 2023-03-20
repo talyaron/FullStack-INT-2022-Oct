@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link Google font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@200;300;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link JavaScript Files -->
+
+    <script src="../../src/dist/helper.js"></script>
+    <script src="../../src/dist/model.js" defer></script>
+    <script src="./dist/register.js" defer></script>
+    <!-- Link Css Files -->
+    <link rel="stylesheet" href="./dist/register.css" <title>Intro Page</title>
+</head>
+
+<body>
+    <section class="register-container">
+        <!-- header -->
+
+        <header class="register-container__header">
+            <h1  class="register-container__logo" >
+                Join us! Register today.    </h1>
+        </header>
+
+        <!-- main -->
+
+        <main class="register-container__main">
+            <h4 class="register-container__des">
+                Create Your Account: Join our Community!
+            </h4>
+            <div class="register-container__choose-Type">
+                <label for="chooseTypeSelect">Select what you are ? :</label>
+                <select name="chooseTypeSelect" id="chooseTypeSelect" onchange="handleGetTypeRegister(event)">
+                    <option value="customer">Customer</option>
+                    <option value="restaurant">Restaurant</option>
+                    <option value="courier">Courier</option>
+                </select>
+                <button class="register-container__choose-Type-btn"
+                    onclick="changeFormByTypeUser(handleGetTypeRegister())">
+                    Choose </button>
+            </div>
+            <form action="" class="register-container__form" onsubmit="handleSubmitFormRegister(event)"
+                id="formRegister">
+
+                <input type="name" class="name" name="name" placeholder="Enter Name" required>
+                <input type="password" class="password" name="password" placeholder="Enter Password" required>
+                <input type="email" class="email" name="email" placeholder="Enter Email" required>
+                <input type="text" class="address" name="address" placeholder="Enter address" required>
+                <input type="area" class="area" name="area" placeholder="Enter area">
+                <select class="vehicle" name="vehicle">
+                    <option value="motorcycle">Motorcycle</option>
+                    <option value="privateCar">Private car</option>
+                </select>
+                <input type="number" class="age" name="age" placeholder="Enter your Age">
+                <input type="text" class="restaurant_type" name="restaurantType" placeholder="restaurant Type" >
+                <button class="register-container__btn-submit" type="submit">Register</button>
+            </form>
+
+        </main>
+
+        <!-- footer -->
+        <hr>
+        <footer class="register-container__footer">
+            <h3 class="register-container__footer-title">
+                Do you have an account?
+            </h3>
+            <button class="register-container__footer-btn" onclick="handleLoginPage()">LOGIN NOW</button>
+        </footer>
+
+    </section>
+</body>
+
+</html>
