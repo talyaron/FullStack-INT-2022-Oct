@@ -125,7 +125,11 @@ function checksIfUserExists(emailUser: string): boolean{
 
 
 function handleLoginPage(){
-    let newUrl = "./../../../login/login.html";
-    
-    window.location.replace(newUrl);
+    try {
+        let newUrl = "./../../../login/login.html";
+        window.location.replace(newUrl);
+    } catch (error) {
+        console.error(error);
+    }
 }
+
