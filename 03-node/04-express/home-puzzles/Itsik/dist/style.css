@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Ubuntu:wght@500&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -5,24 +7,28 @@
 }
 
 .body {
-  width: 100%;
   height: 100vh;
+  background-image: url("./images/25101.jpg");
 }
 
 .nav {
+  font-family: "Ubuntu", sans-serif;
   background-color: black;
   color: white;
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 90px;
+  height: 100px;
   font-size: 24px;
   border-bottom-left-radius: 30%;
-  border-top-right-radius: 13%;
-  border-bottom: 5px solid blueviolet;
+  border-top-right-radius: 15%;
+  border-bottom: 7px solid blueviolet;
+  cursor: pointer;
 }
 .nav_h2logo {
   padding: 20px;
+  font-family: "Bungee Spice", cursive;
+  font-size: 45px;
 }
 .nav_ul {
   display: flex;
@@ -34,9 +40,12 @@
   display: flex;
   justify-content: space-between;
 }
+.nav_ul_li:hover {
+  color: blueviolet;
+}
 
 .all {
-  height: 70vh;
+  height: 80vh;
   width: 100%;
   display: flex;
   text-align: center;
@@ -65,4 +74,10 @@
 .all_main_h2main {
   margin: 15px 0px;
   padding: 15px;
+}
+
+footer {
+  background-color: black;
+  width: 100%;
+  height: 200px;
 }
