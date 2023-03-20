@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to Google fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <!-- Link to Js file -->
+    <script src="./dist/index.js" defer></script>
+    <!-- Link to Css File -->
+    <link rel="stylesheet" href="./dist/style.css">
+    <title>BreedDogs</title>
+</head>
+<body>
+<section class="container-main">
+    <h1 class="container-main__title" >Welcome to The Dog Breed Finder</h1>
+    <p class="container-main__sub-title">Do you sometimes wonder what each breed of dog looks like? </p>
+    <strong class="container-main__strong">You came to the right place</strong>
+
+    <form class="container-main__form-breed" onsubmit="handleSubmitForm(event)">
+        <label for="name">Choose A Breed Of Dog</label>
+            <select  name="name" id="name" class="container-main__form-breed__name">
+
+            </select>
+            <button type="submit" class="container-main__form-breed__btn">SHOW ME</button>
+    </form>
+
+    <div class="container-main__container-img">
+        <img id="imgElement" src="">
+    </div>
+ 
+</section>
+</body>
+</html>
