@@ -135,6 +135,11 @@ body {
   {
       background: linear-gradient(315deg,#00ff62,#000000);
   }
+  .portfo .p-info:nth-child(7):before,
+  .portfo .p-info:nth-child(7):after
+  {
+      background: linear-gradient(315deg,#00ff62,#000000);
+  }
   .portfo .p-info .content
   {
       position: relative;
@@ -226,6 +231,11 @@ body {
       animation: animate 2s ease-in-out infinite;
       p-info-shadow: 0 5px 15px rgba(0, 0, 0, 05);
       animation-delay: -1s;
+  }
+
+
+  a{
+    text-decoration: none;
   }
     
   .portfo .p-info:hover #fourth::after
