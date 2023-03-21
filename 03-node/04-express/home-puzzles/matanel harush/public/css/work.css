@@ -140,6 +140,11 @@ body {
   {
       background: linear-gradient(315deg,#00ff62,#000000);
   }
+  .portfo .p-info:nth-child(8):before,
+  .portfo .p-info:nth-child(8):after
+  {
+      background: linear-gradient(315deg,#00ff62,#000000);
+  }
   .portfo .p-info .content
   {
       position: relative;
