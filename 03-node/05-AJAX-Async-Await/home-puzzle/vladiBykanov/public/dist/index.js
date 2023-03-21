@@ -47,7 +47,10 @@ function displayImage(breed) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, fetch("https://dog.ceo/api/breed/" + breed + "/images")
                         .then(function (res) { return res.json(); })
-                        .then(function (data) { return data.message; })["catch"](function (err) { return console.error(err); })];
+                        .then(function (data) {
+                        var message = data.message;
+                        return message;
+                    })["catch"](function (err) { return console.error(err); })];
                 case 1:
                     imageList = _a.sent();
                     randomIndex = Math.floor(Math.random() * imageList.length);

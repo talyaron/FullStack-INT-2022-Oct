@@ -11,9 +11,14 @@ imageGeneratorBtn.addEventListener("click", () =>
 );
 
 async function displayImage(breed: string) {
-  const imageList: [] = await fetch(`https://dog.ceo/api/breed/${breed}/images`)
+  const imageList: string[] = await fetch(
+    `https://dog.ceo/api/breed/${breed}/images`
+  )
     .then((res) => res.json())
-    .then((data) => data.message)
+    .then((data) => {
+      const { message } = data;
+      return message;
+    })
     .catch((err) => console.error(err));
   const randomIndex = Math.floor(Math.random() * imageList.length);
   imgElement.src = imageList[randomIndex];
