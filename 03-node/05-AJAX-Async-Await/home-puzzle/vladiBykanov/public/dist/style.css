@@ -36,7 +36,7 @@ body button, body select {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.2s;
 }
 body button:active {
   transform: scale(0.9);
