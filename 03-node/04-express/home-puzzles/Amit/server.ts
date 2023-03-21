@@ -1,23 +1,22 @@
 import express from "express";
-import fs from "fs";
 
 const app = express();
-app.use(express.static(__dirname + '/public'));
 
-app.get('/', function (req, res) {
-    const indexFile = fs.readFileSync("./portfolio.html", {
-        encoding: "utf8",
-        flag: "r",
-      })
-      res.send(indexFile)
+app.use(express.static("./public"));
+
+
+// app.get("/", mainRoute);
+// function mainRoute(req:any, res:any){
+//     return res.redirect("/portfolio.html");
+// }
+
+
+app.get('/file1', function (req: any, res: any) {
+    return res.redirect('/project-1/instagram.html');
 })
 
 
-app.get('/file1', function (req, res) {
-  
-    return res.redirect('/../FullStack-INT-2022-Oct/01-HTML-CSS/02-position-box-model/HW/amit-zaltsberger/instagram.html');
-})
 
-
-
-app.listen(3000)
+app.listen(3000, () => {
+  console.log("server listen on port 3000");
+});
