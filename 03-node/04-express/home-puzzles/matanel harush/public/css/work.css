@@ -265,22 +265,22 @@ body {
   .portfo .p-info:hover #third::after
   {
     bottom: -50px;
-    right: 50px;
-    width: 230px;
-    height: 250px;  
+    left: -150px;
+    width: 450px;
+    height: 250px; 
     opacity: 1;
-    background: url("../img/logo.png") no-repeat;
+    background: url("../img/insta.png") no-repeat;
     background-size: cover;
     background-position: center;
   }
   .portfo .p-info:hover #second::after
   {
     bottom: -50px;
-    right: 50px;
-    width: 230px;
+    left: -150px;
+    width: 450px;
     height: 250px;  
     opacity: 1;
-    background: url("../img/logo.png") no-repeat;
+    background: url("../img/vatcalc.png") no-repeat;
     background-size: cover;
     background-position: center;
   }
