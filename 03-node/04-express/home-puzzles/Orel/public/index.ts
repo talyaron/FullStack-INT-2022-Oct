@@ -21,12 +21,9 @@ function displayAnimationOnStart() {
         console.error(error);
     }
 }
-
-// function handleJoinNow() {
-
-
-
-// }
+function handleJoinNow() {
+    handleClickMore() 
+}
 
 function animateListMenu() {
     const list = document.querySelectorAll('.home-container__nav-list')!;
@@ -68,7 +65,7 @@ function handleClickDesign() {
 
     const containerIMG: HTMLElement = document.querySelector('.home-container__container-img')!;
 
-    containerIMG.style.top = "40%"
+
 
     fillDivInElements("desMenuRoot", html)
     renderMenuContainer("DESIGNERS");
@@ -82,17 +79,21 @@ function handleClickProjects() {
     const html = `   
     <div class="container-img" >
     <div  id="projects">
+    <a href="/project1.html"> 
         <img width="250px" src="./img/project/project1.png" alt="">
+        </a>
         <caption>ProList Web Lists Images</caption>
     </div>   
     <div  id="projects">
+    <a href="/project2.html"> 
     <img width="250px" src="./img/project/project2.png" alt="">
+    </a>
     <caption>Balloons pop Game to 2023 new Years</caption>
 </div>   
 <div  id="projects">
-<a href="/project1.html"> 
+<a href="/project3.html"> 
 
-<img width="250px" src="./img/project/project1.png" alt="">
+<img width="250px" src="./img/project/project3.png" alt="">
 </a>
 <caption>ProList Web Lists Images</caption>
 </div>   
@@ -109,7 +110,7 @@ function handleClickSkills() {
     const html = `   
     <dl>
     <dt>
-      Browser market share June 2015
+     Skills 2023 @Orel KARAKO
     </dt>
     <dd class="percentage percentage-95"><span class="text">HTML5 : 95%</span></dd>
     <dd class="percentage percentage-80"><span class="text">CSS5 : 80%</span></dd>
@@ -120,13 +121,31 @@ function handleClickSkills() {
 
 `
     fillDivInElements("desMenuRoot", html)
-    renderMenuContainer("GALLERY");
+    renderMenuContainer("PROJECTS");
 }
 
 function handleClickMore() {
-
-
-    const html = `   
+    const html = `
+    <div id="containerMore">
+    <h2> Contact Us</h2>
+        <form class="form-more" action="https://formsubmit.co/orekarako@gmail.com" method="POST">
+         <div class=form-more__box>
+         <label for="Fname">Write you Full Name</label>
+         <input id="Fname" name="Fname" class="Fname" type="text">
+         </div>
+         <div class=form-more__box>
+         <label for="email">Write you Email</label>
+         <input id="email" name="email" class="email" type="email">
+         </div>
+         <input type="hidden" name="_next" value="https://yourdomain.co/thanks.html">
+         <div class=form-more__box>
+         <label for="message">You Message</label>
+            <textarea name="message" id="" cols="30" rows="10"></textarea>
+         </div>
+         <button class="form-more__btn">SEND</button>
+        </form>
+    </div>   
+</div>
     
 `
     fillDivInElements("desMenuRoot", html)
