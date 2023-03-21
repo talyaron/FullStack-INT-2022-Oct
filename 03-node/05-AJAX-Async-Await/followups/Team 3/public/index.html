@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./dist/index.js" defer></script>
+
+    <style>
+
+        body{
+            overflow: hidden;
+display: flex;
+text-align: center;
+align-items: center;
+flex-direction: column;
+justify-content: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        div{
+            padding: 16px 32px;
+            border: none;
+            border-radius: 15px;
+            box-shadow:  0px 0px 55px 5px rgb(21, 168, 119);
+            background-color: rgba(31, 211, 61, 0.479);
+            transition: all 0.5s ease;
+        }
+        div:hover{
+            box-shadow:  0px 0px 5px 5px rgb(21, 168, 119);
+        }
+        button{
+            padding: 10px 20px;
+            border: none;
+            background-color: rgb(21, 168, 119);
+            border-radius: 15px;
+            outline: none;
+            cursor: pointer;
+            font-weight: 700;
+
+     
+        }
+        button:hover{
+            scale: 1.085;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+<div>
+    <button onclick="handleClickBTN()">Click Me To Random number</button>
+    <h1 id="randomNum">Click Up To Start</h1>
+
+
+</div>
+</body>
+</html>
