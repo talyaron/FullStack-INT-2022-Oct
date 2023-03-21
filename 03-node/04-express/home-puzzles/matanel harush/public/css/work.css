@@ -35,7 +35,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Black color with 50% opacity */
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
 
@@ -227,42 +227,8 @@ body {
       p-info-shadow: 0 5px 15px rgba(0, 0, 0, 05);
       animation-delay: -1s;
   }
-  
-  .portfo .p-info:hover #sixth::after
-  {
-    bottom: -50px;
-    right: 50px;
-    width: 230px;
-    height: 250px;  
-    opacity: 1;
-    background: url("../img/logo.png") no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-  .portfo .p-info:hover #fifth::after
-  {
-    bottom: -50px;
-    right: 50px;
-    width: 230px;
-    height: 250px;  
-    opacity: 1;
-    background: url("../img/logo.png") no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-  
+    
   .portfo .p-info:hover #fourth::after
-  {
-    bottom: -50px;
-    right: 50px;
-    width: 230px;
-    height: 250px;  
-    opacity: 1;
-    background: url("../img/logo.png") no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-  .portfo .p-info:hover #third::after
   {
     bottom: -50px;
     left: -150px;
@@ -273,12 +239,23 @@ body {
     background-size: cover;
     background-position: center;
   }
-  .portfo .p-info:hover #second::after
+  .portfo .p-info:hover #third::after
   {
     bottom: -50px;
     left: -150px;
     width: 450px;
-    height: 250px;  
+    height: 250px; 
+    opacity: 1;
+    background: url("../img/cardsgame.png") no-repeat;
+    background-size: cover;
+    /* background-position: center; */
+  }
+  .portfo .p-info:hover #second::after
+  {
+    bottom: -50px;
+    right: 50px;
+    width: 230px;
+    height: 250px; 
     opacity: 1;
     background: url("../img/vatcalc.png") no-repeat;
     background-size: cover;
