@@ -7,7 +7,8 @@ app.use(express.static('../client'))
 import { randomPic } from "./helpers";
 
 app.get("/randomPicture",(req,res)=>{
-res.send(`<img src="${randomPic()}" alt="">`)
+res.send(JSON.stringify(randomPic()))
+
 })
 
 app.get("/",(req,res)=>{
