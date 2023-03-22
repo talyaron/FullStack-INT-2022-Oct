@@ -1,0 +1,13 @@
+body {
+  background-color: salmon;
+  margin: auto;
+}
+
+.img {
+  width: 40rem;
+  height: 40rem;
+  border: 0.1rem solid black;
+  background-image: url("https://images.dog.ceo/breeds/pinscher-miniature/n02107312_3823.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
