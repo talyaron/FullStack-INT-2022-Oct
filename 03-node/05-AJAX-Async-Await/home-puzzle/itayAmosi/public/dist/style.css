@@ -19,6 +19,15 @@ body {
   margin-bottom: 33px;
 }
 
+h1 {
+  color: #f50606;
+  margin-top: 15%;
+  text-align: center;
+  font-weight: bold;
+  font-family: cursive;
+  background-color: rgba(127, 255, 212, 0.76);
+}
+
 img {
   width: 100%;
   height: 100%;
