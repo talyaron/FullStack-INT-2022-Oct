@@ -3,7 +3,7 @@ if (btn) {
     btn.addEventListener("click", function () {
         try {
             var body_1 = document.querySelector("body");
-            fetch("/random-colors") //promise
+            fetch("/random-colors")
                 .then(function (response) { return response.json(); })
                 .then(function (data) {
                 var randomColors = data["randomColors"];
@@ -20,12 +20,12 @@ if (btn) {
         }
     });
 }
-var imageArray = ["1.jpeg", "3.jpeg", "4.jpeg"];
+var imageArray = ["1.jpeg", "2.jpeg", "3.jpeg"];
 function get_random_image() {
     var random_index = Math.floor(Math.random() * imageArray.length);
     var selected_image = imageArray[random_index];
     var image_shower = document.getElementById('image_shower');
     if (image_shower) {
-        image_shower.src = "./images/" + selected_image;
+        image_shower.src = "./imeges/" + selected_image;
     }
 }
