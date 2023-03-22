@@ -35,7 +35,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Black color with 50% opacity */
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
 
@@ -72,7 +72,7 @@ body {
 .anim-greet{
     animation: greet 3s steps(15) 1s 1 normal both,
                blinkTextCursor 500ms steps(15) infinite normal;
-    animation-fill-mode: forwards; /* Add this line to keep the last frame of the animation */
+    animation-fill-mode: forwards;
 }
 
 @keyframes greet{
