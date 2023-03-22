@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./dist/dictionary.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/log-in.js" defer></script>
+    <link rel="stylesheet" href="./dist/style.css">
+    <title>Five Hive Log In</title>
+</head>
+<body>
+    <h1>Five Hive</h1>
+    
+    <form onsubmit="handleLogin(event)">
+        <fieldset class="logInWrapper">
+         <legend class="logInWrapper__header">Log-In</legend>
+         <label for="userName">User Name:</label>
+         <input type="text" name="name" required><br><br>
+         <label for="password">Password:</label>
+         <input type="password" name="password" name="password" required><br><br>
+         <input onclick="location.href='./index.html'" class="logInWrapper__logInButton" type="submit" value="Login"> 
+        </fieldset>
+    </form>
+
+   
+    
+</body>
+</html>
+

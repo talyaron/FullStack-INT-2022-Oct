@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/Netflix.css">
+    <script src="https://kit.fontawesome.com/0fcd7efe49.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="https://www.pngitem.com/pimgs/m/104-1041504_n-netflix-logo-netflix-logo-png-transparent-png.png">
+    <title>Amitflix</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navBar">
+            <div class="navBar__topics">
+                <div class="navBar__topics__logo"></div>
+                <div class="navBar__topics__topic">Action</div>
+                <div class="navBar__topics__topic">Thrillers</div>
+                <div class="navBar__topics__topic">Sci-fi</div>
+                <div class="navBar__topics__topic">Comedy</div>
+                <div class="navBar__topics__topic">Drama</div>
+                <div class="navBar__topics__topic">Series</div>
+                <div class="navBar__topics__topic">Documentary</div>
+                <div class="navBar__topics__topic">Nature</div>
+                <div class="navBar__topics__topic">Music</div>
+                <div class="navBar__topics__topic">Sports</div>
+            </div>
+            <div class="navBar__sales">
+                <div class="navBar__sales__topic">Downloads</div>
+                <div class="navBar__sales__topic">Premium</div>
+                <div class="navBar__sales__topic">Profile</div>
+                <div class="navBar__sales__topic">Settings</div>
+            </div>
+        </div>
+        
+        <div class="main">  
+            <div class="main__video main__video--x-men videoSlides zoom">
+                <div class="main__video__data">
+                    <div class="main__video__data__headline">X-men</div>
+                    <div class="main__video__data__basic">
+                        <div>Genre: Action</div>    
+                        <div>Release date: 14.7.2000</div>    
+                        <div>Director: Bryan Singer</div>   
+                    </div>    
+                    <button type= "button" onclick= "newOrder(4120); addVideoToWatchlist(xMen)" class="main__video__data__order">
+                        Click here to order
+                    </button>
+                </div>
+            </div>
+            <div class="main__video main__video--avengers videoSlides zoom">
+                <div class="main__video__data">
+                    <div class="main__video__data__headline">Avengers</div>
+                    <div class="main__video__data__basic">
+                        <div>Genre: Action</div>    
+                        <div>Release date: 11.4.2012</div>    
+                        <div>Director: Joss Whedon</div>
+                    </div>    
+                    <button type= "button" onclick= "newOrder(4274); addVideoToWatchlist(avengers)" class="main__video__data__order">
+                        Click here to order
+                    </button>
+                </div>    
+            </div>
+            <div class="main__video main__video--frozen videoSlides zoom">
+                <div class="main__video__data">
+                    <div class="main__video__data__headline">Frozen</div>
+                    <div class="main__video__data__basic">
+                        <div>Genre: Musical Fantasy</div>    
+                        <div>Release date: 28.11.2013</div>    
+                        <div>Director: Chris Buck</div>
+                    </div>    
+                    <button type= "button" onclick= "newOrder(4285); addVideoToWatchlist(frozen)" class="main__video__data__order">
+                        Click here to order
+                    </button>
+                </div>    
+            </div>
+            <div class="main__video main__video--fightClub videoSlides zoom">
+                <div class="main__video__data">
+                    <div class="main__video__data__headline">Fight Club</div>
+                    <div class="main__video__data__basic">
+                        <div>Genre: Thriller</div>    
+                        <div>Release date: 17.8.1996</div>    
+                        <div>Director: David Fincher</div>
+                    </div>    
+                    <button type= "button" onclick= "newOrder(1050); addVideoToWatchlist(fightClub)" class="main__video__data__order">
+                        Click here to order
+                    </button>
+                </div>    
+            </div>
+        </div>
+
+    <div class="watchlist">
+        <div class="watchlist__header">Watchlist</div>
+        <div id="watchlistItems"></div> 
+    </div>   
+    </div>
+    
+</body>
+
+<script src="./dist/Netflix.js"></script>
+
+</html>
+
+
+
+
+
+

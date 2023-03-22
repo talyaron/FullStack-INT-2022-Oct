@@ -35,7 +35,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Black color with 50% opacity */
+    background-color: rgba(0, 0, 0, 0.5);
   }
 
 
@@ -75,9 +75,8 @@ body {
     max-width: 840px;
   }
   
-  /* Left contact page */
   .form-horizontal {
-    max-width: 500px; /* Increase the maximum width */
+    max-width: 500px;
     font-family: 'Lato';
     font-weight: 400;
   }
@@ -128,12 +127,10 @@ body {
     transform: translate3d(0px, -29px, 0px);
   }
   
-  /* Begin Right Contact Page */
   .direct-contact-container {
     max-width: 400px;
   }
   
-  /* Location, Phone, Email Section */
   .contact-list {
     list-style-type: none;
     margin-left: -30px;
@@ -175,7 +172,6 @@ body {
   }
   
   
-  /* Social Media Icons */
   .social-media-list {
     position: relative;
     font-size: 22px;
@@ -242,7 +238,6 @@ body {
     border-color: rgba(116, 219, 121, 0.6);
   }
   
-  /* Begin Media Queries*/
   @media screen and (max-width: 850px) {
     .contact-wrapper {
       display: flex;
