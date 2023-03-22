@@ -5,11 +5,10 @@ if (btn) {
     try {
       const body = document.querySelector(`body`);
 
-      fetch("/random-colors") //promise
+      fetch("/random-colors")
         .then((response) => response.json())
         .then((data) => {
           const randomColors = data[`randomColors`];
-          console.log(randomColors);
           if (!randomColors) throw new Error("No random colors");
           if (!body) throw new Error("No body");
           body.style.backgroundColor = `#${randomColors}`;

@@ -3,11 +3,10 @@ if (btn) {
     btn.addEventListener("click", function () {
         try {
             var body_1 = document.querySelector("body");
-            fetch("/random-colors") //promise
+            fetch("/random-colors")
                 .then(function (response) { return response.json(); })
                 .then(function (data) {
                 var randomColors = data["randomColors"];
-                console.log(randomColors);
                 if (!randomColors)
                     throw new Error("No random colors");
                 if (!body_1)
