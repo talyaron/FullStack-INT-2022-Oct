@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Font awansome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Js Link -->
+	<script src="../src/dist/helper.js" defer></script>
+    <script src="../src/dist/model.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+<!-- Style Css link -->
+    <link rel="stylesheet" href="./dist/style.css">
+    <title>Courier</title>
+</head>
+<body onload="renderCourierHeader(), renderPool(), renderDroppedOrders(), renderActiveOrders()" class="container-courier">
+	<header class="header">
+		<h1 class="header__title" id="courierHeader">Courier</h1>
+		<h1 class="header__subtitie">Courier Deliveries Manager</h1>
+
+	<nav class="header__navbar">
+		<ul class="header__list">
+			<li class="header__link"><a href="#">Open Orders</a></li>
+			<li class="header__link"><a href="#">Active Orders</a></li>
+			<li class="header__link"><a href="#">Completed Orders</a></li>
+		</ul>
+	</nav>
+</header>
+	<main class="main">
+<div class="main__order-container">
+
+	<h2 class="main__order-title center">Order Pool 	<i class="fa-solid fa-arrow-down"></i></h2>
+	<div class="main__order" id="openOrdersRoot">
+	</div>
+</div>
+<div class="main__active-container">
+
+		<h2 class="main__active-title center">Active Orders 	<i class="fa-solid fa-arrow-down"></i></h2>
+		<div class="main__active" id="activeOrdersRoot">
+</div>
+		</div>
+		<div class="main__drop-container">
+
+		<h2 class="main__drop-title center">Dropped Orders 	<i class="fa-solid fa-arrow-down"></i></h2>
+		<div class="main__drop" id="droppedOrdersRoot">
+		</div>
+		</div>
+	</main>
+	
+</body>
+</html>
