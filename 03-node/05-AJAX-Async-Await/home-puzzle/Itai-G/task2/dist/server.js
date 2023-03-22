@@ -3,6 +3,8 @@ exports.__esModule = true;
 var express_1 = require("express");
 var app = express_1["default"]();
 app.use(express_1["default"].static("./public"));
-app.listen(3000, function () {
-    console.log("server listen on port 3000");
+app.get("https://dog.ceo/api/breeds/image/random", function (req, res) {
+});
+app.listen(3030, function () {
+    console.log("port 3030 listening");
 });

@@ -1,0 +1,40 @@
+body{
+    width: 100%;
+    height: 100vh;
+}
+#container {
+    width: 50%;
+    height: 600px;
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  #imageShower {
+    width: 100%;
+    height: 80%;
+  }
+  
+  img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  #btnContainer {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  button {
+    width: 45%;
+    height: 70%;
+    font-size: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: wheat;
+  }
