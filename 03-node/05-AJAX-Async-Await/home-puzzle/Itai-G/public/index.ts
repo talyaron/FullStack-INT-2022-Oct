@@ -1,25 +1,3 @@
-const btn = document.querySelector(`#btn`);
-
-if (btn) {
-  btn.addEventListener("click", () => {
-    try {
-      const body = document.querySelector(`body`);
-
-      fetch("/random-colors")
-        .then((response) => response.json())
-        .then((data) => {
-          const randomColors = data[`randomColors`];
-          console.log(randomColors);
-          if (!randomColors) throw new Error("No random colors");
-          if (!body) throw new Error("No body");
-          body.style.backgroundColor = `#${randomColors}`;
-        });
-    } catch (error) {
-      console.error(error);
-    }
-  });
-}
-
 const imageArray: string[] = [`1.jpeg`, `2.jpeg`, `3.jpeg`];
 
 function get_random_image(): void {
