@@ -18,6 +18,7 @@ if (btn) {
         .then((response) => response.json())
         .then((data) => {
           try {
+           
             console.log(data);
             const { number } = data;
             if (!number && number !== 0) throw new Error("Couldnt get number from server");
