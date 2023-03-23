@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 
 
 const app = express()
@@ -9,7 +10,7 @@ app.use(express.static("./public"))
 app.use(express.json())
 
 app.get('/style.css', (req, res)=>{
-    res.sendFile(__dirname + "/public/dist/style.css");
+    res.sendFile(path.resolve(__dirname + "/public/dist/style.css"));
   });
 
 app.get('/index.html' , (req ,res)=>{

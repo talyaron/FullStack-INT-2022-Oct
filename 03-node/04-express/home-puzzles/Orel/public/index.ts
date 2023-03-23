@@ -22,7 +22,7 @@ function displayAnimationOnStart() {
     }
 }
 function handleJoinNow() {
-    handleClickMore() 
+    handleClickMore()
 }
 
 function animateListMenu() {
@@ -169,6 +169,8 @@ function fillDivInElements(IDrootContainer: string, html: string) {
     const root: HTMLElement = document.getElementById(IDrootContainer)!;
     root.innerHTML = html
 }
+
+
 
 animateListMenu()
 displayAnimationOnStart()
