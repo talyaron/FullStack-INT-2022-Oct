@@ -96,7 +96,7 @@ function handleShowApartment(uid:string): void{
                     <p>Smoke - ${apartmentProfils[indexUid].smoke} </p>
                     <p>We live in ${apartmentProfils[indexUid].floor} floor</p>
                     <p>We have ${apartmentProfils[indexUid].rooms} rooms</p>
-                    <p>The number of parters - ${apartmentProfils[indexUid].partersNo} parters</p>
+                    <p>The number of partners - ${apartmentProfils[indexUid].partersNo} parters</p>
                     <p>The price is - ${apartmentProfils[indexUid].price} NIS</p>
                     </div>`;
         

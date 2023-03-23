@@ -4,22 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apartment</title>
-   
+    <title>Roommate homepage</title>
+    <link rel="stylesheet" href="./dist/homepage.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <script src="./dist/helper.js" defer></script>
     <script src="./dist/model.js" defer></script>
     <script src="./dist/view.js" defer></script>
     <script src="./dist/control.js" defer></script>
-    <script src="./dist/apartment.js" defer></script>
-    <link rel="stylesheet" href="./dist/homepage.css">
+    <script src="./dist/homepage.js" defer></script>
+    
 </head>
-<body background="../pictures/roomates.jpeg">
+<body  background="../pictures/roomates.jpeg">
+
     <div class="header box">
         <div class="header__container container">
             <div class="log-reg">
-                <a href="../login/login.html" class="button-link">Login</a>
-                <a href="../registration/registartion.html" class="button-link">Regisration</a>
-                </div>
+            <a href="../login/login.html" class="button-link">Login</a>
+            <a href="../registration/registartion.html" class="button-link">Registration</a>
+            </div>
             <div class="header__container__logo">
                 <img src="../pictures/Yes-logo.png" alt="logo">
             </div>
@@ -32,26 +34,39 @@
             </nav>
         </div>
     </div>
-    
-    
-        <div id="containerBox">
-            <div class="boxMain box apartmentBox ">
+
+    <div id="containerBox">
+        <div class="boxMain box">
+            <div class="halfBlue"></div>
+            <div class="boxMain__container box roommate">
+                <!-- the roommate show from typescript -->
+            </div>
+
+        </div>
+
+
+        <div class="btnDiv">
+            <button class="btnDiv__btn roommateBtn">Go to roommate page</button>
+        </div>    
+        
+        <div id="containerApartment">
+            <div class="boxMain box">
                 <!-- <div class="halfBlue"></div> -->
-                <div class="boxMain__container box apartments apartmentsPage">
+                <div class="boxMain__container box apartments">
                     <!-- The apartments show from typescript -->
                 </div>
              </div>
          </div>
+        <div class="btnDiv">
+            <button class="btnDiv__btn apartmentBtn">Go to apartment page</button>
+        </div>    
     </div>    
     
     <div id="details" class="detail" style="display: none">
-        <!-- <div class="halfBlue"></div> -->
+        <div class="halfBlue"></div>
     </div>
 
-    <div class="btnDiv apartmentPgaeBtn">
-        <button id="BackBtn" class="btnDiv__btn apartmentPgaeBtn__back" onclick = "hendleapArtmentBackPage()">Back Page</button>
-        <button id="nextBtn" class="btnDiv__btn apartmentPgaeBtn__next" onclick="hendleApartmentNextPage()" >Next Page</button>
-    </div>
     
+
 </body>
 </html>
