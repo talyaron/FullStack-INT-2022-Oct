@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width" />
+  <title>Matanel Harush - Contact</title>
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+  <link rel="stylesheet" href="./css/cntct.css"/>
+  <link rel="stylesheet" href="./css/fade.css">
+  <link rel="stylesheet" href="./css/menu.css">
+</head>
+<body>
+
+  <!-- <div class="fadein"> -->
+  
+ 
+        <div id="particles-js"></div>  
+        <script src="../particles/particles.js"></script>
+        <script src="../particles/app.js"></script>
+
+
+        <section id="contact">
+  
+          <h1 class="section-header">Contact</h1>
+          
+          <div class="contact-wrapper">
+          
+          <!-- Left contact page --> 
+            
+            <form id="contact-form" class="form-horizontal" role="form">
+               
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" id="name" placeholder="NAME" name="name" style="height: 40px;" value="" required>
+                </div>
+              </div>
+              <br>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="email" class="form-control" id="email" placeholder="EMAIL" name="email" style="height: 40px;" value="" required>
+                </div>
+              </div>
+              <br>
+              <textarea class="form-control" rows="10" placeholder="MESSAGE" name="message" required></textarea>
+              
+              <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
+                <div class="alt-send-button">
+                  <i class="fa fa-paper-plane"></i><span class="send-text">SEND</span>
+                </div>
+                
+              </button>
+              
+            </form>
+            
+          <!-- Left contact page --> 
+            
+              <div class="direct-contact-container">
+        
+                <ul class="contact-list">
+                  <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">unknown</span></i></li>
+                  
+                  <li class="list-item"><i class="fa fa-phone fa-2x"><span class="contact-text phone"><a href="tel:972-55-555555" title="Call for more info">(055) 555-5555</a></span></i></li>
+                  
+                  <li class="list-item"><i class="fa fa-envelope fa-2x"><span class="contact-text gmail"><a href="mailto:matanel.harush@outlook.com" title="Contact via email">mail@matanel.com</a></span></i></li>
+                  
+                </ul>
+        
+                <hr>
+                <ul class="social-media-list">
+                  <li><a href="https://www.facebook.com/matanel.harush" target="_blank" class="contact-icon">
+                    <i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+                  </li>
+                  <li><a href="https://github.com/matandevl" target="_blank" class="contact-icon">
+                    <i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                  </li>
+                  <li><a href="https://www.instagram.com/matanelharush/" target="_blank" class="contact-icon">
+                    <i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                  </li>
+                </ul>
+                <hr>
+        
+                <div class="copyright">&copy; INT Project by Matanel</div>
+        
+              </div>
+            <script>
+              document.querySelector('#contact-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    e.target.elements.name.value = '';
+    e.target.elements.email.value = '';
+    e.target.elements.message.value = '';
+  });
+
+            </script>
+          </div>
+          
+        </section>  
+          
+                 
+
+
+
+
+        <div id="circularMenu" class="circular-menu">
+
+          <a class="floating-btn" onclick="document.getElementById('circularMenu').classList.toggle('active');">
+            <i class="fa fa-plus"></i>
+          </a>
+        
+          <menu class="items-wrapper">
+            <a id="main" href="/" class="menu-item fa-solid fa-house"></a>
+            <a id="about" href="/about" class="menu-item fa-solid fa-info"></a>
+            <a id="contact" href="/contact" class="menu-item fa-solid fa-message"></a>
+            <a id="work" href="/work" class="menu-item fa-solid fa-briefcase"></a>
+          </menu>
+          <div id="transition-overlay"></div>
+        </div>
+  <!-- </div> -->
+
+</body>
+</html>
