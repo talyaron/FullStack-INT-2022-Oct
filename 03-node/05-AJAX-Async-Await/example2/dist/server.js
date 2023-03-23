@@ -31,7 +31,7 @@ app.post("/api/add-user", function (req, res) {
         var data = req.body;
         console.log(data);
         users.push(data);
-        res.send({ ok: true });
+        res.status(201).send({ ok: true });
     }
     catch (error) {
         console.error(error);

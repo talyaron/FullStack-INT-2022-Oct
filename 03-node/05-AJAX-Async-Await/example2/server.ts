@@ -40,7 +40,7 @@ app.post("/api/add-user", (req, res) => {
     const data = req.body;
     console.log(data);
     users.push(data);
-    res.send({ ok: true });
+    res.status(201).send({ ok: true });
 
   } catch (error: any) {
     console.error(error);
