@@ -6,14 +6,14 @@
   box-sizing: border-box;
 }
 
-.body {
+body {
   height: 100vh;
-  background-image: url("./images/25101.jpg");
+  background-color: black;
 }
 
 .nav {
   font-family: "Ubuntu", sans-serif;
-  background-color: black;
+  background-color: cornflowerblue;
   color: white;
   display: flex;
   justify-content: center;
@@ -55,7 +55,7 @@
 .all_main {
   width: 500px;
   height: 500px;
-  background-color: black;
+  background-color: red;
   color: white;
   border-radius: 15%;
 }

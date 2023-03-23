@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- google Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@200;300;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link JavaScript Files -->
+
+    <script src=".././src/dist/helper.js"></script>
+    <script src=".././src/dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/login.js" defer></script>
+    <!-- Link Css Files -->
+    <link rel="stylesheet" href="./dist/login.css" >
+
+    <title>Intro Page</title>
+</head>
+
+<body>
+    <section class="login-container">
+        <!-- header -->
+
+        <header login-container__header">
+       <h1 class="login-container__logo"> Login</h1>
+        </header>
+
+        <!-- main -->
+
+        <main class="login-container__main">
+            <h4 class="login-container__des">
+                Enter e-mail and password to login
+            </h4>
+
+            <form action="" class="login-container__form" onsubmit="handleSubmitLogIn(event)" id="formLogin">
+                <input type="email" class="email" name="email" placeholder="Enter Email">
+                <p ><i class="fa-solid fa-triangle-exclamation"></i><span id="errorMsgEmailInputLOG" ></span> </p>
+
+                <input type="password" class="password" name="password" placeholder="Enter Password">
+                <p ><i class="fa-solid fa-triangle-exclamation"></i><span id="errorMsgPasswordInputLOG" >.</span> </p>
+
+                <button  class="login-container__btn" type="submit">LOGIN</button>
+            </form>
+            <p id="pNotLoginSucc"></p>
+
+        </main>
+
+        <!-- footer -->
+
+        <footer class="login-container__footer">
+            <h3 class="login-container__footer-title">
+                Don't have an account?
+            </h3>
+                <a href="./../register/register/register.html">
+                    <button class="login-container__footer-btn">
+
+                SIGN UP FOR BITE AWAY
+                </a>
+        
+        </footer>
+
+    </section>
+</body>
+
+</html>
