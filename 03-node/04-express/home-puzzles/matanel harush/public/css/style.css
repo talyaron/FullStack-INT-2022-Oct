@@ -5,7 +5,6 @@
   }
   
   :root {
-    /* --background: #060608; */
     --color: #FAFAFA;
   }
   
@@ -42,7 +41,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Black color with 50% opacity */
+    background-color: rgba(0, 0, 0, 0.5);
   }
   
   .container {

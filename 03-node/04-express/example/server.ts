@@ -2,8 +2,8 @@ import express from "express";
 import fs from "fs";
 const app = express();
 
-import { uid } from "./helpers";
-import add from './helpers'
+// import { uid } from "./helpers";
+// import add from './helpers'
 
 //static file
 app.use(express.static('./client'));
