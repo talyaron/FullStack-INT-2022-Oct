@@ -16,8 +16,9 @@ function displayAnimationOnStart() {
         console.error(error);
     }
 }
-// function handleJoinNow() {
-// }
+function handleJoinNow() {
+    handleClickMore();
+}
 function animateListMenu() {
     var list = document.querySelectorAll('.home-container__nav-list');
     list.forEach(function (l, i) {
@@ -47,7 +48,6 @@ function animateListMenu() {
 function handleClickDesign() {
     var html = "   \n        <span class=\"design-name\">Orel Karako</span> <p> Website Designer </p>\n    <span class=\"design-name\">Yoram Carmeli</span> <p> Website Engine </p>\n    <span class=\"design-name\">Tal Course</span> <p> SuperMan Programmer </p>\n    ";
     var containerIMG = document.querySelector('.home-container__container-img');
-    containerIMG.style.top = "40%";
     fillDivInElements("desMenuRoot", html);
     renderMenuContainer("DESIGNERS");
 }
@@ -55,19 +55,19 @@ function handleClickProjects() {
     var containerIMG = document.querySelector('.home-container__container-img');
     var desMenu = document.querySelector('.container-desMenu');
     containerIMG.style.top = "20%";
-    var html = "   \n    <div class=\"container-img\" >\n    <div  id=\"projects\">\n        <img width=\"250px\" src=\"./img/project/project1.png\" alt=\"\">\n        <caption>ProList Web Lists Images</caption>\n    </div>   \n    <div  id=\"projects\">\n    <img width=\"250px\" src=\"./img/project/project2.png\" alt=\"\">\n    <caption>Balloons pop Game to 2023 new Years</caption>\n</div>   \n<div  id=\"projects\">\n<a href=\"/project1.html\"> \n\n<img width=\"250px\" src=\"./img/project/project1.png\" alt=\"\">\n</a>\n<caption>ProList Web Lists Images</caption>\n</div>   \n    </div>\n\n";
+    var html = "   \n    <div class=\"container-img\" >\n    <div  id=\"projects\">\n    <a href=\"/project1.html\"> \n        <img width=\"250px\" src=\"./img/project/project1.png\" alt=\"\">\n        </a>\n        <caption>ProList Web Lists Images</caption>\n    </div>   \n    <div  id=\"projects\">\n    <a href=\"/project2.html\"> \n    <img width=\"250px\" src=\"./img/project/project2.png\" alt=\"\">\n    </a>\n    <caption>Balloons pop Game to 2023 new Years</caption>\n</div>   \n<div  id=\"projects\">\n<a href=\"/project3.html\"> \n\n<img width=\"250px\" src=\"./img/project/project3.png\" alt=\"\">\n</a>\n<caption>ProList Web Lists Images</caption>\n</div>   \n    </div>\n\n";
     fillDivInElements("desMenuRoot", html);
     renderMenuContainer("PROJECTS");
 }
 function handleClickSkills() {
     var imgDiv = document.querySelector('.home-container__container-img-desMenu');
     imgDiv.style.width = "950px";
-    var html = "   \n    <dl>\n    <dt>\n      Browser market share June 2015\n    </dt>\n    <dd class=\"percentage percentage-95\"><span class=\"text\">HTML5 : 95%</span></dd>\n    <dd class=\"percentage percentage-80\"><span class=\"text\">CSS5 : 80%</span></dd>\n    <dd class=\"percentage percentage-70\"><span class=\"text\">TypeScript: 70%</span></dd>\n    <dd class=\"percentage percentage-10\"><span class=\"text\">NodeJs: 10%</span></dd>\n\n  </dl>\n\n";
+    var html = "   \n    <dl>\n    <dt>\n     Skills 2023 @Orel KARAKO\n    </dt>\n    <dd class=\"percentage percentage-95\"><span class=\"text\">HTML5 : 95%</span></dd>\n    <dd class=\"percentage percentage-80\"><span class=\"text\">CSS5 : 80%</span></dd>\n    <dd class=\"percentage percentage-70\"><span class=\"text\">TypeScript: 70%</span></dd>\n    <dd class=\"percentage percentage-10\"><span class=\"text\">NodeJs: 10%</span></dd>\n\n  </dl>\n\n";
     fillDivInElements("desMenuRoot", html);
-    renderMenuContainer("GALLERY");
+    renderMenuContainer("PROJECTS");
 }
 function handleClickMore() {
-    var html = "   \n    \n";
+    var html = "\n    <div id=\"containerMore\">\n    <h2> Contact Us</h2>\n        <form class=\"form-more\" action=\"https://formsubmit.co/orekarako@gmail.com\" method=\"POST\">\n         <div class=form-more__box>\n         <label for=\"Fname\">Write you Full Name</label>\n         <input id=\"Fname\" name=\"Fname\" class=\"Fname\" type=\"text\">\n         </div>\n         <div class=form-more__box>\n         <label for=\"email\">Write you Email</label>\n         <input id=\"email\" name=\"email\" class=\"email\" type=\"email\">\n         </div>\n         <input type=\"hidden\" name=\"_next\" value=\"https://yourdomain.co/thanks.html\">\n         <div class=form-more__box>\n         <label for=\"message\">You Message</label>\n            <textarea name=\"message\" id=\"\" cols=\"30\" rows=\"10\"></textarea>\n         </div>\n         <button class=\"form-more__btn\">SEND</button>\n        </form>\n    </div>   \n</div>\n    \n";
     fillDivInElements("desMenuRoot", html);
     renderMenuContainer("MORE");
 }
