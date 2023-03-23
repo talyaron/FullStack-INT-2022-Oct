@@ -2,8 +2,8 @@ import express from "express";
 import fs from "fs";
 const app = express();
 
-import { uid } from "./helpers";
-import add from './helpers'
+// import { uid } from "./helpers";
+// import add from './helpers'
 
 //static file
 app.use(express.static('./client'))
@@ -15,13 +15,13 @@ app.use(express.static('./client'))
 //   console.log(req);
 //   console.log("res:....",res);
 //   //read file
-//   const indexFile = fs.readFileSync("./index.html", {
-//     encoding: "utf8",
-//     flag: "r",
-//   });
+  const indexFile = fs.readFileSync("./index.html", {
+    encoding: "utf8",
+    flag: "r",
+  });
 
-//   res.send(indexFile);
-// }
+  res.send(indexFile);
+}
 //data routes
 app.get("/login", function (req, res) {
   res.send(`<h1>Login 3</h1><h2>Welcome to our sit. you got this id ${uid()}</h2>`);
