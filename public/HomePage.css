@@ -1,0 +1,600 @@
+/* Variables */
+:root {
+  --blue: #3a82ee;
+  --white: rgb(255, 255, 255);
+  --grey: #888;
+  --dark: #313154;
+  --red: #ff5b57;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* End of Variables */
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.box {
+  gap: 40px;
+  width: 100%;
+  padding: 0 16px;
+  margin-top: 70px;
+}
+
+.header {
+  width: 100%;
+  margin: 0%;
+  padding: 0;
+  min-height: 80px;
+  background: var(--white);
+  position: fixed;
+  top: 0;
+}
+.header__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+}
+.header__container__logo {
+  position: absolute;
+  left: 320px;
+  height: 80px;
+}
+.header__container__a {
+  color: var(--blue);
+  text-decoration: none;
+  padding: 31px;
+}
+.header__container__a:hover {
+  color: var(--white);
+  background: var(--blue);
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#containerBox {
+  top: 5px;
+}
+
+.boxMain {
+  min-height: 300px;
+  position: relative;
+  top: 40px;
+}
+.boxMain__container {
+  display: flex;
+  margin: auto;
+  max-width: 1200px;
+  justify-content: space-between;
+  max-height: 300px;
+  min-height: inherit;
+  padding: 32px;
+  color: var(--blue);
+  left: 50%;
+  cursor: pointer;
+}
+.boxMain__container__boxes {
+  width: 352px;
+  height: 236px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 5px;
+  text-align: center;
+  padding: 16px;
+  box-shadow: 9px 8px 15px 8px var(--dark);
+  box-shadow: 9px 8px 15px 8px var(--dark);
+  z-index: 99;
+}
+.boxMain__container__boxes__img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.apartmentsPage {
+  margin-left: 80px;
+  display: grid;
+  grid-template-rows: 90%;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(2, 300px);
+  row-gap: 100px;
+  column-gap: 300px;
+}
+
+.roommatePage {
+  margin-left: 80px;
+  display: grid;
+  grid-template-rows: 90%;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(2, 300px);
+  row-gap: 100px;
+  column-gap: 300px;
+}
+
+p {
+  margin: 0;
+}
+
+.halfBlue {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+}
+
+.btnDiv {
+  display: flex;
+  margin: 70px;
+}
+.btnDiv__btn {
+  height: 50px;
+  width: 500px;
+  margin: auto;
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  background-color: var(--blue);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.roommatePgaeBtn, .apartmentPgaeBtn {
+  margin-top: 560px;
+}
+.roommatePgaeBtn__next, .roommatePgaeBtn__next, .apartmentPgaeBtn__next, .apartmentPgaeBtn__next {
+  margin-right: 300px;
+}
+.roommatePgaeBtn__back, .roommatePgaeBtn__back, .apartmentPgaeBtn__back, .apartmentPgaeBtn__back {
+  margin-left: 300px;
+}
+
+.profilBtn {
+  border: 2px var(--blue) solid;
+  padding: 5px;
+}
+
+.detail {
+  width: 1300px;
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  transform: tranlate(-50%, -50%);
+  text-align: left;
+  padding: 0 30px 30px;
+  font-size: 30px;
+  min-height: 700px;
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  gap: 1rem;
+  z-index: 99;
+  opacity: 1;
+}
+.detail__box {
+  max-width: 1300px;
+  max-height: 10px;
+  min-height: inherit;
+  padding: 16px;
+  color: var(--dark);
+  width: 500px;
+  float: left;
+  align-items: center;
+  width: 50%;
+  text-align: left;
+  padding-left: 84px;
+  box-shadow: 9px 8px 15px 8px var(--blue);
+  box-shadow: 9px 8px 15px 8px var(--blue);
+  opacity: 1;
+  z-index: 99;
+  opacity: 100%;
+  background: var(--white);
+}
+.detail__box__containerBtn {
+  position: absolute;
+  display: inline-block;
+  justify-content: space-between;
+}
+.detail__box__containerBtn__btn {
+  border: none;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  background-color: var(--blue);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.detail__box__img {
+  align-items: center;
+  width: 150px;
+  height: 150px;
+}
+
+#details {
+  opacity: 1;
+  opacity: 100%;
+}
+
+.apartmentImage {
+  align-items: center;
+  width: 500px;
+  height: 500px;
+}
+
+.log-reg {
+  display: flex;
+  position: absolute;
+  left: 30px;
+}
+
+.button-link {
+  color: var(--blue);
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+}/*# sourceMappingURL=homepage.css.map */mily: "Fredoka One", cursive;
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
+  position: absolute;
+  top: 12vh;
+  left: 40vw;
+  font-size: 30px;
+}
+
+.calculationsContainer {
+  position: absolute;
+  top: 10rem;
+  left: 260px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 2px solid rgb(0, 0, 0);
+  box-shadow: rgb(44, 62, 80) 0px 0px 15px 0px inset;
+  background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
+  border-radius: 10%;
+  height: 75vh;
+  width: 70vw;
+}
+.calculationsContainer__currentSalary {
+  position: absolute;
+  top: 5vh;
+  left: 45%;
+}
+.calculationsContainer__currentSalary .calculationsContainer__currentSalary__p {
+  position: relative;
+  top: -2vh;
+  font-size: xx-large;
+  color: rgb(255, 255, 255);
+}
+.calculationsContainer__incom {
+  position: relative;
+  color: white;
+  font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  height: 7vh;
+  margin-top: 20px;
+  margin-right: 5vw;
+  margin-left: 5vw;
+  border: 2px solid black;
+  background-color: rgb(34, 176, 129);
+}
+.calculationsContainer__incom--incomes {
+  position: absolute;
+  top: 1vh;
+  left: 2vw;
+  font-size: x-large;
+}
+.calculationsContainer__incom__amountOfRevenue {
+  position: absolute;
+  right: 7vh;
+  top: 1vh;
+  font-size: x-large;
+  color: white;
+}
+.calculationsContainer__expnse {
+  position: relative;
+  height: 7vh;
+  background-color: rgb(229, 97, 97);
+  margin-right: 5vw;
+  margin-left: 5vw;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: columns;
+  justify-content: space-between;
+  color: white;
+  font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.calculationsContainer__expnse--expenses {
+  position: absolute;
+  top: 1vh;
+  left: 2vw;
+  font-size: x-large;
+}
+.calculationsContainer__expnse__amountOfExpenses {
+  position: absolute;
+  right: 7vh;
+  top: 1vh;
+  font-size: x-large;
+  color: white;
+}
+.calculationsContainer__expnse .calculationsContainer__expnse__percentage {
+  position: absolute;
+  padding-left: 0.5%;
+  right: 1vh;
+  top: 22%;
+  width: 40px;
+  height: 20px;
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+  background-color: rgba(255, 201, 201, 0.9);
+  border: none;
+  box-shadow: rgb(255, 255, 255) 0px 0px 15px 0px inset;
+}
+.calculationsContainer__TypesOfIncom {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: rgb(255, 255, 255);
+  height: 10rem;
+  width: 15rem;
+  align-self: self-start;
+  position: relative;
+  left: 7%;
+  border: 2px solid rgb(64, 217, 97);
+  color: white;
+  font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  box-shadow: rgb(44, 62, 80) 0px 0px 15px 0px inset;
+}
+.calculationsContainer__TypesOfIncom .calculationsContainer__TypesOfIncomes {
+  position: absolute;
+  left: 1vw;
+  top: 0.5vh;
+  font-size: x-large;
+  color: rgb(34, 176, 129);
+}
+.calculationsContainer__TypesOfIncom .calculationsContainer__TypesIncomes {
+  color: rgb(34, 62, 53);
+  width: 90%;
+  margin-left: 10px;
+  height: 20px;
+  position: relative;
+  top: 5vh;
+  border-top: 2px solid rgb(23, 203, 86);
+}
+.calculationsContainer__TypesOfIncom .calculationsContainer__TypesIncomes .RemoveIncome {
+  position: absolute;
+  top: 2px;
+  right: 1px;
+  font-size: medium;
+  color: rgb(82, 247, 151);
+}
+.calculationsContainer__TypesOfIncom :hover .RemoveIncome {
+  cursor: pointer;
+  position: absolute;
+  top: 2px;
+  right: 5%;
+  transform: translate(2s);
+  font-size: large;
+  color: rgb(4, 154, 67);
+}
+.calculationsContainer__TypesOfExpense {
+  font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  overflow-y: scroll;
+  background-color: rgb(255, 255, 255);
+  height: 10rem;
+  width: 15rem;
+  position: absolute;
+  right: 5vw;
+  top: 45vh;
+  border: 2px solid rgb(255, 40, 40);
+  box-shadow: rgb(44, 62, 80) 0px 0px 15px 0px inset;
+}
+.calculationsContainer__TypesOfExpense .calculationsContainer__TypesOfExpenses {
+  position: absolute;
+  left: 1vw;
+  top: 0.5vh;
+  font-size: x-large;
+  color: rgb(229, 97, 97);
+}
+.calculationsContainer__TypesOfExpense .calculationsContainer__TypesExpense {
+  position: relative;
+  color: rgb(34, 62, 53);
+  width: 90%;
+  margin-left: 10px;
+  height: 20px;
+  top: 5vh;
+  border-top: 2px solid rgb(255, 81, 81);
+}
+.calculationsContainer__TypesOfExpense .calculationsContainer__TypesExpense .Percentage {
+  color: rgb(250, 88, 88);
+  position: absolute;
+  right: 10%;
+  font-style: normal;
+  font-weight: normal;
+}
+.calculationsContainer__TypesOfExpense .calculationsContainer__TypesExpense .RemoveExpnse {
+  position: absolute;
+  top: 2px;
+  right: 1px;
+  font-size: medium;
+  color: rgb(253, 119, 119);
+}
+.calculationsContainer__TypesOfExpense :hover .Percentage {
+  color: rgb(250, 88, 88);
+  position: absolute;
+  right: 20%;
+  cursor: pointer;
+}
+.calculationsContainer__TypesOfExpense :hover .RemoveExpnse {
+  cursor: pointer;
+  position: absolute;
+  right: 5%;
+  transform: translate(2s);
+  font-size: large;
+  color: rgb(255, 0, 0);
+}
+
+.income__container {
+  position: absolute;
+  background-color: rgba(4, 4, 4, 0.8);
+  border-radius: 10%;
+  width: 400px;
+  height: 400px;
+  margin-right: 5vw;
+  top: 30vh;
+  left: 40vw;
+  right: 40vw;
+  border: 2px solid;
+  display: none;
+}
+.income__container .income__container__titel {
+  position: absolute;
+  color: aquamarine;
+  position: absolute;
+  top: 6vh;
+  margin-left: 12%;
+}
+.income__container .income__container__income {
+  position: absolute;
+  top: 10vh;
+  margin-left: 12%;
+  margin-right: 12%;
+  font-size: x-large;
+  border-radius: 0%;
+}
+.income__container .income__container__typeIncome {
+  position: absolute;
+  top: 20vh;
+  margin-left: 12%;
+  margin-right: 12%;
+  font-size: x-large;
+  border-radius: 0%;
+  border: none;
+}
+.income__container .income__container__selectTypeIncom {
+  position: absolute;
+  top: 30vh;
+  width: 76%;
+  margin-left: 12%;
+  font-size: x-large;
+  border: none;
+}
+.income__container .income__container__buttonAdd {
+  position: absolute;
+  top: 40vh;
+  background-color: aquamarine;
+  width: 100px;
+  height: 40px;
+  margin-left: 35%;
+  border-radius: 10px;
+  font-size: large;
+  font-family: "Tilt Warp", cursive;
+}
+.income__container .income__container__buttonAdd:hover {
+  background-color: rgb(72, 248, 189);
+}
+
+.expense__container {
+  position: absolute;
+  background-color: rgba(4, 4, 4, 0.8);
+  border-radius: 10%;
+  width: 400px;
+  height: 400px;
+  margin-right: 5vw;
+  top: 30vh;
+  left: 40vw;
+  right: 40vw;
+  border: 2px solid;
+  display: none;
+}
+.expense__container .expense__container__titel {
+  position: absolute;
+  color: rgb(255, 127, 127);
+  position: absolute;
+  top: 6vh;
+  margin-left: 12%;
+}
+.expense__container .expense__container__expense {
+  position: absolute;
+  top: 10vh;
+  margin-left: 12%;
+  margin-right: 12%;
+  font-size: x-large;
+  border-radius: 0%;
+}
+.expense__container .expense__container__typeExpense {
+  position: absolute;
+  top: 20vh;
+  margin-left: 12%;
+  margin-right: 12%;
+  font-size: x-large;
+  border-radius: 0%;
+  border: none;
+}
+.expense__container .expense__container__selectTypeExpense {
+  position: absolute;
+  top: 30vh;
+  width: 76%;
+  margin-left: 12%;
+  font-size: x-large;
+  border: none;
+}
+.expense__container .expense__container__buttonAdd {
+  position: absolute;
+  top: 40vh;
+  background-color: rgb(251, 91, 91);
+  width: 100px;
+  height: 40px;
+  margin-left: 35%;
+  border-radius: 10px;
+  font-size: large;
+  font-family: "Tilt Warp", cursive;
+}
+.expense__container .expense__container__buttonAdd:hover {
+  background-color: rgb(255, 33, 33);
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(-45deg, #3f3f3f, #4f4f4f, #737474, #3d3b3b);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}/*# sourceMappingURL=HomePage.css.map */

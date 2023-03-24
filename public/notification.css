@@ -1,0 +1,120 @@
+#notificationBox {
+  position: absolute;
+  bottom: -2.5%;
+  right: -1%;
+  overflow: hidden;
+  color: rgb(6, 123, 224);
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.notification {
+  width: 18vw;
+  height: auto;
+  background-color: aliceblue;
+  font-size: 120%;
+  margin: 15% -10%;
+  box-shadow: 0 0 20px rgb(0, 0, 0);
+  overflow-wrap: break-word;
+  position: relative;
+  animation: moveleft 0.8s linear forwards;
+}
+@keyframes moveleft {
+  50% {
+    transform: translateX(50%);
+  }
+  0% {
+    transform: translateX(100%);
+  }
+}
+.notification .fa-solid .fa-circle-check {
+  margin-top: 8px;
+}
+
+.notification i {
+  margin: 0 20px;
+  font-size: 35px;
+  color: green;
+}
+
+.notification.Delete i {
+  color: rgb(255, 17, 0);
+}
+
+.notification::after {
+  content: "";
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+  width: 100%;
+  height: 15%;
+  background-color: green;
+  animation: timer 6s linear forwards;
+}
+
+@keyframes timer {
+  0% {
+    width: 0;
+  }
+  1% {
+    background-color: green;
+  }
+  70% {
+    background-color: orange;
+  }
+  100% {
+    background-color: red;
+  }
+}
+.notifictionWindow {
+  position: fixed;
+  font-size: 1.5rem;
+  margin: 0 auto;
+  text-align: center;
+  color: rgba(37, 36, 58, 0.9098039216);
+  display: none;
+  background-color: aliceblue;
+  width: 20%;
+  height: 55%;
+  background-color: #fff;
+  box-shadow: 0.9rem 0.5rem 1rem 0.1rem rgb(75, 83, 72);
+  margin-top: -0.5%;
+  padding: 15px;
+  right: 5.5%;
+  overflow-y: auto;
+  overflow-wrap: break-word;
+  overflow-x: hidden;
+}
+.notifictionWindow h3 {
+  overflow-wrap: break-word;
+  position: fixed;
+  background-color: #6e5652;
+  color: white;
+}
+.notifictionWindow .exitNotifictionsPage {
+  color: #ff2600;
+  right: 8%;
+  position: fixed;
+  overflow-wrap: break-word;
+}
+.notifictionWindow .fa-circle-check {
+  color: rgba(90, 226, 11, 0.61);
+  align-items: baseline;
+}
+.notifictionWindow .fa-circle-xmark {
+  color: rgba(226, 25, 11, 0.61);
+  align-items: baseline;
+}
+.notifictionWindow ul {
+  display: flex;
+  flex-direction: column;
+  overflow-wrap: break-word;
+  gap: 1rem;
+}
+.notifictionWindow ul li {
+  margin-top: 25%;
+  overflow-wrap: break-word;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=notification.css.map */

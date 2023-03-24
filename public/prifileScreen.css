@@ -1,0 +1,244 @@
+.profileScreen {
+  height: 750px;
+  width: 500px;
+  background-color: white;
+  border: solid 1px rgb(183, 182, 182);
+  margin: auto;
+}
+.profileScreen__phoneStatus {
+  height: 20px;
+  width: 100%;
+  display: flex;
+  background-color: rgb(250, 247, 247);
+}
+.profileScreen__phoneStatus__connection {
+  height: 100%;
+  width: 30px;
+  font-size: x-large;
+  padding-left: 10px;
+}
+.profileScreen__phoneStatus__company {
+  height: 100%;
+  width: 70px;
+  padding-right: 25px;
+  font-weight: bold;
+}
+.profileScreen__phoneStatus__wifi {
+  height: 100%;
+  width: 60px;
+  padding-right: 50px;
+}
+.profileScreen__phoneStatus__clock {
+  height: 100%;
+  width: 70px;
+}
+.profileScreen__phoneStatus__battery {
+  height: 100%;
+  width: 30px;
+  padding-left: 150px;
+}
+.profileScreen__title {
+  height: 60px;
+  width: 100%;
+  background-color: rgb(250, 247, 247);
+  display: flex;
+  justify-content: space-between;
+}
+.profileScreen__title__username {
+  height: 40px;
+  width: 130px;
+  padding-left: 200px;
+  padding-top: 15px;
+}
+.profileScreen__title__username span {
+  font-size: x-large;
+  font-weight: bold;
+}
+.profileScreen__title__settings {
+  height: 40px;
+  width: 40px;
+  padding-left: 130px;
+  padding-top: 10px;
+}
+.profileScreen__title__settings i {
+  font-size: x-large;
+  padding-top: 10px;
+}
+.profileScreen__profileInfo {
+  height: 110px;
+  width: 100%;
+  display: flex;
+  border: solid 1px rgb(183, 182, 182);
+}
+.profileScreen__profileInfo__profilePicture {
+  height: 90px;
+  width: 500px;
+  padding-top: 5px;
+  padding-left: 20px;
+}
+.profileScreen__profileInfo__profilePicture img {
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+}
+.profileScreen__profileInfo__profileFollow {
+  height: 110px;
+  width: 100%;
+  margin-right: 30px;
+}
+.profileScreen__profileInfo__profileFollow__profileData {
+  display: flex;
+  justify-content: space-around;
+}
+.profileScreen__profileInfo__profileFollow__profileData__amountPosts {
+  height: 60px;
+  width: 60px;
+  padding-top: 10px;
+}
+.profileScreen__profileInfo__profileFollow__profileData__amountPosts span {
+  font-weight: bold;
+  font-size: large;
+}
+.profileScreen__profileInfo__profileFollow__profileData__amountPosts #posts {
+  color: gray;
+  font-weight: lighter;
+}
+.profileScreen__profileInfo__profileFollow__profileData__amountFollowers {
+  height: 60px;
+  width: 60px;
+  padding-top: 10px;
+}
+.profileScreen__profileInfo__profileFollow__profileData__amountFollowers span {
+  font-weight: bold;
+  font-size: large;
+}
+.profileScreen__profileInfo__profileFollow__profileData__amountFollowers #followers {
+  color: gray;
+  font-weight: lighter;
+}
+.profileScreen__profileInfo__profileFollow__profileData__amountFollowing {
+  height: 60px;
+  width: 60px;
+  padding-top: 10px;
+}
+.profileScreen__profileInfo__profileFollow__profileData__amountFollowing span {
+  font-weight: bold;
+  font-size: large;
+}
+.profileScreen__profileInfo__profileFollow__profileData__amountFollowing #following {
+  color: gray;
+  font-weight: lighter;
+}
+.profileScreen__profileInfo__profileFollow__editProfile {
+  height: 30px;
+  width: 90%;
+  margin-left: 10px;
+  text-align: center;
+  background-color: rgb(222, 217, 217);
+}
+.profileScreen__aboutUsername {
+  height: 110px;
+  width: 100%;
+  border: solid 1px rgb(183, 182, 182);
+}
+.profileScreen__aboutUsername__info {
+  height: 100px;
+  width: 200px;
+  padding-top: 10px;
+  padding-left: 15px;
+}
+.profileScreen__aboutUsername span {
+  font-size: medium;
+}
+.profileScreen__aboutUsername #site {
+  color: blue;
+}
+.profileScreen__sortingPictures {
+  height: 40px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  border: solid 1px rgb(183, 182, 182);
+  display: flex;
+  justify-content: space-around;
+  padding-top: 15px;
+  font-size: x-large;
+  color: rgba(148, 146, 146, 0.563);
+}
+.profileScreen__albumPicturesWrapper {
+  width: 100%;
+  height: 280px;
+}
+.profileScreen__albumPicturesWrapper__albumPictures {
+  display: grid;
+  gap: 5px;
+  grid-template-areas: "topLeftPicture topCenterPicture topRightPicture" "bottomLeftPicture bottomCenterPicture bottomRightPicture";
+  height: 100%;
+  width: 100%;
+}
+.profileScreen__albumPicturesWrapper__albumPictures__topLeftPicture {
+  grid-area: topLeftPicture;
+  height: 100%;
+}
+.profileScreen__albumPicturesWrapper__albumPictures__topCenterPicture {
+  grid-area: topCenterPicture;
+  height: 100%;
+}
+.profileScreen__albumPicturesWrapper__albumPictures__topRightPicture {
+  grid-area: topRightPicture;
+  height: 100%;
+}
+.profileScreen__albumPicturesWrapper__albumPictures__bottomLeftPicture {
+  grid-area: bottomLeftPicture;
+  height: 100%;
+}
+.profileScreen__albumPicturesWrapper__albumPictures__bottomCenterPicture {
+  grid-area: bottomCenterPicture;
+  height: 100%;
+}
+.profileScreen__albumPicturesWrapper__albumPictures__bottomRightPicture {
+  grid-area: bottomRightPicture;
+  height: 100%;
+}
+.profileScreen__albumPicturesWrapper__albumPictures img {
+  width: 100%;
+  height: 100%;
+}
+.profileScreen__menuButtons {
+  height: 40px;
+  width: 100%;
+  background-color: rgb(250, 247, 247);
+  border: solid 1px rgb(183, 182, 182);
+  display: flex;
+  justify-content: space-around;
+  padding-top: 70px;
+}
+.profileScreen__menuButtons__homeButton {
+  height: 40px;
+  width: 35px;
+  font-size: 30px;
+  color: rgba(141, 138, 138, 0.854);
+}
+.profileScreen__menuButtons__searchButton {
+  height: 40px;
+  width: 35px;
+  font-size: 30px;
+  color: rgba(141, 138, 138, 0.854);
+}
+.profileScreen__menuButtons__cameraButton {
+  height: 40px;
+  width: 35px;
+  font-size: 30px;
+  color: rgba(141, 138, 138, 0.854);
+}
+.profileScreen__menuButtons__loveButton {
+  height: 40px;
+  width: 35px;
+  font-size: 30px;
+  color: rgba(141, 138, 138, 0.854);
+}
+.profileScreen__menuButtons__profileButton {
+  height: 40px;
+  width: 35px;
+  font-size: 30px;
+  color: black;
+}/*# sourceMappingURL=prifileScreen.css.map */

@@ -1,0 +1,457 @@
+:root {
+  --black-dark: #121111;
+  --gray-dark: #000000;
+  --gray-light: #1d1d1d;
+  --gray-no-hover: #b2b2b2;
+  --purple: #af2896;
+  --blue1: #509bf5;
+  --blue2: #0d72ea;
+  --green: #1ed760;
+  --error: rgb(241, 28, 28);
+  --success: rgb(24, 161, 24);
+  --widthNavBarLeft: 250px;
+}
+
+* {
+  list-style: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: "Poppins", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  font-size: 15px;
+}
+
+.users-options-after-login {
+  position: relative;
+  width: 180px;
+  flex-direction: column;
+  cursor: pointer;
+  color: rgb(255, 246, 246);
+}
+.users-options-after-login .user-box-profile {
+  background-color: rgba(150, 138, 138, 0.3921568627);
+  border-radius: 15px;
+  padding: 0 10px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  gap: 10px;
+}
+.users-options-after-login .user-box-profile img {
+  display: block;
+  margin: auto;
+  width: 50px;
+  border-radius: 50%;
+  height: 50px;
+  background-color: rgb(255, 255, 255);
+}
+.users-options-after-login .user-box-profile i {
+  rotate: 0deg;
+}
+.users-options-after-login .user-box-profile-collapse {
+  background-color: var(--gray-no-hover);
+  overflow: hidden;
+  position: absolute;
+  display: none;
+  z-index: 999;
+  width: 90%;
+  top: 50px;
+  border-radius: 0 0 50px 50px;
+  right: 8px;
+  height: 0px;
+  transition: 0.5s ease-in height;
+}
+.users-options-after-login .user-box-profile-collapse.active {
+  display: block;
+  height: 50px;
+}
+.users-options-after-login .user-box-profile-collapse .logout-btn {
+  border: none;
+  width: 100%;
+  padding: 5px;
+  height: 100%;
+  background-color: inherit;
+  transition: all ease-in 0.1s;
+}
+.users-options-after-login .user-box-profile-collapse .logout-btn:hover {
+  scale: 1.09;
+}
+.users-options-after-login .user-box-profile-collapse .logout-btn span {
+  padding-right: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.users-options-after-login .user-box-profile-collapse .logout-btn i {
+  font-size: 1.2rem;
+}
+
+.line {
+  display: block;
+  height: 1px;
+  background-color: var(--gray-no-hover);
+  opacity: 0.2;
+}
+
+#main-section {
+  overflow: hidden;
+  position: relative;
+  width: inherit;
+  height: inherit;
+  background-color: var(--gray-light);
+}
+#main-section .sticky-navbar {
+  height: inherit;
+}
+#main-section .sticky-navbar div.left-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  padding: 15px;
+  width: 250px;
+  height: inherit;
+  background-color: var(--black-dark);
+  text-align: start;
+}
+#main-section .sticky-navbar div.left-header div {
+  margin: 20px 0;
+}
+#main-section .sticky-navbar div.left-header div.icon {
+  transform: translateX(-20px);
+}
+#main-section .sticky-navbar div.left-header div.icon a {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+#main-section .sticky-navbar div.left-header div.icon a img {
+  z-index: 2;
+  width: 100px;
+}
+#main-section .sticky-navbar div.left-header div.icon a span {
+  font-weight: 500;
+  color: white;
+  font-size: 2rem;
+  margin-left: -15px;
+}
+#main-section .sticky-navbar div.left-header div.list-up {
+  font-weight: 500;
+}
+#main-section .sticky-navbar div.left-header div.list-up .menu-navbar li button {
+  border: none;
+  width: 100%;
+  text-align: start;
+  cursor: pointer;
+  color: var(--gray-no-hover);
+  background-color: transparent;
+  font-size: 1rem;
+  padding: 10px;
+}
+#main-section .sticky-navbar div.left-header div.list-up .menu-navbar li button.active, #main-section .sticky-navbar div.left-header div.list-up .menu-navbar li button:hover {
+  color: white;
+}
+#main-section .sticky-navbar div.left-header div.list-up .menu-navbar li button span {
+  font-weight: 700;
+  margin-left: 20px;
+}
+#main-section .sticky-navbar div.left-header div.list-up .menu-navbar li button i {
+  font-size: 1.3rem;
+}
+#main-section .sticky-navbar div.left-header .list-down {
+  color: var(--gray-no-hover);
+}
+#main-section .sticky-navbar div.left-header .list-down li {
+  width: 100%;
+  text-align: start;
+  cursor: pointer;
+  color: var(--gray-no-hover);
+  background-color: transparent;
+  font-size: 1rem;
+  padding: 10px;
+}
+#main-section .sticky-navbar div.left-header .list-down li.active, #main-section .sticky-navbar div.left-header .list-down li:hover {
+  color: white;
+}
+#main-section .sticky-navbar div.left-header .list-down li span {
+  font-weight: 700;
+  margin-left: 20px;
+}
+#main-section .sticky-navbar div.left-header .list-down li i {
+  font-size: 1.5rem;
+}
+#main-section .sticky-navbar div.left-header div.container-playlist {
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  overflow-y: scroll;
+  width: 100%;
+  height: calc(100% - 410px);
+}
+#main-section .sticky-navbar div.left-header div.container-playlist::-webkit-scrollbar {
+  display: none;
+}
+#main-section .sticky-navbar div.left-header div.container-playlist button {
+  border: none;
+  color: var(--gray-no-hover);
+  background-color: transparent;
+  padding-top: 20px;
+  text-align: start;
+  font-size: 1rem;
+}
+#main-section .sticky-navbar div.left-header div.container-playlist button:hover {
+  color: white;
+}
+#main-section .sticky-navbar div.top-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 0 25px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100% - var(--widthNavBarLeft));
+  height: 100px;
+  background-color: var(--black-dark);
+}
+#main-section .sticky-navbar div.top-navbar .arrow {
+  color: white;
+  display: flex;
+  height: inherit;
+}
+#main-section .sticky-navbar div.top-navbar .arrow button {
+  border: none;
+  width: 65px;
+  padding: 15px;
+  font-size: 1.5rem;
+  background-color: transparent;
+  color: var(--gray-no-hover);
+  cursor: pointer;
+}
+#main-section .sticky-navbar div.top-navbar .arrow button:hover {
+  color: #fff;
+}
+#main-section .sticky-navbar div.top-navbar .arrow button i {
+  font-size: 25px;
+}
+#main-section .sticky-navbar div.top-navbar .users-options {
+  padding: 0 16px;
+}
+#main-section .sticky-navbar div.top-navbar .users-options a {
+  text-decoration: none;
+}
+#main-section .sticky-navbar div.top-navbar .users-options a button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  height: 55px;
+  width: 120px;
+  border-radius: 50px;
+  font-weight: bold;
+}
+#main-section .sticky-navbar div.top-navbar .users-options a button.register-btn {
+  background-color: transparent;
+  color: var(--gray-no-hover);
+}
+#main-section .sticky-navbar div.top-navbar .users-options a button.register-btn:hover {
+  color: #fff;
+}
+#main-section .sticky-navbar div.top-navbar .users-options a button:hover {
+  scale: 1.05;
+}
+#main-section .main-board-center {
+  display: none;
+  overflow-y: scroll;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: calc(100vw - var(--widthNavBarLeft));
+  height: calc(100vh - 100px);
+  background-color: var(--gray-light);
+  /* width */
+  /* Track */
+  /* Handle */
+}
+#main-section .main-board-center.active {
+  display: flex;
+}
+#main-section .main-board-center::-webkit-scrollbar {
+  width: 15px;
+}
+#main-section .main-board-center::-webkit-scrollbar-track {
+  background-color: #090909;
+}
+#main-section .main-board-center::-webkit-scrollbar-thumb {
+  background: var(--gray-no-hover);
+}
+#main-section .main-board-center main {
+  color: #fff;
+  padding: 16px;
+  width: 100%;
+}
+#main-section .main-board-center main .section {
+  display: none;
+  min-width: 700px;
+  padding: 25px 50px;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+  width: inherit;
+}
+#main-section .main-board-center main .section.active {
+  display: flex;
+}
+#main-section .main-board-center main .section.list {
+  display: none;
+}
+#main-section .main-board-center main .section.list.active {
+  display: block;
+}
+#main-section .main-board-center main .section h4 {
+  font-size: 1.5rem;
+  margin-top: 25px;
+}
+#main-section .main-board-center main .section h4:hover {
+  text-decoration: underline;
+}
+#main-section .main-board-center main .section .recommended-list,
+#main-section .main-board-center main .section .list-make {
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+#main-section .main-board-center main .section .recommended-list .photo-card,
+#main-section .main-board-center main .section .list-make .photo-card {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 20px;
+  margin: 10px;
+  width: 250px;
+  height: 350px;
+  background-color: rgb(25, 26, 25);
+  border-radius: 25px;
+  box-shadow: inset 0 0 10px 10px rgba(2, 2, 2, 0.26), 0 0 5px 5px rgba(92, 69, 69, 0.623);
+  transition: scale 0.2s ease-in;
+}
+#main-section .main-board-center main .section .recommended-list .photo-card:hover,
+#main-section .main-board-center main .section .list-make .photo-card:hover {
+  scale: 1.01;
+}
+#main-section .main-board-center main .section .recommended-list .photo-card button,
+#main-section .main-board-center main .section .list-make .photo-card button {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  font-size: 1.8rem;
+  color: black;
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  border: 1px solid var(--gray-no-hover);
+}
+#main-section .main-board-center main .section .recommended-list .photo-card button:hover,
+#main-section .main-board-center main .section .list-make .photo-card button:hover {
+  transform: scale(1.1);
+}
+#main-section .main-board-center main .section .recommended-list .photo-card img,
+#main-section .main-board-center main .section .list-make .photo-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+#main-section .main-board-center main .sections-search .search-form {
+  border-radius: 15px;
+  margin: 20px auto;
+}
+#main-section .main-board-center main .sections-search .search-form input {
+  border-radius: 15px 0 0 15px;
+  padding: 10px 20px;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  background-color: var(--black-dark);
+}
+#main-section .main-board-center main .sections-search .search-form input::placeholder {
+  color: #ffffff;
+}
+#main-section .main-board-center main .sections-search .search-form button {
+  border-radius: 0 15px 15px 0;
+  padding: auto;
+  background-color: var(--gray-no-hover);
+  padding: 10px 20px;
+  margin-left: -7px;
+  border: none;
+  cursor: pointer;
+}
+#main-section .main-board-center main .sections-search .search-form button:hover {
+  background-color: var(--gray-no-hover);
+  box-shadow: 1px 1px 15px 10px rgba(0, 0, 0, 0.295);
+}
+#main-section .main-board-center main #createAlbumSection {
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+#main-section .main-board-center main #createAlbumSection.active {
+  display: flex;
+}
+#main-section .main-board-center main #createAlbumSection form {
+  margin-top: 15px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#main-section .main-board-center main #createAlbumSection form div {
+  margin-top: 15px;
+  height: 100px;
+}
+#main-section .main-board-center main #createAlbumSection form div input, #main-section .main-board-center main #createAlbumSection form div select, #main-section .main-board-center main #createAlbumSection form div button {
+  padding: 10px 20px;
+}
+#main-section .main-board-center main #createAlbumSection form div button {
+  display: block;
+  width: 150px;
+  margin: 10px auto;
+  border-radius: 15px;
+  border: none;
+  font-weight: 700;
+  background-color: var(--gray-no-hover);
+  transition: all ease 0.2s;
+  cursor: pointer;
+}
+#main-section .main-board-center main #createAlbumSection form div button:hover {
+  background-color: rgb(6, 136, 39);
+  color: #fff;
+}
+#main-section .main-board-center main #createAlbumSection form div span {
+  margin-top: 15px;
+  display: block;
+}
+
+@media only screen and (max-width: 1600px) {
+  html,
+  body {
+    font-size: 15px;
+  }
+  html .photo-card,
+  body .photo-card {
+    width: 200px !important;
+  }
+}/*# sourceMappingURL=index.css.map */

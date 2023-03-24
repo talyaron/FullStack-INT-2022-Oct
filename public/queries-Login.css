@@ -1,0 +1,12 @@
+@media screen and (max-width: 991px) {
+  .container {
+    max-width: 100%;
+    grid-template-columns: 1fr;
+  }
+  .img img {
+    display: none;
+  }
+  .login-container {
+    justify-content: center;
+  }
+}/*# sourceMappingURL=queries-Login.css.map */
