@@ -18,6 +18,7 @@ body{
     justify-content: space-evenly;
     padding: 15px 0px;
     
+    
     &__spanlogo{
        width: 140px;
        height: 140px; 
@@ -31,6 +32,7 @@ body{
        justify-content: space-between;
        background-color: rgb(50, 50, 50);
        height: 35px;
+       cursor: pointer;
        
         &__liNav{
           list-style: none;
@@ -45,6 +47,7 @@ body{
            margin-left: 26px;
            border-radius: 25%;
            font-size: 20px;
+           cursor: pointer;
         }
 
 
@@ -56,7 +59,7 @@ body{
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 20px;
-  background-color: rgb(160, 152, 152);
+  background-color: rgb(174, 167, 167);
   border-radius: 20px 20px 0 0;
 
 

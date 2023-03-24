@@ -25,6 +25,7 @@ body {
   justify-content: space-between;
   background-color: #323232;
   height: 35px;
+  cursor: pointer;
 }
 .nav__ulNav__liNav {
   list-style: none;
@@ -38,6 +39,7 @@ body {
   margin-left: 26px;
   border-radius: 25%;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .main {
@@ -45,7 +47,7 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 20px;
-  background-color: #a09898;
+  background-color: #aea7a7;
   border-radius: 20px 20px 0 0;
 }
 .main .same {
