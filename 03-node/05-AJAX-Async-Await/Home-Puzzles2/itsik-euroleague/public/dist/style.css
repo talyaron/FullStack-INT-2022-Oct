@@ -44,10 +44,11 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 8px;
+  padding: 20px;
+  background-color: #a09898;
+  border-radius: 20px 20px 0 0;
 }
 .main .same {
-  border: 2px solid #fbc5ed;
   background-color: white;
   border-radius: 25px;
   width: 400px;
@@ -59,5 +60,7 @@ body {
   border-radius: 25px;
 }
 .main__container__down {
-  background-color: pink;
+  width: 100%;
+  height: 250px;
+  border-radius: 0 0 25px 25px;
 }
