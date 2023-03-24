@@ -6,6 +6,7 @@ var Article = /** @class */ (function () {
     }
     return Article;
 }());
+var articles = [];
 // MODEL
 window.onload = function () {
     try {
@@ -20,8 +21,9 @@ function getArticlesFromApi() {
     try {
         fetch("/api/articles")
             .then(function (response) { return response.json(); })
-            .then(function (articles) {
-            renderArticle(articles);
+            .then(function (data) {
+            renderArticle(data);
+            articles = data;
         });
     }
     catch (error) {
@@ -63,13 +65,30 @@ function handleClickOnLogin() {
         console.error(error);
     }
 }
+function getArticle() {
+    try {
+        fetch();
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
 function handleClickArticle(uuid) {
     try {
         console.log(uuid);
-        fetch("/api/articles", ({
-            method: "POST",
-            body: uuid
-        }));
+        console.log(articles);
+        fetch('/api/articles')
+            .then(function (res) { return res.json(); })
+            .then(function (_a) {
+            var articles = _a.articles;
+            try {
+                if (!articles)
+                    throw new Error("did`nt find articles");
+            }
+            catch (error) {
+                console.error(error);
+            }
+        });
     }
     catch (error) {
     }

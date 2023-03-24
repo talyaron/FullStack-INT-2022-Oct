@@ -58,11 +58,13 @@ app.get('/', function (req, res) {
 });
 app.post('/api/articles', function (req, res) {
     try {
-        var uid = req.body;
-        res.send(uid);
+        var data = req.body;
+        console.log(data);
+        res.status(201).send({ succuss: true });
     }
     catch (error) {
         console.error(error);
+        res.status(500).send({ error: error.message });
     }
 });
 app.get('/api/articles', function (req, res) {

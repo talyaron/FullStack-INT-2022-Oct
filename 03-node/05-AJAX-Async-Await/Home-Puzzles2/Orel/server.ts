@@ -67,14 +67,18 @@ app.get('/' , (req ,res)=>{
 })
 
 
-app.post('/api/articles' , (req ,res)=>{
+app.post('/api/articles', (req, res) => {
     try {
-        const uid = req.body
-            res.send(uid)
-    } catch (error) {
-        console.error(error)
+      const data = req.body;
+      console.log(data);
+
+      res.status(201).send({succuss: true });
+  
+    } catch (error: any) {
+      console.error(error);
+      res.status(500).send({ error: error.message });
     }
-})
+  });
 
 app.get('/api/articles' , (req ,res)=>{
     try {

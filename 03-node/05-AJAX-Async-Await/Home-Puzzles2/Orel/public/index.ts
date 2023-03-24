@@ -9,6 +9,8 @@ class Article {
     ){}
 }
 
+let articles:Article[] = []
+
 // MODEL
 
 window.onload = () => {
@@ -24,8 +26,9 @@ function getArticlesFromApi(){
     try {
         fetch("/api/articles")
         .then(response=>response.json())
-        .then(articles=>{
-            renderArticle(articles)
+        .then(data=>{
+            renderArticle(data)
+            articles = data
         })
     } catch (error) {
         console.error(error);
@@ -95,13 +98,27 @@ try {
 }
 }
 
+function getArticle(){
+    try {
+        fetch()
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 function handleClickArticle(uuid:string){
     try {
         console.log(uuid);
-        fetch("/api/articles" , ({
-            method:"POST",
-            body: uuid
-        }))
+console.log(articles);
+        fetch('/api/articles')
+        .then((res) => res.json())
+        .then(({ articles }) => {
+          try {
+            if (!articles) throw new Error("did`nt find articles");
+          } catch (error) {
+            console.error(error);
+          }
+        });
         
     } catch (error) {
         
