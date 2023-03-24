@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Link Register style css -->
+    <script src="./dist/register.js" defer></script>
+    <!-- Link Register style css -->
     <link rel="stylesheet" href="./dist/register.css">
    
        <!-- Link Google Fonts  -->
@@ -20,13 +22,13 @@
 <body>
     <div class="register-container">
         <div class="register-container__logo">
-            <img src="./images/bbc.png" alt="bbv logo">
+            <a href="/"><img src="./images/bbc.png" alt="bbv logo" ></a>
         </div>
         <h3 class="register-container__title">Admin Log-in</h3>
-        <form class="register-container__form-register">
+        <form onsubmit="handleSubmitLogin(event)" class="register-container__form-register">
             <input name="email" type="text" placeholder="ENTER EMAIL">
             <input name="password" type="text" placeholder="ENTER PASSWORD">
-            <button class="register-container__submit-btn">
+            <button type="submit" class="register-container__submit-btn">
                 LOGIN
             </button>
         </form>

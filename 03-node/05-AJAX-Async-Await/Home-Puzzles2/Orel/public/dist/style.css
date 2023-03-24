@@ -22,28 +22,91 @@ html {
   color: var(--main-color);
 }
 
-.admin {
-  display: none;
+.admin-buttons {
+  width: 100%;
+  display: flex;
   justify-content: space-between;
   padding: 16px 24px;
-  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
 }
-.admin.active {
+.admin-buttons.active {
   display: flex;
 }
-.admin__updateBTN, .admin__removeBTN {
+.admin-buttons__updateBTN, .admin-buttons__removeBTN {
   color: #ffffff;
-  background-color: inherit;
-  cursor: pointer;
-  border: none;
   font-size: 1.6rem;
+  cursor: pointer;
+  padding: 16px;
+  background-color: inherit;
+  border: none;
 }
-.admin__updateBTN:hover, .admin__removeBTN:hover {
+.admin-buttons__updateBTN:hover, .admin-buttons__removeBTN:hover {
   color: #dd9208;
   scale: 1.1;
+}
+
+#addNewArticle {
+  display: none;
+  border-radius: 0 0 100% 100%;
+  text-align: center;
+  position: absolute;
+  top: 75px;
+  padding: 25px;
+  background: linear-gradient(45deg, rgba(214, 203, 203, 0.418), #31a7eb);
+  left: 0px;
+  width: 100vw;
+}
+#addNewArticle.active {
+  display: block;
+}
+#addNewArticle form {
+  overflow: hidden;
+  border-radius: 25px;
+  margin: auto;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+#addNewArticle form input, #addNewArticle form button {
+  border: none;
+  border-bottom: 1px solid black;
+  font-size: 1.4rem;
+  outline: none;
+  padding: 10px 21px;
+}
+#addNewArticle form button {
+  cursor: pointer;
+  border: none;
+}
+
+#searchForm {
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.226);
+  width: 100vw;
+  height: 70px;
+}
+#searchForm.active {
+  visibility: visible;
+}
+#searchForm input, #searchForm button {
+  height: 50px;
+  padding: 15px;
+  border: none;
+  outline: none;
+}
+#searchForm input {
+  border-radius: 15px 0 0 15px;
+  width: 80%;
+  font-size: 1.5rem;
+}
+#searchForm button {
+  border-radius: 0 15px 15px 0;
+  cursor: pointer;
 }
 
 .main-section {
@@ -72,9 +135,26 @@ html {
   font-size: 0.1em;
 }
 .main-section__header__nav-top__login {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
   cursor: pointer;
   font-size: 1.5rem;
   margin: 0 20px;
+}
+.main-section__header__nav-top__login button {
+  background-color: inherit;
+  border: none;
+  margin-left: 15px;
+  outline: none;
+  cursor: pointer;
+}
+.main-section__header__nav-top__login button .fa-person-walking-arrow-right {
+  font-size: 2rem;
+}
+.main-section__header__nav-top__login button .fa-person-walking-arrow-right:hover {
+  scale: 1.08;
 }
 .main-section__header__nav-top__navbar {
   max-width: 900px;
@@ -142,7 +222,7 @@ html {
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
-  display: flex;
+  display: none;
   align-items: center;
   text-align: center;
   flex-direction: column;
@@ -156,6 +236,9 @@ html {
 }
 .main-section__main__container-new-news__article:hover {
   scale: 1.05;
+}
+.main-section__main__container-new-news__article.active {
+  display: flex;
 }
 .main-section__main__container-new-news__article__title {
   color: var(--main-background);

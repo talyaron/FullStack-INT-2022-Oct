@@ -53,7 +53,7 @@ function handleAddUser(ev: any) {
     const newUser: any = { name, src };
 
     //send to server:
-    fetch("/api/add-user", {
+    fetch("/api/users'", {
       method: "POST",
       headers: {
         'Accept': 'application/json',

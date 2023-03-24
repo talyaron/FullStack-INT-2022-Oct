@@ -13,8 +13,31 @@ var Article = /** @class */ (function () {
     }
     return Article;
 }());
+var Admin = /** @class */ (function () {
+    function Admin(Fname, email, password) {
+        this.Fname = Fname;
+        this.email = email;
+        this.password = password;
+        this.uuid = uuid_1.v4().trim();
+    }
+    return Admin;
+}());
 app.use(express_1["default"].static("public"));
 app.use(express_1["default"].json());
+var admins = [
+    {
+        Fname: "Orel Karako",
+        email: "orekarako@gmail.com",
+        password: "123456",
+        uuid: uuid_1.v4().trim()
+    },
+    {
+        Fname: "Tal Dev",
+        email: "tal@gmail.com",
+        password: "123465",
+        uuid: uuid_1.v4().trim()
+    }
+];
 var articles = [
     {
         title: " Bordeaux town hall set on fire in France pension protests",
@@ -47,20 +70,26 @@ var articles = [
         uuid: uuid_1.v4()
     }
 ];
-// push new Article to the Array 
-app.get('/', function (req, res) {
+app.post('/api/articles', function (req, res) {
     try {
-        res.send("Orel");
+        var data_1 = req.body.name;
+        var index = articles.findIndex(function (a) { return a.uuid === data_1; });
+        if (!index && index === 0)
+            throw new Error("no index founds in article");
+        articles.splice(index, 1);
+        res.status(201).send({ succuss: true, articles: articles });
     }
     catch (error) {
         console.error(error);
+        res.status(500).send({ error: error.message });
     }
 });
-app.post('/api/articles', function (req, res) {
+app.post('/api/articles/add', function (req, res) {
     try {
         var data = req.body;
-        console.log(data);
-        res.status(201).send({ succuss: true });
+        var name = data.name, des = data.des, img = data.img;
+        articles.push(new Article(name, des, img));
+        res.status(201).send({ succuss: true, articles: articles });
     }
     catch (error) {
         console.error(error);
@@ -72,6 +101,16 @@ app.get('/api/articles', function (req, res) {
         if (!articles)
             throw new Error("no Found Articles array");
         res.send(articles);
+    }
+    catch (error) {
+        console.error(error);
+    }
+});
+app.get('/api/admins', function (req, res) {
+    try {
+        if (!admins)
+            throw new Error("no Found Admins array");
+        res.send(admins);
     }
     catch (error) {
         console.error(error);

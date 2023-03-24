@@ -31,8 +31,7 @@
                     <img src="./images/bbc.png" alt="logo-BBC">
                 </a>
                 <div class="main-section__header__nav-top__login" onclick="handleClickOnLogin()">
-                    <i class="fa-solid fa-user"></i>
-                    <span id="navToploginSpan">Admin-login</span>
+
 
                 </div>
 
@@ -62,13 +61,13 @@
                             worklife
                         </a>
                     </li>
-                    <li class="main-section__header__nav-top__navbar__list">
+                    <li class="main-section__header__nav-top__navbar__list" onclick="handleClickAddArticle()">
                         <a href="#" class="main-section__header__nav-top__navbar__link">
                             <i class="fa-solid fa-ellipsis"></i>
                         </a>
                     </li>
-                    <li class="main-section__header__nav-top__navbar__list">
-                        <a href="#" class="main-section__header__nav-top__navbar__link">
+                    <li class="main-section__header__nav-top__navbar__list" onclick="handleClickSearchList()">
+                        <a href="#" class="main-section__header__nav-top__navbar__link" title="search">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </a>
                     </li>
@@ -76,8 +75,21 @@
                 </ul>
 
             </nav>
-        </header>
+            <form id="searchForm">
+                <input type="text" oninput="handleChangeSearch(event)" placeholder="Search Something">
+                <button>  <i class="fa-solid fa-magnifying-glass"></i></button>
 
+            </form>
+        </header>
+        <div id="addNewArticle">
+            <h2> ADD NEW ARTICLE</h2>
+                    <form  onsubmit="handleSubmitFormAdd(event)">
+                        <input type="text" placeholder="ENTER TITLE"  name="title" required>
+                        <input type="text" placeholder="ENTER SUBTITLE" name="subtitle"  required>
+                        <input type="src" placeholder="ENTER SRC IMAGE" name="src" required>
+                        <button type="submit">ADD</button> 
+                    </form>
+        </div>
         <main class="main-section__main">
             <div class="main-section__main__banner">
                 <img src="./images/Latest-News-Banner.png" alt="banner">

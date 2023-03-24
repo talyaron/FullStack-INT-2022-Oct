@@ -15,8 +15,35 @@ class Article {
         this.uuid = uuidv4().trim();
     }
 }
+class Admin {
+    uuid:string
+    constructor(
+        public Fname: string,
+        public email :string,
+        public password: string,
+    ){
+        this.uuid = uuidv4().trim();
+    }
+}
+
 app.use(express.static("public"));
 app.use(express.json());
+
+
+const admins:Admin[] = [
+{
+    Fname:"Orel Karako",
+    email:"orekarako@gmail.com" ,
+    password:"123456",
+    uuid:uuidv4().trim()
+} ,
+{
+    Fname:"Tal Dev",
+    email:"tal@gmail.com" ,
+    password:"123465",
+    uuid:uuidv4().trim()
+}
+]
 
 const articles:Article[] = [
 {
@@ -52,28 +79,28 @@ const articles:Article[] = [
 
 ]
 
-// push new Article to the Array 
-
-
-
-
-
-app.get('/' , (req ,res)=>{
-    try {
-            res.send("Orel")
-    } catch (error) {
-        console.error(error)
-    }
-})
 
 
 app.post('/api/articles', (req, res) => {
     try {
-      const data = req.body;
-      console.log(data);
-
-      res.status(201).send({succuss: true });
+      const data = req.body.name;
+      const index =   articles.findIndex(a=>a.uuid === data)
+      if(!index && index === 0) throw new Error("no index founds in article") 
+      articles.splice(index,1);
+      res.status(201).send({ succuss: true , articles});
+    } catch (error: any) {
+      console.error(error);
+      res.status(500).send({ error: error.message });
+    }
+  });
   
+app.post('/api/articles/add', (req, res) => {
+    try {
+      const data = req.body;
+      const {name , des , img} = data;
+      articles.push(new Article(name , des , img))
+      res.status(201).send({ succuss: true , articles});
+
     } catch (error: any) {
       console.error(error);
       res.status(500).send({ error: error.message });
@@ -84,6 +111,17 @@ app.get('/api/articles' , (req ,res)=>{
     try {
         if(!articles) throw new Error("no Found Articles array")
             res.send(articles)
+    } catch (error) {
+        console.error(error)
+    }
+})
+
+
+
+app.get('/api/admins' , (req ,res)=>{
+    try {
+        if(!admins) throw new Error("no Found Admins array")
+            res.send(admins)
     } catch (error) {
         console.error(error)
     }
