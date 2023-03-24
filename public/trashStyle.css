@@ -1,0 +1,19 @@
+.trashDiv {
+  height: 100%;
+  display: flex;
+  align-items: start;
+  margin-left: auto;
+  width: 5rem;
+  padding-top: 2rem;
+}
+
+.fa-trash-can {
+  color: darkred;
+  text-shadow: 0 0 10px white;
+  font-size: 3rem;
+  transition: all 0.3s;
+}
+
+.fa-trash-can:hover {
+  transform: scale(1.2);
+}/*# sourceMappingURL=trashStyle.css.map */

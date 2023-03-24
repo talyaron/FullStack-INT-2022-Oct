@@ -1,0 +1,504 @@
+.discord {
+  width: 80vw;
+  height: 90vh;
+  background-color: rgb(39, 39, 39);
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 0;
+  padding-top: 2rem;
+  font-family: cursive;
+  color: rgb(201, 199, 199);
+}
+.discord__groups {
+  background-color: rgb(39, 39, 39);
+  height: 100%;
+  grid-row: 1/11;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+}
+.discord__groups__imgs--pfp {
+  border-radius: 20%;
+  margin-top: 0.5rem;
+  width: 50%;
+  margin-bottom: 0.5rem;
+  transition: 250ms ease;
+}
+.discord__groups__imgs--pfp:hover {
+  border-radius: 10%;
+}
+.discord__groups--line {
+  background-color: rgba(128, 128, 128, 0.645);
+  height: 0.1rem;
+  width: 50%;
+  opacity: 0.5;
+}
+.discord__groups__imgs {
+  border-radius: 50%;
+  margin-top: 1rem;
+  height: 6%;
+  width: 50%;
+  transition: 250ms ease;
+}
+.discord__groups__imgs:hover {
+  border-radius: 10%;
+}
+.discord__groups__imgs--forth {
+  height: 6%;
+  width: 50%;
+  border-radius: 50%;
+  margin-top: 1rem;
+  transition: 250ms ease;
+}
+.discord__groups__imgs--forth:hover {
+  border-radius: 10%;
+}
+.discord__groups--icons {
+  background-color: rgb(84, 84, 84);
+  border-radius: 50%;
+  height: 6%;
+  width: 50%;
+  margin-top: 1rem;
+  color: rgb(63, 215, 63);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+  transition: 250ms ease;
+}
+.discord__groups--icons:hover {
+  border-radius: 10%;
+}
+.discord__navBar {
+  background-color: rgb(53, 53, 53);
+  height: 100%;
+  grid-row: 1/11;
+  grid-column: 2/5;
+  display: flex;
+  flex-flow: column nowrap;
+  padding-top: 1rem;
+  box-sizing: border-box;
+  border-top-left-radius: 3%;
+}
+.discord__navBar__inputBox {
+  height: 2rem;
+  text-align: center;
+}
+.discord__navBar__inputBox input {
+  background-color: rgb(39, 39, 39);
+  border: none;
+  margin-left: 0.5rem;
+  width: 80%;
+  padding-left: 1rem;
+  color: white;
+  border-radius: 5%;
+}
+.discord__navBar__home {
+  height: 100%;
+  box-sizing: border-box;
+  padding-left: 1rem;
+  margin-top: 1.5rem;
+}
+.discord__navBar__home--homeIcons {
+  height: 2.5rem;
+  font-size: large;
+}
+.discord__navBar__home--homeIcons m i {
+  font-size: x-large;
+  margin-right: 0.5rem;
+}
+.discord__navBar__home--homeIcons:hover {
+  background-color: rgb(81, 79, 79);
+}
+.discord__navBar__dms {
+  height: 68%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.discord__navBar__dms--friends {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+}
+.discord__navBar__dms--friends img {
+  height: 70%;
+  border-radius: 50%;
+  width: 17%;
+  margin-right: 0.5rem;
+}
+.discord__navBar__dms--friends .bottom {
+  background-color: chartreuse;
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 50%;
+  border: 2px solid black;
+  position: relative;
+  right: 6.5rem;
+  top: 0.5rem;
+}
+.discord__navBar--bottom {
+  background-color: rgb(60, 60, 60);
+  height: 4rem;
+  box-sizing: border-box;
+  padding-left: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.discord__navBar--bottom img {
+  width: 20%;
+  border-radius: 50%;
+}
+.discord__navBar--bottom .online {
+  background-color: chartreuse;
+  height: 0.8rem;
+  width: 0.8rem;
+  border-radius: 50%;
+  border: 2px solid black;
+  position: relative;
+  top: 1rem;
+  right: 1rem;
+}
+.discord__navBar--bottom .fa-microphone {
+  margin-left: 2.5rem;
+}
+.discord__navBar--bottom i {
+  margin-left: 0.5rem;
+}
+.discord__homeBar {
+  height: 100%;
+  grid-row: 1/2;
+  grid-column: 5/16;
+  background-color: rgb(53, 53, 53);
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.discord__homeBar--left {
+  font-size: larger;
+}
+.discord__homeBar--left i {
+  font-size: x-large;
+}
+.discord__homeBar--right {
+  display: flex;
+  width: 89%;
+  justify-content: flex-end;
+  font-size: x-large;
+}
+.discord__homeBar--right i {
+  margin-left: 1.5rem;
+}
+.discord__liveStage {
+  height: 100%;
+  grid-row: 2/11;
+  grid-column: 5/12;
+  background-color: rgb(81, 79, 79);
+  font-size: x-large;
+  overflow-y: scroll;
+}
+.discord__liveStage__post {
+  background-color: rgb(39, 39, 39);
+  width: 90%;
+  height: 15rem;
+  margin: auto;
+  margin-top: 1rem;
+  position: relative;
+}
+.discord__liveStage__post--comPoster {
+  display: flex;
+  flex-flow: column wrap;
+  height: 25%;
+  width: 30%;
+  margin-left: 0.5rem;
+  font-size: small;
+}
+.discord__liveStage__post--comPoster img {
+  height: 100%;
+  width: 30%;
+  border-radius: 30%;
+  height: 80%;
+}
+.discord__liveStage__post--comPoster p {
+  font-size: xx-small;
+}
+.discord__liveStage__post--postPic {
+  height: 8rem;
+  width: 15rem;
+  position: absolute;
+  right: 1rem;
+  background-image: url("https://preview.redd.it/2v4tp08w9p3a1.jpg?width=640&crop=smart&auto=webp&s=d39e6a9e086e2b13ae727ac964a89dcbc94f51c1");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+.discord__liveStage__post__listeners {
+  height: 8rem;
+  width: 15rem;
+  display: flex;
+  margin-top: 1rem;
+  flex-flow: row wrap;
+  font-size: xx-small;
+}
+.discord__liveStage__post__listeners--pfpName {
+  height: 3rem;
+  width: 7rem;
+  display: flex;
+  align-items: center;
+}
+.discord__liveStage__post__listeners--pfpName img {
+  border-radius: 50%;
+  height: 50%;
+  width: 20%;
+  margin-right: 0.5rem;
+}
+.discord__liveStage__post__listen {
+  height: 8rem;
+  width: 25rem;
+  display: flex;
+  margin-top: 1rem;
+  flex-flow: row wrap;
+  font-size: xx-small;
+}
+.discord__liveStage__post__listen--pfpName {
+  height: 3rem;
+  width: 7rem;
+  display: flex;
+  align-items: center;
+}
+.discord__liveStage__post__listen--pfpName img {
+  border-radius: 50%;
+  height: 50%;
+  width: 20%;
+  margin-right: 0.5rem;
+}
+.discord__liveStage__post--friendInServer {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.645);
+  height: 2rem;
+  width: 100%;
+  font-size: x-small;
+  display: flex;
+  align-items: center;
+}
+.discord__liveStage__post--friendInServer img {
+  height: 70%;
+  width: 5%;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+.discord__activities {
+  grid-column: 12/16;
+  grid-row: 2/11;
+  background-color: rgb(81, 79, 79);
+  overflow: hidden;
+}
+.discord__activities--head {
+  font-size: x-large;
+  margin-left: 1rem;
+  margin-top: 1rem;
+}
+.discord__activities__post {
+  height: auto;
+  width: 90%;
+  background-color: rgb(39, 39, 39);
+  box-sizing: border-box;
+  margin: auto;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 5%;
+}
+.discord__activities__post__head {
+  height: 2.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-flow: column wrap;
+}
+.discord__activities__post__head--pfp {
+  height: 2.5rem;
+  width: 3rem;
+}
+.discord__activities__post__head--pfp img {
+  height: 100%;
+  border-radius: 50%;
+}
+.discord__activities__post__head--names {
+  font-size: smaller;
+}
+.discord__activities__post__head--names p {
+  font-size: smaller;
+  margin-top: 0;
+}
+.discord__activities__post__headTwo {
+  height: 2.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-flow: column wrap;
+}
+.discord__activities__post__headTwo--pfp {
+  height: 2.5rem;
+  width: 3rem;
+}
+.discord__activities__post__headTwo--pfp img {
+  height: 100%;
+  width: 90%;
+  border-radius: 50%;
+}
+.discord__activities__post__headTwo--names {
+  font-size: smaller;
+}
+.discord__activities__post__headTwo--names p {
+  font-size: smaller;
+  margin-top: 0;
+}
+.discord__activities__post__content {
+  height: 15rem;
+  width: 90%;
+  border-radius: 10%;
+  margin-top: 0.3rem;
+  background-color: rgb(81, 79, 79);
+  margin: auto;
+}
+.discord__activities__post__content__head {
+  height: 2.5rem;
+  width: 100%;
+  display: flex;
+}
+.discord__activities__post__content__head--pfp {
+  width: 2.5rem;
+  height: 100%;
+  margin-left: 0.7rem;
+}
+.discord__activities__post__content__head--pfp img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+.discord__activities__post__content__head--names {
+  font-size: smaller;
+  margin-left: 0.5rem;
+}
+.discord__activities__post__content__head--names p {
+  font-size: smaller;
+  margin-top: 0;
+}
+.discord__activities__post__content--img {
+  height: 70%;
+  margin-top: 0.5rem;
+  background-image: url("https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/26c6e4e18eeaa62590fccd44ea7812f8.png");
+  background-size: cover;
+  background-position: 1rem;
+  border-radius: 20%;
+}
+.discord__activities__post__contentTwo {
+  height: auto;
+  width: 90%;
+  border-radius: 10%;
+  margin-top: 0.3rem;
+  background-color: rgb(81, 79, 79);
+  margin: auto;
+}
+.discord__activities__post__contentTwo__head {
+  height: 2.5rem;
+  width: 100%;
+  display: flex;
+}
+.discord__activities__post__contentTwo__head--pfp {
+  width: 2.5rem;
+  height: 90%;
+  margin-left: 0.7rem;
+}
+.discord__activities__post__contentTwo__head--pfp img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+.discord__activities__post__contentTwo__head--names {
+  font-size: smaller;
+  margin-left: 0.5rem;
+}
+.discord__activities__post__contentTwo__head--names p {
+  font-size: smaller;
+  margin-top: 0;
+}/*# sourceMappingURL=discord.css.map */main__liveStages__liveStage__speakers__speaker__image--image7 {
+  background-image: url(https://cashcow-cdn.azureedge.net/images/d5c3a970-9bab-42ec-b63f-f01a1938d2c8.jpg);
+  background-size: cover;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker__image--image8 {
+  background-image: url(data:image/jpeg;base64,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);
+  background-size: cover;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker__image--image9 {
+  background-image: url(https://assets.teenvogue.com/photos/5cc7017bd1b87b6cfcd4d405/1:1/pass/00-tout-maisie-williams.jpg);
+  background-size: cover;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker__image--image10 {
+  background-image: url(https://hips.hearstapps.com/hmg-prod/images/theory-1553634761.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*);
+  background-size: cover;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker__image--image11 {
+  background-image: url(https://media.allure.com/photos/5ba532e30ac6c654eca1f789/4:3/w_1525,h_1143,c_limit/e31a1dd95b519c8063075bf3ebfc231d685e7cd34fb0985dfabe35ab063bdeb84011b71e4ae81ada3b2eb21920dc167c.jpg);
+  background-size: cover;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker__image--image12 {
+  background-image: url(https://www.telegraph.co.uk/content/dam/tv/2016/05/13/97849975-GOTEmilia_Clarke_as_Daenerys_Targaryen-TV_trans_NvBQzQNjv4BqajCpFXsei0OXjDFGPZkcdMJTIQHYfRIrbi-iMJIzu0Y.jpg?imwidth=480);
+  background-size: cover;
+}
+.rightContainer__main__activitiesLog {
+  width: 14em;
+  height: 44em;
+  border-left: 0.5em solid rgb(154, 152, 152);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+  gap: 1em;
+}
+.rightContainer__main__activitiesLog__header {
+  width: 9em;
+  height: 2em;
+  border-radius: 0.5em;
+  text-align: left;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-left: 1.5em;
+}
+.rightContainer__main__activitiesLog__activity {
+  width: 10em;
+  height: 10em;
+  background-color: rgb(71, 71, 71);
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 1.5em;
+}
+.rightContainer__main__activitiesLog__activity__participants {
+  width: 7em;
+  height: 2.5em;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  line-height: 2em;
+}
+.rightContainer__main__activitiesLog__activity__participants--image1 {
+  background-image: url(https://deadline.com/wp-content/uploads/2022/01/Peacemaker-John-Cena.jpg?w=1000);
+  background-size: cover;
+  width: 2em;
+  height: 2em;
+  border-radius: 2em;
+}
+.rightContainer__main__activitiesLog__activity__title {
+  width: 9em;
+  height: 2em;
+  border-radius: 0.5em;
+  text-align: center;
+}/*# sourceMappingURL=discord.css.map */

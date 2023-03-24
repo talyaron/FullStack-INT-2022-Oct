@@ -1,0 +1,208 @@
+/* Variables */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+:root {
+  --blue: #3a82ee;
+  --white: #EEE;
+  --dark: #313154;
+  --red: #ff5b57;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* End of Variables */
+/* ===== Google Font Import - Poformsins ===== */
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.box {
+  gap: 40px;
+  width: 100%;
+  padding: 0 16px;
+  margin-top: 70px;
+}
+
+.header {
+  margin: 0%;
+  min-height: 80px;
+  background: var(--white);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.header__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+}
+.header__container__logo {
+  height: 80px;
+  margin-right: 20px;
+}
+.header__container__a {
+  color: var(--blue);
+  text-decoration: none;
+  padding: 31px;
+}
+.header__container__a:hover {
+  color: var(--white);
+  background: var(--blue);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container1 {
+  position: relative;
+  top: 50px;
+  height: 950px;
+  width: 900px;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 0 20px;
+}
+
+.forms {
+  display: flex;
+  width: 900px;
+  align-items: center;
+  height: 950px;
+  width: 200%;
+  transition: height 0.2s ease;
+}
+
+.form {
+  height: 100%;
+  width: 50%;
+  padding: 30px;
+  background-color: #fff;
+  transition: margin-left 0.18s ease;
+}
+
+.title {
+  position: relative;
+  font-size: 27px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--blue);
+}
+
+.input-field {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin-top: 30px;
+}
+.input-field .option {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-left: 500px;
+  height: 50px;
+  width: 80px;
+  padding: 10px;
+  gap: 20px;
+}
+.input-field #choice-radio {
+  display: flex;
+  margin-top: 0px;
+  height: 50px;
+  width: 28px;
+}
+.input-field input {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 0 35px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  border-bottom: 2px solid #ccc;
+  border-top: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+.input-field .input-field input:is(:focus, :valid) {
+  border-bottom-color: #4070f4;
+}
+.input-field i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 23px;
+  transition: all 0.2s ease;
+}
+.input-field i.showHidePw {
+  right: 0;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.checkbox-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.checkbox-text input {
+  margin-left: 10px;
+  accent-color: #4070f4;
+}
+.checkbox-text__text {
+  color: #333;
+  font-size: 14px;
+  margin-left: 10px;
+}
+.checkbox-text a {
+  color: var(--blue);
+  margin-left: 100px;
+}
+.checkbox-text a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--blue);
+}
+
+.button input {
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  background-color: var(--blue);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button input:hover {
+  background-color: var(--white);
+  color: var(--blue);
+}
+
+.form .login-signup {
+  margin-top: 30px;
+  text-align: center;
+}
+
+#error-message {
+  color: var(--blue);
+  text-align: center;
+  margin-top: 10px;
+}/*# sourceMappingURL=publishApartment.css.map */

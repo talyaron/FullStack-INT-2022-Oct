@@ -1,0 +1,30 @@
+.singleActivity {
+  display: flex;
+  align-items: center;
+  margin-left: 2.5rem;
+  background-color: #424242;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 5px;
+  margin-right: 2rem;
+  width: 20rem;
+}
+.singleActivity__pic {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.singleActivity__header {
+  padding-left: 2rem;
+}
+.singleActivity__userNames {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+.singleActivity__desc {
+  font-size: 0.8rem;
+  color: rgb(160, 160, 160);
+}/*# sourceMappingURL=SingleActivity.css.map */

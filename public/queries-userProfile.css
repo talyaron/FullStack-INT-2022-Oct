@@ -1,0 +1,24 @@
+@media (max-width: 1092px) {
+  section {
+    padding: 30px 10px;
+  }
+  section .container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    overflow: hidden;
+  }
+  section .container #main-Video {
+    height: 100%;
+  }
+  section .container .playlistBx {
+    height: 380px;
+    margin-top: 10px;
+  }
+  section .container .playlistBx .playlist {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 40px);
+    overflow-y: scroll;
+  }
+}/*# sourceMappingURL=queries-userProfile.css.map */

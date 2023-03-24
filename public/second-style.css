@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none;
+}
+
+.cursor {
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2;
+  transition: 0.3s transform ease;
+  transform-origin: 100% 100%;
+}
+
+body {
+  background-image: url(https://static.vecteezy.com/system/resources/thumbnails/003/386/371/original/windy-plain-near-the-jungle-and-rocks-free-video.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  display: grid;
+  justify-content: center;
+  gap: 3rem;
+}
+.container .startBtn {
+  outline: none;
+  cursor: none;
+  color: black;
+  border: 2px solid rgb(12, 234, 46);
+  padding: 15px 45px;
+  font-size: 1.1rem;
+  margin-top: 3em;
+  background: transparent;
+  position: relative;
+  height: 55px;
+  width: 350px;
+  text-align: center;
+  margin-left: 3em;
+}
+.container .timer {
+  outline: none;
+  cursor: none;
+  color: black;
+  border: 2px solid rgb(0, 0, 0);
+  padding: 15px 45px;
+  font-size: 1.1rem;
+  margin-top: 3em;
+  background: transparent;
+  position: relative;
+  height: 55px;
+  width: 350px;
+  text-align: center;
+  margin-left: 3em;
+  position: absolute;
+  right: 0;
+}
+.container .scoreboard {
+  outline: none;
+  cursor: none;
+  color: black;
+  border: 2px solid rgb(0, 0, 0);
+  padding: 15px 45px;
+  font-size: 1.1rem;
+  height: 55px;
+  width: 350px;
+  text-align: center;
+  margin-left: 3em;
+  display: none;
+}
+.container .endBtn {
+  outline: none;
+  cursor: none;
+  color: black;
+  border: 2px solid rgb(0, 0, 0);
+  padding: 15px 45px;
+  font-size: 1.1rem;
+  margin-top: 3em;
+  background: transparent;
+  position: absolute;
+  height: 55px;
+  width: 350px;
+  text-align: center;
+}
+.container .endBtn a {
+  outline: none;
+  cursor: none;
+}
+.container .bloodSpot {
+  position: absolute;
+  height: 50px;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
+.container .mosquito {
+  height: 100px;
+}
+.container .bee {
+  width: 100px;
+}
+.container .img::selection {
+  background: transparent;
+}/*# sourceMappingURL=second-style.css.map */

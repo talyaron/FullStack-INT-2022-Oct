@@ -1,0 +1,19 @@
+@media (max-width: 584px) {
+  .container {
+    max-width: 100%;
+  }
+  .container form .user-details {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  .container form .user-details::-webkit-scrollbar {
+    width: 0;
+  }
+  .container form .user-details .input-box {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  .container form .gender-details .category {
+    width: 50%;
+  }
+}/*# sourceMappingURL=queries-signUp.css.map */
