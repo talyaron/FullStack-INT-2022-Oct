@@ -21,21 +21,21 @@ var express_1 = require("express");
 var app = express_1["default"]();
 var port = 3000;
 app.use(express_1["default"].static("./public"));
-// app.get("/api/login", (req, res) => {
-//     try {
-// console.log("activeAdmin.name", activeAdmin.name)
-//       res.send({ activeAdmin });
-//     } catch (error: any) {
-//       console.error(error);
-//       res.status(500).send({ error: error.message });
-//     }
-//   });
 app.post("/api/login", function (req, res) {
     try {
-        console.log("server test");
         var data = req.body;
-        console.log(data);
         admins.push(data);
+        res.status(201).send({ ok: true });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send({ error: error.message });
+    }
+});
+app.post("/api/articles", function (req, res) {
+    try {
+        var data = req.body;
+        articles.push(data);
         res.status(201).send({ ok: true });
     }
     catch (error) {

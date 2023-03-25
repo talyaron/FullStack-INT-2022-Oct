@@ -4,6 +4,7 @@ var Article = /** @class */ (function () {
         this.paragraph = paragraph;
         this.imageUrl = imageUrl;
         this.date = date;
+        this.uid = "" + uid();
     }
     return Article;
 }());
