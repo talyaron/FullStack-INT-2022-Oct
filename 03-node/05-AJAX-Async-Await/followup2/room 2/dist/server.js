@@ -26,3 +26,19 @@ app.get("/api/get-bots", function (req, res) {
         res.status(500).send({ error: error.message });
     }
 });
+app.post("/api/add-bot", function (req, res) {
+    try {
+        var data = req.body;
+        console.log(data);
+        bots.push(data);
+        res.status(201).send({ ok: true });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send({ error: error.message });
+    }
+});
+app.use(express_1["default"].static("./public"));
+app.listen(3000, function () {
+    console.log("server listen on port 3000");
+});

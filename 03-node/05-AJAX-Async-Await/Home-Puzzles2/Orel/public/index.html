@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- LOGO -->
+    <link rel="icon" href="./images/bbc.ico" type="LOGO">
+    <!-- Link Google Fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Link cdn font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link Js Link -->
+    <script src="./dist/index.js" defer></script>
+    <!-- Link Style Css Link -->
+    <link rel="stylesheet" href="./dist/style.css">
+    <title>Home - BBC News</title>
+</head>
+
+<body>
+    <section class="main-section">
+        <header class="main-section__header">
+            <nav class="main-section__header__nav-top">
+                <a href="/" class="main-section__header__nav-top__logo">
+                    <img src="./images/bbc.png" alt="logo-BBC">
+                </a>
+                <div class="main-section__header__nav-top__login" onclick="handleClickOnLogin()">
+
+
+                </div>
+
+                <ul class="main-section__header__nav-top__navbar">
+                    <li class="main-section__header__nav-top__navbar__list">
+                        <a href="#" class="main-section__header__nav-top__navbar__link">
+                            home
+                        </a>
+                    </li>
+                    <li class="main-section__header__nav-top__navbar__list">
+                        <a href="#" class="main-section__header__nav-top__navbar__link">
+                            news
+                        </a>
+                    </li>
+                    <li class="main-section__header__nav-top__navbar__list">
+                        <a href="#" class="main-section__header__nav-top__navbar__link">
+                            sport
+                        </a>
+                    </li>
+                    <li class="main-section__header__nav-top__navbar__list">
+                        <a href="#" class="main-section__header__nav-top__navbar__link">
+                            reel
+                        </a>
+                    </li>
+                    <li class="main-section__header__nav-top__navbar__list">
+                        <a href="#" class="main-section__header__nav-top__navbar__link">
+                            worklife
+                        </a>
+                    </li>
+                    <li class="main-section__header__nav-top__navbar__list" onclick="handleClickAddArticle()">
+                        <a href="#" class="main-section__header__nav-top__navbar__link">
+                            <i class="fa-solid fa-ellipsis"></i>
+                        </a>
+                    </li>
+                    <li class="main-section__header__nav-top__navbar__list" onclick="handleClickSearchList()">
+                        <a href="#" class="main-section__header__nav-top__navbar__link" title="search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+            <form id="searchForm">
+                <input type="text" oninput="handleChangeSearch(event)" placeholder="Search Something">
+                <button>  <i class="fa-solid fa-magnifying-glass"></i></button>
+
+            </form>
+        </header>
+        <div id="addNewArticle">
+            <h2> ADD NEW ARTICLE</h2>
+                    <form  onsubmit="handleSubmitFormAdd(event)">
+                        <input type="text" placeholder="ENTER TITLE"  name="title" required>
+                        <input type="text" placeholder="ENTER SUBTITLE" name="subtitle"  required>
+                        <input type="src" placeholder="ENTER SRC IMAGE" name="src" required>
+                        <button type="submit">ADD</button> 
+                    </form>
+        </div>
+        <main class="main-section__main">
+            <div class="main-section__main__banner">
+                <img src="./images/Latest-News-Banner.png" alt="banner">
+            </div>
+
+            <div class="main-section__main__container-new-news" id="rootContainerNewNews"></div>
+
+            <div class="main-section__main__container-news" id="rootContainerMoreNews"> </div>
+        </main>
+
+        <footer class="main-section__footer">
+
+        </footer>
+    </section>
+</body>
+
+</html>
+
+
+<!-- 
+
+user  == <i class="fa-solid fa-user"></i>
+search == <i class="fa-solid fa-magnifying-glass"></i>
+dots == <i class="fa-solid fa-ellipsis"></i>
+clock == <i class="fa-regular fa-clock"></i>
+arrow-down-small == <i class="fa-solid fa-sort-down"></i> 
+ -->

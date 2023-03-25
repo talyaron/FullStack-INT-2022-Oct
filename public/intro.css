@@ -1,0 +1,93 @@
+:root {
+  --button-color: #019de0;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-size: 16px;
+  background-image: url("./../img/background-intro1.jpg");
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.intro-container {
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.733);
+  padding: 16px 32px;
+  text-align: center;
+  justify-content: space-between;
+  width: 70%;
+  min-height: 500px;
+  height: 80%;
+}
+.intro-container__header {
+  display: grid;
+  place-items: center;
+}
+.intro-container__welcome {
+  width: 20rem;
+  object-fit: cover;
+  margin-top: -50px;
+}
+.intro-container__main {
+  display: grid;
+  place-items: center;
+  margin-bottom: 20px;
+}
+.intro-container__logo {
+  font-size: 1.4rem;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-family: "Pacifico", cursive;
+  letter-spacing: 5px;
+  color: #ce7b45;
+  font-weight: 500;
+  margin-top: -50px;
+}
+.intro-container__arrow-down {
+  width: 50px;
+  margin-bottom: 50px;
+}
+.intro-container__container-btn {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.intro-container__btn {
+  width: 150px;
+  border: none;
+  height: 50px;
+  border-radius: 10px;
+  background-color: rgba(206, 124, 69, 0.9607843137);
+  cursor: pointer;
+  font-size: 1.3rem;
+  scale: 1;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.5s ease;
+  box-shadow: 0.3px 1px 15px 1px rgba(212, 13, 13, 0.589), -0.3px -1px 15px 1px rgba(0, 0, 0, 0.226), 0px 0px 20px 2px inset rgb(49, 46, 46);
+}
+.intro-container__btn:active {
+  background-color: rgb(15, 13, 15);
+  color: #fff;
+  scale: 0.9;
+}
+.intro-container__btn:hover {
+  background-color: #ff6600;
+  color: #fff;
+  scale: 1.1;
+}/*# sourceMappingURL=intro.css.map */

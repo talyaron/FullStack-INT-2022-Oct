@@ -1,0 +1,113 @@
+:root {
+  --black-dark: #090909;
+  --gray-dark: 121212;
+  --gray-light: #1d1d1d;
+  --gray-no-hover: #b2b2b2;
+  --purple: #af2896;
+  --blue1: #509bf5;
+  --blue2: #0d72ea;
+  --green: #1ed760;
+  --error: rgb(241, 28, 28);
+  --success: rgb(24, 161, 24);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+section.register-section {
+  text-align: center;
+}
+section.register-section div.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+}
+section.register-section div.icon a {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+section.register-section div.icon a img {
+  z-index: 2;
+  width: 150px;
+}
+section.register-section div.icon a span {
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+  font-size: 3rem;
+  margin-left: -15px;
+}
+section.register-section div.register-screen form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  width: 100vw;
+}
+section.register-section div.register-screen form h1 {
+  padding: 15px;
+}
+section.register-section div.register-screen form div {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  margin: 5px;
+}
+section.register-section div.register-screen form div input {
+  padding: 10px 20px;
+  outline: none;
+}
+section.register-section div.register-screen form div p {
+  display: none;
+  font-size: 0.8rem;
+  padding: 2px;
+}
+section.register-section div.register-screen form div p.empty {
+  color: var(--error);
+  display: block;
+}
+section.register-section div.register-screen form div p.success {
+  color: var(--success);
+  display: block;
+}
+section.register-section div.register-screen form #submitBtnLogin {
+  font-family: "Poppins", sans-serif;
+  padding: 15px 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-style: italic;
+  font-weight: 600;
+  border-radius: 50px;
+  border: none;
+  background-color: var(--green);
+  transition: background-color ease 0.4s;
+}
+section.register-section div.register-screen form #submitBtnLogin:hover {
+  background-color: rgb(83, 224, 83);
+  font-size: 0.99rem;
+}
+section.register-section footer h3 {
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+section.register-section footer button {
+  font-family: "Poppins", sans-serif;
+  width: 550px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-style: italic;
+  font-weight: 600;
+  border-radius: 50px;
+  color: var(--gray-light);
+  border: 1px solid var(--gray-light);
+  background-color: transparent;
+}/*# sourceMappingURL=sighin.css.map */

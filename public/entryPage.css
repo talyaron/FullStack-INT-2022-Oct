@@ -1,0 +1,144 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  padding: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1.2rem;
+  font-weight: 200;
+  line-height: 1.2rem;
+  letter-spacing: 0.5px;
+}
+
+span {
+  font-size: 0.8rem;
+}
+
+.iconsArea a {
+  border: 1px solid #dddddd;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.5rem;
+  height: 2rem;
+  width: 2rem;
+}
+
+.mainContainer {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+.mainContainer .signInContainer {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+.mainContainer .signUpContainer {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+  left: 0;
+  width: 50%;
+  opacity: 0;
+  z-index: 1;
+  overflow-y: auto;
+}
+.mainContainer .signUpContainer input::placeholder {
+  font-size: 0.7rem;
+}
+.mainContainer .overlayContainer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+  z-index: 100;
+}
+.mainContainer .overlayContainer .overlay {
+  background-image: url("../../img/NASA.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #ffffff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transition: transform 0.6s ease-in-out;
+}
+.mainContainer .overlayContainer .overlay .panel {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 1.5rem;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+  padding: 1em;
+}
+.mainContainer .overlayContainer .overlay .signUp {
+  right: 0;
+}
+
+.mainContainer.active .signInContainer {
+  transform: translateX(100%);
+}
+.mainContainer.active .signUpContainer {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: show 0.6s;
+}
+.mainContainer.active .overlayContainer {
+  transform: translateX(-100%);
+}
+.mainContainer.active .overlay {
+  transform: translateX(50%);
+}
+
+@keyframes show {
+  0%, 49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+  50%, 100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+@media screen and (max-width: 800px) {
+  html {
+    font-size: 12px;
+  }
+}/*# sourceMappingURL=entryPage.css.map */

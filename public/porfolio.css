@@ -1,0 +1,42 @@
+.house {
+  width: 3rem;
+  height: 3rem;
+}
+
+.housesContainer {
+  width: 14rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.constructionContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.cunstructionCar {
+  animation-name: cunstructionCar;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+  animation-fill-mode: revert;
+  position: absolute;
+  top: 116px;
+  left: -2px;
+}
+
+@keyframes cunstructionCar {
+  from {
+    margin-left: -10%;
+    width: 100%;
+  }
+  to {
+    margin-left: 10%;
+    width: 100%;
+  }
+}/*# sourceMappingURL=porfolio.css.map */
