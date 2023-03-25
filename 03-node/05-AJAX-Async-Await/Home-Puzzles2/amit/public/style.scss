@@ -67,6 +67,13 @@ body{
                 width: auto;
                 font-size: 0.5rem;
                 text-align: center;
+                cursor: pointer;
+                &__login{
+                    height: 0rem;
+                    width: 4rem;
+                    display: flex;
+                    flex-direction: column;
+                }
             }
         }
     }    
@@ -79,7 +86,6 @@ body{
         margin: auto;
         color:black;
 
-       
         &__latestArticle{
             width: 25rem;
             height: 18rem;
@@ -87,7 +93,6 @@ body{
             flex-direction: column;
             justify-content: space-between;
             margin: auto;
-            gap: 10px;
 
             &__image{
                 width: 25rem;
@@ -99,14 +104,14 @@ body{
             }
             h1{
                 width: 25rem;
-                height: 2rem;
+                height: 1rem;
                 margin: 0;
                 padding: 0;
                 font-size: 25px;
             }
             p{
                 width: 25rem;
-                height: 2rem;
+                height: 3rem;
                 margin: 0;
                 padding: 0;
                 font-size: 16px; 

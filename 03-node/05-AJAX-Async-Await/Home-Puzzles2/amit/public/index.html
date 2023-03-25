@@ -8,13 +8,17 @@
     <link rel="stylesheet" href="./dist/style.css">
     <script src="https://kit.fontawesome.com/0fcd7efe49.js" crossorigin="anonymous"></script>
     <!-- links to js files -->
-    <script src="./dist/view.js" defer></script>
     <script src="./dist/model.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="./images/download.jpg">
+
 
     <title>NBA.com</title>
 </head>
 
-<body onload="renderlatestArticle(), renderSideArticles()">
+<body onload="renderLatestArticle(), renderSideArticles()">
     <div class="container">
         <div class="navBar">
             <div class="navBar__topics">
@@ -35,7 +39,7 @@
                 <div class="navBar__sales__topic">Store</div>
                 <div class="navBar__sales__topic">Tickets</div>
                 <div class="navBar__sales__topic"><i class="fa-solid fa-table-cells"></i></div>
-                <div class="navBar__sales__topic">Sign In</div>
+                <div id="adminLoginRoot" class="navBar__sales__topic" onclick="renderAdminLogin()"> Admin Sign In</div>
             </div>
         </div>
         

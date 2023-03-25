@@ -1,4 +1,19 @@
-function renderlatestArticle() {
+// function renderMain() {
+//     try {
+//       fetch("/")
+//         .then((res) => res.json())
+//         .then(({ main }) => {
+//           try {
+//             if (!main) throw new Error("didnt find main");
+//           } catch (error) {
+//             console.error(error);
+//           }
+//         });
+//     } catch (error) {
+//       console.error(error);
+//     }
+// }
+function renderLatestArticle() {
     try {
         var latestArticleRoot = document.querySelector("#latestArticleRoot");
         if (!latestArticleRoot)
@@ -29,3 +44,42 @@ function renderSideArticles() {
         console.error(error);
     }
 }
+function renderAdminLogin() {
+    try {
+        var adminLoginRoot = document.querySelector("#adminLoginRoot");
+        if (!adminLoginRoot)
+            throw new Error("admin login root not found");
+        adminLoginRoot.innerHTML = "\n        <form class=\"navBar__sales__topic__login\" onsubmit=\"handleAdminLogin(event)\">\n            <input type=\"text\" name=\"name\" placeholder=\"User name\" required>\n            <input type=\"text\" name=\"password\" placeholder=\"password\" required>\n            <button type=\"submit\">login</button>\n        </form>\n        ";
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+//   function handleAddUser(ev: any) {
+//     try {
+//       ev.preventDefault();
+//       const name = ev.target.elements.name.value;
+//       const src = ev.target.elements.src.value;
+//       if (!name) throw new Error("No name");
+//       if (!src) throw new Error("No src");
+//       const newUser: any = { name, src };
+//       //send to server:
+//       fetch("/api/users'", {
+//         method: "POST",
+//         headers: {
+//           'Accept': 'application/json',
+//           'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(newUser),
+//       })
+//         .then((res) => res.json())
+//         .then((data) => {
+//           console.log(data);
+//         })
+//         .catch((error) => {
+//           console.error(error);
+//         });
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   }
