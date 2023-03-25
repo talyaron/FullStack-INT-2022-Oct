@@ -75,8 +75,22 @@ body {
 .container .navBar__sales__topic__login {
   height: 0rem;
   width: 4rem;
-  display: flex;
   flex-direction: column;
+  display: none;
+  position: absolute;
+  top: 2rem;
+  left: 57rem;
+}
+.container .navBar__sales__topic__login.active {
+  display: flex;
+}
+.container .addArticleForm {
+  color: seagreen;
+  border: 0.1rem solid black;
+  display: none;
+}
+.container .addArticleForm.active {
+  display: block;
 }
 .container .main {
   width: 44rem;
@@ -115,6 +129,39 @@ body {
   margin: 0;
   padding: 0;
   font-size: 16px;
+}
+.container .main__latestArticle__edit {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: inherit;
+  display: none;
+}
+.container .main__latestArticle__edit.active {
+  display: block;
+}
+.container .main__latestArticle__edit i {
+  color: red;
+  font-size: 1.7rem;
+}
+.container .main__latestArticle__save {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: inherit;
+  position: relative;
+  left: 22rem;
+  top: -1rem;
+  display: none;
+}
+.container .main__latestArticle__save.active {
+  display: block;
+}
+.container .main__latestArticle__save i {
+  color: seagreen;
+  font-size: 1.7rem;
 }
 .container .main__sideArticles {
   width: 18rem;
@@ -159,4 +206,43 @@ body {
 .container .main__sideArticles__article__details p {
   font-size: 10px;
   line-height: 16px;
+}
+.container .main__sideArticles__article__edit {
+  cursor: pointer;
+  position: relative;
+  left: 17rem;
+  top: 1rem;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: inherit;
+  display: none;
+  position: relative;
+  left: 17rem;
+  top: 1rem;
+}
+.container .main__sideArticles__article__edit.active {
+  display: block;
+}
+.container .main__sideArticles__article__edit i {
+  color: red;
+  font-size: 1.7rem;
+}
+.container .main__sideArticles__article__save {
+  cursor: pointer;
+  position: relative;
+  left: 17rem;
+  top: 1rem;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: inherit;
+  display: none;
+}
+.container .main__sideArticles__article__save.active {
+  display: block;
+}
+.container .main__sideArticles__article__save i {
+  color: seagreen;
+  font-size: 1.7rem;
 }
