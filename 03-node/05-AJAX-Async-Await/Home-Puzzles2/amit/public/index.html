@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./dist/style.css">
     <script src="https://kit.fontawesome.com/0fcd7efe49.js" crossorigin="anonymous"></script>
     <!-- links to js files -->
+    <script src="./dist/helpers.js" defer></script>
     <script src="./dist/model.js" defer></script>
     <script src="./dist/view.js" defer></script>
     <script src="./dist/control.js" defer></script>
@@ -39,12 +40,20 @@
                 <div class="navBar__sales__topic">Store</div>
                 <div class="navBar__sales__topic">Tickets</div>
                 <div class="navBar__sales__topic"><i class="fa-solid fa-table-cells"></i></div>
-                <div class="navBar__sales__topic" onclick="renderAdminLogin()"> Admin Sign In
-                    <div id="adminLoginRoot"></div>
-                </div>
+                <div class="navBar__sales__topic" onclick="toggleAdminLogin()"> Admin Sign In</div>
             </div>
         </div>
-        
+        <form class="navBar__sales__topic__login" onsubmit="handleAdminLogin(event)">
+            <input type="text" name="name" placeholder="User name" required>
+            <input type="text" name="password" placeholder="password" required>
+            <button type="submit">login</button>
+        </form>
+        <form class="addArticleForm" onsubmit="handleAddArticle(event)">
+            <input type="text" name="title" placeholder="title" required>
+            <input type="text" name="paragraph" placeholder="paragraph" required>
+            <input type="text" name="imageUrl" placeholder="image url" required>
+            <button type="submit">add article</button>
+        </form>
         <div class="main">
            <div id="latestArticleRoot" class="main__latestArticle"></div>
            <div id="sideArticlesRoot" class="main__sideArticles"></div>      
