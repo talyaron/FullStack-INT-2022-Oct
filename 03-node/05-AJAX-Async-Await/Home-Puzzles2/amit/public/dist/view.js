@@ -42,7 +42,6 @@ function toggleAdminLogin() {
 }
 function renderAdminTools() {
     try {
-        console.log("x");
         var addArticleForm = document.querySelector(".addArticleForm");
         if (!addArticleForm)
             throw new Error("add Article Form not found");

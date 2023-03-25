@@ -72,7 +72,6 @@ function toggleAdminLogin(){
 
 function renderAdminTools(){
     try {
-        console.log("x");
         const addArticleForm: HTMLDivElement | null = document.querySelector(".addArticleForm");
         if (!addArticleForm) throw new Error ("add Article Form not found");
         addArticleForm.classList.toggle('active');
@@ -86,6 +85,7 @@ function renderAdminTools(){
         if (!_saveBtns) throw new Error ("save Btns were not found");
         const saveBtns: any[] = Array.from(_saveBtns);
         saveBtns.forEach(button => button.classList.toggle('active'));
+        
         
         
     } catch (error) {

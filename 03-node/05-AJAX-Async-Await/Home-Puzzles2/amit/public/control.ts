@@ -113,13 +113,29 @@ function handleSaveArticle(uid: string) {
         article.title = articleTitle.innerText;
         article.paragraph = articleParagraph.innerText;
 
-        // saveInLocalStorage(restaurants, "restaurants");//stopped here
+        fetch("/api/articles", {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(article),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
 
         articleTitle.contentEditable = "false";
         articleParagraph.contentEditable = "false";
 
         articleTitle.style.color = "black";
         articleParagraph.style.color = "black";
+
+        // renderLatestArticle();
+        // renderSideArticles();
 
     } catch (error) {
         console.error(error);
