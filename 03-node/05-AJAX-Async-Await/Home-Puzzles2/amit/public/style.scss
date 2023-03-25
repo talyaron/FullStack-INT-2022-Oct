@@ -71,12 +71,32 @@ body{
                 &__login{
                     height: 0rem;
                     width: 4rem;
-                    display: flex;
                     flex-direction: column;
+                    display: none;
+                    position: absolute;
+                    top: 2rem;
+                    left: 57rem;
+
+                    &.active{
+                        display: flex;
+                    }
                 }
+                
             }
         }
-    }    
+    }
+    
+    .addArticleForm{
+        color: seagreen;
+        border: 0.1rem solid black;
+        display: none;
+        &.active{
+            display: block;
+        }
+    }
+    
+
+
 
     .main{
         width: 44rem;
@@ -116,6 +136,36 @@ body{
                 padding: 0;
                 font-size: 16px; 
             }
+            &__edit{
+                cursor: pointer;
+                width: 30px;
+                height: 30px;
+                border: none;
+                background-color: inherit;
+                display: none;
+            &.active{display: block;}
+                i{
+                    color: red;
+                    font-size: 1.7rem;
+                }
+            }
+            &__save{
+                cursor: pointer;
+                width: 30px;
+                height: 30px;
+                border: none;
+                background-color: inherit;
+                position: relative;
+                left: 22rem;
+                top: -1rem;
+                display: none;
+                &.active{display: block;}       
+                i{
+                    color: seagreen;
+                    font-size: 1.7rem;
+                }
+            }
+
         }
         &__sideArticles{
             width: 18rem;
@@ -157,11 +207,44 @@ body{
                     p{
                         font-size: 10px;
                         line-height: 16px;
+                    }      
+                }
+                &__edit{
+                    cursor: pointer;
+                    position: relative;
+                    left: 17rem;
+                    top: 1rem;
+                    width: 30px;
+                    height: 30px;
+                    border: none;
+                    background-color: inherit;
+                    display: none;
+                    position: relative;
+                    left: 17rem;
+                    top:1rem;
+                &.active{display: block;}
+                    i{
+                        color: red;
+                        font-size: 1.7rem;
                     }
                 }
-            }
+                &__save{
+                cursor: pointer;
+                position: relative;
+                left: 17rem;
+                top: 1rem;  
+                width: 30px;
+                height: 30px;
+                border: none;
+                background-color: inherit;
+                display: none;
+                &.active{display: block;}       
+                    i{
+                        color: seagreen;
+                        font-size: 1.7rem;
+                    }
+                }
+            } 
         }
-
-
     }
 }

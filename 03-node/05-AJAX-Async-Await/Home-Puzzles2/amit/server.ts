@@ -52,22 +52,23 @@ const port = 3000;
 
 app.use(express.static("./public"));
 
-// app.get("/api/login", (req, res) => {
-//     try {
-// console.log("activeAdmin.name", activeAdmin.name)
-//       res.send({ activeAdmin });
-//     } catch (error: any) {
-//       console.error(error);
-//       res.status(500).send({ error: error.message });
-//     }
-//   });
 
 app.post("/api/login", (req, res) => {
     try {
-console.log("server test");
       const data = req.body;
-      console.log(data);
       admins.push(data);
+      res.status(201).send({ ok: true });
+  
+    } catch (error: any) {
+      console.error(error);
+      res.status(500).send({ error: error.message });
+    }
+});
+
+app.post("/api/articles", (req, res) => {
+    try {
+      const data = req.body;
+      articles.push(data);
       res.status(201).send({ ok: true });
   
     } catch (error: any) {

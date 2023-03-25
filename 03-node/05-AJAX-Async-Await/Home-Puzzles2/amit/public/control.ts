@@ -1,6 +1,5 @@
 function handleAdminLogin(ev: any) {
     try {
-        console.log("handle admin login test");
         ev.preventDefault();
         const name = ev.target.elements.name.value;
         const password = ev.target.elements.password.value;
@@ -24,33 +23,38 @@ function handleAdminLogin(ev: any) {
                 console.error(error);
             });
 
-        // if (name === "amit" && password === "123") {
-        //     console.log("ok");
-        // } else {
-        //     alert("incorrect password or user name")
-        // }
+        if (name === "amit" && password === "123") {
+            renderAdminTools();
+            toggleAdminLogin();
+        } else {
+            alert("incorrect password or user name")
+        }
     } catch (error) {
         console.error(error);
     }
 }
 
-function handleAddUser(ev: any) {
+function handleAddArticle(ev: any){
     try {
         ev.preventDefault();
-        const name = ev.target.elements.name.value;
-        const src = ev.target.elements.src.value;
-        if (!name) throw new Error("No name");
-        if (!src) throw new Error("No src");
-        const newUser: any = { name, src };
+        const title = ev.target.elements.title.value;
+        const paragraph = ev.target.elements.paragraph.value;
+        const imageUrl = ev.target.elements.imageUrl.value;
 
-        //send to server:
-        fetch("/api/users'", {
+        if(!title) throw new Error ("no title");
+        if(!paragraph) throw new Error ("no paragraph");
+        if(!imageUrl) throw new Error ("no imageUrl");
+
+        articles.push(new Article(title, paragraph, imageUrl));
+        const latestArticle = articles[articles.length-1]
+
+        fetch("/api/articles", {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(newUser),
+            body: JSON.stringify(latestArticle),
         })
             .then((res) => res.json())
             .then((data) => {
@@ -59,25 +63,64 @@ function handleAddUser(ev: any) {
             .catch((error) => {
                 console.error(error);
             });
+
+            renderLatestArticle();
+            renderSideArticles();
+
+
+    } catch (error) {
+        console.error(error); 
+    }
+}
+
+
+function handleEditArticle(uid: string) {
+    try {
+        const article = articles.find(article => article.uid === uid);
+        if (!article) throw new Error("article not found");
+
+        const articleTitle: HTMLElement | null = document.querySelector(`#editTitle-${article.uid}`);
+        const articleParagraph: HTMLElement | null = document.querySelector(`#editParagraph-${article.uid}`);
+
+        if (!articleTitle) throw new Error("article title not found");
+        if (!articleParagraph) throw new Error("article paragraph not found");
+
+        articleTitle.contentEditable = "true";
+        articleParagraph.contentEditable = "true";
+        
+        articleTitle.style.color = "blue";
+        articleParagraph.style.color = "blue";
+
     } catch (error) {
         console.error(error);
     }
 }
 
-function handleGetUsers() {
-    console.log("test");
+
+
+function handleSaveArticle(uid: string) {
     try {
-        fetch("/api/get-users")
-            .then((res) => res.json())
-            .then(({ users }) => {
-                try {
-                    if (!users) throw new Error("didnt find users");
-                    console.log(users);
-                    renderUsers(users);
-                } catch (error) {
-                    console.error(error);
-                }
-            });
+
+        const article = articles.find(article => article.uid === uid);
+        if (!article) throw new Error("article not found");
+
+        const articleTitle: HTMLElement | null = document.querySelector(`#editTitle-${article.uid}`);
+        const articleParagraph: HTMLElement | null = document.querySelector(`#editParagraph-${article.uid}`);
+
+        if (!articleTitle) throw new Error("title not found");
+        if (!articleParagraph) throw new Error("paragraph Data Price not found");
+
+        article.title = articleTitle.innerText;
+        article.paragraph = articleParagraph.innerText;
+
+        // saveInLocalStorage(restaurants, "restaurants");//stopped here
+
+        articleTitle.contentEditable = "false";
+        articleParagraph.contentEditable = "false";
+
+        articleTitle.style.color = "black";
+        articleParagraph.style.color = "black";
+
     } catch (error) {
         console.error(error);
     }

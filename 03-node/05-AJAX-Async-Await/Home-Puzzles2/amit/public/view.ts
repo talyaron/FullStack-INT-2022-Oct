@@ -1,30 +1,21 @@
-// function renderMain() {
-//     try {
-//       fetch("/")
-//         .then((res) => res.json())
-//         .then(({ main }) => {
-//           try {
-//             if (!main) throw new Error("didnt find main");
-//           } catch (error) {
-//             console.error(error);
-//           }
-//         });
-//     } catch (error) {
-//       console.error(error);
-//     }
-// }
-
 function renderLatestArticle(){
     try {
         const latestArticleRoot:HTMLDivElement | null = document.querySelector("#latestArticleRoot");
         if(!latestArticleRoot) throw new Error ("latest article not found");
 
-        const article = articles[articles.length-1]
+        const article = articles[articles.length-1];
         
         latestArticleRoot.innerHTML=`
-            <div id="latestArticleImageRoot" class="main__latestArticle__image"></div>
-            <h1 contenteditable="false">${article.title}</h1>
-            <p contenteditable="false">${article.paragraph}</p>
+            <div id="latestArticleImageRoot" class="main__latestArticle__image">
+                <button id="editBtn" class="main__latestArticle__edit" onclick="handleEditArticle('${article.uid}')">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <button id="saveBtn" class="main__latestArticle__save" id="save-${article.uid}" onclick="handleSaveArticle('${article.uid}')">
+                    <i class="fa-solid fa-circle-check"></i>
+                </button>
+            </div>
+            <h1 id="editTitle-${article.uid}" contenteditable="false">${article.title}</h1>
+            <p id="editParagraph-${article.uid}" contenteditable="false">${article.paragraph}</p>
         `
         const latestArticleImageRoot:HTMLDivElement | null = document.querySelector("#latestArticleImageRoot");
         if(!latestArticleImageRoot) throw new Error ("latest article image not found");
@@ -44,11 +35,17 @@ function renderSideArticles(){
 
         const html = sideArticles.map((article)=>{
             return `
-            <div class="main__sideArticles__article">
+            <div id="article-${article.uid}" class="main__sideArticles__article">
+                <button id="editBtn" class="main__sideArticles__article__edit" onclick="handleEditArticle('${article.uid}')">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <button id="saveBtn" class="main__sideArticles__article__save" id="save-${article.uid}" onclick="handleSaveArticle('${article.uid}')">
+                    <i class="fa-solid fa-circle-check"></i>
+                </button>
                 <img class="main__sideArticles__article__image" src="${article.imageUrl}">
                 <div class="main__sideArticles__article__details">
-                    <h1 contenteditable="false">${article.title}</h1>
-                    <p contenteditable="false">${article.paragraph}</p>
+                    <h1 id="editTitle-${article.uid}" contenteditable="false">${article.title}</h1>
+                    <p id="editParagraph-${article.uid}" contenteditable="false">${article.paragraph}</p>
                 </div>   
             </div>     
             `
@@ -61,53 +58,44 @@ function renderSideArticles(){
     }
 }
 
-function renderAdminLogin(){
+function toggleAdminLogin(){
     try {
-        const adminLoginRoot = document.querySelector("#adminLoginRoot");
-        if (!adminLoginRoot) throw new Error ("admin login root not found");
+        const adminLoginForm: HTMLDivElement | null = document.querySelector(".navBar__sales__topic__login");
+        if (!adminLoginForm) throw new Error ("admin login root not found");
 
-        adminLoginRoot.innerHTML = `
-        <form class="navBar__sales__topic__login" onsubmit="handleAdminLogin(event)">
-            <input type="text" name="name" placeholder="User name" required>
-            <input type="text" name="password" placeholder="password" required>
-            <button type="submit">login</button>
-        </form>
-        `
+        adminLoginForm.classList.toggle('active');
+        
+    } catch (error) {
+        console.error(error)  
+    }
+}
+
+function renderAdminTools(){
+    try {
+        console.log("x");
+        const addArticleForm: HTMLDivElement | null = document.querySelector(".addArticleForm");
+        if (!addArticleForm) throw new Error ("add Article Form not found");
+        addArticleForm.classList.toggle('active');
+
+        const _editBtns = document.querySelectorAll("#editBtn");
+        if (!_editBtns) throw new Error ("edit Btns were not found");
+        const editBtns: any[] = Array.from(_editBtns);
+        editBtns.forEach(button => button.classList.toggle('active'));
+
+        const _saveBtns = document.querySelectorAll("#saveBtn");
+        if (!_saveBtns) throw new Error ("save Btns were not found");
+        const saveBtns: any[] = Array.from(_saveBtns);
+        saveBtns.forEach(button => button.classList.toggle('active'));
+        
+        
     } catch (error) {
         console.error(error)  
     }
 }
 
 
-  
+
+
+
 
   
-//   function handleAddUser(ev: any) {
-//     try {
-//       ev.preventDefault();
-//       const name = ev.target.elements.name.value;
-//       const src = ev.target.elements.src.value;
-//       if (!name) throw new Error("No name");
-//       if (!src) throw new Error("No src");
-//       const newUser: any = { name, src };
-  
-//       //send to server:
-//       fetch("/api/users'", {
-//         method: "POST",
-//         headers: {
-//           'Accept': 'application/json',
-//           'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(newUser),
-//       })
-//         .then((res) => res.json())
-//         .then((data) => {
-//           console.log(data);
-//         })
-//         .catch((error) => {
-//           console.error(error);
-//         });
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   }
