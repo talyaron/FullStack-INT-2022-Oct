@@ -37,3 +37,5 @@ articles.push(new Article(
     "https://cdn.nba.com/manage/2023/03/jaden-ivey-looks-on-iso.jpg?w=735&h=413"
     )
 )
+
+const admins: object[] = [{name: "amit", password: "123"}];
