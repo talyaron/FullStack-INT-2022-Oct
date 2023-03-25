@@ -1,0 +1,189 @@
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  font-family: Verdana, "Segoe UI", Tahoma, Geneva, sans-serif;
+}
+
+:root {
+  --boardSize: 80vh;
+  --div-size: calc(var(--boardSize) / 21);
+}
+
+body {
+  overflow: hidden;
+}
+
+.gameWrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: darkblue;
+}
+.gameWrapper .liveScore {
+  position: absolute;
+  color: darkblue;
+  font-size: 1.5rem;
+}
+
+.maze {
+  box-shadow: 0 0 50px black;
+  width: var(--boardSize);
+  height: var(--boardSize);
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  background-color: white;
+}
+.maze .endGameWindow {
+  position: absolute;
+  font-size: 5vh;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  transition: all 0.5s;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.maze .endGameWindow button {
+  padding: 0.5em 1em;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #333333;
+  color: whitesmoke;
+}
+.maze .endGameWindow button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 20px black;
+  transition: box-shadow 0.5s;
+}
+.maze .winMessage {
+  color: lightcoral;
+  background-color: rgb(35, 106, 70);
+}
+.maze .loseMessage {
+  color: orange;
+  background-color: rgb(141, 24, 24);
+}
+.maze .square {
+  width: var(--div-size);
+  height: var(--div-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.maze .square svg {
+  width: calc(var(--div-size) - 1.5vh);
+}
+.maze .pacman {
+  border-radius: 50%;
+  background-color: darkorange;
+  position: relative;
+}
+.maze .pacman .eye {
+  position: absolute;
+  width: 0.3vw;
+  height: 0.3vw;
+  border-radius: 50%;
+  top: 20%;
+  right: 50%;
+  background: #333333;
+}
+.maze .pacman .mouth {
+  background: #fff;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  animation-name: eat;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
+}
+@keyframes eat {
+  0% {
+    clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  }
+  25% {
+    clip-path: polygon(100% 60%, 44% 48%, 100% 40%);
+  }
+  50% {
+    clip-path: polygon(100% 50%, 44% 48%, 100% 50%);
+  }
+  75% {
+    clip-path: polygon(100% 59%, 44% 48%, 100% 35%);
+  }
+  100% {
+    clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  }
+}
+.maze .wall {
+  background-color: black;
+}
+.maze .point {
+  border-radius: 50%;
+  background-color: green;
+  border: calc(var(--div-size) / 3) solid white;
+  box-sizing: border-box;
+}
+.maze .cherry svg {
+  fill: red;
+  filter: drop-shadow(3px 5px 2px rgb(0, 0, 0));
+}
+.maze .ghost {
+  border: 0px;
+}
+.maze .purple {
+  border-radius: 0;
+  background-color: white;
+}
+.maze .purple svg {
+  fill: purple;
+  filter: drop-shadow(3px 5px 2px rgb(0, 0, 0));
+}
+.maze .pink {
+  border-radius: 0;
+  background-color: white;
+}
+.maze .pink svg {
+  fill: palevioletred;
+  filter: drop-shadow(3px 5px 2px rgb(0, 0, 0));
+}
+.maze .blue {
+  border-radius: 0;
+  background-color: white;
+}
+.maze .blue svg {
+  fill: blue;
+  filter: drop-shadow(3px 5px 2px rgb(0, 0, 0));
+}
+.maze .green {
+  border-radius: 0;
+  background-color: white;
+}
+.maze .green svg {
+  fill: darkgreen;
+  filter: drop-shadow(3px 5px 2px rgb(0, 0, 0));
+}
+.maze .scaredGhost svg {
+  animation-name: scared;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+@keyframes scared {
+  0% {
+    fill: #333333;
+  }
+  50% {
+    fill: aquamarine;
+  }
+  100% {
+    fill: #333333;
+  }
+}/*# sourceMappingURL=mainStyle.css.map */

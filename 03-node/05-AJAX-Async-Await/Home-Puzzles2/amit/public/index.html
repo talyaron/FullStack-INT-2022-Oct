@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- links to css and fontawesome  -->
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="https://kit.fontawesome.com/0fcd7efe49.js" crossorigin="anonymous"></script>
+    <!-- links to js files -->
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="./images/download.jpg">
+
+
+    <title>NBA.com</title>
+</head>
+
+<body onload="renderLatestArticle(), renderSideArticles()">
+    <div class="container">
+        <div class="navBar">
+            <div class="navBar__topics">
+                <div class="navBar__topics__logo"></div>
+                <div class="navBar__topics__topic">Games</div>
+                <div class="navBar__topics__topic">Schedule</div>
+                <div class="navBar__topics__topic">Watch</div>
+                <div class="navBar__topics__topic">News</div>
+                <div class="navBar__topics__topic">Stats</div>
+                <div class="navBar__topics__topic">Standings</div>
+                <div class="navBar__topics__topic">Teams</div>
+                <div class="navBar__topics__topic">Players</div>
+                <div class="navBar__topics__topic">Fantasy</div>
+                <div class="navBar__topics__topic">NBABet</div>
+            </div>
+            <div class="navBar__sales">
+                <div class="navBar__sales__topic">League Pass</div>
+                <div class="navBar__sales__topic">Store</div>
+                <div class="navBar__sales__topic">Tickets</div>
+                <div class="navBar__sales__topic"><i class="fa-solid fa-table-cells"></i></div>
+                <div class="navBar__sales__topic" onclick="renderAdminLogin()"> Admin Sign In
+                    <div id="adminLoginRoot"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main">
+           <div id="latestArticleRoot" class="main__latestArticle"></div>
+           <div id="sideArticlesRoot" class="main__sideArticles"></div>      
+        </div>
+    </div>    
+</body>
+
+
+
+</html>

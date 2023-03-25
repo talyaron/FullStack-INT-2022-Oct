@@ -7,11 +7,9 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  /* background-image: url("imageGallery/pexels-mateusz-dach-450035.jpg"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  
   overflow: hidden;
 }
 
@@ -62,12 +60,12 @@ body {
 }
 
 .detail {
-  height: 600px;
-  width: 700px;
+  height: 300px;
+  width: 500px;
   opacity: 0.8;
   align-items: center;
   margin-top: 150px;
-  margin-left: 550px;
+  margin-left: 350px;
   background: #eee8aa;
   border-radius: 80px;
 }

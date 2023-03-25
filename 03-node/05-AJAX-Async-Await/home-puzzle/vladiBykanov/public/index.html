@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Dog Image</title>
+    <link rel="stylesheet" href="./dist/style.css"/>
+  </head>
+  <body>
+    <div>
+      <button id="imageGeneratorBtn">Generate dog image</button>
+      <select name="DogBreeds" id="dogBreedOptions">
+        <option value="samoyed">Samoyed</option>
+        <option value="australian">Australian-Shepherd</option>
+        <option value="african">African</option>
+        <option value="beagle">Beagle</option>
+        <option value="eskimo">Eskimo</option>
+      </select>
+    </div>
+    <div class="imgDiv">
+      <img
+        src="https://dog.ceo/img/dog-api-logo.svg"
+        alt="random dog image"
+        id="dogImg"
+      />
+    </div>
+    <script src="./dist/index.js"></script>
+  </body>
+</html>
