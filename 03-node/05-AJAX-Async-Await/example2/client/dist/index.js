@@ -49,7 +49,7 @@ function handleAddUser(ev) {
             throw new Error("No src");
         var newUser = { name: name, src: src };
         //send to server:
-        fetch("/api/users'", {
+        fetch("/api/add-user", {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
