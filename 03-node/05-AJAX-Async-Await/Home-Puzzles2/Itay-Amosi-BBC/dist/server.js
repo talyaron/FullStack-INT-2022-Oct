@@ -65,10 +65,25 @@ app.get("/admin", function (req, res) {
     });
     res.send(admin);
 });
-app.post("/admin", function (req, res) {
-    fs_1["default"].readFileSync("./public/admin.html", {
-        encoding: "utf8",
-        flag: "r"
-    });
+// app.post(`/admin`, (req, res) => {
+//       fs.readFileSync("./public/admin.html", {
+//       encoding: "utf8",
+//       flag: "r",
+//     });
+// });
+app.post('/api/add-articles', function (req, res) {
+    try {
+        var data = req.body;
+        var tital = data.tital, src = data.src, paregraph = data.paregraph;
+        if (!tital || !src || !paregraph)
+            throw new Error("no found tital/src/paregraph");
+        articles.push(new Article(tital, src, paregraph));
+        res.send({ articles: articles });
+        res.status(201).send({ succuss: true, articles: articles });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send({ error: error.message });
+    }
 });
 app.listen(3000, function () { console.log("server listening on port 3000"); });
