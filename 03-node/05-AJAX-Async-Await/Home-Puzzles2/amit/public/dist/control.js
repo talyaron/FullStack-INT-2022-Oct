@@ -1,3 +1,34 @@
+function handleGetArticles() {
+    try {
+        fetch("/api/articles")
+            .then(function (res) { return res.json(); })
+            .then(function (_a) {
+            var articles = _a.articles;
+            try {
+                if (!articles)
+                    throw new Error("articles not found");
+                if (articles.length === 0)
+                    throw new Error("articles is empty");
+                console.log("articles", articles);
+                renderLatestArticle(articles);
+                renderSideArticles(articles);
+                var adminLoginButton = document.querySelector("#adminLoginRoot");
+                if (!adminLoginButton)
+                    throw new Error("admin Login Button Root not found");
+                if (adminLoginButton.innerText === "logout") {
+                    renderEditBtns();
+                    renderSaveBtns();
+                }
+            }
+            catch (error) {
+                console.error(error);
+            }
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
 function handleAdminLogin(ev) {
     try {
         ev.preventDefault();
@@ -23,7 +54,10 @@ function handleAdminLogin(ev) {
             console.error(error);
         });
         if (name === "amit" && password === "123") {
-            renderAdminTools();
+            renderAddArticleForm();
+            renderEditBtns();
+            renderSaveBtns();
+            renderlogoutBtn();
             toggleAdminLogin();
         }
         else {
@@ -46,65 +80,11 @@ function handleAddArticle(ev) {
             throw new Error("no paragraph");
         if (!imageUrl)
             throw new Error("no imageUrl");
-        articles.push(new Article(title, paragraph, imageUrl));
-        var latestArticle = articles[articles.length - 1];
+        var article = new Article(title, paragraph, imageUrl);
         fetch("/api/articles", {
             method: "POST",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(latestArticle)
-        })
-            .then(function (res) { return res.json(); })
-            .then(function (data) {
-            console.log(data);
-        })["catch"](function (error) {
-            console.error(error);
-        });
-        renderLatestArticle();
-        renderSideArticles();
-    }
-    catch (error) {
-        console.error(error);
-    }
-}
-function handleEditArticle(uid) {
-    try {
-        var article = articles.find(function (article) { return article.uid === uid; });
-        if (!article)
-            throw new Error("article not found");
-        var articleTitle = document.querySelector("#editTitle-" + article.uid);
-        var articleParagraph = document.querySelector("#editParagraph-" + article.uid);
-        if (!articleTitle)
-            throw new Error("article title not found");
-        if (!articleParagraph)
-            throw new Error("article paragraph not found");
-        articleTitle.contentEditable = "true";
-        articleParagraph.contentEditable = "true";
-        articleTitle.style.color = "blue";
-        articleParagraph.style.color = "blue";
-    }
-    catch (error) {
-        console.error(error);
-    }
-}
-function handleSaveArticle(uid) {
-    try {
-        var article = articles.find(function (article) { return article.uid === uid; });
-        if (!article)
-            throw new Error("article not found");
-        var articleTitle = document.querySelector("#editTitle-" + article.uid);
-        var articleParagraph = document.querySelector("#editParagraph-" + article.uid);
-        if (!articleTitle)
-            throw new Error("title not found");
-        if (!articleParagraph)
-            throw new Error("paragraph Data Price not found");
-        article.title = articleTitle.innerText;
-        article.paragraph = articleParagraph.innerText;
-        fetch("/api/articles", {
-            method: "PATCH",
-            headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(article)
@@ -115,12 +95,107 @@ function handleSaveArticle(uid) {
         })["catch"](function (error) {
             console.error(error);
         });
-        articleTitle.contentEditable = "false";
-        articleParagraph.contentEditable = "false";
-        articleTitle.style.color = "black";
-        articleParagraph.style.color = "black";
-        // renderLatestArticle();
-        // renderSideArticles();
+        handleGetArticles();
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleEditArticle(uid) {
+    try {
+        fetch("/api/articles")
+            .then(function (res) { return res.json(); })
+            .then(function (_a) {
+            var articles = _a.articles;
+            try {
+                if (!articles)
+                    throw new Error("articles not found");
+                if (articles.length === 0)
+                    throw new Error("articles is empty");
+                var article = articles.find(function (article) { return article.uid === uid; });
+                if (!article)
+                    throw new Error("article not found");
+                var articleTitle = document.querySelector("#editTitle-" + article.uid);
+                var articleParagraph = document.querySelector("#editParagraph-" + article.uid);
+                if (!articleTitle)
+                    throw new Error("article title not found");
+                if (!articleParagraph)
+                    throw new Error("article paragraph not found");
+                articleTitle.contentEditable = "true";
+                articleParagraph.contentEditable = "true";
+                articleTitle.style.color = "blue";
+                articleParagraph.style.color = "blue";
+            }
+            catch (error) {
+                console.error(error);
+            }
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleSaveArticle(uid) {
+    try {
+        fetch("/api/articles")
+            .then(function (res) { return res.json(); })
+            .then(function (_a) {
+            var articles = _a.articles;
+            try {
+                if (!articles)
+                    throw new Error("articles not found");
+                if (articles.length === 0)
+                    throw new Error("articles is empty");
+                var article = articles.find(function (article) { return article.uid === uid; });
+                if (!article)
+                    throw new Error("article not found");
+                var articleTitle = document.querySelector("#editTitle-" + article.uid);
+                var articleParagraph = document.querySelector("#editParagraph-" + article.uid);
+                if (!articleTitle)
+                    throw new Error("article title not found");
+                if (!articleParagraph)
+                    throw new Error("article paragraph not found");
+                articleTitle.contentEditable = "false";
+                articleParagraph.contentEditable = "false";
+                articleTitle.style.color = "black";
+                articleParagraph.style.color = "black";
+                article.title = articleTitle.innerText;
+                article.paragraph = articleParagraph.innerText;
+                fetch("/api/articles/" + uid, {
+                    method: "PATCH",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(article)
+                })
+                    .then(function (res) { return res.json(); })
+                    .then(function (data) {
+                    console.log(data);
+                })["catch"](function (error) {
+                    console.error(error);
+                });
+            }
+            catch (error) {
+                console.error(error);
+            }
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleLogout() {
+    try {
+        var addArticleForm = document.querySelector(".addArticleForm");
+        if (!addArticleForm)
+            throw new Error("add Article Form not found");
+        addArticleForm.classList.toggle('active');
+        var adminLoginButton = document.querySelector("#adminLoginRoot");
+        if (!adminLoginButton)
+            throw new Error("admin Login Button Root not found");
+        adminLoginButton.innerText = "Admin log In";
+        toggleAdminLogin();
+        handleGetArticles();
     }
     catch (error) {
         console.error(error);

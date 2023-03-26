@@ -19,7 +19,7 @@
     <title>NBA.com</title>
 </head>
 
-<body onload="renderLatestArticle(), renderSideArticles()">
+<body onload="handleGetArticles()">
     <div class="container">
         <div class="navBar">
             <div class="navBar__topics">
@@ -40,7 +40,9 @@
                 <div class="navBar__sales__topic">Store</div>
                 <div class="navBar__sales__topic">Tickets</div>
                 <div class="navBar__sales__topic"><i class="fa-solid fa-table-cells"></i></div>
-                <div class="navBar__sales__topic" onclick="toggleAdminLogin()"> Admin Sign In</div>
+                <div id="adminLoginRoot">
+                    <div class="navBar__sales__topic" onclick="toggleAdminLogin()">Admin log In</div>
+                </div>    
             </div>
         </div>
         <form class="navBar__sales__topic__login" onsubmit="handleAdminLogin(event)">
