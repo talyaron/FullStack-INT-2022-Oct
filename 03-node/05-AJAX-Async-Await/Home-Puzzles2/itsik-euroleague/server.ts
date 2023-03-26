@@ -3,8 +3,7 @@ import express from "express";
 const app = express();
 const PORT = 3000;
 
-
-app.get("/", (req,res) =>{
+app.get("/articles", (req,res) =>{
     res.send("hello")
     
     })
@@ -36,6 +35,7 @@ const artic:news[]=[
     {
         name:"lorenzo brown",
         src:"https://i.ytimg.com/vi/Gw0lwgepuf4/hq720.jpg",
+        
         article:" Lorenzo Brown is in the midst of his best Turkish Airlines EuroLeague season to date. The combo guard seems to have found a home with Maccabi Playtika Tel Aviv, which recently signed him to a three-year extension. Now at home on the Mediterranean coast in Israel, Brown spoke about his upbringing and the challenges along the way that led to him becoming a EuroLeague star.",
     },
 
