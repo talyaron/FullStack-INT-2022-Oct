@@ -53,11 +53,11 @@ body {
 .main .same {
   background-color: white;
   border-radius: 25px;
-  width: 400px;
-  height: 550px;
+  width: 600px;
+  height: 650px;
 }
 .main__container__contimg1 {
-  width: 400px;
+  width: 600px;
   height: 300px;
   border-radius: 25px 25px 0 0;
 }
