@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Link Register style css -->
+    <script src="./dist/register.js" defer></script>
+    <!-- Link Register style css -->
+    <link rel="stylesheet" href="./dist/register.css">
+   
+       <!-- Link Google Fonts  -->
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700&display=swap"
+           rel="stylesheet">
+    <title>register Page BBC</title>
+</head>
+
+<body>
+    <div class="register-container">
+        <div class="register-container__logo">
+            <a href="/"><img src="./images/bbc.png" alt="bbv logo" ></a>
+        </div>
+        <h3 class="register-container__title">Admin Log-in</h3>
+        <form onsubmit="handleSubmitLogin(event)" class="register-container__form-register">
+            <input name="email" type="text" placeholder="ENTER EMAIL">
+            <input name="password" type="text" placeholder="ENTER PASSWORD">
+            <button type="submit" class="register-container__submit-btn">
+                LOGIN
+            </button>
+        </form>
+    </div>
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>

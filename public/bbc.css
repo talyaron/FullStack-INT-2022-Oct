@@ -1,0 +1,258 @@
+body {
+  margin: 0;
+  position: relative;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 200;
+  line-height: 20px;
+}
+
+p:hover {
+  text-decoration: underline;
+}
+
+.nav_bar__topics_menu__topic:hover {
+  border-bottom: 8px solid rgb(216, 239, 10);
+}
+
+.nav_bar {
+  width: vw;
+  height: 70px;
+  background-color: black;
+  position: sticky;
+  top: 0px;
+  color: white;
+  font-weight: 800;
+  font-size: 18px;
+  text-align: center;
+  line-height: 35px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1;
+}
+.nav_bar__left {
+  width: 260px;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav_bar__left__bbc_logo {
+  width: 120px;
+  height: 40px;
+}
+.nav_bar__left__sign_in {
+  width: 120px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav_bar__left__sign_in__logo {
+  width: 35px;
+  height: 40px;
+}
+.nav_bar__left__sign_in__text {
+  width: 100px;
+  height: 40px;
+  text-align: center;
+}
+.nav_bar__topics_menu {
+  width: 1000px;
+  height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav_bar__topics_menu__topic {
+  width: 100px;
+  height: 40px;
+  margin: 0px;
+  font-size: 14px;
+  border-bottom: 8px solid black;
+}
+.nav_bar__topics_menu__search_box {
+  width: 400px;
+  height: 50px;
+  background-color: rgb(54, 52, 52);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.nav_bar__topics_menu__search_box__icon {
+  width: 25px;
+  height: 25px;
+  margin: 8px;
+}
+.nav_bar__topics_menu__search_box__text {
+  width: 100px;
+  height: 40px;
+}
+
+.container {
+  width: 1370px;
+  height: 2000px;
+  background-color: rgb(255, 255, 255);
+  margin: auto;
+}
+.container__first_line {
+  height: 60px;
+  width: 1360px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(179, 173, 173);
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+.container__first_line__welcome {
+  width: 400px;
+  font-weight: 900;
+  padding: 10px;
+}
+.container__first_line__date {
+  font-weight: 400;
+}
+.container__top_news_grid {
+  height: 363px;
+  width: 1360px;
+  display: grid;
+  grid-template-areas: "big big little_1 little_2" "big big little_3 little_4";
+  gap: 20px;
+}
+.container__top_news_grid__big {
+  grid-area: big;
+  height: 364px;
+  width: 600px;
+}
+.container__top_news_grid__big__image {
+  height: 100%;
+  width: 100%;
+}
+.container__top_news_grid__big__text_over_image {
+  position: relative;
+  bottom: 157px;
+  left: 15px;
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+}
+.container__top_news_grid__big__text_over_image__box {
+  height: 100%;
+  width: 80%;
+}
+.container__top_news_grid__little_1 {
+  grid-area: little_1;
+  height: 172px;
+  width: 360px;
+}
+.container__top_news_grid__little_1__image {
+  height: 100%;
+  width: 100%;
+}
+.container__top_news_grid__little_1__text_box {
+  position: relative;
+  bottom: 80px;
+  left: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.container__top_news_grid__little_1__text_box__text_over_image {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 700;
+}
+.container__top_news_grid__little_1__text_box__tag {
+  border-left: 5px solid rgb(16, 224, 82);
+  padding-left: 10px;
+  color: rgb(209, 203, 203);
+  font-size: 16px;
+  font-weight: 100;
+  margin: 5px;
+}
+.container__top_news_grid__little_2 {
+  grid-area: little_2;
+  height: 172px;
+  width: 360px;
+}
+.container__top_news_grid__little_3 {
+  grid-area: little_3;
+  height: 172px;
+  width: 360px;
+}
+.container__top_news_grid__little_4 {
+  grid-area: little_4;
+  height: 172px;
+  width: 360px;
+}
+.container__bottom_news_grid {
+  height: 300px;
+  width: 1360px;
+  display: grid;
+  grid-template-areas: "news news news" "article_1 article_2 article_3" "sport sport sport" "article_4 article_5 article_6";
+  gap: 20px;
+  position: relative;
+  top: 20px;
+  font-size: 30px;
+  font-weight: 900;
+}
+.container__bottom_news_grid__header_news {
+  grid-area: news;
+  border-left: 5px solid rgb(176, 21, 21);
+  padding-left: 10px;
+}
+.container__bottom_news_grid__article_1 {
+  grid-area: article_1;
+  display: flex;
+  flex-direction: column;
+}
+.container__bottom_news_grid__article_1__image {
+  width: 100%;
+  height: 250px;
+}
+.container__bottom_news_grid__article_1__text_under_image {
+  position: relative;
+  top: 10px;
+  left: 0px;
+  color: rgb(0, 0, 0);
+  font-size: 24px;
+  font-weight: 200;
+}
+.container__bottom_news_grid__article_2 {
+  grid-area: article_2;
+  display: flex;
+  flex-direction: column;
+}
+.container__bottom_news_grid__article_3 {
+  grid-area: article_3;
+  display: flex;
+  flex-direction: column;
+}
+.container__bottom_news_grid__header_sport {
+  grid-area: sport;
+  border-left: 5px solid rgb(16, 224, 82);
+  padding-left: 10px;
+}
+.container__bottom_news_grid__article_4 {
+  grid-area: article_4;
+  display: flex;
+  flex-direction: column;
+}
+.container__bottom_news_grid__article_5 {
+  grid-area: article_5;
+  display: flex;
+  flex-direction: column;
+}
+.container__bottom_news_grid__article_6 {
+  grid-area: article_6;
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=bbc.css.map */

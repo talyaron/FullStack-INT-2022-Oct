@@ -1,0 +1,9 @@
+.singleCategoryWrapper {
+  display: flex;
+  align-items: center;
+  padding-top: 1.5em;
+  color: white;
+}
+.singleCategoryWrapper__icon {
+  padding-right: 1rem;
+}/*# sourceMappingURL=NavbarSingleCategory.css.map */
