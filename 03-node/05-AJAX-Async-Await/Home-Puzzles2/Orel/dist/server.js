@@ -100,11 +100,27 @@ var articles = [
         uuid: uuid_1.v4()
     }
 ];
+app.post('/api/articles/edit', function (req, res) {
+    try {
+        var title = req.body.name;
+        var subtitle = req.body.des;
+        var uid_1 = req.body.uuid;
+        var curArticle = articles.find(function (a) { return a.uuid === uid_1; });
+        if (!curArticle)
+            throw new Error("the article not founded");
+        curArticle.title = title,
+            curArticle.des = subtitle,
+            res.send({ articles: articles });
+    }
+    catch (error) {
+        console.error(error);
+    }
+});
 app.post('/api/articles', function (req, res) {
     try {
         var data_1 = req.body.name;
         var index = articles.findIndex(function (a) { return a.uuid === data_1; });
-        if (!index && index === 0)
+        if (!index && index !== 0)
             throw new Error("no index founds in article");
         articles.splice(index, 1);
         res.status(201).send({ succuss: true, articles: articles });
