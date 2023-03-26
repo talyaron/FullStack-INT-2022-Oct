@@ -15,8 +15,15 @@
 
 body{
     margin: 0;
+    
 }
 
+p, h1, img{
+    cursor: pointer;
+    &:hover{
+        text-decoration: underline;
+    }
+}
 
 
 .container{
@@ -25,6 +32,7 @@ body{
     margin: 0;
     color: white;
     position: relative;
+   
 
     .navBar{
         width: 100vw;
@@ -81,7 +89,6 @@ body{
                         display: flex;
                     }
                 }
-                
             }
         }
     }
@@ -90,8 +97,19 @@ body{
         color: seagreen;
         border: 0.1rem solid black;
         display: none;
+        margin: auto;
+        width: 28rem;
+        height: 5rem;
+        margin-bottom: 1rem;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.397);
+        border-radius: 5px;
+        input{
+            height: 1.5rem;
+        }
         &.active{
-            display: block;
+            display: flex;
+            flex-direction: column;
+            
         }
     }
     
@@ -111,7 +129,7 @@ body{
             height: 18rem;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content:space-between;
             margin: auto;
 
             &__image{
@@ -124,14 +142,16 @@ body{
             }
             h1{
                 width: 25rem;
-                height: 1rem;
+                height: auto;
                 margin: 0;
-                padding: 0;
+                padding: 0rem;
                 font-size: 25px;
+                line-height: 1rem;
+                
             }
             p{
                 width: 25rem;
-                height: 3rem;
+                height: 2rem;
                 margin: 0;
                 padding: 0;
                 font-size: 16px; 
@@ -143,10 +163,14 @@ body{
                 border: none;
                 background-color: inherit;
                 display: none;
+                :hover{
+                        scale: 1.1;
+                    }
             &.active{display: block;}
                 i{
                     color: red;
                     font-size: 1.7rem;
+                    
                 }
             }
             &__save{
@@ -156,9 +180,12 @@ body{
                 border: none;
                 background-color: inherit;
                 position: relative;
-                left: 22rem;
+                left: 22.5rem;
                 top: -1rem;
                 display: none;
+                :hover{
+                    scale: 1.1;
+                }
                 &.active{display: block;}       
                 i{
                     color: seagreen;
@@ -218,10 +245,13 @@ body{
                     height: 30px;
                     border: none;
                     background-color: inherit;
-                    display: none;
                     position: relative;
                     left: 17rem;
                     top:1rem;
+                    display: none;
+                    :hover{
+                        scale: 1.1;
+                    }
                 &.active{display: block;}
                     i{
                         color: red;
@@ -238,6 +268,9 @@ body{
                 border: none;
                 background-color: inherit;
                 display: none;
+                :hover{
+                    scale: 1.1;
+                }
                 &.active{display: block;}       
                     i{
                         color: seagreen;
