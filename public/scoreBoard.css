@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+.scoreBoardWrapper {
+  margin: auto;
+  background-color: dodgerblue;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 20vw 80vw;
+}
+.scoreBoardWrapper .tableDiv {
+  font-size: 3rem;
+  display: flex;
+  justify-content: space-around;
+  overflow-y: auto;
+}
+.scoreBoardWrapper .tableDiv__listTitle {
+  font-weight: bold;
+  width: 100%;
+  padding: 1em;
+}
+.scoreBoardWrapper .tableDiv__listTitle .userScore {
+  margin-left: 2em;
+}
+.scoreBoardWrapper .tableDiv li {
+  display: block;
+  font-weight: 400;
+  margin-top: 1em;
+}
+.scoreBoardWrapper .buttonDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.scoreBoardWrapper .buttonDiv button {
+  appearance: none;
+  background-color: #ffffff;
+  border-radius: 40em;
+  border-style: none;
+  box-shadow: #adcfff 0 -12px 6px inset;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.24px;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.3rem;
+  quotes: auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.scoreBoardWrapper .buttonDiv button:hover {
+  background-color: #ffc229;
+  box-shadow: #ff6314 0 -6px 8px inset;
+  transform: scale(1.125);
+}
+.scoreBoardWrapper .buttonDiv button:active {
+  transform: scale(1.025);
+}
+
+@media (min-width: 768px) {
+  button {
+    font-size: 1.5rem;
+    padding: 0.75rem 2rem;
+  }
+}/*# sourceMappingURL=scoreBoard.css.map */

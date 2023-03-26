@@ -1,0 +1,164 @@
+:root {
+  --red: red;
+  --speed: 0;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(./imgs/background.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.container header div.div-container {
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.507);
+  border-bottom: 10px solid rgba(255, 12, 12, 0.644);
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+}
+.container header div.div-container .logo {
+  text-decoration: none;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.808);
+  font-size: 2rem;
+  margin-left: 15px;
+}
+.container header div.div-container .logo span {
+  color: var(--red);
+}
+.container header div.div-container ul {
+  display: flex;
+  width: 350px;
+  text-align: center;
+  align-items: center;
+  justify-content: space-around;
+}
+.container header div.div-container ul li {
+  list-style: none;
+  transform: translateX(50px);
+}
+.container header div.div-container ul li button {
+  background-color: var(--red);
+  padding: 10px 20px;
+  border-radius: 25px;
+  outline: none;
+  box-shadow: inset 1px 2px 65px 2px rgba(0, 0, 0, 0.37), inset -1px -1px 15px 5px rgba(243, 240, 240, 0.753);
+  color: white;
+  font-weight: 700;
+  font-size: 1.3rem;
+  border: 1px solid rgba(0, 0, 0, 0.315);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.container header div.div-container ul li button:hover {
+  box-shadow: inset 1px 2px 15px 2px rgba(250, 250, 250, 0.938), inset -1px -1px 15px 5px rgba(0, 0, 0, 0.753);
+}
+.container header div.div-container ul li button:active {
+  transform: scale(0.98);
+}
+.container header div.div-container .score-board {
+  margin-right: 20px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.container header div.div-container .score-board h3 {
+  color: rgb(240, 235, 235);
+  pointer-events: none;
+  margin: 5px;
+  font-size: 1rem;
+}
+.container .main-body-game {
+  position: relative;
+  width: 100vw;
+  height: calc(90vh - 100px);
+  background-color: rgba(240, 228, 228, 0.767);
+  border: 2px solid black;
+  overflow: hidden;
+}
+.container .main-body-game .container-ballons {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+.container .main-body-game .container-ballons span {
+  width: 250px;
+  position: absolute;
+}
+.container .main-body-game .container-ballons span img {
+  width: 220px;
+  cursor: pointer;
+}
+
+.happyNewYearsWellcom {
+  background-color: rgba(248, 243, 243, 0.342);
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.happyNewYearsWellcom img {
+  width: 400px;
+  margin-bottom: -50px;
+  transition: width 1s ease;
+}
+.happyNewYearsWellcom h4 {
+  font-size: 1.5rem;
+}
+.happyNewYearsWellcom button {
+  background-color: var(--red);
+  margin-top: 30px;
+  padding: 16px 32px;
+  border-radius: 25px;
+  border: none;
+  outline: none;
+  box-shadow: inset 1px 2px 65px 2px rgba(0, 0, 0, 0.37), inset -1px -1px 15px 5px rgba(243, 240, 240, 0.753);
+  color: white;
+  font-weight: 700;
+  font-size: 1.3rem;
+  border: 1px solid rgba(0, 0, 0, 0.315);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.happyNewYearsWellcom button:hover {
+  box-shadow: inset 1px 2px 15px 2px rgba(250, 250, 250, 0.938), inset -1px -1px 15px 5px rgba(0, 0, 0, 0.753);
+}
+.happyNewYearsWellcom button:active {
+  transform: scale(0.98);
+}
+
+.time {
+  position: relative;
+  top: 0px;
+  padding: 10px;
+  left: 0px;
+  opacity: 0.99;
+  border-radius: 30px;
+}
+.time h2 {
+  z-index: 999;
+  font-size: 1rem;
+}/*# sourceMappingURL=ballon.css.map */

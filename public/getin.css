@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css?family=VT323");
+body {
+  overflow: hidden;
+  background-image: url("https://img.freepik.com/premium-photo/80-s-retro-grid-mountain-background-80s-retro-art-scene_83608-85.jpg?w=2000");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.container {
+  font-family: "VT323", monospace;
+  font-style: italic;
+  background-color: #000;
+  font-size: 2em;
+  margin: auto;
+  width: 35rem;
+  height: 99vh;
+  color: white;
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  letter-spacing: 5px;
+  text-shadow: -2px 0 0 #fdff2a, -4px 0 0 #df4a42, 2px 0 0 #91fcfe, 4px 0 0 #4405fc;
+}
+.container__login {
+  font-family: "Audiowide", sans-serif;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+.container__login input {
+  margin-bottom: 3rem;
+  width: 10rem;
+}
+.container__login--pfp {
+  width: 150%;
+  display: flex;
+  height: 10rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  right: 2rem;
+  gap: 0.7rem;
+}
+.container__login--pfp input {
+  color: #000;
+  position: relative;
+  left: 5rem;
+}
+.container__login--pfp img {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 20rem;
+  margin-left: 5rem;
+}
+.container__login label {
+  margin-bottom: 1rem;
+  width: max-content;
+}
+.container__login a {
+  display: flex;
+  justify-content: center;
+  border-radius: 10rem;
+  text-decoration: none;
+}
+
+p {
+  animation: glitch 1s linear infinite;
+}
+
+@keyframes glitch {
+  2%, 64% {
+    transform: translate(2px, 0) skew(0deg);
+  }
+  4%, 60% {
+    transform: translate(-2px, 0) skew(0deg);
+  }
+  62% {
+    transform: translate(0, 0) skew(5deg);
+  }
+}
+p:before,
+p:after {
+  content: attr(title);
+  position: absolute;
+  left: 0;
+}
+
+p:before {
+  animation: glitchTop 1s linear infinite;
+  clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+
+@keyframes glitchTop {
+  2%, 64% {
+    transform: translate(2px, -2px);
+  }
+  4%, 60% {
+    transform: translate(-2px, 2px);
+  }
+  62% {
+    transform: translate(13px, -1px) skew(-13deg);
+  }
+}
+p:after {
+  animation: glitchBotom 1.5s linear infinite;
+  clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchBotom {
+  2%, 64% {
+    transform: translate(-2px, 0);
+  }
+  4%, 60% {
+    transform: translate(-2px, 0);
+  }
+  62% {
+    transform: translate(-22px, 5px) skew(21deg);
+  }
+}
+.star {
+  --size: 20vmin;
+  --holes: calc(var(--size)*.495);
+  width: var(--size);
+  aspect-ratio: 1/1;
+  position: fixed;
+  background: white;
+  --mask: radial-gradient(var(--holes) at var(--holes) var(--holes), #0000 99%,#000) calc(var(--holes)*-1) calc(var(--holes)*-1);
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  border-radius: 50%;
+  animation: sparkle 1s linear forwards;
+  z-index: 1;
+}
+
+@keyframes sparkle {
+  0% {
+    transform: scale(0);
+  }
+  25% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.recurring_user {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  width: 100px;
+}
+
+#listofUsers {
+  display: flex;
+  column-gap: 15px;
+  flex-direction: row;
+  max-width: 250px;
+  overflow-x: auto;
+}
+
+.userImg {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+#choosePlayerHeadline {
+  width: 35rem;
+  height: 5vh;
+  color: white;
+  font-size: 0.7em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  letter-spacing: 5px;
+}
+
+.button {
+  background-color: transparent;
+  border: 1px solid #860958;
+  box-sizing: border-box;
+  color: #f3bffb;
+  font-size: 0.5em;
+  font-weight: 700;
+  padding: 16px 23px;
+  position: relative;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+.deletUserButton {
+  width: 25px;
+  margin-left: 23%;
+}/*# sourceMappingURL=getin.css.map */
