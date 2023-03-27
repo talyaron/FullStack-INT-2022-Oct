@@ -1,3 +1,4 @@
+import { table } from 'console';
 import express from 'express';
 import fs from 'fs';
 import { uuid } from 'uuidv4';
@@ -74,11 +75,26 @@ class Article {
     res.send(admin);
   });
 
-  app.post(`/admin`, (req, res) => {
-        fs.readFileSync("./public/admin.html", {
-        encoding: "utf8",
-        flag: "r",
-      });
+  // app.post(`/admin`, (req, res) => {
+  //       fs.readFileSync("./public/admin.html", {
+  //       encoding: "utf8",
+  //       flag: "r",
+  //     });
+  // });
+
+  app.post('/api/add-articles', (req, res) => {
+    try {
+      const data = req.body;
+      const {tital , src , paregraph} = data;
+      if(!tital || !src || !paregraph) throw new Error("no found tital/src/paregraph")
+      articles.push(new Article(tital , src , paregraph));
+      res.send({articles});
+      res.status(201).send({ succuss: true , articles});
+
+    } catch (error: any) {
+      console.error(error);
+      res.status(500).send({ error: error.message });
+    }
   });
 
 app.listen(3000,()=>{console.log(`server listening on port 3000`)});
