@@ -1,4 +1,4 @@
-function renderLatestArticle() {
+function renderLatestArticle(articles) {
     try {
         var latestArticleRoot = document.querySelector("#latestArticleRoot");
         if (!latestArticleRoot)
@@ -14,7 +14,7 @@ function renderLatestArticle() {
         console.error(error);
     }
 }
-function renderSideArticles() {
+function renderSideArticles(articles) {
     try {
         var sideArticlesRoot = document.querySelector("#sideArticlesRoot");
         if (!sideArticlesRoot)
@@ -34,29 +34,64 @@ function toggleAdminLogin() {
         var adminLoginForm = document.querySelector(".navBar__sales__topic__login");
         if (!adminLoginForm)
             throw new Error("admin login root not found");
-        adminLoginForm.classList.toggle('active');
+        if (!adminLoginForm.classList.contains('active')) {
+            adminLoginForm.classList.toggle('active');
+        }
     }
     catch (error) {
         console.error(error);
     }
 }
-function renderAdminTools() {
+function renderAddArticleForm() {
     try {
-        console.log("x");
         var addArticleForm = document.querySelector(".addArticleForm");
         if (!addArticleForm)
             throw new Error("add Article Form not found");
-        addArticleForm.classList.toggle('active');
+        if (!addArticleForm.classList.contains("active"))
+            addArticleForm.classList.toggle('active');
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function renderEditBtns() {
+    try {
         var _editBtns = document.querySelectorAll("#editBtn");
         if (!_editBtns)
             throw new Error("edit Btns were not found");
         var editBtns = Array.from(_editBtns);
-        editBtns.forEach(function (button) { return button.classList.toggle('active'); });
+        editBtns.map(function (button) {
+            if (!button.classList.contains("active")) {
+                button.classList.toggle('active');
+            }
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function renderSaveBtns() {
+    try {
         var _saveBtns = document.querySelectorAll("#saveBtn");
         if (!_saveBtns)
             throw new Error("save Btns were not found");
         var saveBtns = Array.from(_saveBtns);
-        saveBtns.forEach(function (button) { return button.classList.toggle('active'); });
+        saveBtns.map(function (button) {
+            if (!button.classList.contains("active")) {
+                button.classList.toggle('active');
+            }
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function renderlogoutBtn() {
+    try {
+        var adminLoginRoot = document.querySelector("#adminLoginRoot");
+        if (!adminLoginRoot)
+            throw new Error("admin login root not found");
+        adminLoginRoot.innerHTML = "\n            <div id=\"adminLoginRoot\" class=\"navBar__sales__topic\" onclick=\"handleLogout()\">logout</div>\n        ";
     }
     catch (error) {
         console.error(error);

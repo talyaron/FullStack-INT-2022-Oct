@@ -91,7 +91,7 @@ function handleSubmitFormRegister(ev: any) {
             }
         
             ev.target.reset();
-            let newUrl =  `./Bite-Away-group2-orel-amit-dor/login.html`;
+            let newUrl =  `./Bite-Away-group2-orel-amit-dor/login/login.html`;
             window.location.replace(newUrl);
         } else {
             alert("the user exist in the system please try anther Email")

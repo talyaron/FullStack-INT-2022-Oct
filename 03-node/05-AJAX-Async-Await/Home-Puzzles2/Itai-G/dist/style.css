@@ -1,13 +1,8 @@
 body {
   margin: 0%;
-  height: 100vh;
-  width: 100vw;
+  height: 3000px;
+  width: auto;
   overflow-x: auto;
-}
-
-h1, h2, p {
-  position: static;
-  background-color: rgba(250, 235, 215, 0.7);
 }
 
 .wrapper {
@@ -15,18 +10,20 @@ h1, h2, p {
   margin-left: 50px;
   margin-right: 50px;
 }
+
 .wrapper__bar {
-  background-color: rgba(0, 0, 0, 0.807);
-  width: 95%;
-  height: auto;
+  background-color: black;
+  width: auto;
+  height: 50px;
   display: flex;
   justify-content: space-between;
+  position: relative;
   list-style-type: none;
   font-size: 13px;
   font-weight: 700;
   justify-content: flex-start;
-  position: fixed;
 }
+
 .wrapper__bar__icons {
   width: 100%;
   height: 50px;
@@ -36,22 +33,20 @@ h1, h2, p {
   margin-top: 15px;
   overflow-x: auto;
 }
-.wrapper__bar__icons #lo {
-  width: 0px;
+
+.wrapper__bar__icons img {
+  width: 60px;
   height: 30px;
   margin-left: 20px;
 }
-.wrapper__bar__icons #ol {
-  width: 0px;
-  height: 30px;
-  margin-left: 20px;
-}
+
 .wrapper .search {
   background-color: black;
   width: 50pxpx;
   height: 150pxpx;
   color: #f4fafa;
 }
+
 .wrapper .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
 }
@@ -71,6 +66,7 @@ h1, h2, p {
   margin-bottom: -150px;
   margin-top: 150px;
 }
+
 .welcome h2 {
   color: darkgray;
 }
@@ -89,15 +85,18 @@ h1, h2, p {
 }
 
 .item1 {
-  grid-area: 1/1/8/3;
+  grid-area: 1/1/5/3;
   border: 1px solid #0c0c0c;
   background-image: url(https://ichef.bbci.co.uk/news/976/cpsprodpb/3555/production/_127735631_workbuilding.png.webp);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  position: relative;
 }
+
 .item1 h1 {
   color: black;
+  position: absolute;
   margin-top: 290px;
   font-size: 20px;
   font-weight: bolder;
@@ -107,34 +106,42 @@ h1, h2, p {
   bottom: 15%;
   background-color: #a8eed7;
 }
+
 .item1 p {
   font-size: 15px;
+  position: absolute;
   color: black;
   bottom: 2%;
   background-color: aquamarine;
 }
 
 .item2 {
-  grid-area: 1/3/5/5;
+  grid-area: 1/3/3/5;
   border: 1px solid black;
   background-image: url(https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/vivo/live/images/2022/11/22/a648fbb4-d9f7-41fd-8213-f6d6186bafe2.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  position: relative;
 }
+
 .item2 h1 {
   font-size: 20px;
+  position: absolute;
   bottom: 2%;
 }
 
 .item3 {
-  grid-area: 5/3/8/5;
+  grid-area: 3/3/5/5;
   border: 1px solid black;
   background-image: url(https://ichef.bbci.co.uk/onesport/cps/976/cpsprodpb/150EE/production/_127745268_tv080112965.jpg);
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  position: relative;
 }
+
 .item3 span {
   font-size: 2rem;
+  position: absolute;
   color: black;
   bottom: 2%;
   right: 2%;
@@ -183,9 +190,11 @@ h1, h2, p {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
+
 .item44 span {
   padding-right: 15%;
 }
+
 .item44 p {
   font-size: 15px;
   border-left: 3px solid red;
@@ -195,9 +204,11 @@ h1, h2, p {
 .item55 {
   grid-area: 4/2/5/3;
 }
+
 .item55 span {
   padding-right: 15%;
 }
+
 .item55 p {
   font-size: 15px;
   border-left: 3px solid lime;
@@ -207,9 +218,11 @@ h1, h2, p {
 .item66 {
   grid-area: 4/3/5/4;
 }
+
 .item66 span {
   padding-right: 15%;
 }
+
 .item66 p {
   font-size: 15px;
   border-left: 3px solid #d2f702;
@@ -237,6 +250,7 @@ h1, h2, p {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
+
 .item111 h1 {
   color: white;
 }
@@ -263,10 +277,12 @@ h1, h2, p {
   font-size: 1rem;
   width: 250px;
 }
+
 .item444 span {
   padding-right: 35%;
   font-size: 20px;
 }
+
 .item444 p {
   font-size: 15px;
   border-left: 3px solid red;
@@ -277,9 +293,11 @@ h1, h2, p {
   font-size: 1rem;
   width: 250px;
 }
+
 .item555 span {
   font-size: 20px;
 }
+
 .item555 p {
   font-size: 15px;
   border-left: 3px solid #b6e60a;
@@ -292,10 +310,12 @@ h1, h2, p {
   width: 150px;
   margin-bottom: -29%;
 }
+
 .item666 span {
   width: 50px;
   font-size: 20px;
 }
+
 .item666 p {
   font-size: 15px;
   border-left: 3px solid #08d1f5;

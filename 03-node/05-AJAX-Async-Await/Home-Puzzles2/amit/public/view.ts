@@ -1,4 +1,4 @@
-function renderLatestArticle(){
+function renderLatestArticle(articles: Article[]){
     try {
         const latestArticleRoot:HTMLDivElement | null = document.querySelector("#latestArticleRoot");
         if(!latestArticleRoot) throw new Error ("latest article not found");
@@ -26,7 +26,7 @@ function renderLatestArticle(){
     }
 }
 
-function renderSideArticles(){
+function renderSideArticles(articles: Article[]){
     try {
         const sideArticlesRoot: HTMLDivElement | null = document.querySelector("#sideArticlesRoot");
         if(!sideArticlesRoot) throw new Error ("side articles not found");
@@ -63,38 +63,71 @@ function toggleAdminLogin(){
         const adminLoginForm: HTMLDivElement | null = document.querySelector(".navBar__sales__topic__login");
         if (!adminLoginForm) throw new Error ("admin login root not found");
 
-        adminLoginForm.classList.toggle('active');
+        if(!adminLoginForm.classList.contains('active')){
+            adminLoginForm.classList.toggle('active');
+        }
+        
         
     } catch (error) {
         console.error(error)  
     }
 }
 
-function renderAdminTools(){
-    try {
-        console.log("x");
-        const addArticleForm: HTMLDivElement | null = document.querySelector(".addArticleForm");
+function renderAddArticleForm(){
+try {
+    const addArticleForm: HTMLDivElement | null = document.querySelector(".addArticleForm");
         if (!addArticleForm) throw new Error ("add Article Form not found");
-        addArticleForm.classList.toggle('active');
+        if (!addArticleForm.classList.contains("active")) addArticleForm.classList.toggle('active');
+} catch (error) {
+    console.error(error)  
 
-        const _editBtns = document.querySelectorAll("#editBtn");
+}
+}
+
+function renderEditBtns(){
+try {
+    const _editBtns = document.querySelectorAll("#editBtn");
         if (!_editBtns) throw new Error ("edit Btns were not found");
         const editBtns: any[] = Array.from(_editBtns);
-        editBtns.forEach(button => button.classList.toggle('active'));
+        editBtns.map((button: HTMLButtonElement) => {
+            if (!button.classList.contains("active")){
+                button.classList.toggle('active');
+            }
+        })
+        
+} catch (error) {
+    console.error(error)  
+}
+}
 
-        const _saveBtns = document.querySelectorAll("#saveBtn");
-        if (!_saveBtns) throw new Error ("save Btns were not found");
-        const saveBtns: any[] = Array.from(_saveBtns);
-        saveBtns.forEach(button => button.classList.toggle('active'));
-        
-        
+function renderSaveBtns(){
+try {
+    const _saveBtns = document.querySelectorAll("#saveBtn");
+    if (!_saveBtns) throw new Error ("save Btns were not found");
+    const saveBtns: any[] = Array.from(_saveBtns);
+    saveBtns.map((button: HTMLButtonElement) => {
+        if (!button.classList.contains("active")){
+            button.classList.toggle('active');
+        }
+    })
+} catch (error) {
+    console.error(error)  
+
+}
+}
+
+
+function renderlogoutBtn(){
+    try {
+        const adminLoginRoot: HTMLDivElement | null = document.querySelector("#adminLoginRoot");
+        if (!adminLoginRoot) throw new Error ("admin login root not found");
+        adminLoginRoot.innerHTML = `
+            <div id="adminLoginRoot" class="navBar__sales__topic" onclick="handleLogout()">logout</div>
+        `
     } catch (error) {
         console.error(error)  
     }
 }
-
-
-
 
 
 

@@ -1,3 +1,31 @@
+function handleGetArticles() {
+    try {
+        fetch("/api/articles")
+            .then((res) => res.json())
+            .then(({ articles }) => {
+                try {
+                    if (!articles) throw new Error("articles not found");
+                    if (articles.length === 0) throw new Error("articles is empty");
+                    console.log("articles", articles);
+                    renderLatestArticle(articles);
+                    renderSideArticles(articles);
+                    
+                    const adminLoginButton: HTMLDivElement | null = document.querySelector("#adminLoginRoot");
+                    if (!adminLoginButton) throw new Error("admin Login Button Root not found");
+                    if(adminLoginButton.innerText === "logout"){
+                       renderEditBtns();
+                       renderSaveBtns(); 
+                    }
+
+                } catch (error) {
+                    console.error(error);
+                }
+            });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
 function handleAdminLogin(ev: any) {
     try {
         ev.preventDefault();
@@ -24,7 +52,11 @@ function handleAdminLogin(ev: any) {
             });
 
         if (name === "amit" && password === "123") {
-            renderAdminTools();
+            renderAddArticleForm();
+            renderEditBtns();
+            renderSaveBtns();
+            renderlogoutBtn();
+
             toggleAdminLogin();
         } else {
             alert("incorrect password or user name")
@@ -34,19 +66,18 @@ function handleAdminLogin(ev: any) {
     }
 }
 
-function handleAddArticle(ev: any){
+function handleAddArticle(ev: any) {
     try {
         ev.preventDefault();
         const title = ev.target.elements.title.value;
         const paragraph = ev.target.elements.paragraph.value;
         const imageUrl = ev.target.elements.imageUrl.value;
 
-        if(!title) throw new Error ("no title");
-        if(!paragraph) throw new Error ("no paragraph");
-        if(!imageUrl) throw new Error ("no imageUrl");
+        if (!title) throw new Error("no title");
+        if (!paragraph) throw new Error("no paragraph");
+        if (!imageUrl) throw new Error("no imageUrl");
 
-        articles.push(new Article(title, paragraph, imageUrl));
-        const latestArticle = articles[articles.length-1]
+        const article = new Article(title, paragraph, imageUrl)
 
         fetch("/api/articles", {
             method: "POST",
@@ -54,7 +85,7 @@ function handleAddArticle(ev: any){
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(latestArticle),
+            body: JSON.stringify(article),
         })
             .then((res) => res.json())
             .then((data) => {
@@ -64,32 +95,8 @@ function handleAddArticle(ev: any){
                 console.error(error);
             });
 
-            renderLatestArticle();
-            renderSideArticles();
-
-
-    } catch (error) {
-        console.error(error); 
-    }
-}
-
-
-function handleEditArticle(uid: string) {
-    try {
-        const article = articles.find(article => article.uid === uid);
-        if (!article) throw new Error("article not found");
-
-        const articleTitle: HTMLElement | null = document.querySelector(`#editTitle-${article.uid}`);
-        const articleParagraph: HTMLElement | null = document.querySelector(`#editParagraph-${article.uid}`);
-
-        if (!articleTitle) throw new Error("article title not found");
-        if (!articleParagraph) throw new Error("article paragraph not found");
-
-        articleTitle.contentEditable = "true";
-        articleParagraph.contentEditable = "true";
+        handleGetArticles();
         
-        articleTitle.style.color = "blue";
-        articleParagraph.style.color = "blue";
 
     } catch (error) {
         console.error(error);
@@ -97,30 +104,110 @@ function handleEditArticle(uid: string) {
 }
 
 
+function handleEditArticle(uid: string) {
+    try {
+        fetch("/api/articles")
+            .then((res) => res.json())
+            .then(({ articles }) => {
+                try {
+                    if (!articles) throw new Error("articles not found");
+                    if (articles.length === 0) throw new Error("articles is empty");
+                    
+                    const article = articles.find(article => article.uid === uid);
+                    
+                    if (!article) throw new Error("article not found");
+
+                    const articleTitle: HTMLElement | null = document.querySelector(`#editTitle-${article.uid}`);
+                    const articleParagraph: HTMLElement | null = document.querySelector(`#editParagraph-${article.uid}`);
+
+                    if (!articleTitle) throw new Error("article title not found");
+                    if (!articleParagraph) throw new Error("article paragraph not found");
+
+                    articleTitle.contentEditable = "true";
+                    articleParagraph.contentEditable = "true";
+
+                    articleTitle.style.color = "blue";
+                    articleParagraph.style.color = "blue";
+                } catch (error) {
+                    console.error(error);
+                }
+            })
+
+
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 function handleSaveArticle(uid: string) {
     try {
+        fetch("/api/articles")
+            .then((res) => res.json())
+            .then(({ articles }) => {
+                try {
+                    if (!articles) throw new Error("articles not found");
+                    if (articles.length === 0) throw new Error("articles is empty");
+                    
+                    const article = articles.find(article => article.uid === uid);
+                    
+                    if (!article) throw new Error("article not found");
 
-        const article = articles.find(article => article.uid === uid);
-        if (!article) throw new Error("article not found");
+                    const articleTitle: HTMLElement | null = document.querySelector(`#editTitle-${article.uid}`);
+                    const articleParagraph: HTMLElement | null = document.querySelector(`#editParagraph-${article.uid}`);
 
-        const articleTitle: HTMLElement | null = document.querySelector(`#editTitle-${article.uid}`);
-        const articleParagraph: HTMLElement | null = document.querySelector(`#editParagraph-${article.uid}`);
+                    if (!articleTitle) throw new Error("article title not found");
+                    if (!articleParagraph) throw new Error("article paragraph not found");
 
-        if (!articleTitle) throw new Error("title not found");
-        if (!articleParagraph) throw new Error("paragraph Data Price not found");
+                    articleTitle.contentEditable = "false";
+                    articleParagraph.contentEditable = "false";
 
-        article.title = articleTitle.innerText;
-        article.paragraph = articleParagraph.innerText;
+                    articleTitle.style.color = "black";
+                    articleParagraph.style.color = "black";
 
-        // saveInLocalStorage(restaurants, "restaurants");//stopped here
+                    article.title = articleTitle.innerText;
+                    article.paragraph = articleParagraph.innerText;
 
-        articleTitle.contentEditable = "false";
-        articleParagraph.contentEditable = "false";
+                    fetch(`/api/articles/${uid}`, {
+                        method: "PATCH",
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(article),
+                    })
+                        .then((res) => res.json())
+                        .then((data) => {
+                            console.log(data);
+                        })
+                        .catch((error) => {
+                            console.error(error);
+                        });
 
-        articleTitle.style.color = "black";
-        articleParagraph.style.color = "black";
+                } catch (error) {
+                    console.error(error);
+                }
+            })
 
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+function handleLogout() {
+    try {
+        const addArticleForm: HTMLDivElement | null = document.querySelector(".addArticleForm");
+        if (!addArticleForm) throw new Error("add Article Form not found");
+        addArticleForm.classList.toggle('active');
+
+        const adminLoginButton: HTMLDivElement | null = document.querySelector("#adminLoginRoot");
+        if (!adminLoginButton) throw new Error("admin Login Button Root not found");
+        adminLoginButton.innerText = "Admin log In";
+
+        toggleAdminLogin();
+
+        handleGetArticles();
+       
     } catch (error) {
         console.error(error);
     }
