@@ -7,4 +7,5 @@ class Article {
     ) { }
 }
 
+
 let articles: Article[] = []

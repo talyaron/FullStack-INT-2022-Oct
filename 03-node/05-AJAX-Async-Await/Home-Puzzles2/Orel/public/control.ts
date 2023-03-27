@@ -159,6 +159,7 @@ if(youSure){
 function handleClickAddArticle() {
     try {
         if (checkLogin()) {
+      
             const addNewArticle = document.getElementById('addNewArticle')! as HTMLElement
             addNewArticle.classList.toggle('active')
 
