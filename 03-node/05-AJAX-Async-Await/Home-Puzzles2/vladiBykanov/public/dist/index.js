@@ -34,57 +34,35 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var foodTipTemp = [];
-renderFoodTips();
-function renderFoodTips() {
-    return __awaiter(this, void 0, void 0, function () {
-        var food;
-        return __generator(this, function (_a) {
-            try {
-                food = fetch('/foodTips')
-                    .then(function (response) { return response.json(); })
+var _this = this;
+var newsContainer = document.querySelector(".newsContainer");
+var start = function () { return __awaiter(_this, void 0, void 0, function () {
+    var articleList;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, fetch("/api/v1/articles", {
+                    method: "GET",
+                    headers: {
+                        Accept: "application/json"
+                    }
+                })
+                    .then(function (res) { return res.json(); })
                     .then(function (data) {
-                    var foodTip = data;
-                    if (!foodTip)
-                        throw new Error("Don't have detail selected");
-                    var tempIndex = [];
-                    var indexTure = false;
-                    var _loop_1 = function () {
-                        var randomIndex = Math.floor(Math.random() * 12);
-                        if (tempIndex.length != 0) {
-                            tempIndex.forEach(function (indexTemp) {
-                                if (indexTemp == randomIndex)
-                                    indexTure = true;
-                            });
-                        }
-                        if (!indexTure) {
-                            tempIndex.push(randomIndex);
-                        }
-                        indexTure = false;
-                    };
-                    do {
-                        _loop_1();
-                    } while (tempIndex.length < 4);
-                    tempIndex.forEach(function (index) {
-                        foodTipTemp.push(foodTip[index]);
-                    });
-                    var html = foodTipTemp
-                        .map(function (tips) {
-                        return "<div class=\"foodTips\">\n                        <p>" + tips.header + "</p>\n                        <img class=\"foodTips__img\" src=" + tips.photo + " alt=\"food image\">\n                        <p>" + tips.tip + "</p>\n                        </div>";
-                    })
-                        .join(" ");
-                    var tipsElement = document.querySelector("#container");
-                    if (!tipsElement)
-                        throw new Error("coundnt find tips element on DOM");
-                    tipsElement.innerHTML = html;
+                    var articles = data.articles;
+                    return articles;
+                })["catch"](function (err) { return console.error(err); })];
+            case 1:
+                articleList = _a.sent();
+                console.log(articleList);
+                articleList.forEach(function (article) {
+                    var articleDiv = document.createElement("div");
+                    articleDiv.classList.add("article");
+                    articleDiv.style.background = "url(" + article.imgURL + ") no-repeat center / cover";
+                    articleDiv.innerHTML = "<h3>" + article.title + "</h3>\n    <p>" + article.body + "</p>";
+                    newsContainer.append(articleDiv);
                 });
-                // const randomImageIndex = Math.floor(Math.random() * imageBreedList.length);
-                // dogImage.src = imageBreedList[randomImageIndex];
-            }
-            catch (error) {
-                console.error(error);
-            }
-            return [2 /*return*/];
-        });
+                return [2 /*return*/];
+        }
     });
-}
+}); };
+start();

@@ -10,7 +10,7 @@ body{
 
 
 .container{
-
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
 }
 
 .nav{
@@ -69,6 +69,7 @@ body{
     border-radius: 25px;
     width: 600px;
     height: 650px;
+    cursor: pointer;
     
   }
 
@@ -85,12 +86,16 @@ body{
     width: 100%;
     height: 250px;
     border-radius: 0 0 25px 25px;
-
-   }
+     display: flex;
+     justify-content: center;
+     align-items: center;
+    }
 
 
   }
-    
+  .article{
+    font-size: 40px;
+   }
 
 }
 
