@@ -55,6 +55,7 @@ body {
   border-radius: 25px;
   width: 600px;
   height: 650px;
+  cursor: pointer;
 }
 .main__container__contimg1 {
   width: 600px;
@@ -65,4 +66,10 @@ body {
   width: 100%;
   height: 250px;
   border-radius: 0 0 25px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .article {
+  font-size: 40px;
 }
