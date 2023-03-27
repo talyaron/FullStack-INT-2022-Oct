@@ -34,28 +34,35 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function start() {
-    return __awaiter(this, void 0, void 0, function () {
-        var articleList;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, fetch("/api/v1/articles", {
-                        method: "GET",
-                        headers: {
-                            Accept: "application/json"
-                        }
-                    })
-                        .then(function (res) { return res.json(); })
-                        .then(function (data) {
-                        var articles = data.articles;
-                        return articles;
-                    })["catch"](function (err) { return console.error(err); })];
-                case 1:
-                    articleList = _a.sent();
-                    console.log(articleList);
-                    return [2 /*return*/];
-            }
-        });
+var _this = this;
+var newsContainer = document.querySelector(".newsContainer");
+var start = function () { return __awaiter(_this, void 0, void 0, function () {
+    var articleList;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, fetch("/api/v1/articles", {
+                    method: "GET",
+                    headers: {
+                        Accept: "application/json"
+                    }
+                })
+                    .then(function (res) { return res.json(); })
+                    .then(function (data) {
+                    var articles = data.articles;
+                    return articles;
+                })["catch"](function (err) { return console.error(err); })];
+            case 1:
+                articleList = _a.sent();
+                console.log(articleList);
+                articleList.forEach(function (article) {
+                    var articleDiv = document.createElement("div");
+                    articleDiv.classList.add("article");
+                    articleDiv.style.background = "url(" + article.imgURL + ") no-repeat center / cover";
+                    articleDiv.innerHTML = "<h3>" + article.title + "</h3>\n    <p>" + article.body + "</p>";
+                    newsContainer.append(articleDiv);
+                });
+                return [2 /*return*/];
+        }
     });
-}
+}); };
 start();

@@ -5,16 +5,14 @@ const ArticleSchema = new mongoose.Schema({
     type: String,
     required: [true, "must provide title"],
     trim: true,
-    maxlength: [20, "title cannot be more than 20 characters"],
   },
   body: {
     type: String,
     required: [true, "must provide body"],
     trim: true,
-    maxlength: [30, "body cannot be more than 20 characters"],
   },
-  imgURL:{
-    type:String,
+  imgURL: {
+    type: String,
     required: true,
   },
   posted: {
