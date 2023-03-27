@@ -34,17 +34,13 @@ function getArticels(index){
 function renderArticles(articles: news[], index){
 
    if(index <= 0){
-    const fImag = document.querySelector("#img0")as HTMLImageElement;
-    const fPar = document.querySelector("#petrusev")as HTMLParagraphElement;
-     fImag.style.display = "none";
-     fPar.style.display = "none";
-     const html = articles.map(news =>{
+        const html = articles.map(news =>{
         console.log(news.article)
-        // return `<h1 class="pNewName">${news.name[1]}</h1>
-        //         <p id="newNews">${news.article[1]}</p>`;
+        return `<h1 class="pNewName">${news.name}</h1>`
+            //    <p id="newNews">${news.article[1]}</p>`
  }).join(" ");
     
-      const usersElement = document.querySelector(".main__container__down");
+      const usersElement = document.querySelector(".newcont");
        if(usersElement){
         usersElement.innerHTML = html;
        }

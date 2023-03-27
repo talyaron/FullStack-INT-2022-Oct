@@ -21,16 +21,12 @@ function getArticels(index) {
 }
 function renderArticles(articles, index) {
     if (index <= 0) {
-        var fImag = document.querySelector("#img0");
-        var fPar = document.querySelector("#petrusev");
-        fImag.style.display = "none";
-        fPar.style.display = "none";
         var html = articles.map(function (news) {
             console.log(news.article);
-            // return `<h1 class="pNewName">${news.name[1]}</h1>
-            //         <p id="newNews">${news.article[1]}</p>`;
+            return "<h1 class=\"pNewName\">" + news.name + "</h1>";
+            //    <p id="newNews">${news.article[1]}</p>`
         }).join(" ");
-        var usersElement = document.querySelector(".main__container__down");
+        var usersElement = document.querySelector(".newcont");
         if (usersElement) {
             usersElement.innerHTML = html;
         }
