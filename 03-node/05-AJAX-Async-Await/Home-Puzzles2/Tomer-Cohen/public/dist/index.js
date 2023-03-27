@@ -34,10 +34,10 @@ function renderUsers(articles) {
             throw new Error("No users");
         var html = articles
             .map(function (articles) {
-            return "<div class=\"page__news__box\">\n            <h1>" + articles.name + "</h1>\n              <img src=\"" + articles.pic + "\" alt=\"user name is " + articles.name + "\">\n              <p>" + articles.content + "</p>\n              </div>";
+            return "<div class=\"page__news__box\">\n            <h1>" + articles.name + "</h1>\n              <img src=\"" + articles.pic + "\" alt=\"articles name is " + articles.name + "\">\n              <p>" + articles.content + "</p>\n              </div>";
         })
             .join(" ");
-        var usersElement = document.querySelector("#users");
+        var usersElement = document.querySelector("#articles");
         if (!usersElement)
             throw new Error("coundnt find users element on DOM");
         usersElement.innerHTML = html;
