@@ -113,14 +113,13 @@ function handleDeleteUser(uid: string) {
       },
       body: JSON.stringify({ uid }),
     })
-      .then((res) =>{
-        debugger;
-        return res.json()})
-      .then((data) => {
-        console.log(data);
-        // renderUsers(users);
+      .then((res) => res.json())
+      .then(({ users }) => {
+      
+      
+        renderUsers(users);
       })
-      .catch(error=>{
+      .catch((error) => {
         console.error(error);
       });
   } catch (error) {

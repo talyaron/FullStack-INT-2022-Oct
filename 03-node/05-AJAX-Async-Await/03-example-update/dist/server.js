@@ -12,6 +12,9 @@ var User = /** @class */ (function () {
         this.src = src;
         this.uid = uuidv4_1.uuid();
     }
+    User.prototype.getSimpleUser = function () {
+        return { uid: this.uid, name: this.name, src: this.src };
+    };
     return User;
 }());
 var users = [
@@ -71,16 +74,17 @@ app.patch("/api/update-user-name", function (req, res) {
         res.status(500).send({ error: error.message });
     }
 });
-app["delete"]('/api/delete-user', function (req, res) {
+app["delete"]("/api/delete-user", function (req, res) {
     try {
         var uid_2 = req.body.uid;
         if (!uid_2)
             throw new Error("no uid in data");
         var index = users.findIndex(function (user) { return user.uid === uid_2; });
         if (index === -1)
-            throw new Error("couldn find user in users, with ID " + uid_2);
+            throw new Error("couldnt find user in users, with ID " + uid_2);
         users.splice(index, 1);
-        res.status(204).send({ ok: true, users: users });
+        var _users = users.map(function (user) { return user.getSimpleUser(); });
+        res.send({ ok: true, users: _users });
     }
     catch (error) {
         console.error(error);

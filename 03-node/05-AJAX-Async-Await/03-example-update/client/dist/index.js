@@ -105,13 +105,10 @@ function handleDeleteUser(uid) {
             },
             body: JSON.stringify({ uid: uid })
         })
-            .then(function (res) {
-            debugger;
-            return res.json();
-        })
-            .then(function (data) {
-            console.log(data);
-            // renderUsers(users);
+            .then(function (res) { return res.json(); })
+            .then(function (_a) {
+            var users = _a.users;
+            renderUsers(users);
         })["catch"](function (error) {
             console.error(error);
         });
