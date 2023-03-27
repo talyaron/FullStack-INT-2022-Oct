@@ -72,13 +72,14 @@ app.post("/admin", function (req, res) {
         flag: "r"
     });
 });
-// app.post("/api/add-article", (req, res) => {
-//   const { tital, src, paregraph } = req.body;
-//   if (!tital || !src || !paregraph) {
-//     return res.status(400).json({ error: "Missing required fields" });
-//   }
-//   const newArticle = new Article(tital, src, paregraph);
-//   articles.push(newArticle);
-//   res.sendStatus(200);
-// });
+app.post("/api/add-article", function (req, res) {
+    var _a = req.body, title = _a.title, src = _a.src, paragraph = _a.paragraph;
+    console.log(req.body);
+    if (!title || !src || !paragraph) {
+        return res.status(400).json({ error: "Missing required fields" });
+    }
+    var newArticle = new Article(title, src, paragraph);
+    articles.push(newArticle);
+    res.status(200).send({ ok: true, articles: articles });
+});
 app.listen(3000, function () { console.log("server listening on port 3000"); });

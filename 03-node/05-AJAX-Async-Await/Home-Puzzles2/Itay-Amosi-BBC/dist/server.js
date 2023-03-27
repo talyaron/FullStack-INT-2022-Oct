@@ -4,6 +4,7 @@ var express_1 = require("express");
 var fs_1 = require("fs");
 var app = express_1["default"]();
 app.use(express_1["default"].static("./public"));
+app.use(express_1["default"].json());
 var Admin = /** @class */ (function () {
     function Admin(name, lastName, password) {
         this.name = name;
@@ -65,25 +66,20 @@ app.get("/admin", function (req, res) {
     });
     res.send(admin);
 });
-// app.post(`/admin`, (req, res) => {
-//       fs.readFileSync("./public/admin.html", {
-//       encoding: "utf8",
-//       flag: "r",
-//     });
-// });
-app.post('/api/add-articles', function (req, res) {
-    try {
-        var data = req.body;
-        var tital = data.tital, src = data.src, paregraph = data.paregraph;
-        if (!tital || !src || !paregraph)
-            throw new Error("no found tital/src/paregraph");
-        articles.push(new Article(tital, src, paregraph));
-        res.send({ articles: articles });
-        res.status(201).send({ succuss: true, articles: articles });
+app.post("/admin", function (req, res) {
+    fs_1["default"].readFileSync("./public/admin.html", {
+        encoding: "utf8",
+        flag: "r"
+    });
+});
+app.post("/api/add-article", function (req, res) {
+    var _a = req.body, title = _a.title, src = _a.src, paragraph = _a.paragraph;
+    console.log(req.body);
+    if (!title || !src || !paragraph) {
+        return res.status(400).json({ error: "Missing required fields" });
     }
-    catch (error) {
-        console.error(error);
-        res.status(500).send({ error: error.message });
-    }
+    var newArticle = new Article(title, src, paragraph);
+    articles.push(newArticle);
+    res.status(200).send({ ok: true, articles: articles });
 });
 app.listen(3000, function () { console.log("server listening on port 3000"); });
