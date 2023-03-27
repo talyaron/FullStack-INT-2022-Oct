@@ -18,10 +18,11 @@ body {
       img {
         width: 500px;
         height: 300px;
+        object-fit: cover;
       }
     }
     &__box {
-      background-color: #521111;
+      background-color: #0004ff;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
       margin-bottom: 20px;
@@ -97,4 +98,9 @@ body {
     margin-left: 10px;
     color: white;
   }
+}
+
+
+#articles{
+  display: flex;
 }

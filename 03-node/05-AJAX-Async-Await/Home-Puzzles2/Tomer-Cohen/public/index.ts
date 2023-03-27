@@ -33,12 +33,12 @@ class Article{
         .map((articles) => {
           return `<div class="page__news__box">
             <h1>${articles.name}</h1>
-              <img src="${articles.pic}" alt="user name is ${articles.name}">
+              <img src="${articles.pic}" alt="articles name is ${articles.name}">
               <p>${articles.content}</p>
               </div>`;
         })
         .join(" ");
-      const usersElement = document.querySelector("#users");
+      const usersElement = document.querySelector("#articles");
       if (!usersElement) throw new Error("coundnt find users element on DOM");
   
       usersElement.innerHTML = html;

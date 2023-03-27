@@ -2,6 +2,7 @@
 exports.__esModule = true;
 var express_1 = require("express");
 var path_1 = require("path");
+// import v4 from 'uuid';
 var module_1 = require("./public/module");
 var PORT = 3000;
 var app = express_1["default"]();

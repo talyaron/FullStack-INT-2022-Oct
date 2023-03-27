@@ -2,10 +2,9 @@ import express from "express";
 
 const app = express();
 
-//to be able to get data from client add this line
 app.use(express.json());
 
-//data
+
 class Article{
     constructor(
         public name: string,
@@ -18,9 +17,7 @@ articles.push(new Article('World Cup','15,000 dead for 5760 minutes of football.
 articles.push(new Article('disgrace','Iran players decline to sing national anthem','https://ichef.bbc.co.uk/wwhp/304/cpsprodpb/11D8F/production/_127730137_cc9b297c676b631c5964fe023542e959cf848ccf.jpg'))
 articles.push(new Article('Indonesia','quake kills 162 and injures hundreds','https://ichef.bbc.co.uk/wwhp/624/cpsprodpb/14F3F/production/_127732858_javaearthquake-index2-reuters.jpg'))
 
-//data route
 
-//get (from server)
 app.get("/api/get-articles", (req, res) => {
   try {
     res.send({ articles });
@@ -30,21 +27,7 @@ app.get("/api/get-articles", (req, res) => {
   }
 });
 
-//add
-// app.post("/api/add-articles", (req, res) => {
-//   try {
-//     const data = req.body;
-//     console.log(data);
-//     users.push(data);
-//     res.status(201).send({ ok: true });
 
-//   } catch (error: any) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// });
-
-//static file
 app.use(express.static("./public"));
 
 app.listen(3000, () => {
