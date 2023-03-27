@@ -1,0 +1,22 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: lightgoldenrodyellow;
+}
+body h2, body a {
+  text-decoration: none;
+  font-size: 30px;
+}
+body form {
+  width: 100vh;
+  font-size: 26px;
+}
+body label, body input {
+  color: rgb(15, 187, 187);
+  padding: 6px 10px;
+}
+body .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

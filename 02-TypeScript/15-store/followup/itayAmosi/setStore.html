@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store - set product</title>
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+
+</head>
+
+<body>
+    <h1>Add a Product</h1>
+    <div class="setProduct">
+
+        <a href="./index.html">Store</a>
+        <form onsubmit="handleAddItem(event)">
+        <input type="text" name="name" placeholder="name" required>
+        <input type="text" name="price" placeholder="price" required>
+        <select name="type">
+            <option value="Pants">Pants</option>
+            <option value="T-shirt">T-shirt</option>
+            <option value="Dress">Dress</option>
+            <option value="Underwear">Underwear</option>
+        </select>
+        <input type="number" name="size" placeholder="size" required>
+        <input type="text" name="serial" placeholder="serial" required>
+        <input type="submit" value="ADD"></form>
+    </div>
+</body>
+
+</html>

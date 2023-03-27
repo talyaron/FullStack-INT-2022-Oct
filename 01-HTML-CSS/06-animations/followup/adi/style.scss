@@ -1,0 +1,48 @@
+*{
+    margin: 0px;
+    padding: 0px;
+
+}  
+
+.main{
+    background-color: aqua;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    animation-name: ball;
+    margin: auto;
+    margin-top: 40px;
+    animation-duration: 2s;
+    position: relative;
+}
+
+
+@keyframes ball {
+    
+    0%{
+        background-color: red;
+        top:0;
+        left: 20px;
+    }
+
+    50%{
+        background-color: green;
+        top:100px;
+        left: 0px;
+    }
+
+    100%{
+        background-color: purple;
+        top:200px;
+        left: -100px;
+    }
+
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <link rel="icon" href="./photos/cart.png">
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/admin.js" defer></script>
+    <script src="https://kit.fontawesome.com/6cf7873aa7.js" crossorigin="anonymous" defer></script>
+</head>
+<body>
+    <a href="./store.html"><button>To store</button></a>
+    <div style="display: flex; align-items: center; width: 100vw; justify-content: center;">
+        <form id="theForm">
+            <input type="text" name="name" placeholder="Name Of product" required>
+            <select name="type">
+                <option value="Hat">Hat</option>
+                <option value="Pants">Pants</option>
+                <option value="Shirt">Shirt</option>
+            </select>
+            <input type="number" name="price" placeholder="Price" required>
+            <select name="size">
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+            </select>
+            <input type="color" name="color">
+            <input type="text" name="img" placeholder="Image URL (Optional)">
+            <input type="submit" value="Add" class="submit">
+        </form>
+    </div>
+    <div class="test" style="padding-bottom: 50px; min-height: 95vh;"></div>
+    <div class="footer"></div>
+</body>
+</html>

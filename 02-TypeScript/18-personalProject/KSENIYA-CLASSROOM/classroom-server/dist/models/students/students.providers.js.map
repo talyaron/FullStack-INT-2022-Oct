@@ -1,0 +1,1 @@
+{"version":3,"file":"students.providers.js","sourceRoot":"","sources":["../../../src/models/students/students.providers.ts"],"names":[],"mappings":";;;AACA,8DAAoD;AAGpD,sDAAyD;AACzD,mEAAyD;AAE5C,QAAA,gBAAgB,GAAG;IAC9B;QACE,OAAO,EAAE,mBAAO;QAChB,QAAQ,EAAE,wBAAO;KAClB;IACD;QACE,OAAO,EAAE,iBAAK;QACd,QAAQ,EAAE,oBAAK;KAChB;CACF,CAAC"}

@@ -1,0 +1,365 @@
+body {
+  margin: 0;
+  width: vw;
+  height: vh;
+}
+
+.maze {
+  background-image: url("https://www.grid-paint.com/images/png/5099824051388416.png");
+  background-size: cover;
+  border: 1em solid #333;
+  width: 45em;
+  height: 45em;
+}
+
+.pacman {
+  background: rgb(0, 0, 0);
+  border-radius: 2em;
+  width: 2em;
+  height: 2em;
+  margin: 0%;
+  position: relative;
+  top: 2.5em;
+  left: 2.5em;
+  z-index: 1;
+  display: block;
+  animation: bite 0.4s linear infinite, slide_right_1 1s linear 1, turn_downwards_1 0.1s linear 0.9s 1, slide_down_1 5s linear 0.9s 1, slide_right_2 1s linear 5.9s 1, turn_downwards_2 0.1s linear 6.9s 1, slide_down_2 1s linear 6.9s, slide_right_3 1s linear 7.9s 1, disappear 4s linear 8.3s 1;
+}
+
+@keyframes bite {
+  0% {
+    background-image: linear-gradient(220deg, transparent 50%, yellow 50%), linear-gradient(140deg, yellow 50%, transparent 50%);
+  }
+  50% {
+    background-image: linear-gradient(200deg, transparent 50%, yellow 50%), linear-gradient(160deg, yellow 50%, transparent 50%);
+  }
+  100% {
+    background-image: linear-gradient(180deg, transparent 50%, yellow 50%), linear-gradient(180deg, yellow 50%, transparent 50%);
+  }
+}
+@keyframes slide_right_1 {
+  0% {
+    top: 2.5em;
+    left: 2.5em;
+  }
+  99% {
+    top: 2.5em;
+    left: 9.7em;
+  }
+  100% {
+    top: 2.5em;
+    left: 9.7em;
+  }
+}
+@keyframes turn_downwards_1 {
+  100% {
+    transform: rotate(90deg);
+  }
+}
+@keyframes slide_down_1 {
+  0% {
+    top: 2.5em;
+    left: 9.7em;
+    transform: rotate(90deg);
+  }
+  99% {
+    top: 31em;
+    left: 9.7em;
+    transform: rotate(90deg);
+  }
+  100% {
+    top: 31em;
+    left: 9.7em;
+  }
+}
+@keyframes slide_right_2 {
+  0% {
+    top: 31em;
+    left: 9.7em;
+  }
+  99% {
+    top: 31em;
+    left: 19em;
+  }
+  100% {
+    top: 31em;
+    left: 19em;
+  }
+}
+@keyframes turn_downwards_2 {
+  100% {
+    transform: rotate(90deg);
+  }
+}
+@keyframes slide_down_2 {
+  0% {
+    top: 31em;
+    left: 19em;
+    transform: rotate(90deg);
+  }
+  99% {
+    top: 35.7em;
+    left: 19em;
+    transform: rotate(90deg);
+  }
+  100% {
+    top: 35.7em;
+    left: 19em;
+  }
+}
+@keyframes slide_right_3 {
+  0% {
+    top: 35.7em;
+    left: 19em;
+  }
+  99% {
+    top: 35.7em;
+    left: 32em;
+  }
+  100% {
+    top: 35.7em;
+    left: 32em;
+  }
+}
+@keyframes disappear {
+  0% {
+    top: 35.7em;
+    left: 25em;
+    opacity: 1;
+  }
+  30% {
+    top: 35.7em;
+    left: 25em;
+    opacity: 0.5;
+  }
+  60% {
+    top: 35.7em;
+    left: 25em;
+    opacity: 0;
+  }
+  100% {
+    top: 35.7em;
+    left: 25em;
+    opacity: 0;
+  }
+}
+.ghost_1 {
+  background-image: url("http://www.clipartbest.com/cliparts/dT6/ayB/dT6ayBxpc.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 2em;
+  height: 2em;
+  margin: 0%;
+  position: relative;
+  z-index: 1;
+  display: block;
+  animation: ghost_1 1.5s linear infinite;
+}
+
+@keyframes ghost_1 {
+  0% {
+    top: 33.7em;
+    left: 32em;
+  }
+  50% {
+    top: 33.7em;
+    left: 25em;
+  }
+  100% {
+    top: 33.7em;
+    left: 32em;
+  }
+}
+.ghost_2 {
+  background-image: url("http://www.clipartbest.com/cliparts/dT6/ayB/dT6ayBxpc.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 2em;
+  height: 2em;
+  margin: 0%;
+  position: relative;
+  bottom: 1.5em;
+  left: 19em;
+  z-index: 1;
+  display: block;
+  animation: ghost_2 10s linear 1;
+}
+
+@keyframes ghost_2 {
+  0% {
+    bottom: 1.5em;
+    left: 19em;
+  }
+  15% {
+    bottom: 1.5em;
+    left: 9.5em;
+  }
+  65% {
+    bottom: -27em;
+    left: 9.5em;
+  }
+  80% {
+    bottom: -27em;
+    left: 19em;
+  }
+  85% {
+    bottom: -30em;
+    left: 19em;
+  }
+  100% {
+    bottom: -30em;
+    left: 19em;
+  }
+}
+.food_array {
+  position: relative;
+  bottom: 4em;
+  right: -2em;
+  height: 40em;
+  width: 40em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.food_array .food {
+  background: rgb(255, 255, 255);
+  border-radius: 0.5em;
+  width: 0.5em;
+  height: 0.5em;
+  margin: 1.1em 0.8em 1em 0.6em;
+  z-index: 1;
+}
+.food_array .no_food {
+  opacity: 0;
+}
+.food_array .gone_1 {
+  animation: eat 0s linear 0.1s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_2 {
+  animation: eat 0s linear 0.4s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_3 {
+  animation: eat 0s linear 0.6s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_4 {
+  animation: eat 0s linear 1s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_5 {
+  animation: eat 0s linear 1.4s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_6 {
+  animation: eat 0s linear 1.8s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_7 {
+  animation: eat 0s linear 2.2s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_8 {
+  animation: eat 0s linear 2.6s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_9 {
+  animation: eat 0s linear 3s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_10 {
+  animation: eat 0s linear 3.4s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_11 {
+  animation: eat 0s linear 3.8s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_12 {
+  animation: eat 0s linear 4.2s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_13 {
+  animation: eat 0s linear 4.6s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_14 {
+  animation: eat 0s linear 5s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_15 {
+  animation: eat 0s linear 5.4s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_16 {
+  animation: eat 0s linear 6s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_17 {
+  animation: eat 0s linear 6.2s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_18 {
+  animation: eat 0s linear 6.4s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_19 {
+  animation: eat 0s linear 6.6s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_20 {
+  animation: eat 0s linear 6.8s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_21 {
+  animation: eat 0s linear 7.4s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_22 {
+  animation: eat 0s linear 7.8s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_23 {
+  animation: eat 0s linear 8s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_24 {
+  animation: eat 0s linear 8.2s 1;
+  animation-fill-mode: forwards;
+}
+.food_array .gone_25 {
+  animation: eat 0s linear 8.4s 1;
+  animation-fill-mode: forwards;
+}
+@keyframes eat {
+  100% {
+    opacity: 0;
+  }
+}
+
+.game_over {
+  background-image: url("https://media.istockphoto.com/id/1325433246/video/game-over-text-animation-with-alpha-channel-4k.jpg?s=640x640&k=20&c=aZM_cNmjuXVVkLm12evzXTU0qFhAu3Vh2_2W_h-eq3c=");
+  background-size: cover;
+  width: 42em;
+  height: 20em;
+  opacity: 0;
+  animation: game_over 20s linear 10s 1;
+  position: relative;
+  top: -45em;
+  left: 1.5em;
+  z-index: 1;
+}
+
+@keyframes game_over {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=pacman.css.map */

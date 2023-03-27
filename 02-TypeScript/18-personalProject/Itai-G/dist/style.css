@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://blog.sklambert.com/wp-content/uploads/2012/09/bg.png");
+}
+body #head {
+  position: absolute;
+  top: 1rem;
+  color: blue;
+}
+
+#canvas {
+  border: 5px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 0;
+}
+
+h1 {
+  color: red;
+  font-family: sans-serif;
+  font-size: 4rem;
+  position: absolute;
+  bottom: 1rem;
+}
+
+#player1Score {
+  left: 2rem;
+}
+
+#player2Score {
+  right: 4rem;
+}
+
+.endGame {
+  color: red;
+  position: absolute;
+  background-color: darkgreen;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10rem;
+}
+
+#bigAd {
+  position: absolute;
+  background-color: green;
+  display: none;
+}
+
+#bigAdComputer {
+  position: absolute;
+  display: none;
+}
+
+#resetBtn {
+  position: absolute;
+  align-items: center;
+  bottom: 1vh;
+  color: red;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  background-color: blue;
+  color: white;
+  font-size: 16px;
+}

@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100px;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+  color: white;
+}

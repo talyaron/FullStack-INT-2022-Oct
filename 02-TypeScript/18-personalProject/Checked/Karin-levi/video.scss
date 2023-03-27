@@ -1,0 +1,94 @@
+body{
+    background-color: rgba(0, 0, 0, 0.859);
+
+    .videoWrapper{
+        height: 500px;
+        width: 800px;
+        margin: auto;
+    
+        &__mainVideo{
+            height: 500px;
+            width: 800px;
+
+            iframe{
+                height: 100%;
+                width: 100%;
+            }
+        }
+
+        &__videoName{
+            height:50px;
+            width: 790px;
+            background-color: white;
+            font-weight:bolder;
+            font-size:xx-large;
+            padding-top: 10px;
+            padding-left: 10px;
+        }
+
+        &__videoViews{
+            height: 30px;
+            width: 790px;
+            background-color: white;
+            font-weight:bolder;
+            font-size:large;
+            padding-top: 10px;
+            padding-left: 10px;
+            
+        }
+
+        &__videoLikes{
+            height: 50px;
+            width: 790px;
+            background-color: rgba(255, 255, 255, 0.993);
+            font-weight:bolder;
+            font-size:large;
+            padding-top: 10px;
+            padding-left: 10px;
+            
+        }
+
+        &__reviewsDetails{
+            height: 100px;
+            width: 800px;
+            background-color: rgba(255, 255, 255, 0.967);
+            display: flex;
+            
+
+            &__userImgReviews{
+                height: 50px;
+                width: 790px;
+                // background-color: rgb(255, 255, 255);
+                padding-left: 10px;
+    
+                img{
+                    height: 50px;
+                    width: 80px;
+                    border-radius: 50%;
+                }
+    
+            }
+
+            &__userNameReviews{
+                height: 20px;
+                width: 790px;
+                color: rgb(13, 69, 36);
+                font-size:x-large;
+                font-weight: bold;
+                padding-top: 10px;
+                
+            }
+
+            &__videoReviews{
+                height: 20px;
+                width: 790px;
+                font-size:x-large;
+                padding-top: 10px;
+                padding-left: 10px;
+                font-style:italic;
+            }
+
+        }
+
+    }
+}

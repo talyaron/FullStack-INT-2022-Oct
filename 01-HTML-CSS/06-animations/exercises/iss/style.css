@@ -1,0 +1,63 @@
+.circle {
+  background-color: rgb(134, 7, 7);
+  width: 200px;
+  height: 200px;
+  display: grid;
+  position: relative;
+  -webkit-animation-name: iss;
+          animation-name: iss;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  grid-template-columns: 1fr 1fr;
+}
+
+.in-circle {
+  background-color: yellow;
+  border-radius: 100%;
+  width: 90%;
+  height: 90%;
+  margin: auto;
+}
+
+@-webkit-keyframes iss {
+  0% {
+    top: 0px;
+    grid-gap: 0px;
+    border-radius: 20%;
+  }
+  50% {
+    top: 20px;
+    grid-gap: 100px;
+    border-radius: 100%;
+  }
+  100% {
+    top: 0px;
+    grid-gap: 0px;
+    border-radius: 20%;
+  }
+}
+
+@keyframes iss {
+  0% {
+    top: 0px;
+    grid-gap: 0px;
+    border-radius: 20%;
+  }
+  50% {
+    top: 20px;
+    grid-gap: 100px;
+    border-radius: 100%;
+  }
+  100% {
+    top: 0px;
+    grid-gap: 0px;
+    border-radius: 20%;
+  }
+}
+.test {
+  font-weight: 400;
+}

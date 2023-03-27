@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/nba.css">
+    <script src="https://kit.fontawesome.com/0fcd7efe49.js" crossorigin="anonymous"></script>
+    <title>NBA.com</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navBar">
+            <div class="navBar__topics">
+                <div class="navBar__topics__logo"></div>
+                <div class="navBar__topics__topic">Games</div>
+                <div class="navBar__topics__topic">Schedule</div>
+                <div class="navBar__topics__topic">Watch</div>
+                <div class="navBar__topics__topic">News</div>
+                <div class="navBar__topics__topic">Stats</div>
+                <div class="navBar__topics__topic">Standings</div>
+                <div class="navBar__topics__topic">Teams</div>
+                <div class="navBar__topics__topic">Players</div>
+                <div class="navBar__topics__topic">Fantasy</div>
+                <div class="navBar__topics__topic">NBABet</div>
+            </div>
+            <div class="navBar__sales">
+                <div class="navBar__sales__topic">League Pass</div>
+                <div class="navBar__sales__topic">Store</div>
+                <div class="navBar__sales__topic">Tickets</div>
+                <div class="navBar__sales__topic"><i class="fa-solid fa-table-cells"></i></div>
+                <div class="navBar__sales__topic">Sign In</div>
+            </div>
+        </div>
+        
+        <div class="main">  
+            <div class="main__article main__article--luka">
+                <div class="main__article__data">
+                    <div class="main__article__data__headline">Luka Doncic</div>
+                    <div class="main__article__data__personal">
+                        <div>Date of birth: February 28, 1999</div>    
+                        <div>Nationality: Slovenian</div>    
+                        <div>Club: Dallas Mavericks</div>   
+                        <div>Height: 2.01 meters</div>    
+                        <div>Jersey number: 77</div>
+                    </div>    
+                    <button type= "button" onclick= "luka()" class="main__article__data__link">
+                        For more data click here
+                    </button>
+                </div>
+            </div>
+            <div class="main__article main__article--ja">
+                <div class="main__article__data main__article--ja__data">
+                    <div class="main__article__data__headline">Ja Morant</div>
+                    <div class="main__article__data__personal">
+                        <div>Date of birth: August 10, 1999</div>    
+                        <div>Nationality: American</div>    
+                        <div>Club: Memphis Grizzlies</div>   
+                        <div>Height: 1.88 meters</div>    
+                        <div>Jersey number: 12</div>
+                    </div>    
+                    <button type= "button" onclick= "ja()" class="main__article__data__link">
+                        For more data click here
+                    </button>
+                </div>    
+            </div>
+            <div class="main__article main__article--giannis">
+                <div class="main__article__data main__article--giannis__data">
+                    <div class="main__article__data__headline">Giannis Antetokounmpo</div>
+                    <div class="main__article__data__personal">
+                        <div>Date of birth: December 6, 1994</div>    
+                        <div>Nationality: Greek-Nigerian</div>    
+                        <div>Club: Milwaukee Bucks</div>   
+                        <div>Height: 2.13 meters</div>    
+                        <div>Jersey number: 34</div>
+                    </div>    
+                    <button type= "button" onclick= "giannis()" class="main__article__data__link">
+                        For more data click here
+                    </button>
+                </div>    
+            </div>
+            <div class="main__article main__article--deni">
+                <div class="main__article__data main__article--deni__data">
+                    <div class="main__article__data__headline">Deni Avdija</div>
+                    <div class="main__article__data__personal">
+                        <div>Date of birth: January 3, 2001</div>    
+                        <div>Nationality: Israeli-Serbian</div>    
+                        <div>Club: Washingtion Wizards</div>   
+                        <div>Height: 2.06 meters</div>    
+                        <div>Jersey number: 9</div>
+                    </div>    
+                    <button type= "button" onclick= "deni()" class="main__article__data__link">
+                        For more data click here
+                    </button>
+                </div>    
+            </div>
+            <div class="main__playersBar">      
+                <div class="main__playersBar__player">
+                    <span>Luka Dončić</span>      
+                    <div class="main__playersBar__player__lapseBar">
+                        <div class="main__playersBar__player__lapseBar__progress main__playersBar__player__lapseBar__progress--luka"></div>
+                    </div>   
+                </div>
+                <div class="main__playersBar__player">
+                    <span>Ja Morant</span>
+                    <div class="main__playersBar__player__lapseBar">
+                        <div class="main__playersBar__player__lapseBar__progress main__playersBar__player__lapseBar__progress--ja"></div>
+                    </div>
+                </div>
+                <div class="main__playersBar__player">
+                    <span>Giannis Antetokounmpo</span>
+                    <div class="main__playersBar__player__lapseBar">
+                        <div class="main__playersBar__player__lapseBar__progress main__playersBar__player__lapseBar__progress--giannis"></div>        
+                    </div>
+                </div>
+                <div class="main__playersBar__player">
+                    <span>Deni Avdija</span>
+                    <div class="main__playersBar__player__lapseBar">
+                        <div class="main__playersBar__player__lapseBar__progress main__playersBar__player__lapseBar__progress--deni"></div>        
+                    </div>
+                </div>
+            </div>      
+        </div>
+    </div>    
+</body>
+
+<script>
+    function luka(){
+        window.open("https://en.wikipedia.org/wiki/Luka_Don%C4%8Di%C4%87")
+    }
+    function ja(){
+        window.open("https://en.wikipedia.org/wiki/Ja_Morant")
+    }
+    function giannis(){
+        window.open("https://en.wikipedia.org/wiki/Giannis_Antetokounmpo")
+    }
+    function deni(){
+        window.open("https://en.wikipedia.org/wiki/Deni_Avdija")
+    }
+
+
+</script>
+
+</html>

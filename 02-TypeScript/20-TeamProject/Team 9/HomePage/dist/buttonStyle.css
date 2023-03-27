@@ -1,0 +1,27 @@
+#logoutBtn, #incomeButton, #expenseButton {
+  box-shadow: none;
+  width: 100px;
+  height: 35px;
+  transition: 500ms;
+  backface-visibility: hidden;
+  margin-top: 10px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  background: linear-gradient(180deg, #f9f9f9 0%, #e0e0e0 100%);
+  border-radius: 50px;
+  padding: 4px 22px 5px 22px;
+  margin: 10px;
+  color: black;
+  font-size: 18px;
+  border: 1px solid #3C84AB;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+#logoutBtn:hover, #incomeButton:hover, #expenseButton:hover {
+  background: #85CDFD;
+  border: 1px solid white;
+}

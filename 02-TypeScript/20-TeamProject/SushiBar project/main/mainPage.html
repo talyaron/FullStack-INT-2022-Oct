@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="../images/favicon (2).ico" type="image/x-icon" />
+  <title>SushiBar-Home</title>
+  <link rel="stylesheet" href="./dist/mainPage.css" />
+  <script src="../admin/dist/views.js" defer></script>
+  <script src="../customer/dist/control.js" defer></script>
+  <script src="../admin/dist/models.js" defer></script>
+  <script src="../admin/dist/admin.js" defer></script>
+  <script src="./dist/view.js" defer></script>
+  <script src="./dist/control.js" defer></script>
+</head>
+
+<body>
+  <div class="logo">
+    <img src="../images/logo.png" alt="logo-img" onclick="goToHomePage()" />
+    <a id="link_to_home_page" href="../main/mainPage.html"></a>
+    <h1>SUSHI BAR</h1>
+  </div>
+  <h1>WELCOME | いらっしゃいませ</h1>
+  <img id="option_img" src="../images/option-img.png" onclick="showOption()" />
+  <div class="more-page">
+    <a href="../restaurant/restaurant.html">Restaurants</a> <br />
+    <br />
+    <a href="../contact-us/contactUs.html">Contact us</a> <br />
+    <br />
+    <a href="../login/adminLogInPage.html">Admin</a>
+    <img src="../images/close-img.png" alt="colse-img" onclick="closeOption()" />
+  </div>
+  <hr />
+  <div class="order">
+    <img src="../images/sushis-img.png" id="img_up" alt="sushi-img" />
+    <button class="customer_btn" onclick="goToCstmrPage()">New Order</button>
+    <img src="../images/sushis-img.png" id="img_down" alt="sushi-img" />
+    <a id="link_to_customer_page" href="../customer/index.html"></a>
+  </div>
+</body>
+
+</html>

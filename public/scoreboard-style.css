@@ -1,0 +1,25 @@
+body {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmJfT6IuuG7TYPUVKMYeg89PC4ZR83OS03sq_aM5Ux-xMo3rVzuCY256NtrJOD7yIhOHg&usqp=CAU);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 70vw;
+}
+
+.conteiner {
+  width: 450px;
+  height: 350px;
+  border: 2px solid red;
+  background-color: black;
+  color: gold;
+  margin-left: 150px;
+}
+
+h1, h2 {
+  color: black;
+}
+
+h3 {
+  color: black;
+}/*# sourceMappingURL=scoreboard-style.css.map */

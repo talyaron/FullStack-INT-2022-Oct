@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  background: red;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 3px 3px 3px 3px #000;
+}
+.header__titles:hover {
+  background: rgb(133, 0, 0);
+  padding: 3px;
+}
+.header img {
+  width: 50px;
+  height: 50px;
+}
+.header__titles {
+  margin-left: 50px;
+  font-size: 30px;
+  color: white;
+}
+.header__titles a {
+  text-decoration: none;
+  color: white;
+}
+.header .menu {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  align-content: space-between;
+  position: relative;
+  right: -550px;
+  box-sizing: border-box;
+}
+.header .submenu {
+  display: none;
+  -webkit-animation: popout 0.3s ease-in-out forwards;
+          animation: popout 0.3s ease-in-out forwards;
+  transform-origin: top center;
+}
+@-webkit-keyframes popout {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes popout {
+  0% {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.header .menu:hover .submenu {
+  display: inline-flex;
+  justify-content: center;
+  position: absolute;
+  background: rgb(102, 102, 102);
+  z-index: 1;
+  top: 20px;
+  width: 110px;
+  box-sizing: border-box;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 3px 3px 10px 3px #000;
+}
+.header .insubmenu {
+  transition: all 0.3s ease-in-out;
+}
+.header .insubmenu a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+.header .insubmenu hr {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+.header .menu button {
+  cursor: pointer;
+  position: absolute;
+  font-size: 25px;
+  color: rgb(255, 255, 255);
+  background-color: transparent;
+  border-radius: 15px;
+  border: 3px solid white;
+  width: 110px;
+}
+.header .menu i {
+  position: absolute;
+  font-size: 15px;
+  right: -25px;
+  z-index: 1;
+  color: white;
+}
+.header .search {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.header .search input {
+  position: absolute;
+  right: -780px;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: width 0.4s ease-in-out;
+  background: red;
+  border: 1px solid white;
+}
+.header .search input:focus {
+  color: white;
+  font-size: 20px;
+}
+.header .search i {
+  position: absolute;
+  font-size: 30px;
+  right: -770px;
+  color: white;
+}

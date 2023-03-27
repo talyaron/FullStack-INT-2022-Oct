@@ -1,0 +1,133 @@
+body {
+    background: linear-gradient(45deg, #FC466B, #3F5EFB);
+    height: 100vh;
+    font-family: arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container {
+    position: relative;
+  }
+  form {
+    background: rgba(255, 255, 255, .3);
+    padding: 3rem;
+    height: 320px;
+    border-radius: 20px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, .2);
+    text-align: center;
+  }
+  p {
+    color: white;
+    font-weight: 600;
+    opacity: .7;
+    font-size: 1.4rem;
+    margin-bottom: 60px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+  }
+    
+  a,button {
+
+    text-decoration: none;
+    color: #ddd;
+    font-size: 19px;
+    background-color: #7c76ea;
+    padding: 14px 25px;
+    text-align: center; 
+    display: inline-block;
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
+
+  }
+  
+  a:hover ,button:hover {
+    box-shadow: #b756a3;
+    text-shadow: 2px 2px 6px #00000040;
+
+  }
+  
+  a:active , button:active {
+    text-shadow: none;
+  }
+
+  input {
+    background: transparent;
+    border: none;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    padding: 1rem;
+    width: 350px;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    -moz-backdrop-filter: blur(5px);
+    box-shadow: 4px 4px 60px rgba(0, 0, 0, .2);
+    color: white;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+    transition: all .3s;
+    margin-bottom: 2em;
+  }
+
+  input:hover,
+input[type="name"]:focus,
+input[type="nickname"]:focus{
+  background: rgba(255,255,255,0.1);
+  box-shadow: 4px 4px 60px 8px rgba(0,0,0,0.2);
+}
+    
+input[type="button"] {
+  margin-top: 10px;
+  width: 250px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+::placeholder {
+  color: #fff;
+}
+
+.drop {
+    background: rgba(255, 255, 255, .3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border-left: 1px solid rgba(255, 255, 255, .3);
+    border-top: 1px solid rgba(255, 255, 255, .3);
+    box-shadow: 10px 10px 60px -8px rgba(0,0,0,0.2);
+    position: absolute;
+    transition: all 0.2s ease;
+  }
+
+  .drop-1 {
+    height: 80px; width: 80px;
+    top: -20px; left: -40px;
+    z-index: -1;
+  }
+  
+  .drop-2 {
+    height: 80px; width: 80px;
+    bottom: -30px; right: -10px;
+  }
+  
+  .drop-3 {
+    height: 100px; width: 100px;
+    bottom: 120px; right: -50px;
+    z-index: -1;
+  }
+  
+  .drop-4 {
+    height: 120px; width: 120px;
+    top: -60px; right: -60px;
+  }
+  
+  .drop-5 {
+    height: 60px; width: 60px;
+    bottom: 170px; left: 90px;
+    z-index: -1;
+  }

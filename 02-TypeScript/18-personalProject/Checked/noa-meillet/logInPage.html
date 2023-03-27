@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Club Cards- Log In</title>
+    <link rel="shortcut icon" href="./image/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./dist/logIn.css" />
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/logIn.js" defer></script>
+  </head>
+  <body>
+    <div class="nav_bar">
+      <img src="https://cdn-icons-png.flaticon.com/512/1240/1240419.png" alt="logo-img">
+      <h2>Member Card Wallet</h2>
+      <img src="https://cdn-icons-png.flaticon.com/512/1240/1240419.png" alt="logo-img">
+    </div>
+    <div class="form">
+      <form class="form__log_in" onsubmit="goToUserProfile(event)">
+        <h3>Log In</h3>
+        <input
+          type="text"
+          name="userId"
+          class="input"
+          placeholder="Enter your ID number"
+          required
+        />
+        <br />
+        <input
+          type="password"
+          name="userPassword"
+          class="input"
+          placeholder="Enter your password"
+          required
+        />
+        <br />
+        <input type="submit" id="log_in_btn" value="Log in" />
+        <a id="link_to_main" href="./index.html"></a>
+        <div id="add_user">
+          <h4>Don't have an account? Sign in here!</h4>
+          <button onclick="btnAdd()"><img src="./image/add.png" alt="add"></button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

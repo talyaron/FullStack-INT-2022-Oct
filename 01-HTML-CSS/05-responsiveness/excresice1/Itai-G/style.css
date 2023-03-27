@@ -1,0 +1,14 @@
+body {
+  margin: 0%;
+}
+
+.box {
+  height: 50vh;
+  border: 15px solid green;
+  padding: 50px;
+  background-color: blue;
+}
+.box img {
+  width: 50%;
+  height: 50%;
+}

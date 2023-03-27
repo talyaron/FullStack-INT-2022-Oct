@@ -1,0 +1,31 @@
+#newC {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+}
+#newC #newCform {
+  margin: 150px 0px;
+}
+#newC #newCform label {
+  color: rgb(242, 14, 212);
+  font-size: 24px;
+}
+#newC #newCform label, #newC #newCform input {
+  padding: 10px 15px;
+  margin: 10px 0px;
+  outline: none;
+}
+#newC #newCform input {
+  color: aqua;
+  background-color: black;
+  font-size: 22px;
+  border-bottom: 3px solid rgb(242, 14, 212);
+  border-radius: 12% 12%;
+}
+#newC #newCform button {
+  margin-right: 200px;
+  background-color: aqua;
+  color: rgb(242, 14, 212);
+  font-size: 20px;
+  outline: none;
+}/*# sourceMappingURL=newc.css.map */

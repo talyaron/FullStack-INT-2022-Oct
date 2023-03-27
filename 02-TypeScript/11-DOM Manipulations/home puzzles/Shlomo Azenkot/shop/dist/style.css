@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
+body {
+  background-color: black;
+  margin-left: 100px;
+}
+
+.inputWraps {
+  text-align: center;
+  position: relative;
+}
+.inputWraps input {
+  text-align: center;
+  font-size: 25px;
+  border-radius: 10px;
+  background-color: #aeaeae;
+  border: 2px white solid;
+  font-weight: bold;
+}
+
+h1 {
+  border: none;
+  font-size: 45px;
+  text-align: center;
+  color: #f7b3b3;
+  font-family: "Lilita One", cursive;
+}
+
+.userName {
+  border: none;
+  font-size: 45px;
+  text-align: center;
+  color: #f41e1e;
+  font-family: "Lilita One", cursive;
+}
+
+.hello {
+  color: #c1f9f9;
+}
+
+.wraps_pictures {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 0.5fr);
+  align-items: center;
+  gap: 20px;
+}
+.wraps_pictures div {
+  width: 400px;
+  height: 200px;
+  background-color: #a94343;
+  box-shadow: 8px 8px 10px #737373;
+}
+.wraps_pictures div p {
+  font-weight: bold;
+  font-size: xx-large;
+  color: white;
+  position: relative;
+  top: 120px;
+  left: 240px;
+}
+.wraps_pictures div a {
+  font-size: xx-large;
+  color: white;
+}
+.wraps_pictures div h2 {
+  font-weight: bold;
+  font-size: x-large;
+  color: white;
+  position: relative;
+  left: 220px;
+}
+.wraps_pictures div img {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  filter: drop-shadow(8px 8px 10px #030202);
+}
+.wraps_pictures div img:hover {
+  filter: opacity(20%);
+  border-color: black 2px solid;
+}
+
+#a {
+  background-color: #9a9a9a;
+  border-radius: 30%;
+  color: white;
+  font-size: 100px;
+  position: relative;
+  left: 40%;
+  top: 30%;
+}
+
+#a:hover {
+  background-color: brown;
+}
+
+.AddItem {
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  background-color: #080808;
+  border-radius: 10px;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  box-shadow: 8px 8px 10px #8b8989;
+  display: none;
+}
+.AddItem input {
+  margin-bottom: 28px;
+  border-radius: 5px;
+}
+.AddItem h3 {
+  text-align: center;
+  margin-top: 10px;
+  color: white;
+}
+.AddItem button:hover {
+  background-color: azure;
+}

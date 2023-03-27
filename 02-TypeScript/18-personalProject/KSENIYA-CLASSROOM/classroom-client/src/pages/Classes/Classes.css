@@ -1,0 +1,5 @@
+.classesWrapper{
+    display: flex;
+    padding: 3vh 3vh 0vh 3vh;
+    max-height: 87vh;
+}

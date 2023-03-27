@@ -1,0 +1,96 @@
+body {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+}
+
+.wtsp {
+  border: solid black 1px;
+  border-radius: 25px;
+  overflow: hidden;
+}
+.wtsp__header {
+  background-color: lightgray;
+  width: auto;
+  height: 100px;
+}
+.wtsp__body {
+  width: 350px;
+  height: 640px;
+  display: grid;
+  align-items: center;
+  margin: auto;
+}
+.wtsp__body__profile {
+  height: 70px;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+.wtsp__body__profile--picture {
+  margin-left: 10px;
+  width: 20%;
+  height: 80%;
+  border-radius: 100px;
+  overflow: hidden;
+}
+.wtsp__body__profile--picture img {
+  max-width: 100%;
+  height: auto;
+}
+.wtsp__body__profile--filler {
+  width: 5%;
+}
+.wtsp__body__profile--details {
+  background-color: white;
+  margin-left: 20px;
+  width: 60%;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.wtsp__body__profile--details--user_name {
+  height: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px;
+}
+.wtsp__body__profile--details--status_details {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.wtsp__body__profile--details--status_details--call_status {
+  max-width: 10%;
+  height: 10px;
+  font-size: 10px;
+  padding: 5px;
+}
+.wtsp__body__profile--details--status_details--call_status img {
+  color: black;
+  max-width: 100%;
+  height: auto;
+}
+.wtsp__body__profile--details--status_details--date_time {
+  font-size: 10px;
+  padding: 5px;
+  padding-left: 0px;
+}
+.wtsp__body__profile--video_icon {
+  width: 25%;
+  height: 30px;
+  display: flex;
+}
+.wtsp__body__profile--video_icon img {
+  max-width: 100%;
+  height: auto;
+}
+.wtsp__footer {
+  background-color: rgb(190, 127, 172);
+  width: auto;
+  height: 100px;
+}

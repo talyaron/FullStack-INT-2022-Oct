@@ -1,0 +1,70 @@
+body{
+    margin: 0;
+}
+.tittle{
+    padding: 5px;
+    background-color: black;
+
+    h2{
+        color: azure;
+        margin: auto;
+        width: max-content;
+    }
+}
+
+.function{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-around;
+    
+    button{
+        width: max-content;
+        margin-top: 5px;
+        background-color: ghostwhite;
+        border-radius: 10px;
+        border: 1.5px solid black;
+    }
+}
+
+.store{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    &__item{
+        margin: 10px auto;
+        padding: 5px;
+        border: gainsboro 0.5px solid;
+        width: 11rem;
+        height: 25rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+       
+        &__detail{
+            padding: 0 5px;
+            margin: 0;
+        }
+    }
+}
+#image{
+    width: 95%;
+    height: 15rem;
+    padding: 5px;
+}
+
+#itemName{
+    width: 100%;
+}
+
+#itemDepartment{
+    color: grey;
+}
+
+#itemType{
+    color: grey;
+}
+
+#itemPrice{
+    width: 100%;
+}

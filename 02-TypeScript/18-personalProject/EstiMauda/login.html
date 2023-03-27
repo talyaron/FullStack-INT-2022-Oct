@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    
+    <link rel="stylesheet" href="./dist/style.css">
+
+    <script src="./dist/model.js" defer></script> 
+    <script src="./dist/helper.js" defer></script>
+    <script src="./dist/controle.js" defer></script>
+    <script src="./dist/login.js" defer></script>
+
+</head>
+<body>
+    <a href="./soduko.html"></a>
+    <div class="container">
+ 
+        <h1>Login</h1>
+        <form id="form" onsubmit="handleLogin(event)">
+            <input type="text" name="username" placeholder="username" class="username" required><br>
+            <input type="password" name="password" class="password pass" ondblclick="handleViewPassword('.password')" placeholder="password" required><br>
+            <input type="password" name="passwordRepeat" class="password pass" ondblclick="handleViewPassword('.passwordRepeat')" placeholder="repeat password" required><br><br>
+            <label for="lavel">choos level:</label>
+            <select name="level" id="level" class="form__level" form="form">
+            <option value="easy">Easy</option>
+            <option value="middum">Midum</option>
+            <option value="difficalt">Difficalt</option>
+            </select><br><br>
+            <input type="submit" class="formSingup__inputSubmit" value="Sing UP">
+        </form>
+    </div>
+</body>
+</html>  

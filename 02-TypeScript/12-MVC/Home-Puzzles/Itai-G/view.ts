@@ -1,0 +1,1 @@
+const addServer = document.querySelector(`#addServer`) as HTMLButtonElement

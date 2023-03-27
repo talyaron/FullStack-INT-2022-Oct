@@ -1,0 +1,203 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+
+body{
+    background-color: rgb(0, 0, 0);
+margin-left: 100px;
+
+}
+.inputWraps{
+    text-align: center;
+    position: relative;
+    input{
+       
+        text-align: center;
+        font-size: 25px;
+        border-radius: 10px;
+        background-color: rgb(174, 174, 174);
+        border: 2px white solid;
+        font-weight: bold;
+        
+    }
+}
+
+
+h1{
+
+    border: none;
+    font-size: 45px;
+    text-align: center;
+    color: rgb(247, 179, 179);
+    font-family: 'Lilita One', cursive;
+}
+
+.userName{
+    border: none;
+    font-size: 45px;
+    text-align: center;
+    color: rgb(244, 30, 30);
+    font-family: 'Lilita One', cursive;   
+    
+}
+
+
+.hello{
+    color: rgb(193, 249, 249);
+}
+.wraps_pictures{
+position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 0.5fr);
+    align-items: center;
+    gap:20px;
+    div{
+    width: 400px;
+    height: 200px;
+    background-color: rgb(169, 67, 67);
+    box-shadow: (8px 8px 10px rgb(115, 115, 115));
+    p{
+        font-weight: bold;
+        font-size: xx-large;
+        color: white;
+        position: relative;
+        top: 120px;
+        left: 240px;
+    }
+    a{
+        font-size: xx-large;
+        color: white;
+    }
+   
+    h2{
+        font-weight: bold;
+        font-size: x-large;
+        color: white;
+        position: relative;
+        left: 220px;
+    }
+        img{
+            
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            filter: drop-shadow(8px 8px 10px rgb(3, 2, 2));
+            // filter: opacity(20%);
+        }
+        
+        img:hover{
+               filter: opacity(20%);
+               border-color: black 2px solid;
+              
+              
+        }
+    }
+   
+   
+
+}
+#a{
+background-color: rgb(154, 154, 154);
+border-radius: 30%;
+color: white;
+font-size:100px;
+position: relative;
+left: 40%;
+top: 30%;
+}
+#a:hover{
+background-color:brown;
+}
+
+.AddItem{
+    width: 300px ;
+    height: 300px;
+   
+    text-align: center;
+    background-color: rgb(8, 8, 8);
+    border-radius: 10px;
+    position: absolute;
+ top: 30%;
+ left: 40%;
+ box-shadow: 8px 8px 10px rgb(139, 137, 137);
+ display: none;
+
+    input{
+        margin-bottom: 28px;
+        border-radius: 5px;
+       
+    }
+    h3{
+        text-align: center;
+        margin-top: 10px;
+        color: white;
+    }
+    button:hover{
+    background-color: azure;
+
+    }
+    
+}
+
+
+
+
+// }
+// img{
+//     width: 200px;
+//     height: 200px;
+//     border-radius: 10px;
+//     filter: drop-shadow(8px 8px 10px gray);
+
+// }
+
+//  
+
+//    .ul{
+//     display: flex;
+//     justify-content: space-evenly;
+//     margin-right: 80px;
+//     margin-left: 40px;
+//     li{
+//         color: yellow;
+//         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+//        }
+   
+//    }
+//    li{
+//     color: yellow;
+//     font-family: 'Lilita One', cursive;
+//    }
+// //    .Search{
+// //  display: flex;
+ 
+// //    }
+
+ 
+//    input{
+//     margin-left: 28%;
+//     font-weight: bold;
+//     font-size: larger;
+//     border-radius: 5px;
+//     border: none ;
+//     box-shadow:8px 8px 10px gray ;
+//     background-color: rgb(244, 244, 244);
+//    }
+
+//    .Search{
+//     margin-left: 20%;
+//     label{
+//         box-shadow: 5px 5px 2px rgb(86, 85, 85);
+//         margin-left: 40%;
+//         color: rgb(83, 233, 49);
+//         font-family: 'Lilita One', cursive;
+        
+//        }
+//    }
+   
+//  .search_list{
+//     margin-left: 27%;
+//  }
+
+
+

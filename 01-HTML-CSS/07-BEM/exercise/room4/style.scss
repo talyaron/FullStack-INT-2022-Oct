@@ -1,0 +1,25 @@
+body{
+    margin: 0;
+}
+.wrapper{
+    width: 90vw;
+    height: 100vh;
+    &__header{
+        display: flex;
+        justify-content: space-between;
+        margin: auto;
+        color: gray;
+        border: 0.25rem solid black;
+        width: 35em;
+
+        &__welcome{
+            font-weight: 900;
+            width: 1em;
+
+        }
+        &__date{
+            font-weight: 500;
+            width: 1em;
+        }
+    }
+}

@@ -1,0 +1,46 @@
+.profileWindow {
+  background-color: #0d0e0dd2;
+  color: wheat;
+  height: 90%;
+  width: 50%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  position: absolute;
+  padding: 2rem;
+  display: none;
+  .exitProfilePage {
+    color: #e62c03;
+  }
+  .editprofileBtn {
+    margin-top: 9%;
+    left: -15%;
+    color: #e62c03;
+  }
+  .signOutbtn {
+    position: absolute;
+    right: 0.5em;
+    bottom: 0.5em;
+    height: 5%;
+    font-size: 1rem;
+  }
+  i {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 3rem;
+    cursor: pointer;
+  }
+  ul {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
+    gap: 1rem;
+    font-size: 1.5rem;
+    li {
+      display: block;
+    }
+  }
+}

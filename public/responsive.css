@@ -1,0 +1,36 @@
+@media only screen and (min-width: 900px) {
+  body {
+    text-align: center;
+  }
+}/*# sourceMappingURL=responsive.css.map */ display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media screen and (max-width: 650px) {
+  html {
+    font-size: 10px;
+  }
+  .mainpageContainer__main__boards__boardArea {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 550px) {
+  html {
+    font-size: 8px;
+  }
+}
+@media screen and (max-width: 440px) {
+  html {
+    font-size: 6px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .mainpageContainer__main__boards__boardArea {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mainpageContainer__main__boards__boardArea .board {
+    width: 80%;
+  }
+}/*# sourceMappingURL=responsive.css.map */

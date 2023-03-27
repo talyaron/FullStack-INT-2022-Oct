@@ -1,0 +1,121 @@
+:root {
+    --button-color: #019de0;
+}
+
+// reset
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+// main
+
+body,
+html {
+    font-size: 16px;
+    background-image: url("./../img/background-intro1.jpg");
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+// containerPage
+
+.intro-container {
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.733);
+    padding: 16px 32px;
+    text-align: center;
+    justify-content: space-between;
+    width: 70%;
+    min-height: 500px;
+    height: 80%;
+
+    // main containers
+    &__header {
+        display: grid;
+        place-items: center;
+    }
+
+    &__welcome {
+        width: 20rem;
+        object-fit: cover;
+        margin-top:-50px;
+    }
+
+    &__main {
+        display: grid;
+        place-items: center;
+
+        margin-bottom: 20px;
+    }
+
+    &__logo {
+        font-size: 1.4rem;
+        text-decoration: none;
+        text-transform: capitalize;
+        font-family: 'Pacifico', cursive;
+        letter-spacing: 5px;
+        color:#ce7b45;
+
+        font-weight: 500;
+        margin-top: -50px;
+
+    }
+
+    &__arrow-down {
+        width: 50px;
+        margin-bottom: 50px;
+    }
+
+    &__container-btn {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+
+    }
+
+    &__btn {
+
+        & {
+            width: 150px;
+            border: none;
+            height: 50px;
+            border-radius: 10px;
+            background-color:#ce7c45f5;
+            cursor: pointer;
+            font-size: 1.3rem;
+            scale: 1;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.5s ease;
+            box-shadow: 0.3px 1px 15px 1px rgba(212, 13, 13, 0.589) , 
+                        -0.3px -1px 15px 1px rgba(0, 0, 0, 0.226),
+                        0px 0px 20px 2px inset rgb(49, 46, 46);
+        }
+
+        &:active {
+            background-color: rgb(15, 13, 15);
+            color: #fff;
+       scale: 0.9;
+        }
+
+        &:hover {
+            background-color:#ff6600;
+            color: #fff;
+      scale: 1.1;
+            
+        }
+    }
+}

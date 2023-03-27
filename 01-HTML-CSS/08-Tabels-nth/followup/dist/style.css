@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+table {
+  margin: auto;
+  margin-top: 200px;
+  width: 400px;
+  height: 400px;
+  border: 1px solid brown;
+}
+table caption {
+  background-color: brown;
+  font-size: xx-large;
+}
+table td, table th {
+  width: 50px;
+  height: 50px;
+  background-color: wheat;
+  text-align: center;
+  padding: 20px;
+  color: brown;
+}

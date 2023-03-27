@@ -1,0 +1,114 @@
+body{
+  margin: 0%;
+  background-color: black;
+}
+
+.pacman {
+  height: 0;
+  width: 0;
+  border-top: 50px solid yellow;
+  border-left: 50px solid yellow;
+  border-bottom: 50px solid yellow;
+  border-right: 50px solid rgb(0, 0, 0);
+  border-radius: 100px;
+  position: relative;
+  animation-name: trip;
+  animation-duration: 7s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+
+@keyframes trip{
+  0%{
+    top: 20px;
+    left: 25px;
+  }
+
+  5%{
+    top: 20px;
+    left: 45px;
+  }
+
+  10%{
+    top: 20px;
+    left: 65px;
+  }
+
+  15%{
+    top: 20px;
+    left: 85px;
+  }
+
+  20%{
+    top: 20px;
+    left: 105px;
+  }
+
+  25%{
+    top: 45px;
+    left: 105px;
+  }
+
+  30%{
+    top: 65px;
+    left: 105px;
+  }
+
+  35%{
+    top: 85px;
+    left: 105px;
+  }
+  40%{
+    top: 105px;
+    left: 105px;
+  }
+  45%{
+    top: 125px;
+    left: 105px;
+  }
+  50%{
+    top: 145px;
+    left: 105px;
+  }
+  55%{
+    top: 165px;
+    left: 105px;
+  }
+  60%{
+    top: 185px;
+    left: 105px;
+  }
+  65%{
+    top: 185px;
+    left: 125px;
+  }
+  70%{
+    top: 185px;
+    left: 145px;
+  }
+  75%{
+    top: 185px;
+    left: 165px;
+  }
+  80%{
+    top: 185px;
+    left: 185px;
+  }
+  85%{
+    top: 205px;
+    left: 185px;
+  }
+  90%{
+    top: 225px;
+    left: 185px;
+  }
+  95%{
+    top: 225px;
+    left: 205px;
+  }
+  100%{
+    top: 225px;
+    left: 225px;
+  }
+}

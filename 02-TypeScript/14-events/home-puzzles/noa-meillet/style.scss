@@ -1,0 +1,93 @@
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 60ch;
+    margin: auto;
+    
+    &__player{
+        img{
+            width: 30px;
+        }
+    }
+    &__winner{
+        .no_one_win{
+            padding: 10px;
+            background-color: orange; 
+            color: black;
+            width: 200px;
+            height: 20px;
+            border: black 5px solid;
+            
+            .closebtn {
+                margin-left: 15px;
+                color: black;
+                font-weight: bold;
+                float: right;
+                font-size: 22px;
+                line-height: 20px;
+                cursor: pointer;
+                transition: 0.3s;
+              }
+        }
+
+        .player_o_win {
+            padding: 10px;
+            background-color: lightcoral;
+            color: black;
+            width: 200px;
+            height: 20px;
+            border: black 5px solid;
+            
+            .closebtn {
+                margin-left: 15px;
+                color: black;
+                font-weight: bold;
+                float: right;
+                font-size: 22px;
+                line-height: 20px;
+                cursor: pointer;
+                transition: 0.3s;
+              }
+        }
+        
+        .player_x_win {
+            padding: 10px;
+            background-color: lightblue; 
+            border: black 5px solid;
+            color: black;
+            margin: auto;
+
+            .closebtn {
+                margin-left: 15px;
+                color: black;
+                font-weight: bold;
+                float: right;
+                font-size: 22px;
+                line-height: 20px;
+                cursor: pointer;
+                transition: 0.3s;
+              }
+        }
+    }
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(3,1fr) ;
+    gap: 10px;
+    max-width: 60ch;
+    margin: auto;
+    
+    .box{
+        width: 150px;
+        height: 150px;
+        border: 1px solid black;
+        background-color: white;
+    }
+}
+
+h3{
+    margin: auto;
+    max-width: 420px;
+}

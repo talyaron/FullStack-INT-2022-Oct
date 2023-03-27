@@ -1,0 +1,187 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(circle, rgb(238, 174, 202) 0%, rgb(148, 187, 233) 100%);
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(circle, rgb(238, 174, 202) 0%, rgb(148, 187, 233) 100%);
+  position: relative;
+}
+
+.whiteBalloon {
+  width: 10%;
+  left: 100px;
+  position: absolute;
+  -webkit-animation-name: animation1;
+          animation-name: animation1;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: 6s;
+          animation-duration: 6s;
+}
+
+.redBalloon {
+  width: 10%;
+  position: absolute;
+  -webkit-animation-name: animation2;
+          animation-name: animation2;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+}
+
+.goldBalloon {
+  width: 10%;
+  position: absolute;
+  -webkit-animation-name: animation2;
+          animation-name: animation2;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+}
+
+.faceBalloon {
+  width: 5%;
+  position: absolute;
+  -webkit-animation-name: animation2;
+          animation-name: animation2;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-duration: 12s;
+          animation-duration: 12s;
+}
+
+.ballon1 {
+  left: 0%;
+  top: 100%;
+}
+
+.ballon2 {
+  left: 25%;
+  top: 110%;
+}
+
+.ballon3 {
+  left: 10%;
+  top: 120%;
+}
+
+.ballon4 {
+  left: 50%;
+  top: 130%;
+}
+
+.ballon5 {
+  left: 90%;
+  top: 140%;
+}
+
+.ballon6 {
+  left: 5%;
+  top: 150%;
+}
+
+.ballon7 {
+  left: 30%;
+  top: 150%;
+}
+
+.ballon8 {
+  left: 60%;
+  top: 130%;
+}
+
+.ballon9 {
+  left: 85%;
+  top: 140%;
+}
+
+.ballon10 {
+  left: 10%;
+  top: 170%;
+}
+
+.ballon11 {
+  left: 75%;
+  top: 180%;
+}
+
+.ballon12 {
+  left: 35%;
+  top: 140%;
+}
+
+.ballon13 {
+  left: 40%;
+  top: 105%;
+}
+
+.ballon14 {
+  left: 25%;
+  top: 125%;
+}
+
+.ballon15 {
+  left: 50%;
+  top: 150%;
+}
+
+.ballon16 {
+  left: 15%;
+  top: 120%;
+}
+
+.ballon17 {
+  left: 40%;
+  top: 115%;
+}
+
+.ballon18 {
+  left: 65%;
+  top: 100%;
+}
+
+.ballon19 {
+  left: 55%;
+  top: 130%;
+}
+
+.ballon20 {
+  left: 20%;
+  top: 100%;
+}
+
+@-webkit-keyframes animation1 {
+  100% {
+    top: -500px;
+    width: 15%;
+  }
+}
+
+@keyframes animation1 {
+  100% {
+    top: -500px;
+    width: 15%;
+  }
+}
+@-webkit-keyframes animation2 {
+  100% {
+    top: -400px;
+  }
+}
+@keyframes animation2 {
+  100% {
+    top: -400px;
+  }
+}

@@ -1,0 +1,10 @@
+Cube1.addEventListener("click", div_0);
+Cube2.addEventListener("click", div_1);
+Cube3.addEventListener("click", div_2);
+Cube4.addEventListener("click", div_3);
+Cube5.addEventListener("click", div_4);
+Cube6.addEventListener("click", div_5);
+Cube7.addEventListener("click", div_6);
+Cube8.addEventListener("click", div_7);
+Cube9.addEventListener("click", div_8);
+result.addEventListener("click", result__btn);

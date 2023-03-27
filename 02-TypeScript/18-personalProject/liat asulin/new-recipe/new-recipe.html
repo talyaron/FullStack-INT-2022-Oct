@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css" />
+    <title>Add new recipe</title>
+</head>
+
+<body>
+    <div id="add-recipe-modal" class="modal">
+        <div class="modal-content">
+            <span id="add-recipe-modal-close" class="close">Back</span>
+            <h2>Add Recipe</h2>
+            <div class="input-group">
+                <label for="add-recipe-name-input">Name:</label>
+                <input type="text" id="add-recipe-name-input" placeholder="Enter recipe name" />
+            </div>
+            <div class="input-group">
+                <label for="add-recipe-ingredients-input">Ingredients:</label>
+                <textarea id="add-recipe-ingredients-input" placeholder="Enter ingredients"></textarea>
+            </div>
+            <div class="input-group">
+                <label for="add-recipe-instructions-input">Instructions:</label>
+                <textarea id="add-recipe-instructions-input" placeholder="Enter instructions"></textarea>
+            </div>
+            <button id="add-recipe-modal-save">Save</button>
+        </div>
+    </div>
+    <script src="./dist/new-recipe.js" defer></script>
+
+</body>
+
+</html>

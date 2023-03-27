@@ -1,0 +1,48 @@
+<!--reviews.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Deferring the loading of scripts -->
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+    <!-- Linking the stylesheet for the document -->
+    <link rel="stylesheet" type="text/css" href="dist/style.css">
+    <title>Movie Review Website</title>
+</head>
+  <body>
+    <!-- header section with website title and navigation links -->
+    <header class="header">
+      <h1 class="header__title">Movie Review Website</h1>
+      <nav class="header__nav">
+        <a class="header__link" href="#">Home</a>
+        <a class="header__link" href="#review">Review</a>
+        <a class="header__link" href="#theme">Change Theme</a>
+      </nav>
+    </header>
+    <!-- main section to display the list of movie reviews -->
+    <main>
+      <h2>Movie Reviews</h2>
+      <div class="review-list">
+        <!-- Repeat this block of code for each review in the `reviews` array -->
+        <div class="review">
+          <h3 class="review-title">Movie Title</h3>
+          <p class="review-description">Review description</p>
+          <p class="review-username">Username</p>
+          <button class="review-like-button">Like</button>
+          <button class="review-unlike-button">Unlike</button>
+          <p class="review-like-count"></p>
+          <p class="review-unlike-count"></p>
+        </div>
+      </div>
+    </main>    <!-- footer section to display the copyright information -->
+    <footer>
+      <p>&copy; 2023 Movie Review Website</p>
+    </footer>
+  </body>
+</html>

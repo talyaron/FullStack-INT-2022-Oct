@@ -1,0 +1,28 @@
+.wrapper{
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+
+
+.cards{
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-gap: 2em;
+
+
+.card{
+height: 140px;
+width: 140px;
+background-color: dodgerblue;
+border-radius: 10px;
+cursor: pointer;
+display: grid;
+place-items: center;
+}
+}
+}
+
+img{
+    width: 120px;
+    height: 120px;
+}
