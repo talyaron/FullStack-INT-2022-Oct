@@ -1,15 +1,31 @@
 import express from "express";
 const app = express();
+// const articles = require("./routes/articles");
+import { router as articles } from "./routes/articles";
+import { connectDB } from "./db/connect";
+require("dotenv").config();
 
-import path from "path";
-const PORT = 3000;
-
+//Middleware
 app.use(express.static("./public"));
+app.use(express.json());
 
-// app.get("/", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "index.html"));
-// });
+//routes
+app.use("/api/v1/articles", articles);
 
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}...`);
-});
+const PORT = process.env.PORT || 3000;
+
+const start = async () => {
+  try {
+    if (process.env.MONGO_URI) {
+      await connectDB(process.env.MONGO_URI);
+      console.log("Connected to db..")
+    }
+    app.listen(PORT, () => {
+      console.log(`Server is listening on port ${PORT}...`);
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+start();
