@@ -5,6 +5,7 @@ import { router as articles } from "./routes/articles";
 import { connectDB } from "./db/connect";
 require("dotenv").config();
 
+
 //Middleware
 app.use(express.static("./public"));
 app.use(express.json());
