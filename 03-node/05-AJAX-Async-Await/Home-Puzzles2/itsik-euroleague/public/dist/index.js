@@ -12,6 +12,7 @@ function getArticels(index) {
             .then(function (res) { return res.json(); })
             .then(function (_a) {
             var articles = _a.articles;
+            console.log(articles);
             renderArticles(articles, index);
         });
     }
@@ -20,21 +21,10 @@ function getArticels(index) {
     }
 }
 function renderArticles(articles, index) {
-    if (index <= 0) {
-        var html = articles.map(function (news) {
-            console.log(news.article);
-            return "<h1 class=\"pNewName\">" + news.name + "</h1>";
-            //    <p id="newNews">${news.article[1]}</p>`
-        }).join(" ");
-        var usersElement = document.querySelector(".newcont");
-        if (usersElement) {
-            usersElement.innerHTML = html;
-        }
-    }
-    else if (index <= 1) {
-        console.log("11111111");
-    }
-    else if (index <= 2) {
-        console.log("222222");
+    var html = "<h1 class=\"pNewName\">" + articles[index].article + "</h1>";
+    //    <p id="newNews">${news.article[1]}</p>`
+    var usersElement = document.getElementById("'" + index + "'");
+    if (usersElement) {
+        usersElement.innerHTML = html;
     }
 }

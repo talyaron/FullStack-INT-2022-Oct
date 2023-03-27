@@ -22,6 +22,7 @@ function getArticels(index){
      fetch("/articles") 
      .then(res=> res.json())
      .then(({ articles })=>{
+        console.log(articles)
         renderArticles(articles, index); 
 
    }) 
@@ -32,28 +33,18 @@ function getArticels(index){
 }
 
 function renderArticles(articles: news[], index){
-
-   if(index <= 0){
-        const html = articles.map(news =>{
-        console.log(news.article)
-        return `<h1 class="pNewName">${news.name}</h1>`
+            
+          const html = `<h1 class="pNewName">${articles[index].article}</h1>`
             //    <p id="newNews">${news.article[1]}</p>`
- }).join(" ");
-    
-      const usersElement = document.querySelector(".newcont");
+ 
+         
+      const usersElement = document.getElementById(`'${index}'`);
        if(usersElement){
         usersElement.innerHTML = html;
        }
    }
 
-   else if(index <= 1){
-    console.log("11111111")
-   }
+  
 
 
-    else if(index <=2){
-  console.log("222222")
-    }
-
-}
 

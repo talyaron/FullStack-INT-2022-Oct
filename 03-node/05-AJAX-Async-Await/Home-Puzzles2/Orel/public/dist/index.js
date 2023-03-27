@@ -1,7 +1,6 @@
 window.onload = function () {
     try {
         getArticlesFromApi();
-        console.log("page is fully loaded");
     }
     catch (error) {
         console.error(error);
