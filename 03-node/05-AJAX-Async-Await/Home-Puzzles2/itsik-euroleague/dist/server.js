@@ -2,7 +2,9 @@
 exports.__esModule = true;
 var express_1 = require("express");
 var app = express_1["default"]();
-var PORT = 3000;
+var PORT = 3001;
+app.use(express_1["default"].static('./public'));
+app.use(express_1["default"].json());
 var articles = [
     {
         name: "Filip Petrusev",
@@ -23,7 +25,6 @@ var articles = [
 app.get("/articles", function (req, res) {
     res.send({ articles: articles });
 });
-app.use(express_1["default"].static('./public'));
 app.listen(PORT, function () {
     console.log("server run at:" + PORT);
 });

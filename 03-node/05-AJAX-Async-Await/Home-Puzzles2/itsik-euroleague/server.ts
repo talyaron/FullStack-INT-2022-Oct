@@ -1,7 +1,10 @@
 import express from "express";
 
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
+
+app.use(express.static('./public'))
+app.use(express.json());   
 
 interface news {
     name:string;
@@ -34,9 +37,6 @@ app.get("/articles", (req,res) =>{
     res.send({ articles });
     
     })
-
-app.use(express.static('./public'))
-    
 
 app.listen(PORT, ()=>{
     console.log("server run at:" + PORT)
