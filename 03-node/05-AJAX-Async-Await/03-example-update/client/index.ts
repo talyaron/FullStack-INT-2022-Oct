@@ -1,7 +1,7 @@
 interface User {
   name: string;
   src: string;
-  uid?: string;
+  uid: string;
 }
 
 function handleGetUsers() {
@@ -40,6 +40,7 @@ function renderUsers(users: Array<User>) {
     console.error(error);
   }
 }
+
 
 function renderUser(user: User) {
   try {
