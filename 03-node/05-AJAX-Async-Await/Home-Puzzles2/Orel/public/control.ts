@@ -1,7 +1,7 @@
 
 
 // if The admin login function
-loginOn()
+
 
 function loginOn(): void {
     try {
@@ -12,9 +12,9 @@ function loginOn(): void {
         if (checkLogin()) {
 
             loginContainer.innerHTML = `
-                <img width="50px" src="./images/adminOn.png" >
+                <img title="change Admin user" width="50px" src="./images/adminOn.png"  >
                 <button onclick="handleClickLogout()">
-                <i class="fa-solid fa-person-walking-arrow-right"></i>
+                <i title="logout" class="fa-solid fa-person-walking-arrow-right"></i>
                 </button>
                 `
 
@@ -41,22 +41,6 @@ function loginOn(): void {
 }
 
 // show Article display
-function makeArticleActive(element: HTMLElement) {
-    try {
-        const rootContainerNewNews = document.querySelectorAll('.main-section__main__container-new-news__article')!
-        rootContainerNewNews.forEach(ele => {
-            ele.classList.remove("active")
-        })
-
-        element.classList.add('active')
-
-
-    } catch (error) {
-        console.error(error);
-    }
-
-}
-
 
 
 // CONTROLLER Handles
@@ -69,16 +53,26 @@ function handleClickOnLogin() {
     }
 }
 
-
-function handleClickArticle(uuid: string) {
+function handleClickArticle(uuid: string ) {
     try {
-        console.log(uuid);
+        const curArticle = document.querySelector(`#${uuid}`)! as HTMLDivElement;
 
-    } catch (error) {
-
-    }
+        if(!curArticle) throw new Error("the curArticle no founded")
+        const icon = document.querySelector(`#${uuid} .admin-buttons button`)! as HTMLDivElement;
+        if(!icon){
+            curArticle.classList.toggle('onClick')
+        }
+if(icon.innerHTML.trim() === ` <i class="fa-solid fa-pen-to-square"></i>`.trim() || !checkLogin()){
+    curArticle.classList.toggle('onClick')
+}else{
+console.log("Check");
 }
 
+
+    } catch (error) {
+console.error(error)
+    }
+}
 
 function handleClickLogout() {
     try {
@@ -127,7 +121,8 @@ function handleChangeSearch(ev: any) {
 function handelTrashClick(uuid: string) {
     try {
         try {
-
+         const youSure =   confirm("Do you sure to delete this Article ?");
+if(youSure){
             if (!uuid) throw new Error("No UID");
 
             //send to server:
@@ -148,7 +143,9 @@ function handelTrashClick(uuid: string) {
                 .catch((error) => {
                     console.error(error);
                 });
-            getArticlesFromApi()
+            getArticlesFromApi()} else {
+                return
+            }
         } catch (error) {
             console.error(error);
         }
@@ -156,6 +153,7 @@ function handelTrashClick(uuid: string) {
     catch (error) {
         console.error(error)
     }
+    
 }
 
 function handleClickAddArticle() {
@@ -275,8 +273,6 @@ try {
     console.error(error)
 }
 }
-
-
 
 function checkLogin(): boolean {
     try {

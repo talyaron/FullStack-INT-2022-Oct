@@ -1,11 +1,10 @@
 // if The admin login function
-loginOn();
 function loginOn() {
     try {
         var adminButtons = document.querySelectorAll('.admin-buttons');
         var loginContainer = document.querySelector('.main-section__header__nav-top__login');
         if (checkLogin()) {
-            loginContainer.innerHTML = "\n                <img width=\"50px\" src=\"./images/adminOn.png\" >\n                <button onclick=\"handleClickLogout()\">\n                <i class=\"fa-solid fa-person-walking-arrow-right\"></i>\n                </button>\n                ";
+            loginContainer.innerHTML = "\n                <img title=\"change Admin user\" width=\"50px\" src=\"./images/adminOn.png\"  >\n                <button onclick=\"handleClickLogout()\">\n                <i title=\"logout\" class=\"fa-solid fa-person-walking-arrow-right\"></i>\n                </button>\n                ";
         }
         else {
             loginContainer.innerHTML = "\n            <i class=\"fa-solid fa-user\"></i>\n            <span id=\"navToploginSpan\">Admin-login</span>\n\n            ";
@@ -19,18 +18,6 @@ function loginOn() {
     }
 }
 // show Article display
-function makeArticleActive(element) {
-    try {
-        var rootContainerNewNews = document.querySelectorAll('.main-section__main__container-new-news__article');
-        rootContainerNewNews.forEach(function (ele) {
-            ele.classList.remove("active");
-        });
-        element.classList.add('active');
-    }
-    catch (error) {
-        console.error(error);
-    }
-}
 // CONTROLLER Handles
 function handleClickOnLogin() {
     try {
@@ -42,9 +29,22 @@ function handleClickOnLogin() {
 }
 function handleClickArticle(uuid) {
     try {
-        console.log(uuid);
+        var curArticle = document.querySelector("#" + uuid);
+        if (!curArticle)
+            throw new Error("the curArticle no founded");
+        var icon = document.querySelector("#" + uuid + " .admin-buttons button");
+        if (!icon) {
+            curArticle.classList.toggle('onClick');
+        }
+        if (icon.innerHTML.trim() === " <i class=\"fa-solid fa-pen-to-square\"></i>".trim() || !checkLogin()) {
+            curArticle.classList.toggle('onClick');
+        }
+        else {
+            console.log("Check");
+        }
     }
     catch (error) {
+        console.error(error);
     }
 }
 function handleClickLogout() {
@@ -85,26 +85,32 @@ function handleChangeSearch(ev) {
 function handelTrashClick(uuid) {
     try {
         try {
-            if (!uuid)
-                throw new Error("No UID");
-            //send to server:
-            fetch("/api/articles", {
-                method: "POST",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: uuid
+            var youSure = confirm("Do you sure to delete this Article ?");
+            if (youSure) {
+                if (!uuid)
+                    throw new Error("No UID");
+                //send to server:
+                fetch("/api/articles", {
+                    method: "POST",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: uuid
+                    })
                 })
-            })
-                .then(function (res) {
-                return res.json();
-            })
-                .then(function (data) { return console.log(data); })["catch"](function (error) {
-                console.error(error);
-            });
-            getArticlesFromApi();
+                    .then(function (res) {
+                    return res.json();
+                })
+                    .then(function (data) { return console.log(data); })["catch"](function (error) {
+                    console.error(error);
+                });
+                getArticlesFromApi();
+            }
+            else {
+                return;
+            }
         }
         catch (error) {
             console.error(error);

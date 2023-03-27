@@ -5,9 +5,9 @@ function renderArticle(articles: Article[]) {
         if (!rootContainerNewNews) throw new Error("no found rootNewNew container Element")
         const html = articles.map(article => {
             return `
-        <div id='${article.uuid}' onclick="handleClickArticle('${article.uuid}') " 
+        <div title="${article.title.split(' ').splice(1 , 3).join(' ')}" id='${article.uuid}' ondblclick="handleClickArticle('${article.uuid}') " 
         style="background:linear-gradient(45deg , rgba(0, 0, 0, 1),rgba(0, 0, 0, 0)),url(${article.src})"  
-        class="main-section__main__container-new-news__article active">
+        class="main-section__main__container-new-news__article active ">
         
         <h1 id='updateTitle-${article.uuid}' class="main-section__main__container-new-news__article__title">
         ${article.title}
@@ -49,3 +49,20 @@ function renderAdminBtn(uid: string): string {
         return ''
     }
 }
+
+function makeArticleActive(element: HTMLElement) {
+    try {
+        const rootContainerNewNews = document.querySelectorAll('.main-section__main__container-new-news__article')!
+        rootContainerNewNews.forEach(ele => {
+            ele.classList.remove("active")
+        })
+
+        element.classList.add('active')
+
+
+    } catch (error) {
+        console.error(error);
+    }
+
+}
+

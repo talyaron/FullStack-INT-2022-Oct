@@ -1,4 +1,3 @@
-// MODEL
 window.onload = function () {
     try {
         getArticlesFromApi();
@@ -21,3 +20,4 @@ function getArticlesFromApi() {
         console.error(error);
     }
 }
+loginOn();

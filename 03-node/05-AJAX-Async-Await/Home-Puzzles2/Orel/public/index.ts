@@ -1,8 +1,4 @@
 
-
-
-// MODEL
-
 window.onload = () => {
     try {
         getArticlesFromApi()
@@ -27,4 +23,4 @@ function getArticlesFromApi() {
     }
 }
 
-
+loginOn()
