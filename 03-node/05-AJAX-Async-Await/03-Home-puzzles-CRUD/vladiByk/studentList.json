@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Vladislav Bykanov",
+        "grades": [100, 70, 50, 80, 30]
+    },
+    {
+        "name": "John Doe",
+        "grades": [100, 70, 40, 90, 40]
+    }
+]
