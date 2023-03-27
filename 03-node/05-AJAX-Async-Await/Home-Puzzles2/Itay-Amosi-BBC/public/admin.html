@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BBC-Admin</title>
+    <link rel="stylesheet" href="./dist/adminstyle.css" />
+    <script src="./dist/admin.js" defer></script>
+  </head>
+  <body>
+    <h1>add new article</h1>
+    <form action="/add-articles" id="addNewForm" method="post">
+      <div class="head">
+        <label for="title">titel</label>
+        <input id="titel" type="text" />
+      </div>
+      <div class="imag">
+        <label for="image">urlImage</label>
+        <input id="image" type="url" name="image" />
+      </div>
+      <div class="paregraph">
+        <label for="image">paregraph</label>
+        <input id="paregraph" type="text" name="paregraph" />
+      </div>
+      <button type="submit">add New Article</button>
+    </form>
+  </body>
+</html>

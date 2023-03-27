@@ -1,13 +1,18 @@
 ////////////////model//////////////////
+const uid = function(){
+    return Date.now().toString(36) + Math.random().toString(36).substr(2);
+}
 
 class Article{
-    
+    uid: string;
     constructor(
         public title: string,
         public paragraph: string,
         public imageUrl: string,
         public date?: string,
-    ){}
+    ){
+        this.uid = `${uid()}`
+    }
 }
 
 const articles: Article[] = [];
@@ -45,28 +50,29 @@ const admins: object[] = [{name: "amit", password: "123"}];
 ////////////////////////////// Server /////////////////////////
 
 import express from "express";
+import bodyParser from "body-parser";
+
 
 const app = express();
 
-const port = 3000;
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("./public"));
 
-// app.get("/api/login", (req, res) => {
-//     try {
-// console.log("activeAdmin.name", activeAdmin.name)
-//       res.send({ activeAdmin });
-//     } catch (error: any) {
-//       console.error(error);
-//       res.status(500).send({ error: error.message });
-//     }
-//   });
+
+app.get("/api/articles", (req, res) => {
+    try {
+      res.send({ articles });
+    } catch (error: any) {
+      console.error(error);
+      res.status(500).send({ error: error.message });
+    }
+  });
+
 
 app.post("/api/login", (req, res) => {
     try {
-console.log("server test");
       const data = req.body;
-      console.log(data);
       admins.push(data);
       res.status(201).send({ ok: true });
   
@@ -76,8 +82,37 @@ console.log("server test");
     }
 });
 
+app.post("/api/articles", (req, res) => {
+    try {
+      const data = req.body;
+      articles.push(data);
+      res.status(201).send({ ok: true });
+  
+    } catch (error: any) {
+      console.error(error);
+      res.status(500).send({ error: error.message });
+    }
+});
+
+app.patch("/api/articles/:uid", (req, res) => {
+    try {
+    const article = articles.find(article => article.uid === req.params.uid);
+    if (!article) return res.sendStatus(404);
+    const data = req.body;
+    article.title = data.title;
+    article.paragraph = data.paragraph;
+    console.log("articles in patch", articles)
+    res.status(201).send({ ok: true });
+  
+    } catch (error: any) {
+      console.error(error);
+      res.status(500).send({ error: error.message });
+    }
+});
 
 
+
+const port = 3000;
 app.listen(port, ()=>{
     console.log(`server listen on ${port}`);
 })

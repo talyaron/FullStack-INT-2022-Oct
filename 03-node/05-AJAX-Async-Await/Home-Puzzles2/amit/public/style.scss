@@ -15,8 +15,15 @@
 
 body{
     margin: 0;
+    
 }
 
+p, h1, img{
+    cursor: pointer;
+    &:hover{
+        text-decoration: underline;
+    }
+}
 
 
 .container{
@@ -25,6 +32,7 @@ body{
     margin: 0;
     color: white;
     position: relative;
+   
 
     .navBar{
         width: 100vw;
@@ -71,12 +79,42 @@ body{
                 &__login{
                     height: 0rem;
                     width: 4rem;
-                    display: flex;
                     flex-direction: column;
+                    display: none;
+                    position: absolute;
+                    top: 2rem;
+                    left: 57rem;
+
+                    &.active{
+                        display: flex;
+                    }
                 }
             }
         }
-    }    
+    }
+    
+    .addArticleForm{
+        color: seagreen;
+        border: 0.1rem solid black;
+        display: none;
+        margin: auto;
+        width: 28rem;
+        height: 5rem;
+        margin-bottom: 1rem;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.397);
+        border-radius: 5px;
+        input{
+            height: 1.5rem;
+        }
+        &.active{
+            display: flex;
+            flex-direction: column;
+            
+        }
+    }
+    
+
+
 
     .main{
         width: 44rem;
@@ -91,7 +129,7 @@ body{
             height: 18rem;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content:space-between;
             margin: auto;
 
             &__image{
@@ -104,18 +142,57 @@ body{
             }
             h1{
                 width: 25rem;
-                height: 1rem;
+                height: auto;
                 margin: 0;
-                padding: 0;
+                padding: 0rem;
                 font-size: 25px;
+                line-height: 1rem;
+                
             }
             p{
                 width: 25rem;
-                height: 3rem;
+                height: 2rem;
                 margin: 0;
                 padding: 0;
                 font-size: 16px; 
             }
+            &__edit{
+                cursor: pointer;
+                width: 30px;
+                height: 30px;
+                border: none;
+                background-color: inherit;
+                display: none;
+                :hover{
+                        scale: 1.1;
+                    }
+            &.active{display: block;}
+                i{
+                    color: red;
+                    font-size: 1.7rem;
+                    
+                }
+            }
+            &__save{
+                cursor: pointer;
+                width: 30px;
+                height: 30px;
+                border: none;
+                background-color: inherit;
+                position: relative;
+                left: 22.5rem;
+                top: -1rem;
+                display: none;
+                :hover{
+                    scale: 1.1;
+                }
+                &.active{display: block;}       
+                i{
+                    color: seagreen;
+                    font-size: 1.7rem;
+                }
+            }
+
         }
         &__sideArticles{
             width: 18rem;
@@ -157,11 +234,50 @@ body{
                     p{
                         font-size: 10px;
                         line-height: 16px;
+                    }      
+                }
+                &__edit{
+                    cursor: pointer;
+                    position: relative;
+                    left: 17rem;
+                    top: 1rem;
+                    width: 30px;
+                    height: 30px;
+                    border: none;
+                    background-color: inherit;
+                    position: relative;
+                    left: 17rem;
+                    top:1rem;
+                    display: none;
+                    :hover{
+                        scale: 1.1;
+                    }
+                &.active{display: block;}
+                    i{
+                        color: red;
+                        font-size: 1.7rem;
                     }
                 }
-            }
+                &__save{
+                cursor: pointer;
+                position: relative;
+                left: 17rem;
+                top: 1rem;  
+                width: 30px;
+                height: 30px;
+                border: none;
+                background-color: inherit;
+                display: none;
+                :hover{
+                    scale: 1.1;
+                }
+                &.active{display: block;}       
+                    i{
+                        color: seagreen;
+                        font-size: 1.7rem;
+                    }
+                }
+            } 
         }
-
-
     }
 }

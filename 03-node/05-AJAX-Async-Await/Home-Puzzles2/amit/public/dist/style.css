@@ -20,6 +20,13 @@ body {
   margin: 0;
 }
 
+p, h1, img {
+  cursor: pointer;
+}
+p:hover, h1:hover, img:hover {
+  text-decoration: underline;
+}
+
 .container {
   height: 100vh;
   width: 100vw;
@@ -75,6 +82,30 @@ body {
 .container .navBar__sales__topic__login {
   height: 0rem;
   width: 4rem;
+  flex-direction: column;
+  display: none;
+  position: absolute;
+  top: 2rem;
+  left: 57rem;
+}
+.container .navBar__sales__topic__login.active {
+  display: flex;
+}
+.container .addArticleForm {
+  color: seagreen;
+  border: 0.1rem solid black;
+  display: none;
+  margin: auto;
+  width: 28rem;
+  height: 5rem;
+  margin-bottom: 1rem;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.397);
+  border-radius: 5px;
+}
+.container .addArticleForm input {
+  height: 1.5rem;
+}
+.container .addArticleForm.active {
   display: flex;
   flex-direction: column;
 }
@@ -104,17 +135,57 @@ body {
 }
 .container .main__latestArticle h1 {
   width: 25rem;
-  height: 1rem;
+  height: auto;
   margin: 0;
-  padding: 0;
+  padding: 0rem;
   font-size: 25px;
+  line-height: 1rem;
 }
 .container .main__latestArticle p {
   width: 25rem;
-  height: 3rem;
+  height: 2rem;
   margin: 0;
   padding: 0;
   font-size: 16px;
+}
+.container .main__latestArticle__edit {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: inherit;
+  display: none;
+}
+.container .main__latestArticle__edit :hover {
+  scale: 1.1;
+}
+.container .main__latestArticle__edit.active {
+  display: block;
+}
+.container .main__latestArticle__edit i {
+  color: red;
+  font-size: 1.7rem;
+}
+.container .main__latestArticle__save {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: inherit;
+  position: relative;
+  left: 22.5rem;
+  top: -1rem;
+  display: none;
+}
+.container .main__latestArticle__save :hover {
+  scale: 1.1;
+}
+.container .main__latestArticle__save.active {
+  display: block;
+}
+.container .main__latestArticle__save i {
+  color: seagreen;
+  font-size: 1.7rem;
 }
 .container .main__sideArticles {
   width: 18rem;
@@ -159,4 +230,49 @@ body {
 .container .main__sideArticles__article__details p {
   font-size: 10px;
   line-height: 16px;
+}
+.container .main__sideArticles__article__edit {
+  cursor: pointer;
+  position: relative;
+  left: 17rem;
+  top: 1rem;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: inherit;
+  position: relative;
+  left: 17rem;
+  top: 1rem;
+  display: none;
+}
+.container .main__sideArticles__article__edit :hover {
+  scale: 1.1;
+}
+.container .main__sideArticles__article__edit.active {
+  display: block;
+}
+.container .main__sideArticles__article__edit i {
+  color: red;
+  font-size: 1.7rem;
+}
+.container .main__sideArticles__article__save {
+  cursor: pointer;
+  position: relative;
+  left: 17rem;
+  top: 1rem;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: inherit;
+  display: none;
+}
+.container .main__sideArticles__article__save :hover {
+  scale: 1.1;
+}
+.container .main__sideArticles__article__save.active {
+  display: block;
+}
+.container .main__sideArticles__article__save i {
+  color: seagreen;
+  font-size: 1.7rem;
 }
