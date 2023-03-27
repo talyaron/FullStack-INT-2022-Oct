@@ -43,38 +43,84 @@ var articles = [
         title: " Bordeaux town hall set on fire in France pension protests",
         des: " More than a million people took to the streets across France on Thursday, with 119,000 in Paris according to figures from the interior ministry",
         src: "https://ichef.bbci.co.uk/news/800/cpsprodpb/101BC/production/_129108956_b77b0e44fa3fbe9eeea591fe9a1ef4c34909d5c70_193_5500_30961000x563.jpg.webp",
-        uuid: uuid_1.v4()
+        uuid: "article" + uuid_1.v4()
     },
     {
         title: " France pension protests: Mounds of rubbish and e-scooters set on fire",
         des: " Large crowds have been protesting across France, on a ninth day of nationwide demonstrations and strikes over legislation to raise the retirement age from 62 to 64.",
         src: "https://media.cnn.com/api/v1/images/stellar/prod/230316133043-france-pension-protest-031623-restricted.jpg?c=16x9&q=h_720,w_1280,c_fill",
-        uuid: uuid_1.v4()
+        uuid: "article" + uuid_1.v4()
     },
     {
         title: " Ukraine war: The front line where Russian eyes are always watching",
         des: " The line of trees appears to fragment and disappear as it winds its way towards the Russian positions on the outskirts of the small town of Velyka Novosilka.",
         src: "https://ichef.bbci.co.uk/news/976/cpsprodpb/48B7/production/_129051681_1200-dima---as-shell-is-coming-in.jpg.webp",
-        uuid: uuid_1.v4()
+        uuid: "article" + uuid_1.v4()
     },
     {
         title: " Kane's record-breaking goal helps 10-man England beat Italy - reaction",
         des: "Fire engulfs the building's front as violence flares in several cities during pension reform protests.",
         src: "https://ichef.bbci.co.uk/live-experience/cps/1440/cpsprodpb/2378/production/_129108090_gettyimages-1475622803.jpg",
-        uuid: uuid_1.v4()
+        uuid: "article" + uuid_1.v4()
     },
     {
         title: " Jeremy Strong and Hollywood's most extreme actors",
         des: "As hit HBO drama Succession returns, star Jeremy Strong's \"method acting\" has been making headlines",
         src: "https://ychef.files.bbci.co.uk/1600x900/p0fb8hpf.webp",
-        uuid: uuid_1.v4()
+        uuid: "article" + uuid_1.v4()
+    },
+    {
+        title: "The leader of Indian's opposition Congress party Rahul Gandhi has said his disqualification by parliament was politically motivated.",
+        des: " On Friday, India's parliament stripped Mr Gandhi of his MP status a day after he was sentenced to two years in prison in a defamation .",
+        src: "https://ichef.bbci.co.uk/news/976/cpsprodpb/3A1A/production/_129047841_gettyimages-1248465831-594x594.jpg.webp",
+        uuid: "article" + uuid_1.v4()
+    },
+    {
+        title: " France pension protests: Mounds of rubbish and e-scooters set on fire",
+        des: " Large crowds have been protesting across France, on a ninth day of nationwide demonstrations and strikes over legislation to raise the retirement age from 62 to 64.",
+        src: "https://media.cnn.com/api/v1/images/stellar/prod/230316133043-france-pension-protest-031623-restricted.jpg?c=16x9&q=h_720,w_1280,c_fill",
+        uuid: "article" + uuid_1.v4()
+    },
+    {
+        title: " Ukraine war: The front line where Russian eyes are always watching",
+        des: " The line of trees appears to fragment and disappear as it winds its way towards the Russian positions on the outskirts of the small town of Velyka Novosilka.",
+        src: "https://ichef.bbci.co.uk/news/976/cpsprodpb/48B7/production/_129051681_1200-dima---as-shell-is-coming-in.jpg.webp",
+        uuid: "article" + uuid_1.v4()
+    },
+    {
+        title: " Kane's record-breaking goal helps 10-man England beat Italy - reaction",
+        des: "Fire engulfs the building's front as violence flares in several cities during pension reform protests.",
+        src: "https://ichef.bbci.co.uk/live-experience/cps/1440/cpsprodpb/2378/production/_129108090_gettyimages-1475622803.jpg",
+        uuid: "article" + uuid_1.v4()
+    },
+    {
+        title: " Jeremy Strong and Hollywood's most extreme actors",
+        des: "As hit HBO drama Succession returns, star Jeremy Strong's \"method acting\" has been making headlines",
+        src: "https://ychef.files.bbci.co.uk/1600x900/p0fb8hpf.webp",
+        uuid: "article" + uuid_1.v4()
     }
 ];
+app.post('/api/articles/edit', function (req, res) {
+    try {
+        var title = req.body.name;
+        var subtitle = req.body.des;
+        var uid_1 = req.body.uuid;
+        var curArticle = articles.find(function (a) { return a.uuid === uid_1; });
+        if (!curArticle)
+            throw new Error("the article not founded");
+        curArticle.title = title,
+            curArticle.des = subtitle,
+            res.send({ articles: articles });
+    }
+    catch (error) {
+        console.error(error);
+    }
+});
 app.post('/api/articles', function (req, res) {
     try {
         var data_1 = req.body.name;
         var index = articles.findIndex(function (a) { return a.uuid === data_1; });
-        if (!index && index === 0)
+        if (!index && index !== 0)
             throw new Error("no index founds in article");
         articles.splice(index, 1);
         res.status(201).send({ succuss: true, articles: articles });
