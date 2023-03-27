@@ -76,7 +76,7 @@ function handleSubmitFormRegister(ev) {
                     break;
             }
             ev.target.reset();
-            var newUrl = "./Bite-Away-group2-orel-amit-dor/login.html";
+            var newUrl = "./Bite-Away-group2-orel-amit-dor/login/login.html";
             window.location.replace(newUrl);
         }
         else {

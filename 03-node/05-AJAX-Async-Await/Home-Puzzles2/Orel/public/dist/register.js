@@ -1,5 +1,3 @@
-"use strict";
-exports.__esModule = true;
 function handleSubmitLogin(ev) {
     try {
         ev.preventDefault();
