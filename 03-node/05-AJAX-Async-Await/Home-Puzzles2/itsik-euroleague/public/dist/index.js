@@ -1,8 +1,18 @@
-var imageClick = document.querySelectorAll(".main__container same");
+var imageClick = document.querySelectorAll(".main__container");
 if (imageClick) {
-    imageClick.forEach(function (img) {
+    imageClick.forEach(function (img, index) {
         img.addEventListener("click", function () {
-            console.log("asdasd");
+            getArticels(index);
         });
     });
+}
+function getArticels(index) {
+    try {
+        fetch("/articles")
+            .then(function (res) { return res.json(); })
+            .then;
+    }
+    catch (error) {
+        console.error(error);
+    }
 }
