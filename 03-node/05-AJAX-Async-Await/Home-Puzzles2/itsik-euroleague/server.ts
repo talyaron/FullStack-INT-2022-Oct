@@ -17,15 +17,15 @@ const articles:news [] = [
        },
 
    {
-    name:"Vasilije Micic",
-    article:"https://www.euroleaguebasketball.net/euroleague/news/rememberthewhy-with-vasilije-micic-i-wanted-to-create-something-from-the-bottom-from-zero/?pageTitle=Homepage&historyUrl=/euroleague/",
-    id:2
+        name:"Vasilije Micic",
+        article:"https://www.euroleaguebasketball.net/euroleague/news/rememberthewhy-with-vasilije-micic-i-wanted-to-create-something-from-the-bottom-from-zero/?pageTitle=Homepage&historyUrl=/euroleague/",
+        id:2
    },
 
    {
-    name:"Lorenzo Brown",
-    article:"https://www.euroleaguebasketball.net/euroleague/news/lorenzo-brown-hops-aboard-the-crossover/?pageTitle=Homepage&historyUrl=/euroleague/",
-    id:3
+        name:"Lorenzo Brown",
+        article:"https://www.euroleaguebasketball.net/euroleague/news/lorenzo-brown-hops-aboard-the-crossover/?pageTitle=Homepage&historyUrl=/euroleague/",
+        id:3
    }
 ]
 
