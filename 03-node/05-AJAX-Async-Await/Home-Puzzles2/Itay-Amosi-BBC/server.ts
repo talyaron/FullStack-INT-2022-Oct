@@ -1,9 +1,11 @@
-import { table } from 'console';
 import express from 'express';
 import fs from 'fs';
+import { title } from 'process';
 import { uuid } from 'uuidv4';
 const app = express();
 app.use(express.static(`./public`));
+app.use(express.json());
+
 
 class Admin {
     constructor(
@@ -75,26 +77,23 @@ class Article {
     res.send(admin);
   });
 
-  // app.post(`/admin`, (req, res) => {
-  //       fs.readFileSync("./public/admin.html", {
-  //       encoding: "utf8",
-  //       flag: "r",
-  //     });
-  // });
+  app.post(`/admin`, (req, res) => {
+        fs.readFileSync("./public/admin.html", {
+        encoding: "utf8",
+        flag: "r",
+      });
+  });
 
-  app.post('/api/add-articles', (req, res) => {
-    try {
-      const data = req.body;
-      const {tital , src , paregraph} = data;
-      if(!tital || !src || !paregraph) throw new Error("no found tital/src/paregraph")
-      articles.push(new Article(tital , src , paregraph));
-      res.send({articles});
-      res.status(201).send({ succuss: true , articles});
-
-    } catch (error: any) {
-      console.error(error);
-      res.status(500).send({ error: error.message });
+  app.post("/api/add-article", (req, res) => {
+    const { title, src, paragraph } = req.body;
+    console.log(req.body)
+    if (!title || !src || !paragraph) {
+      return res.status(400).json({ error: "Missing required fields" });
     }
+  
+    const newArticle = new Article(title, src, paragraph);
+    articles.push(newArticle);
+    res.status(200).send({ok:true,articles});
   });
 
 app.listen(3000,()=>{console.log(`server listening on port 3000`)});
