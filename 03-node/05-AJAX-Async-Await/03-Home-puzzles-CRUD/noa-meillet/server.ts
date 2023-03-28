@@ -13,7 +13,7 @@ class Teacher {
 
 class Student {
     public uid: string = uuid();
-    constructor(public name: string, public password: string, public grades: Grade[]) {}
+    constructor(public name: string, public password: string, public grades?: Grade[]) {}
   }
 
   class Subject {
@@ -23,7 +23,7 @@ class Student {
 
 class Grade {
     public uid: string = uuid();
-    constructor(public subject: Subject, public student:Student, public grade?:number) {}
+    constructor(public subject: Subject, public student:Student, public task?:string, public grade?:number) {}
 
     getSimpleGrade() {
         return { uid: this.uid, subject: this.subject ,grade: this.grade, student: this.student };
@@ -42,25 +42,45 @@ const teachers: Teacher[] = [
   new Teacher("Ofra Zror", "ofra", subjects[2])
 ];
 
-const grades: Grade[] = [];
-
 const students:Student[] = [
-    new Student("Noa Meillet", "noa", grades),
-    new Student("Sagiv Kelly", "sagiv", grades),
-    new Student("Amit Vaknin", "amit", grades)
+    new Student("Noa Meillet", "noa"),
+    new Student("Sagiv Kelly", "sagiv"),
+    new Student("Amit Vaknin", "amit")
 ]
 
-//data route
-/*
+const grades: Grade[] = [
+    new Grade(subjects[0],students[0],"homework",94),
+    new Grade(subjects[0],students[1],"homework",93),
+    new Grade(subjects[0],students[2],"finals"),
+    new Grade(subjects[1],students[0]),
+    new Grade(subjects[1],students[1],"project"),
+    new Grade(subjects[1],students[2],"project",83),
+    new Grade(subjects[2],students[0]),
+    new Grade(subjects[2],students[1],"project"),
+    new Grade(subjects[2],students[2],"homework",89)
+];
+
+
+function getGradesBySubject(subjectToGet:Subject){
+    return grades.filter((subject)=> subject.subject==subjectToGet)
+}
+
 //get (from server)
-app.get("/api/get-users", (req, res) => {
+app.get("/api/get-students-grades", (req, res) => {
   try {
-    res.send({ users });
+    const { uuid } = req.body;
+    if (!uuid) throw new Error("No uuid in data");
+
+    const teacher = teachers.find((teacher) => teacher.uid === uuid);
+    if (!teacher) throw new Error("No teacher in array");
+    const subject = teacher.subject;
+    res.send( getGradesBySubject(subject) );
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });
   }
 });
+/*
 
 //add
 app.post("/api/add-user", (req, res) => {
@@ -124,11 +144,10 @@ app.delete("/api/delete-user", (req, res) => {
     res.status(500).send({ error: error.message });
   }
 });
+*/
 
-//static file
-app.use(express.static("./client"));
+app.use(express.static("./public"));
 
 app.listen(3000, () => {
   console.log("server listen on port 3000");
 });
-*/

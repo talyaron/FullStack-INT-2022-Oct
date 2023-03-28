@@ -31,9 +31,10 @@ var Subject = /** @class */ (function () {
     return Subject;
 }());
 var Grade = /** @class */ (function () {
-    function Grade(subject, student, grade) {
+    function Grade(subject, student, task, grade) {
         this.subject = subject;
         this.student = student;
+        this.task = task;
         this.grade = grade;
         this.uid = uuidv4_1.uuid();
     }
@@ -52,23 +53,43 @@ var teachers = [
     new Teacher("Ruti Gabay", "ruti", subjects[1]),
     new Teacher("Ofra Zror", "ofra", subjects[2])
 ];
-var grades = [];
 var students = [
-    new Student("Noa Meillet", "noa", grades),
-    new Student("Sagiv Kelly", "sagiv", grades),
-    new Student("Amit Vaknin", "amit", grades)
+    new Student("Noa Meillet", "noa"),
+    new Student("Sagiv Kelly", "sagiv"),
+    new Student("Amit Vaknin", "amit")
 ];
-//data route
-/*
+var grades = [
+    new Grade(subjects[0], students[0], "homework", 94),
+    new Grade(subjects[0], students[1], "homework", 93),
+    new Grade(subjects[0], students[2], "finals"),
+    new Grade(subjects[1], students[0]),
+    new Grade(subjects[1], students[1], "project"),
+    new Grade(subjects[1], students[2], "project", 83),
+    new Grade(subjects[2], students[0]),
+    new Grade(subjects[2], students[1], "project"),
+    new Grade(subjects[2], students[2], "homework", 89)
+];
+function getGradesBySubject(subjectToGet) {
+    return grades.filter(function (subject) { return subject.subject == subjectToGet; });
+}
 //get (from server)
-app.get("/api/get-users", (req, res) => {
-  try {
-    res.send({ users });
-  } catch (error: any) {
-    console.error(error);
-    res.status(500).send({ error: error.message });
-  }
+app.get("/api/get-students-grades", function (req, res) {
+    try {
+        var uuid_1 = req.body.uuid;
+        if (!uuid_1)
+            throw new Error("No uuid in data");
+        var teacher = teachers.find(function (teacher) { return teacher.uid === uuid_1; });
+        if (!teacher)
+            throw new Error("No teacher in array");
+        var subject = teacher.subject;
+        res.send(getGradesBySubject(subject));
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send({ error: error.message });
+    }
 });
+/*
 
 //add
 app.post("/api/add-user", (req, res) => {
@@ -132,11 +153,8 @@ app.delete("/api/delete-user", (req, res) => {
     res.status(500).send({ error: error.message });
   }
 });
-
-//static file
-app.use(express.static("./client"));
-
-app.listen(3000, () => {
-  console.log("server listen on port 3000");
+*/
+app.use(express_1["default"].static("./public"));
+app.listen(3000, function () {
+    console.log("server listen on port 3000");
 });
-*/ 
