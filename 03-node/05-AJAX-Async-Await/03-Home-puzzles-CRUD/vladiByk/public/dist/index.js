@@ -44,30 +44,40 @@ var Student = /** @class */ (function () {
     Student.prototype.addGrade = function (grade) {
         this.grades.push(grade);
     };
+    Student.prototype.getAverage = function () {
+        return this.grades.reduce(function (a, b) { return a + b; }, 0) / this.grades.length;
+    };
     return Student;
 }());
-var root = document.querySelector("#root");
 var displayStudents = function () { return __awaiter(_this, void 0, void 0, function () {
-    var students;
+    var studentList;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, fetch("/api/v1/students")
                     .then(function (res) { return res.json(); })
-                    .then(function (_a) {
-                    var students = _a.students;
-                    return students.map(function (student) { return (student = new Student(student.name, student.grades)); });
+                    .then(function (data) {
+                    var studentsJson = data.students;
+                    return studentsJson.map(function (student) { return (student = new Student(student.name, student.grades)); });
                 })["catch"](function (err) { return console.error(err); })];
             case 1:
-                students = _a.sent();
-                console.log(students);
-                students[0].addGrade(999);
+                studentList = _a.sent();
+                console.log(studentList);
+                if (studentList)
+                    renderStudents(studentList);
                 return [2 /*return*/];
         }
     });
 }); };
 displayStudents();
 var renderStudents = function (students) { return __awaiter(_this, void 0, void 0, function () {
+    var html;
     return __generator(this, function (_a) {
+        html = students
+            .map(function (student) {
+            return "<div class=\"studentDiv\">\n        <b>" + student.name + "</b>\n        <span>Average: " + student.getAverage() + "</span>\n        <div class=\"crudIcons\">\n          <i class=\"fa-regular fa-trash-can\"></i>\n          <i class=\"fa-regular fa-pen-to-square\"></i>\n         </div>\n        </div>";
+        })
+            .join("");
+        root.innerHTML = html;
         return [2 /*return*/];
     });
 }); };

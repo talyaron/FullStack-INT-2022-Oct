@@ -7,5 +7,4 @@ export const getAllStudents = async (req: any, res: any) => {
   res.status(200).json({ students });
 };
 
-export const createStudent = async (req: any, res: any) => {
-};
+export const createStudent = async (req: any, res: any) => {};
