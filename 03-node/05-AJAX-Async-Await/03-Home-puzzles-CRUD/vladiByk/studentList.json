@@ -1,10 +1,1 @@
-[
-    {
-        "name": "Vladislav Bykanov",
-        "grades": [100, 70, 50, 80, 30]
-    },
-    {
-        "name": "John Doe",
-        "grades": [100, 70, 40, 90, 40]
-    }
-]
+[{"name":"Vladislav Bykanov","grades":[100,70,50,80,30],"uuid":"53111168149243.75"},{"name":"John Doe","grades":[100,70,40,90,40],"uuid":"28362714526214.15"},{"name":"bobby","grades":[77],"uuid":"13647352788152.723"},{"name":"new","grades":[99],"uuid":"59050106879842.4"},{"name":"student y","grades":[56],"uuid":"21878153727213.58"},{"name":"Bob Marley","grades":[77],"uuid":"24989576435812.277"}]

@@ -14,7 +14,6 @@
       var exports = {};
     </script>
     <script type="module" src="./dist/view.js" defer></script>
-    <script type="module" src="./dist/models.js" defer></script>
     <script type="module" src="./dist/index.js" defer></script>
   </head>
   <body>
@@ -29,8 +28,20 @@
         </div>
       </div> -->
     </div>
-    <div class="btnDiv">
-      <button id="addStudentBtn">Add student</button>
+    <!-- <div class="btnDiv">
+      <button >Add student</button>
+    </div> -->
+    <h4>Add student</h4>
+    <div class="form">
+      <label for="fullName"
+        >Full name:
+        <input id="fullName" name="fullName" type="text" placeholder="John Doe"
+      /></label>
+      <label for="grade"
+        >Enter grade:
+        <input id="grade" name="grade" type="number" placeholder="75"
+      /></label>
+      <button id="addStudentBtn" >Add</button>
     </div>
   </body>
 </html>

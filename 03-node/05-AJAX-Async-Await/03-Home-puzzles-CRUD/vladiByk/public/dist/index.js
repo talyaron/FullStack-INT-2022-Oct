@@ -37,6 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var _this = this;
 var Student = /** @class */ (function () {
     function Student(name, grades) {
+        if (grades === void 0) { grades = []; }
         this.name = name;
         this.grades = grades;
         this.uuid = (Math.random() * 100000000000000).toString();
@@ -49,19 +50,22 @@ var Student = /** @class */ (function () {
     };
     return Student;
 }());
+var fetchStudents = function () {
+    var list = fetch("/api/v1/students").then(function (res) { return res.json(); });
+    return list;
+};
 var displayStudents = function () { return __awaiter(_this, void 0, void 0, function () {
     var studentList;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch("/api/v1/students")
-                    .then(function (res) { return res.json(); })
+            case 0: return [4 /*yield*/, fetchStudents()
                     .then(function (data) {
                     var studentsJson = data.students;
                     return studentsJson.map(function (student) { return (student = new Student(student.name, student.grades)); });
                 })["catch"](function (err) { return console.error(err); })];
             case 1:
                 studentList = _a.sent();
-                console.log(studentList);
+                // console.log(studentList);
                 if (studentList)
                     renderStudents(studentList);
                 return [2 /*return*/];
@@ -70,7 +74,7 @@ var displayStudents = function () { return __awaiter(_this, void 0, void 0, func
 }); };
 displayStudents();
 var renderStudents = function (students) { return __awaiter(_this, void 0, void 0, function () {
-    var html;
+    var html, deleteBtn;
     return __generator(this, function (_a) {
         html = students
             .map(function (student) {
@@ -78,6 +82,50 @@ var renderStudents = function (students) { return __awaiter(_this, void 0, void 
         })
             .join("");
         root.innerHTML = html;
+        deleteBtn = document.querySelectorAll(".fa-trash-can");
         return [2 /*return*/];
     });
 }); };
+var addNewStudent = function (e) { return __awaiter(_this, void 0, void 0, function () {
+    var studentName, studentGrade, newStudent, studentList;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                e.preventDefault();
+                studentName = document.querySelector("#fullName");
+                studentGrade = document.querySelector("#grade");
+                if (!studentName.value || !studentGrade.value) {
+                    return [2 /*return*/, alert("Missing input field...")];
+                }
+                newStudent = new Student(studentName.value);
+                newStudent.addGrade(Number(studentGrade.value));
+                return [4 /*yield*/, fetchStudents()
+                        .then(function (_a) {
+                        var students = _a.students;
+                        return students.map(function (student) { return new Student(student.name, student.grades); });
+                    })["catch"](function (err) { return console.error(err); })];
+            case 1:
+                studentList = _a.sent();
+                studentList.push(newStudent);
+                studentName.value = "";
+                studentGrade.value = "";
+                fetch("/api/v1/students", {
+                    method: "POST",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(studentList)
+                })
+                    .then(function (res) { return res.json(); })
+                    .then(function (data) {
+                    console.log(data);
+                })["catch"](function (error) {
+                    console.error(error);
+                });
+                renderStudents(studentList);
+                return [2 /*return*/];
+        }
+    });
+}); };
+addStudentBtn.addEventListener("click", addNewStudent);
