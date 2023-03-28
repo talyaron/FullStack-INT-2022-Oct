@@ -9,8 +9,14 @@ app.get("/", (req, res) {
 });
 
 app.listen(PORT, (req,res)=>{
-    console.log(`server run on port: http://localhost:${PORT}`))
+    console.log(`server run on port: http://localhost:${PORT}`));
 })
 
 
-<!--  -->
+<!-- static file -->
+app.use(express.static("./client"));
+<!-- בעזרתו נוכל לקבל את כל הקבצים שבתיקיית client -->
+
+<!--  ישיג לנו את המידע ל json-->
+app.use(express.json());
+
