@@ -1,13 +1,17 @@
 import express from "express";
+// import bodyParser from "body-parser";
 const app = express();
 import { router as students } from "./routes/students";
 
 //Middleware
 app.use(express.static("./public"));
 app.use(express.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+
 
 //routes
-app.use("/api/v1/articles", students);
+app.use("/api/v1/students", students);
 
 const PORT = process.env.PORT || 3000;
 

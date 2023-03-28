@@ -1,9 +1,9 @@
-import { readFileSync, writeFile } from "fs";
+
 import { json } from "stream/consumers";
 // import util from "util";
 import { uuid } from "uuidv4";
 
-class Student {
+export class Student {
   public uuid: string;
   constructor(public name: string, public grades: number[]) {
     this.uuid = uuid();
@@ -13,6 +13,9 @@ class Student {
   }
 }
 
-const students = readFileSync('studentList.json', 'utf-8')
+export interface StudentTemplate {
+  name: string;
+  grades: number[];
+}
 
-console.log(json(students));
+
