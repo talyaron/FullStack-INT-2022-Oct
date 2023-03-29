@@ -9,7 +9,7 @@ interface soccerPlayer {
 
 function hendlegetplayers(){
 try {
-     debugger;
+
     fetch("/api/get-players")
     .then((res)=>res.json())
     .then(({players})=>{
@@ -38,6 +38,31 @@ function renderPlayers(players:soccerPlayer[]){
       const userElement=document.querySelector(".playersConteiner")
       if (!userElement) throw new Error("coundnt find users element on DOM")
         userElement.innerHTML=html;
+    } catch (error) {
+        console.error(Error) 
+    }
+}
+
+function hendleAddPlayer(ev){
+    try {
+        ev.preventDefault();
+        const name = ev.target.elements.name.value;
+        const url = ev.target.elements.url.value;
+        if (!name) throw new Error("No name");
+        if (!url) throw new Error("No src");
+        const newPlayer= {name, url}
+
+        //send to server
+        fetch("/api/add-players",{
+            method:"POST",
+            headers:{
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newPlayer), })
+        .then
+
+
     } catch (error) {
         console.error(Error) 
     }

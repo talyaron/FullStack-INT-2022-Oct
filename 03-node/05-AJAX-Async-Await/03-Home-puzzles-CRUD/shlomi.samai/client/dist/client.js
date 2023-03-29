@@ -2,7 +2,6 @@
 exports.__esModule = true;
 function hendlegetplayers() {
     try {
-        debugger;
         fetch("/api/get-players")
             .then(function (res) { return res.json(); })
             .then(function (_a) {
@@ -31,6 +30,31 @@ function renderPlayers(players) {
         if (!userElement)
             throw new Error("coundnt find users element on DOM");
         userElement.innerHTML = html;
+    }
+    catch (error) {
+        console.error(Error);
+    }
+}
+function hendleAddPlayer(ev) {
+    try {
+        ev.preventDefault();
+        var name = ev.target.elements.name.value;
+        var url = ev.target.elements.url.value;
+        if (!name)
+            throw new Error("No name");
+        if (!url)
+            throw new Error("No src");
+        var newPlayer = { name: name, url: url };
+        //send to server
+        fetch("/api/add-players", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newPlayer)
+        })
+            .then;
     }
     catch (error) {
         console.error(Error);
