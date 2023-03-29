@@ -9,6 +9,10 @@ body {
   height: 100vh;
 }
 
+.container {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
 .nav {
   display: flex;
   justify-content: space-evenly;
@@ -25,6 +29,7 @@ body {
   justify-content: space-between;
   background-color: #323232;
   height: 35px;
+  cursor: pointer;
 }
 .nav__ulNav__liNav {
   list-style: none;
@@ -38,24 +43,26 @@ body {
   margin-left: 26px;
   border-radius: 25%;
   font-size: 20px;
+  cursor: pointer;
 }
 
 .main {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 20px;
-  background-color: #a09898;
+  background-color: #aea7a7;
   border-radius: 20px 20px 0 0;
 }
 .main .same {
   background-color: white;
   border-radius: 25px;
-  width: 400px;
-  height: 550px;
+  width: 600px;
+  height: 650px;
+  cursor: pointer;
 }
 .main__container__contimg1 {
-  width: 400px;
+  width: 600px;
   height: 300px;
   border-radius: 25px 25px 0 0;
 }
@@ -63,4 +70,10 @@ body {
   width: 100%;
   height: 250px;
   border-radius: 0 0 25px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main .article {
+  font-size: 40px;
 }

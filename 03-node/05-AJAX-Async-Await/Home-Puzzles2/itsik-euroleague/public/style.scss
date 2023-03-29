@@ -10,13 +10,14 @@ body{
 
 
 .container{
-
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
 }
 
 .nav{
     display: flex;
     justify-content: space-evenly;
     padding: 15px 0px;
+    
     
     &__spanlogo{
        width: 140px;
@@ -31,6 +32,7 @@ body{
        justify-content: space-between;
        background-color: rgb(50, 50, 50);
        height: 35px;
+       cursor: pointer;
        
         &__liNav{
           list-style: none;
@@ -45,6 +47,7 @@ body{
            margin-left: 26px;
            border-radius: 25%;
            font-size: 20px;
+           cursor: pointer;
         }
 
 
@@ -54,9 +57,9 @@ body{
 .main{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 20px;
-  background-color: rgb(160, 152, 152);
+  background-color: rgb(174, 167, 167);
   border-radius: 20px 20px 0 0;
 
 
@@ -64,15 +67,16 @@ body{
     
     background-color: rgb(255, 255, 255);
     border-radius: 25px;
-    width: 400px;
-    height: 550px;
+    width: 600px;
+    height: 650px;
+    cursor: pointer;
     
   }
 
   &__container{
 
   &__contimg1{
-    width: 400px;
+    width:600px;
     height: 300px;
     border-radius: 25px 25px 0 0;
     
@@ -82,12 +86,16 @@ body{
     width: 100%;
     height: 250px;
     border-radius: 0 0 25px 25px;
-
-   }
+     display: flex;
+     justify-content: center;
+     align-items: center;
+    }
 
 
   }
-    
+  .article{
+    font-size: 40px;
+   }
 
 }
 

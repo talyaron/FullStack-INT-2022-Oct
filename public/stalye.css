@@ -1,0 +1,37 @@
+.ballons {
+  display: flex;
+  justify-content: space-around;
+  width: 120px;
+  height: 700px;
+  background: hsl(215, 50%, 65%);
+  border-radius: 80%;
+  position: relative;
+  box-shadow: inset -10px -10px 0 rgba(0, 0, 0, 0.07);
+  margin: 20px 30px;
+  transition: transform 0.5s ease;
+  animation: ballons 4s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+.ballon1 {
+  display: flex;
+  position: absolute;
+  width: 120px;
+  height: 145px;
+  background: hsl(215, 50%, 65%);
+  border-radius: 80%;
+  box-shadow: inset -10px -10px 0 rgba(0, 0, 0, 0.07);
+  margin: 20px 30px;
+  transition: transform 0.5s ease;
+  animation: ballons 4s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes ballons {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}/*# sourceMappingURL=stalye.css.map */
