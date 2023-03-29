@@ -6,4 +6,4 @@ var router = express_1["default"].Router();
 exports.router = router;
 var studentsControl_1 = require("../controller/studentsControl");
 router.route("/").get(studentsControl_1.getAllStudents).post(studentsControl_1.createStudent);
-router.route("/:id")["delete"](studentsControl_1.deleteStudent);
+router.route("/:id").patch(studentsControl_1.updateStudent)["delete"](studentsControl_1.deleteStudent);

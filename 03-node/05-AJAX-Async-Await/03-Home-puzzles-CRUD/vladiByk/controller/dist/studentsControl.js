@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.deleteStudent = exports.createStudent = exports.getAllStudents = void 0;
+exports.updateStudent = exports.deleteStudent = exports.createStudent = exports.getAllStudents = void 0;
 // import { Student, StudentTemplate } from "../models/Student";
 var fs_1 = require("fs");
 exports.getAllStudents = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -63,6 +63,17 @@ exports.deleteStudent = function (req, res) {
     try {
         var studentList = req.body;
         fs_1.writeFileSync("studentList.json", JSON.stringify(studentList));
+        res.status(201).send({ ok: true });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send({ error: error.message });
+    }
+};
+exports.updateStudent = function (req, res) {
+    try {
+        var studentList = req.body;
+        // writeFileSync("studentList.json", JSON.stringify(studentList));
         res.status(201).send({ ok: true });
     }
     catch (error) {
