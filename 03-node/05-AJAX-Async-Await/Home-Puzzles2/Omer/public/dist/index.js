@@ -43,7 +43,7 @@ function renderArticlesAdmin(articles, displayName) {
         else {
             var html = articles
                 .map(function (article) {
-                return "<div class=\"article\">\n                <h1>" + article.header + "</h1>\n                <h4>" + article.subject + "</h4>\n                <p>" + article.body + "</p>\n                <button onclick=\"remove('" + article.id + "')\">Remove</button>\n                </div>";
+                return "<div class=\"article\">\n                <h1>" + article.header + "</h1>\n                <h4>" + article.subject + "</h4>\n                <p>" + article.body + "</p>\n                <button onclick=\"update('" + article.id + "')\">Remove</button>\n                </div>";
             })
                 .join(" ");
             display.innerHTML = html;
@@ -74,28 +74,13 @@ function renderArticles(articles, displayName) {
         console.error(error);
     }
 }
-function remove(id) {
+function update(id) {
     try {
         fetch('/all-articles')
             .then(function (response) { return response.json(); })
             .then(function (allArticles) {
             var index = allArticles.findIndex(function (x) { return x.id === id; });
-            if (index == -1)
-                throw new Error("Can not find article");
-            console.log(index);
-            fetch('/articles-delete', {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(index)
-            })
-                .then(function (response) { return response.json(); })
-                .then(function (data) {
-                console.log("Success:", data);
-            })["catch"](function (error) {
-                console.error("Error:", error);
-            });
+            var article = allArticles[index];
         });
         getArticles();
     }
