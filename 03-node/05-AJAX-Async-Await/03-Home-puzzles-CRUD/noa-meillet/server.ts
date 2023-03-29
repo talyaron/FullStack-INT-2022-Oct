@@ -66,7 +66,7 @@ function getGradesBySubject(subjectToGet:Subject){
 }
 
 //get (from server)
-app.get("/api/get-students-grades", (req, res) => {
+app.get("/api/get-studentsGrades", (req, res) => {
   try {
     const { uuid } = req.body;
     if (!uuid) throw new Error("No uuid in data");

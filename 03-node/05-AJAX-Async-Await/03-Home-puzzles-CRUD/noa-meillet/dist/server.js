@@ -73,7 +73,7 @@ function getGradesBySubject(subjectToGet) {
     return grades.filter(function (subject) { return subject.subject == subjectToGet; });
 }
 //get (from server)
-app.get("/api/get-students-grades", function (req, res) {
+app.get("/api/get-studentsGrades", function (req, res) {
     try {
         var uuid_1 = req.body.uuid;
         if (!uuid_1)
