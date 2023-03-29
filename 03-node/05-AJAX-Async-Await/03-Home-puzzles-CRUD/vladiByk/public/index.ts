@@ -1,6 +1,9 @@
 class Student {
-  public uuid: string = (Math.random() * 100000000000000).toString();
-  constructor(public name: string, public grades: number[] = []) {}
+  constructor(
+    public name: string,
+    public grades: number[] = [],
+    public uuid: string = (Math.random() * 100000000000000).toString()
+  ) {}
   addGrade(grade: number) {
     this.grades.push(grade);
   }
@@ -21,16 +24,20 @@ const fetchStudents = () => {
 };
 
 const displayStudents = async () => {
-  const studentList = await fetchStudents()
-    .then((data) => {
-      const studentsJson: Student[] = data.students;
-      return studentsJson.map(
-        (student) => (student = new Student(student.name, student.grades))
-      );
-    })
-    .catch((err) => console.error(err));
-  // console.log(studentList);
-  if (studentList) renderStudents(studentList);
+  try {
+    const studentList = await fetchStudents()
+      .then((data) => {
+        const studentsJson: Student[] = data.students;
+        return studentsJson.map(
+          (student) =>
+            (student = new Student(student.name, student.grades, student.uuid))
+        );
+      })
+      .catch((err) => console.error(err));
+    if (studentList) renderStudents(studentList);
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 displayStudents();
@@ -55,7 +62,8 @@ const renderStudents = async (students: Student[]) => {
   ) as NodeListOf<HTMLElement>;
   deleteButtons.forEach((btn) =>
     btn.addEventListener("click", () => {
-      console.log(btn.parentElement?.parentElement?.id);
+      const id = Number(btn.parentElement?.parentElement?.id);
+      deleteStudent(id);
     })
   );
 };
@@ -75,7 +83,8 @@ const addNewStudent = async (e: Event) => {
   const studentList: Student[] = await fetchStudents()
     .then(({ students }) =>
       students.map(
-        (student: Student) => new Student(student.name, student.grades)
+        (student: Student) =>
+          new Student(student.name, student.grades, student.uuid)
       )
     )
     .catch((err) => console.error(err));
@@ -91,15 +100,34 @@ const addNewStudent = async (e: Event) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(studentList),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+  }).catch((error) => {
+    console.error(error);
+  });
   renderStudents(studentList);
 };
 
 addStudentBtn.addEventListener("click", addNewStudent);
+
+export const deleteStudent = async (id: number) => {
+  const studentList: Student[] = await fetchStudents()
+    .then(({ students }) =>
+      students.map(
+        (student: Student) =>
+          new Student(student.name, student.grades, student.uuid)
+      )
+    )
+    .catch((err) => console.error(err));
+  const studentIndex = studentList.findIndex(
+    (student) => Number(student.uuid) == id
+  );
+  studentList.splice(studentIndex, 1);
+  fetch("/api/v1/students/" + id, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(studentList),
+  }).catch((error) => console.error(error));
+  renderStudents(studentList);
+};

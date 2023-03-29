@@ -7,10 +7,20 @@ export const getAllStudents = async (req: any, res: any) => {
   res.status(200).json({ students });
 };
 
-export const createStudent = async (req: any, res: any) => {
+export const createStudent = (req: any, res: any) => {
   try {
     const studentList = req.body;
-    console.log(studentList);
+    writeFileSync("studentList.json", JSON.stringify(studentList));
+    res.status(201).send({ ok: true });
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+};
+
+export const deleteStudent = (req: any, res: any) => {
+  try {
+    const studentList = req.body;
     writeFileSync("studentList.json", JSON.stringify(studentList));
     res.status(201).send({ ok: true });
   } catch (error: any) {

@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,13 +35,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var _this = this;
+exports.__esModule = true;
+exports.deleteStudent = void 0;
 var Student = /** @class */ (function () {
-    function Student(name, grades) {
+    function Student(name, grades, uuid) {
         if (grades === void 0) { grades = []; }
+        if (uuid === void 0) { uuid = (Math.random() * 100000000000000).toString(); }
         this.name = name;
         this.grades = grades;
-        this.uuid = (Math.random() * 100000000000000).toString();
+        this.uuid = uuid;
     }
     Student.prototype.addGrade = function (grade) {
         this.grades.push(grade);
@@ -54,26 +57,34 @@ var fetchStudents = function () {
     var list = fetch("/api/v1/students").then(function (res) { return res.json(); });
     return list;
 };
-var displayStudents = function () { return __awaiter(_this, void 0, void 0, function () {
-    var studentList;
+var displayStudents = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var studentList, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetchStudents()
-                    .then(function (data) {
-                    var studentsJson = data.students;
-                    return studentsJson.map(function (student) { return (student = new Student(student.name, student.grades)); });
-                })["catch"](function (err) { return console.error(err); })];
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, fetchStudents()
+                        .then(function (data) {
+                        var studentsJson = data.students;
+                        return studentsJson.map(function (student) {
+                            return (student = new Student(student.name, student.grades, student.uuid));
+                        });
+                    })["catch"](function (err) { return console.error(err); })];
             case 1:
                 studentList = _a.sent();
-                // console.log(studentList);
                 if (studentList)
                     renderStudents(studentList);
-                return [2 /*return*/];
+                return [3 /*break*/, 3];
+            case 2:
+                error_1 = _a.sent();
+                console.error(error_1);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }); };
 displayStudents();
-var renderStudents = function (students) { return __awaiter(_this, void 0, void 0, function () {
+var renderStudents = function (students) { return __awaiter(void 0, void 0, void 0, function () {
     var html, deleteButtons;
     return __generator(this, function (_a) {
         html = students
@@ -86,13 +97,14 @@ var renderStudents = function (students) { return __awaiter(_this, void 0, void 
         deleteButtons.forEach(function (btn) {
             return btn.addEventListener("click", function () {
                 var _a, _b;
-                console.log((_b = (_a = btn.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.id);
+                var id = Number((_b = (_a = btn.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.id);
+                exports.deleteStudent(id);
             });
         });
         return [2 /*return*/];
     });
 }); };
-var addNewStudent = function (e) { return __awaiter(_this, void 0, void 0, function () {
+var addNewStudent = function (e) { return __awaiter(void 0, void 0, void 0, function () {
     var studentName, studentGrade, newStudent, studentList;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -108,7 +120,9 @@ var addNewStudent = function (e) { return __awaiter(_this, void 0, void 0, funct
                 return [4 /*yield*/, fetchStudents()
                         .then(function (_a) {
                         var students = _a.students;
-                        return students.map(function (student) { return new Student(student.name, student.grades); });
+                        return students.map(function (student) {
+                            return new Student(student.name, student.grades, student.uuid);
+                        });
                     })["catch"](function (err) { return console.error(err); })];
             case 1:
                 studentList = _a.sent();
@@ -122,10 +136,6 @@ var addNewStudent = function (e) { return __awaiter(_this, void 0, void 0, funct
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify(studentList)
-                })
-                    .then(function (res) { return res.json(); })
-                    .then(function (data) {
-                    console.log(data);
                 })["catch"](function (error) {
                     console.error(error);
                 });
@@ -135,3 +145,31 @@ var addNewStudent = function (e) { return __awaiter(_this, void 0, void 0, funct
     });
 }); };
 addStudentBtn.addEventListener("click", addNewStudent);
+exports.deleteStudent = function (id) { return __awaiter(void 0, void 0, void 0, function () {
+    var studentList, studentIndex;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, fetchStudents()
+                    .then(function (_a) {
+                    var students = _a.students;
+                    return students.map(function (student) {
+                        return new Student(student.name, student.grades, student.uuid);
+                    });
+                })["catch"](function (err) { return console.error(err); })];
+            case 1:
+                studentList = _a.sent();
+                studentIndex = studentList.findIndex(function (student) { return Number(student.uuid) == id; });
+                studentList.splice(studentIndex, 1);
+                fetch("/api/v1/students/" + id, {
+                    method: "DELETE",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(studentList)
+                })["catch"](function (error) { return console.error(error); });
+                renderStudents(studentList);
+                return [2 /*return*/];
+        }
+    });
+}); };

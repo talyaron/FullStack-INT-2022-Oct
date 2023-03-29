@@ -1,7 +1,7 @@
 import express from "express";
 // import bodyParser from "body-parser";
 const app = express();
-import { router as students } from "./routes/students";
+import { router as students } from "./routes/studentsRoute";
 
 //Middleware
 app.use(express.static("./public"));
