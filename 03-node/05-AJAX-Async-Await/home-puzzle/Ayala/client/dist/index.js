@@ -3,21 +3,18 @@ var images = document.querySelector("#image");
 if (button) {
     button.addEventListener("click", function () {
         try {
-            var result_1 = document.querySelector("#result");
-            if (!result_1)
-                throw new Error("Couldnt find element result");
+            var image = document.querySelector("#image");
+            if (!image)
+                throw new Error("Couldnt find element image");
             console.log("get image");
             fetch("/random-image")
                 .then(function (response) { return response.json(); })
                 .then(function (data) {
-                var imageUrl = new URL(data.imageUrl, window.location.origin).href;
-                // image.src = data.imageUrl;
                 try {
                     console.log(data);
-                    var imageUrl_1 = data.imageUrl;
-                    // Image.src = const HTMLImge;
-                    var Image = void 0;
-                    result_1.innerText = imageUrl_1;
+                    var imageUrl = data.imageUrl;
+                    // image.src = imageUrl;
+                    // image.innerText = imageUrl;
                 }
                 catch (error) {
                     console.error(error);
