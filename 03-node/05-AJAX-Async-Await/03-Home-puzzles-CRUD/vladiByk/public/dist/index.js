@@ -83,7 +83,7 @@ var displayStudents = function () { return __awaiter(_this, void 0, void 0, func
 }); };
 displayStudents();
 var renderStudents = function (students) { return __awaiter(_this, void 0, void 0, function () {
-    var html, deleteButtons, editButtons;
+    var html, deleteButtons;
     return __generator(this, function (_a) {
         html = students
             .map(function (student) {
@@ -99,13 +99,6 @@ var renderStudents = function (students) { return __awaiter(_this, void 0, void 
                 deleteStudent(id);
             });
         });
-        editButtons = document.querySelectorAll(".fa-pen-to-square");
-        editButtons.forEach(function (btn) { return btn.addEventListener("click", function () {
-            var _a, _b;
-            var id = Number((_b = (_a = btn.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.id);
-            console.log('Edit: ' + id);
-            updateStudent(id);
-        }); });
         return [2 /*return*/];
     });
 }); };
@@ -178,22 +171,104 @@ var deleteStudent = function (id) { return __awaiter(_this, void 0, void 0, func
         }
     });
 }); };
-var updateStudent = function (id) { return __awaiter(_this, void 0, void 0, function () {
-    var studentList, findStudent;
+var editWindow = document.querySelector(".editWindow");
+var openEditWindow = function (id) { return __awaiter(_this, void 0, void 0, function () {
+    var studentList, findStudent, editBtn, btnsArr;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetchStudents()
-                    .then(function (_a) {
-                    var students = _a.students;
-                    return students.map(function (student) {
-                        return new Student(student.name, student.grades, student.uuid);
-                    });
-                })["catch"](function (err) { return console.error(err); })];
+            case 0:
+                editWindow.style.display = "flex";
+                return [4 /*yield*/, fetchStudents()
+                        .then(function (_a) {
+                        var students = _a.students;
+                        return students.map(function (student) {
+                            return new Student(student.name, student.grades, student.uuid);
+                        });
+                    })["catch"](function (err) { return console.error(err); })];
             case 1:
                 studentList = _a.sent();
                 findStudent = studentList.find(function (student) { return Number(student.uuid) == id; });
-                console.log(findStudent);
+                if (!findStudent)
+                    return [2 /*return*/, alert("User not found")];
+                // console.log(findStudent);
+                renderGradeList(findStudent);
+                editBtn = editWindow.querySelectorAll(".fa-pen");
+                btnsArr = Array.from(editBtn);
+                editGradeBtnEvent(btnsArr, findStudent);
                 return [2 /*return*/];
         }
     });
 }); };
+function renderGradeList(student) {
+    var listItemsHtml = student.grades
+        .map(function (grade) {
+        return "<li>\n    <span>" + grade + "</span>\n    <div class=\"listIcons\">\n      <i class=\"fa-regular fa-square-minus\"></i>\n      <i class=\"fa-solid fa-pen\"></i>\n    </div>\n  </li>";
+    })
+        .join("");
+    editWindow.innerHTML = "\n  <h2>" + student.name + "</h2>\n  <ul>\n      <div><b>Grades</b><b>Edit</b></div>\n    " + listItemsHtml + "\n  </ul>\n  <label for=\"newGrade\">\n    <input type=\"number\" placeholder=\"New grade...\" />\n    <input type=\"submit\" id=\"addGradeBtn\"/>\n  </label>\n  <button id=\"closeEditWindow\">Done</button>\n  ";
+}
+var updateStudent = function (studentList, student) { return __awaiter(_this, void 0, void 0, function () {
+    var id, updatedStudentList;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                id = student.uuid;
+                updatedStudentList = studentList.map(function (item) {
+                    return item == student ? student : item;
+                });
+                return [4 /*yield*/, fetch("/api/v1/students/" + id, {
+                        method: "PATCH",
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(updatedStudentList)
+                    })["catch"](function (error) { return console.error(error); })];
+            case 1:
+                _a.sent();
+                renderStudents(updatedStudentList);
+                return [2 /*return*/];
+        }
+    });
+}); };
+function editGradeBtnEvent(btnArr, student) {
+    btnArr.forEach(function (btn) {
+        return btn.addEventListener("click", function () {
+            var _a;
+            var gradeIndex = btnArr.indexOf(btn);
+            var listEle = (_a = btn.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement;
+            var iconDiv = listEle.querySelector(".listIcons");
+            var spanEle = listEle.firstElementChild;
+            var inputEle = document.createElement("input");
+            inputEle.setAttribute("type", "text");
+            inputEle.value = spanEle.innerHTML;
+            listEle.replaceChild(inputEle, spanEle);
+            inputEle.focus();
+            iconDiv.style.display = "none";
+            inputEle.addEventListener("keyup", function (e) {
+                if (e.key === "Enter") {
+                    if (Number(inputEle.value) > 100 ||
+                        Number(inputEle.value) < 0 ||
+                        !Number(inputEle.value))
+                        return alert("Wrong grade input");
+                    spanEle.textContent = inputEle.value;
+                    listEle.replaceChild(spanEle, inputEle);
+                    student.grades[gradeIndex] = Number(inputEle.value);
+                    iconDiv.style.display = "flex";
+                }
+            });
+        });
+    });
+}
+window.addEventListener("click", function (e) {
+    var _a, _b;
+    var target = e.target;
+    if (target.id === "closeEditWindow") {
+        editWindow.style.display = "none";
+    }
+    if (target.classList.contains("fa-pen-to-square")) {
+        var id = Number((_b = (_a = target.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.id);
+        // console.log("Edit: " + id);
+        openEditWindow(id);
+    }
+});
