@@ -1,6 +1,7 @@
 import express from "express"
 import { Url } from "url";
 const app=express()
+app.use(express.json());
 
 //data
 interface soccerPlayer {
@@ -19,12 +20,12 @@ src:"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUWFRgVFhUYGRgY
 ]
 
 //get (from srever)
-app.get("/api/get-players",(req,res)=>{
+app.get("http://localhost:3000/api/get-players",(req,res)=>{
     try {
        res.send({players})   
     } catch (error) {
         console.error(Error)
-        res.status(500).send({error:error.message})
+        // res.status(500).send({error:error.message})
     }
   
 })
