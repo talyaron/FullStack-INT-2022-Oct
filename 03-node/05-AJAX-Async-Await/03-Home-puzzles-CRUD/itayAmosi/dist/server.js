@@ -1,11 +1,12 @@
 "use strict";
 exports.__esModule = true;
+exports.Teacher = exports.Student = void 0;
 var express_1 = require("express");
+// import path from "path";
 var uuid_1 = require("uuid");
 var app = express_1["default"]();
 app.use(express_1["default"].static("./public"));
 app.use(express_1["default"].json());
-//data
 var Student = /** @class */ (function () {
     function Student(name, englishClass, mathClass, sportsClass, historyClass) {
         this.name = name;
@@ -27,77 +28,45 @@ var Student = /** @class */ (function () {
     };
     return Student;
 }());
-var students = [
-    new Student("Moshe", 68, 59, 95, 75),
-];
-console.log(students);
-// data route
-//get (from server)
-// app.get("/", (req, res) => {
-//   try {
-//     res.send({ students });
-//   } catch (error: any) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// });
-// //add
-// app.post("/api/add-user", (req, res) => {
-//   try {
-//     const { name, src } = req.body;
-//     console.log(name, src);
-//     users.push(new User(name, src));
-//     res.status(201).send({ ok: true });
-//   } catch (error: any) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// });
-//update
-//update whole entity
-// app.put("/api/update-user", (req, res) => {
-//   try {
-//   } catch (error: any) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// });
-// transodrm enetiy
-// app.patch("/api/update-user-name", (req, res) => {
-//   try {
-//     const { name, uid } = req.body;
-//     if (!name) throw new Error("No name in data");
-//     if (!uid) throw new Error("No uid in data");
-//     const user = users.find((user) => user.uid === uid);
-//     if (!user) throw new Error("No user in array");
-//     user.name = name;
-//     res.send({ok:true})
-//   } catch (error: any) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// });
-// app.delete("/api/delete-user", (req, res) => {
-//   try {
-//     const { uid } = req.body;
-//     if (!uid) throw new Error("no uid in data");
-//     const index = users.findIndex((user) => user.uid === uid);
-//     if (index === -1)
-//       throw new Error(`couldnt find user in users, with ID ${uid}`);
-//       users.splice(index, 1);
-//     const _users = users.map((user) => user.getSimpleUser());
-//     res.send({ ok: true,users:_users });
-//   } catch (error: any) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// });
-// app.post(`/teacher.html`, (req, res) => {
-//     fs.readFileSync("./teacher.html", {
-//     encoding: "utf8",
-//     flag: "r",
-//   });
-// });
+exports.Student = Student;
+var students = [new Student("Moshe", 68, 59, 95, 75)];
+// console.log(students);
+var Teacher = /** @class */ (function () {
+    function Teacher(name, password) {
+        this.name = name;
+        this.password = password;
+        this.uid = uuid_1.v4();
+    }
+    Teacher.prototype.getSimple = function () {
+        return {
+            uid: this.uid,
+            name: this.name,
+            password: this.password
+        };
+    };
+    return Teacher;
+}());
+exports.Teacher = Teacher;
+var teachers = [new Teacher("tal", 1235)];
+app.post("/api/add-student-grades", function (req, res) {
+    var _a = req.body, name = _a.name, englishClass = _a.englishClass, mathClass = _a.mathClass, sportsClass = _a.sportsClass, historyClass = _a.historyClass;
+    console.log(req.body);
+    if (!name || !englishClass || !mathClass || !sportsClass || !historyClass) {
+        return res.status(400).json({ error: "Missing required fields" });
+    }
+    var newStudent = new Student(name, englishClass, mathClass, sportsClass, historyClass);
+    students.push(newStudent);
+    res.status(200).send({ ok: true, newStudent: newStudent });
+});
+app.get("/api/get-students", function (req, res) {
+    try {
+        res.send({ students: students });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send({ error: error.message });
+    }
+});
 app.listen(4000, function () {
     console.log("server listen on port 4000");
 });
