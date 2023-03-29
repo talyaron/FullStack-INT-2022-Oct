@@ -1,8 +1,11 @@
 import express from 'express';
 import fs from 'fs';
+import { title } from 'process';
 import { uuid } from 'uuidv4';
 const app = express();
 app.use(express.static(`./public`));
+app.use(express.json());
+
 
 class Admin {
     constructor(
@@ -79,6 +82,18 @@ class Article {
         encoding: "utf8",
         flag: "r",
       });
+  });
+
+  app.post("/api/add-article", (req, res) => {
+    const { title, src, paragraph } = req.body;
+    console.log(req.body)
+    if (!title || !src || !paragraph) {
+      return res.status(400).json({ error: "Missing required fields" });
+    }
+  
+    const newArticle = new Article(title, src, paragraph);
+    articles.push(newArticle);
+    res.status(200).send({ok:true,articles});
   });
 
 app.listen(3000,()=>{console.log(`server listening on port 3000`)});

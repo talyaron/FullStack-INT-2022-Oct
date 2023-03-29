@@ -91,7 +91,7 @@ function handelTrashClick(uuid) {
                     throw new Error("No UID");
                 //send to server:
                 fetch("/api/articles", {
-                    method: "POST",
+                    method: "DELETE",
                     headers: {
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
@@ -206,7 +206,7 @@ function handelEditClick(uid) {
 function updateDataEditToServer(title, subtitle, uid) {
     try {
         fetch("/api/articles/edit", {
-            method: "POST",
+            method: "PATCH",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'

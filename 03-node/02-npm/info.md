@@ -1,5 +1,5 @@
 ## init ##
-npm init --y
+npm init -y
 
 
 ## install dependencies ##

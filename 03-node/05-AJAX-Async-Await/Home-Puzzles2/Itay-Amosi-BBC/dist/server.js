@@ -4,6 +4,7 @@ var express_1 = require("express");
 var fs_1 = require("fs");
 var app = express_1["default"]();
 app.use(express_1["default"].static("./public"));
+app.use(express_1["default"].json());
 var Admin = /** @class */ (function () {
     function Admin(name, lastName, password) {
         this.name = name;
@@ -70,5 +71,15 @@ app.post("/admin", function (req, res) {
         encoding: "utf8",
         flag: "r"
     });
+});
+app.post("/api/add-article", function (req, res) {
+    var _a = req.body, title = _a.title, src = _a.src, paragraph = _a.paragraph;
+    console.log(req.body);
+    if (!title || !src || !paragraph) {
+        return res.status(400).json({ error: "Missing required fields" });
+    }
+    var newArticle = new Article(title, src, paragraph);
+    articles.push(newArticle);
+    res.status(200).send({ ok: true, articles: articles });
 });
 app.listen(3000, function () { console.log("server listening on port 3000"); });

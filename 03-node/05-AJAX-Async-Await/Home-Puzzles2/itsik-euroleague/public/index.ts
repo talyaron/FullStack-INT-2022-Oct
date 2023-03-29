@@ -22,7 +22,6 @@ function getArticels(index){
      fetch("/articles") 
      .then(res=> res.json())
      .then(({ articles })=>{
-        console.log(articles)
         renderArticles(articles, index); 
 
    }) 
@@ -32,15 +31,15 @@ function getArticels(index){
     }
 }
 
-function renderArticles(articles: news[], index){
+function renderArticles(articles:news[], index){
             
-          const html = `<h1 class="pNewName">${articles[index].article}</h1>`
-            //    <p id="newNews">${news.article[1]}</p>`
- 
-         
-      const usersElement = document.getElementById(`'${index}'`);
+     console.log(articles[index].article)
+    
+     const html = `<a href="${articles[index].article}"></a>`   
+       
+        const usersElement = document.getElementById(`"${index}"`);
        if(usersElement){
-        usersElement.innerHTML = html;
+        usersElement.innerHTML = html
        }
    }
 

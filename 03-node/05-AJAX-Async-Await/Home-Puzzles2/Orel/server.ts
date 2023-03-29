@@ -111,33 +111,34 @@ const articles: Article[] = [
 ]
 
 
-app.post('/api/articles/edit', (req, res) => {
+app.patch('/api/articles/edit', (req, res) => {
     try {
-        const title = req.body.name;
-        const subtitle = req.body.des;
-        const uid = req.body.uuid;
+        // const title = req.body.name;
+        // const subtitle = req.body.des;
+        // const uid = req.body.uuid;
+        const {name:title, des:subtitle, uuid:uid} = req.body;
         const curArticle = articles.find(a=>a.uuid === uid);
         if(!curArticle) throw new Error("the article not founded")
 
         curArticle.title = title,
         curArticle.des = subtitle,
     
+        res.status(200).send({ succuss: true, articles });
 
-        res.send({ articles })
-
-    } catch (error) {
-        console.error(error)
+    } catch (error:any) {
+ 
+        res.status(500).send({error:error.message});
     }
 
 })
 
-app.post('/api/articles', (req, res) => {
+app.delete('/api/articles', (req, res) => {
     try {
         const data = req.body.name;
         const index = articles.findIndex(a => a.uuid === data)
         if (!index && index !== 0) throw new Error("no index founds in article")
         articles.splice(index, 1);
-        res.status(201).send({ succuss: true, articles });
+        res.status(200).send({ succuss: true, articles });
     } catch (error: any) {
         console.error(error);
         res.status(500).send({ error: error.message });

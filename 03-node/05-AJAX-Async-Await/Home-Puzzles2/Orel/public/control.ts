@@ -127,7 +127,7 @@ if(youSure){
 
             //send to server:
             fetch("/api/articles", {
-                method: "POST",
+                method: "DELETE",
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
@@ -146,7 +146,7 @@ if(youSure){
             getArticlesFromApi()} else {
                 return
             }
-        } catch (error) {
+        } catch (error:any) {
             console.error(error);
         }
     }
@@ -243,7 +243,7 @@ function handelEditClick(uid: string) {
 
 
 
-    } catch (error) {
+    } catch (error:any) {
         console.error(error);
     }
 }
@@ -251,7 +251,7 @@ function handelEditClick(uid: string) {
 function updateDataEditToServer(title: string, subtitle: string, uid: string): void {
 try {
     fetch("/api/articles/edit", {
-        method: "POST",
+        method: "PATCH",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -267,7 +267,7 @@ try {
             return res.json()
         })
         .then(data => console.log(data))
-        .catch((error) => {
+        .catch((error:any) => {
             console.error(error);
         });
 } catch (error) {

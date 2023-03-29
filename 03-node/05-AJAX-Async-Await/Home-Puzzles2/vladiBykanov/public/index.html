@@ -6,23 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BBC with node.js</title>
     <link rel="stylesheet" href="./dist/style.css" />
+
     <script src="./dist/index.js" defer></script>
   </head>
   <body>
     <nav>
-      <div class="leftDiv">
-        <span>bbc logo</span>
-        <span>login</span>
+      <div class="nav-item left">
+        <div class="sign-in">
+          <i class="fa-solid fa-user"></i> <span>Sign In</span>
+        </div>
+      </div>
+      <div class="nav-item mid">
+        <ul>
+          <li>Home</li>
+          <li>News</li>
+          <li>Sport</li>
+          <li>Reel</li>
+          <li>Worklife</li>
+        </ul>
+      </div>
+      <div class="nav-item right">
+        <input type="text" placeholder="Search BBC" />
+        <i class="fa-solid fa-magnifying-glass"></i>
       </div>
     </nav>
-    <div class="newsContainer">
-      <!-- <div class="article">
-        <h4>Title article</h4>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates, veritatis voluptatem facilis sunt eum voluptate fugit minus aperiam ut velit!</p>
-      </div> -->
-    </div>
-    <form action="/api/v1/articles" method="get">
-      <button type="submit">Submit</button>
-    </form>
+    <div class="newsContainer"></div>
+    <script
+      src="https://kit.fontawesome.com/0d9e773bea.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
