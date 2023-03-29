@@ -10,19 +10,13 @@
   </head>
   <body>
     <h1>add new article</h1>
-    <form action="/add-articles" id="addNewForm" method="post">
-      <div class="head">
-        <label for="title">titel</label>
-        <input id="titel" type="text" />
-      </div>
-      <div class="imag">
-        <label for="image">urlImage</label>
-        <input id="image" type="url" name="image" />
-      </div>
-      <div class="paregraph">
-        <label for="image">paregraph</label>
-        <input id="paregraph" type="text" name="paregraph" />
-      </div>
+    <form id="addNewForm">
+        <label for="title">title</label>
+        <input id="title" type="text" name="title" />
+        <label for="src">src</label>
+        <input id="src" type="url" name="src" />
+        <label for="paragraph">paragraph</label>
+        <input id="paragraph" type="text" name="paragraph" />
       <button type="submit">add New Article</button>
     </form>
   </body>
