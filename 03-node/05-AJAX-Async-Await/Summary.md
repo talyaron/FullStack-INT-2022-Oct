@@ -23,6 +23,18 @@ app.listen(PORT, (req,res) => {
     console.log(`server run on port: http://localhost:${PORT}`);
 })
 
+<!-- קריאת קובץ -->
+import { readFile } from "node:fs";
+
+readFile("./pwd.txt", 'utf8', (err, data) => {
+  <!-- הפנייה לקובץ שנרצה לקרוא -->
+   
+   console.log(data);
+   
+});
 
 
+<!--  -->
+import { v4 } from 'uuid';
 
+console.log("hello", v4());
