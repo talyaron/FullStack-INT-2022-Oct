@@ -6,6 +6,7 @@ import { router as students } from "./routes/students";
 //Middleware
 app.use(express.static("./public"));
 app.use(express.json());
+// app.use(express.urlencoded())
 // app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(bodyParser.json());
 

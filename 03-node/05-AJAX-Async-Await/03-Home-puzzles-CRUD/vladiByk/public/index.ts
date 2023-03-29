@@ -1,8 +1,6 @@
 class Student {
-  public uuid: string;
-  constructor(public name: string, public grades: number[] = []) {
-    this.uuid = (Math.random() * 100000000000000).toString();
-  }
+  public uuid: string = (Math.random() * 100000000000000).toString();
+  constructor(public name: string, public grades: number[] = []) {}
   addGrade(grade: number) {
     this.grades.push(grade);
   }
@@ -14,6 +12,7 @@ class Student {
 interface StudentTemplate {
   name: string;
   grades: number[];
+  uuid: number;
 }
 
 const fetchStudents = () => {
@@ -40,7 +39,7 @@ const renderStudents = async (students: Student[]) => {
   const html = students
     .map(
       (student) =>
-        `<div class="studentDiv">
+        `<div class="studentDiv" id="${student.uuid}">
         <b>${student.name}</b>
         <span>Average: ${student.getAverage()}</span>
         <div class="crudIcons">
@@ -51,9 +50,14 @@ const renderStudents = async (students: Student[]) => {
     )
     .join("");
   root.innerHTML = html;
-  const deleteBtn = document.querySelectorAll(
+  const deleteButtons = document.querySelectorAll(
     ".fa-trash-can"
   ) as NodeListOf<HTMLElement>;
+  deleteButtons.forEach((btn) =>
+    btn.addEventListener("click", () => {
+      console.log(btn.parentElement?.parentElement?.id);
+    })
+  );
 };
 
 const addNewStudent = async (e: Event) => {

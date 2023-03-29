@@ -74,15 +74,21 @@ var displayStudents = function () { return __awaiter(_this, void 0, void 0, func
 }); };
 displayStudents();
 var renderStudents = function (students) { return __awaiter(_this, void 0, void 0, function () {
-    var html, deleteBtn;
+    var html, deleteButtons;
     return __generator(this, function (_a) {
         html = students
             .map(function (student) {
-            return "<div class=\"studentDiv\">\n        <b>" + student.name + "</b>\n        <span>Average: " + student.getAverage() + "</span>\n        <div class=\"crudIcons\">\n          <i class=\"fa-regular fa-trash-can\"></i>\n          <i class=\"fa-regular fa-pen-to-square\"></i>\n         </div>\n        </div>";
+            return "<div class=\"studentDiv\" id=\"" + student.uuid + "\">\n        <b>" + student.name + "</b>\n        <span>Average: " + student.getAverage() + "</span>\n        <div class=\"crudIcons\">\n          <i class=\"fa-regular fa-trash-can\"></i>\n          <i class=\"fa-regular fa-pen-to-square\"></i>\n         </div>\n        </div>";
         })
             .join("");
         root.innerHTML = html;
-        deleteBtn = document.querySelectorAll(".fa-trash-can");
+        deleteButtons = document.querySelectorAll(".fa-trash-can");
+        deleteButtons.forEach(function (btn) {
+            return btn.addEventListener("click", function () {
+                var _a, _b;
+                console.log((_b = (_a = btn.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.id);
+            });
+        });
         return [2 /*return*/];
     });
 }); };

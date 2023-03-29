@@ -1,1 +1,18 @@
-[{"name":"Vladislav Bykanov","grades":[100,70,50,80,30],"uuid":"53111168149243.75"},{"name":"John Doe","grades":[100,70,40,90,40],"uuid":"28362714526214.15"},{"name":"bobby","grades":[77],"uuid":"13647352788152.723"},{"name":"new","grades":[99],"uuid":"59050106879842.4"},{"name":"student y","grades":[56],"uuid":"21878153727213.58"},{"name":"Bob Marley","grades":[77],"uuid":"24989576435812.277"}]
+[
+  {
+    "name": "Vladislav Bykanov",
+    "grades": [100, 70, 50, 80, 30],
+    "uuid": "73413059588470.86"
+  },
+  {
+    "name": "John Doe",
+    "grades": [100, 70, 40, 90, 40],
+    "uuid": "88878257859086.5"
+  },
+  { "name": "bobby", "grades": [77], "uuid": "54664752800000.43" },
+  { "name": "new", "grades": [99], "uuid": "64287278656625.38" },
+  { "name": "student y", "grades": [56], "uuid": "83872437189879.4" },
+  { "name": "Bob Marley", "grades": [77], "uuid": "81264992159417.22" },
+  { "name": "new student", "grades": [66], "uuid": "48244601359856.98" },
+  { "name": "vladi", "grades": [55], "uuid": "99338021288190.34" }
+]
