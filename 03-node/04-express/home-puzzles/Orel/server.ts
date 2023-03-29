@@ -15,6 +15,7 @@ app.get('/style.css', (req, res)=>{
 
 app.get('/index.html' , (req ,res)=>{
     res.sendFile(__dirname + "/" + "index.html");
+    
 })
 
 app.get('/project1.html' , (req ,res)=>{
