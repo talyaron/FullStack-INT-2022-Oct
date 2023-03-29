@@ -26,11 +26,7 @@ function displayJoke(jokes) {
             throw new Error("No jokes found");
         var randomIndex = Math.floor(Math.random() * jokes.length);
         var randomJoke = jokes[randomIndex];
-        var jokeElement = document.querySelector("#jokes");
-        if (!jokeElement)
-            throw new Error("Could not find joke element on DOM");
-        jokeElement.textContent = randomJoke.name;
-        jokeElement.textContent = randomJoke.subtext;
+        renderjokes(jokes);
     }
     catch (error) {
         console.error(error);
@@ -43,7 +39,8 @@ function renderjokes(jokes) {
         var jokesElement = document.querySelector("#jokes");
         if (!jokesElement)
             throw new Error("Could not find jokes element on DOM");
-        var html = jokes.map(function (joke) { return renderjoke(joke); }).join("");
+        var randomIndex = Math.floor(Math.random() * jokes.length);
+        var html = renderjoke(jokes[randomIndex]);
         jokesElement.innerHTML = html;
     }
     catch (error) {
@@ -81,9 +78,10 @@ function handleAddjoke(ev) {
     try {
         ev.preventDefault();
         var name = ev.target.elements.name.value;
+        var subtext = ev.target.elements.subtext.value;
         if (!name)
             throw new Error("No name");
-        var newjoke = { name: name };
+        var newjoke = { name: name, subtext: subtext };
         fetch("/api/add-joke", {
             method: "POST",
             headers: {

@@ -29,11 +29,7 @@ interface Joke {
       if (!jokes || jokes.length === 0) throw new Error("No jokes found");
       const randomIndex: number = Math.floor(Math.random() * jokes.length);
       const randomJoke: Joke = jokes[randomIndex];
-      const jokeElement = document.querySelector("#jokes");
-      if (!jokeElement) throw new Error("Could not find joke element on DOM");
-      jokeElement.textContent = randomJoke.name;
-      jokeElement.textContent = randomJoke.subtext;
-
+      renderjokes(jokes)
 
     } catch (error) {
       console.error(error);
@@ -44,10 +40,11 @@ interface Joke {
     try {
       if (!jokes || jokes.length === 0) throw new Error("No jokes found");
   
-      const jokesElement = document.querySelector("#jokes");
+      const jokesElement: any = document.querySelector("#jokes");
       if (!jokesElement) throw new Error("Could not find jokes element on DOM");
   
-      const html = jokes.map((joke) => renderjoke(joke)).join("");
+      const randomIndex = Math.floor(Math.random() * jokes.length);
+      const html = renderjoke(jokes[randomIndex]);
       jokesElement.innerHTML = html;
     } catch (error) {
       console.error(error);
@@ -89,8 +86,9 @@ interface Joke {
     try {
       ev.preventDefault();
       const name = ev.target.elements.name.value;
+      const subtext= ev.target.elements.subtext.value
       if (!name) throw new Error("No name");
-      const newjoke: any = { name,  };
+      const newjoke: any = { name, subtext };
   
       fetch("/api/add-joke", {
         method: "POST",
