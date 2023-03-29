@@ -2,29 +2,29 @@ const button = document.querySelector("#btn");
 const images = document.querySelector("#image");
 
 
-
 if (button) {
   button.addEventListener("click", () => {
     try {
-      const result: HTMLElement | null = document.querySelector("#result");
-      if (!result) throw new Error("Couldnt find element result");
+      const image: HTMLElement | null = document.querySelector("#image");
+      if (!image) throw new Error("Couldnt find element image");
       console.log("get image");
 
       fetch("/random-image")
         .then(response => response.json()) 
         .then(data => {
-          const imageUrl = new URL(data.imageUrl, window.location.origin).href;
-          // image.src = data.imageUrl;
+        
          
           try {
            
             console.log(data);
+            
             const { imageUrl } = data;
             
-            // Image.src = const HTMLImge;
-            let Image: new (width?: number | undefined, height?: number | undefined) => HTMLImageElement
+            // image.src = imageUrl;
 
-            result.innerText = imageUrl;
+            // image.innerText = imageUrl;
+           
+
           } catch (error) {
             console.error(error);
           }
