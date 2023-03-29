@@ -55,7 +55,8 @@ interface Joke {
   function renderjoke(joke: Joke) {
     try {
       return `<div class="jokeCard">
-              <p contenteditable oninput="handlejokeNameUpdate(event,'${joke.uid}')">${joke.name}${joke.subtext}</p>
+              <p contenteditable oninput="handlejokeNameUpdate(event,'${joke.uid}')">${joke.name}</p>
+              <p contenteditable oninput="handlejokeNameUpdate(event,'${joke.uid}')">${joke.subtext}</p>
               <button onclick='handleDeletejoke("${joke.uid}")'>DELETE</button>
               </div>`;
     } catch (error) {

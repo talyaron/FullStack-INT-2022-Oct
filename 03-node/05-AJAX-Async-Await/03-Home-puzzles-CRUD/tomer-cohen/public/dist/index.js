@@ -49,7 +49,7 @@ function renderjokes(jokes) {
 }
 function renderjoke(joke) {
     try {
-        return "<div class=\"jokeCard\">\n              <p contenteditable oninput=\"handlejokeNameUpdate(event,'" + joke.uid + "')\">" + joke.name + joke.subtext + "</p>\n              <button onclick='handleDeletejoke(\"" + joke.uid + "\")'>DELETE</button>\n              </div>";
+        return "<div class=\"jokeCard\">\n              <p contenteditable oninput=\"handlejokeNameUpdate(event,'" + joke.uid + "')\">" + joke.name + "</p>\n              <p contenteditable oninput=\"handlejokeNameUpdate(event,'" + joke.uid + "')\">" + joke.subtext + "</p>\n              <button onclick='handleDeletejoke(\"" + joke.uid + "\")'>DELETE</button>\n              </div>";
     }
     catch (error) {
         console.error(error);
