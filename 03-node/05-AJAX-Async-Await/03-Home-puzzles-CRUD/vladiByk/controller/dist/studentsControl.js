@@ -73,8 +73,7 @@ exports.deleteStudent = function (req, res) {
 exports.updateStudent = function (req, res) {
     try {
         var studentList = req.body;
-        console.log(studentList);
-        // writeFileSync("studentList.json", JSON.stringify(studentList));
+        fs_1.writeFileSync("studentList.json", JSON.stringify(studentList));
         res.status(201).send({ ok: true });
     }
     catch (error) {

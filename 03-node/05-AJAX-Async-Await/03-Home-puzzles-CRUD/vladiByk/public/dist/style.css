@@ -45,7 +45,8 @@ body {
 }
 
 .studentDiv {
-  width: 70%;
+  width: 40%;
+  min-width: 450px;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
@@ -96,6 +97,9 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.4);
   background-color: rgba(245, 245, 245, 0.447);
   padding: 0.5em;
+}
+.editWindow input:focus {
+  box-shadow: 0 0 5px black;
 }
 .editWindow input::-webkit-outer-spin-button,
 .editWindow input::-webkit-inner-spin-button {

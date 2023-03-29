@@ -54,7 +54,8 @@ body {
 
 .studentDiv {
   // border: 1px solid black;
-  width: 70%;
+  width: 40%;
+  min-width: 450px;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
@@ -90,7 +91,7 @@ body {
     li {
       display: flex;
       justify-content: space-between;
-      input{
+      input {
         width: 30%;
       }
       .listIcons {
@@ -105,6 +106,10 @@ body {
     border: 1px solid rgba(0, 0, 0, 0.4);
     background-color: rgba(245, 245, 245, 0.447);
     padding: 0.5em;
+  }
+  input:focus {
+    // outline: 1px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 5px black;
   }
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {

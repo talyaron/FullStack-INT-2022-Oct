@@ -32,8 +32,7 @@ export const deleteStudent = (req: any, res: any) => {
 export const updateStudent = (req: any, res: any) => {
   try {
     const studentList = req.body;
-    console.log(studentList);
-    // writeFileSync("studentList.json", JSON.stringify(studentList));
+    writeFileSync("studentList.json", JSON.stringify(studentList));
     res.status(201).send({ ok: true });
   } catch (error: any) {
     console.error(error);
