@@ -9,6 +9,10 @@ body {
   height: 100vh;
 }
 
+#avgRoot {
+  display: none;
+}
+
 .form {
   background-color: #15172b;
   border-radius: 20px;
@@ -17,6 +21,7 @@ body {
   padding: 20px;
   width: 320px;
   margin-right: 2px;
+  float: left;
 }
 
 .title {

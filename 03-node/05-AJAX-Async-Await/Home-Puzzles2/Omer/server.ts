@@ -19,24 +19,23 @@ class Article {
 
 const allArticles: Article[] = [
     new Article("Test", "Test", "Hi, testing here"),
-    new Article("Hello", "Greeting", "Formal way")
+    new Article("Hello", "Greetings", "Formal way of saying hi")
 ];
 
 app.get('/all-articles', (req, res) => {
     try {
-        res.send( allArticles );
+        res.send(allArticles);
     } catch (error) {
         console.error(error);
         res.status(500).send(error)
     }
 })
 
-app.post('/articles-delete', (req,res) => {
+app.post('/articles-update', (req, res) => {
     try {
-        const data = req.body;
-        console.log(data);
-        
-        allArticles.splice(parseInt(data),1);
+        const data = req.body;        
+        const index = (allArticles as Article[]).findIndex((x) => x.id === data.id);
+        allArticles[index] = data;
         res.status(200).send(true)
     } catch (error) {
         console.error(error);
@@ -48,7 +47,8 @@ app.post('/articles-data', (req, res) => {
     try {
         const data = req.body;
         allArticles.push(data);
-        res.status(201).send(true);
+        
+        res.status(201).send(data);
     } catch (error) {
         console.error(error);
         res.status(500).send(error)
