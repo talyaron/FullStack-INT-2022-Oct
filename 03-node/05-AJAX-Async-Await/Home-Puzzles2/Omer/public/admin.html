@@ -7,17 +7,18 @@
     <title>Document</title>
     <link rel="stylesheet" href="./dist/style.css">
     <script src="./dist/modules.js" defer></script>
+    <script src="./dist/view.js" defer></script>
     <script src="./dist/index.js" defer></script>
 </head>
 <body>
+    <a href="./index.html"><button>Main</button></a>
     <form onsubmit="handleForm(event)">
         <input type="text" placeholder="Header" name="header">
         <input type="text" placeholder="Subject" name="subject">
-        <textarea name="body" cols="30" rows="10"></textarea>
+        <textarea name="body" cols="30" rows="5"></textarea>
         <input type="submit" value="Send">
     </form>
-    <a href="./index.html"><button>Main</button></a>
     <div id="displayAdmin"></div>
-    
+    <div id="updateForm"></div>
 </body>
 </html>

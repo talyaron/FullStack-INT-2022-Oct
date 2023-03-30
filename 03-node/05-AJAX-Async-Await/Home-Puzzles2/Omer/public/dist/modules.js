@@ -8,5 +8,11 @@ var Article = /** @class */ (function () {
         this.body = body;
         this.id = uid();
     }
+    Article.prototype.copyconstructor = function (header, subject, body, id) {
+        this.body = body;
+        this.header = header;
+        this.id = id;
+        this.subject = subject;
+    };
     return Article;
 }());
