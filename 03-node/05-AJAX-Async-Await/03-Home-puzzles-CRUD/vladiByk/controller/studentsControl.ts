@@ -28,3 +28,14 @@ export const deleteStudent = (req: any, res: any) => {
     res.status(500).send({ error: error.message });
   }
 };
+
+export const updateStudent = (req: any, res: any) => {
+  try {
+    const studentList = req.body;
+    writeFileSync("studentList.json", JSON.stringify(studentList));
+    res.status(201).send({ ok: true });
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+};
