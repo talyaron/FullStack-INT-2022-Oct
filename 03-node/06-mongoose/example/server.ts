@@ -1,10 +1,11 @@
 import express from "express";
+
 const app = express();
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import * as dotenv from "dotenv"; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 dotenv.config();
 
-const uri: string|undefined = process.env.MONGODB_URI;
+const uri: string | undefined = process.env.MONGODB_URI;
 
 if (uri) {
   mongoose
@@ -14,8 +15,16 @@ if (uri) {
     })
     .catch((err) => console.log(err));
 } else {
-  console.log("No URI to DB")
+  console.log("No URI to DB");
 }
+
+//schema
+const UserSchema = new Schema({
+  name: String,
+  src: String,
+});
+
+const UserModel = mongoose.model("users", UserSchema);
 
 //to be able to get data from client add this line
 app.use(express.json());
@@ -34,8 +43,10 @@ const users: User[] = [];
 //data route
 
 //get (from server)
-app.get("/api/get-users", (req, res) => {
+app.get("/api/get-users", async (req, res) => {
   try {
+    const users = await UserModel.find({});
+
     res.send({ users });
   } catch (error: any) {
     console.error(error);
@@ -44,12 +55,17 @@ app.get("/api/get-users", (req, res) => {
 });
 
 //add
-app.post("/api/add-user", (req, res) => {
+app.post("/api/add-user", async (req, res) => {
   try {
-    // const { name, src } = req.body;
-    // console.log(name, src);
-    // users.push(new User(name, src));
-    // res.status(201).send({ ok: true });
+    const { name, src } = req.body;
+    console.log(name, src);
+
+    //add users to DB;
+    const userDB = await UserModel.create({ name, src });
+
+    console.log(userDB);
+
+    res.status(201).send({ ok: true });
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });
@@ -61,6 +77,8 @@ app.post("/api/add-user", (req, res) => {
 //update whole entity
 app.put("/api/update-user", (req, res) => {
   try {
+
+
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });
@@ -83,16 +101,14 @@ app.patch("/api/update-user-name", (req, res) => {
   }
 });
 
-app.delete("/api/delete-user", (req, res) => {
+app.delete("/api/delete-user", async (req, res) => {
   try {
-    // const { uid } = req.body;
-    // if (!uid) throw new Error("no uid in data");
-    // const index = users.findIndex((user) => user.uid === uid);
-    // if (index === -1)
-    //   throw new Error(`couldnt find user in users, with ID ${uid}`);
-    // users.splice(index, 1);
-    // const _users = users.map((user) => user.getSimpleUser());
-    // res.send({ ok: true, users: _users });
+    const { _id } = req.body;
+
+    const deltedUser = await UserModel.deleteOne({_id})
+    const users = await UserModel.find({})
+   
+    res.send({ ok: true, users });
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });

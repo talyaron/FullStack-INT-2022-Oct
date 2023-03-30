@@ -2,6 +2,7 @@ interface User {
   name: string;
   src: string;
   uid?: string;
+  _id?:string;
 }
 
 function handleGetUsers() {
@@ -43,10 +44,12 @@ function renderUsers(users: Array<User>) {
 
 function renderUser(user: User) {
   try {
+    console.log(user);
+
     return `<div class="userCard">
             <img src="${user.src}" alt="user name is ${user.name}">
             <p contenteditable oninput="handleUserNameUpdate(event, '${user.uid}')">${user.name}</p>
-            <button onclick='handleDeleteUser("${user.uid}")'>DELETE</button>
+            <button onclick='handleDeleteUser("${user._id}")'>DELETE</button>
             </div>`;
   } catch (error) {
     console.error(error);
@@ -101,9 +104,9 @@ function handleAddUser(ev: any) {
   }
 }
 
-function handleDeleteUser(uid: string) {
+function handleDeleteUser(_id: string) {
   try {
-    console.log(uid);
+    console.log(_id);
 
     fetch("/api/delete-user", {
       method: "DELETE",
@@ -111,7 +114,7 @@ function handleDeleteUser(uid: string) {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ uid }),
+      body: JSON.stringify({ _id }),
     })
       .then((res) => res.json())
       .then(({ users }) => {
