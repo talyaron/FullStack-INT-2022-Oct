@@ -1,6 +1,6 @@
 function handleGetStudentsGrades() {
     try {
-      fetch ("/api/get-students-grades")
+      fetch ("/api/get-studentsGrades")
         .then((res) => res.json())
         .then(({ grades }) => {
           try {
