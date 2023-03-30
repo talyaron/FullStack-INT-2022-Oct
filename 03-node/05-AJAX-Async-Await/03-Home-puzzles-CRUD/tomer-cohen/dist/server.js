@@ -33,7 +33,6 @@ app.get("/api/get-jokes", function (req, res) {
 app.post("/api/add-joke", function (req, res) {
     try {
         var _a = req.body, name = _a.name, subtext = _a.subtext;
-        console.log(name, subtext);
         jokes.push(new Joke(name, subtext));
         res.status(201).send({ ok: true });
     }
