@@ -1,5 +1,4 @@
 function handleGetjokes() {
-    console.log("test");
     try {
         fetch("/api/get-jokes")
             .then(function (res) { return res.json(); })
@@ -58,7 +57,6 @@ function renderjoke(joke) {
 }
 function handlejokeNameUpdate(ev, uid) {
     try {
-        console.log(uid);
         var name = ev.target.textContent;
         var subtext = ev.target.textContent;
         fetch("/api/update-joke-name", {
@@ -103,7 +101,6 @@ function handleAddjoke(ev) {
 }
 function handleDeletejoke(uid) {
     try {
-        console.log(uid);
         fetch("/api/delete-joke", {
             method: "DELETE",
             headers: {
