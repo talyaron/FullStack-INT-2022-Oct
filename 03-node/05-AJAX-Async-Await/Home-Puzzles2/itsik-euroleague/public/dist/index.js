@@ -12,7 +12,6 @@ function getArticels(index) {
             .then(function (res) { return res.json(); })
             .then(function (_a) {
             var articles = _a.articles;
-            console.log(articles);
             renderArticles(articles, index);
         });
     }
@@ -21,9 +20,9 @@ function getArticels(index) {
     }
 }
 function renderArticles(articles, index) {
-    var html = "<h1 class=\"pNewName\">" + articles[index].article + "</h1>";
-    //    <p id="newNews">${news.article[1]}</p>`
-    var usersElement = document.getElementById("'" + index + "'");
+    console.log(articles[index].article);
+    var html = "<a href=\"" + articles[index].article + "\"></a>";
+    var usersElement = document.getElementById("\"" + index + "\"");
     if (usersElement) {
         usersElement.innerHTML = html;
     }

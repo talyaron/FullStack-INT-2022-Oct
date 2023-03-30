@@ -1,7 +1,6 @@
 {
   "name": "orel",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,5 +17,6 @@
     "@types/express": "^4.17.17",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2"
-  }
+  },
+  "description": ""
 }

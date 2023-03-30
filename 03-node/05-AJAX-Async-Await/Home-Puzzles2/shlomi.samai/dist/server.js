@@ -2,6 +2,7 @@
 exports.__esModule = true;
 var express_1 = require("express");
 var app = express_1["default"]();
+app.use(express_1["default"].json());
 var players = [
     {
         name: "messi",
@@ -12,13 +13,13 @@ var players = [
     },
 ];
 //get (from srever)
-app.get("/api/get-players", function (req, res) {
+app.get("http://localhost:3000/api/get-players", function (req, res) {
     try {
         res.send({ players: players });
     }
     catch (error) {
         console.error(Error);
-        res.status(500).send({ error: error.message });
+        // res.status(500).send({error:error.message})
     }
 });
 //static file
