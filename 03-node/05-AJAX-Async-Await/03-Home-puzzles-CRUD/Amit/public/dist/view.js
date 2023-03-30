@@ -17,34 +17,28 @@ function renderStudents(students) {
         console.error(error);
     }
 }
-// function renderStudent(student: Student) {
-//     try {
-//         if(!student) throw new Error ("student not found");
-//         if(!student.uid) throw new Error ("student uid not found");
-//       const html =  `<div class="StudentCard">
-//               <p contenteditable oninput="handleStudentNameUpdate(event, '${student.uid}')">${student.name}</p>
-//               <div id="studentGradesRoot-${student.uid}"></div>
-//               <button onclick='handleDeleteStudent("${student.uid}")'>DELETE</button>
-//               </div>`;
-//               return html;
-//     } catch (error) {
-//       console.error(error);
-//       return null;
-//     }
-// }
 function renderGrades(students) {
     try {
-        // const student = students.find((student) => student.uid === uid);
-        // if (!student) throw new Error("No student in array");
-        var html = student.grades
-            .map(function (grade) {
-            return renderGrade(grade);
-        })
-            .join(" ");
-        var gradesRoot = document.querySelector("#studentGradesRoot-" + uid);
-        if (!gradesRoot)
-            throw new Error("gradesRoot not found on DOM");
-        gradesRoot.innerHTML = html;
+        students.map(function (_student) {
+            try {
+                var uid_1 = _student.uid;
+                var student = students.find(function (student) { return student.uid === uid_1; });
+                if (!student)
+                    throw new Error("student not found");
+                var html = student.grades
+                    .map(function (grade) {
+                    return renderGrade(grade);
+                })
+                    .join(" ");
+                var gradesRoot = document.querySelector("#studentGradesRoot-" + uid_1);
+                if (!gradesRoot)
+                    throw new Error("gradesRoot not found on DOM");
+                gradesRoot.innerHTML = html;
+            }
+            catch (error) {
+                console.error(error);
+            }
+        });
     }
     catch (error) {
         console.error(error);
