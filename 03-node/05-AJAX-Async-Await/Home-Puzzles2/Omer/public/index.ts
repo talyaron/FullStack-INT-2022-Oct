@@ -51,7 +51,7 @@ function renderArticlesAdmin(articles: Article[], displayName: string){
                 <h1>${article.header}</h1>
                 <h4>${article.subject}</h4>
                 <p>${article.body}</p>
-                <button onclick="remove('${article.id}')">Remove</button>
+                <button onclick="update('${article.id}')">Remove</button>
                 </div>`;
             })
             .join(" ");
@@ -86,29 +86,14 @@ function renderArticles(articles: Article[], displayName: string) {
     }
 }
 
-function remove(id:string) {
+function update(id:string) {
     try {
         fetch('/all-articles')
         .then((response) => response.json())
         .then((allArticles) => {
             const index = (allArticles as Article[]).findIndex((x) => x.id === id);
-            if(index == -1) throw new Error("Can not find article");
-            console.log(index);
-            
-            fetch('/articles-delete', {
-                method: "POST", // or 'PUT'
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(index),
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log("Success:", data);
-                })
-                .catch((error) => {
-                    console.error("Error:", error);
-                });
+            const article = allArticles[index];
+
         });
         getArticles();
     } catch (error) {

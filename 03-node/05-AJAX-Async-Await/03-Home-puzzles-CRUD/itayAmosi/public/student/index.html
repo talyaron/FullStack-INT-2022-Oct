@@ -6,28 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student-grades</title>
     <link rel="stylesheet" href="./dist/studentStyle.css" />
-    <script src="./dist/student.js"></script>
+    <script src="./dist/student.js" defer></script>
   </head>
-  <body>
-    <div class="form">
-      <div class="title">Welcome Back Student</div>
-      <div class="subtitle">This is the list of your grades in classes</div>
-      <div id="window" class="input-container ic1">
-        <h2>student name:</h2>
-      </div>
-      <div id="window" class="input-container ic2">
-        <h2>English class:</h2>
-      </div>
-      <div id="window" class="input-container ic2">
-        <h2>math class":</h2>
-      </div>
-      <div id="window" class="input-container ic2">
-        <h2>Sports class:</h2>
-      </div>
-      <div id="window" class="input-container ic2">
-        <h2>History class:</h2>
-      </div>
-      <button type="text" class="submit">Average</button>
-    </div>
+  <body onload="handelStudent()">
+    <div id="studentRoot"></div>
   </body>
 </html>
