@@ -37,26 +37,37 @@ export const deleteStudent = async (
   next: NextFunction
 ) => {
   try {
-    console.log(req.params);
     const { id: studentId } = req.params;
     const student = await Student.deleteOne({ _id: studentId });
-    const students = await Student.find({})
+    const students = await Student.find({});
+    console.log(students);
 
-    res.status(200).json({students})
+    res.status(200).send({ students });
   } catch (error: any) {
     console.error(error);
     res.status(500).json({ error: error.message });
   }
 };
 
-export const updateStudent = (
+export const updateStudent = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const studentList = req.body;
-    res.status(201).send({ ok: true });
+    const { id: studentId } = req.params;
+    const data = req.body;
+    const students = await Student.find({})
+    const student = await Student.findById({ _id: studentId });
+    if (!student) return res.status(404).send({ ok: false });
+    if (!data.delete) {
+      student.grades.push(data.grade);
+      await student.save();
+      return res.status(201).json({ students });
+    }
+    student.grades.splice(data.gradeIndex, 1);
+    await student.save();
+    res.status(201).json({ students });
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });

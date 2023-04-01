@@ -1,4 +1,5 @@
 const root = document.querySelector("#root") as HTMLDivElement;
+const baseUrl = "/api/v1/students";
 
 class Student {
   constructor(
@@ -20,10 +21,14 @@ interface StudentTemplate {
   _id: string;
 }
 
+const fetchStudents = () => {
+  return fetch(baseUrl).then((res) => res.json());
+};
+
 const displayStudents = async () => {
   try {
     console.log("runnig display students...");
-    const studentList = await fetch("/api/v1/students")
+    const studentList = await fetch(baseUrl)
       .then((res) => res.json())
       .then(({ students }) =>
         students.map(
@@ -31,7 +36,6 @@ const displayStudents = async () => {
             new Student(student.name, student.grades, student._id)
         )
       );
-    console.log(studentList);
     if (studentList) renderStudents(studentList);
   } catch (error) {
     console.error(error);
@@ -62,7 +66,7 @@ const renderStudents = async (students: Student[]) => {
   deleteButtons.forEach((btn) =>
     btn.addEventListener("click", () => {
       const id = btn.parentElement?.parentElement?.id;
-      fetch(`/api/v1/students/${id}`, {
+      fetch(`${baseUrl}/${id}`, {
         method: "DELETE",
         headers: {
           Accept: "application/json",
@@ -83,158 +87,180 @@ const renderStudents = async (students: Student[]) => {
   );
 };
 
-// const newStudentGradeInput = document.querySelector(
-//   "#grade"
-// ) as HTMLInputElement;
+const editWindow = document.querySelector(".editWindow") as HTMLDivElement;
 
-// newStudentGradeInput.addEventListener("keyup", (e: KeyboardEvent) => {
-//   if (e.key === "Enter") {
-//     addNewStudent();
-//   }
-// });
+const openEditWindow = async (id: string) => {
+  editWindow.style.display = "flex";
+  const studentList = await fetchStudents().then(({ students }) =>
+    students.map(
+      (student: StudentTemplate) =>
+        new Student(student.name, student.grades, student._id)
+    )
+  );
 
-// const editWindow = document.querySelector(".editWindow") as HTMLDivElement;
+  const findStudent = studentList.find((student: Student) => student._id == id);
+  if (!findStudent) return alert("User not found");
+  renderGradeList(findStudent);
+};
 
-// const openEditWindow = async (id: number) => {
-//   editWindow.style.display = "flex";
+function renderGradeList(student: Student) {
+  const listItemsHtml = student.grades
+    .map(
+      (grade) =>
+        `<li>
+    <span>${grade}</span>
+    <div class="listIcons">
+      <i class="fa-regular fa-square-minus"></i>
+      <i class="fa-solid fa-pen"></i>
+    </div>
+  </li>`
+    )
+    .join("");
+  editWindow.innerHTML = `
+  <h2>${student.name}</h2>
+  <ul class="gradesList">
+      <div><b>Grades</b><b>Edit</b></div>
+    ${listItemsHtml}
+  </ul>
+  <label for="newGrade">
+    <input type="number" id="newGradeInput" placeholder="New grade..." />
+    <input type="submit" id="addGradeBtn"/>
+  </label>
+  <button id="closeEditWindow">Done</button>
+  `;
+  const editGradeBtns = editWindow.querySelectorAll(
+    ".fa-pen"
+  ) as NodeListOf<HTMLIFrameElement>;
+  const editBtnsArr = Array.from(editGradeBtns);
+  editGradeBtnEvent(editBtnsArr, student);
+  const deleteGradeBtns = editWindow.querySelectorAll(
+    ".fa-square-minus"
+  ) as NodeListOf<HTMLElement>;
+  const deleteBtnsArr = Array.from(deleteGradeBtns);
+  deleteGrade(deleteBtnsArr, student);
+  const addGradeBtn = editWindow.querySelector(
+    "#addGradeBtn"
+  ) as HTMLInputElement;
+  const newGradeInput = editWindow.querySelector(
+    "#newGradeInput"
+  ) as HTMLInputElement;
+  addGrade(addGradeBtn, newGradeInput, student);
+  newGradeInput.focus();
+}
 
-//   const findStudent = studentList.find((student) => Number(student.uuid) == id);
-//   if (!findStudent) return alert("User not found");
-//   // console.log(findStudent);
-//   renderGradeList(findStudent);
-// };
+function editGradeBtnEvent(btnArr: Element[], student: Student) {
+  btnArr.forEach((btn) =>
+    btn.addEventListener("click", () => {
+      const gradeIndex = btnArr.indexOf(btn);
+      const listEle = btn.parentElement?.parentElement as HTMLDataListElement;
+      const iconDiv = listEle.querySelector(".listIcons") as HTMLDivElement;
+      const spanEle = listEle.firstElementChild as HTMLSpanElement;
+      const inputEle = document.createElement("input") as HTMLInputElement;
+      inputEle.setAttribute("type", "number");
+      inputEle.value = spanEle.innerHTML;
+      listEle.replaceChild(inputEle, spanEle);
+      inputEle.focus();
+      iconDiv.style.display = "none";
+      inputEle.addEventListener("keyup", (e) => {
+        if (e.key === "Enter") {
+          if (
+            Number(inputEle.value) > 100 ||
+            Number(inputEle.value) < 0 ||
+            !Number(inputEle.value)
+          )
+            return alert("Check grade input");
 
-// function renderGradeList(student: Student) {
-//   const listItemsHtml = student.grades
-//     .map(
-//       (grade) =>
-//         `<li>
-//     <span>${grade}</span>
-//     <div class="listIcons">
-//       <i class="fa-regular fa-square-minus"></i>
-//       <i class="fa-solid fa-pen"></i>
-//     </div>
-//   </li>`
-//     )
-//     .join("");
-//   editWindow.innerHTML = `
-//   <h2>${student.name}</h2>
-//   <ul class="gradesList">
-//       <div><b>Grades</b><b>Edit</b></div>
-//     ${listItemsHtml}
-//   </ul>
-//   <label for="newGrade">
-//     <input type="number" id="newGradeInput" placeholder="New grade..." />
-//     <input type="submit" id="addGradeBtn"/>
-//   </label>
-//   <button id="closeEditWindow">Done</button>
-//   `;
-//   const editGradeBtns = editWindow.querySelectorAll(
-//     ".fa-pen"
-//   ) as NodeListOf<HTMLIFrameElement>;
-//   const editBtnsArr = Array.from(editGradeBtns);
-//   editGradeBtnEvent(editBtnsArr, student);
-//   const deleteGradeBtns = editWindow.querySelectorAll(
-//     ".fa-square-minus"
-//   ) as NodeListOf<HTMLElement>;
-//   const deleteBtnsArr = Array.from(deleteGradeBtns);
-//   deleteGrade(deleteBtnsArr, student);
-//   const addGradeBtn = editWindow.querySelector(
-//     "#addGradeBtn"
-//   ) as HTMLInputElement;
-//   const newGradeInput = editWindow.querySelector(
-//     "#newGradeInput"
-//   ) as HTMLInputElement;
-//   addGrade(addGradeBtn, newGradeInput, student);
-//   newGradeInput.focus();
-// }
+          spanEle.textContent = inputEle.value;
+          listEle.replaceChild(spanEle, inputEle);
+          student.grades[gradeIndex] = Number(inputEle.value);
+          // updateStudent(student);
+          // student.update();
+          iconDiv.style.display = "flex";
+        }
+      });
+    })
+  );
+}
 
-// function editGradeBtnEvent(btnArr: Element[], student: Student) {
-//   btnArr.forEach((btn) =>
-//     btn.addEventListener("click", () => {
-//       const gradeIndex = btnArr.indexOf(btn);
-//       const listEle = btn.parentElement?.parentElement as HTMLDataListElement;
-//       const iconDiv = listEle.querySelector(".listIcons") as HTMLDivElement;
-//       const spanEle = listEle.firstElementChild as HTMLSpanElement;
-//       const inputEle = document.createElement("input") as HTMLInputElement;
-//       inputEle.setAttribute("type", "number");
-//       inputEle.value = spanEle.innerHTML;
-//       listEle.replaceChild(inputEle, spanEle);
-//       inputEle.focus();
-//       iconDiv.style.display = "none";
-//       inputEle.addEventListener("keyup", (e) => {
-//         if (e.key === "Enter") {
-//           if (
-//             Number(inputEle.value) > 100 ||
-//             Number(inputEle.value) < 0 ||
-//             !Number(inputEle.value)
-//           )
-//             return alert("Check grade input");
+function deleteGrade(btnsArr: Element[], studentToUpdate: Student) {
+  btnsArr.forEach((btn) =>
+    btn.addEventListener("click", () => {
+      const gradeIndex = btnsArr.indexOf(btn);
+      const listEle = btn.parentElement?.parentElement as HTMLDataListElement;
+      listEle.remove();
+      const grade = studentToUpdate.grades.splice(gradeIndex, 1);
+      fetch(`${baseUrl}/${studentToUpdate._id}`, {
+        method: "PATCH",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ grade, gradeIndex, delete: true }),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error(error));
+    })
+  );
+}
 
-//           spanEle.textContent = inputEle.value;
-//           listEle.replaceChild(spanEle, inputEle);
-//           student.grades[gradeIndex] = Number(inputEle.value);
-//           // updateStudent(student);
-//           student.update();
-//           iconDiv.style.display = "flex";
-//         }
-//       });
-//     })
-//   );
-// }
+function addGrade(
+  btn: HTMLInputElement,
+  newGradeInput: HTMLInputElement,
+  student: Student
+) {
+  btn.addEventListener("click", () => {
+    if (
+      Number(newGradeInput.value) > 100 ||
+      Number(newGradeInput.value) < 0 ||
+      !Number(newGradeInput.value)
+    )
+      return alert("Check grade input");
+    student.addGrade(Number(newGradeInput.value));
+    fetch(`${baseUrl}/${student._id}`, {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ grade: newGradeInput.value, delete: false }),
+    })
+      .then((res) => res.json())
+      .then(({ students }) =>
+        renderStudents(
+          students.map(
+            (student: StudentTemplate) =>
+              new Student(student.name, student.grades, student._id)
+          )
+        )
+      )
+      .catch((error) => console.error(error));
+    renderGradeList(student);
+    newGradeInput.value = "";
+  });
+  newGradeInput.addEventListener("keydown", (e: KeyboardEvent) => {
+    if (e.key === "Enter") {
+      if (
+        Number(newGradeInput.value) > 100 ||
+        Number(newGradeInput.value) < 0 ||
+        !Number(newGradeInput.value)
+      )
+        return alert("Check grade input");
+      student.addGrade(Number(newGradeInput.value));
+      // student.update();
+      renderGradeList(student);
+      newGradeInput.value = "";
+    }
+  });
+}
 
-// function deleteGrade(btnsArr: Element[], studentToUpdate: Student) {
-//   btnsArr.forEach((btn) =>
-//     btn.addEventListener("click", () => {
-//       const gradeIndex = btnsArr.indexOf(btn);
-//       const listEle = btn.parentElement?.parentElement as HTMLDataListElement;
-//       listEle.remove();
-//       studentToUpdate.grades.splice(gradeIndex, 1);
-//       studentToUpdate.update();
-//     })
-//   );
-// }
-
-// function addGrade(
-//   btn: HTMLInputElement,
-//   newGradeInput: HTMLInputElement,
-//   student: Student
-// ) {
-//   btn.addEventListener("click", () => {
-//     if (
-//       Number(newGradeInput.value) > 100 ||
-//       Number(newGradeInput.value) < 0 ||
-//       !Number(newGradeInput.value)
-//     )
-//       return alert("Check grade input");
-//     student.addGrade(Number(newGradeInput.value));
-//     student.update();
-//     renderGradeList(student);
-//     newGradeInput.value = "";
-//   });
-//   newGradeInput.addEventListener("keydown", (e: KeyboardEvent) => {
-//     if (e.key === "Enter") {
-//       if (
-//         Number(newGradeInput.value) > 100 ||
-//         Number(newGradeInput.value) < 0 ||
-//         !Number(newGradeInput.value)
-//       )
-//         return alert("Check grade input");
-//       student.addGrade(Number(newGradeInput.value));
-//       student.update();
-//       renderGradeList(student);
-//       newGradeInput.value = "";
-//     }
-//   });
-// }
-
-// window.addEventListener("click", (e: Event) => {
-//   const target = e.target as HTMLElement;
-//   if (target.id === "closeEditWindow") {
-//     editWindow.style.display = "none";
-//   }
-//   if (target.classList.contains("fa-pen-to-square")) {
-//     const id = Number(target.parentElement?.parentElement?.id);
-//     openEditWindow(id);
-//   }
-// });
+window.addEventListener("click", (e: Event) => {
+  const target = e.target as HTMLElement;
+  if (target.id === "closeEditWindow") {
+    editWindow.style.display = "none";
+  }
+  if (target.classList.contains("fa-pen-to-square")) {
+    const id = target.parentElement?.parentElement?.id as string;
+    openEditWindow(id);
+  }
+});

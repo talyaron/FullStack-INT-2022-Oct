@@ -85,7 +85,6 @@ exports.deleteStudent = function (req, res, next) { return __awaiter(void 0, voi
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 3, , 4]);
-                console.log(req.params);
                 studentId = req.params.id;
                 return [4 /*yield*/, Student_1["default"].deleteOne({ _id: studentId })];
             case 1:
@@ -93,7 +92,8 @@ exports.deleteStudent = function (req, res, next) { return __awaiter(void 0, voi
                 return [4 /*yield*/, Student_1["default"].find({})];
             case 2:
                 students = _a.sent();
-                res.status(200).json({ students: students });
+                console.log(students);
+                res.status(200).send({ students: students });
                 return [3 /*break*/, 4];
             case 3:
                 error_3 = _a.sent();
@@ -104,13 +104,41 @@ exports.deleteStudent = function (req, res, next) { return __awaiter(void 0, voi
         }
     });
 }); };
-exports.updateStudent = function (req, res, next) {
-    try {
-        var studentList = req.body;
-        res.status(201).send({ ok: true });
-    }
-    catch (error) {
-        console.error(error);
-        res.status(500).send({ error: error.message });
-    }
-};
+exports.updateStudent = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+    var studentId, data, students, student, error_4;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 6, , 7]);
+                studentId = req.params.id;
+                data = req.body;
+                return [4 /*yield*/, Student_1["default"].find({})];
+            case 1:
+                students = _a.sent();
+                return [4 /*yield*/, Student_1["default"].findById({ _id: studentId })];
+            case 2:
+                student = _a.sent();
+                if (!student)
+                    return [2 /*return*/, res.status(404).send({ ok: false })];
+                if (!!data["delete"]) return [3 /*break*/, 4];
+                student.grades.push(data.grade);
+                return [4 /*yield*/, student.save()];
+            case 3:
+                _a.sent();
+                return [2 /*return*/, res.status(201).json({ students: students })];
+            case 4:
+                student.grades.splice(data.gradeIndex, 1);
+                return [4 /*yield*/, student.save()];
+            case 5:
+                _a.sent();
+                res.status(201).json({ students: students });
+                return [3 /*break*/, 7];
+            case 6:
+                error_4 = _a.sent();
+                console.error(error_4);
+                res.status(500).send({ error: error_4.message });
+                return [3 /*break*/, 7];
+            case 7: return [2 /*return*/];
+        }
+    });
+}); };

@@ -36,6 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 var root = document.querySelector("#root");
+var baseUrl = "/api/v1/students";
 var Student = /** @class */ (function () {
     function Student(name, grades, _id) {
         if (grades === void 0) { grades = []; }
@@ -52,6 +53,9 @@ var Student = /** @class */ (function () {
     };
     return Student;
 }());
+var fetchStudents = function () {
+    return fetch(baseUrl).then(function (res) { return res.json(); });
+};
 var displayStudents = function () { return __awaiter(_this, void 0, void 0, function () {
     var studentList, error_1;
     return __generator(this, function (_a) {
@@ -59,7 +63,7 @@ var displayStudents = function () { return __awaiter(_this, void 0, void 0, func
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 console.log("runnig display students...");
-                return [4 /*yield*/, fetch("/api/v1/students")
+                return [4 /*yield*/, fetch(baseUrl)
                         .then(function (res) { return res.json(); })
                         .then(function (_a) {
                         var students = _a.students;
@@ -69,7 +73,6 @@ var displayStudents = function () { return __awaiter(_this, void 0, void 0, func
                     })];
             case 1:
                 studentList = _a.sent();
-                console.log(studentList);
                 if (studentList)
                     renderStudents(studentList);
                 return [3 /*break*/, 3];
@@ -96,7 +99,7 @@ var renderStudents = function (students) { return __awaiter(_this, void 0, void 
             return btn.addEventListener("click", function () {
                 var _a, _b;
                 var id = (_b = (_a = btn.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.id;
-                fetch("/api/v1/students/" + id, {
+                fetch(baseUrl + "/" + id, {
                     method: "DELETE",
                     headers: {
                         Accept: "application/json",
@@ -115,148 +118,145 @@ var renderStudents = function (students) { return __awaiter(_this, void 0, void 
         return [2 /*return*/];
     });
 }); };
-// const newStudentGradeInput = document.querySelector(
-//   "#grade"
-// ) as HTMLInputElement;
-// newStudentGradeInput.addEventListener("keyup", (e: KeyboardEvent) => {
-//   if (e.key === "Enter") {
-//     addNewStudent();
-//   }
-// });
-// const editWindow = document.querySelector(".editWindow") as HTMLDivElement;
-// const openEditWindow = async (id: number) => {
-//   editWindow.style.display = "flex";
-//   const findStudent = studentList.find((student) => Number(student.uuid) == id);
-//   if (!findStudent) return alert("User not found");
-//   // console.log(findStudent);
-//   renderGradeList(findStudent);
-// };
-// function renderGradeList(student: Student) {
-//   const listItemsHtml = student.grades
-//     .map(
-//       (grade) =>
-//         `<li>
-//     <span>${grade}</span>
-//     <div class="listIcons">
-//       <i class="fa-regular fa-square-minus"></i>
-//       <i class="fa-solid fa-pen"></i>
-//     </div>
-//   </li>`
-//     )
-//     .join("");
-//   editWindow.innerHTML = `
-//   <h2>${student.name}</h2>
-//   <ul class="gradesList">
-//       <div><b>Grades</b><b>Edit</b></div>
-//     ${listItemsHtml}
-//   </ul>
-//   <label for="newGrade">
-//     <input type="number" id="newGradeInput" placeholder="New grade..." />
-//     <input type="submit" id="addGradeBtn"/>
-//   </label>
-//   <button id="closeEditWindow">Done</button>
-//   `;
-//   const editGradeBtns = editWindow.querySelectorAll(
-//     ".fa-pen"
-//   ) as NodeListOf<HTMLIFrameElement>;
-//   const editBtnsArr = Array.from(editGradeBtns);
-//   editGradeBtnEvent(editBtnsArr, student);
-//   const deleteGradeBtns = editWindow.querySelectorAll(
-//     ".fa-square-minus"
-//   ) as NodeListOf<HTMLElement>;
-//   const deleteBtnsArr = Array.from(deleteGradeBtns);
-//   deleteGrade(deleteBtnsArr, student);
-//   const addGradeBtn = editWindow.querySelector(
-//     "#addGradeBtn"
-//   ) as HTMLInputElement;
-//   const newGradeInput = editWindow.querySelector(
-//     "#newGradeInput"
-//   ) as HTMLInputElement;
-//   addGrade(addGradeBtn, newGradeInput, student);
-//   newGradeInput.focus();
-// }
-// function editGradeBtnEvent(btnArr: Element[], student: Student) {
-//   btnArr.forEach((btn) =>
-//     btn.addEventListener("click", () => {
-//       const gradeIndex = btnArr.indexOf(btn);
-//       const listEle = btn.parentElement?.parentElement as HTMLDataListElement;
-//       const iconDiv = listEle.querySelector(".listIcons") as HTMLDivElement;
-//       const spanEle = listEle.firstElementChild as HTMLSpanElement;
-//       const inputEle = document.createElement("input") as HTMLInputElement;
-//       inputEle.setAttribute("type", "number");
-//       inputEle.value = spanEle.innerHTML;
-//       listEle.replaceChild(inputEle, spanEle);
-//       inputEle.focus();
-//       iconDiv.style.display = "none";
-//       inputEle.addEventListener("keyup", (e) => {
-//         if (e.key === "Enter") {
-//           if (
-//             Number(inputEle.value) > 100 ||
-//             Number(inputEle.value) < 0 ||
-//             !Number(inputEle.value)
-//           )
-//             return alert("Check grade input");
-//           spanEle.textContent = inputEle.value;
-//           listEle.replaceChild(spanEle, inputEle);
-//           student.grades[gradeIndex] = Number(inputEle.value);
-//           // updateStudent(student);
-//           student.update();
-//           iconDiv.style.display = "flex";
-//         }
-//       });
-//     })
-//   );
-// }
-// function deleteGrade(btnsArr: Element[], studentToUpdate: Student) {
-//   btnsArr.forEach((btn) =>
-//     btn.addEventListener("click", () => {
-//       const gradeIndex = btnsArr.indexOf(btn);
-//       const listEle = btn.parentElement?.parentElement as HTMLDataListElement;
-//       listEle.remove();
-//       studentToUpdate.grades.splice(gradeIndex, 1);
-//       studentToUpdate.update();
-//     })
-//   );
-// }
-// function addGrade(
-//   btn: HTMLInputElement,
-//   newGradeInput: HTMLInputElement,
-//   student: Student
-// ) {
-//   btn.addEventListener("click", () => {
-//     if (
-//       Number(newGradeInput.value) > 100 ||
-//       Number(newGradeInput.value) < 0 ||
-//       !Number(newGradeInput.value)
-//     )
-//       return alert("Check grade input");
-//     student.addGrade(Number(newGradeInput.value));
-//     student.update();
-//     renderGradeList(student);
-//     newGradeInput.value = "";
-//   });
-//   newGradeInput.addEventListener("keydown", (e: KeyboardEvent) => {
-//     if (e.key === "Enter") {
-//       if (
-//         Number(newGradeInput.value) > 100 ||
-//         Number(newGradeInput.value) < 0 ||
-//         !Number(newGradeInput.value)
-//       )
-//         return alert("Check grade input");
-//       student.addGrade(Number(newGradeInput.value));
-//       student.update();
-//       renderGradeList(student);
-//       newGradeInput.value = "";
-//     }
-//   });
-// }
-// window.addEventListener("click", (e: Event) => {
-//   const target = e.target as HTMLElement;
-//   if (target.id === "closeEditWindow") {
-//     editWindow.style.display = "none";
-//   }
-//   if (target.classList.contains("fa-pen-to-square")) {
-//     const id = Number(target.parentElement?.parentElement?.id);
-//     openEditWindow(id);
-//   }
-// });
+var editWindow = document.querySelector(".editWindow");
+var openEditWindow = function (id) { return __awaiter(_this, void 0, void 0, function () {
+    var studentList, findStudent;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                editWindow.style.display = "flex";
+                return [4 /*yield*/, fetchStudents().then(function (_a) {
+                        var students = _a.students;
+                        return students.map(function (student) {
+                            return new Student(student.name, student.grades, student._id);
+                        });
+                    })];
+            case 1:
+                studentList = _a.sent();
+                findStudent = studentList.find(function (student) { return student._id == id; });
+                if (!findStudent)
+                    return [2 /*return*/, alert("User not found")];
+                renderGradeList(findStudent);
+                return [2 /*return*/];
+        }
+    });
+}); };
+function renderGradeList(student) {
+    var listItemsHtml = student.grades
+        .map(function (grade) {
+        return "<li>\n    <span>" + grade + "</span>\n    <div class=\"listIcons\">\n      <i class=\"fa-regular fa-square-minus\"></i>\n      <i class=\"fa-solid fa-pen\"></i>\n    </div>\n  </li>";
+    })
+        .join("");
+    editWindow.innerHTML = "\n  <h2>" + student.name + "</h2>\n  <ul class=\"gradesList\">\n      <div><b>Grades</b><b>Edit</b></div>\n    " + listItemsHtml + "\n  </ul>\n  <label for=\"newGrade\">\n    <input type=\"number\" id=\"newGradeInput\" placeholder=\"New grade...\" />\n    <input type=\"submit\" id=\"addGradeBtn\"/>\n  </label>\n  <button id=\"closeEditWindow\">Done</button>\n  ";
+    var editGradeBtns = editWindow.querySelectorAll(".fa-pen");
+    var editBtnsArr = Array.from(editGradeBtns);
+    editGradeBtnEvent(editBtnsArr, student);
+    var deleteGradeBtns = editWindow.querySelectorAll(".fa-square-minus");
+    var deleteBtnsArr = Array.from(deleteGradeBtns);
+    deleteGrade(deleteBtnsArr, student);
+    var addGradeBtn = editWindow.querySelector("#addGradeBtn");
+    var newGradeInput = editWindow.querySelector("#newGradeInput");
+    addGrade(addGradeBtn, newGradeInput, student);
+    newGradeInput.focus();
+}
+function editGradeBtnEvent(btnArr, student) {
+    btnArr.forEach(function (btn) {
+        return btn.addEventListener("click", function () {
+            var _a;
+            var gradeIndex = btnArr.indexOf(btn);
+            var listEle = (_a = btn.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement;
+            var iconDiv = listEle.querySelector(".listIcons");
+            var spanEle = listEle.firstElementChild;
+            var inputEle = document.createElement("input");
+            inputEle.setAttribute("type", "number");
+            inputEle.value = spanEle.innerHTML;
+            listEle.replaceChild(inputEle, spanEle);
+            inputEle.focus();
+            iconDiv.style.display = "none";
+            inputEle.addEventListener("keyup", function (e) {
+                if (e.key === "Enter") {
+                    if (Number(inputEle.value) > 100 ||
+                        Number(inputEle.value) < 0 ||
+                        !Number(inputEle.value))
+                        return alert("Check grade input");
+                    spanEle.textContent = inputEle.value;
+                    listEle.replaceChild(spanEle, inputEle);
+                    student.grades[gradeIndex] = Number(inputEle.value);
+                    // updateStudent(student);
+                    // student.update();
+                    iconDiv.style.display = "flex";
+                }
+            });
+        });
+    });
+}
+function deleteGrade(btnsArr, studentToUpdate) {
+    btnsArr.forEach(function (btn) {
+        return btn.addEventListener("click", function () {
+            var _a;
+            var gradeIndex = btnsArr.indexOf(btn);
+            var listEle = (_a = btn.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement;
+            listEle.remove();
+            var grade = studentToUpdate.grades.splice(gradeIndex, 1);
+            fetch(baseUrl + "/" + studentToUpdate._id, {
+                method: "PATCH",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ grade: grade, gradeIndex: gradeIndex, "delete": true })
+            })
+                .then(function (res) { return res.json(); })
+                .then(function (data) { return console.log(data); })["catch"](function (error) { return console.error(error); });
+        });
+    });
+}
+function addGrade(btn, newGradeInput, student) {
+    btn.addEventListener("click", function () {
+        if (Number(newGradeInput.value) > 100 ||
+            Number(newGradeInput.value) < 0 ||
+            !Number(newGradeInput.value))
+            return alert("Check grade input");
+        student.addGrade(Number(newGradeInput.value));
+        fetch(baseUrl + "/" + student._id, {
+            method: "PATCH",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ grade: newGradeInput.value, "delete": false })
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (_a) {
+            var students = _a.students;
+            return renderStudents(students.map(function (student) {
+                return new Student(student.name, student.grades, student._id);
+            }));
+        })["catch"](function (error) { return console.error(error); });
+        renderGradeList(student);
+        newGradeInput.value = "";
+    });
+    newGradeInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+            if (Number(newGradeInput.value) > 100 ||
+                Number(newGradeInput.value) < 0 ||
+                !Number(newGradeInput.value))
+                return alert("Check grade input");
+            student.addGrade(Number(newGradeInput.value));
+            // student.update();
+            renderGradeList(student);
+            newGradeInput.value = "";
+        }
+    });
+}
+window.addEventListener("click", function (e) {
+    var _a, _b;
+    var target = e.target;
+    if (target.id === "closeEditWindow") {
+        editWindow.style.display = "none";
+    }
+    if (target.classList.contains("fa-pen-to-square")) {
+        var id = (_b = (_a = target.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.id;
+        openEditWindow(id);
+    }
+});

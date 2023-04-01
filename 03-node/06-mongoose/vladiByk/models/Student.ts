@@ -1,24 +1,21 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose, { Schema } from "mongoose";
 
 interface Student {
-    name: string;
-    grade: number;
+  name: string;
+  grade: number;
 }
 
 const StudentSchema: Schema = new Schema(
-    {
-        name: {
-            type: String,
-            required: true
-        },
-        grades: {
-            type: [Number],
-            required: true
-        }
+  {
+    name: {
+      type: String,
+      required: true,
     },
-    {
-        versionKey: false
-    }
+    grades: [Number],
+  },
+  {
+    versionKey: false,
+  }
 );
 
-export default mongoose.model('Student', StudentSchema);
+export default mongoose.model("Student", StudentSchema);
