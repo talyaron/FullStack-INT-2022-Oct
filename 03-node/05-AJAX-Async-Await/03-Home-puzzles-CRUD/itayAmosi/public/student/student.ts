@@ -1,11 +1,11 @@
 interface IStudent {
-  uid: string;
   name: string;
   englishClass: number;
   mathClass: number;
   sportsClass: number;
   historyClass: number;
   avg:number
+  uid?: string;
 }
 function renderStudentDiv(student: IStudent) {
     try {
@@ -33,6 +33,7 @@ function renderStudentDiv(student: IStudent) {
                <h2>Yor Average is:${student.avg}</h2>
              </div>
              <button id="avgBtn" type="submit" class="submit" onclick="calc(event);">Average</button>
+             <button id="deleteBtn" type="submit" class="submit" onclick='handleDeleteStudent(uid)'>DELETE</button>
            </div>`;
       const studentRoot = document.querySelector("#studentRoot")
       if(!studentRoot) throw new Error("student Root not found")
@@ -43,7 +44,6 @@ function renderStudentDiv(student: IStudent) {
   };
 
   function handelStudent() {
-    console.log("test");
 try {
     fetch("/api/get-students")
     .then((res) => res.json())
@@ -95,6 +95,37 @@ try {
       });
   });
 }
+
+function handleDeleteStudent(uid: string) {
+  try {
+    console.log(uid);
+
+    fetch("/api/delete-student", {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ uid }),
+    })
+      .then((res) => res.json())
+      .then(({ uid }) => {
+      
+      
+        renderStudentDiv(uid);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+
+
+
+
 
 // function calc(event)
 // {

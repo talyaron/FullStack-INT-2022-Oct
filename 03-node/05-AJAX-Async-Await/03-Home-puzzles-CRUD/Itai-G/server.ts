@@ -1,9 +1,40 @@
 import express from "express";
-// import path from "path";
 import { v4 as uuidv4 } from "uuid";
 const app = express();
 app.use(express.static(`./public`));
 app.use(express.json());
+import mongoose, { Schema } from "mongoose";
+import * as dotenv from "dotenv";
+dotenv.config();
+
+const uri: string | undefined = process.env.MONGODB_URI;
+
+
+if (uri) {
+  mongoose
+    .connect(uri)
+    .then(() => {
+      console.log("DB connected!");
+    })
+    .catch((err) => console.log(err));
+} else {
+  console.log("No URI to DB");
+}
+
+
+const StudentSchema = new Schema({
+  uid: String,
+  name: String,
+  englishClass: Number,
+  mathClass: Number,
+  sportsClass: Number,
+  historyClass: Number,
+});
+
+const StudentModel = mongoose.model("students", StudentSchema);
+
+// export interface IStudentDocument extends mongoose.Document, IStudent {}
+
 
 //data
 export interface IStudent {
@@ -53,26 +84,28 @@ export class Teacher {
 }
 const teachers: Teacher[] = [new Teacher("tal", 1235)];
 
-app.post("/api/add-student-grades", (req, res) => {
+app.post("/api/add-student-grades", async (req, res) => {
   const { name, englishClass, mathClass, sportsClass, historyClass } = req.body;
   console.log(req.body);
   if (!name || !englishClass || !mathClass || !sportsClass || !historyClass) {
     return res.status(400).json({ error: "Missing required fields" });
   }
 
-  const newStudent = new Student(
+ const newStudent = await StudentModel.create({
     name,
     englishClass,
     mathClass,
     sportsClass,
-    historyClass
-  );
-  students.push(newStudent);
+    historyClass,
+    
+  });
+  // students.push(newStudent);
   res.status(200).send({ ok: true, newStudent });
 });
 
-app.get("/api/get-students", (req, res) => {
+app.get("/api/get-students",async (req, res) => {
   try {
+    const students = await StudentModel.find({});
       res.send({ students });
 
   } catch (error: any) {
@@ -80,6 +113,25 @@ app.get("/api/get-students", (req, res) => {
       res.status(500).send({ error: error.message });
   }
 });
+
+
+app.delete("/api/delete-student", async (req, res) => {
+  try {
+    const { uid } = req.body;
+    console.log(uid)
+    if (!uid) throw new Error("no uid in data");
+
+    const deletedStudent = await StudentModel.findOneAndDelete({ uid });
+    if (!deletedStudent) throw new Error(`couldnt find user in database with ID ${uid}`);
+
+    const students = await StudentModel.find({});
+    res.send({ ok: true, students });
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+});
+
 
 app.listen(4000, () => {
   console.log("server listen on port 4000");
