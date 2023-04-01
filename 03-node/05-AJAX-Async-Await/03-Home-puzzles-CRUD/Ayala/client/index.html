@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/style.css">
+   <script src="./dist/index.js"defer></script>
+</head>
+<body>
+   
+    <form onsubmit="handleAddUser(event)">
+        <input type="text" name="name" placeholder="User name" required>
+        <input type="text" name="src" placeholder="image url" required>
+        <button type="submit">ADD</button>
+    </form>
+    <button onclick="handleGetUsers()">Get Jokes</button>
+    <div id="users"></div>
+   
+
+  
+   
+</body>
+</html>
