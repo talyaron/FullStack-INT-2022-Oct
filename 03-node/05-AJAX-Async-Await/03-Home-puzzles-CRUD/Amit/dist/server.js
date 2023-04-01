@@ -38,6 +38,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 var express_1 = require("express");
 var app = express_1["default"]();
+var body_parser_1 = require("body-parser");
+app.use(body_parser_1["default"].json());
+app.use(body_parser_1["default"].urlencoded({ extended: false }));
 var mongoose_1 = require("mongoose");
 var dotenv = require("dotenv");
 dotenv.config();
@@ -120,7 +123,7 @@ app.post("/api/add-student", function (req, res) { return __awaiter(void 0, void
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 name = req.body.name;
-                console.log(name);
+                console.log("{ name }", name);
                 return [4 /*yield*/, StudentModel.create({ name: name })];
             case 1:
                 studentDB = _a.sent();
@@ -136,22 +139,45 @@ app.post("/api/add-student", function (req, res) { return __awaiter(void 0, void
         }
     });
 }); });
-//add grade to student
-// app.post("/api/add-students/add-grade", (req, res) => {
-//     try {
-//       const { name, uid } = req.body;  
-//       if (!name) throw new Error("No name in data");
-//       if (!uid) throw new Error("No uid in data");
-//       const student = students.find((user) => user.uid === uid);
-//       if (!student) throw new Error("No student in data");
-//       const {test, value } = req.body;
-//       student.grades.push(new Grade(test, value));
-//       res.status(201).send({ ok: true });
-//     } catch (error: any) {
-//       console.error(error);
-//       res.status(500).send({ error: error.message });
-//     }
-//   });
+// add grade to student
+app.post("/api/add-grade", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, newGrade, _id_1, student, gradeDB, error_3;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, newGrade = _a.newGrade, _id_1 = _a._id;
+                //   console.log("{ test }", test);
+                //   console.log("{ value }", value);
+                console.log("{ _id }", _id_1);
+                //   if (!test) throw new Error("No test in data");
+                //   if (!value) throw new Error("No value in data");
+                if (!newGrade)
+                    throw new Error("No new Grade in data");
+                if (!_id_1)
+                    throw new Error("No _id in data");
+                student = students.find(function (student) { return student._id === _id_1; });
+                if (!student)
+                    throw new Error("No student in data");
+                return [4 /*yield*/, GradeModel.create({ newGrade: newGrade })];
+            case 1:
+                gradeDB = _b.sent();
+                console.log(gradeDB);
+                // const filter = { _id: `'${_id}'` };
+                // const update = { test: `'${test}'`, value: `${value}` };
+                // let studentDB = await StudentModel.findOneAndUpdate(filter, update);
+                //   student.grades.push(gradeDB);
+                res.status(201).send({ ok: true });
+                return [3 /*break*/, 3];
+            case 2:
+                error_3 = _b.sent();
+                console.error(error_3);
+                res.status(500).send({ error: error_3.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); });
 //update
 // //update whole entity
 // app.put("/api/update-user", (req, res) => {
