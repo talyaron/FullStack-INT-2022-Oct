@@ -80,26 +80,27 @@ exports.createStudent = function (req, res, next) { return __awaiter(void 0, voi
     });
 }); };
 exports.deleteStudent = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var studentId, student, error_3;
+    var studentId, student, students, error_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
+                _a.trys.push([0, 3, , 4]);
                 console.log(req.params);
                 studentId = req.params.id;
-                return [4 /*yield*/, Student_1["default"].findOneAndDelete({ _id: studentId })];
+                return [4 /*yield*/, Student_1["default"].deleteOne({ _id: studentId })];
             case 1:
                 student = _a.sent();
-                if (!student)
-                    res.status(404).json({ msg: "no task with the id: " + studentId });
-                res.status(200).redirect("/");
-                return [3 /*break*/, 3];
+                return [4 /*yield*/, Student_1["default"].find({})];
             case 2:
+                students = _a.sent();
+                res.status(200).json({ students: students });
+                return [3 /*break*/, 4];
+            case 3:
                 error_3 = _a.sent();
                 console.error(error_3);
                 res.status(500).json({ error: error_3.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };

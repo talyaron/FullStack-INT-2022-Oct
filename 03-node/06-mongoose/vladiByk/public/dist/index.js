@@ -96,8 +96,20 @@ var renderStudents = function (students) { return __awaiter(_this, void 0, void 
             return btn.addEventListener("click", function () {
                 var _a, _b;
                 var id = (_b = (_a = btn.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.id;
-                // console.log(id);
-                fetch("/api/v1/students/" + id, { method: "DELETE" });
+                fetch("/api/v1/students/" + id, {
+                    method: "DELETE",
+                    headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json"
+                    }
+                })
+                    .then(function (res) { return res.json(); })
+                    .then(function (_a) {
+                    var students = _a.students;
+                    return renderStudents(students.map(function (student) {
+                        return new Student(student.name, student.grades, student._id);
+                    }));
+                })["catch"](function (error) { return console.error(error); });
             });
         });
         return [2 /*return*/];

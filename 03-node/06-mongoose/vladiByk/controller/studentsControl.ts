@@ -39,10 +39,10 @@ export const deleteStudent = async (
   try {
     console.log(req.params);
     const { id: studentId } = req.params;
-    const student = await Student.findOneAndDelete({ _id: studentId });
-    if (!student)
-      res.status(404).json({ msg: `no task with the id: ${studentId}` });
-    res.status(200).redirect("/");
+    const student = await Student.deleteOne({ _id: studentId });
+    const students = await Student.find({})
+
+    res.status(200).json({students})
   } catch (error: any) {
     console.error(error);
     res.status(500).json({ error: error.message });

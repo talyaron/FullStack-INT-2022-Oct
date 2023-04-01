@@ -62,8 +62,23 @@ const renderStudents = async (students: Student[]) => {
   deleteButtons.forEach((btn) =>
     btn.addEventListener("click", () => {
       const id = btn.parentElement?.parentElement?.id;
-      // console.log(id);
-      fetch(`/api/v1/students/${id}`, { method: "DELETE" });
+      fetch(`/api/v1/students/${id}`, {
+        method: "DELETE",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then(({ students }) =>
+          renderStudents(
+            students.map(
+              (student: StudentTemplate) =>
+                new Student(student.name, student.grades, student._id)
+            )
+          )
+        )
+        .catch((error) => console.error(error));
     })
   );
 };
