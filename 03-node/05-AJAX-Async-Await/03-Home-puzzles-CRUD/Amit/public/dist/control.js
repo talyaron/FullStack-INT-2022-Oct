@@ -45,3 +45,33 @@ function handleAddStudent(ev) {
         console.error(error);
     }
 }
+function handleAddGrade(ev) {
+    try {
+        ev.preventDefault();
+        var test = ev.target.elements.name.value;
+        var value = ev.target.elements.name.value;
+        if (!test)
+            throw new Error("No name");
+        if (!value)
+            throw new Error("No value");
+        var newStudent = { name: name };
+        fetch("/api/add-grade", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newStudent)
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (data) {
+            console.log(data);
+        })["catch"](function (error) {
+            console.error(error);
+        });
+        ev.target.reset();
+    }
+    catch (error) {
+        console.error(error);
+    }
+}

@@ -4,7 +4,7 @@ function renderStudents(students) {
             throw new Error("No students");
         var html = students
             .map(function (student) {
-            return "<div class=\"StudentCard\">\n          <p contenteditable oninput=\"handleStudentNameUpdate(event, '" + student._id + "')\">" + student.name + "</p>\n          <div class=\"StudentCard__grades\">grades:\n            <div id=\"studentGradesRoot-" + student._id + "\"></div>\n          </div>  \n          <button onclick='handleDeleteStudent(\"" + student._id + "\")'>DELETE</button>\n          </div>\n          ";
+            return "<div class=\"StudentCard\">\n          <p contenteditable oninput=\"handleStudentNameUpdate(event, '" + student._id + "')\">" + student.name + "</p>\n          <div class=\"StudentCard__grades\">grades:\n            <form onsubmit=\"handleAddGrade(event)\">\n                <input type=\"text\" name=\"test\" placeholder=\"test name\" required>\n                <input type=\"number\" name=\"value\" placeholder=\"value\" required>\n                <button type=\"submit\">add test</button>    \n            </form>\n            <div id=\"studentGradesRoot-" + student._id + "\"></div>\n          </div>  \n          <button onclick='handleDeleteStudent(\"" + student._id + "\")'>DELETE</button>\n          </div>\n          ";
         })
             .join(" ");
         var studentsRoot = document.querySelector("#studentsRoot");
@@ -25,7 +25,7 @@ function renderGrades(students) {
                 var student = students.find(function (student) { return student._id === _id_1; });
                 if (!student)
                     throw new Error("student not found");
-                console.log(student.grades);
+                student.grades.push(new Grade("test", 100));
                 var html = student.grades
                     .map(function (grade) {
                     console.log(grade);
