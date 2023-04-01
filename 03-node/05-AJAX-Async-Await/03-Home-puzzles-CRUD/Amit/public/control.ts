@@ -47,15 +47,22 @@ function handleAddStudent(ev) {
 }
 
 
-function handleAddGrade(ev){ /// continue
+function handleAddGrade(ev: any, uid: string){ 
     try {
+        
         ev.preventDefault();
-        const test = ev.target.elements.name.value;
-        const value = ev.target.elements.name.value as number;
-        if (!test) throw new Error("No name");
-        if (!value) throw new Error("No value");
 
-        const newStudent: any = { name };
+        const test = ev.target.elements.test.value;
+        const value = ev.target.elements.value.valueAsNumber;
+        if(!uid) throw new Error("No uid in form"); 
+        if (!test) throw new Error("No name in form");
+        if (!value) throw new Error("No value in form");
+
+
+        const newGrade: any = { test, value };
+        const _id: any = { uid }
+        console.log(_id);
+        
 
         fetch("/api/add-grade", {
             method: "POST",
@@ -63,11 +70,11 @@ function handleAddGrade(ev){ /// continue
                 Accept: "application/json",
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(newStudent),
+            body: JSON.stringify( _id, newGrade)
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                console.log("data" , data);
             })
             .catch((error) => {
                 console.error(error);
