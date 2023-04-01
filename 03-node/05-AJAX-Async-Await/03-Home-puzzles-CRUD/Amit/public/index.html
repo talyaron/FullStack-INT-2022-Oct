@@ -20,9 +20,9 @@
     <div class="studentsContainer">students
         <button onclick="handleGetStudents()">refresh stundents</button>
         
-        <form onsubmit="addStudent(event)">
+        <form onsubmit="handleAddStudent(event)">
             <input type="text" name="name" placeholder="student name" required>
-            <button type="submit">add stundent</button>    
+            <button type="submit">add student</button>    
         </form>
         
         <div id="studentsRoot"></div>

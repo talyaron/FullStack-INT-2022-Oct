@@ -18,33 +18,20 @@ function handleGetStudents() {
         console.error(error);
     }
 }
-function addStudent(ev) {
+function handleAddStudent(ev) {
     try {
         ev.preventDefault();
         var name = ev.target.elements.name.value;
-    }
-    catch (error) {
-        console.error(error);
-    }
-}
-function handleAddUser(ev) {
-    try {
-        ev.preventDefault();
-        var name = ev.target.elements.name.value;
-        var src = ev.target.elements.src.value;
         if (!name)
             throw new Error("No name");
-        if (!src)
-            throw new Error("No src");
-        var newUser = { name: name, src: src };
-        //send to server:
-        fetch("/api/add-user", {
+        var newStudent = { name: name };
+        fetch("/api/add-student", {
             method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newUser)
+            body: JSON.stringify(newStudent)
         })
             .then(function (res) { return res.json(); })
             .then(function (data) {
@@ -52,6 +39,7 @@ function handleAddUser(ev) {
         })["catch"](function (error) {
             console.error(error);
         });
+        ev.target.reset();
     }
     catch (error) {
         console.error(error);

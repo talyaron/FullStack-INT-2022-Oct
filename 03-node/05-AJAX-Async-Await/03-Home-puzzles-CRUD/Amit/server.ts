@@ -1,55 +1,88 @@
 import express from "express";
-import mongoose from "mongoose";
-mongoose.connect('')
-    .then (()=> {console.log("DB connected")})
-    .catch(err=> console.log(err);
-    );
-import { uuid } from "uuidv4";
 
 const app = express();
 
-app.use(express.json());
 
+import mongoose, { Schema } from "mongoose";
+import * as dotenv from "dotenv";
+dotenv.config();
 
+const uri: string | undefined = process.env.MONGODB_URI;
+
+if (uri) {
+  mongoose
+    .connect(uri)
+    .then(() => {
+      console.log("DB connected!");
+    })
+    .catch((err) => console.log(err));
+} else {
+  console.log("No URI to DB");
+}
 
 ////////data//////////////
 class Student {
-  public uid: string = uuid();
-  public grades: Grade[] = [];
-    constructor(
-        public name: string,
-        ) {}
-
-  getSimpleStudent() {
-    return { uid: this.uid, name: this.name, grades: this.grades };
-  }
-}
-
-class Grade {
-    public uid: string = uuid();
+    public grades: Grade[] = [];
       constructor(
-          public test: string,
-          public value: number,
+          public name: string,
+          public _id?: string,
           ) {}
   
+    getSimpleStudent() {
+      return { _id: this._id, name: this.name, grades: this.grades };
+    }
+  }
+  
+class Grade {
+    constructor(
+        public test: string,
+        public value: number,
+        public _id?: string,
+        ) {}
+
     getSimpleGrade() {
-      return { uid: this.uid, test: this.test, grades: this.value };
+    return { _id: this._id, test: this.test, grades: this.value };
     }
 }
 
 
-const amit  = new Student("amit");
-amit.grades = [new Grade("css", 88)]
+const students: Student[] = []
+////////////////////////////////////////////////////////////
 
-const students: Student[] = [
-    (amit)
-  ]
+
+
+//schema
+
+const StudentSchema = new Schema ({
+    name: String,
+    grades: [],
+})
+
+const StudentModel = mongoose.model("students", StudentSchema);
+
+const GradeSchema = new Schema ({
+    test: String,
+    value: Number,
+})
+
+const GradeModel = mongoose.model("grades", GradeSchema);
+
+////getting data from public
+app.use(express.json());
+
+
+
+
+
+
 
 //data route
 
 //get (from server)
-app.get("/api/get-students", (req, res) => {
+app.get("/api/get-students", async (req, res) => {
   try {
+    const students = await StudentModel.find({});
+
     res.send({ students });
   } catch (error: any) {
     console.error(error);
@@ -58,10 +91,14 @@ app.get("/api/get-students", (req, res) => {
 });
 
 //add student
-app.post("/api/add-students", (req, res) => {
+app.post("/api/add-student", async (req, res) => {
   try {
     const { name } = req.body;
-    students.push(new Student(name));
+    console.log(name);
+    
+    const studentDB = await StudentModel.create({name});
+    console.log(studentDB);
+    
     res.status(201).send({ ok: true });
   } catch (error: any) {
     console.error(error);
@@ -70,26 +107,26 @@ app.post("/api/add-students", (req, res) => {
 });
 
 //add grade to student
-app.post("/api/add-students/add-grade", (req, res) => {
-    try {
-      const { name, uid } = req.body;  
+// app.post("/api/add-students/add-grade", (req, res) => {
+//     try {
+//       const { name, uid } = req.body;  
 
-      if (!name) throw new Error("No name in data");
-      if (!uid) throw new Error("No uid in data");
+//       if (!name) throw new Error("No name in data");
+//       if (!uid) throw new Error("No uid in data");
 
-      const student = students.find((user) => user.uid === uid);
-      if (!student) throw new Error("No student in data");
+//       const student = students.find((user) => user.uid === uid);
+//       if (!student) throw new Error("No student in data");
 
-      const {test, value } = req.body;
+//       const {test, value } = req.body;
 
-      student.grades.push(new Grade(test, value));
-      res.status(201).send({ ok: true });
+//       student.grades.push(new Grade(test, value));
+//       res.status(201).send({ ok: true });
 
-    } catch (error: any) {
-      console.error(error);
-      res.status(500).send({ error: error.message });
-    }
-  });
+//     } catch (error: any) {
+//       console.error(error);
+//       res.status(500).send({ error: error.message });
+//     }
+//   });
   
 
 //update
