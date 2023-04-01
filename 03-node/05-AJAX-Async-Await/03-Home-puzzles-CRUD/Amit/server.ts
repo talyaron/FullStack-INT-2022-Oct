@@ -1,4 +1,9 @@
 import express from "express";
+import mongoose from "mongoose";
+mongoose.connect('')
+    .then (()=> {console.log("DB connected")})
+    .catch(err=> console.log(err);
+    );
 import { uuid } from "uuidv4";
 
 const app = express();

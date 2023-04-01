@@ -1,6 +1,10 @@
 "use strict";
 exports.__esModule = true;
 var express_1 = require("express");
+var mongoose_1 = require("mongoose");
+mongoose_1["default"].connect('')
+    .then(function () { console.log("DB connected"); })["catch"](function (err) { return console.log(err); });
+;
 var uuidv4_1 = require("uuidv4");
 var app = express_1["default"]();
 app.use(express_1["default"].json());
