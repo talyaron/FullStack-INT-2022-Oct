@@ -73,6 +73,12 @@ var Student = /** @class */ (function () {
         this.sportsClass = sportsClass;
         this.historyClass = historyClass;
         this.uid = uuid_1.v4();
+        this.name = name;
+        this.englishClass = englishClass;
+        this.mathClass = mathClass;
+        this.sportsClass = sportsClass;
+        this.historyClass = historyClass;
+        this.uid = uuid_1.v4();
     }
     Student.prototype.getSimple = function () {
         return {

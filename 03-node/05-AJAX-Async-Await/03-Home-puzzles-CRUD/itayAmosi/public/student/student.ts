@@ -1,12 +1,32 @@
+import { v4 as uuidv4 } from "uuid";
 interface IStudent {
   name: string;
   englishClass: number;
   mathClass: number;
   sportsClass: number;
   historyClass: number;
-  avg:number
   uid?: string;
 }
+
+export class Student implements IStudent {
+  public uid: string = uuidv4();
+  constructor(
+    public name: string,
+    public englishClass: number,
+    public mathClass: number,
+    public sportsClass: number,
+    public historyClass: number,
+  ) {
+    this.name = name;
+    this.englishClass = englishClass;
+    this.mathClass = mathClass
+    this.sportsClass = sportsClass
+    this.historyClass = historyClass
+    this.uid = uuidv4()
+  }
+}
+
+
 function renderStudentDiv(student: IStudent) {
     try {
       if (!student) throw new Error("No student Root div found");
@@ -30,10 +50,10 @@ function renderStudentDiv(student: IStudent) {
                <h2>History class:${student.historyClass}</h2>
              </div>
              <div id="avgRoot" class="input-container ic2">
-               <h2>Yor Average is:${student.avg}</h2>
+               <h2>Yor Average is:${student}</h2>
              </div>
              <button id="avgBtn" type="submit" class="submit" onclick="calc(event);">Average</button>
-             <button id="deleteBtn" type="submit" class="submit" onclick='handleDeleteStudent(uid)'>DELETE</button>
+             <button id="deleteBtn" type="submit" class="submit" onclick='handleDeleteStudent(${student.uid})'>DELETE</button>
            </div>`;
       const studentRoot = document.querySelector("#studentRoot")
       if(!studentRoot) throw new Error("student Root not found")

@@ -51,7 +51,14 @@ export class Student implements IStudent {
     public mathClass: number,
     public sportsClass: number,
     public historyClass: number,
-  ) {}
+  ) {
+    this.name = name;
+    this.englishClass = englishClass;
+    this.mathClass = mathClass
+    this.sportsClass = sportsClass
+    this.historyClass = historyClass
+    this.uid = uuidv4()
+  }
 
   getSimple() {
     return {
@@ -131,3 +138,4 @@ app.delete("/api/delete-student",async (req, res) => {
 app.listen(4000, () => {
   console.log("server listen on port 4000");
 });
+
