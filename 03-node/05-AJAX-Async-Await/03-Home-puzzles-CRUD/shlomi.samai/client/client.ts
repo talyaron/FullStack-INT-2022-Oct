@@ -1,11 +1,23 @@
 import { join } from "path";
+// import { v4 as uuidv4 } from 'uuid';
 
 
 //data
+// class soccerPlayer {
+//     public uid:string=uuidv4()
+//     constructor(
+//   public name: string,
+//   public src: string){}
+//   getSimplePlayer(){
+//     return {uid:this.uid,name:this.name,src:this.src}
+//   }
+// }
+
 interface soccerPlayer {
-    name:string;
-    src:string;
-}
+    name: string;
+    src: string;
+    uid?: string;
+  }
 
 function hendlegetplayers(){
 try {
@@ -28,11 +40,14 @@ try {
 
 function renderPlayers(players:soccerPlayer[]){
     try {
+
       if (!players) throw new Error("could'nt find players array")  
       const html=players.map(player=>{
-        return `<div class="playerCard"></div>
+        return `<div class="playerCard">
         <img src="${player.src}" alt="">
-        <p>${player.name}`;
+        <p contenteditable oninput="handlePlayerNameUpdate(event, '${player.uid}')">${player.name}
+        <button onclick='handleDeletePlayer("${player.uid}")'>DELETE</button>
+        </div>`;
       }).join("");
    
       const userElement=document.querySelector(".playersConteiner")
@@ -60,10 +75,58 @@ function hendleAddPlayer(ev){
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(newPlayer), })
-        .then
-
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+            })
+            .catch((error) => {
+              console.error(error);
+            });
 
     } catch (error) {
         console.error(Error) 
     }
+}
+
+function handleDeletePlayer(uid:string){
+    try {
+        console.log(uid);
+    
+        fetch("/api/delete-player", {
+          method: "DELETE",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ uid }),
+        })
+          .then((res) => res.json())
+          .then(({ players }) => {
+          
+          
+            renderPlayers(players);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      } catch (error) {
+        console.error(error);
+      }  
+}
+
+function handlePlayerNameUpdate(ev: any, uid: string){
+  try {
+    console.log(uid);
+    const name = ev.target.textContent;
+    fetch("/api/update-player-name", {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, uid }),
+    });
+  } catch (error) {
+    console.error(error);
+  }
 }
