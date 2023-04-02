@@ -55,7 +55,6 @@ export const deleteStudent = async (
     const { id: studentId } = req.params;
     const student = await Student.deleteOne({ _id: studentId });
     const students = await Student.find({});
-    console.log(students);
 
     res.status(200).send({ students });
   } catch (error: any) {

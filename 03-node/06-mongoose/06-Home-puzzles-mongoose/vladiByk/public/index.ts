@@ -22,13 +22,8 @@ interface StudentTemplate {
   _id: string;
 }
 
-const fetchStudents = () => {
-  return fetch(apiUrl).then((res) => res.json());
-};
-
 const displayStudents = async () => {
   try {
-    console.log("runnig display students...");
     const studentList = await fetch(apiUrl)
       .then((res) => res.json())
       .then(({ students }) =>
@@ -73,17 +68,8 @@ const renderStudents = async (students: Student[]) => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-      })
-        .then((res) => res.json())
-        .then(({ students }) =>
-          renderStudents(
-            students.map(
-              (student: StudentTemplate) =>
-                new Student(student.name, student.grades, student._id)
-            )
-          )
-        )
-        .catch((error) => console.error(error));
+      }).catch((error) => console.error(error));
+      displayStudents();
     })
   );
 };
@@ -91,13 +77,15 @@ const renderStudents = async (students: Student[]) => {
 const editWindow = document.querySelector(".editWindow") as HTMLDivElement;
 
 const openEditWindow = async (id: string) => {
+  const studentList = await fetch(apiUrl)
+    .then((res) => res.json())
+    .then(({ students }) =>
+      students.map(
+        (student: StudentTemplate) =>
+          new Student(student.name, student.grades, student._id)
+      )
+    );
   editWindow.style.display = "flex";
-  const studentList = await fetchStudents().then(({ students }) =>
-    students.map(
-      (student: StudentTemplate) =>
-        new Student(student.name, student.grades, student._id)
-    )
-  );
 
   const findStudent: Student = studentList.find(
     (student: Student) => student._id == id
@@ -188,9 +176,6 @@ function editGradeBtnEvent(btnArr: Element[], student: Student) {
 
           spanEle.textContent = inputEle.value;
           listEle.replaceChild(spanEle, inputEle);
-          student.grades[gradeIndex] = Number(inputEle.value);
-          // updateStudent(student);
-          // student.update();
           iconDiv.style.display = "flex";
         }
       });
@@ -212,10 +197,7 @@ function deleteGrade(btnsArr: Element[], studentToUpdate: Student) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ grade, gradeIndex, delete: true }),
-      })
-        .then((res) => res.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.error(error));
+      }).catch((error) => console.error(error));
     })
   );
 }
@@ -251,10 +233,7 @@ async function updateGrade(input: HTMLInputElement, studentID: string) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ grade: input.value, delete: false }),
-  })
-    .then((res) => res.json())
-    .then((data) => console.log(data))
-    .catch((error) => console.error(error));
+  }).catch((error) => console.error(error));
 
   renderGradeList(studentID);
   displayStudents();

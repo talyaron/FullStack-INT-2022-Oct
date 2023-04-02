@@ -54,16 +54,12 @@ var Student = /** @class */ (function () {
     };
     return Student;
 }());
-var fetchStudents = function () {
-    return fetch(apiUrl).then(function (res) { return res.json(); });
-};
 var displayStudents = function () { return __awaiter(_this, void 0, void 0, function () {
     var studentList, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                console.log("runnig display students...");
                 return [4 /*yield*/, fetch(apiUrl)
                         .then(function (res) { return res.json(); })
                         .then(function (_a) {
@@ -106,14 +102,8 @@ var renderStudents = function (students) { return __awaiter(_this, void 0, void 
                         Accept: "application/json",
                         "Content-Type": "application/json"
                     }
-                })
-                    .then(function (res) { return res.json(); })
-                    .then(function (_a) {
-                    var students = _a.students;
-                    return renderStudents(students.map(function (student) {
-                        return new Student(student.name, student.grades, student._id);
-                    }));
                 })["catch"](function (error) { return console.error(error); });
+                displayStudents();
             });
         });
         return [2 /*return*/];
@@ -124,16 +114,17 @@ var openEditWindow = function (id) { return __awaiter(_this, void 0, void 0, fun
     var studentList, findStudent;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0:
-                editWindow.style.display = "flex";
-                return [4 /*yield*/, fetchStudents().then(function (_a) {
-                        var students = _a.students;
-                        return students.map(function (student) {
-                            return new Student(student.name, student.grades, student._id);
-                        });
-                    })];
+            case 0: return [4 /*yield*/, fetch(apiUrl)
+                    .then(function (res) { return res.json(); })
+                    .then(function (_a) {
+                    var students = _a.students;
+                    return students.map(function (student) {
+                        return new Student(student.name, student.grades, student._id);
+                    });
+                })];
             case 1:
                 studentList = _a.sent();
+                editWindow.style.display = "flex";
                 findStudent = studentList.find(function (student) { return student._id == id; });
                 if (!findStudent)
                     return [2 /*return*/, alert("User not found")];
@@ -206,9 +197,6 @@ function editGradeBtnEvent(btnArr, student) {
                         return alert("Check grade input");
                     spanEle.textContent = inputEle.value;
                     listEle.replaceChild(spanEle, inputEle);
-                    student.grades[gradeIndex] = Number(inputEle.value);
-                    // updateStudent(student);
-                    // student.update();
                     iconDiv.style.display = "flex";
                 }
             });
@@ -230,9 +218,7 @@ function deleteGrade(btnsArr, studentToUpdate) {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({ grade: grade, gradeIndex: gradeIndex, "delete": true })
-            })
-                .then(function (res) { return res.json(); })
-                .then(function (data) { return console.log(data); })["catch"](function (error) { return console.error(error); });
+            })["catch"](function (error) { return console.error(error); });
         });
     });
 }
@@ -262,9 +248,7 @@ function updateGrade(input, studentID) {
                                 "Content-Type": "application/json"
                             },
                             body: JSON.stringify({ grade: input.value, "delete": false })
-                        })
-                            .then(function (res) { return res.json(); })
-                            .then(function (data) { return console.log(data); })["catch"](function (error) { return console.error(error); })];
+                        })["catch"](function (error) { return console.error(error); })];
                 case 1:
                     _a.sent();
                     renderGradeList(studentID);

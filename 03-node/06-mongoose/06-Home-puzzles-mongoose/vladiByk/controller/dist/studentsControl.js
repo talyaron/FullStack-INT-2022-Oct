@@ -113,7 +113,6 @@ exports.deleteStudent = function (req, res, next) { return __awaiter(void 0, voi
                 return [4 /*yield*/, Student_1["default"].find({})];
             case 2:
                 students = _a.sent();
-                console.log(students);
                 res.status(200).send({ students: students });
                 return [3 /*break*/, 4];
             case 3:
