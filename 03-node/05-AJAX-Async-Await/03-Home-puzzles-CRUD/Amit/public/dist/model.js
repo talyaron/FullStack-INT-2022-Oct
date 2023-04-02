@@ -1,22 +1,22 @@
 var Student = /** @class */ (function () {
-    function Student(name, uid) {
+    function Student(name, _id) {
         this.name = name;
-        this.uid = uid;
+        this._id = _id;
         this.grades = [];
     }
     Student.prototype.getSimpleStudent = function () {
-        return { uid: this.uid, name: this.name, grades: this.grades };
+        return { _id: this._id, name: this.name, grades: this.grades };
     };
     return Student;
 }());
 var Grade = /** @class */ (function () {
-    function Grade(test, value, uid) {
+    function Grade(test, value, _id) {
         this.test = test;
         this.value = value;
-        this.uid = uid;
+        this._id = _id;
     }
     Grade.prototype.getSimpleGrade = function () {
-        return { uid: this.uid, test: this.test, grades: this.value };
+        return { _id: this._id, test: this.test, grades: this.value };
     };
     return Grade;
 }());

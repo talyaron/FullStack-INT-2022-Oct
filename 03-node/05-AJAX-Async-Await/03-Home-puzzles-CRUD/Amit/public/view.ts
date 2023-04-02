@@ -5,9 +5,16 @@ function renderStudents(students: Student[]) {
         const html = students
             .map((student) => {
                 return `<div class="StudentCard">
-          <p contenteditable oninput="handleStudentNameUpdate(event, '${student.uid}')">${student.name}</p>
-          <div id="studentGradesRoot-${student.uid}"></div>
-          <button onclick='handleDeleteStudent("${student.uid}")'>DELETE</button>
+          <p contenteditable oninput="handleStudentNameUpdate(event, '${student._id}')">${student.name}</p>
+          <div class="StudentCard__grades">grades:
+            <form onsubmit="handleAddGrade(event, '${student._id}')">
+                <input type="text" name="test" placeholder="test name" required>
+                <input type="number" name="value" placeholder="value" required>
+                <button type="submit">add test</button>    
+            </form>
+            <div id="studentGradesRoot-${student._id}"></div>
+          </div>  
+          <button onclick='handleDeleteStudent("${student._id}")'>DELETE</button>
           </div>
           `;
             })
@@ -32,17 +39,21 @@ function renderGrades(students: Student[]) {
 
         students.map((_student) => {
             try {
-                const uid = _student.uid
-                const student = students.find((student) => student.uid === uid);
+                const _id = _student._id
+                const student = students.find((student) => student._id === _id);
                 if (!student) throw new Error("student not found");
-
+                // student.grades.push(new Grade("test", 100))
+                
+            
                 const html = student.grades
                     .map((grade) => {
+                        console.log(grade);
+                        
                         return renderGrade(grade);
                     })
                     .join(" ");
 
-                const gradesRoot = document.querySelector(`#studentGradesRoot-${uid}`);
+                const gradesRoot = document.querySelector(`#studentGradesRoot-${_id}`);
                 if (!gradesRoot) throw new Error("gradesRoot not found on DOM");
 
                 gradesRoot.innerHTML = html;
@@ -62,9 +73,9 @@ function renderGrades(students: Student[]) {
 function renderGrade(grade: Grade) {
     try {
         const html = `<div class="StudentCard__grade">
-              <p contenteditable oninput="handleGradeUpdate(event, '${grade.uid}')">${grade.test}: ${grade.value} </p>
-              <div id="gradeRoot-${grade.uid}"></div>
-              <button onclick='handleDeleteGrade("${grade.uid}")'>DELETE</button>
+              <p contenteditable oninput="handleGradeUpdate(event, '${grade._id}')">${grade.test}: ${grade.value} </p>
+              <div id="gradeRoot-${grade._id}"></div>
+              <button onclick='handleDeleteGrade("${grade._id}")'>DELETE</button>
               </div>`;
 
         return html;

@@ -2,11 +2,11 @@ class Student {
     public grades: Grade[] = [];
       constructor(
           public name: string,
-          public uid?: string,
+          public _id?: string,
           ) {}
   
     getSimpleStudent() {
-      return { uid: this.uid, name: this.name, grades: this.grades };
+      return { _id: this._id, name: this.name, grades: this.grades };
     }
   }
   
@@ -14,11 +14,11 @@ class Grade {
     constructor(
         public test: string,
         public value: number,
-        public uid?: string,
+        public _id?: string,
         ) {}
 
     getSimpleGrade() {
-    return { uid: this.uid, test: this.test, grades: this.value };
+    return { _id: this._id, test: this.test, grades: this.value };
     }
 }
   

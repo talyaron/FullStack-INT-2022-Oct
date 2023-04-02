@@ -1,62 +1,87 @@
 function handleGetStudents() {
     try {
-      fetch("/api/get-students")
-        .then((res) => res.json())
-        .then(({ students }) => {
-          try {
-            if (!students) throw new Error("didnt find students");
-            
-            renderStudents(students);
-          } catch (error) {
-            console.error(error);
-          }
-        });
+        fetch("/api/get-students")
+            .then((res) => res.json())
+            .then(({ students }) => {
+                try {
+                    if (!students) throw new Error("didnt find students");
+
+                    renderStudents(students);
+                } catch (error) {
+                    console.error(error);
+                }
+            });
     } catch (error) {
-      console.error(error);
+        console.error(error);
     }
 }
 
-function addStudent(ev){
+function handleAddStudent(ev) {
     try {
         ev.preventDefault();
         const name = ev.target.elements.name.value;
+        if (!name) throw new Error("No name");
 
-        
+        const newStudent: any = { name };
 
+        fetch("/api/add-student", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newStudent),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
 
-
+        ev.target.reset();
     } catch (error) {
-        console.error(error);  
+        console.error(error);
     }
 }
 
 
-function handleAddUser(ev: any) {
+function handleAddGrade(ev: any, uid: string){ 
     try {
-      ev.preventDefault();
-      const name = ev.target.elements.name.value;
-      const src = ev.target.elements.src.value;
-      if (!name) throw new Error("No name");
-      if (!src) throw new Error("No src");
-      const newUser: any = { name, src };
-  
-      //send to server:
-      fetch("/api/add-user", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newUser),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
+        
+        ev.preventDefault();
+
+        const test = ev.target.elements.test.value;
+        const value = ev.target.elements.value.valueAsNumber;
+        if(!uid) throw new Error("No uid in form"); 
+        if (!test) throw new Error("No name in form");
+        if (!value) throw new Error("No value in form");
+
+
+        const newGrade: any = { test, value };
+        const _id: any = { uid }
+        console.log(_id);
+        
+
+        fetch("/api/add-grade", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify( _id, newGrade)
         })
-        .catch((error) => {
-          console.error(error);
-        });
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("data" , data);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+
+        ev.target.reset();
     } catch (error) {
-      console.error(error);
+        console.error(error);
     }
-  }
+}
