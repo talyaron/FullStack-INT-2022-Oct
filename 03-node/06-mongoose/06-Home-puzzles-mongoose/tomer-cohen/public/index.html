@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="./dist/index.js" defer></script>
+</head>
+
+<body>
+    <form onsubmit="handleAddjoke(event)">
+        <input type="text" name="name" placeholder="titel" required>
+        <input type="text" name="subtext" placeholder="subtext" required>
+
+        <button type="submit">ADD</button>
+    </form>
+    <div id="container">
+        <h1>Click the button below to display a random Joke</h1>
+        <div id="jokes">
+        </div>
+        <div id="button_container">
+            <button id="btn" onclick="handleGetjokes()"><i class="fa-regular fa-shuffle fa-spin fa-2xl fas fa-random"></i> </button>
+        </div>
+</body>
+
+</html>
