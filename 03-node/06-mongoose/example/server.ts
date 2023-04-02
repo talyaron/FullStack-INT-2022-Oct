@@ -88,13 +88,13 @@ app.put("/api/update-user", (req, res) => {
 // transodrm enetiy
 app.patch("/api/update-user-name", (req, res) => {
   try {
-    // const { name, uid } = req.body;
-    // if (!name) throw new Error("No name in data");
-    // if (!uid) throw new Error("No uid in data");
-    // const user = users.find((user) => user.uid === uid);
-    // if (!user) throw new Error("No user in array");
-    // user.name = name;
-    // res.send({ ok: true });
+    const { name, uid } = req.body;
+    if (!name) throw new Error("No name in data");
+    if (!uid) throw new Error("No uid in data");
+    const user = users.find((user) => user.uid === uid);
+    if (!user) throw new Error("No user in array");
+    user.name = name;
+    res.send({ ok: true });
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });

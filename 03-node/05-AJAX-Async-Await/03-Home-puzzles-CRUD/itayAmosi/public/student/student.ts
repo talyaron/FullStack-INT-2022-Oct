@@ -1,29 +1,11 @@
-import { v4 as uuidv4 } from "uuid";
 interface IStudent {
   name: string;
   englishClass: number;
   mathClass: number;
   sportsClass: number;
   historyClass: number;
-  uid?: string;
-}
-
-export class Student implements IStudent {
-  public uid: string = uuidv4();
-  constructor(
-    public name: string,
-    public englishClass: number,
-    public mathClass: number,
-    public sportsClass: number,
-    public historyClass: number,
-  ) {
-    this.name = name;
-    this.englishClass = englishClass;
-    this.mathClass = mathClass
-    this.sportsClass = sportsClass
-    this.historyClass = historyClass
-    this.uid = uuidv4()
-  }
+  uid: string;
+  avg: number;
 }
 
 
@@ -31,11 +13,11 @@ function renderStudentDiv(student: IStudent) {
     try {
       if (!student) throw new Error("No student Root div found");
   const html = 
-             `<div class="form">
+             `<div id="${student.uid}" class="form">
              <div class="title">Welcome To Student Grades</div>
              <div class="subtitle">This is the list of your grades in classes</div>
              <div id="window" class="input-container ic1">
-               <h2>student name:${student.name}</h2>
+               <h2 contenteditable oninput="handleStudentNameUpdate(event, '${student.uid}')">${student.name}</h2>
              </div>
              <div id="window" class="input-container ic2 windowNum1">
                <h2>English class:${student.englishClass}</h2>
@@ -50,18 +32,21 @@ function renderStudentDiv(student: IStudent) {
                <h2>History class:${student.historyClass}</h2>
              </div>
              <div id="avgRoot" class="input-container ic2">
-               <h2>Yor Average is:${student}</h2>
+               <h2>Yor Average is:${student.avg}</h2>
              </div>
-             <button id="avgBtn" type="submit" class="submit" onclick="calc(event);">Average</button>
-             <button id="deleteBtn" type="submit" class="submit" onclick='handleDeleteStudent(${student.uid})'>DELETE</button>
-           </div>`;
-      const studentRoot = document.querySelector("#studentRoot")
-      if(!studentRoot) throw new Error("student Root not found")
-      studentRoot.innerHTML += html;
-    } catch (error) {
-      console.error(error);
-    }
-  };
+             <button class="submit" onclick='handleDeleteStudent("${student.uid}")'>DELETE</button>
+             </div>`;
+             const studentRoot = document.querySelector("#studentRoot")
+             if(!studentRoot) throw new Error("student Root not found")
+             studentRoot.innerHTML += html;
+            } catch (error) {
+              console.error(error);
+            }
+          };
+          
+          
+          // <button id="avgBtn" type="submit" class="submit" onclick="calc(event);">Average</button>
+
 
   function handelStudent() {
 try {
@@ -82,44 +67,42 @@ try {
 }
  }
 
- function handleAvgSubmit(doc: HTMLElement) {
-  doc.addEventListener("submit", (event: any) => {
-    event.preventDefault();
-    console.log(event.target.elements.studentName);
-    const name = event.target.elements.studentName.value;
-    const englishClass = event.target.elements.englishC.value;
-    const mathClass = event.target.elements.mathC.value;
-    const sportsClass = event.target.elements.sportsC.value;
-    const historyClass = event.target.elements.historyC.value;
-    if (!name) throw new Error("can't find name");
-    if (!englishClass) throw new Error("can't find englishClass");
-    if (!mathClass) throw new Error("can't find mathClass");
-    if (!sportsClass) throw new Error("can't find sportsClass");
-    if (!historyClass) throw new Error("can't find historyClass");
+//  function handleAvgSubmit(doc: HTMLElement) {
+//   doc.addEventListener("submit", (event: any) => {
+//     event.preventDefault();
+//     console.log(event.target.elements.studentName);
+//     const name = event.target.elements.studentName.value;
+//     const englishClass = event.target.elements.englishC.value;
+//     const mathClass = event.target.elements.mathC.value;
+//     const sportsClass = event.target.elements.sportsC.value;
+//     const historyClass = event.target.elements.historyC.value;
+//     if (!name) throw new Error("can't find name");
+//     if (!englishClass) throw new Error("can't find englishClass");
+//     if (!mathClass) throw new Error("can't find mathClass");
+//     if (!sportsClass) throw new Error("can't find sportsClass");
+//     if (!historyClass) throw new Error("can't find historyClass");
 
 
-    fetch("/api/add-student-grades", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      // body: JSON.stringify(newStudent),
-    })
-      .then((res) => res.json())
-      .then(() => {
-        event.target.reset();
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  });
-}
+//     fetch("/api/add-student-grades", {
+//       method: "POST",
+//       headers: {
+//         Accept: "application/json",
+//         "Content-Type": "application/json",
+//       },
+//       // body: JSON.stringify(newStudent),
+//     })
+//       .then((res) => res.json())
+//       .then(() => {
+//         event.target.reset();
+//       })
+//       .catch((error) => {
+//         console.error(error);
+//       });
+//   });
+// }
 
 function handleDeleteStudent(uid: string) {
   try {
-    console.log(uid);
-
     fetch("/api/delete-student", {
       method: "DELETE",
       headers: {
@@ -128,12 +111,15 @@ function handleDeleteStudent(uid: string) {
       },
       body: JSON.stringify({ uid }),
     })
-      .then((res) => res.json())
-      .then(({ uid }) => {
-      
-      
-        renderStudentDiv(uid);
-      })
+    .then(()=> {
+      const studentForm = document.getElementById(uid)
+
+      if(!studentForm) {
+        throw new Error("Could not find student form");
+      }
+      studentForm.remove();
+    })
+
       .catch((error) => {
         console.error(error);
       });
@@ -142,6 +128,22 @@ function handleDeleteStudent(uid: string) {
   }
 }
 
+function handleStudentNameUpdate(ev: any, uid: string) {
+  try {
+    console.log(uid);
+    const name = ev.target.textContent;
+    fetch("/api/update-student-name", {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, uid }),
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 
 
