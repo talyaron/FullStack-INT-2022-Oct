@@ -1,5 +1,5 @@
 import express from "express";
-const { v4: uuidv4 } = require('uuid');
+import { v4 as uuidv4 } from 'uuid';
 
 const app = express();
 
@@ -12,7 +12,7 @@ app.use(express.static("./client"));
 app.listen(3000, () => {
   console.log("server listen on port 3000");
 });
-
+ 
 //data
 class soccerPlayer {
     public uid:string=uuidv4()
@@ -53,9 +53,49 @@ app.post("/api/add-players", (req,res)=>{
         const {name, url}=req.body
         players.push(new soccerPlayer(name, url));
         res.status(201).send({ ok: true });
+        console.log(players)
 
     } catch (error:any) {
         console.error(error)
         res.status(500).send({ error: error.message });
     }
 })
+
+app.delete("/api/delete-player", (req, res) => {
+  try {
+    const { uid } = req.body;
+    if (!uid) throw new Error("no uid in data");
+    
+    const index = players.findIndex((player) => player.uid === uid);
+    if (index === -1)
+      throw new Error(`couldnt find player in players, with ID ${uid}`);
+    
+      players.splice(index, 1);
+
+    const _players = players.map((player) => player.getSimplePlayer());
+    
+    res.send({ ok: true,players:_players });
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+});
+
+// transodrm enetiy
+app.patch("/api/update-player-name", (req, res) => {
+  try {
+    const { name, uid } = req.body;
+
+    if (!name) throw new Error("No name in data");
+    if (!uid) throw new Error("No uid in data");
+
+    const user = players.find((user) => user.uid === uid);
+    if (!user) throw new Error("No user in array");
+    user.name = name;
+
+    res.send({ok:true})
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+});

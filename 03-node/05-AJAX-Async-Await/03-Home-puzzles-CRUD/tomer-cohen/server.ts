@@ -39,7 +39,6 @@ app.get("/api/get-jokes", (req, res) => {
 app.post("/api/add-joke", (req, res) => {
   try {
     const { name, subtext } = req.body;
-    console.log(name, subtext);
     jokes.push(new Joke(name, subtext));
     res.status(201).send({ ok: true });
   } catch (error: any) {

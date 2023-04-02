@@ -10,5 +10,15 @@
     "init": "^0.1.2",
     "node": "^19.8.1",
     "nodemon": "^2.0.21"
-  }
+  },
+  "name": "fullstack-int-2022-oct",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

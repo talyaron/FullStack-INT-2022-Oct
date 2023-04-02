@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,12 +34,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-exports.__esModule = true;
-exports.deleteStudent = void 0;
+var _this = this;
 var Student = /** @class */ (function () {
     function Student(name, grades, uuid) {
         if (grades === void 0) { grades = []; }
-        if (uuid === void 0) { uuid = (Math.random() * 100000000000000).toString(); }
+        if (uuid === void 0) { uuid = Math.random() * 100000000000000; }
         this.name = name;
         this.grades = grades;
         this.uuid = uuid;
@@ -51,27 +49,81 @@ var Student = /** @class */ (function () {
     Student.prototype.getAverage = function () {
         return this.grades.reduce(function (a, b) { return a + b; }, 0) / this.grades.length;
     };
+    Student.prototype.update = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var id, updatedStudentList;
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        id = this.uuid;
+                        updatedStudentList = studentList.map(function (item) {
+                            return item == _this ? _this : item;
+                        });
+                        return [4 /*yield*/, fetch("/api/v1/students/" + id, {
+                                method: "PATCH",
+                                headers: {
+                                    Accept: "application/json",
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify(updatedStudentList)
+                            })["catch"](function (error) { return console.error(error); })];
+                    case 1:
+                        _a.sent();
+                        renderStudents(updatedStudentList);
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    Student.prototype["delete"] = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var studentIndex;
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        studentIndex = studentList.findIndex(function (student) { return student === _this; });
+                        studentList.splice(studentIndex, 1);
+                        renderStudents(studentList);
+                        return [4 /*yield*/, fetch("/api/v1/students/" + this.uuid, {
+                                method: "DELETE",
+                                headers: {
+                                    Accept: "application/json",
+                                    "Content-Type": "application/json"
+                                },
+                                body: JSON.stringify(studentList)
+                            })["catch"](function (error) { return console.error(error); })];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     return Student;
 }());
+var studentList;
 var fetchStudents = function () {
-    var list = fetch("/api/v1/students").then(function (res) { return res.json(); });
+    var list = fetch("/api/v1/students")
+        .then(function (res) { return res.json(); })
+        .then(function (_a) {
+        var students = _a.students;
+        return (studentList = students.map(function (student) {
+            return (student = new Student(student.name, student.grades, student.uuid));
+        }));
+    });
     return list;
 };
-var displayStudents = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var studentList, error_1;
+var displayStudents = function () { return __awaiter(_this, void 0, void 0, function () {
+    var error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, fetchStudents()
-                        .then(function (data) {
-                        var studentsJson = data.students;
-                        return studentsJson.map(function (student) {
-                            return (student = new Student(student.name, student.grades, student.uuid));
-                        });
-                    })["catch"](function (err) { return console.error(err); })];
+                return [4 /*yield*/, fetchStudents()];
             case 1:
-                studentList = _a.sent();
+                _a.sent();
                 if (studentList)
                     renderStudents(studentList);
                 return [3 /*break*/, 3];
@@ -84,7 +136,7 @@ var displayStudents = function () { return __awaiter(void 0, void 0, void 0, fun
     });
 }); };
 displayStudents();
-var renderStudents = function (students) { return __awaiter(void 0, void 0, void 0, function () {
+var renderStudents = function (students) { return __awaiter(_this, void 0, void 0, function () {
     var html, deleteButtons;
     return __generator(this, function (_a) {
         html = students
@@ -98,78 +150,154 @@ var renderStudents = function (students) { return __awaiter(void 0, void 0, void
             return btn.addEventListener("click", function () {
                 var _a, _b;
                 var id = Number((_b = (_a = btn.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.id);
-                exports.deleteStudent(id);
+                var findStudent = studentList.find(function (student) { return Number(student.uuid) == id; });
+                if (findStudent)
+                    findStudent["delete"]();
             });
         });
         return [2 /*return*/];
     });
 }); };
-var addNewStudent = function (e) { return __awaiter(void 0, void 0, void 0, function () {
-    var studentName, studentGrade, newStudent, studentList;
+var addNewStudent = function () { return __awaiter(_this, void 0, void 0, function () {
+    var studentName, studentGrade, newStudent;
     return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                e.preventDefault();
-                studentName = document.querySelector("#fullName");
-                studentGrade = document.querySelector("#grade");
-                if (!studentName.value || !studentGrade.value) {
-                    return [2 /*return*/, alert("Missing input field...")];
-                }
-                newStudent = new Student(studentName.value);
-                newStudent.addGrade(Number(studentGrade.value));
-                return [4 /*yield*/, fetchStudents()
-                        .then(function (_a) {
-                        var students = _a.students;
-                        return students.map(function (student) {
-                            return new Student(student.name, student.grades, student.uuid);
-                        });
-                    })["catch"](function (err) { return console.error(err); })];
-            case 1:
-                studentList = _a.sent();
-                studentList.push(newStudent);
-                studentName.value = "";
-                studentGrade.value = "";
-                fetch("/api/v1/students", {
-                    method: "POST",
-                    headers: {
-                        Accept: "application/json",
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(studentList)
-                })["catch"](function (error) {
-                    console.error(error);
-                });
-                renderStudents(studentList);
-                return [2 /*return*/];
+        studentName = document.querySelector("#fullName");
+        studentGrade = document.querySelector("#grade");
+        if (!studentName.value || !studentGrade.value) {
+            return [2 /*return*/, alert("Missing input field...")];
         }
+        newStudent = new Student(studentName.value);
+        newStudent.addGrade(Number(studentGrade.value));
+        studentList.push(newStudent);
+        studentName.value = "";
+        studentGrade.value = "";
+        fetch("/api/v1/students", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(studentList)
+        })["catch"](function (error) {
+            console.error(error);
+        });
+        renderStudents(studentList);
+        return [2 /*return*/];
     });
 }); };
+var newStudentGradeInput = document.querySelector("#grade");
+newStudentGradeInput.addEventListener("keyup", function (e) {
+    if (e.key === "Enter") {
+        addNewStudent();
+    }
+});
 addStudentBtn.addEventListener("click", addNewStudent);
-exports.deleteStudent = function (id) { return __awaiter(void 0, void 0, void 0, function () {
-    var studentList, studentIndex;
+var editWindow = document.querySelector(".editWindow");
+var openEditWindow = function (id) { return __awaiter(_this, void 0, void 0, function () {
+    var findStudent;
     return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, fetchStudents()
-                    .then(function (_a) {
-                    var students = _a.students;
-                    return students.map(function (student) {
-                        return new Student(student.name, student.grades, student.uuid);
-                    });
-                })["catch"](function (err) { return console.error(err); })];
-            case 1:
-                studentList = _a.sent();
-                studentIndex = studentList.findIndex(function (student) { return Number(student.uuid) == id; });
-                studentList.splice(studentIndex, 1);
-                fetch("/api/v1/students/" + id, {
-                    method: "DELETE",
-                    headers: {
-                        Accept: "application/json",
-                        "Content-Type": "application/json"
-                    },
-                    body: JSON.stringify(studentList)
-                })["catch"](function (error) { return console.error(error); });
-                renderStudents(studentList);
-                return [2 /*return*/];
-        }
+        editWindow.style.display = "flex";
+        findStudent = studentList.find(function (student) { return Number(student.uuid) == id; });
+        if (!findStudent)
+            return [2 /*return*/, alert("User not found")];
+        // console.log(findStudent);
+        renderGradeList(findStudent);
+        return [2 /*return*/];
     });
 }); };
+function renderGradeList(student) {
+    var listItemsHtml = student.grades
+        .map(function (grade) {
+        return "<li>\n    <span>" + grade + "</span>\n    <div class=\"listIcons\">\n      <i class=\"fa-regular fa-square-minus\"></i>\n      <i class=\"fa-solid fa-pen\"></i>\n    </div>\n  </li>";
+    })
+        .join("");
+    editWindow.innerHTML = "\n  <h2>" + student.name + "</h2>\n  <ul class=\"gradesList\">\n      <div><b>Grades</b><b>Edit</b></div>\n    " + listItemsHtml + "\n  </ul>\n  <label for=\"newGrade\">\n    <input type=\"number\" id=\"newGradeInput\" placeholder=\"New grade...\" />\n    <input type=\"submit\" id=\"addGradeBtn\"/>\n  </label>\n  <button id=\"closeEditWindow\">Done</button>\n  ";
+    var editGradeBtns = editWindow.querySelectorAll(".fa-pen");
+    var editBtnsArr = Array.from(editGradeBtns);
+    editGradeBtnEvent(editBtnsArr, student);
+    var deleteGradeBtns = editWindow.querySelectorAll(".fa-square-minus");
+    var deleteBtnsArr = Array.from(deleteGradeBtns);
+    deleteGrade(deleteBtnsArr, student);
+    var addGradeBtn = editWindow.querySelector("#addGradeBtn");
+    var newGradeInput = editWindow.querySelector("#newGradeInput");
+    addGrade(addGradeBtn, newGradeInput, student);
+    newGradeInput.focus();
+}
+function editGradeBtnEvent(btnArr, student) {
+    btnArr.forEach(function (btn) {
+        return btn.addEventListener("click", function () {
+            var _a;
+            var gradeIndex = btnArr.indexOf(btn);
+            var listEle = (_a = btn.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement;
+            var iconDiv = listEle.querySelector(".listIcons");
+            var spanEle = listEle.firstElementChild;
+            var inputEle = document.createElement("input");
+            inputEle.setAttribute("type", "number");
+            inputEle.value = spanEle.innerHTML;
+            listEle.replaceChild(inputEle, spanEle);
+            inputEle.focus();
+            iconDiv.style.display = "none";
+            inputEle.addEventListener("keyup", function (e) {
+                if (e.key === "Enter") {
+                    if (Number(inputEle.value) > 100 ||
+                        Number(inputEle.value) < 0 ||
+                        !Number(inputEle.value))
+                        return alert("Check grade input");
+                    spanEle.textContent = inputEle.value;
+                    listEle.replaceChild(spanEle, inputEle);
+                    student.grades[gradeIndex] = Number(inputEle.value);
+                    // updateStudent(student);
+                    student.update();
+                    iconDiv.style.display = "flex";
+                }
+            });
+        });
+    });
+}
+function deleteGrade(btnsArr, studentToUpdate) {
+    btnsArr.forEach(function (btn) {
+        return btn.addEventListener("click", function () {
+            var _a;
+            var gradeIndex = btnsArr.indexOf(btn);
+            var listEle = (_a = btn.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement;
+            listEle.remove();
+            studentToUpdate.grades.splice(gradeIndex, 1);
+            studentToUpdate.update();
+        });
+    });
+}
+function addGrade(btn, newGradeInput, student) {
+    btn.addEventListener("click", function () {
+        if (Number(newGradeInput.value) > 100 ||
+            Number(newGradeInput.value) < 0 ||
+            !Number(newGradeInput.value))
+            return alert("Check grade input");
+        student.addGrade(Number(newGradeInput.value));
+        student.update();
+        renderGradeList(student);
+        newGradeInput.value = "";
+    });
+    newGradeInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+            if (Number(newGradeInput.value) > 100 ||
+                Number(newGradeInput.value) < 0 ||
+                !Number(newGradeInput.value))
+                return alert("Check grade input");
+            student.addGrade(Number(newGradeInput.value));
+            student.update();
+            renderGradeList(student);
+            newGradeInput.value = "";
+        }
+    });
+}
+window.addEventListener("click", function (e) {
+    var _a, _b;
+    var target = e.target;
+    if (target.id === "closeEditWindow") {
+        editWindow.style.display = "none";
+    }
+    if (target.classList.contains("fa-pen-to-square")) {
+        var id = Number((_b = (_a = target.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.id);
+        openEditWindow(id);
+    }
+});

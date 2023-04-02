@@ -6,7 +6,6 @@ interface Joke {
 
   
   function handleGetjokes() {
-    console.log("test");
     try {
       fetch("/api/get-jokes")
         .then((res) => res.json())
@@ -55,7 +54,8 @@ interface Joke {
   function renderjoke(joke: Joke) {
     try {
       return `<div class="jokeCard">
-              <p contenteditable oninput="handlejokeNameUpdate(event,'${joke.uid}')">${joke.name}${joke.subtext}</p>
+              <p contenteditable oninput="handlejokeNameUpdate(event,'${joke.uid}')">${joke.name}</p>
+              <p contenteditable oninput="handlejokeNameUpdate(event,'${joke.uid}')">${joke.subtext}</p>
               <button onclick='handleDeletejoke("${joke.uid}")'>DELETE</button>
               </div>`;
     } catch (error) {
@@ -66,7 +66,6 @@ interface Joke {
   
   function handlejokeNameUpdate(ev: any, uid: string) {
     try {
-      console.log(uid);
       const name = ev.target.textContent;
       const subtext= ev.target.textContent
       fetch("/api/update-joke-name", {
@@ -111,9 +110,7 @@ interface Joke {
   }
   
   function handleDeletejoke(uid: string) {
-    try {
-      console.log(uid);
-  
+    try {  
       fetch("/api/delete-joke", {
         method: "DELETE",
         headers: {
