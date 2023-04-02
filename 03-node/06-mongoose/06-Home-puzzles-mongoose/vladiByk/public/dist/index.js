@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 var root = document.querySelector("#root");
-var baseUrl = "/api/v1/students";
+var apiUrl = "/api/v1/students";
 var Student = /** @class */ (function () {
     function Student(name, grades, _id) {
         if (grades === void 0) { grades = []; }
@@ -49,12 +49,13 @@ var Student = /** @class */ (function () {
         this.grades.push(grade);
     };
     Student.prototype.getAverage = function () {
-        return this.grades.reduce(function (a, b) { return a + b; }, 0) / this.grades.length;
+        var average = this.grades.reduce(function (a, b) { return a + b; }, 0) / this.grades.length;
+        return average.toFixed(2);
     };
     return Student;
 }());
 var fetchStudents = function () {
-    return fetch(baseUrl).then(function (res) { return res.json(); });
+    return fetch(apiUrl).then(function (res) { return res.json(); });
 };
 var displayStudents = function () { return __awaiter(_this, void 0, void 0, function () {
     var studentList, error_1;
@@ -63,7 +64,7 @@ var displayStudents = function () { return __awaiter(_this, void 0, void 0, func
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 console.log("runnig display students...");
-                return [4 /*yield*/, fetch(baseUrl)
+                return [4 /*yield*/, fetch(apiUrl)
                         .then(function (res) { return res.json(); })
                         .then(function (_a) {
                         var students = _a.students;
@@ -99,7 +100,7 @@ var renderStudents = function (students) { return __awaiter(_this, void 0, void 
             return btn.addEventListener("click", function () {
                 var _a, _b;
                 var id = (_b = (_a = btn.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.id;
-                fetch(baseUrl + "/" + id, {
+                fetch(apiUrl + "/" + id, {
                     method: "DELETE",
                     headers: {
                         Accept: "application/json",
@@ -136,28 +137,52 @@ var openEditWindow = function (id) { return __awaiter(_this, void 0, void 0, fun
                 findStudent = studentList.find(function (student) { return student._id == id; });
                 if (!findStudent)
                     return [2 /*return*/, alert("User not found")];
-                renderGradeList(findStudent);
+                renderGradeList(findStudent._id);
                 return [2 /*return*/];
         }
     });
 }); };
-function renderGradeList(student) {
-    var listItemsHtml = student.grades
-        .map(function (grade) {
-        return "<li>\n    <span>" + grade + "</span>\n    <div class=\"listIcons\">\n      <i class=\"fa-regular fa-square-minus\"></i>\n      <i class=\"fa-solid fa-pen\"></i>\n    </div>\n  </li>";
-    })
-        .join("");
-    editWindow.innerHTML = "\n  <h2>" + student.name + "</h2>\n  <ul class=\"gradesList\">\n      <div><b>Grades</b><b>Edit</b></div>\n    " + listItemsHtml + "\n  </ul>\n  <label for=\"newGrade\">\n    <input type=\"number\" id=\"newGradeInput\" placeholder=\"New grade...\" />\n    <input type=\"submit\" id=\"addGradeBtn\"/>\n  </label>\n  <button id=\"closeEditWindow\">Done</button>\n  ";
-    var editGradeBtns = editWindow.querySelectorAll(".fa-pen");
-    var editBtnsArr = Array.from(editGradeBtns);
-    editGradeBtnEvent(editBtnsArr, student);
-    var deleteGradeBtns = editWindow.querySelectorAll(".fa-square-minus");
-    var deleteBtnsArr = Array.from(deleteGradeBtns);
-    deleteGrade(deleteBtnsArr, student);
-    var addGradeBtn = editWindow.querySelector("#addGradeBtn");
-    var newGradeInput = editWindow.querySelector("#newGradeInput");
-    addGrade(addGradeBtn, newGradeInput, student);
-    newGradeInput.focus();
+function renderGradeList(studentID) {
+    return __awaiter(this, void 0, void 0, function () {
+        var student, listItemsHtml, editGradeBtns, editBtnsArr, deleteGradeBtns, deleteBtnsArr, addGradeBtn, newGradeInput;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, fetch(apiUrl + "/" + studentID, {
+                        method: "GET",
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/json"
+                        }
+                    })
+                        .then(function (res) { return res.json(); })
+                        .then(function (_a) {
+                        var student = _a.student;
+                        return new Student(student.name, student.grades, student._id);
+                    })["catch"](function (error) { return console.error(error); })];
+                case 1:
+                    student = _a.sent();
+                    if (!student)
+                        return [2 /*return*/];
+                    listItemsHtml = student.grades
+                        .map(function (grade) {
+                        return "<li>\n    <span>" + grade + "</span>\n    <div class=\"listIcons\">\n      <i class=\"fa-regular fa-square-minus\"></i>\n      <i class=\"fa-solid fa-pen\"></i>\n    </div>\n  </li>";
+                    })
+                        .join("");
+                    editWindow.innerHTML = "\n  <h2>" + student.name + "</h2>\n  <ul class=\"gradesList\">\n      <div><b>Grades</b><b>Edit</b></div>\n    " + listItemsHtml + "\n  </ul>\n  <label for=\"newGrade\">\n    <input type=\"number\" id=\"newGradeInput\" placeholder=\"New grade...\" />\n    <input type=\"submit\" id=\"addGradeBtn\"/>\n  </label>\n  <button id=\"closeEditWindow\">Done</button>\n  ";
+                    editGradeBtns = editWindow.querySelectorAll(".fa-pen");
+                    editBtnsArr = Array.from(editGradeBtns);
+                    editGradeBtnEvent(editBtnsArr, student);
+                    deleteGradeBtns = editWindow.querySelectorAll(".fa-square-minus");
+                    deleteBtnsArr = Array.from(deleteGradeBtns);
+                    deleteGrade(deleteBtnsArr, student);
+                    addGradeBtn = editWindow.querySelector("#addGradeBtn");
+                    newGradeInput = editWindow.querySelector("#newGradeInput");
+                    addGrade(addGradeBtn, newGradeInput, student);
+                    newGradeInput.focus();
+                    return [2 /*return*/];
+            }
+        });
+    });
 }
 function editGradeBtnEvent(btnArr, student) {
     btnArr.forEach(function (btn) {
@@ -198,7 +223,7 @@ function deleteGrade(btnsArr, studentToUpdate) {
             var listEle = (_a = btn.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement;
             listEle.remove();
             var grade = studentToUpdate.grades.splice(gradeIndex, 1);
-            fetch(baseUrl + "/" + studentToUpdate._id, {
+            fetch(apiUrl + "/" + studentToUpdate._id, {
                 method: "PATCH",
                 headers: {
                     Accept: "application/json",
@@ -213,40 +238,41 @@ function deleteGrade(btnsArr, studentToUpdate) {
 }
 function addGrade(btn, newGradeInput, student) {
     btn.addEventListener("click", function () {
-        if (Number(newGradeInput.value) > 100 ||
-            Number(newGradeInput.value) < 0 ||
-            !Number(newGradeInput.value))
-            return alert("Check grade input");
-        student.addGrade(Number(newGradeInput.value));
-        fetch(baseUrl + "/" + student._id, {
-            method: "PATCH",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ grade: newGradeInput.value, "delete": false })
-        })
-            .then(function (res) { return res.json(); })
-            .then(function (_a) {
-            var students = _a.students;
-            return renderStudents(students.map(function (student) {
-                return new Student(student.name, student.grades, student._id);
-            }));
-        })["catch"](function (error) { return console.error(error); });
-        renderGradeList(student);
-        newGradeInput.value = "";
+        updateGrade(newGradeInput, student._id);
     });
     newGradeInput.addEventListener("keydown", function (e) {
         if (e.key === "Enter") {
-            if (Number(newGradeInput.value) > 100 ||
-                Number(newGradeInput.value) < 0 ||
-                !Number(newGradeInput.value))
-                return alert("Check grade input");
-            student.addGrade(Number(newGradeInput.value));
-            // student.update();
-            renderGradeList(student);
-            newGradeInput.value = "";
+            updateGrade(newGradeInput, student._id);
         }
+    });
+}
+function updateGrade(input, studentID) {
+    return __awaiter(this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    if (Number(input.value) > 100 ||
+                        Number(input.value) < 0 ||
+                        !Number(input.value))
+                        return [2 /*return*/, alert("Check grade input")];
+                    return [4 /*yield*/, fetch(apiUrl + "/" + studentID, {
+                            method: "PATCH",
+                            headers: {
+                                Accept: "application/json",
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ grade: input.value, "delete": false })
+                        })
+                            .then(function (res) { return res.json(); })
+                            .then(function (data) { return console.log(data); })["catch"](function (error) { return console.error(error); })];
+                case 1:
+                    _a.sent();
+                    renderGradeList(studentID);
+                    displayStudents();
+                    input.value = "";
+                    return [2 /*return*/];
+            }
+        });
     });
 }
 window.addEventListener("click", function (e) {

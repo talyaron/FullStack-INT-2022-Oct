@@ -4,15 +4,6 @@ import { router as students } from "./routes/studentsRoute";
 import mongoose from "mongoose";
 import { config } from "./config/config";
 
-//connect to db
-// mongoose
-//   .connect(config.mongo.url, { retryWrites: true, w: "majority" })
-//   .then(() => {
-//     console.log('Connected to DB...');
-//     StartServer();
-//   })
-//   .catch((err) => {});
-
 StartServer();
 
 async function StartServer  ()  {

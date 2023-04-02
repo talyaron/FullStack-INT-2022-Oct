@@ -17,14 +17,6 @@ const app = express_1.default();
 const studentsRoute_1 = require("./routes/studentsRoute");
 const mongoose_1 = __importDefault(require("mongoose"));
 const config_1 = require("./config/config");
-//connect to db
-// mongoose
-//   .connect(config.mongo.url, { retryWrites: true, w: "majority" })
-//   .then(() => {
-//     console.log('Connected to DB...');
-//     StartServer();
-//   })
-//   .catch((err) => {});
 StartServer();
 function StartServer() {
     return __awaiter(this, void 0, void 0, function* () {

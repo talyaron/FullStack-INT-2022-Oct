@@ -15,6 +15,21 @@ export const getAllStudents = async (
   }
 };
 
+export const getStudent = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { id: studentId } = req.params;
+    const student = await Student.findById({ _id: studentId });
+    res.status(200).send({ student });
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+};
+
 export const createStudent = async (
   req: Request,
   res: Response,
@@ -57,7 +72,7 @@ export const updateStudent = async (
   try {
     const { id: studentId } = req.params;
     const data = req.body;
-    const students = await Student.find({})
+    const students = await Student.find({});
     const student = await Student.findById({ _id: studentId });
     if (!student) return res.status(404).send({ ok: false });
     if (!data.delete) {

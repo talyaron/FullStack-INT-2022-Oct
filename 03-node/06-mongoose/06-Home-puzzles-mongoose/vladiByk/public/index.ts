@@ -1,5 +1,5 @@
 const root = document.querySelector("#root") as HTMLDivElement;
-const baseUrl = "/api/v1/students";
+const apiUrl = "/api/v1/students";
 
 class Student {
   constructor(
@@ -11,7 +11,8 @@ class Student {
     this.grades.push(grade);
   }
   getAverage() {
-    return this.grades.reduce((a, b) => a + b, 0) / this.grades.length;
+    const average = this.grades.reduce((a, b) => a + b, 0) / this.grades.length;
+    return average.toFixed(2);
   }
 }
 
@@ -22,13 +23,13 @@ interface StudentTemplate {
 }
 
 const fetchStudents = () => {
-  return fetch(baseUrl).then((res) => res.json());
+  return fetch(apiUrl).then((res) => res.json());
 };
 
 const displayStudents = async () => {
   try {
     console.log("runnig display students...");
-    const studentList = await fetch(baseUrl)
+    const studentList = await fetch(apiUrl)
       .then((res) => res.json())
       .then(({ students }) =>
         students.map(
@@ -66,7 +67,7 @@ const renderStudents = async (students: Student[]) => {
   deleteButtons.forEach((btn) =>
     btn.addEventListener("click", () => {
       const id = btn.parentElement?.parentElement?.id;
-      fetch(`${baseUrl}/${id}`, {
+      fetch(`${apiUrl}/${id}`, {
         method: "DELETE",
         headers: {
           Accept: "application/json",
@@ -98,12 +99,27 @@ const openEditWindow = async (id: string) => {
     )
   );
 
-  const findStudent = studentList.find((student: Student) => student._id == id);
+  const findStudent: Student = studentList.find(
+    (student: Student) => student._id == id
+  );
   if (!findStudent) return alert("User not found");
-  renderGradeList(findStudent);
+  renderGradeList(findStudent._id);
 };
 
-function renderGradeList(student: Student) {
+async function renderGradeList(studentID: string) {
+  const student = await fetch(`${apiUrl}/${studentID}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then(
+      ({ student }) => new Student(student.name, student.grades, student._id)
+    )
+    .catch((error) => console.error(error));
+  if (!student) return;
   const listItemsHtml = student.grades
     .map(
       (grade) =>
@@ -189,7 +205,7 @@ function deleteGrade(btnsArr: Element[], studentToUpdate: Student) {
       const listEle = btn.parentElement?.parentElement as HTMLDataListElement;
       listEle.remove();
       const grade = studentToUpdate.grades.splice(gradeIndex, 1);
-      fetch(`${baseUrl}/${studentToUpdate._id}`, {
+      fetch(`${apiUrl}/${studentToUpdate._id}`, {
         method: "PATCH",
         headers: {
           Accept: "application/json",
@@ -210,48 +226,40 @@ function addGrade(
   student: Student
 ) {
   btn.addEventListener("click", () => {
-    if (
-      Number(newGradeInput.value) > 100 ||
-      Number(newGradeInput.value) < 0 ||
-      !Number(newGradeInput.value)
-    )
-      return alert("Check grade input");
-    student.addGrade(Number(newGradeInput.value));
-    fetch(`${baseUrl}/${student._id}`, {
-      method: "PATCH",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ grade: newGradeInput.value, delete: false }),
-    })
-      .then((res) => res.json())
-      .then(({ students }) =>
-        renderStudents(
-          students.map(
-            (student: StudentTemplate) =>
-              new Student(student.name, student.grades, student._id)
-          )
-        )
-      )
-      .catch((error) => console.error(error));
-    renderGradeList(student);
-    newGradeInput.value = "";
+    updateGrade(newGradeInput, student._id);
   });
+
   newGradeInput.addEventListener("keydown", (e: KeyboardEvent) => {
     if (e.key === "Enter") {
-      if (
-        Number(newGradeInput.value) > 100 ||
-        Number(newGradeInput.value) < 0 ||
-        !Number(newGradeInput.value)
-      )
-        return alert("Check grade input");
-      student.addGrade(Number(newGradeInput.value));
-      // student.update();
-      renderGradeList(student);
-      newGradeInput.value = "";
+      updateGrade(newGradeInput, student._id);
     }
   });
+}
+
+async function updateGrade(input: HTMLInputElement, studentID: string) {
+  if (
+    Number(input.value) > 100 ||
+    Number(input.value) < 0 ||
+    !Number(input.value)
+  )
+    return alert("Check grade input");
+
+  await fetch(`${apiUrl}/${studentID}`, {
+    method: "PATCH",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ grade: input.value, delete: false }),
+  })
+    .then((res) => res.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error));
+
+  renderGradeList(studentID);
+  displayStudents();
+
+  input.value = "";
 }
 
 window.addEventListener("click", (e: Event) => {

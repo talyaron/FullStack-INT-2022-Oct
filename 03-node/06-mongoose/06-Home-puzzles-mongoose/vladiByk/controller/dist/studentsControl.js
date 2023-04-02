@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.updateStudent = exports.deleteStudent = exports.createStudent = exports.getAllStudents = void 0;
+exports.updateStudent = exports.deleteStudent = exports.createStudent = exports.getStudent = exports.getAllStudents = void 0;
 var Student_1 = require("../models/Student");
 exports.getAllStudents = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var students, error_1;
@@ -57,8 +57,29 @@ exports.getAllStudents = function (req, res, next) { return __awaiter(void 0, vo
         }
     });
 }); };
+exports.getStudent = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+    var studentId, student, error_2;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                studentId = req.params.id;
+                return [4 /*yield*/, Student_1["default"].findById({ _id: studentId })];
+            case 1:
+                student = _a.sent();
+                res.status(200).send({ student: student });
+                return [3 /*break*/, 3];
+            case 2:
+                error_2 = _a.sent();
+                console.error(error_2);
+                res.status(500).send({ error: error_2.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
 exports.createStudent = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, grade, student, error_2;
+    var _a, name, grade, student, error_3;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -71,16 +92,16 @@ exports.createStudent = function (req, res, next) { return __awaiter(void 0, voi
                 res.status(200).redirect("/");
                 return [3 /*break*/, 3];
             case 2:
-                error_2 = _b.sent();
-                console.error(error_2);
-                res.status(500).send({ error: error_2.message });
+                error_3 = _b.sent();
+                console.error(error_3);
+                res.status(500).send({ error: error_3.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }
     });
 }); };
 exports.deleteStudent = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var studentId, student, students, error_3;
+    var studentId, student, students, error_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -96,16 +117,16 @@ exports.deleteStudent = function (req, res, next) { return __awaiter(void 0, voi
                 res.status(200).send({ students: students });
                 return [3 /*break*/, 4];
             case 3:
-                error_3 = _a.sent();
-                console.error(error_3);
-                res.status(500).json({ error: error_3.message });
+                error_4 = _a.sent();
+                console.error(error_4);
+                res.status(500).json({ error: error_4.message });
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }
     });
 }); };
 exports.updateStudent = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
-    var studentId, data, students, student, error_4;
+    var studentId, data, students, student, error_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -134,9 +155,9 @@ exports.updateStudent = function (req, res, next) { return __awaiter(void 0, voi
                 res.status(201).json({ students: students });
                 return [3 /*break*/, 7];
             case 6:
-                error_4 = _a.sent();
-                console.error(error_4);
-                res.status(500).send({ error: error_4.message });
+                error_5 = _a.sent();
+                console.error(error_5);
+                res.status(500).send({ error: error_5.message });
                 return [3 /*break*/, 7];
             case 7: return [2 /*return*/];
         }
