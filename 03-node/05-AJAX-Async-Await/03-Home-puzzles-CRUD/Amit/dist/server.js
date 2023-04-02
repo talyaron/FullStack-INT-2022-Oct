@@ -141,52 +141,58 @@ app.post("/api/add-student", function (req, res) { return __awaiter(void 0, void
 }); });
 // add grade to student
 app.post("/api/add-grade", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, newGrade, _id_1, student, gradeDB, error_3;
+    var _a, newGrade, uid_1, student;
     return __generator(this, function (_b) {
-        switch (_b.label) {
-            case 0:
-                _b.trys.push([0, 2, , 3]);
-                _a = req.body, newGrade = _a.newGrade, _id_1 = _a._id;
-                //   console.log("{ test }", test);
-                //   console.log("{ value }", value);
-                console.log("{ _id }", _id_1);
-                //   if (!test) throw new Error("No test in data");
-                //   if (!value) throw new Error("No value in data");
-                if (!newGrade)
-                    throw new Error("No new Grade in data");
-                if (!_id_1)
-                    throw new Error("No _id in data");
-                student = students.find(function (student) { return student._id === _id_1; });
-                if (!student)
-                    throw new Error("No student in data");
-                return [4 /*yield*/, GradeModel.create({ newGrade: newGrade })];
-            case 1:
-                gradeDB = _b.sent();
-                console.log(gradeDB);
-                // const filter = { _id: `'${_id}'` };
-                // const update = { test: `'${test}'`, value: `${value}` };
-                // let studentDB = await StudentModel.findOneAndUpdate(filter, update);
-                //   student.grades.push(gradeDB);
-                res.status(201).send({ ok: true });
-                return [3 /*break*/, 3];
-            case 2:
-                error_3 = _b.sent();
-                console.error(error_3);
-                res.status(500).send({ error: error_3.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+        try {
+            _a = req.body, newGrade = _a.newGrade, uid_1 = _a.uid;
+            //   console.log("{ test }", test);
+            //   console.log("{ value }", value);
+            console.log("{ uid }", uid_1);
+            console.log("{ newGrade }", newGrade);
+            student = students.find(function (student) { return student._id === uid_1; });
+            console.log(student);
+            if (!student)
+                throw new Error("No student in data");
+            //   const gradeDB = await GradeModel.create({newGrade});
+            //   const gradeDB = await GradeModel.create({test, value});  
+            // console.log(gradeDB);
+            //   student.grades.push(gradeDB);
+            res.status(201).send({ ok: true });
         }
+        catch (error) {
+            console.error(error);
+            res.status(500).send({ error: error.message });
+        }
+        return [2 /*return*/];
     });
 }); });
-//update
-// //update whole entity
-// app.put("/api/update-user", (req, res) => {
-//   try {
-//   } catch (error: any) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// });
+app.post("/api/add-grade", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, newGrade, uid_2, student;
+    return __generator(this, function (_b) {
+        try {
+            console.log("req.body", req.body);
+            _a = req.body, newGrade = _a.newGrade, uid_2 = _a.uid;
+            //   console.log("{ test }", test);
+            //   console.log("{ value }", value);
+            console.log("{ uid }", uid_2);
+            console.log("{ newGrade }", newGrade);
+            student = students.find(function (student) { return student._id === uid_2; });
+            console.log(student);
+            if (!student)
+                throw new Error("No student in data");
+            //   const gradeDB = await GradeModel.create({newGrade});
+            //   const gradeDB = await GradeModel.create({test, value});  
+            // console.log(gradeDB);
+            //   student.grades.push(gradeDB);
+            res.status(201).send({ ok: true });
+        }
+        catch (error) {
+            console.error(error);
+            res.status(500).send({ error: error.message });
+        }
+        return [2 /*return*/];
+    });
+}); });
 // // transodrm enetiy
 // app.patch("/api/update-user-name", (req, res) => {
 //   try {
@@ -202,21 +208,30 @@ app.post("/api/add-grade", function (req, res) { return __awaiter(void 0, void 0
 //     res.status(500).send({ error: error.message });
 //   }
 // });
-// app.delete("/api/delete-user", (req, res) => {
-//   try {
-//     const { uid } = req.body;
-//     if (!uid) throw new Error("no uid in data");
-//     const index = users.findIndex((user) => user.uid === uid);
-//     if (index === -1)
-//       throw new Error(`couldnt find user in users, with ID ${uid}`);
-//       users.splice(index, 1);
-//     const _users = users.map((user) => user.getSimpleUser());
-//     res.send({ ok: true,users:_users });
-//   } catch (error: any) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// });
+app["delete"]("/api/delete-student", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _id, deletedUser, students_2, error_3;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 3, , 4]);
+                _id = req.body._id;
+                return [4 /*yield*/, StudentModel.deleteOne({ _id: _id })];
+            case 1:
+                deletedUser = _a.sent();
+                return [4 /*yield*/, StudentModel.find({})];
+            case 2:
+                students_2 = _a.sent();
+                res.send({ ok: true, students: students_2 });
+                return [3 /*break*/, 4];
+            case 3:
+                error_3 = _a.sent();
+                console.error(error_3);
+                res.status(500).send({ error: error_3.message });
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); });
 //static file
 app.use(express_1["default"].static("./public"));
 app.listen(3000, function () {
