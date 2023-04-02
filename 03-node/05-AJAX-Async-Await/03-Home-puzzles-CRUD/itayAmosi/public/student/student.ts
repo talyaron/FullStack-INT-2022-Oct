@@ -1,12 +1,32 @@
+import { v4 as uuidv4 } from "uuid";
 interface IStudent {
-  uid: string;
   name: string;
   englishClass: number;
   mathClass: number;
   sportsClass: number;
   historyClass: number;
-  avg:number
+  uid?: string;
 }
+
+export class Student implements IStudent {
+  public uid: string = uuidv4();
+  constructor(
+    public name: string,
+    public englishClass: number,
+    public mathClass: number,
+    public sportsClass: number,
+    public historyClass: number,
+  ) {
+    this.name = name;
+    this.englishClass = englishClass;
+    this.mathClass = mathClass
+    this.sportsClass = sportsClass
+    this.historyClass = historyClass
+    this.uid = uuidv4()
+  }
+}
+
+
 function renderStudentDiv(student: IStudent) {
     try {
       if (!student) throw new Error("No student Root div found");
@@ -30,9 +50,10 @@ function renderStudentDiv(student: IStudent) {
                <h2>History class:${student.historyClass}</h2>
              </div>
              <div id="avgRoot" class="input-container ic2">
-               <h2>Yor Average is:${student.avg}</h2>
+               <h2>Yor Average is:${student}</h2>
              </div>
              <button id="avgBtn" type="submit" class="submit" onclick="calc(event);">Average</button>
+             <button id="deleteBtn" type="submit" class="submit" onclick='handleDeleteStudent(${student.uid})'>DELETE</button>
            </div>`;
       const studentRoot = document.querySelector("#studentRoot")
       if(!studentRoot) throw new Error("student Root not found")
@@ -43,7 +64,6 @@ function renderStudentDiv(student: IStudent) {
   };
 
   function handelStudent() {
-    console.log("test");
 try {
     fetch("/api/get-students")
     .then((res) => res.json())
@@ -95,6 +115,37 @@ try {
       });
   });
 }
+
+function handleDeleteStudent(uid: string) {
+  try {
+    console.log(uid);
+
+    fetch("/api/delete-student", {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ uid }),
+    })
+      .then((res) => res.json())
+      .then(({ uid }) => {
+      
+      
+        renderStudentDiv(uid);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+
+
+
+
 
 // function calc(event)
 // {

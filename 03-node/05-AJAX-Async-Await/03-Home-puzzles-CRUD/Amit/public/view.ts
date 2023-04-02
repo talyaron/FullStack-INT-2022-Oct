@@ -7,7 +7,7 @@ function renderStudents(students: Student[]) {
                 return `<div class="StudentCard">
           <p contenteditable oninput="handleStudentNameUpdate(event, '${student._id}')">${student.name}</p>
           <div class="StudentCard__grades">grades:
-            <form onsubmit="handleAddGrade(event)">
+            <form onsubmit="handleAddGrade(event, '${student._id}')">
                 <input type="text" name="test" placeholder="test name" required>
                 <input type="number" name="value" placeholder="value" required>
                 <button type="submit">add test</button>    
@@ -42,7 +42,7 @@ function renderGrades(students: Student[]) {
                 const _id = _student._id
                 const student = students.find((student) => student._id === _id);
                 if (!student) throw new Error("student not found");
-                student.grades.push(new Grade("test", 100))
+                // student.grades.push(new Grade("test", 100))
                 
             
                 const html = student.grades

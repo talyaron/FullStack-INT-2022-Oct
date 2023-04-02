@@ -2,6 +2,9 @@ import express from "express";
 
 const app = express();
 
+import bodyParser from "body-parser";
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 import mongoose, { Schema } from "mongoose";
 import * as dotenv from "dotenv";
@@ -94,7 +97,7 @@ app.get("/api/get-students", async (req, res) => {
 app.post("/api/add-student", async (req, res) => {
   try {
     const { name } = req.body;
-    console.log(name);
+    console.log("{ name }" , name);
     
     const studentDB = await StudentModel.create({name});
     console.log(studentDB);
@@ -106,27 +109,44 @@ app.post("/api/add-student", async (req, res) => {
   }
 });
 
-//add grade to student
-// app.post("/api/add-students/add-grade", (req, res) => {
-//     try {
-//       const { name, uid } = req.body;  
 
-//       if (!name) throw new Error("No name in data");
-//       if (!uid) throw new Error("No uid in data");
 
-//       const student = students.find((user) => user.uid === uid);
-//       if (!student) throw new Error("No student in data");
+// add grade to student
+app.post("/api/add-grade", async (req, res) => {
+    try {
+      const { newGrade, _id } = req.body;
+      
+    //   console.log("{ test }", test);
+    //   console.log("{ value }", value);
+      console.log("{ _id }", _id);
 
-//       const {test, value } = req.body;
+    //   if (!test) throw new Error("No test in data");
+    //   if (!value) throw new Error("No value in data");
+      if (!newGrade) throw new Error("No new Grade in data");
+      if (!_id) throw new Error("No _id in data");
 
-//       student.grades.push(new Grade(test, value));
-//       res.status(201).send({ ok: true });
+      const student = students.find((student) => student._id === _id);
+      if (!student) throw new Error("No student in data");
 
-//     } catch (error: any) {
-//       console.error(error);
-//       res.status(500).send({ error: error.message });
-//     }
-//   });
+      const gradeDB = await GradeModel.create({newGrade})  
+console.log(gradeDB);
+
+
+    // const filter = { _id: `'${_id}'` };
+    // const update = { test: `'${test}'`, value: `${value}` };
+
+    // let studentDB = await StudentModel.findOneAndUpdate(filter, update);
+
+    //   student.grades.push(gradeDB);
+      res.status(201).send({ ok: true });
+
+    } catch (error: any) {
+      console.error(error);
+      res.status(500).send({ error: error.message });
+    }
+  });
+
+
   
 
 //update

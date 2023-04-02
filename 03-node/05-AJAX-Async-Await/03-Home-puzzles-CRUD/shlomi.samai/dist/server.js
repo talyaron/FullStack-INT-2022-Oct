@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
 var express_1 = require("express");
-var uuidv4 = require('uuid').v4;
+var uuid_1 = require("uuid");
 var app = express_1["default"]();
 //to be able to get data from client add this line
 app.use(express_1["default"].json());
@@ -15,7 +15,7 @@ var soccerPlayer = /** @class */ (function () {
     function soccerPlayer(name, src) {
         this.name = name;
         this.src = src;
-        this.uid = uuidv4();
+        this.uid = uuid_1.v4();
     }
     soccerPlayer.prototype.getSimplePlayer = function () {
         return { uid: this.uid, name: this.name, src: this.src };
@@ -42,6 +42,43 @@ app.post("/api/add-players", function (req, res) {
         var _a = req.body, name = _a.name, url = _a.url;
         players.push(new soccerPlayer(name, url));
         res.status(201).send({ ok: true });
+        console.log(players);
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send({ error: error.message });
+    }
+});
+app["delete"]("/api/delete-player", function (req, res) {
+    try {
+        var uid_1 = req.body.uid;
+        if (!uid_1)
+            throw new Error("no uid in data");
+        var index = players.findIndex(function (player) { return player.uid === uid_1; });
+        if (index === -1)
+            throw new Error("couldnt find player in players, with ID " + uid_1);
+        players.splice(index, 1);
+        var _players = players.map(function (player) { return player.getSimplePlayer(); });
+        res.send({ ok: true, players: _players });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send({ error: error.message });
+    }
+});
+// transodrm enetiy
+app.patch("/api/update-player-name", function (req, res) {
+    try {
+        var _a = req.body, name = _a.name, uid_2 = _a.uid;
+        if (!name)
+            throw new Error("No name in data");
+        if (!uid_2)
+            throw new Error("No uid in data");
+        var user = players.find(function (user) { return user.uid === uid_2; });
+        if (!user)
+            throw new Error("No user in array");
+        user.name = name;
+        res.send({ ok: true });
     }
     catch (error) {
         console.error(error);
