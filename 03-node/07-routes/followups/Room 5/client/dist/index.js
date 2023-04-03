@@ -1,7 +1,7 @@
 function handleGetUsers() {
     console.log("test");
     try {
-        fetch("/api/get-users")
+        fetch("/api/users/get-users")
             .then(function (res) { return res.json(); })
             .then(function (_a) {
             var users = _a.users;
@@ -40,7 +40,8 @@ function renderUsers(users) {
 }
 function renderUser(user) {
     try {
-        return "<div class=\"userCard\">\n            <img src=\"" + user.src + "\" alt=\"user name is " + user.name + "\">\n            <p contenteditable oninput=\"handleUserNameUpdate(event, '" + user.uid + "')\">" + user.name + "</p>\n            <button onclick='handleDeleteUser(\"" + user.uid + "\")'>DELETE</button>\n            </div>";
+        console.log(user);
+        return "<div class=\"userCard\">\n            <img src=\"" + user.src + "\" alt=\"user name is " + user.name + "\">\n            <p contenteditable oninput=\"handleUserNameUpdate(event, '" + user.uid + "')\">" + user.name + "</p>\n            <button onclick='handleDeleteUser(\"" + user._id + "\")'>DELETE</button>\n            </div>";
     }
     catch (error) {
         console.error(error);
@@ -51,7 +52,7 @@ function handleUserNameUpdate(ev, uid) {
     try {
         console.log(uid);
         var name = ev.target.textContent;
-        fetch("/api/update-user-name", {
+        fetch("/api/users/update-user-name", {
             method: "PATCH",
             headers: {
                 Accept: "application/json",
@@ -73,12 +74,9 @@ function handleAddUser(ev) {
             throw new Error("No name");
         if (!src)
             throw new Error("No src");
-        var newUser = {
-            name: name,
-            src: src
-        };
+        var newUser = { name: name, src: src };
         //send to server:
-        fetch("/api/add-user", {
+        fetch("/api/users/add-user", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -97,16 +95,16 @@ function handleAddUser(ev) {
         console.error(error);
     }
 }
-function handleDeleteUser(uid) {
+function handleDeleteUser(_id) {
     try {
-        console.log(uid);
-        fetch("/api/delete-user", {
+        console.log(_id);
+        fetch("/api/users/delete-user", {
             method: "DELETE",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ uid: uid })
+            body: JSON.stringify({ _id: _id })
         })
             .then(function (res) { return res.json(); })
             .then(function (_a) {
