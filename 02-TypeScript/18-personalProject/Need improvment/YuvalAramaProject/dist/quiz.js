@@ -145,8 +145,6 @@ function selectAnswer(event) {
     }
     else {
         setTimeout(function () {
-            startBtn.classList.remove("hide");
-            startBtn.innerText = "Play again";
             quizContainer.classList.add("hide");
             endGameAlert.classList.remove("hide");
             if (correctAnswers <= 2) {

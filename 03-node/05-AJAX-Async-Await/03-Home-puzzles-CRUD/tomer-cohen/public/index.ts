@@ -6,7 +6,6 @@ interface Joke {
 
   
   function handleGetjokes() {
-    console.log("test");
     try {
       fetch("/api/get-jokes")
         .then((res) => res.json())
@@ -67,7 +66,6 @@ interface Joke {
   
   function handlejokeNameUpdate(ev: any, uid: string) {
     try {
-      console.log(uid);
       const name = ev.target.textContent;
       const subtext= ev.target.textContent
       fetch("/api/update-joke-name", {
@@ -112,9 +110,7 @@ interface Joke {
   }
   
   function handleDeletejoke(uid: string) {
-    try {
-      console.log(uid);
-  
+    try {  
       fetch("/api/delete-joke", {
         method: "DELETE",
         headers: {

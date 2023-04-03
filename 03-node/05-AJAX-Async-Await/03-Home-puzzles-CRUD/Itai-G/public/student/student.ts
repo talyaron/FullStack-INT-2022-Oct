@@ -8,40 +8,43 @@ interface IStudent {
   avg:number
 }
 function renderStudentDiv(student: IStudent) {
-    try {
-      if (!student) throw new Error("No student Root div found");
-  const html = 
-             `<div class="form">
-             <div class="title">Welcome To Student Grades</div>
-             <div class="subtitle">This is the list of your grades in classes</div>
-             <div id="window" class="input-container ic1">
-               <h2>student name:${student.name}</h2>
-             </div>
-             <div id="window" class="input-container ic2 windowNum1">
-               <h2>English class:${student.englishClass}</h2>
-             </div>
-             <div id="window" class="input-container ic2 windowNum2">
-               <h2>math class":${student.mathClass}</h2>
-             </div>
-             <div id="window" class="input-container ic2 windowNum3">
-               <h2>Sports class:${student.sportsClass}</h2>
-             </div>
-             <div id="window" class="input-container ic2 windowNum4">
-               <h2>History class:${student.historyClass}</h2>
-             </div>
-             <div id="avgRoot" class="input-container ic2">
-               <h2>Yor Average is:${student.avg}</h2>
-             </div>
-             <button id="avgBtn" type="submit" class="submit" onclick="calc(event);">Average</button>
-           </div>`;
-      const studentRoot = document.querySelector("#studentRoot")
-      if(!studentRoot) throw new Error("student Root not found")
-      studentRoot.innerHTML += html;
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  try {
+    if (!student) throw new Error("No student Root div found");
 
+    const html = 
+      `<div class="form">
+         <div class="title">Welcome To Student Grades</div>
+         <div class="subtitle">This is the list of your grades in classes</div>
+         <div id="window" class="input-container ic1">
+           <h2>student name:${student.name}</h2>
+         </div>
+         <div id="window" class="input-container ic2 windowNum1">
+           <h2>English class:${student.englishClass}</h2>
+         </div>
+         <div id="window" class="input-container ic2 windowNum2">
+           <h2>math class":${student.mathClass}</h2>
+         </div>
+         <div id="window" class="input-container ic2 windowNum3">
+           <h2>Sports class:${student.sportsClass}</h2>
+         </div>
+         <div id="window" class="input-container ic2 windowNum4">
+           <h2>History class:${student.historyClass}</h2>
+         </div>
+         <div id="avgRoot" class="input-container ic2">
+           <h2>Your Average is:${student.avg}</h2>
+         </div>
+         <button id="avgBtn" type="submit" class="submit" onclick="calc(event);">Average</button>
+         <button onclick="handleDeleteStudent('${student.uid}')">DELETE</button>
+         </div>`;
+
+    const studentRoot = document.querySelector("#studentRoot");
+    if(!studentRoot) throw new Error("student Root not found");
+
+    studentRoot.innerHTML += html;
+  } catch (error) {
+    console.error(error);
+  }
+}
   function handelStudent() {
     console.log("test");
 try {
@@ -96,22 +99,27 @@ try {
   });
 }
 
-// function calc(event)
-// {
-// event.addEventListener("click",()=>{
-//   const avgBtn = document.querySelector(`#avgBtn`) as HTMLButtonElement;
-//   const n1 = parseFloat(document.getElementsByClassName('windowNum1').value);
-//   const n2 = parseFloat(document.getElementsByClassName('windowNum2').value);
-//   const n3 = parseFloat(document.getElementsByClassName('windowNum3').value);
-//   const n4 = parseFloat(document.getElementsByClassName('windowNum4').value);
-//   console.log(avgBtn);
-//   if(avgBtn){
 
-//     const oper = document.getElementById('avgRoot').value;
-//     if(oper === '+')
-//     {
-//         document.getElementById('avgRoot').value = n1+n2+n3+n4 / 4;
-//     }
-//   }
-// });
-// }
+function handleDeleteStudent(uid: string) {
+  try {
+    console.log("Deleting student with uid: ", uid);
+
+    fetch("/api/delete-student", {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ uid }),
+    })
+      .then((res) => res.json())
+      .then(({ students }) => {
+        renderStudentDiv(students);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  } catch (error) {
+    console.error(error);
+  }
+}
