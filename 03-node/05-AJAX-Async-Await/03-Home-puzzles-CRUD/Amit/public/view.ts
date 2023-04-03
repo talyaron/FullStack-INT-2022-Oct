@@ -14,7 +14,7 @@ function renderStudents(students: Student[]) {
             </form>
             <div id="studentGradesRoot-${student._id}"></div>
           </div>  
-          <button onclick='handleDeleteStudent("${student._id}")'>DELETE</button>
+          <button onclick="handleDeleteStudent('${student._id}')">DELETE</button>
           </div>
           `;
             })
