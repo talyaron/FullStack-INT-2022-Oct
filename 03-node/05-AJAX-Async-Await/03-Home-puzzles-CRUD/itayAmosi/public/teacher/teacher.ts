@@ -32,6 +32,7 @@ function renderFormTeacher() {
              <label for="historyC" class="placeholder">History class</label>
            </div>
            <button type="submit" class="submit">submit</button>
+           <button class="submit" onclick="addMockStudent()">add mock student</button>
 `;
     const teacherRoot = document.querySelector("#teacherRoot");
     if (!teacherRoot) throw new Error("Grid container not found");
@@ -41,8 +42,17 @@ function renderFormTeacher() {
     console.error(error);
   }
 }
+function addMockStudent() {
+  fetch("/api/add-mock-student", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  })
+    
+}
 
-// const teacherForm = document.querySelector("#teacherForm") as HTMLFormElement;
 function handleSubmit(doc: HTMLElement) {
   doc.addEventListener("submit", (event: any) => {
     event.preventDefault();

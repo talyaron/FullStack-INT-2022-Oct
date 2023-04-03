@@ -165,8 +165,6 @@ function selectAnswer(event){
         setTimeout(setNextQuestion , 600)
     }else{
         setTimeout(()=>{
-            startBtn.classList.remove("hide")
-            startBtn.innerText = "Play again"
             quizContainer.classList.add("hide")
             endGameAlert.classList.remove("hide")
             if(correctAnswers <= 2){

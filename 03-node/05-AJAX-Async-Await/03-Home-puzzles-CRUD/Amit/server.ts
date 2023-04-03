@@ -112,30 +112,20 @@ app.post("/api/add-student", async (req, res) => {
 
 
 // add grade to student
-app.post("/api/add-grade", async (req, res) => {
+app.post("/students/:studentId/grades", async (req, res) => {
     try {
-      const { newGrade, _id } = req.body;
+        const student =  students.find(student => student._id === req.params.studentId);
+    if (!student) return res.sendStatus(404);
+console.log("student", student);
+      const { newGrade } = req.body;
       
-    //   console.log("{ test }", test);
-    //   console.log("{ value }", value);
-      console.log("{ _id }", _id);
-
-    //   if (!test) throw new Error("No test in data");
-    //   if (!value) throw new Error("No value in data");
+      console.log("{ newGrade }", newGrade);
       if (!newGrade) throw new Error("No new Grade in data");
-      if (!_id) throw new Error("No _id in data");
+    
+    //   if (!student) throw new Error("No student in data");
 
-      const student = students.find((student) => student._id === _id);
-      if (!student) throw new Error("No student in data");
-
-      const gradeDB = await GradeModel.create({newGrade})  
+      const gradeDB = await GradeModel.create({newGrade}); 
 console.log(gradeDB);
-
-
-    // const filter = { _id: `'${_id}'` };
-    // const update = { test: `'${test}'`, value: `${value}` };
-
-    // let studentDB = await StudentModel.findOneAndUpdate(filter, update);
 
     //   student.grades.push(gradeDB);
       res.status(201).send({ ok: true });
@@ -147,57 +137,20 @@ console.log(gradeDB);
   });
 
 
+
+app.delete("/api/delete-student", async (req, res) => {
+    try {
+      const { _id } = req.body;
   
-
-//update
-
-// //update whole entity
-// app.put("/api/update-user", (req, res) => {
-//   try {
-//   } catch (error: any) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// });
-
-// // transodrm enetiy
-// app.patch("/api/update-user-name", (req, res) => {
-//   try {
-//     const { name, uid } = req.body;
-
-//     if (!name) throw new Error("No name in data");
-//     if (!uid) throw new Error("No uid in data");
-
-//     const user = users.find((user) => user.uid === uid);
-//     if (!user) throw new Error("No user in array");
-//     user.name = name;
-
-//     res.send({ok:true})
-//   } catch (error: any) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// });
-
-// app.delete("/api/delete-user", (req, res) => {
-//   try {
-//     const { uid } = req.body;
-//     if (!uid) throw new Error("no uid in data");
-    
-//     const index = users.findIndex((user) => user.uid === uid);
-//     if (index === -1)
-//       throw new Error(`couldnt find user in users, with ID ${uid}`);
-    
-//       users.splice(index, 1);
-
-//     const _users = users.map((user) => user.getSimpleUser());
-    
-//     res.send({ ok: true,users:_users });
-//   } catch (error: any) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// });
+      const deletedUser = await StudentModel.deleteOne({_id})
+      const students = await StudentModel.find({})
+     
+      res.send({ ok: true, students });
+    } catch (error: any) {
+      console.error(error);
+      res.status(500).send({ error: error.message });
+    }
+  });
 
 
 
