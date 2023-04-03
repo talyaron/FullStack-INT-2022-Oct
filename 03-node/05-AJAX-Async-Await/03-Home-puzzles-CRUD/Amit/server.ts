@@ -112,33 +112,20 @@ app.post("/api/add-student", async (req, res) => {
 
 
 // add grade to student
-app.post("/api/add-grade", async (req, res) => {
+app.post("/students/:studentId/grades", async (req, res) => {
     try {
-
-      const { newGrade, uid } = req.body;
+        const student =  students.find(student => student._id === req.params.studentId);
+    if (!student) return res.sendStatus(404);
+console.log("student", student);
+      const { newGrade } = req.body;
       
-    //   console.log("{ test }", test);
-    //   console.log("{ value }", value);
-      console.log("{ uid }", uid);
       console.log("{ newGrade }", newGrade);
-
-
-
-    //   if (!test) throw new Error("No test in data");
-    //   if (!value) throw new Error("No value in data");
-    //   if (!newGrade) throw new Error("No new Grade in data");
-    //   if (!student_id) throw new Error("No student_id in data");
-
-    const student = students.find((student) => student._id === uid);
-    console.log(student);
+      if (!newGrade) throw new Error("No new Grade in data");
     
-      if (!student) throw new Error("No student in data");
+    //   if (!student) throw new Error("No student in data");
 
-    //   const gradeDB = await GradeModel.create({newGrade});
-    //   const gradeDB = await GradeModel.create({test, value});  
-// console.log(gradeDB);
-
-
+      const gradeDB = await GradeModel.create({newGrade}); 
+console.log(gradeDB);
 
     //   student.grades.push(gradeDB);
       res.status(201).send({ ok: true });
@@ -150,79 +137,6 @@ app.post("/api/add-grade", async (req, res) => {
   });
 
 
-  app.post("/api/add-grade", async (req, res) => {
-    try {
-console.log("req.body", req.body);
-
-      const { newGrade, uid } = req.body;
-      
-    //   console.log("{ test }", test);
-    //   console.log("{ value }", value);
-      console.log("{ uid }", uid);
-      console.log("{ newGrade }", newGrade);
-
-
-
-    //   if (!test) throw new Error("No test in data");
-    //   if (!value) throw new Error("No value in data");
-    //   if (!newGrade) throw new Error("No new Grade in data");
-    //   if (!student_id) throw new Error("No student_id in data");
-
-    const student = students.find((student) => student._id === uid);
-    console.log(student);
-    
-      if (!student) throw new Error("No student in data");
-
-    //   const gradeDB = await GradeModel.create({newGrade});
-    //   const gradeDB = await GradeModel.create({test, value});  
-// console.log(gradeDB);
-
-
-
-    //   student.grades.push(gradeDB);
-      res.status(201).send({ ok: true });
-
-    } catch (error: any) {
-      console.error(error);
-      res.status(500).send({ error: error.message });
-    }
-  });
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // transodrm enetiy
-// app.patch("/api/update-user-name", (req, res) => {
-//   try {
-//     const { name, uid } = req.body;
-
-//     if (!name) throw new Error("No name in data");
-//     if (!uid) throw new Error("No uid in data");
-
-//     const user = users.find((user) => user.uid === uid);
-//     if (!user) throw new Error("No user in array");
-//     user.name = name;
-
-//     res.send({ok:true})
-//   } catch (error: any) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// });
 
 app.delete("/api/delete-student", async (req, res) => {
     try {

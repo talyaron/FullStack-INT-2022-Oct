@@ -62,18 +62,16 @@ function handleAddGrade(ev: any, uid: string){
 
 
         const newGrade: any = { test, value };
-        const student_id: any = { uid }
-        console.log("newGrade", newGrade);
-        console.log("_id", student_id);
-        
 
-        fetch("/api/add-grade", {
+        console.log("newGrade", newGrade);
+
+        fetch(`/students/${uid}}/grades`, {
             method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify( student_id, newGrade)
+            body: JSON.stringify( newGrade)
         })
             .then((res) => res.json())
             .then((data) => {

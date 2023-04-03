@@ -140,76 +140,38 @@ app.post("/api/add-student", function (req, res) { return __awaiter(void 0, void
     });
 }); });
 // add grade to student
-app.post("/api/add-grade", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, newGrade, uid_1, student;
-    return __generator(this, function (_b) {
-        try {
-            _a = req.body, newGrade = _a.newGrade, uid_1 = _a.uid;
-            //   console.log("{ test }", test);
-            //   console.log("{ value }", value);
-            console.log("{ uid }", uid_1);
-            console.log("{ newGrade }", newGrade);
-            student = students.find(function (student) { return student._id === uid_1; });
-            console.log(student);
-            if (!student)
-                throw new Error("No student in data");
-            //   const gradeDB = await GradeModel.create({newGrade});
-            //   const gradeDB = await GradeModel.create({test, value});  
-            // console.log(gradeDB);
-            //   student.grades.push(gradeDB);
-            res.status(201).send({ ok: true });
+app.post("/students/:studentId/grades", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var student, newGrade, gradeDB, error_3;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                student = students.find(function (student) { return student._id === req.params.studentId; });
+                if (!student)
+                    return [2 /*return*/, res.sendStatus(404)];
+                console.log("student", student);
+                newGrade = req.body.newGrade;
+                console.log("{ newGrade }", newGrade);
+                if (!newGrade)
+                    throw new Error("No new Grade in data");
+                return [4 /*yield*/, GradeModel.create({ newGrade: newGrade })];
+            case 1:
+                gradeDB = _a.sent();
+                console.log(gradeDB);
+                //   student.grades.push(gradeDB);
+                res.status(201).send({ ok: true });
+                return [3 /*break*/, 3];
+            case 2:
+                error_3 = _a.sent();
+                console.error(error_3);
+                res.status(500).send({ error: error_3.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
-        catch (error) {
-            console.error(error);
-            res.status(500).send({ error: error.message });
-        }
-        return [2 /*return*/];
     });
 }); });
-app.post("/api/add-grade", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, newGrade, uid_2, student;
-    return __generator(this, function (_b) {
-        try {
-            console.log("req.body", req.body);
-            _a = req.body, newGrade = _a.newGrade, uid_2 = _a.uid;
-            //   console.log("{ test }", test);
-            //   console.log("{ value }", value);
-            console.log("{ uid }", uid_2);
-            console.log("{ newGrade }", newGrade);
-            student = students.find(function (student) { return student._id === uid_2; });
-            console.log(student);
-            if (!student)
-                throw new Error("No student in data");
-            //   const gradeDB = await GradeModel.create({newGrade});
-            //   const gradeDB = await GradeModel.create({test, value});  
-            // console.log(gradeDB);
-            //   student.grades.push(gradeDB);
-            res.status(201).send({ ok: true });
-        }
-        catch (error) {
-            console.error(error);
-            res.status(500).send({ error: error.message });
-        }
-        return [2 /*return*/];
-    });
-}); });
-// // transodrm enetiy
-// app.patch("/api/update-user-name", (req, res) => {
-//   try {
-//     const { name, uid } = req.body;
-//     if (!name) throw new Error("No name in data");
-//     if (!uid) throw new Error("No uid in data");
-//     const user = users.find((user) => user.uid === uid);
-//     if (!user) throw new Error("No user in array");
-//     user.name = name;
-//     res.send({ok:true})
-//   } catch (error: any) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// });
 app["delete"]("/api/delete-student", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _id, deletedUser, students_2, error_3;
+    var _id, deletedUser, students_2, error_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -224,9 +186,9 @@ app["delete"]("/api/delete-student", function (req, res) { return __awaiter(void
                 res.send({ ok: true, students: students_2 });
                 return [3 /*break*/, 4];
             case 3:
-                error_3 = _a.sent();
-                console.error(error_3);
-                res.status(500).send({ error: error_3.message });
+                error_4 = _a.sent();
+                console.error(error_4);
+                res.status(500).send({ error: error_4.message });
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }

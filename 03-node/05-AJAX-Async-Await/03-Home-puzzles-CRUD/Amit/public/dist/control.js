@@ -58,16 +58,14 @@ function handleAddGrade(ev, uid) {
         if (!value)
             throw new Error("No value in form");
         var newGrade = { test: test, value: value };
-        var student_id = { uid: uid };
         console.log("newGrade", newGrade);
-        console.log("_id", student_id);
-        fetch("/api/add-grade", {
+        fetch("/students/" + uid + "}/grades", {
             method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(student_id, newGrade)
+            body: JSON.stringify(newGrade)
         })
             .then(function (res) { return res.json(); })
             .then(function (data) {
