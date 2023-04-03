@@ -36,14 +36,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.Teacher = exports.Student = void 0;
 var express_1 = require("express");
 var uuid_1 = require("uuid");
 var app = express_1["default"]();
-app.use(express_1["default"].static("./public"));
-app.use(express_1["default"].json());
 var mongoose_1 = require("mongoose");
-var dotenv = require("dotenv");
+var dotenv = require("dotenv"); // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 dotenv.config();
 var uri = process.env.MONGODB_URI;
 if (uri) {
@@ -56,56 +53,18 @@ if (uri) {
 else {
     console.log("No URI to DB");
 }
-var StudentSchema = new mongoose_1.Schema({
+var studentSchema = new mongoose_1.Schema({
     uid: String,
     name: String,
     englishClass: Number,
     mathClass: Number,
     sportsClass: Number,
-    historyClass: Number
+    historyClass: Number,
+    avg: Number
 });
-var StudentModel = mongoose_1["default"].model("students", StudentSchema);
-var Student = /** @class */ (function () {
-    function Student(name, englishClass, mathClass, sportsClass, historyClass) {
-        this.name = name;
-        this.englishClass = englishClass;
-        this.mathClass = mathClass;
-        this.sportsClass = sportsClass;
-        this.historyClass = historyClass;
-        this.uid = uuid_1.v4();
-    }
-    Student.prototype.getSimple = function () {
-        return {
-            uid: this.uid,
-            name: this.name,
-            englishClass: this.englishClass,
-            mathClass: this.mathClass,
-            sportsClass: this.sportsClass,
-            historyClass: this.historyClass
-        };
-    };
-    return Student;
-}());
-exports.Student = Student;
-var students = [new Student("Moshe", 68, 59, 95, 75)];
-// console.log(students);
-var Teacher = /** @class */ (function () {
-    function Teacher(name, password) {
-        this.name = name;
-        this.password = password;
-        this.uid = uuid_1.v4();
-    }
-    Teacher.prototype.getSimple = function () {
-        return {
-            uid: this.uid,
-            name: this.name,
-            password: this.password
-        };
-    };
-    return Teacher;
-}());
-exports.Teacher = Teacher;
-var teachers = [new Teacher("tal", 1235)];
+var StudentModel = mongoose_1["default"].model("students", studentSchema);
+app.use(express_1["default"].static("./public"));
+app.use(express_1["default"].json());
 app.post("/api/add-student-grades", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, name, englishClass, mathClass, sportsClass, historyClass, newStudent;
     return __generator(this, function (_b) {
@@ -121,7 +80,8 @@ app.post("/api/add-student-grades", function (req, res) { return __awaiter(void 
                         englishClass: englishClass,
                         mathClass: mathClass,
                         sportsClass: sportsClass,
-                        historyClass: historyClass
+                        historyClass: historyClass,
+                        uid: uuid_1.v4()
                     })];
             case 1:
                 newStudent = _b.sent();
@@ -131,16 +91,36 @@ app.post("/api/add-student-grades", function (req, res) { return __awaiter(void 
         }
     });
 }); });
+app.post("/api/add-mock-student", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var newStudent;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, StudentModel.create({
+                    name: uuid_1.v4().slice(0, 7),
+                    englishClass: 70,
+                    mathClass: 80,
+                    sportsClass: 90,
+                    historyClass: 89,
+                    uid: uuid_1.v4(),
+                    avg: 564
+                })];
+            case 1:
+                newStudent = _a.sent();
+                res.status(200).send({ ok: true, newStudent: newStudent });
+                return [2 /*return*/];
+        }
+    });
+}); });
 app.get("/api/get-students", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var students_1, error_1;
+    var students, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 return [4 /*yield*/, StudentModel.find({})];
             case 1:
-                students_1 = _a.sent();
-                res.send({ students: students_1 });
+                students = _a.sent();
+                res.send({ students: students });
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _a.sent();
@@ -152,31 +132,54 @@ app.get("/api/get-students", function (req, res) { return __awaiter(void 0, void
     });
 }); });
 app["delete"]("/api/delete-student", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var uid, deletedStudent, students_2, error_2;
+    var uid, error_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 3, , 4]);
+                _a.trys.push([0, 2, , 3]);
                 uid = req.body.uid;
-                console.log(uid);
                 if (!uid)
-                    throw new Error("no uid in data");
-                return [4 /*yield*/, StudentModel.findOneAndDelete({ uid: uid })];
+                    throw new Error("Invalid to find uid");
+                return [4 /*yield*/, StudentModel.deleteOne({ uid: uid })];
             case 1:
-                deletedStudent = _a.sent();
-                if (!deletedStudent)
-                    throw new Error("couldnt find user in database with ID " + uid);
-                return [4 /*yield*/, StudentModel.find({})];
+                _a.sent();
+                res.sendStatus(200);
+                return [3 /*break*/, 3];
             case 2:
-                students_2 = _a.sent();
-                res.send({ ok: true, students: students_2 });
-                return [3 /*break*/, 4];
-            case 3:
                 error_2 = _a.sent();
                 console.error(error_2);
                 res.status(500).send({ error: error_2.message });
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); });
+app.patch("/api/update-student-name", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, name, uid, student, error_3;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, name = _a.name, uid = _a.uid;
+                console.log(name, uid);
+                if (!name)
+                    throw new Error("No name in data");
+                if (!uid)
+                    throw new Error("No uid in data");
+                return [4 /*yield*/, StudentModel.findOneAndUpdate({ uid: uid }, { name: name })];
+            case 1:
+                student = _b.sent();
+                if (!student)
+                    throw new Error("No student in array");
+                console.log(student);
+                res.send({ ok: true });
+                return [3 /*break*/, 3];
+            case 2:
+                error_3 = _b.sent();
+                console.error(error_3);
+                res.status(500).send({ error: error_3.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }); });

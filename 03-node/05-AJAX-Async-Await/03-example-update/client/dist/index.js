@@ -73,7 +73,10 @@ function handleAddUser(ev) {
             throw new Error("No name");
         if (!src)
             throw new Error("No src");
-        var newUser = { name: name, src: src };
+        var newUser = {
+            name: name,
+            src: src
+        };
         //send to server:
         fetch("/api/add-user", {
             method: "POST",
