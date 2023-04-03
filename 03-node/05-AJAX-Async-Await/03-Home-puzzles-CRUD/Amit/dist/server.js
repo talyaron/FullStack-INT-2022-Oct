@@ -56,11 +56,22 @@ else {
     console.log("No URI to DB");
 }
 ////////data//////////////
+//schema
+var StudentSchema = new mongoose_1.Schema({
+    name: String,
+    grades: []
+});
+var StudentModel = mongoose_1["default"].model("students", StudentSchema);
+var GradeSchema = new mongoose_1.Schema({
+    test: String,
+    value: Number
+});
+var GradeModel = mongoose_1["default"].model("grades", GradeSchema);
+//claesses
 var Student = /** @class */ (function () {
     function Student(name, _id) {
         this.name = name;
         this._id = _id;
-        this.grades = [];
     }
     Student.prototype.getSimpleStudent = function () {
         return { _id: this._id, name: this.name, grades: this.grades };
@@ -80,17 +91,6 @@ var Grade = /** @class */ (function () {
 }());
 var students = [];
 ////////////////////////////////////////////////////////////
-//schema
-var StudentSchema = new mongoose_1.Schema({
-    name: String,
-    grades: []
-});
-var StudentModel = mongoose_1["default"].model("students", StudentSchema);
-var GradeSchema = new mongoose_1.Schema({
-    test: String,
-    value: Number
-});
-var GradeModel = mongoose_1["default"].model("grades", GradeSchema);
 ////getting data from public
 app.use(express_1["default"].json());
 //data route
@@ -146,7 +146,11 @@ app.post("/students/:studentId/grades", function (req, res) { return __awaiter(v
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                student = students.find(function (student) { return student._id === req.params.studentId; });
+                console.log("req.params.studentId", req.params.studentId);
+                student = students.find(function (student) {
+                    console.log("student._id", student._id);
+                    student._id === req.params.studentId;
+                });
                 if (!student)
                     return [2 /*return*/, res.sendStatus(404)];
                 console.log("student", student);
