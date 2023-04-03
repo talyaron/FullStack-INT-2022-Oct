@@ -1,30 +1,8 @@
-"use strict";
-exports.__esModule = true;
-exports.Student = void 0;
-var uuid_1 = require("uuid");
-var Student = /** @class */ (function () {
-    function Student(name, englishClass, mathClass, sportsClass, historyClass) {
-        this.name = name;
-        this.englishClass = englishClass;
-        this.mathClass = mathClass;
-        this.sportsClass = sportsClass;
-        this.historyClass = historyClass;
-        this.uid = uuid_1.v4();
-        this.name = name;
-        this.englishClass = englishClass;
-        this.mathClass = mathClass;
-        this.sportsClass = sportsClass;
-        this.historyClass = historyClass;
-        this.uid = uuid_1.v4();
-    }
-    return Student;
-}());
-exports.Student = Student;
 function renderStudentDiv(student) {
     try {
         if (!student)
             throw new Error("No student Root div found");
-        var html = "<div class=\"form\">\n             <div class=\"title\">Welcome To Student Grades</div>\n             <div class=\"subtitle\">This is the list of your grades in classes</div>\n             <div id=\"window\" class=\"input-container ic1\">\n               <h2>student name:" + student.name + "</h2>\n             </div>\n             <div id=\"window\" class=\"input-container ic2 windowNum1\">\n               <h2>English class:" + student.englishClass + "</h2>\n             </div>\n             <div id=\"window\" class=\"input-container ic2 windowNum2\">\n               <h2>math class\":" + student.mathClass + "</h2>\n             </div>\n             <div id=\"window\" class=\"input-container ic2 windowNum3\">\n               <h2>Sports class:" + student.sportsClass + "</h2>\n             </div>\n             <div id=\"window\" class=\"input-container ic2 windowNum4\">\n               <h2>History class:" + student.historyClass + "</h2>\n             </div>\n             <div id=\"avgRoot\" class=\"input-container ic2\">\n               <h2>Yor Average is:" + student + "</h2>\n             </div>\n             <button id=\"avgBtn\" type=\"submit\" class=\"submit\" onclick=\"calc(event);\">Average</button>\n             <button id=\"deleteBtn\" type=\"submit\" class=\"submit\" onclick='handleDeleteStudent(" + student.uid + ")'>DELETE</button>\n           </div>";
+        var html = "<div id=\"" + student.uid + "\" class=\"form\">\n             <div class=\"title\">Welcome To Student Grades</div>\n             <div class=\"subtitle\">This is the list of your grades in classes</div>\n             <div id=\"window\" class=\"input-container ic1\">\n               <h2 contenteditable oninput=\"handleStudentNameUpdate(event, '" + student.uid + "')\">" + student.name + "</h2>\n             </div>\n             <div id=\"window\" class=\"input-container ic2 windowNum1\">\n               <h2>English class:" + student.englishClass + "</h2>\n             </div>\n             <div id=\"window\" class=\"input-container ic2 windowNum2\">\n               <h2>math class\":" + student.mathClass + "</h2>\n             </div>\n             <div id=\"window\" class=\"input-container ic2 windowNum3\">\n               <h2>Sports class:" + student.sportsClass + "</h2>\n             </div>\n             <div id=\"window\" class=\"input-container ic2 windowNum4\">\n               <h2>History class:" + student.historyClass + "</h2>\n             </div>\n             <div id=\"avgRoot\" class=\"input-container ic2\">\n               <h2>Yor Average is:" + student.avg + "</h2>\n             </div>\n             <button class=\"submit\" onclick='handleDeleteStudent(\"" + student.uid + "\")'>DELETE</button>\n             </div>";
         var studentRoot = document.querySelector("#studentRoot");
         if (!studentRoot)
             throw new Error("student Root not found");
@@ -35,6 +13,7 @@ function renderStudentDiv(student) {
     }
 }
 ;
+// <button id="avgBtn" type="submit" class="submit" onclick="calc(event);">Average</button>
 function handelStudent() {
     try {
         fetch("/api/get-students")
@@ -57,43 +36,39 @@ function handelStudent() {
         console.error(error);
     }
 }
-function handleAvgSubmit(doc) {
-    doc.addEventListener("submit", function (event) {
-        event.preventDefault();
-        console.log(event.target.elements.studentName);
-        var name = event.target.elements.studentName.value;
-        var englishClass = event.target.elements.englishC.value;
-        var mathClass = event.target.elements.mathC.value;
-        var sportsClass = event.target.elements.sportsC.value;
-        var historyClass = event.target.elements.historyC.value;
-        if (!name)
-            throw new Error("can't find name");
-        if (!englishClass)
-            throw new Error("can't find englishClass");
-        if (!mathClass)
-            throw new Error("can't find mathClass");
-        if (!sportsClass)
-            throw new Error("can't find sportsClass");
-        if (!historyClass)
-            throw new Error("can't find historyClass");
-        fetch("/api/add-student-grades", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            }
-        })
-            .then(function (res) { return res.json(); })
-            .then(function () {
-            event.target.reset();
-        })["catch"](function (error) {
-            console.error(error);
-        });
-    });
-}
+//  function handleAvgSubmit(doc: HTMLElement) {
+//   doc.addEventListener("submit", (event: any) => {
+//     event.preventDefault();
+//     console.log(event.target.elements.studentName);
+//     const name = event.target.elements.studentName.value;
+//     const englishClass = event.target.elements.englishC.value;
+//     const mathClass = event.target.elements.mathC.value;
+//     const sportsClass = event.target.elements.sportsC.value;
+//     const historyClass = event.target.elements.historyC.value;
+//     if (!name) throw new Error("can't find name");
+//     if (!englishClass) throw new Error("can't find englishClass");
+//     if (!mathClass) throw new Error("can't find mathClass");
+//     if (!sportsClass) throw new Error("can't find sportsClass");
+//     if (!historyClass) throw new Error("can't find historyClass");
+//     fetch("/api/add-student-grades", {
+//       method: "POST",
+//       headers: {
+//         Accept: "application/json",
+//         "Content-Type": "application/json",
+//       },
+//       // body: JSON.stringify(newStudent),
+//     })
+//       .then((res) => res.json())
+//       .then(() => {
+//         event.target.reset();
+//       })
+//       .catch((error) => {
+//         console.error(error);
+//       });
+//   });
+// }
 function handleDeleteStudent(uid) {
     try {
-        console.log(uid);
         fetch("/api/delete-student", {
             method: "DELETE",
             headers: {
@@ -102,12 +77,31 @@ function handleDeleteStudent(uid) {
             },
             body: JSON.stringify({ uid: uid })
         })
-            .then(function (res) { return res.json(); })
-            .then(function (_a) {
-            var uid = _a.uid;
-            renderStudentDiv(uid);
+            .then(function () {
+            var studentForm = document.getElementById(uid);
+            if (!studentForm) {
+                throw new Error("Could not find student form");
+            }
+            studentForm.remove();
         })["catch"](function (error) {
             console.error(error);
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleStudentNameUpdate(ev, uid) {
+    try {
+        console.log(uid);
+        var name = ev.target.textContent;
+        fetch("/api/update-student-name", {
+            method: "PATCH",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ name: name, uid: uid })
         });
     }
     catch (error) {

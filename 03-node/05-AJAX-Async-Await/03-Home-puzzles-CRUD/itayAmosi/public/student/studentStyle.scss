@@ -8,8 +8,12 @@ body {
   justify-content: center;
   height: 100vh;
 }
-#avgRoot{
-display: none;
+#avgRoot {
+  background-color: cadetblue;
+  color: #dc2f55;
+  border-radius: 12px;
+  font-family: cursive;
+  display: none;
 }
 
 .form {
@@ -137,4 +141,3 @@ display: none;
   border-radius: 12px;
   font-family: cursive;
 }
-

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roomate</title>
+
+    <script src="./dist/helper.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/roommate.js" defer></script>
+    <link rel="stylesheet" href="./dist/homepage.css">
+    
+</head>
+<body background="../pictures/roomates.jpeg">
+    <div class="header box">
+        <div class="header__container container">
+            <div class="log-reg">
+                <a href="../login/login.html" class="button-link">Login</a>
+                <a href="../registration/registartion.html" class="button-link">Regisration</a>
+                </div>
+            <div class="header__container__logo">
+                <img src="../pictures/Yes-logo.png" alt="logo">
+            </div>
+            <nav>
+                <a class="header__container__a" href="../homepage/homepage.html">Homepage</a>
+                <a class="header__container__a" href="../myprofile/myprofile.html">My profile</a>
+                <a class="header__container__a" href="../PublishApartments/publishApartment.html">Publish Apartments</a>
+                <a class="header__container__a" href="../homepage/apartment.html">Apartments</a>
+                <a class="header__container__a" href="../homepage/roommate.html">Roommates</a>
+            </nav>
+        </div>
+    </div>
+
+    <div id="containerBox">
+        <div class="boxMain box roommateBox">
+            <!-- <div class="halfBlue"></div> -->
+            <div class="boxMain__container box roommate roommatePage">
+                <!-- the roommate show from typescript -->
+            </div>
+
+        </div>
+
+        <div id="details" class="detail" style="display: none">
+            <!-- <div class="halfBlue"></div> -->
+        </div>
+    </div>
+
+        <div class="btnDiv roommatePgaeBtn">
+            <button id="BackBtn" class="btnDiv__btn roommatePgaeBtn__back" onclick = "hendleRoommateBackPage()">Back Page</button>
+            <button id="nextBtn" class="btnDiv__btn roommatePgaeBtn__next" onclick="hendleRoommateNextPage()" >Next Page</button>
+        </div>
+
+</body>
+</html>
