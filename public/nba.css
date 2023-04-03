@@ -1,0 +1,236 @@
+:root {
+  font-size: 16px;
+}
+@media only screen and (min-width: 1400px) {
+  :root {
+    font-size: 18px;
+  }
+}
+@media only screen and (min-width: 1300px) {
+  :root {
+    font-size: 24px;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  color: white;
+  position: relative;
+}
+.container .navBar {
+  width: 100vw;
+  height: 5vh;
+  background-color: black;
+  font-weight: 900;
+  padding-left: 14vw;
+  padding-right: 14vw;
+  position: sticky;
+  top: 0rem;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+.container .navBar__topics {
+  width: 40vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .navBar__topics__logo {
+  height: 0.8rem;
+  background-image: url(https://cdn.nba.com/logos/leagues/logo-nba.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 1.5rem;
+}
+.container .navBar__topics__topic {
+  width: auto;
+  font-size: 0.5rem;
+  text-align: center;
+}
+.container .navBar__sales {
+  width: 20vw;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.container .navBar__sales__topic {
+  width: auto;
+  font-size: 0.5rem;
+  text-align: center;
+}
+.container .main {
+  height: 18rem;
+  width: 36rem;
+  border: 0.2rem solid rgb(0, 0, 0);
+  border-radius: 0.5rem;
+  position: relative;
+  top: 5rem;
+  left: 10rem;
+  display: block;
+  line-height: 1.5rem;
+}
+.container .main__article {
+  height: 18rem;
+  width: 36rem;
+  position: relative;
+  top: 0rem;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  display: block;
+}
+.container .main__article__data {
+  height: 11.5rem;
+  width: 11rem;
+  position: relative;
+  top: 1rem;
+  left: 2rem;
+  padding: 1rem;
+  animation: slide 10s linear 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.container .main__article__data__headline {
+  width: 32rem;
+  font-weight: 900;
+  font-size: 2rem;
+  line-height: 2.5rem;
+}
+.container .main__article__data__personal {
+  font-weight: 300;
+  font-size: 0.7rem;
+  line-height: 1.5rem;
+}
+.container .main__article__data__link {
+  width: 10rem;
+  height: 2rem;
+  background-color: rgb(255, 230, 0);
+  border-radius: 0.5rem;
+  font-weight: 900;
+  font-size: 0.6rem;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  box-shadow: 0rem 0rem 0.2rem 0.2rem rgb(97, 97, 97);
+}
+.container .main__article__data__link:hover {
+  background-color: white;
+  box-shadow: none;
+  transition: 0.5s;
+}
+.container .main__article__data__link:active {
+  background-color: rgb(74, 10, 251);
+}
+.container .main__article--luka {
+  background-image: linear-gradient(to bottom left, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 70%), url(https://images2.minutemediacdn.com/image/upload/c_crop,w_4450,h_2503,x_0,y_0/c_fill,w_720,ar_16:9,f_auto,q_auto,g_auto/images/ImagnImages/mmsport/83/01g36jr6g8a7eg799nfd.jpg);
+  animation: zoom 10s linear 1;
+}
+.container .main__article--ja {
+  background-image: linear-gradient(to bottom left, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 77%), url(https://phantom-marca.unidadeditorial.es/efd58352dab3d164ff6026e8db04f427/resize/1320/f/jpg/assets/multimedia/imagenes/2022/04/27/16510298219309.jpg);
+  position: relative;
+  top: -18rem;
+  animation: zoom 10.1s linear 10s 1, appear 10.1s linear 10s 1;
+  visibility: hidden;
+}
+.container .main__article--ja__data {
+  animation: slide 10.1s linear 10s 1;
+}
+.container .main__article--giannis {
+  background-image: linear-gradient(to bottom left, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 77%), url(https://s.yimg.com/ny/api/res/1.2/IOgkshHrdNg6IXEOF0VnEQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTM2MA--/https://s.yimg.com/os/creatr-uploaded-images/2022-11/35f8b8b0-6474-11ed-bf49-1f9adc2c172d);
+  position: relative;
+  top: -36rem;
+  animation: zoom 10.1s linear 20s 1, appear 10.1s linear 20s 1;
+  visibility: hidden;
+}
+.container .main__article--giannis__data {
+  animation: slide 10.1s linear 20s 1;
+}
+.container .main__article--deni {
+  background-image: linear-gradient(to bottom left, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 77%), url(https://www.nbcsports.com/sites/rsnunited/files/article/hero/Avdija_Deni_USATSI_18057589.jpg);
+  position: relative;
+  top: -54rem;
+  animation: zoom 10.1s linear 30s 1, appear 10.1s linear 30s 1;
+  visibility: hidden;
+}
+.container .main__article--deni__data {
+  animation: slide 10.1s linear 30s infinite;
+}
+.container .main__playersBar {
+  width: 34rem;
+  height: 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  bottom: 57.5rem;
+  left: 2rem;
+}
+.container .main__playersBar__player {
+  width: auto;
+  height: auto;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.container .main__playersBar__player__lapseBar {
+  width: 5rem;
+  height: 0.1rem;
+  background-color: gray;
+  border-radius: 0.1rem;
+}
+.container .main__playersBar__player__lapseBar__progress {
+  height: 0.1rem;
+  width: 0%;
+  background-color: white;
+  border-radius: 0.1rem;
+}
+.container .main__playersBar__player__lapseBar__progress--luka {
+  animation: lapse 10.1s linear 0s 1;
+}
+.container .main__playersBar__player__lapseBar__progress--ja {
+  animation: lapse 10.1s linear 10s 1;
+}
+.container .main__playersBar__player__lapseBar__progress--giannis {
+  animation: lapse 10.1s linear 20s 1;
+}
+.container .main__playersBar__player__lapseBar__progress--deni {
+  animation: lapse 10.1s linear 30s 1;
+}
+
+@keyframes appear {
+  100% {
+    visibility: visible;
+  }
+}
+@keyframes zoom {
+  90% {
+    background-size: 110%;
+  }
+  100% {
+    background-size: 111%;
+  }
+}
+@keyframes slide {
+  0% {
+    left: 12rem;
+  }
+  3% {
+    left: 2rem;
+  }
+  100% {
+    left: 2rem;
+  }
+}
+@keyframes lapse {
+  100% {
+    width: 100%;
+  }
+}/*# sourceMappingURL=nba.css.map */

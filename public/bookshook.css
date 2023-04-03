@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  position: relative;
+  background-color: wheat;
+}
+
+.header {
+  width: 30rem;
+  height: 3rem;
+  position: relative;
+  top: 1rem;
+  left: 40rem;
+  font-size: 5rem;
+  color: rgb(56, 17, 186);
+  font-weight: 800;
+}
+
+.searchBox {
+  width: 30rem;
+  height: 3rem;
+  position: relative;
+  top: 5rem;
+  left: 38rem;
+  border: 0.1rem solid black;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  background-color: rgb(42, 41, 41);
+  color: white;
+}
+
+.results {
+  width: 50rem;
+  height: 200rem;
+  position: relative;
+  top: 5rem;
+  left: 30rem;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.results__book {
+  width: 40rem;
+  height: 25rem;
+  position: relative;
+  top: 0rem;
+  left: 3rem;
+  border: 0.1rem solid black;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  margin-top: 0.7rem;
+}
+.results__book__wrapper {
+  width: 39rem;
+  height: 11rem;
+  position: relative;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.5rem;
+  margin-top: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-weight: 600;
+  gap: 1rem;
+}
+.results__book__image--theLordOfTheRings {
+  background-image: linear-gradient(to top left, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%), url(https://cdn.midjourney.com/538c1d13-f86a-43ea-bde9-20f2666e562c/grid_0.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.results__book__image--theNeverEndingStory {
+  background-image: linear-gradient(to top left, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%), url(https://cdn.midjourney.com/39ab6f17-9154-43ef-a041-6361c16cf8a9/grid_0.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.results__book__image--aPigeonAndABoy {
+  background-image: linear-gradient(to top left, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%), url(https://cdn.shopify.com/s/files/1/0423/2721/2193/products/20608PeaceBoy_grande.jpg?v=1594329742);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.results__book__image--fontanelle {
+  background-image: linear-gradient(to top left, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%), url(https://www.philipjuras.com/wp-content/uploads/2017031107wiregrass.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.results__book__image--nehamaTheLouse {
+  background-image: linear-gradient(to top left, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%), url(https://cdn.shopify.com/s/files/1/0561/5642/2335/products/detail8_58491d97-6202-4a68-a095-544b6ea5b79e_1200x.jpg?v=1627560676);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.results__book__image--myRussianGrandmotherAndHerAmericanVacuum {
+  background-image: linear-gradient(to top left, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%), url(https://render.fineartamerica.com/images/rendered/search/print/6.5/8/break/images/artworkimages/medium/2/woman-cleaning-with-a-canister-vacuum-csa-images.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.results__book__image--lesMiserables {
+  background-image: linear-gradient(to top left, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%), url(https://mir-s3-cdn-cf.behance.net/projects/404/20332039.543440efd96e7.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.results__book__image--doNotRaiseAHandAgainstTheBoy {
+  background-image: linear-gradient(to top left, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%), url(https://www.kipa.co.il/userFiles/735-415/701091d37ad185c1b22e57003352ad83.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.results__book__image--fromTheKitchenWithLove {
+  background-image: linear-gradient(to top left, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%), url(https://cdn.pixabay.com/photo/2021/09/20/06/55/spaghetti-6639970__340.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.results__book__image--aTaleOfFiveBalloons {
+  background-image: linear-gradient(to top left, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 100%), url(https://www.pqpq2.co.il/productImages2/135/2017/08/27/image1503826593.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}/*# sourceMappingURL=bookshook.css.map */

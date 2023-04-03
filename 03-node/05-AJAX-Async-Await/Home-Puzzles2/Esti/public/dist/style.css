@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  /* background-image: url("https://www.freepnglogos.com/uploads/food-png/healthy-food-png-transparent-images-png-only-40.png");
+  background-repeat: none;
+  background-position: center;
+  background-size: auto; */
+  background: #F8F8FF;
+  
+}
+
+.header{
+  align-items: center;
+  margin-left: 10%;
+  margin-top: 15px;
+  border: 2px solid blue;
+  box-shadow: 10px 5px 5px rgb(5, 5, 45);
+  border-radius: 20px;
+  height: 60px;
+  width:80%;
+  display: flex;
+  /* background: blue; */
+}
+
+
+.header__image{
+  margin-left: 8px;
+  height: 50px;
+  width: 50px;
+}
+
+.header__btn{
+  font-size: 30px;
+  font-family: Georgia;
+  margin-left: 800px;
+  background: blue;
+  color: whitesmoke;
+  border-radius: 10px;
+
+}
+
+#container{
+  height: 80%;
+  width: 80%;
+  align-items: center;
+  margin-left: 10%;
+  margin-top: 50px;
+  display: flex;
+  
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  width: 80%;
+  
+}
+
+.foodTips{
+  
+  border: 2px solid rgb(5, 5, 45);
+  border-radius: 20px;
+  text-align: center;
+  flex: 33%;
+  
+  font-size: 15px;
+  height: 200px;
+  width: 50px;
+  justify-content: space-between;
+}
+
+.foodTips__img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+}

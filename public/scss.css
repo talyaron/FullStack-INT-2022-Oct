@@ -1,0 +1,28 @@
+.body {
+  margin: 0%;
+}
+
+.list {
+  height: 100px;
+  width: 100px;
+}
+.list img {
+  width: 100%;
+}/*# sourceMappingURL=scss.css.map */coral;
+  font-size: 50px;
+  background-color: rgba(0, 255, 255, 0.623);
+  display: flex;
+  justify-content: center;
+}
+
+.list {
+  height: auto;
+  width: 200px;
+  margin: auto;
+  background-color: rgba(0, 255, 255, 0.123);
+  border: solid coral;
+  padding: 50px;
+}
+.list img {
+  width: 100%;
+}/*# sourceMappingURL=scss.css.map */

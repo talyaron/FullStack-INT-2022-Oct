@@ -1,0 +1,51 @@
+.stageWrapper {
+  background-color: #424242;
+  color: white;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 0.5rem;
+}
+.stageWrapper__pic {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 20%;
+}
+.stageWrapper__host {
+  font-size: 1.3vw;
+  font-weight: bold;
+}
+.stageWrapper__desc {
+  font-size: 0.9rem;
+  color: rgb(160, 160, 160);
+}
+.stageWrapper__name {
+  font-size: 1.4vw;
+  font-weight: bold;
+  padding-top: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.stageHeader {
+  display: flex;
+  align-items: center;
+}
+.stageHeader__nameDesc {
+  padding-left: 1rem;
+}
+
+.stageUsers {
+  display: flex;
+}
+.stageUsers__wraprer {
+  display: flex;
+  align-items: center;
+  padding-bottom: 0.5rem;
+}
+.stageUsers__img {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}/*# sourceMappingURL=singleStage.css.map */

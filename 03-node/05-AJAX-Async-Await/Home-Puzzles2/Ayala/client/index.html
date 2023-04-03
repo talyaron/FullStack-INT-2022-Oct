@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="./dist/index.js" defer></script>
+</head>
+<body>
+    
+
+<div class="all">
+    <header>
+        <div class="header">
+            <div class="header__bbc">
+                <div class="header__bbc__logo">
+                    <p> B</p>
+                    <p> B</p>
+                    <p> C</p>
+
+                </div>
+
+
+                <div class="header__bbc__icon">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPYOmJP0Gao_t3V4DKbLZAykUN-hhE6ba0OYIKEk7roJtLTValFlQDljDIv2WYVghqmgY&usqp=CAU"
+                        width="40" alt="">
+                </div>
+                <div class="header__bbc__Sign_in">
+                    <h3>sign in</h3>
+
+                </div>
+               
+            </div>
+            
+            <div class="header__bbc__nav">
+                <ul>
+
+                    <li> <a href="#">Home</a></li>
+                    <li><a href="#">News
+                        
+                    </a></li>
+                    <li><a href="#">Sport</a></li>
+                    <li> <a href="#">Reel</a></li>
+                    <li> <a href="#">Worklife</a></li>
+                    <li> <a href="#">Traval</a></li>
+                    <li> <a href="#">Future</a></li>
+                    <li> <a href="#">Culture</a></li>
+                    <li> <a href="#" >■ ■ ■ </a></li>
+
+
+
+                </ul>
+                </nav>
+               
+
+            
+            </div>
+            <div class="search input">
+                <input aria-label="Search input" autocapitalize="none" class="_aauy" placeholder="Search"
+                type="text" value="">
+            </div>
+        </div>
+        
+    </header>
+
+    <div class="container">
+        <div class="container__strip">
+            <h2 class=container__strip__title>
+                <span>Welcome to BBC.com</span>
+            </h2>
+                <h3> Saturday, 26 November</h3>
+
+            
+
+        </div>
+    </div>
+
+   
+  
+    <form onsubmit="handleAddNews(event)">
+        <input type="text" name="name" placeholder="News name" required>
+    <input type="text" name="src"placeholder ="image url"required>
+    <!-- <input type="text" name="link"placeholder ="link"required> -->
+    <button type="submit">ADD</button>
+    </form>
+<button onclick="handleGetNews()">Get News</button>
+<div id="news"></div>
+
+    <div class=" grid-container">
+        <div class="grid-item id=grid-item1">
+            <img src="./img.1.png" width="500" height="350">
+        </div>
+        <div class="grid-item id=grid-item2">
+            <img src="img.2.png" width="300">
+        </div>
+        <div class="grid-item id=grid-item3">
+            <img src="img.3.png" width="300">
+        </div>
+        <div class="grid-item id=grid-item4">
+            <img src="img.4.png" width="300">
+        </div>
+        <div class="grid-item id=grid-item5">
+            <img src="img.5.png" width="300">
+        </div>
+        <div class="grid-item id=grid-item5">
+            <img src="img.5.png" width="300">
+        </div>
+        <div class="grid-item id=grid-item5">
+            <img src="img.5.png" width="300">
+        </div>
+        <div class="grid-item id=grid-item5">
+            <img src="img.5.png" width="300">
+        </div>
+       
+    </div>
+
+      
+
+    <!-- </div>
+
+
+
+
+<div class="wrapper">
+    <div class="wrapper__main">
+        <h2 class="wrapper__main__title">
+            | News
+        </h2>
+        
+    </div>
+</div>
+<div class=" grid-wrapper">
+    <div class="grid-item id=grid-item1">
+        <img src="img.6.png" width="525" height="500">
+    </div>
+    <div class="grid-item id=grid-item1">
+        <img src="img.7.png" width="525" height="500">
+    </div>
+    <div class="grid-item id=grid-item1">
+        <img src="img.8.png" width="525" height="500">
+    </div>
+
+</div>
+
+    <div class="wraps">
+        <div class="wraps__box">
+            <h2 class="wraps__box__title">
+                | Sport
+            </h2>
+            
+        </div>
+    </div>
+    <div class=" grid-wraps">
+        <div class="grid-item id=grid-item1">
+            <img src="img.10.png" width="530" height="500">
+        </div>
+        <div class="grid-item id=grid-item1">
+            <img src="img.11.png" width="530" height="500">
+        </div>
+        <div class="grid-item id=grid-item1">
+            <img src="img.12.png" width="525" height="500">
+        </div>
+    </div> 
+    
+
+</body>
+</html>
