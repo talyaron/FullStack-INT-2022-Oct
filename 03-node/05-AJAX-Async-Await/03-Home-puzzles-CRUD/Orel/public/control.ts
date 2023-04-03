@@ -11,6 +11,7 @@ function handleCollapseMenuBtn(){
         console.error(error)
     }
 }
+
 function handleClickViewGrades(){
     try {
         // openWindowsForm()
@@ -36,7 +37,6 @@ function handleClickAddCourse(){
         console.error(error)
     }
 }
-
 //  HANDLE functions Close
 function handleClickCloseWindows(){
     try {
@@ -46,13 +46,11 @@ function handleClickCloseWindows(){
         console.error(error)
     }
 }
-
 function openWindowsForm(html:string):void{
     const containerToClose = document.querySelector('#rootContainerGradeChange')! as HTMLDivElement
     containerToClose.classList.add('active');
     containerToClose.innerHTML = html
 }
-
 function handleSubmitAddGrade(ev:any){
     try {
         ev.preventDefault()
