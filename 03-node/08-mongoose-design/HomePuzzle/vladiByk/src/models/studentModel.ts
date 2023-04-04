@@ -1,27 +1,21 @@
-import mongoose, { Document, Schema } from 'mongoose';
+import mongoose, { Schema } from "mongoose";
 
-export interface IStudent {
-    name: string;
-    course: [];
-
+interface Student {
+  name: string;
+  grades: [number];
 }
 
-export interface IStudentModel extends IStudent, Document {}
-
 const StudentSchema: Schema = new Schema(
-    {
-        name: {
-            type: String,
-            required: true
-        },
-        course: {
-            type: [],
-            required: true
-        }
+  {
+    name: {
+      type: String,
+      required: true,
     },
-    {
-        versionKey: false
-    }
+    grades: [Number],
+  },
+  {
+    versionKey: false,
+  }
 );
 
-export default mongoose.model<IStudentModel>('Student', StudentSchema);
+export default mongoose.model<Student>("Student", StudentSchema);
