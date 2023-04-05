@@ -26,7 +26,7 @@ const getAllTeachers = (req, res, next) => __awaiter(void 0, void 0, void 0, fun
 exports.getAllTeachers = getAllTeachers;
 const getTeacher = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { id: teacherId } = req.params;
+        const { teacherId } = req.body;
         const teacher = yield TeacherModel_1.default.findById({ _id: teacherId });
         res.status(200).send({ teacher });
     }
@@ -38,8 +38,8 @@ const getTeacher = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
 exports.getTeacher = getTeacher;
 const createTeacher = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { name, grade } = req.body;
-        const teacher = new TeacherModel_1.default({ name, grades: [grade] });
+        const { name } = req.body;
+        const teacher = new TeacherModel_1.default({ name });
         yield teacher.save();
         res.status(200).redirect("/");
     }

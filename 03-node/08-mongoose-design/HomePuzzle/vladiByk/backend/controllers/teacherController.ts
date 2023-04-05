@@ -20,7 +20,7 @@ export const getTeacher = async (
   next: NextFunction
 ) => {
   try {
-    const { id: teacherId } = req.params;
+    const { teacherId } = req.body;
     const teacher = await Teacher.findById({ _id: teacherId });
     res.status(200).send({ teacher });
   } catch (error: any) {
@@ -35,8 +35,8 @@ export const createTeacher = async (
   next: NextFunction
 ) => {
   try {
-    const { name, grade } = req.body;
-    const teacher = new Teacher({ name, grades: [grade] });
+    const { name } = req.body;
+    const teacher = new Teacher({ name });
     await teacher.save();
     res.status(200).redirect("/");
   } catch (error: any) {

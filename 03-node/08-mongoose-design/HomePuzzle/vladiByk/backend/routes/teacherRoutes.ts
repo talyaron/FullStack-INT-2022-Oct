@@ -8,7 +8,7 @@ import {
   updateTeacher,
 } from "../controllers/teacherController";
 
-teacherRouter.route("/").get(getAllTeachers).post(createTeacher);
-teacherRouter.route("/:id").get(getTeacher).patch(updateTeacher).delete(deleteTeacher);
+teacherRouter.route("/").get(getTeacher).post(createTeacher);
+teacherRouter.route("/:id").patch(updateTeacher).delete(deleteTeacher);
 
 export { teacherRouter };
