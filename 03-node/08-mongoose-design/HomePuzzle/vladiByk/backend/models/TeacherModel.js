@@ -22,19 +22,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TeacherSchema = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
-const CourseModel_1 = __importDefault(require("./CourseModel"));
-const TeacherSchema = new mongoose_1.Schema({
+exports.TeacherSchema = new mongoose_1.Schema({
     name: {
         type: String,
         required: true,
     },
-    course: [CourseModel_1.default]
 }, {
     versionKey: false,
 });
-exports.default = mongoose_1.default.model("Teacher", TeacherSchema);
+exports.default = mongoose_1.default.model("Teacher", exports.TeacherSchema);

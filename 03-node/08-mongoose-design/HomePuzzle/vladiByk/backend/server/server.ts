@@ -1,8 +1,9 @@
 import express, { NextFunction, Request, Response } from "express";
 const app = express();
-import { studentRouter } from "../routes/studentRoutes";
 import mongoose from "mongoose";
 import { config } from "../config/config";
+import { studentRouter } from "../routes/studentRoutes";
+import { teacherRouter } from "../routes/teacherRoutes";
 
 StartServer();
 
@@ -21,6 +22,7 @@ async function StartServer() {
 
   //routes
   app.use("/api/v1/students", studentRouter);
+  app.use("/api/v1/teachers", teacherRouter);
 
   app.listen(config.server.port, () => {
     console.log(`Server is listening on port ${config.server.port}...`);

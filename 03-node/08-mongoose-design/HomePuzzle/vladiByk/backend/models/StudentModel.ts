@@ -1,19 +1,18 @@
 import mongoose, { Schema } from "mongoose";
-import CourseSchema from "./CourseModel";
+import { CourseSchema } from "./CourseModel";
 
 interface Student {
   name: string;
   grades: [number];
 }
 
-const StudentSchema: Schema = new Schema(
+export const StudentSchema: Schema = new Schema(
   {
     name: {
       type: String,
       required: true,
     },
-    grades: [Number],
-    course: [CourseSchema]
+    courses: [CourseSchema],
   },
   {
     versionKey: false,

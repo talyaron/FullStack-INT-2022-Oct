@@ -1,16 +1,15 @@
 import mongoose, { Schema } from "mongoose";
-import StudentModel from "./StudentModel";
-import CourseModel from "./CourseModel";
+import { StudentSchema } from "./StudentModel";
+import { CourseSchema } from "./CourseModel";
 
 interface Grade {
   name: string;
-  src: string;
 }
 
-const GradeSchema = new Schema({
+export const GradeSchema: Schema = new Schema({
   grade: Number,
-  user: StudentModel,
-  course: CourseModel,
+  course: CourseSchema,
+  student: StudentSchema,
 });
 
-export default mongoose.model<Grade>("users", GradeSchema);
+export default mongoose.model<Grade>("Grade", GradeSchema);
