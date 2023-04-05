@@ -6,7 +6,7 @@ import { config } from "../config/config";
 
 StartServer();
 
-async function StartServer  ()  {
+async function StartServer() {
   await mongoose
     .connect(config.mongo.url, { retryWrites: true, w: "majority" })
     .then(() => {
@@ -25,5 +25,4 @@ async function StartServer  ()  {
   app.listen(config.server.port, () => {
     console.log(`Server is listening on port ${config.server.port}...`);
   });
-};
-
+}

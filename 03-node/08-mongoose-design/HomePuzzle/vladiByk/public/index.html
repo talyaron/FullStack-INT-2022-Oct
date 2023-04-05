@@ -4,28 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student API</title>
-    <link rel="stylesheet" href="./dist/style.css" />
-    <script
-      src="https://kit.fontawesome.com/0d9e773bea.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./src/index.js" defer></script>
+    <title>Teacher Login Page</title>
   </head>
   <body>
-    <h1>Student list</h1>
-    <div id="root"></div>
-    <h4>Add student</h4>
-    <form id="addStudentForm" action="/api/v1/students" method="post">
-      <label for="name"
-        >Full name:
-        <input type="text" name="name" id="name" placeholder="John Doe"
+    <h1>Teacher login page</h1>
+    <form id="teacherLoginForm" action="/api/v1/teachers" method="get">
+      <label for="teacherName"
+        ><input
+          type="text"
+          name="teacherName"
+          id="teacherName"
+          placeholder="Name of teacher..."
       /></label>
-      <label for="grade"
-        >Grade: <input type="number" name="grade" id="grade" placeholder="88"
+      <label for="teacherId"
+        ><input
+          type="text"
+          name="teacherId"
+          id="teacherId"
+          placeholder="Fdgg23fWe34..."
       /></label>
-      <button type="submit">Add</button>
+      <input type="submit" value="Enter" />
     </form>
-    <div class="editWindow"></div>
+    <a href="students.html">go to student list</a>
   </body>
 </html>

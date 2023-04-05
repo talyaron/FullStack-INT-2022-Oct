@@ -8,61 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const root = document.querySelector("#root");
-const apiUrl = "/api/v1/students";
-class Student {
-    constructor(name, grades = [], _id = "") {
-        this.name = name;
-        this.grades = grades;
-        this._id = _id;
-    }
-    addGrade(grade) {
-        this.grades.push(grade);
-    }
-    getAverage() {
-        const average = this.grades.reduce((a, b) => a + b, 0) / this.grades.length;
-        return average.toFixed(2);
-    }
-}
-const displayStudents = () => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const studentList = yield fetch(apiUrl)
-            .then((res) => res.json())
-            .then(({ students }) => students.map((student) => new Student(student.name, student.grades, student._id)));
-        if (studentList)
-            renderStudents(studentList);
-    }
-    catch (error) {
-        console.error(error);
-    }
-});
 displayStudents();
-const renderStudents = (students) => __awaiter(void 0, void 0, void 0, function* () {
-    const html = students
-        .map((student) => `<div class="studentDiv" id="${student._id}">
-        <b>${student.name}</b>
-        <span>Average: ${student.getAverage()}</span>
-        <div class="crudIcons">
-          <i class="fa-regular fa-trash-can"></i>
-          <i class="fa-regular fa-pen-to-square"></i>
-         </div>
-        </div>`)
-        .join("");
-    root.innerHTML = html;
-    const deleteButtons = document.querySelectorAll(".fa-trash-can");
-    deleteButtons.forEach((btn) => btn.addEventListener("click", () => {
-        var _a, _b;
-        const id = (_b = (_a = btn.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.id;
-        fetch(`${apiUrl}/${id}`, {
-            method: "DELETE",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-        }).catch((error) => console.error(error));
-        displayStudents();
-    }));
-});
 const editWindow = document.querySelector(".editWindow");
 const openEditWindow = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const studentList = yield fetch(apiUrl)
