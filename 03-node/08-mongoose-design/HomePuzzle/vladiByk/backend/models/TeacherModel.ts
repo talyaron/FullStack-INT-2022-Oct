@@ -1,18 +1,16 @@
 import mongoose, { Schema } from "mongoose";
 import CourseSchema from "./CourseModel";
 
-interface Student {
+interface Teacher {
   name: string;
-  grades: [number];
 }
 
-const StudentSchema: Schema = new Schema(
+const TeacherSchema: Schema = new Schema(
   {
     name: {
       type: String,
       required: true,
     },
-    grades: [Number],
     course: [CourseSchema]
   },
   {
@@ -20,4 +18,4 @@ const StudentSchema: Schema = new Schema(
   }
 );
 
-export default mongoose.model<Student>("Student", StudentSchema);
+export default mongoose.model<Teacher>("Teacher", TeacherSchema);

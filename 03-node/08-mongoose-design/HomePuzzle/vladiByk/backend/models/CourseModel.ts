@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
-import Student from './StudentModel'
+import StudentSchema from "./StudentModel";
+import TeacherSchema from "./TeacherModel";
 
 interface Course {
   name: string;
@@ -12,7 +13,11 @@ const CourseSchema: Schema = new Schema(
       type: String,
       required: true,
     },
-    students: [Student],
+    students: [StudentSchema],
+    teacher: {
+      type: TeacherSchema,
+      required: true,
+    },
   },
   {
     versionKey: false,

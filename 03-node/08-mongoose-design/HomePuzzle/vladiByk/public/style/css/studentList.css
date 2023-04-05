@@ -14,6 +14,7 @@ body {
   align-items: center;
   gap: 1rem;
   padding: 1rem 0;
+  background-color: #f5f5f5;
 }
 
 #root {
@@ -41,7 +42,7 @@ body {
 
 #root::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, #7a99d9), color-stop(0.72, #497dbd), color-stop(0.86, #1c3a94));
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(122, 153, 217)), color-stop(0.72, rgb(73, 125, 189)), color-stop(0.86, rgb(28, 58, 148)));
 }
 
 .studentDiv {
@@ -91,24 +92,6 @@ body {
   display: flex;
   gap: 1rem;
 }
-.editWindow input {
-  outline: none;
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.4);
-  background-color: rgba(245, 245, 245, 0.447);
-  padding: 0.5em;
-}
-.editWindow input:focus {
-  box-shadow: 0 0 5px black;
-}
-.editWindow input::-webkit-outer-spin-button,
-.editWindow input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-.editWindow input[type=submit] {
-  cursor: pointer;
-}
 
 h4 {
   margin-top: auto;
@@ -116,37 +99,4 @@ h4 {
 
 i {
   cursor: pointer;
-}
-
-button {
-  --b: 3px;
-  /* border thickness */
-  --s: 0.45em;
-  /* size of the corner */
-  --color: #373b44;
-  padding: calc(0.5em + var(--s)) calc(0.9em + var(--s));
-  color: var(--color);
-  --_p: var(--s);
-  background: conic-gradient(from 90deg at var(--b) var(--b), #0000 90deg, var(--color) 0) var(--_p) var(--_p)/calc(100% - var(--b) - 2 * var(--_p)) calc(100% - var(--b) - 2 * var(--_p));
-  transition: 0.3s linear, color 0s, background-color 0s;
-  outline: var(--b) solid #0000;
-  outline-offset: 0.6em;
-  font-size: 16px;
-  border: 0;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  cursor: pointer;
-}
-
-button:hover,
-button:focus-visible {
-  --_p: 0px;
-  outline-color: var(--color);
-  outline-offset: 0.05em;
-}
-
-button:active {
-  background: var(--color);
-  color: #fff;
-}
+}/*# sourceMappingURL=studentList.css.map */
