@@ -1,4 +1,6 @@
 import Grade from "../models/GradeModel";
+import Student from "../models/StudentModel";
+import Course from "../models/CourseModel";
 import { NextFunction, Response, Request } from "express";
 
 export const getAllGrades = async (
@@ -35,7 +37,18 @@ export const createGrade = async (
   next: NextFunction
 ) => {
   try {
-    res.status(200).send("Grade created...");
+    const { grade, courseId, studentId } = req.body;
+    const student = await Student.findById(studentId);
+    const course = await Course.findById(courseId);
+    if (student || course) {
+      await Grade.create({
+        grade,
+        course: course,
+        student: student,
+      });
+    }
+    const grades = await Grade.find({});
+    res.status(200).json({ grades });
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });
@@ -58,7 +71,6 @@ export const deleteGrade = async (
     res.status(500).json({ error: error.message });
   }
 };
-
 
 export const updateGrade = async (
   req: Request,

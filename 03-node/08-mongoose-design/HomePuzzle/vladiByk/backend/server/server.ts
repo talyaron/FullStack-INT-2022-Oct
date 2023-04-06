@@ -4,6 +4,8 @@ import mongoose from "mongoose";
 import { config } from "../config/config";
 import { studentRouter } from "../routes/studentRoutes";
 import { teacherRouter } from "../routes/teacherRoutes";
+import { courseRouter } from "../routes/courseRoutes";
+import { gradeRouter } from "../routes/gradesRoutes";
 
 StartServer();
 
@@ -23,6 +25,8 @@ async function StartServer() {
   //routes
   app.use("/api/v1/students", studentRouter);
   app.use("/api/v1/teachers", teacherRouter);
+  app.use("/api/v1/courses", courseRouter);
+  app.use("/api/v1/grades", gradeRouter);
 
   app.listen(config.server.port, () => {
     console.log(`Server is listening on port ${config.server.port}...`);

@@ -1,30 +1,27 @@
-
-
 displayStudents();
-
 
 const editWindow = document.querySelector(".editWindow") as HTMLDivElement;
 
 const openEditWindow = async (id: string) => {
-  const studentList = await fetch(apiUrl)
+  const studentList = await fetch(studentApi)
     .then((res) => res.json())
     .then(({ students }) =>
       students.map(
         (student: StudentTemplate) =>
-          new Student(student.name, student.grades, student._id)
+          new Student(student.name, student.id)
       )
     );
   editWindow.style.display = "flex";
 
   const findStudent: Student = studentList.find(
-    (student: Student) => student._id == id
+    (student: Student) => student.id == id
   );
   if (!findStudent) return alert("User not found");
-  renderGradeList(findStudent._id);
+  renderGradeList(findStudent.id);
 };
 
 async function renderGradeList(studentID: string) {
-  const student = await fetch(`${apiUrl}/${studentID}`, {
+  const student = await fetch(`${studentApi}/${studentID}`, {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -33,34 +30,34 @@ async function renderGradeList(studentID: string) {
   })
     .then((res) => res.json())
     .then(
-      ({ student }) => new Student(student.name, student.grades, student._id)
+      ({ student }) => new Student(student.name, student.id)
     )
     .catch((error) => console.error(error));
   if (!student) return;
-  const listItemsHtml = student.grades
-    .map(
-      (grade) =>
-        `<li>
-    <span>${grade}</span>
-    <div class="listIcons">
-      <i class="fa-regular fa-square-minus"></i>
-      <i class="fa-solid fa-pen"></i>
-    </div>
-  </li>`
-    )
-    .join("");
-  editWindow.innerHTML = `
-  <h2>${student.name}</h2>
-  <ul class="gradesList">
-      <div><b>Grades</b><b>Edit</b></div>
-    ${listItemsHtml}
-  </ul>
-  <label for="newGrade">
-    <input type="number" id="newGradeInput" placeholder="New grade..." />
-    <input type="submit" id="addGradeBtn"/>
-  </label>
-  <button id="closeEditWindow">Done</button>
-  `;
+  // const listItemsHtml = student.grades
+  //   .map(
+  //     (grade) =>
+  //       `<li>
+  //   <span>${grade}</span>
+  //   <div class="listIcons">
+  //     <i class="fa-regular fa-square-minus"></i>
+  //     <i class="fa-solid fa-pen"></i>
+  //   </div>
+  // </li>`
+  //   )
+  //   .join("");
+  // editWindow.innerHTML = `
+  // <h2>${student.name}</h2>
+  // <ul class="gradesList">
+  //     <div><b>Grades</b><b>Edit</b></div>
+  //   ${listItemsHtml}
+  // </ul>
+  // <label for="newGrade">
+  //   <input type="number" id="newGradeInput" placeholder="New grade..." />
+  //   <input type="submit" id="addGradeBtn"/>
+  // </label>
+  // <button id="closeEditWindow">Done</button>
+  // `;
   const editGradeBtns = editWindow.querySelectorAll(
     ".fa-pen"
   ) as NodeListOf<HTMLIFrameElement>;
@@ -115,18 +112,18 @@ function editGradeBtnEvent(btnArr: Element[], student: Student) {
 function deleteGrade(btnsArr: Element[], studentToUpdate: Student) {
   btnsArr.forEach((btn) =>
     btn.addEventListener("click", async () => {
-      const gradeIndex = btnsArr.indexOf(btn);
-      const listEle = btn.parentElement?.parentElement as HTMLDataListElement;
-      listEle.remove();
-      const grade = studentToUpdate.grades.splice(gradeIndex, 1);
-      await fetch(`${apiUrl}/${studentToUpdate._id}`, {
-        method: "PATCH",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ grade, gradeIndex, delete: true }),
-      }).catch((error) => console.error(error));
+      // const gradeIndex = btnsArr.indexOf(btn);
+      // const listEle = btn.parentElement?.parentElement as HTMLDataListElement;
+      // listEle.remove();
+      // const grade = studentToUpdate.grades.splice(gradeIndex, 1);
+      // await fetch(`${studentApi}/${studentToUpdate._id}`, {
+      //   method: "PATCH",
+      //   headers: {
+      //     Accept: "application/json",
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({ grade, gradeIndex, delete: true }),
+      // }).catch((error) => console.error(error));
 
       displayStudents();
     })
@@ -139,12 +136,12 @@ function addGrade(
   student: Student
 ) {
   btn.addEventListener("click", () => {
-    updateGrade(newGradeInput, student._id);
+    updateGrade(newGradeInput, student.id);
   });
 
   newGradeInput.addEventListener("keydown", (e: KeyboardEvent) => {
     if (e.key === "Enter") {
-      updateGrade(newGradeInput, student._id);
+      updateGrade(newGradeInput, student.id);
     }
   });
 }
@@ -157,7 +154,7 @@ async function updateGrade(input: HTMLInputElement, studentID: string) {
   )
     return alert("Check grade input");
 
-  await fetch(`${apiUrl}/${studentID}`, {
+  await fetch(`${studentApi}/${studentID}`, {
     method: "PATCH",
     headers: {
       Accept: "application/json",

@@ -1,11 +1,11 @@
 const displayStudents = async () => {
   try {
-    const studentList = await fetch(apiUrl)
+    const studentList = await fetch(studentApi)
       .then((res) => res.json())
       .then(({ students }) =>
         students.map(
           (student: StudentTemplate) =>
-            new Student(student.name, student.grades, student._id)
+            new Student(student.name, student.id)
         )
       );
     if (studentList) renderStudents(studentList);
@@ -18,9 +18,9 @@ const renderStudents = (students: Student[]) => {
   const html = students
     .map(
       (student) =>
-        `<div class="studentDiv" id="${student._id}">
+        `<div class="studentDiv" id="${student.id}">
           <b>${student.name}</b>
-          <span>Average: ${student.getAverage()}</span>
+          <span>Average: ${student}</span>
           <div class="crudIcons">
             <i class="fa-regular fa-trash-can"></i>
             <i class="fa-regular fa-pen-to-square"></i>
@@ -36,7 +36,7 @@ const renderStudents = (students: Student[]) => {
   deleteButtons.forEach((btn) =>
     btn.addEventListener("click", async () => {
       const id = btn.parentElement?.parentElement?.id;
-      await fetch(`${apiUrl}/${id}`, {
+      await fetch(`${studentApi}/${id}`, {
         method: "DELETE",
         headers: {
           Accept: "application/json",

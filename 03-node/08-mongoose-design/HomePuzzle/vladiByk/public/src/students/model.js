@@ -1,15 +1,17 @@
 "use strict";
 class Student {
-    constructor(name, grades = [], _id = "") {
+    constructor(name, id = "") {
         this.name = name;
-        this.grades = grades;
-        this._id = _id;
+        this.id = id;
     }
-    addGrade(grade) {
-        this.grades.push(grade);
-    }
-    getAverage() {
-        const average = this.grades.reduce((a, b) => a + b, 0) / this.grades.length;
-        return average.toFixed(2);
+    addGrade(btn, newGradeInput) {
+        btn.addEventListener("click", () => {
+            updateGrade(newGradeInput, this.id);
+        });
+        newGradeInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                updateGrade(newGradeInput, this.id);
+            }
+        });
     }
 }

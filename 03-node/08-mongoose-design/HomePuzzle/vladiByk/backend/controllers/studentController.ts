@@ -1,4 +1,5 @@
 import Student from "../models/StudentModel";
+import Course from "../models/CourseModel";
 import { NextFunction, Response, Request } from "express";
 
 export const getAllStudents = async (
@@ -35,10 +36,11 @@ export const createStudent = async (
   next: NextFunction
 ) => {
   try {
-    const { name, grade } = req.body;
-    const student = new Student({ name, grades: [grade] });
-    await student.save();
-    res.status(200).redirect("/");
+    const { name, courseId } = req.body;
+    const course = await Course.findById(courseId);
+    const student = await Student.create({ name, courses: [course] });
+    const students = await Student.find({});
+    res.status(200).json({ students });
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });
@@ -61,7 +63,6 @@ export const deleteStudent = async (
     res.status(500).json({ error: error.message });
   }
 };
-
 
 export const updateStudent = async (
   req: Request,

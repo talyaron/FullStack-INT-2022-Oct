@@ -39,9 +39,9 @@ exports.getTeacher = getTeacher;
 const createTeacher = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { name } = req.body;
-        const teacher = new TeacherModel_1.default({ name });
-        yield teacher.save();
-        res.status(200).redirect("/");
+        const teacher = yield TeacherModel_1.default.create({ name });
+        // await teacher.save();
+        res.status(200).json({ msg: `Teacher ${teacher} is created...` });
     }
     catch (error) {
         console.error(error);

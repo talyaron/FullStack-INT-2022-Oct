@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateCourse = exports.deleteCourse = exports.createCourse = exports.getCourse = exports.getAllCourses = void 0;
 const CourseModel_1 = __importDefault(require("../models/CourseModel"));
+const TeacherModel_1 = __importDefault(require("../models/TeacherModel"));
 const getAllCourses = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const courses = yield CourseModel_1.default.find({});
@@ -38,7 +39,10 @@ const getCourse = (req, res, next) => __awaiter(void 0, void 0, void 0, function
 exports.getCourse = getCourse;
 const createCourse = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        res.status(201).json({ msg: "Creating course..." });
+        const { name, teacherId } = req.body;
+        const teacher = yield TeacherModel_1.default.findById(teacherId);
+        const course = yield CourseModel_1.default.create({ name: name, teachers: [teacher] });
+        res.status(200).json({ msg: `Teacher ${course} is created...` });
     }
     catch (error) {
         console.error(error);

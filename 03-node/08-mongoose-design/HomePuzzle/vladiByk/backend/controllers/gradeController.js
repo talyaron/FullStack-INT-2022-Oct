@@ -14,6 +14,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateGrade = exports.deleteGrade = exports.createGrade = exports.getGrade = exports.getAllGrades = void 0;
 const GradeModel_1 = __importDefault(require("../models/GradeModel"));
+const StudentModel_1 = __importDefault(require("../models/StudentModel"));
+const CourseModel_1 = __importDefault(require("../models/CourseModel"));
 const getAllGrades = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const grades = yield GradeModel_1.default.find({});
@@ -38,7 +40,18 @@ const getGrade = (req, res, next) => __awaiter(void 0, void 0, void 0, function*
 exports.getGrade = getGrade;
 const createGrade = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        res.status(200).send("Grade created...");
+        const { grade, courseId, studentId } = req.body;
+        const student = yield StudentModel_1.default.findById(studentId);
+        const course = yield CourseModel_1.default.findById(courseId);
+        if (student || course) {
+            yield GradeModel_1.default.create({
+                grade,
+                course: course,
+                student: student,
+            });
+        }
+        const grades = yield GradeModel_1.default.find({});
+        res.status(200).json({ grades });
     }
     catch (error) {
         console.error(error);

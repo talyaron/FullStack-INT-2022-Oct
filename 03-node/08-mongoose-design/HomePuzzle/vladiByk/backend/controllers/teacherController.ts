@@ -36,9 +36,9 @@ export const createTeacher = async (
 ) => {
   try {
     const { name } = req.body;
-    const teacher = new Teacher({ name });
-    await teacher.save();
-    res.status(200).redirect("/");
+    const teacher = await Teacher.create({ name });
+    // await teacher.save();
+    res.status(200).json({msg: `Teacher ${teacher} is created...`});
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });

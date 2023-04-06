@@ -10,9 +10,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const displayStudents = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const studentList = yield fetch(apiUrl)
+        const studentList = yield fetch(studentApi)
             .then((res) => res.json())
-            .then(({ students }) => students.map((student) => new Student(student.name, student.grades, student._id)));
+            .then(({ students }) => students.map((student) => new Student(student.name, student.id)));
         if (studentList)
             renderStudents(studentList);
     }
@@ -22,9 +22,9 @@ const displayStudents = () => __awaiter(void 0, void 0, void 0, function* () {
 });
 const renderStudents = (students) => {
     const html = students
-        .map((student) => `<div class="studentDiv" id="${student._id}">
+        .map((student) => `<div class="studentDiv" id="${student.id}">
           <b>${student.name}</b>
-          <span>Average: ${student.getAverage()}</span>
+          <span>Average: ${student}</span>
           <div class="crudIcons">
             <i class="fa-regular fa-trash-can"></i>
             <i class="fa-regular fa-pen-to-square"></i>
@@ -36,7 +36,7 @@ const renderStudents = (students) => {
     deleteButtons.forEach((btn) => btn.addEventListener("click", () => __awaiter(void 0, void 0, void 0, function* () {
         var _a, _b;
         const id = (_b = (_a = btn.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.id;
-        yield fetch(`${apiUrl}/${id}`, {
+        yield fetch(`${studentApi}/${id}`, {
             method: "DELETE",
             headers: {
                 Accept: "application/json",

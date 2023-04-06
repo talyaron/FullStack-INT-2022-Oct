@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateStudent = exports.deleteStudent = exports.createStudent = exports.getStudent = exports.getAllStudents = void 0;
 const StudentModel_1 = __importDefault(require("../models/StudentModel"));
+const CourseModel_1 = __importDefault(require("../models/CourseModel"));
 const getAllStudents = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const students = yield StudentModel_1.default.find({});
@@ -38,10 +39,11 @@ const getStudent = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
 exports.getStudent = getStudent;
 const createStudent = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { name, grade } = req.body;
-        const student = new StudentModel_1.default({ name, grades: [grade] });
-        yield student.save();
-        res.status(200).redirect("/");
+        const { name, courseId } = req.body;
+        const course = yield CourseModel_1.default.findById(courseId);
+        const student = yield StudentModel_1.default.create({ name, courses: [course] });
+        const students = yield StudentModel_1.default.find({});
+        res.status(200).json({ students });
     }
     catch (error) {
         console.error(error);

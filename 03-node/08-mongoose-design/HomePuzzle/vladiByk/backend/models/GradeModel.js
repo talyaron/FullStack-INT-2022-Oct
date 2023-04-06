@@ -31,5 +31,7 @@ exports.GradeSchema = new mongoose_1.Schema({
     grade: Number,
     course: CourseModel_1.CourseSchema,
     student: StudentModel_1.StudentSchema,
+}, {
+    versionKey: false,
 });
 exports.default = mongoose_1.default.model("Grade", exports.GradeSchema);

@@ -1,4 +1,5 @@
 import Course from "../models/CourseModel";
+import Teacher from "../models/TeacherModel";
 import { NextFunction, Response, Request } from "express";
 
 export const getAllCourses = async (
@@ -35,7 +36,10 @@ export const createCourse = async (
   next: NextFunction
 ) => {
   try {
-    res.status(201).json({ msg: "Creating course..." });
+    const { name, teacherId } = req.body;
+    const teacher = await Teacher.findById(teacherId);
+    const course = await Course.create({ name: name, teachers: [teacher] });
+    res.status(200).json({ msg: `Teacher ${course} is created...` });
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });
@@ -58,7 +62,6 @@ export const deleteCourse = async (
     res.status(500).json({ error: error.message });
   }
 };
-
 
 export const updateCourse = async (
   req: Request,

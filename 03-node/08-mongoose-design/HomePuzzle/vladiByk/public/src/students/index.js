@@ -11,18 +11,18 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 displayStudents();
 const editWindow = document.querySelector(".editWindow");
 const openEditWindow = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    const studentList = yield fetch(apiUrl)
+    const studentList = yield fetch(studentApi)
         .then((res) => res.json())
-        .then(({ students }) => students.map((student) => new Student(student.name, student.grades, student._id)));
+        .then(({ students }) => students.map((student) => new Student(student.name, student.id)));
     editWindow.style.display = "flex";
-    const findStudent = studentList.find((student) => student._id == id);
+    const findStudent = studentList.find((student) => student.id == id);
     if (!findStudent)
         return alert("User not found");
-    renderGradeList(findStudent._id);
+    renderGradeList(findStudent.id);
 });
 function renderGradeList(studentID) {
     return __awaiter(this, void 0, void 0, function* () {
-        const student = yield fetch(`${apiUrl}/${studentID}`, {
+        const student = yield fetch(`${studentApi}/${studentID}`, {
             method: "GET",
             headers: {
                 Accept: "application/json",
@@ -30,31 +30,34 @@ function renderGradeList(studentID) {
             },
         })
             .then((res) => res.json())
-            .then(({ student }) => new Student(student.name, student.grades, student._id))
+            .then(({ student }) => new Student(student.name, student.id))
             .catch((error) => console.error(error));
         if (!student)
             return;
-        const listItemsHtml = student.grades
-            .map((grade) => `<li>
-    <span>${grade}</span>
-    <div class="listIcons">
-      <i class="fa-regular fa-square-minus"></i>
-      <i class="fa-solid fa-pen"></i>
-    </div>
-  </li>`)
-            .join("");
-        editWindow.innerHTML = `
-  <h2>${student.name}</h2>
-  <ul class="gradesList">
-      <div><b>Grades</b><b>Edit</b></div>
-    ${listItemsHtml}
-  </ul>
-  <label for="newGrade">
-    <input type="number" id="newGradeInput" placeholder="New grade..." />
-    <input type="submit" id="addGradeBtn"/>
-  </label>
-  <button id="closeEditWindow">Done</button>
-  `;
+        // const listItemsHtml = student.grades
+        //   .map(
+        //     (grade) =>
+        //       `<li>
+        //   <span>${grade}</span>
+        //   <div class="listIcons">
+        //     <i class="fa-regular fa-square-minus"></i>
+        //     <i class="fa-solid fa-pen"></i>
+        //   </div>
+        // </li>`
+        //   )
+        //   .join("");
+        // editWindow.innerHTML = `
+        // <h2>${student.name}</h2>
+        // <ul class="gradesList">
+        //     <div><b>Grades</b><b>Edit</b></div>
+        //   ${listItemsHtml}
+        // </ul>
+        // <label for="newGrade">
+        //   <input type="number" id="newGradeInput" placeholder="New grade..." />
+        //   <input type="submit" id="addGradeBtn"/>
+        // </label>
+        // <button id="closeEditWindow">Done</button>
+        // `;
         const editGradeBtns = editWindow.querySelectorAll(".fa-pen");
         const editBtnsArr = Array.from(editGradeBtns);
         editGradeBtnEvent(editBtnsArr, student);
@@ -95,29 +98,28 @@ function editGradeBtnEvent(btnArr, student) {
 }
 function deleteGrade(btnsArr, studentToUpdate) {
     btnsArr.forEach((btn) => btn.addEventListener("click", () => __awaiter(this, void 0, void 0, function* () {
-        var _a;
-        const gradeIndex = btnsArr.indexOf(btn);
-        const listEle = (_a = btn.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement;
-        listEle.remove();
-        const grade = studentToUpdate.grades.splice(gradeIndex, 1);
-        yield fetch(`${apiUrl}/${studentToUpdate._id}`, {
-            method: "PATCH",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ grade, gradeIndex, delete: true }),
-        }).catch((error) => console.error(error));
+        // const gradeIndex = btnsArr.indexOf(btn);
+        // const listEle = btn.parentElement?.parentElement as HTMLDataListElement;
+        // listEle.remove();
+        // const grade = studentToUpdate.grades.splice(gradeIndex, 1);
+        // await fetch(`${studentApi}/${studentToUpdate._id}`, {
+        //   method: "PATCH",
+        //   headers: {
+        //     Accept: "application/json",
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify({ grade, gradeIndex, delete: true }),
+        // }).catch((error) => console.error(error));
         displayStudents();
     })));
 }
 function addGrade(btn, newGradeInput, student) {
     btn.addEventListener("click", () => {
-        updateGrade(newGradeInput, student._id);
+        updateGrade(newGradeInput, student.id);
     });
     newGradeInput.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
-            updateGrade(newGradeInput, student._id);
+            updateGrade(newGradeInput, student.id);
         }
     });
 }
@@ -127,7 +129,7 @@ function updateGrade(input, studentID) {
             Number(input.value) < 0 ||
             !Number(input.value))
             return alert("Check grade input");
-        yield fetch(`${apiUrl}/${studentID}`, {
+        yield fetch(`${studentApi}/${studentID}`, {
             method: "PATCH",
             headers: {
                 Accept: "application/json",

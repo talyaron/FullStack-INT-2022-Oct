@@ -19,6 +19,7 @@ body {
   justify-content: space-around;
   align-items: center;
   gap: 2rem;
+  padding-bottom: 1rem;
 }
 
 #root {
@@ -45,6 +46,20 @@ body {
     box-shadow: 0 0 10px rgb(47, 6, 6);
   }
 }
+
+.logOut {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  transition: all .3s;
+  background-color: darkorange;
+  padding: .5rem;
+  border-radius: 5px;
+}
+.logOut:hover{
+  transform: scale(1.05);
+}
+
 
 a {
   text-decoration: none;

@@ -1,14 +1,14 @@
 import express from "express";
-const gradeRouter = express.Router();
+const courseRouter = express.Router();
 import {
-  getAllGrades,
-  getGrade,
-  createGrade,
-  deleteGrade,
-  updateGrade,
-} from "../controllers/gradeController";
+  getAllCourses,
+  getCourse,
+  createCourse,
+  deleteCourse,
+  updateCourse,
+} from "../controllers/courseController";
 
-gradeRouter.route("/").get(getAllGrades).post(createGrade);
-gradeRouter.route("/:id").get(getGrade).patch(updateGrade).delete(deleteGrade);
+courseRouter.route("/").get(getAllCourses).post(createCourse);
+courseRouter.route("/:id").get(getCourse).patch(updateCourse).delete(deleteCourse);
 
-export { gradeRouter };
+export { courseRouter };

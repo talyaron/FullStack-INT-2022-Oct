@@ -18,6 +18,8 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const config_1 = require("../config/config");
 const studentRoutes_1 = require("../routes/studentRoutes");
 const teacherRoutes_1 = require("../routes/teacherRoutes");
+const courseRoutes_1 = require("../routes/courseRoutes");
+const gradesRoutes_1 = require("../routes/gradesRoutes");
 StartServer();
 function StartServer() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -35,6 +37,8 @@ function StartServer() {
         //routes
         app.use("/api/v1/students", studentRoutes_1.studentRouter);
         app.use("/api/v1/teachers", teacherRoutes_1.teacherRouter);
+        app.use("/api/v1/courses", courseRoutes_1.courseRouter);
+        app.use("/api/v1/grades", gradesRoutes_1.gradeRouter);
         app.listen(config_1.config.server.port, () => {
             console.log(`Server is listening on port ${config_1.config.server.port}...`);
         });

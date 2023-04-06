@@ -6,10 +6,15 @@ interface Grade {
   name: string;
 }
 
-export const GradeSchema: Schema = new Schema({
-  grade: Number,
-  course: CourseSchema,
-  student: StudentSchema,
-});
+export const GradeSchema: Schema = new Schema(
+  {
+    grade: Number,
+    course: CourseSchema,
+    student: StudentSchema,
+  },
+  {
+    versionKey: false,
+  }
+);
 
 export default mongoose.model<Grade>("Grade", GradeSchema);
