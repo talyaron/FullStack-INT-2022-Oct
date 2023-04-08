@@ -6,7 +6,7 @@ function handleGetStudents() {
             var students = _a.students;
             try {
                 if (!students)
-                    throw new Error("didnt find students");
+                    throw new Error("didn't find students");
                 renderStudents(students);
             }
             catch (error) {
@@ -23,8 +23,9 @@ function handleAddStudent(ev) {
         ev.preventDefault();
         var name = ev.target.elements.name.value;
         if (!name)
-            throw new Error("No name");
+            throw new Error("No name on form");
         var newStudent = { name: name };
+        console.log("newStudent", newStudent);
         fetch("/api/students/add-student", {
             method: "POST",
             headers: {
@@ -45,27 +46,24 @@ function handleAddStudent(ev) {
         console.error(error);
     }
 }
-function handleAddGrade(ev, uid) {
+function handleAddCourse(ev, _id) {
     try {
-        console.log("uid", uid);
+        console.log("_id", _id);
         ev.preventDefault();
-        var test = ev.target.elements.test.value;
-        var value = ev.target.elements.value.valueAsNumber;
-        if (!uid)
-            throw new Error("No uid in form");
-        if (!test)
-            throw new Error("No name in form");
-        if (!value)
-            throw new Error("No value in form");
-        var newGrade = { test: test, value: value };
-        console.log("newGrade", newGrade);
-        fetch("/api/students/" + uid + "/grades", {
+        var course = ev.target.elements.test.value;
+        if (!_id)
+            throw new Error("No _id in form");
+        if (!course)
+            throw new Error("No course in form");
+        var newCourse = { course: course };
+        console.log("newCourse", newCourse);
+        fetch("/api/courses/add-course", {
             method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newGrade)
+            body: JSON.stringify(newCourse)
         })
             .then(function (res) { return res.json(); })
             .then(function (data) {

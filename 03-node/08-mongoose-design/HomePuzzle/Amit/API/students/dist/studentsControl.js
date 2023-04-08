@@ -45,7 +45,6 @@ exports.addStudent = function (req, res) { return __awaiter(void 0, void 0, void
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 name = req.body.name;
-                console.log("{ name }", name);
                 return [4 /*yield*/, studentsModel_1["default"].create({ name: name })];
             case 1:
                 studentDB = _a.sent();

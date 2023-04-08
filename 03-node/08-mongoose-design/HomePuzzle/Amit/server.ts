@@ -4,8 +4,8 @@ import mongoose, { Schema } from "mongoose";
 import * as dotenv from "dotenv";
 dotenv.config();
 
+//connecting DB//
 const uri: string | undefined = process.env.MONGODB_URI;
-
 if (uri) {
   mongoose
     .connect(uri)
@@ -17,7 +17,10 @@ if (uri) {
   console.log("No URI to DB");
 }
 
+//getting data from public
+app.use(express.json());
 
+//connecting to entities routes//
 import studentsRouter from './API/students/studentsRoute';
 app.use('/api/students', studentsRouter);
 
@@ -26,10 +29,6 @@ app.use('/api/courses', coursesRouter);
 
 import gradesRouter from './API/grades/gradesRoute';
 app.use('/api/grades', gradesRouter);
-
-
-////getting data from public
-app.use(express.json());
 
 
 //static file

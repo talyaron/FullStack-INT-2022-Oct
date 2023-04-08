@@ -6,13 +6,12 @@ function renderStudents(students: Student[]) {
             .map((student) => {
                 return `<div class="StudentCard">
           <p contenteditable oninput="handleStudentNameUpdate(event, '${student._id}')">${student.name}</p>
-          <div class="StudentCard__grades">grades:
-            <form onsubmit="handleAddGrade(event, '${student._id}')">
-                <input type="text" name="test" placeholder="test name" required>
-                <input type="number" name="value" placeholder="value" required>
-                <button type="submit">add test</button>    
+          <div class="StudentCard__courses">courses:
+            <form onsubmit="handleAddCourse(event, '${student._id}')">
+                <input type="text" name="test" placeholder="course name" required>
+                <button type="submit">add course</button>    
             </form>
-            <div id="studentGradesRoot-${student._id}"></div>
+            <div id="courseRoot-${student._id}"></div>
           </div>  
           <button onclick="handleDeleteStudent('${student._id}')">DELETE</button>
           </div>
@@ -25,16 +24,14 @@ function renderStudents(students: Student[]) {
 
         studentsRoot.innerHTML = html;
 
-        renderGrades(students);
+        renderCourses(students);
 
     } catch (error) {
         console.error(error)
     }
 }
 
-
-
-function renderGrades(students: Student[]) {
+function renderCourses(students: Student[]) {
     try {
         students.map((_student) => {
             try {
@@ -42,18 +39,24 @@ function renderGrades(students: Student[]) {
                 const student = students.find((student) => student._id === _id);
                 if (!student) throw new Error("student not found");
                 
-                const html = student.grades
-                    .map((grade) => {
-                        console.log(grade);
+                const html = student.courses
+                    .map((course) => {
                         
-                        return renderGrade(grade);
+                        return `<div class="StudentCard__courses__course">
+                        <p contenteditable oninput="handleCourseUpdate(event, '${course._id}')">${course.name}</p>
+                        <div id="gradesRoot-${course._id}"></div>
+                        <button onclick='handleDeleteCourse("${course._id}")'>DELETE</button>
+                        </div>`;
                     })
                     .join(" ");
 
-                const gradesRoot = document.querySelector(`#studentGradesRoot-${_id}`);
-                if (!gradesRoot) throw new Error("gradesRoot not found on DOM");
+                const courseRoot = document.querySelector(`#courseRoot-${_id}`);
+                if (!courseRoot) throw new Error("course Root not found on DOM");
 
-                gradesRoot.innerHTML = html;
+                courseRoot.innerHTML = html;
+
+                // renderGrades(course._id);
+
             } catch (error) {
                 console.error(error)
             }
@@ -64,18 +67,37 @@ function renderGrades(students: Student[]) {
 }
 
 
+// function renderGrades(courses: Course[]) {
+//     try {
+//         students.map((_student) => {
+//             try {
+//                 const _id = _student._id
+//                 const student = students.find((student) => student._id === _id);
+//                 if (!student) throw new Error("student not found");
+                
+//                 const html = student.grades
+//                     .map((grade) => {
+                        
+//                         return `<div class="StudentCard__grade">
+//                         <p contenteditable oninput="handleGradeUpdate(event, '${grade._id}')">${grade.test}: ${grade.value} </p>
+//                         <div id="gradeRoot-${grade._id}"></div>
+//                         <button onclick='handleDeleteGrade("${grade._id}")'>DELETE</button>
+//                         </div>`;
+//                     })
+//                     .join(" ");
 
-function renderGrade(grade: Grade) {
-    try {
-        const html = `<div class="StudentCard__grade">
-              <p contenteditable oninput="handleGradeUpdate(event, '${grade._id}')">${grade.test}: ${grade.value} </p>
-              <div id="gradeRoot-${grade._id}"></div>
-              <button onclick='handleDeleteGrade("${grade._id}")'>DELETE</button>
-              </div>`;
+//                 const gradesRoot = document.querySelector(`#studentGradesRoot-${_id}`);
+//                 if (!gradesRoot) throw new Error("gradesRoot not found on DOM");
 
-        return html;
-    } catch (error) {
-        console.error(error);
-        return null;
-    }
-}
+//                 gradesRoot.innerHTML = html;
+//             } catch (error) {
+//                 console.error(error)
+//             }
+//         })
+//     } catch (error) {
+//         console.error(error)
+//     }
+// }
+
+
+

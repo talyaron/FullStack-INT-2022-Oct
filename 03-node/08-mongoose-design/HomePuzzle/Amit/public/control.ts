@@ -4,7 +4,7 @@ function handleGetStudents() {
             .then((res) => res.json())
             .then(({ students }) => {
                 try {
-                    if (!students) throw new Error("didnt find students");
+                    if (!students) throw new Error("didn't find students");
 
                     renderStudents(students);
                 } catch (error) {
@@ -18,11 +18,13 @@ function handleGetStudents() {
 
 function handleAddStudent(ev) {
     try {
+        
         ev.preventDefault();
         const name = ev.target.elements.name.value;
-        if (!name) throw new Error("No name");
-
+        if (!name) throw new Error("No name on form");
+        
         const newStudent: any = { name };
+        console.log("newStudent", newStudent);
 
         fetch("/api/students/add-student", {
             method: "POST",
@@ -48,34 +50,31 @@ function handleAddStudent(ev) {
 
 
 
-function handleAddGrade(ev: any, uid: string){ 
+function handleAddCourse(ev: any, _id: string) {
     try {
-        console.log("uid" , uid);
-        
+        console.log("_id", _id);
+
         ev.preventDefault();
 
-        const test = ev.target.elements.test.value;
-        const value = ev.target.elements.value.valueAsNumber;
-        if(!uid) throw new Error("No uid in form"); 
-        if (!test) throw new Error("No name in form");
-        if (!value) throw new Error("No value in form");
+        const course = ev.target.elements.test.value;
+        if (!_id) throw new Error("No _id in form");
+        if (!course) throw new Error("No course in form");
 
+        const newCourse: any = { course };
 
-        const newGrade: any = { test, value };
+        console.log("newCourse", newCourse);
 
-        console.log("newGrade", newGrade);
-
-        fetch(`/api/students/${uid}/grades`, {
+        fetch(`/api/courses/add-course`, {
             method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify( newGrade)
+            body: JSON.stringify(newCourse)
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log("data" , data);
+                console.log("data", data);
             })
             .catch((error) => {
                 console.error(error);
@@ -90,26 +89,26 @@ function handleAddGrade(ev: any, uid: string){
 
 
 
-function handleDeleteStudent(_id: string){
+function handleDeleteStudent(_id: string) {
     try {
 
-    fetch("/api/students/delete-student", {
-      method: "DELETE",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ _id }),
-    })
-      .then((res) => res.json())
-      .then(({ students }) => {
-      
-      
-        renderStudents(students);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+        fetch("/api/students/delete-student", {
+            method: "DELETE",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ _id }),
+        })
+            .then((res) => res.json())
+            .then(({ students }) => {
+
+
+                renderStudents(students);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     } catch (error) {
         console.error(error);
     }

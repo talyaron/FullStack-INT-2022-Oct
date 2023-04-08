@@ -3,8 +3,6 @@ import StudentModel from "./studentsModel";
 export const addStudent = async (req:any, res:any) => {
     try {
       const { name } = req.body;
-      console.log("{ name }" , name);
-      
       const studentDB = await StudentModel.create({name});
       console.log(studentDB);
       
