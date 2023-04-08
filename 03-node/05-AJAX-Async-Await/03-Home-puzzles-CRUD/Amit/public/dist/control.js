@@ -59,7 +59,7 @@ function handleAddGrade(ev, uid) {
             throw new Error("No value in form");
         var newGrade = { test: test, value: value };
         console.log("newGrade", newGrade);
-        fetch("/students/" + uid + "}/grades", {
+        fetch("/students/" + uid + "/grades", {
             method: "POST",
             headers: {
                 Accept: "application/json",

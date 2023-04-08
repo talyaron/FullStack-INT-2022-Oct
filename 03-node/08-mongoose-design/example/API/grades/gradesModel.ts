@@ -4,7 +4,6 @@ import { UserSchema } from "../users/usersModel";
 //schema
 
 interface Grade {
-  // public uid: string = uuid();
   name: string;
   src: string;
 }

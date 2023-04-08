@@ -31,6 +31,7 @@ export const addUser = async (req:any, res:any) => {
 
 export const updateUser = (req:any, res:any) => {
     try {
+      
     } catch (error: any) {
       console.error(error);
       res.status(500).send({ error: error.message });

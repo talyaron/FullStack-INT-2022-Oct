@@ -65,7 +65,7 @@ function handleAddGrade(ev: any, uid: string){
 
         console.log("newGrade", newGrade);
 
-        fetch(`/students/${uid}}/grades`, {
+        fetch(`/students/${uid}/grades`, {
             method: "POST",
             headers: {
                 Accept: "application/json",
