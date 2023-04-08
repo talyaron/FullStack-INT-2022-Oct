@@ -66,9 +66,9 @@ function handleAddCourse(ev, _id) {
             body: JSON.stringify(data)
         })
             .then(function (res) { return res.json(); })
-            .then(function (student) {
-            console.log(student);
-            renderStudents(student);
+            .then(function (students) {
+            console.log(students);
+            renderStudents(students);
         })["catch"](function (error) {
             console.error(error);
         });
