@@ -1,16 +1,11 @@
 import express from "express";
-import { v4 as uuidv4 } from "uuid";
 const app = express();
-
 import mongoose, { Schema } from "mongoose";
-import * as dotenv from "dotenv"; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
-import { isUndefined } from "util";
+import * as dotenv from "dotenv";
 dotenv.config();
 
+//connecting DB//
 const uri: string | undefined = process.env.MONGODB_URI;
-
-app.use(express.json());
-
 if (uri) {
   mongoose
     .connect(uri)
@@ -22,16 +17,23 @@ if (uri) {
   console.log("No URI to DB");
 }
 
+//getting data from public
+app.use(express.json());
 
+//connecting to entities routes//
 import studentsRouter from './API/students/studentsRoute';
 app.use('/api/students', studentsRouter);
 
+import coursesRouter from './API/courses/coursesRoute';
+app.use('/api/courses', coursesRouter);
 
-import teachersRouter from './API/teachers/teachersRoute';
-app.use('/api/teachers', teachersRouter);
+import gradesRouter from './API/grades/gradesRoute';
+app.use('/api/grades', gradesRouter);
 
-app.use(express.static(`./public`));
 
-app.listen(4000, () => {
-  console.log("server listen on port 4000");
+//static file
+app.use(express.static("./public"));
+
+app.listen(3000, () => {
+  console.log("server listen on port 3000");
 });
