@@ -48,26 +48,27 @@ function handleAddStudent(ev) {
 }
 function handleAddCourse(ev, _id) {
     try {
-        console.log("_id", _id);
+        console.log("student_id", _id);
         ev.preventDefault();
-        var course = ev.target.elements.test.value;
+        var course = ev.target.elements.course.value;
         if (!_id)
             throw new Error("No _id in form");
         if (!course)
             throw new Error("No course in form");
-        var newCourse = { course: course };
-        console.log("newCourse", newCourse);
+        var data = { course: course, _id: _id };
+        console.log("data", data);
         fetch("/api/courses/add-course", {
             method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newCourse)
+            body: JSON.stringify(data)
         })
             .then(function (res) { return res.json(); })
-            .then(function (data) {
-            console.log("data", data);
+            .then(function (student) {
+            console.log(student);
+            renderStudents(student);
         })["catch"](function (error) {
             console.error(error);
         });

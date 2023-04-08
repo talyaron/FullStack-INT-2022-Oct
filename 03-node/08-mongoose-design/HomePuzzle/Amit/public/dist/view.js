@@ -4,7 +4,7 @@ function renderStudents(students) {
             throw new Error("No students");
         var html = students
             .map(function (student) {
-            return "<div class=\"StudentCard\">\n          <p contenteditable oninput=\"handleStudentNameUpdate(event, '" + student._id + "')\">" + student.name + "</p>\n          <div class=\"StudentCard__courses\">courses:\n            <form onsubmit=\"handleAddCourse(event, '" + student._id + "')\">\n                <input type=\"text\" name=\"test\" placeholder=\"course name\" required>\n                <button type=\"submit\">add course</button>    \n            </form>\n            <div id=\"courseRoot-" + student._id + "\"></div>\n          </div>  \n          <button onclick=\"handleDeleteStudent('" + student._id + "')\">DELETE</button>\n          </div>\n          ";
+            return "<div class=\"StudentCard\">\n          <p contenteditable oninput=\"handleStudentNameUpdate(event, '" + student._id + "')\">" + student.name + "</p>\n          <div class=\"StudentCard__courses\">courses:\n            <form onsubmit=\"handleAddCourse(event, '" + student._id + "')\">\n                <input type=\"text\" name=\"course\" placeholder=\"course name\" required>\n                <button type=\"submit\">add course</button>    \n            </form>\n            <div id=\"courseRoot-" + student._id + "\"></div>\n          </div>  \n          <button onclick=\"handleDeleteStudent('" + student._id + "')\">DELETE</button>\n          </div>\n          ";
         })
             .join(" ");
         var studentsRoot = document.querySelector("#studentsRoot");
@@ -21,6 +21,7 @@ function renderCourses(students) {
     try {
         students.map(function (_student) {
             try {
+                console.log("_student.courses", _student.courses);
                 var _id_1 = _student._id;
                 var student = students.find(function (student) { return student._id === _id_1; });
                 if (!student)

@@ -8,7 +8,7 @@ function renderStudents(students: Student[]) {
           <p contenteditable oninput="handleStudentNameUpdate(event, '${student._id}')">${student.name}</p>
           <div class="StudentCard__courses">courses:
             <form onsubmit="handleAddCourse(event, '${student._id}')">
-                <input type="text" name="test" placeholder="course name" required>
+                <input type="text" name="course" placeholder="course name" required>
                 <button type="submit">add course</button>    
             </form>
             <div id="courseRoot-${student._id}"></div>
@@ -33,8 +33,11 @@ function renderStudents(students: Student[]) {
 
 function renderCourses(students: Student[]) {
     try {
+        
         students.map((_student) => {
             try {
+                console.log("_student.courses", _student.courses );
+                
                 const _id = _student._id
                 const student = students.find((student) => student._id === _id);
                 if (!student) throw new Error("student not found");
