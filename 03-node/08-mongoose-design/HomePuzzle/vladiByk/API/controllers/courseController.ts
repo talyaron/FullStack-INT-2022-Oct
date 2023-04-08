@@ -8,7 +8,9 @@ export const getAllCourses = async (
   next: NextFunction
 ) => {
   try {
-    const courses = await Course.find({});
+    const { teacherId } = req.body;
+    const teacher = await Teacher.findById(teacherId);
+    const courses = await Course.find({ teachers: teacher });
     res.status(200).json({ courses });
   } catch (error) {
     console.error(error);

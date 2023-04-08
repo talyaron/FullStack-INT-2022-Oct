@@ -6,9 +6,9 @@
   "scripts": {
     "build": "rimraf dist && npx tsc",
     "prestart": "npm run build",
-    "start": "node ./backend/server/server.js",
+    "start": "node ./API/server/server.js",
     "predev": "npm run build",
-    "dev": "concurrently \"npx tsc -w\"  \"nodemon ./backend/server/server.js\""
+    "dev": "concurrently \"npx tsc -w\"  \"nodemon ./API/server/server.js\""
   },
   "keywords": [],
   "author": "",

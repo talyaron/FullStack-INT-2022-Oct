@@ -22,7 +22,7 @@ export const getTeacher = async (
   try {
     const { teacherId } = req.body;
     const teacher = await Teacher.findById({ _id: teacherId });
-    res.status(200).send({ teacher });
+    res.status(200).redirect('/course');
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });

@@ -28,7 +28,7 @@ const getTeacher = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
     try {
         const { teacherId } = req.body;
         const teacher = yield TeacherModel_1.default.findById({ _id: teacherId });
-        res.status(200).send({ teacher });
+        res.status(200).redirect('/course');
     }
     catch (error) {
         console.error(error);

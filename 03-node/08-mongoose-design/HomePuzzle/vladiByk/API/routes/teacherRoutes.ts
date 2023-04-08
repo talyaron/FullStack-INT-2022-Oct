@@ -11,4 +11,6 @@ import {
 teacherRouter.route("/").get(getAllTeachers).post(createTeacher);
 teacherRouter.route("/:id").patch(updateTeacher).delete(deleteTeacher);
 
+teacherRouter.route
+
 export { teacherRouter };
