@@ -4,13 +4,13 @@ import { v4 as uuidv4 } from "uuid";
 
 
 export const addStudentGrades =  async (req:any, res:any) => {
-    const { name, englishClass, mathClass, sportsClass, historyClass } = req.body;
-    console.log(req.body);
-    if (!name || !englishClass || !mathClass || !sportsClass || !historyClass) {
+    const { name, lastname,  englishClass, mathClass, sportsClass, historyClass } = req.body;
+    if (!name || !lastname || !englishClass || !mathClass || !sportsClass || !historyClass) {
       return res.status(400).json({ error: "Missing required fields" });
     }
     const newStudent = await StudentModel.create({
       name,
+      lastname,
       englishClass,
       mathClass,
       sportsClass,
@@ -24,6 +24,7 @@ export const addStudentGrades =  async (req:any, res:any) => {
 export const addMockStudent = async (req:any, res:any) => {
     const newStudent = await StudentModel.create({
         name:uuidv4().slice(0,7),
+        lastname: "moshe",
         englishClass: 70,
         mathClass: 80,
         sportsClass: 90,
@@ -48,10 +49,9 @@ export const getStudents = async (req:any, res:any) => {
 
 export const deleteStudent = async (req:any, res:any) => {
     try {
-      const uid = req.body.uid;
+      const uid = req.query.uid;
       if (!uid) throw new Error("Invalid to find uid");
       await StudentModel.deleteOne({ uid });
-  
       res.sendStatus(200);
     } catch (error: any) {
       console.error(error);
@@ -62,13 +62,13 @@ export const deleteStudent = async (req:any, res:any) => {
 
 export const updateStudentName = async (req:any, res:any) => {
     try {
-        const { name, uid } = req.body;
+        const { name, uid } = req.query;
         console.log(name, uid)
         if (!name) throw new Error("No name in data");
         if (!uid) throw new Error("No uid in data");
         const student = await StudentModel.findOneAndUpdate({uid}, {name});
         if (!student) throw new Error("No student in array");
-        console.log(student)
+        // console.log(req.query)
         res.send({ ok: true });
       } catch (error: any) {
         console.error(error);

@@ -40,17 +40,17 @@ exports.updateStudentName = exports.deleteStudent = exports.getStudents = export
 var studentsModel_1 = require("./studentsModel");
 var uuid_1 = require("uuid");
 exports.addStudentGrades = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, englishClass, mathClass, sportsClass, historyClass, newStudent;
+    var _a, name, lastname, englishClass, mathClass, sportsClass, historyClass, newStudent;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _a = req.body, name = _a.name, englishClass = _a.englishClass, mathClass = _a.mathClass, sportsClass = _a.sportsClass, historyClass = _a.historyClass;
-                console.log(req.body);
-                if (!name || !englishClass || !mathClass || !sportsClass || !historyClass) {
+                _a = req.body, name = _a.name, lastname = _a.lastname, englishClass = _a.englishClass, mathClass = _a.mathClass, sportsClass = _a.sportsClass, historyClass = _a.historyClass;
+                if (!name || !lastname || !englishClass || !mathClass || !sportsClass || !historyClass) {
                     return [2 /*return*/, res.status(400).json({ error: "Missing required fields" })];
                 }
                 return [4 /*yield*/, studentsModel_1["default"].create({
                         name: name,
+                        lastname: lastname,
                         englishClass: englishClass,
                         mathClass: mathClass,
                         sportsClass: sportsClass,
@@ -70,6 +70,7 @@ exports.addMockStudent = function (req, res) { return __awaiter(void 0, void 0, 
         switch (_a.label) {
             case 0: return [4 /*yield*/, studentsModel_1["default"].create({
                     name: uuid_1.v4().slice(0, 7),
+                    lastname: "moshe",
                     englishClass: 70,
                     mathClass: 80,
                     sportsClass: 90,
@@ -110,7 +111,7 @@ exports.deleteStudent = function (req, res) { return __awaiter(void 0, void 0, v
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                uid = req.body.uid;
+                uid = req.query.uid;
                 if (!uid)
                     throw new Error("Invalid to find uid");
                 return [4 /*yield*/, studentsModel_1["default"].deleteOne({ uid: uid })];
@@ -133,7 +134,7 @@ exports.updateStudentName = function (req, res) { return __awaiter(void 0, void 
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                _a = req.body, name = _a.name, uid = _a.uid;
+                _a = req.query, name = _a.name, uid = _a.uid;
                 console.log(name, uid);
                 if (!name)
                     throw new Error("No name in data");
@@ -144,7 +145,7 @@ exports.updateStudentName = function (req, res) { return __awaiter(void 0, void 
                 student = _b.sent();
                 if (!student)
                     throw new Error("No student in array");
-                console.log(student);
+                // console.log(req.query)
                 res.send({ ok: true });
                 return [3 /*break*/, 3];
             case 2:

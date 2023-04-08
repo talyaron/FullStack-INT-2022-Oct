@@ -11,6 +11,11 @@ function renderFormTeacher() {
              <div class="cut"></div>
              <label for="studentName" class="placeholder">student name</label>
            </div>
+           <div class="input-container ic1">
+             <input name="studentLastName" class="input" type="text" placeholder=" " />
+             <div class="cut"></div>
+             <label for="studentLastName" class="placeholder">student last name</label>
+           </div>
            <div class="input-container ic2">
              <input name="englishC" class="input" type="text" placeholder=" " />
              <div class="cut cut-short"></div>
@@ -58,23 +63,25 @@ function handleSubmit(doc: HTMLElement) {
     event.preventDefault();
     console.log(event.target.elements.studentName);
     const name = event.target.elements.studentName.value;
+    const lastname = event.target.elements.studentLastName.value;
     const englishClass = event.target.elements.englishC.value;
     const mathClass = event.target.elements.mathC.value;
     const sportsClass = event.target.elements.sportsC.value;
     const historyClass = event.target.elements.historyC.value;
     if (!name) throw new Error("can't find name");
+    if (!lastname) throw new Error("can't find lastname");
     if (!englishClass) throw new Error("can't find englishClass");
     if (!mathClass) throw new Error("can't find mathClass");
     if (!sportsClass) throw new Error("can't find sportsClass");
     if (!historyClass) throw new Error("can't find historyClass");
     const newStudent = {
       name,
+      lastname,
       englishClass,
       mathClass,
       sportsClass,
       historyClass,
     };
-    console.log(newStudent);
     fetch("/api/students/add-student-grades", {
       method: "POST",
       headers: {

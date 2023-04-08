@@ -6,6 +6,7 @@ var mongoose_1 = require("mongoose");
 var dotenv = require("dotenv"); // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 dotenv.config();
 var uri = process.env.MONGODB_URI;
+app.use(express_1["default"].json());
 if (uri) {
     mongoose_1["default"]
         .connect(uri)

@@ -1,11 +1,13 @@
 "use strict";
 exports.__esModule = true;
-exports.Student = void 0;
+exports.studentSchema = exports.Student = void 0;
 var mongoose_1 = require("mongoose");
 var uuid_1 = require("uuid");
+var coursesModel_1 = require("../courses/coursesModel");
 var Student = /** @class */ (function () {
-    function Student(name, englishClass, mathClass, sportsClass, historyClass, avg) {
+    function Student(name, lastname, englishClass, mathClass, sportsClass, historyClass, avg) {
         this.name = name;
+        this.lastname = lastname;
         this.englishClass = englishClass;
         this.mathClass = mathClass;
         this.sportsClass = sportsClass;
@@ -26,14 +28,16 @@ var Student = /** @class */ (function () {
     return Student;
 }());
 exports.Student = Student;
-var studentSchema = new mongoose_1.Schema({
+exports.studentSchema = new mongoose_1.Schema({
     uid: String,
     name: String,
+    lastname: String,
     englishClass: Number,
     mathClass: Number,
     sportsClass: Number,
     historyClass: Number,
-    avg: Number
+    avg: Number,
+    course: [coursesModel_1.CourseSchema]
 });
-var StudentModel = mongoose_1["default"].model("students", studentSchema);
+var StudentModel = mongoose_1["default"].model("students", exports.studentSchema);
 exports["default"] = StudentModel;

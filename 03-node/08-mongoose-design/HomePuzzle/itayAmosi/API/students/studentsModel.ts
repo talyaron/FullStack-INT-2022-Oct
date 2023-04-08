@@ -1,26 +1,18 @@
 import mongoose, { Schema } from "mongoose";
 import { v4 as uuidv4 } from "uuid";
+import { CourseSchema } from "../courses/coursesModel";
 
-
-export interface IStudent {
-  uid: string;
-  name: string;
-  englishClass: number;
-  mathClass: number;
-  sportsClass: number;
-  historyClass: number;
-  avg: number;
-}
-
-export class Student implements IStudent {
+export class Student {
   public uid: string = uuidv4();
+  lasName: any;
   constructor(
     public name: string,
+    public lastname: string,
     public englishClass: number,
     public mathClass: number,
     public sportsClass: number,
     public historyClass: number,
-    public avg: number,
+    public avg: number
   ) {}
 
   getSimple() {
@@ -35,20 +27,18 @@ export class Student implements IStudent {
   }
 }
 
-const studentSchema = new Schema<IStudent>({
+export const studentSchema = new Schema({
   uid: String,
   name: String,
+  lastname: String,
   englishClass: Number,
   mathClass: Number,
   sportsClass: Number,
   historyClass: Number,
   avg: Number,
+  course: [CourseSchema],
 });
 
-
-const StudentModel = mongoose.model<IStudent>("students", studentSchema);
-
+const StudentModel = mongoose.model("students", studentSchema);
 
 export default StudentModel;
-
-

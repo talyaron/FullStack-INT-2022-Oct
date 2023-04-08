@@ -1,15 +1,6 @@
-interface IStudent {
-  name: string;
-  englishClass: number;
-  mathClass: number;
-  sportsClass: number;
-  historyClass: number;
-  uid: string;
-  avg: number;
-}
+import { Student } from "../../API/students/studentsModel";
 
-
-function renderStudentDiv(student: IStudent) {
+function renderStudentDiv(student: Student) {
     try {
       if (!student) throw new Error("No student Root div found");
   const html = 
@@ -18,7 +9,10 @@ function renderStudentDiv(student: IStudent) {
              <div class="subtitle">This is the list of your grades in classes</div>
              <div id="window" class="input-container ic1">
                <h2 contenteditable oninput="handleStudentNameUpdate(event, '${student.uid}')">${student.name}</h2>
-             </div>
+               </div>
+               <div id="window" class="input-container ic1">
+               <h2>${student.lastname}</h2>
+               </div>
              <div id="window" class="input-container ic2 windowNum1">
                <h2>English class:${student.englishClass}</h2>
              </div>
@@ -35,6 +29,8 @@ function renderStudentDiv(student: IStudent) {
                <h2>Yor Average is:${student.avg}</h2>
              </div>
              <button class="submit" onclick='handleDeleteStudent("${student.uid}")'>DELETE</button>
+             <button id="avgBtn" type="submit" class="submit" onclick="calc(event)">Average</button>
+             <button id="" type="submit" class="submit" onclick="getStudentGradesInCourse()">get</button>
              </div>`;
              const studentRoot = document.querySelector("#studentRoot")
              if(!studentRoot) throw new Error("student Root not found")
@@ -45,7 +41,6 @@ function renderStudentDiv(student: IStudent) {
           };
           
           
-          // <button id="avgBtn" type="submit" class="submit" onclick="calc(event);">Average</button>
 
 
   function handelStudent() {
@@ -69,13 +64,12 @@ try {
 
 function handleDeleteStudent(uid: string) {
   try {
-    fetch("/api/students/delete-student", {
+    fetch("/api/students/delete-student?"+new URLSearchParams({uid}).toString(),  {
       method: "DELETE",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ uid }),
     })
     .then(()=> {
       const studentForm = document.getElementById(uid)
@@ -96,17 +90,33 @@ function handleDeleteStudent(uid: string) {
 
 function handleStudentNameUpdate(ev: any, uid: string) {
   try {
-    console.log(uid);
     const name = ev.target.textContent;
-    fetch("/api/students/update-student-name", {
+    console.log({name, uid});
+    fetch("/api/students/update-student-name?"+new URLSearchParams({name, uid}).toString(), {
       method: "PATCH",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, uid }),
     });
   } catch (error) {
     console.error(error);
   }
 }
+
+// function getStudentGradesInCourse(){
+//     try {
+//     // const courseId = ;
+//     // const studentId = ;
+//     console.log({courseId, studentId});
+//     fetch("/api/students/get-student-grades?"+new URLSearchParams({courseId, studentId}).toString(), {
+//       method: "PATCH",
+//       headers: {
+//         Accept: "application/json",
+//         "Content-Type": "application/json",
+//       },
+//     });
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
