@@ -1,9 +1,10 @@
-import UserModel from "./usersModel";
 
-export const getUsers = async (req:any, res:any) => {
+import CourseModel from "./coursesModel";
+
+
+export const getCourse = async (req:any, res:any) => {
     try {
-      const users = await UserModel.find({});
-  
+      const users = await CourseModel.find({});
       res.send({ users });
     } catch (error: any) {
       console.error(error);
@@ -12,15 +13,16 @@ export const getUsers = async (req:any, res:any) => {
   }
 
 
-export const addUser = async (req:any, res:any) => {
+export const addCourse = async (req:any, res:any) => {
   try {
-    const { name, src } = req.body;
-    console.log(name, src);
+    const { name, teacherName } = req.body;
+    console.log(req.body)
+    console.log(name, teacherName);
 
     //add users to DB;
-    const userDB = await UserModel.create({ name, src });
+    const courseDB = await CourseModel.create({ name, teacherName });
 
-    console.log(userDB);
+    console.log(courseDB);
 
     res.status(201).send({ ok: true });
   } catch (error: any) {
@@ -29,16 +31,7 @@ export const addUser = async (req:any, res:any) => {
   }
 };
 
-export const updateUser = (req:any, res:any) => {
-    try {
-    } catch (error: any) {
-      console.error(error);
-      res.status(500).send({ error: error.message });
-    }
-  }
-
-
-  export const updateUserName = (req:any, res:any) => {
+  export const updateCourse = (req:any, res:any) => {
     try {
       // const { name, uid } = req.body;
       // if (!name) throw new Error("No name in data");
@@ -54,16 +47,25 @@ export const updateUser = (req:any, res:any) => {
   }
 
 
-  export const deleteUser = async (req:any, res:any) => {
+  export const deleteCourse = async (req:any, res:any) => {
     try {
       const { _id } = req.body;
   
-      const deleteUser = await UserModel.deleteOne({ _id });
-      const users = await UserModel.find({});
+      const deleteCourse = await CourseModel.deleteOne({ _id });
+      const courses = await CourseModel.find({});
   
-      res.send({ ok: true, users });
+      res.send({ success: true, courses });
     } catch (error: any) {
       console.error(error);
       res.status(500).send({ error: error.message });
     }
+  }
+
+  export const updateCourseName = async (req:any , res:any)=>{
+    try{
+        
+    } catch (error: any) {
+        console.error(error);
+        res.status(500).send({ error: error.message });
+      }
   }
