@@ -2,7 +2,7 @@ import mongoose, { Schema } from "mongoose";
 import { v4 as uuidv4 } from "uuid";
 
 
-const teacherSchema = new Schema ({
+export const TeacherSchema = new Schema ({
     uid: String,
     name: String,
     englishClass: Number,
@@ -12,6 +12,6 @@ const teacherSchema = new Schema ({
     avg: Number,
 });
 
-const TeacherModel = mongoose.model("teachers", teacherSchema);
+const TeacherModel = mongoose.model("teachers", TeacherSchema);
 
 export default TeacherModel;

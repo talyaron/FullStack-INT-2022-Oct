@@ -9,6 +9,8 @@ dotenv.config();
 
 const uri: string | undefined = process.env.MONGODB_URI;
 
+app.use(express.json());
+
 if (uri) {
   mongoose
     .connect(uri)
