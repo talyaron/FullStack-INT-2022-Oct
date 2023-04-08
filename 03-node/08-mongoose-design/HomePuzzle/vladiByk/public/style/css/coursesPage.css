@@ -24,7 +24,7 @@ body {
   padding-bottom: 1rem;
 }
 
-#root {
+#coursesRoot {
   height: 70%;
   width: 80%;
   box-shadow: 0 0 5px black;
@@ -35,7 +35,7 @@ body {
   grid-template-rows: repeat(3, 1fr);
   gap: 2rem;
 }
-#root .course {
+#coursesRoot .course {
   width: 100%;
   height: 100%;
   border-radius: 5px;
@@ -45,7 +45,7 @@ body {
   justify-content: center;
   cursor: pointer;
 }
-#root .course:hover {
+#coursesRoot .course:hover {
   box-shadow: 0 0 10px rgb(47, 6, 6);
 }
 

@@ -56,7 +56,7 @@ export const deleteCourse = async (
     const course = await Course.deleteOne({ _id: courseId });
     const courses = await Course.find({});
 
-    res.status(200).send({ courses });
+    res.status(200).send({ courses, course });
   } catch (error: any) {
     console.error(error);
     res.status(500).json({ error: error.message });

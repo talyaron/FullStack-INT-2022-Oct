@@ -8,23 +8,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+const courseApi = "http://localhost:3000/api/v1/courses";
+const coursesRoot = document.querySelector("#coursesRoot");
 class Course {
-    constructor(name, students = []) {
+    constructor(name, teachers = [], id) {
         this.name = name;
-        this.students = students;
+        this.teachers = teachers;
+        this.id = id;
     }
     getStudents() {
         return __awaiter(this, void 0, void 0, function* () {
             const students = yield fetch("/api/v1/students").then;
-            return 'student list';
+            return "student list";
         });
     }
 }
 const displayCourses = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const coursesList = yield fetch(apiUrl)
+        const coursesList = yield fetch(courseApi)
             .then((res) => res.json())
-            .then(({ courses }) => courses.map((student) => new Student(student.name, student.grades, student._id)));
+            .then(({ courses }) => courses.map((course) => new Course(course.name, course.teachers, course._id)));
         if (coursesList)
             renderCourses(coursesList);
     }
@@ -33,4 +36,15 @@ const displayCourses = () => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 function renderCourses(coursesList) {
+    coursesRoot.innerHTML = coursesList
+        .map((course) => `<a href="./students.html" class="course" id="${course.id}">${course.name}</a>`)
+        .join("");
 }
+function deleteCourse(courseId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield fetch(`${courseApi}/${courseId}`)
+            .then((res) => res.json())
+            .catch((error) => console.error(error));
+    });
+}
+displayCourses();

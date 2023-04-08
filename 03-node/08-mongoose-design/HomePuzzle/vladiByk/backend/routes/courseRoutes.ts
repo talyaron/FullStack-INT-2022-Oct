@@ -9,6 +9,11 @@ import {
 } from "../controllers/courseController";
 
 courseRouter.route("/").get(getAllCourses).post(createCourse);
-courseRouter.route("/:id").get(getCourse).patch(updateCourse).delete(deleteCourse);
+
+courseRouter
+  .route("/:id")
+  .get(getCourse)
+  .patch(updateCourse)
+  .delete(deleteCourse);
 
 export { courseRouter };

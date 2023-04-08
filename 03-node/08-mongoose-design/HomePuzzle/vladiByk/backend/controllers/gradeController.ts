@@ -61,7 +61,7 @@ export const deleteGrade = async (
   next: NextFunction
 ) => {
   try {
-    const { id: gradeId } = req.params;
+    const { id: gradeId } = req.body;
     const grade = await Grade.deleteOne({ _id: gradeId });
     const grades = await Grade.find({});
 

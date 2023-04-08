@@ -55,7 +55,7 @@ const deleteCourse = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
         const { id: courseId } = req.params;
         const course = yield CourseModel_1.default.deleteOne({ _id: courseId });
         const courses = yield CourseModel_1.default.find({});
-        res.status(200).send({ courses });
+        res.status(200).send({ courses, course });
     }
     catch (error) {
         console.error(error);
