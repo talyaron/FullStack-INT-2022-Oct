@@ -1,0 +1,46 @@
+$primaryback:linear-gradient(120deg,#2980b9, #8e44ad);
+$pickcolor:rgb(194, 42, 174);
+$bluecolor:rgb(104, 151, 240);
+$aquacolor:rgb(14, 245, 245);
+$overallpink:rgb(242, 14, 212);
+
+#newC{
+height: 70vh;
+display: flex;
+justify-content: center;
+
+#newCform{
+margin: 150px 0px;
+
+
+label{
+    color:$overallpink;
+    font-size: 24px;
+    
+}
+
+label, input{
+    padding: 10px 15px;
+    margin: 10px 0px;
+    outline: none;
+}
+
+input{
+color: aqua;
+background-color: black;
+font-size: 22px;
+border-bottom: 3px solid rgb(242, 14, 212);  
+border-radius: 12% 12%;
+}
+
+
+button{
+   margin-right: 200px;
+   background-color: aqua;
+   color:rgb(242, 14, 212);
+   font-size: 20px;
+   outline: none;
+}
+}
+
+}

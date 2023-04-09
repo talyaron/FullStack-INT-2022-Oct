@@ -1,0 +1,129 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --baseShade1: #54cc85;
+  --baseShade2: #479264;
+  --whiteShade1: #ffffff;
+  --whiteShade2: #f8fafb;
+  --blackShade1: #231c3d;
+  --blackShade2: #575a7b;
+  --blackShade3: #999;
+  --blackShade4: #ccc;
+  --baseFontSize1: 1.6rem;
+  --baseFontSize2: 1.2rem;
+  --headingFontSize1: 4rem;
+  --headingFontSize2: 3.2rem;
+  --headingFontSize3: 2rem;
+  --headingFontSize4: 1.8rem;
+  --borderRadius1: 1rem;
+  --borderRadius2: 0.5rem;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  height: 80px;
+  background: var(--baseShade2);
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background: var(--baseShade2);
+}
+
+body {
+  background: var(--baseShade2);
+}
+
+section {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2.5%;
+  min-height: 100vh;
+}
+section .title {
+  font-size: var(--baseFontSize1);
+  font-weight: 600;
+  color: var(--whiteShade2);
+  text-align: left;
+  width: 100%;
+  margin-top: 60px;
+  margin-bottom: 10px;
+}
+section .container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  overflow: hidden;
+}
+section .container #main-Video {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  outline: none;
+}
+section .container .playlistBx {
+  position: relative;
+  height: 100%;
+  margin: 0 10px 0 10px;
+}
+section .container .playlist {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 40px);
+  overflow-y: scroll;
+  border-top: 1px solid var(--whiteShade2);
+}
+section .container .playlist li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  color: var(--whiteShade2);
+  cursor: pointer;
+  border: 1px solid transparent;
+  padding: 15px 20px;
+  border-radius: var(--borderRadius2);
+}
+section .container .playlist li:hover {
+  border: 0.5px solid var(--blackShade3);
+}
+section .container .playlist li .row span {
+  font-size: var(--baseFontSize2);
+  font-weight: 400;
+  color: var(--whiteShade2);
+  text-decoration: none;
+  display: inline-block;
+  text-align: left;
+}
+section .container .playlist li .row span::before {
+  content: "\f01d";
+  font-family: FontAwesome;
+  color: var(--whiteShade2);
+  margin-right: 15px;
+  font-size: var(--baseFontSize1);
+}
+section .container .playlist::-webkit-scrollbar {
+  width: 0px;
+}
+section .container .playlistBx .row .AllLessons {
+  display: block;
+  text-align: left;
+  color: var(--whiteShade2);
+  font-size: var(--baseFontSize2);
+  font-weight: 700;
+  margin-left: 40px;
+  line-height: 40px;
+}/*# sourceMappingURL=userProfile.css.map */

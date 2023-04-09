@@ -12,6 +12,13 @@
   overflow-y: auto;
   background: url("../../img/darkSunrise.jpg") no-repeat center/cover;
 }
+.mainpageContainer__main h1 {
+  background: linear-gradient(90deg, #edff00 0%, #ff9e00 69%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.7rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
 .mainpageContainer__main__boards {
   margin-top: 1em;
   height: auto;

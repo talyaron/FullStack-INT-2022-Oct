@@ -1,7 +1,6 @@
 function handleSignUp(e: Event) {
   try {
     e.preventDefault();
-    // e.stopPropagation();
     const gender = this.elements.gender.value;
     const firstName = this.elements.firstName.value;
     const lastName = this.elements.lastName.value;
@@ -38,7 +37,7 @@ function handleSignUp(e: Event) {
     location.href = "index.html";
     this.reset();
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -56,7 +55,7 @@ function handleSignIn(e: Event) {
       alert("User does not exist.");
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -83,7 +82,7 @@ function handleRecovery(e: Event) {
     recoveredPassword.textContent = findUser.password;
     passwordDisplayDiv.style.display = "flex";
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -91,20 +90,93 @@ function displayProfile(user: User) {
   try {
     profileWindow.style.display = "flex";
     if (user) {
-      return (profileDiv.innerHTML = `
+      profileDiv.innerHTML = `
         <ul>
           <h1>About you:</h1>
-          <li>Name: ${user.firstName} ${user.lastName}</li>
-          <li>Gender: ${user.gender}</li>
-          <li>Email: ${user.email}</li>
-          <li>Phone Number: ${user.phoneNumber}</li>
-          <li>User Name: ${user.userName}</li>
-          <li>Password: ${user.password}</li>
+          <li>Name: <span class="user-info">${user.firstName} ${user.lastName}</span>
+          </li>
+          <li>Gender: <span class="user-info">${user.gender}</span>
+          </li>
+          <li>Email: <span class="user-info">${user.email}</span>
+          </li>
+          <li>Phone Number: <span class="user-info">${user.phoneNumber}</span>
+          </li>
+          <li>User Name: <span class="user-info">${user.userName}</span>
+          </li>
+          <li>Password: <span class="user-info">${user.password}</span>
+          </li>
         </ul>
-        `);
+      `;
+      
+      // const editProfileInfoBtns = document.querySelectorAll('.editInfo');
+
+      // editProfileInfoBtns.forEach((editBoardBtn)=>{
+      //   editBoardBtn.addEventListener("click",()=>{
+      //     const userProfileInfoTitle = editBoardBtn.parentNode as HTMLElement;
+      //     const userProfileInfoText = userProfileInfoTitle.querySelector(".user-info") as HTMLElement;
+      //     const editprofileInput = document.createElement("input");
+
+      //     editprofileInput.type = "text";
+      //     editprofileInput.value = userProfileInfoText.textContent!;
+      //     editprofileInput.classList.add("editUserInput");
+
+      //     userProfileInfoTitle.replaceChild(editprofileInput, userProfileInfoText);
+      //     editprofileInput.focus();
+
+      //     const saveButton = document.createElement("button");
+      //     saveButton.textContent = "Save";
+      //     saveButton.classList.add("saveInfo");
+      //     userProfileInfoTitle.insertBefore(saveButton, editBoardBtn.nextSibling);
+
+      //     const cancelButton = document.createElement("button");
+      //     cancelButton.textContent = "Cancel";
+      //     cancelButton.classList.add("cancelEdit");
+      //     userProfileInfoTitle.insertBefore(cancelButton, editBoardBtn.nextSibling);
+
+      //     editBoardBtn.style.display = "none";
+
+      //     saveButton.addEventListener("click", () => {
+      //       const newContent = editprofileInput.value.trim();
+      //       userProfileInfoTitle.replaceChild(userProfileInfoText, editprofileInput);
+      //       userProfileInfoText.textContent = newContent;
+
+      //       editBoardBtn.style.display = "inline-block";
+      //       saveButton.remove();
+      //       cancelButton.remove();
+
+      //     });
+
+      //     cancelButton.addEventListener("click", () => {
+      //       userProfileInfoTitle.replaceChild(userProfileInfoText, editprofileInput);
+
+      //       editBoardBtn.style.display = "inline-block";
+      //       saveButton.remove();
+      //       cancelButton.remove();
+      //     });
+      //   });
+      // });
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
+  }
+}
+function displayNotifictions() {
+  try {
+    const notifications = localStorage.getItem(
+      `notifications-${currentUser.uid}`
+    );
+    if (notifications) {
+      const notificationss = JSON.parse(notifications);
+      notifictionWindow.style.display = "flex";
+      return (notificationsDiv.innerHTML = `
+      <ul>
+      <h3>notifications :</h3>
+      <li>${notificationss}</li>
+    </ul>
+          `);
+    }
+  } catch (error) {
+    console.error(error);
   }
 }
 
@@ -141,7 +213,7 @@ function checkIfUserExists(userName: string, password: string) {
       (user) => user.userName === userName && user.password === password
     );
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -158,7 +230,7 @@ function renderBoardsToMain(listOFBoards: Board[]) {
       })
       .join("");
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
@@ -182,151 +254,146 @@ function createBoard(boardName: string, boardImage: string) {
       alert("Board Name Is Missing");
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 function makeListFunctional(listContainer: HTMLElement) {
-  try {
-    listContainer.addEventListener("dragstart", (ev) => {
-      if (listContainer != ev.target) return;
-      listContainer.classList.add("isDragging");
-    });
-    listContainer.addEventListener("dragend", () => {
-      listContainer.classList.remove("isDragging");
-    });
+  listContainer.addEventListener("dragstart", () => {
+    listContainer.classList.add("is-draggin");
+  });
+  listContainer.addEventListener("dragend", () => {
+    listContainer.classList.remove("is-draggin");
+  });
 
-    listContainer.addEventListener("dragover", dragginCard);
+  listContainer.addEventListener("dragover", dragginCard);
 
-    const editListBtn = listContainer.querySelector(
-      ".editListBtn"
-    ) as HTMLElement;
-    editListBtn.addEventListener("click", editList);
+  const editListBtn = listContainer.querySelector(
+    ".editListBtn"
+  ) as HTMLElement;
+  editListBtn.addEventListener("click", editList);
 
-    const newCardTextArea = listContainer.querySelector(
-      ".newCardTextArea"
-    ) as HTMLTextAreaElement;
-    newCardTextArea.addEventListener("keyup", (event) => {
-      if (event.key === "Enter") {
-        if (newCardTextArea.value.trim() !== "") {
-          createCardElement(newCardTextArea.value.trim(), listContainer);
-          newCardTextArea.value = "";
-        }
+  const newCardTextArea = listContainer.querySelector(
+    ".newCardTextArea"
+  ) as HTMLTextAreaElement;
+  newCardTextArea.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+      if (newCardTextArea.value.trim() !== "") {
+        createCardElement(newCardTextArea.value.trim(), listContainer);
+        let successcardMsg = `<i class="fa-solid fa-circle-check"></i>Add new card: ${newCardTextArea.value}`;
+        notification(successcardMsg);
+        saveNotificationToLocalStorage(successcardMsg, currentBoard, currentUser);
+        newCardTextArea.value = "";
       }
-    });
-  } catch (error) {
-    console.log(error);
-  }
+    }
+  });
 }
 
 function dragginCard({ clientY }) {
-  try {
-    let cardIsDragged = false;
-    cards.forEach((card) => {
-      if (card.classList.contains("isDragging")) {
-        cardIsDragged = true;
-      }
-    });
-    if (!cardIsDragged) return;
-    // e.preventDefault();
-
-    const bottomTask = insertAboveTask(this, clientY);
-    const curTask = document.querySelector(".isDragging") as HTMLElement;
-
-    if (!bottomTask) {
-      this.appendChild(curTask);
-    } else {
-      this.insertBefore(curTask, bottomTask);
+  let cardIsDragged = false;
+  cards.forEach((card) => {
+    if (card.classList.contains("is-dragging")) {
+      cardIsDragged = true;
     }
-    currentBoard.update();
-  } catch (error) {
-    console.log(error);
+  });
+  if (!cardIsDragged) return;
+  const bottomTask = insertAboveTask(this, clientY);
+  const curTask = document.querySelector(".is-dragging") as HTMLElement;
+
+  if (!bottomTask) {
+    this.appendChild(curTask);
+  } else {
+    this.insertBefore(curTask, bottomTask);
   }
+  currentBoard.update();
 }
-
 function editList() {
-  try {
-    const listTitle = this.parentNode as HTMLElement;
-    const listTitleText = listTitle.querySelector("h2") as HTMLElement;
-    const editListInput = document.createElement("input");
+  const listTitle = this.parentNode as HTMLElement;
+  const listTitleText = listTitle.querySelector("h2") as HTMLElement;
+  const editListInput = document.createElement("input");
 
-    editListInput.type = "text";
-    editListInput.value = listTitleText.textContent!;
-    editListInput.classList.add("editListInput");
+  editListInput.type = "text";
+  editListInput.value = listTitleText.textContent!;
+  editListInput.classList.add("editListInput");
 
-    listTitle.replaceChild(editListInput, listTitleText);
-    editListInput.focus();
-
-    editListInput.addEventListener("keyup", (event) => {
-      if (event.key === "Enter") {
-        listTitle.replaceChild(listTitleText, editListInput);
-        listTitleText.textContent = editListInput.value.trim();
-        currentBoard.update();
-      }
-    });
-  } catch (error) {
-    console.log(error);
-  }
+  listTitle.replaceChild(editListInput, listTitleText);
+  editListInput.focus();
+  editListInput.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+      listTitle.replaceChild(listTitleText, editListInput);
+      listTitleText.textContent = editListInput.value.trim();
+      let successcardMsg = `<i class="fa-solid fa-circle-check"></i>New List Name: ${editListInput.value}`;
+      notification(successcardMsg);
+      saveNotificationToLocalStorage(successcardMsg, currentBoard, currentUser);
+      currentBoard.update();
+    }
+  });
+  editListInput.addEventListener("blur", (event) => {
+    const newListTitle = document.createElement("h2");
+    newListTitle.textContent = editListInput.value.trim();
+    editListInput.replaceWith(newListTitle);
+    currentBoard.update();
+  });
 }
 
 function createCardElement(cardName: string, list: Element) {
-  try {
-    const card = document.createElement("div");
-    card.classList.add("boardContainer__main__list__card");
-    card.setAttribute("draggable", "true");
-    card.setAttribute("id", `${uid()}`);
-    card.innerHTML = `
-    <p>${cardName}</p>
-    <i class="fa-regular fa-pen-to-square editCardBtn"></i>
-    `;
-    const cardTitle = list.querySelector(
-      ".boardContainer__main__list__header"
-    ) as HTMLDivElement;
-    list.insertBefore(card, cardTitle.nextSibling);
+  const card = document.createElement("div");
+  card.classList.add("boardContainer__main__list__card");
+  card.setAttribute("draggable", "true");
+  card.setAttribute("ondragstart", `drag(event)`);
+  card.setAttribute("id", `${uid()}`);
+  card.innerHTML = `
+  <h2>${cardName}</h2>
+  <i class="fa-regular fa-pen-to-square editCardBtn"></i>
+  `;
+  const cardTitle = list.querySelector(
+    ".boardContainer__main__list__header"
+  ) as HTMLDivElement;
+  list.insertBefore(card, cardTitle.nextSibling);
+  const editCardBtn = card.querySelector(".editCardBtn") as HTMLElement;
+  editCardBtn.addEventListener("click", () => {
+    const cardTitle = card.querySelector(
+      ".boardContainer__main__list__card > h2"
+    ) as HTMLElement;
+    if (!cardTitle) {
+      console.error("Card title element not found!");
+      return;
+    }
+    const editCardInput = document.createElement("input");
 
-    const editCardBtn = card.querySelector(".editCardBtn") as HTMLElement;
-
-    editCardBtn.addEventListener("click", () => {
-      const cardTitle = card.querySelector(
-        ".boardContainer__main__list__card > p"
-      ) as HTMLElement;
-      if (!cardTitle) {
-        console.error("Card title element not found!");
-        return;
+    editCardInput.type = "text";
+    editCardInput.value = cardTitle.textContent!;
+    editCardInput.classList.add("editCardInput");
+    editCardInput.addEventListener("keyup", (event) => {
+      if (event.key === "Enter") {
+        const newCardTitle = document.createElement("h2");
+        newCardTitle.textContent = editCardInput.value.trim();
+        let successcardMsg = `<i class="fa-solid fa-circle-check"></i>New Card Name: ${editCardInput.value}`;
+        notification(successcardMsg);
+        saveNotificationToLocalStorage(successcardMsg, currentBoard, currentUser);
+        editCardInput.replaceWith(newCardTitle);
       }
-
-      const editCardInput = document.createElement("input");
-
-      editCardInput.type = "text";
-      editCardInput.value = cardTitle.textContent!;
-      editCardInput.classList.add("editCardInput");
-
-      editCardInput.addEventListener("keyup", (event) => {
-        if (event.key === "Enter") {
-          const newCardTitle = document.createElement("p");
-          newCardTitle.textContent = editCardInput.value.trim();
-          editCardInput.replaceWith(newCardTitle);
-        }
-      });
-
-      cardTitle.replaceWith(editCardInput);
-      editCardInput.focus();
+    });
+    editCardInput.addEventListener("blur", () => {
+      const newCardTitle = document.createElement("h2");
+      newCardTitle.textContent = editCardInput.value.trim();
+      editCardInput.replaceWith(newCardTitle);
       currentBoard.update();
     });
-
-    card.addEventListener("dragstart", (ev) => {
-      card.classList.add("isDragging");
-    });
-    card.addEventListener("dragend", () => {
-      card.classList.remove("isDragging");
-    });
+    cardTitle.replaceWith(editCardInput);
+    editCardInput.focus();
     currentBoard.update();
-    // Add new card to cards variable
-    cards = document.querySelectorAll(
-      ".boardContainer__main__list__card"
-    ) as NodeListOf<HTMLDivElement>;
-  } catch (error) {
-    console.log(error);
-  }
+  });
+  card.addEventListener("dragstart", () => {
+    card.classList.add("is-dragging");
+  });
+  card.addEventListener("dragend", () => {
+    card.classList.remove("is-dragging");
+  });
+  currentBoard.update();
+  // Add new card to cards variable
+  cards = document.querySelectorAll(
+    ".boardContainer__main__list__card"
+  ) as NodeListOf<HTMLDivElement>;
 }
 
 function renderBoardInBoardPage() {
@@ -342,6 +409,59 @@ function renderBoardInBoardPage() {
       });
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
+}
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+function drag(ev) {
+  ev.dataTransfer.setData("Text", ev.target.id);
+}
+function drop(ev) {
+  ev.preventDefault();
+  const data = ev.dataTransfer.getData("Text");
+  const el = document.getElementById(data);
+  // el?.parentNode?.removeChild(el); => delete without Warning //
+  currentBoard.update();
+}
+
+function saveNotificationToLocalStorage(notification, board, user) {
+  let userNotifications = JSON.parse(
+    localStorage.getItem(`notifications-${user.uid}`) || `[]`
+  );
+  userNotifications.push(notification);
+  localStorage.setItem(
+    `notifications-${user.uid}`,
+    JSON.stringify(userNotifications)
+  );
+  let boardNotifications = JSON.parse(
+    localStorage.getItem(`notifications-board-${board.uid}`) || `[]`
+  );
+  boardNotifications.push(notification);
+  localStorage.setItem(
+    `notifications-board-${board.uid}`,
+    JSON.stringify(boardNotifications)
+  );
+}
+
+function notification(msg) {
+  let note = document.createElement("div");
+  note.classList.add("notification");
+  note.innerHTML = msg;
+  noteBox.appendChild(note);
+
+  if (msg.includes(`Delete`)) {
+    note.classList.add("Delete");
+  }
+  if (msg.includes(`List`)) {
+    note.classList.add("List");
+  }
+  if (msg.includes(`card`)) {
+    note.classList.add("card");
+  }
+  setTimeout(() => {
+    note.remove();
+  }, 6000);
 }

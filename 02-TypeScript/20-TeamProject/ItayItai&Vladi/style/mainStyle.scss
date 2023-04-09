@@ -10,6 +10,18 @@
     padding: 2rem 4rem;
     overflow-y: auto;
     background: url("../../img/darkSunrise.jpg") no-repeat center / cover;
+    h1 {
+      background: linear-gradient(
+        90deg,
+        rgba(237, 255, 0, 1) 0%,
+        rgba(255, 158, 0, 1) 69%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 1.7rem;
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    }
     &__boards {
       margin-top: 1em;
       height: auto;
@@ -74,26 +86,3 @@
     display: none;
   }
 }
-
-// #maindiv {
-//   width: 500px;
-//   height: 300px;
-//   padding: 10px;
-// }
-// #dragdiv {
-//   width: 180px;
-//   float: left;
-// }
-// #dropdiv {
-//   position: fixed;
-//   bottom: 0px;
-//   right: 0px;
-//   width: 200px;
-//   height: 200px;
-//   background-color: rgba(223, 47, 16, 0.658);
-//   padding: 5px;
-//   color: rgb(12, 10, 10);
-//   h3{
-// padding-top: 35%;
-//   }
-// }

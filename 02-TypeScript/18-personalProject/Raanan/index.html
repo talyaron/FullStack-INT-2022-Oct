@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Deferring the loading of scripts -->
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+    <!-- Linking the stylesheet for the document -->
+    <link rel="stylesheet" type="text/css" href="dist/style.css">
+    <title>Movie Review Website</title>
+  </head>
+  <body>
+    <!-- Header section with website name and navigation links -->
+    <header class="header">
+      <h1 class="header__title">Movie Review Website</h1>
+      <nav class="header__nav">
+        <a class="header__link" href="#">Home</a>
+        <a class="header__link" href="#review">Review</a>
+        <a class="header__link" href="#theme">Change Theme</a>
+      </nav>
+    </header>
+    <!-- Main content section displaying the list of movies -->
+    <main class="main">
+      <h2 class="main__title">Movie List</h2>
+      <!-- Container for the movie elements -->
+      <div class="movie-list">
+        <!-- Movie element -->
+        <div class="movie-list__movie" id="movie-1">
+          <!-- Placeholder for movie details -->
+        </div>
+      </div>
+    </main>
+    <!-- Footer section displaying the copyright information -->
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2023 Movie Review Website</p>
+    </footer>
+  </body>
+</html>

@@ -86,7 +86,7 @@ if (window.location.pathname.endsWith("board.html")) {
     });
     renderBoardInBoardPage();
     addListBtn.addEventListener("click", function () {
-        return List.createList(newListInput.value);
+        List.createList(newListInput.value);
     });
     editBoardBtn.addEventListener("click", function () {
         currentBoard.edit(nameInputEle.value, imageDisplayedInEdit.src);
@@ -102,18 +102,18 @@ if (window.location.pathname.endsWith("board.html")) {
             });
         });
     });
-    boardContainer.addEventListener("dragover", function (_a) {
-        var clientX = _a.clientX;
+    boardContainer.addEventListener("dragover", function (e) {
         var cardIsDragged = false;
         cards.forEach(function (card) {
-            if (card.classList.contains("isDragging")) {
+            if (card.classList.contains("is-dragging")) {
                 cardIsDragged = true;
             }
         });
         if (cardIsDragged)
             return;
-        var leftList = insertLeftOfLisk(boardContainer, clientX);
-        var curList = boardContainer.querySelector(".isDragging");
+        e.preventDefault();
+        var leftList = insertLeftOfLisk(boardContainer, e.clientX);
+        var curList = boardContainer.querySelector(".is-draggin");
         if (!leftList) {
             boardContainer.insertBefore(curList, trashCanDiv);
         }
@@ -130,6 +130,9 @@ if (window.location.pathname.endsWith("board.html")) {
             if (newCardTextArea.value == "")
                 return;
             createCardElement(newCardTextArea.value, listElement);
+            var successcardMsg = "<i class=\"fa-solid fa-circle-check\"></i>Add new card: " + newCardTextArea.value;
+            notification(successcardMsg);
+            saveNotificationToLocalStorage(successcardMsg, currentBoard, currentUser);
             newCardTextArea.value = "";
         }
         if (target.classList.contains("cancelEditBoardBtn")) {
@@ -144,15 +147,17 @@ if (window.location.pathname.endsWith("board.html")) {
             List.createList(newListInput.value);
         }
     });
-    trashCan.addEventListener("drop", function () {
+    trashCan.addEventListener("drop", function (event) {
+        var _a;
+        event.preventDefault();
         var confirmDelete = confirm("Are you sure you want to delete?");
         if (confirmDelete) {
-            var element = document.querySelector(".isDragging");
-            element.remove();
+            var element = document.getElementById(event.dataTransfer.getData("Text"));
+            var successDeleteMsg = "<i class=\"fa-solid fa-circle-xmark\"></i> Delete - " + (element === null || element === void 0 ? void 0 : element.textContent);
+            notification(successDeleteMsg);
+            saveNotificationToLocalStorage(successDeleteMsg, currentBoard, currentUser);
+            (_a = element === null || element === void 0 ? void 0 : element.parentNode) === null || _a === void 0 ? void 0 : _a.removeChild(element);
             currentBoard.update();
         }
-    });
-    document.addEventListener("dragover", function (event) {
-        event.preventDefault();
     });
 }

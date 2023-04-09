@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room1</title>
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="./dist/index.js" defer></script>
+</head>
+<body>
+    <form onsubmit="handleAddUsers(event)">
+        <input type="text" name="name" placeholder="User name" required>
+        <input type="text" name="src" placeholder="image url" required>
+        <input type="text" name="age" placeholder="User age" required>
+        <button type="submit">ADD</button>
+    </form>
+    <button onclick="getUser()">Get Users</button>
+    <div id="user"></div>
+</body>
+</html>

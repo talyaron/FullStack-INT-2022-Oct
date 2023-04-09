@@ -1,6 +1,6 @@
 const insertLeftOfLisk = (zone: HTMLElement, mouseX: number) => {
   const staticLists = zone.querySelectorAll(
-    ".boardContainer__main__list:not(.isDragging)"
+    ".boardContainer__main__list:not(.is-dragging)"
   );
 
   let closestTask: null | Element = null;
@@ -22,7 +22,7 @@ const insertLeftOfLisk = (zone: HTMLElement, mouseX: number) => {
 
 const insertAboveTask = (zone, mouseY) => {
   const staticCards = zone.querySelectorAll(
-    ".boardContainer__main__list__card:not(.isDragging)"
+    ".boardContainer__main__list__card:not(.is-dragging)"
   );
 
   let closestTask = null;
@@ -41,7 +41,6 @@ const insertAboveTask = (zone, mouseY) => {
 
   return closestTask;
 };
-
 
 function userListFromStorage() {
   const getLocalStorage = localStorage.getItem("signedUpUsers");

@@ -1,7 +1,8 @@
 var _a, _b, _c, _d;
 var User = /** @class */ (function () {
-    function User(firstName, lastName, gender, userName, password, email, phoneNumber, boardList, uid) {
+    function User(firstName, lastName, gender, userName, password, email, phoneNumber, boardList, notifiction, uid) {
         if (boardList === void 0) { boardList = []; }
+        if (notifiction === void 0) { notifiction = []; }
         if (uid === void 0) { uid = Math.random().toString(36).slice(2); }
         this.firstName = firstName;
         this.lastName = lastName;
@@ -11,6 +12,7 @@ var User = /** @class */ (function () {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.boardList = boardList;
+        this.notifiction = notifiction;
         this.uid = uid;
     }
     User.currentUserFromStorage = function () {
@@ -18,11 +20,11 @@ var User = /** @class */ (function () {
             var getUser = localStorage.getItem("currentUser");
             if (getUser) {
                 var obj = JSON.parse(getUser);
-                currentUser = new User(obj.firstName, obj.lastName, obj.gender, obj.userName, obj.password, obj.email, obj.phoneNumber, obj.boardList, obj.uid);
+                currentUser = new User(obj.firstName, obj.lastName, obj.gender, obj.userName, obj.password, obj.email, obj.phoneNumber, obj.boardList, obj.notifiction, obj.uid);
             }
         }
         catch (error) {
-            console.log(error);
+            console.error(error);
         }
     };
     User.setCurrentUser = function (userName) {
@@ -38,7 +40,7 @@ var User = /** @class */ (function () {
             }
         }
         catch (error) {
-            console.log(error);
+            console.error(error);
         }
     };
     return User;
@@ -63,7 +65,7 @@ var Board = /** @class */ (function () {
             }
         }
         catch (error) {
-            console.log(error);
+            console.error(error);
         }
     };
     Board.setCurrentBoard = function (boardName) {
@@ -72,7 +74,7 @@ var Board = /** @class */ (function () {
             localStorage.setItem("currentBoard", JSON.stringify(findBoard));
         }
         catch (error) {
-            console.log(error);
+            console.error(error);
         }
     };
     Board.deleteBoard = function (boardName) {
@@ -91,10 +93,10 @@ var Board = /** @class */ (function () {
         var listElements = boardContainer.querySelectorAll(".boardContainer__main__list");
         listElements.forEach(function (list) {
             var _a;
-            var listName = (_a = list.querySelector("h2")) === null || _a === void 0 ? void 0 : _a.innerHTML;
+            var listName = (_a = list.querySelector("h1")) === null || _a === void 0 ? void 0 : _a.innerHTML;
             var cardsArr = [];
             list
-                .querySelectorAll("p")
+                .querySelectorAll("h2")
                 .forEach(function (card) { return cardsArr.push(card.innerHTML); });
             var newList = new List(listName, Array.from(cardsArr));
             _this.lists.push(newList);
@@ -129,6 +131,9 @@ var List = /** @class */ (function () {
             return;
         var newList = new List(listName);
         boardContainer.insertBefore(newList.createListElement(), trashCanDiv);
+        var successListMsg = "<i class=\"fa-solid fa-circle-check\"></i> Add new List: " + newListInput.value;
+        notification(successListMsg);
+        saveNotificationToLocalStorage(successListMsg, currentBoard, currentUser);
         newListInput.value = "";
     };
     List.prototype.createListElement = function () {
@@ -136,11 +141,11 @@ var List = /** @class */ (function () {
         listContainer.classList.add("boardContainer__main__list");
         listContainer.setAttribute("draggable", "true");
         listContainer.setAttribute("id", "" + this.uid);
-        // listContainer.setAttribute("ondragstart", `drag(event)`);
+        listContainer.setAttribute("ondragstart", "drag(event)");
         var header = document.createElement("div");
         header.classList.add("boardContainer__main__list__header");
         header.setAttribute("id", this.name + "_header");
-        header.innerHTML = "\n    <div class=\"listTitle\">\n      <h2>" + this.name + "</h2>\n      <i class=\"fa-regular fa-pen-to-square editListBtn\"></i>\n      </div>\n      <div class=\"boardContainer__main__list__header--addCard\">\n        <textarea maxlength=\"50\" class=\"newCardTextArea\" cols=\"30\" rows=\"2\" placeholder=\"Task...\"></textarea>\n        <button class=\"newCardBtn\">New Card</button>\n      </div>\n    ";
+        header.innerHTML = "\n    <div class=\"listTitle\">\n      <h1>" + this.name + "</h1>\n      <i class=\"fa-regular fa-pen-to-square editListBtn\"></i>\n      </div>\n      <div class=\"boardContainer__main__list__header--addCard\">\n        <textarea maxlength=\"30\" class=\"newCardTextArea\" cols=\"30\" rows=\"2\" placeholder=\"Task...\"></textarea>\n        <button class=\"newCardBtn\" title=\"Add Card\">+</button>\n      </div>\n    ";
         listContainer.appendChild(header);
         header.style.backgroundColor = this.backColor;
         makeListFunctional(listContainer);
@@ -153,7 +158,7 @@ var List = /** @class */ (function () {
 // ---------------------- pre made users ---------------------- //
 var preMadeUserList = [
     new User("Vladislav", "Bykanov", "male", "vladb89", "12345678", "vladi@gmail.com", "0548155232"),
-    new User("Itai", "Gelberg", "male", "itaiG", "12345", "itaiGel@gmail.com", "0541234567"),
+    new User("Itai", "Gelberg", "male", "itaiG", "12345678", "itaiGel@gmail.com", "0541234567"),
     new User("Itay", "Amosi", "male", "itayz1e", "144322144", "itayAmosi@gmail.com", "0540987654"),
 ];
 var preMadeBoardList = [

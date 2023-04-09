@@ -13,7 +13,9 @@ var passwordDisplayDiv = document.querySelector(".passwordDisplay");
 var recoveredPassword = document.querySelector("#recoveredPassword");
 //------------------ Main page elements -----------------//
 var profileWindow = document.querySelector(".profileWindow");
+var notifictionWindow = document.querySelector(".notifictionWindow");
 var profileDiv = document.querySelector(".profile");
+var notificationsDiv = document.querySelector(".notifications");
 var newBoardWindow = document.querySelector(".newBoardWindow");
 var boardArea = document.querySelector(".mainpageContainer__main__boards__boardArea");
 var backgroundImageSelectionDiv = document.querySelector(".backgroundSelectionDiv");
@@ -34,11 +36,14 @@ var cards = document.querySelectorAll(".boardContainer__main__list__card");
 var editBoardWindow = document.querySelector(".editBoardWindow");
 var imageDisplayedInEdit = document.querySelector("#imageEditWindow");
 var trashCan = document.querySelector("#trash");
-var trashCanDiv = document.querySelector(".boardContainer__main__trashDiv");
+var trashCanDiv = document.querySelector(".trashDiv");
+var noteBox = document.getElementById("notificationBox");
+var editInfoBtns = document.querySelectorAll(".editInfo");
 //Buttons
 var addListBtn = document.querySelector("#addListBtn");
 var editBoardBtn = document.querySelector(".editBoardBtn");
 var updatedBoardImageBtn = document.querySelector("#updatedBoardImageBtn");
+// const editProfileInfo = document.querySelector(".editprofileBtn") as HTMLButtonElement;
 // Input
 var newListInput = document.querySelector("#newListInput");
 var nameInputEle = document.querySelector("#updatedBoardName");

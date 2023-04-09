@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student API</title>
+    <link rel="stylesheet" href="./dist/style.css" />
+    <script
+      src="https://kit.fontawesome.com/0d9e773bea.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      var exports = {};
+    </script>
+    <script type="module" src="./dist/view.js" defer></script>
+    <script type="module" src="./dist/index.js" defer></script>
+  </head>
+  <body>
+    <h1>Student list</h1>
+    <div id="root">
+      <!-- <div class="studentDiv">
+        <b>Vladislav Bykanov</b>
+        <span>Average: 66</span>
+        <div class="crudIcons">
+          <i class="fa-regular fa-trash-can"></i>
+          <i class="fa-regular fa-pen-to-square"></i>
+        </div>
+      </div> -->
+    </div>
+    <h4>Add student</h4>
+    <div class="form">
+      <label for="fullName"
+        >Full name:
+        <input id="fullName" name="fullName" type="text" placeholder="John Doe"
+      /></label>
+      <label for="grade"
+        >Enter grade:
+        <input id="grade" name="grade" type="number" placeholder="75"
+      /></label>
+      <button id="addStudentBtn">Add</button>
+    </div>
+    <div class="editWindow"></div>
+  </body>
+</html>

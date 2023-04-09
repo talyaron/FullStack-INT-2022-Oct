@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--  Link Font google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <!--  Link Font awesome ICONS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--  Link script files -->
+   
+    <script src="./dist/saveLocalStorage.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/helper.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+
+    
+    <!--  Link css files -->
+    <link rel="stylesheet" href="./dist/index.css">
+    <link rel="stylesheet" href="./dist/sighin.css">
+    <title>Document</title>
+</head>
+
+<body onbeforeunload="dataFromStorage()">
+    <section class="register-section">
+        <div class="icon">
+            <a href="./index.html">
+                <img src="./img/logo.png" width="100px" alt="icon-music-control">
+                <span class="logoTitle">
+                    PhotoList
+                </span>
+            </a>
+
+        </div>
+        <div class="line"></div>
+        <h1>Sign up for free to start listening..</h1>
+        <div class="register-screen">
+
+            <form id="formSignIn" onsubmit="handleSubmitSignIn(event)">
+                <h4>Sign up with your email address</h4>
+
+                <div class="email">
+                    <label for="email">What's your email?</label>
+                    <input type="email" name="email" id="email" placeholder="What's your email?" >
+                    <p>
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <span id="errorMsgEmailInput"></span>
+                    </p>
+                </div>
+
+                <div class="password">
+                    <label for="password">Create a password</label>
+                    <input type="password" name="password" id="password" placeholder="Create a password">
+                    <p class="">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <span id="errorMsgPasswordInput">Please enter your password.</span>
+                    </p>
+                </div>
+
+                <div class="username">
+                    <label for="username">What should we call you?</label>
+                    <input type="text" name="pas" id="username" placeholder="Enter a profile name." required>
+                    <p>
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <span id="errorMsgPasswordInput">Please enter your password.</span>
+                    </p>
+                </div>
+
+                <div class="gender">
+                    <label for="genderSelect">What's your gender?</label>
+                    <select name="gender" id="genderSelect">
+                        <option value=""></option>
+                        <option value="male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <p id="errorMsgPasswordInput">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <span>Please enter your password.</span>
+                    </p>
+                </div>
+
+
+        </div>
+
+        <button type="submit" id="submitBtnLogin">Sign in</button>
+        </form>
+        </div>
+
+        <div class="line" style="width: 500px; margin: auto;"> </div>
+
+        <footer>
+            <h3>Do you have account?</h3>
+            <a href="./login.html">
+                <button>Login FOR PROLIST</button>
+            </a>
+        </footer>
+    </section>
+
+
+</body>
+
+</html>
