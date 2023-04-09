@@ -108,7 +108,7 @@ exports.addCourse = function (req, res) { return __awaiter(void 0, void 0, void 
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 3, , 4]);
+                _b.trys.push([0, 5, , 6]);
                 _a = req.body, course_1 = _a.course, student_id = _a.student_id;
                 return [4 /*yield*/, studentModel_1["default"].findById(student_id)];
             case 1:
@@ -117,22 +117,25 @@ exports.addCourse = function (req, res) { return __awaiter(void 0, void 0, void 
                     throw new Error("student not found");
                 courses = student.courses;
                 index = courses.findIndex(function (course1) { return course1._id == course_1._id; });
-                if (index != -1)
-                    throw new Error("course already exists");
+                if (!(index != -1)) return [3 /*break*/, 2];
+                res.status(200).send({ status: false, message: "course already added" });
+                return [3 /*break*/, 4];
+            case 2:
                 courses.push(course_1);
                 student.courses = courses;
                 return [4 /*yield*/, student.save()];
-            case 2:
+            case 3:
                 _b.sent();
                 console.log(student);
                 res.status(200).send(true);
-                return [3 /*break*/, 4];
-            case 3:
+                _b.label = 4;
+            case 4: return [3 /*break*/, 6];
+            case 5:
                 error_4 = _b.sent();
                 console.error(error_4);
                 res.status(500).send(error_4);
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+                return [3 /*break*/, 6];
+            case 6: return [2 /*return*/];
         }
     });
 }); };

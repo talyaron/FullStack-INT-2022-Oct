@@ -43,12 +43,15 @@ export const addCourse =async (req:any, res:any) => {
         if(!student) throw new Error("student not found");
         const courses = student.courses;
         const index = courses.findIndex(course1 => course1._id == course._id)
-        if(index != -1) throw new Error("course already exists");
-        courses.push(course);
-        student.courses = courses;
-        await student.save();
-        console.log(student);
-        res.status(200).send(true)
+        if(index != -1) {
+            res.status(200).send({status: false, message: "course already added"})
+        } else {
+            courses.push(course);
+            student.courses = courses;
+            await student.save();
+            console.log(student);
+            res.status(200).send(true)
+        }
     } catch (error) {
         console.error(error);
         res.status(500).send(error)
