@@ -76,9 +76,43 @@ function formHandler(ev) {
         });
     });
 }
+function formCourseHandler(ev) {
+    return __awaiter(this, void 0, void 0, function () {
+        var name, response, result, error_2;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 3, , 4]);
+                    ev.preventDefault();
+                    console.log(ev);
+                    name = ev.target.elements.name.value;
+                    return [4 /*yield*/, fetch("/api/course/add-course", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ name: name })
+                        })];
+                case 1:
+                    response = _a.sent();
+                    ev.target.reset();
+                    return [4 /*yield*/, response.json()];
+                case 2:
+                    result = _a.sent();
+                    console.log("Success:", result);
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_2 = _a.sent();
+                    console.error("Error:", error_2);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
 function getStudents() {
     return __awaiter(this, void 0, void 0, function () {
-        var response, students, html, display, error_2;
+        var response, students, html, display, error_3;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -98,8 +132,8 @@ function getStudents() {
                     display.innerHTML = html;
                     return [3 /*break*/, 4];
                 case 3:
-                    error_2 = _a.sent();
-                    console.error("Error:", error_2);
+                    error_3 = _a.sent();
+                    console.error("Error:", error_3);
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
@@ -108,7 +142,7 @@ function getStudents() {
 }
 function handleDelete(_id) {
     return __awaiter(this, void 0, void 0, function () {
-        var response, error_3;
+        var response, error_4;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -127,8 +161,8 @@ function handleDelete(_id) {
                     console.log("Success:");
                     return [3 /*break*/, 3];
                 case 2:
-                    error_3 = _a.sent();
-                    console.error("Error:", error_3);
+                    error_4 = _a.sent();
+                    console.error("Error:", error_4);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }

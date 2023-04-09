@@ -23,6 +23,8 @@ try {
 }
 
 import studentRouter from "./API/students/studentRoutes";
-app.use("/api/student", studentRouter)
+import courseRouter from "./API/course/courseRoutes";
+app.use("/api/student", studentRouter);
+app.use("/api/course", courseRouter);
 
 app.listen(3000, () => console.log("server is listening on port 3000"))
