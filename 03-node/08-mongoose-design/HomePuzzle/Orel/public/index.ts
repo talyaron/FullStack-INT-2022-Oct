@@ -1,8 +1,7 @@
-function handleOnLoad(){
+ function  handleOnLoad(){
     try {
-        const rootGradesContainer:HTMLElement | null = document.getElementById('rootGradesContainer')!
-        if(!rootGradesContainer) throw new Error('no found rootGradesContainer HTMLElement')
-rootGradesContainer.innerHTML =  renderAllGrade()
+        grades()
+        getAverageFromDB()
     } catch (error) {
         console.error(error)
     }

@@ -50,17 +50,17 @@ function handleAddStudent(ev) {
 
 
 
-function handleAddCourse(ev: any, _id: string) {
+function handleAddCourse(ev: any, studentId: string) {
     try {
-        console.log("student_id", _id);
+        console.log("studentId", studentId);
 
         ev.preventDefault();
 
         const course = ev.target.elements.course.value;
-        if (!_id) throw new Error("No _id in form");
+        if (!studentId) throw new Error("No studentId in form");
         if (!course) throw new Error("No course in form");
 
-        const data: any = { course, _id };
+        const data: any = { course, studentId };
 
         console.log("data", data);
 
@@ -73,10 +73,9 @@ function handleAddCourse(ev: any, _id: string) {
             body: JSON.stringify(data)
         })
             .then((res) => res.json())
-            .then((students) => {
+            .then(({ students }) => {
                 console.log(students);
                 renderStudents(students)
-
             })
             .catch((error) => {
                 console.error(error);

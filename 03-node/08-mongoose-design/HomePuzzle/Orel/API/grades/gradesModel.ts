@@ -1,20 +1,25 @@
 import mongoose, { Schema } from "mongoose";
 import { CourseSchema } from "../courses/coursesModel";
 import { StudentSchema } from "../student/studnetsModel";
+import { TeacherSchema } from "../teachers/teachersModel";
 //schema
 
 export interface Grade {
-  // public uid: string = uuid();
-  name: string;
-  src: string;
+  studentName: string;
+  assignmentName:string ,
+  score:number,
+  date:string
 }
 
 export const  GradeSchema = new Schema({
-  grade: Number,
-  student:StudentSchema,
-  course:CourseSchema
+  studentName: String,
+  courseName:CourseSchema,
+  teacherName:TeacherSchema,
+  assignmentName:String ,
+  score:Number,
+  date:String
 });
 
-const GradeModel = mongoose.model("users", GradeSchema);
+const GradeModel = mongoose.model("grades", GradeSchema);
 
 export default GradeModel;

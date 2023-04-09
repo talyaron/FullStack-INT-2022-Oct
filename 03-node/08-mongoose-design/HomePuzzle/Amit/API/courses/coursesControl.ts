@@ -5,13 +5,11 @@ import StudentModel from "../students/studentsModel";
 export const addCourse = async (req:any, res:any) => {
     try {
 
-      const { course , _id } = req.body;
+      const { course , studentId } = req.body;
       console.log("course", course);
-      console.log("_id", _id);
+      console.log("studentId", studentId);
       
-      
-
-      const student = await StudentModel.findById({_id});
+      const student = await StudentModel.findById(studentId);
       if(!student) throw new Error("no student found")
       console.log("student", student);
       
@@ -20,6 +18,8 @@ export const addCourse = async (req:any, res:any) => {
       
       student.courses.push(courseDB);
       console.log("student", student);
+
+      await student.save()
 
       const students = await StudentModel.find({})
       console.log("students", students);

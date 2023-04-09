@@ -24,6 +24,26 @@ async function formHandler(ev: any) {
     }
 }
 
+async function formCourseHandler(ev: any) {
+    try {
+        ev.preventDefault();
+        console.log(ev);
+        const name = ev.target.elements.name.value;
+        const response = await fetch("/api/course/add-course", {
+            method: "POST", // or 'PUT'
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({name}),
+        });
+        ev.target.reset();
+        const result = await response.json();
+        console.log("Success:", result);
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
 async function getStudents() {
     try {
         const response = await fetch("/api/student/get-students");
@@ -36,27 +56,27 @@ async function getStudents() {
             `
         }).join("")
         const display = document.getElementById("display");
-        if(!display) throw new Error("Display not found");
+        if (!display) throw new Error("Display not found");
         display.innerHTML = html;
     } catch (error) {
         console.error("Error:", error);
     }
 }
 
-async function handleDelete(_id:string) {
+async function handleDelete(_id: string) {
     try {
         const response = await fetch("/api/student/delete-student", {
-          method: "DELETE", // or 'PUT'
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({_id}),
+            method: "DELETE", // or 'PUT'
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ _id }),
         }).then((res) => res.json()).then((students) => {
             getStudents()
         })
-    
+
         console.log("Success:");
-      } catch (error) {
+    } catch (error) {
         console.error("Error:", error);
-      }
+    }
 }

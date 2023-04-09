@@ -3,6 +3,9 @@ exports.__esModule = true;
 var mongoose_1 = require("mongoose");
 var express_1 = require("express");
 var dotenv = require("dotenv");
+var coursesRoute_1 = require("./API/courses/coursesRoute");
+var gradeRouter_1 = require("./API/grades/gradeRouter");
+var studentsRouter_1 = require("./API/student/studentsRouter");
 dotenv.config();
 var uri = process.env.MONGODB_URI;
 if (uri) {
@@ -15,10 +18,11 @@ else {
 }
 var app = express_1["default"]();
 var PORT = 3000;
-var coursesRoute_1 = require("./API/courses/coursesRoute");
-app.use('/api/student', coursesRoute_1["default"]);
 app.use(express_1["default"].json());
 app.use(express_1["default"].static('public'));
+app.use('/courses', coursesRoute_1["default"]);
+app.use('/grades', gradeRouter_1["default"]);
+app.use('/student', studentsRouter_1["default"]);
 app.listen(PORT, function () {
     console.log("the server run on PORT:" + PORT);
 });
