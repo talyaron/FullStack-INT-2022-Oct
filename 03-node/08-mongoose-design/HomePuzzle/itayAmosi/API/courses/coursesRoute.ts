@@ -2,11 +2,11 @@ import express from "express";
 const router = express.Router();
 
 import {
-    addMockTeacher,
-} from "./teachersControle";
+    addMockCourse,
+} from "./coursesControle";
 
 
 router
-  .post("/add-mock-teacher", addMockTeacher)
+.post("/add-mock-course", addMockCourse)
 
 export default router;

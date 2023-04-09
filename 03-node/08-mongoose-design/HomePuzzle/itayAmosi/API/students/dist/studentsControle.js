@@ -36,7 +36,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.updateStudentName = exports.deleteStudent = exports.getStudents = exports.addMockStudent = exports.addStudentGrades = void 0;
+exports.addMockStudents = exports.updateStudentName = exports.deleteStudent = exports.getStudents = exports.addMockStudent = exports.addStudentGrades = void 0;
+var coursesModel_1 = require("../courses/coursesModel");
+var gradesModel_1 = require("../grades/gradesModel");
 var studentsModel_1 = require("./studentsModel");
 var uuid_1 = require("uuid");
 exports.addStudentGrades = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -45,7 +47,12 @@ exports.addStudentGrades = function (req, res) { return __awaiter(void 0, void 0
         switch (_b.label) {
             case 0:
                 _a = req.body, name = _a.name, lastname = _a.lastname, englishClass = _a.englishClass, mathClass = _a.mathClass, sportsClass = _a.sportsClass, historyClass = _a.historyClass;
-                if (!name || !lastname || !englishClass || !mathClass || !sportsClass || !historyClass) {
+                if (!name ||
+                    !lastname ||
+                    !englishClass ||
+                    !mathClass ||
+                    !sportsClass ||
+                    !historyClass) {
                     return [2 /*return*/, res.status(400).json({ error: "Missing required fields" })];
                 }
                 return [4 /*yield*/, studentsModel_1["default"].create({
@@ -80,6 +87,7 @@ exports.addMockStudent = function (req, res) { return __awaiter(void 0, void 0, 
                 })];
             case 1:
                 newStudent = _a.sent();
+                console.log(newStudent);
                 res.status(200).send({ ok: true, newStudent: newStudent });
                 return [2 /*return*/];
         }
@@ -157,4 +165,22 @@ exports.updateStudentName = function (req, res) { return __awaiter(void 0, void 
         }
     });
 }); };
-// export const
+exports.addMockStudents = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var newStudent;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, studentsModel_1["default"].create({
+                    uid: uuid_1.v4(),
+                    name: uuid_1.v4().slice(0, 7),
+                    lastname: uuid_1.v4().slice(0, 7),
+                    courses: coursesModel_1.CourseSchema,
+                    grades: gradesModel_1.GradeSchema
+                })];
+            case 1:
+                newStudent = _a.sent();
+                console.log(newStudent);
+                res.status(200).send({ ok: true, newStudent: newStudent });
+                return [2 /*return*/];
+        }
+    });
+}); };
