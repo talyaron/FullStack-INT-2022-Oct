@@ -1,27 +1,29 @@
 
 
 
-function renderOptionsWithCourses(){
+async function renderOptionsWithCourses(){
 try {
-    fetch('/api/students/courses')
-    .then((res) => {
-        return res.json()
-    })
-    .then(data => {
-        
-  const result = data.courseNames.map(c=>{
-    return c
-  }).join('')
-      renderAddGrade(result)
-      console.log(renderAddGrade(result));
-    })
-    .catch((error) => {
-        console.error(error);
-    })
+    const res = await fetch('/courses/get-courses')
+    const data = await res.json();
+    if(!data) throw new Error("no found data")
+    console.log('data',data);
+     return data.courses.map(({name}) => name);
 } catch (error) {
     console.error(error)
 }    
 }
+
+async function GetCurCourses(CourseName:string){
+    try {
+        const res = await fetch('/courses/get-courses')
+        const data = await res.json();
+        if(!data) throw new Error("no found data")
+        console.log('data',data);
+         return data.courses.find(({name}) => name === CourseName );
+    } catch (error) {
+        console.error(error)
+    }    
+    }
 
 function renderAddCourse(){
     const addCourse = 
@@ -41,71 +43,75 @@ function renderAddCourse(){
     return addCourse
 }
 
-function renderAddGrade():string{
-    const addGrade = 
-    `
-    <div id="btnExit">
-    <i class="fa-solid fa-xmark" onclick="handleClickCloseWindows()"></i>
-    </div>
-    <form class="app-container__main__form" id="rootForm" onsubmit="handleSubmitAddGrade(event)">
-    <h3>ADD GRADE</h3>
-    <select placeholder="Enter Course Name" name="courseName" id="rootSelectOptions">
-
-    </select>
-    <input type="text" placeholder="Enter Assignment Name" name="assignmentName">
-    <div>
-    <input type="number" min="0" max="100" placeholder="Enter Score" name="score">
-    <input type="date" name="date" >
-    </div>
-    <button type="submit">ADD</button>
-    </form>
-    `
-    return addGrade
+ async function renderAddGrades(){
+try {
+    let addGrade = ''
+    const options = await renderOptionsWithCourses();
+    const optionsHtml:string = await options.map(name => `<option value="${name}">${name} </option>`).join('');
+       if(!optionsHtml) {
+        alert("no options . you must to  create course ")
+       return addGrade = `
+           <div id="btnExit">
+           <i class="fa-solid fa-xmark" onclick="handleClickCloseWindows()"></i>
+           </div>
+           <h4>You Must To Create Course</h4>
+           `
+        
+       } else {
+      return  addGrade = 
+           `
+           <div id="btnExit">
+           <i class="fa-solid fa-xmark" onclick="handleClickCloseWindows()"></i>
+           </div>
+           <form class="app-container__main__form" id="rootForm" onsubmit="handleSubmitAddGrade(event)">
+           <h3>ADD GRADE</h3>
+           <label for="_courseName" >Enter Course Name</label>
+           <select id="_courseName" placeholder="Enter Course Name" name="courseName" id="rootSelectOptions">
+           ${optionsHtml}
+           </select>
+           <input type="text" placeholder="Enter Assignment Name" name="assignmentName">
+           <div>
+           <input type="number" min="0" max="100" placeholder="Enter Score" name="score">
+           <input type="date" name="date" >
+           </div>
+           <button type="submit">ADD</button>
+           </form>
+           `
+       }
+} catch (error) {
+    console.error(error)
+    return ' '
+}
 }
 
-function renderAllGrade():string{
-const topGrade = 
-`
-<ul class="header-grades-top-list">
-<li class="header-grades-list__courseName">#</li>
-<li class="header-grades-list__courseName">Student Name</li>
-<li class="header-grades-list__courseName">Course Name</li>
-<li class="header-grades-list__courseName">Teacher Name</li>
-<li class="header-grades-list__courseName">Assignment Name</li>
-<li class="header-grades-list__courseName">Score</li>
-<li class="header-grades-list__courseName">Date</li>
-<li class="header-grades-list__courseName">Edit/Delete</li>
-</ul>
+async function grades(){
+    try {
+        const rootGrade = document.getElementById('rootGrades')!
+    const gradeDB = await fetch('/grades/get-grades');
+    if(!gradeDB) throw new Error('no found Grades DB')
+    const dataJson = await gradeDB.json();
+     const  html:string = dataJson.grades.map((grade , index ) =>{
+       return  `
+            <div class="grade">
+            <ul class="header-grades-main-list">
+                <li class="header-grades-list__courseName">${index + 1}</li>
+                <li class="header-grades-list__courseName">Orel Karako</li>
+                <li class="header-grades-list__courseName">${grade.courseName.name}</li>
+                <li class="header-grades-list__courseName">${grade.courseName.teacher.name}</li>
+                <li class="header-grades-list__courseName">${grade.assignmentName}</li>
+                <li class="header-grades-list__courseName">${grade.score}</li>
+                <li class="header-grades-list__courseName">${grade.date}</li>
+                <li class="header-grades-list__courseName buttonsEditRemove">
+                    <i class="fa-solid fa-pen-to-square" onclick="${grade._id}"></i>
+                    <i class="fa-solid fa-delete-left" onclick="${grade._id}"></i>
+                </li>
+            </ul>
+            </div>
+            `}).join('')
 
-`
-const oneGrade = 
-`
-<div class="grade">
-<ul class="header-grades-main-list">
-    <li class="header-grades-list__courseName">01</li>
-    <li class="header-grades-list__courseName">Orel Karako</li>
-    <li class="header-grades-list__courseName">React</li>
-    <li class="header-grades-list__courseName">Tal Madrid</li>
-    <li class="header-grades-list__courseName">AppList</li>
-    <li class="header-grades-list__courseName">98</li>
-    <li class="header-grades-list__courseName">25/11/2022</li>
-    <li class="header-grades-list__courseName">
-        <i class="fa-solid fa-pen-to-square"></i>
-        <i class="fa-solid fa-delete-left"></i>
-    </li>
-</ul>
-</div>
-
-`
-const footerGrade = 
-`
-<ul class="header-grades-footer-list">
-<h3>your average :
-    <span>80</span>
-</h3>
-</ul>
-`
-    const allGrade = topGrade+oneGrade+footerGrade
-
-    return allGrade
-}
+            rootGrade.innerHTML = html
+    } catch (error) {
+        console.error(error)
+    }
+    }
+   

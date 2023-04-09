@@ -1,3 +1,19 @@
+//  HANDLE functions Close
+ // OPEN CLOSE COLLAPSE WINDOWS
+ function handleClickCloseWindows(){
+    try {
+            const containerToClose = document.querySelector('#rootContainerGradeChange')! as HTMLDivElement
+            containerToClose.classList.remove('active')
+    } catch (error) {
+        console.error(error)
+    }
+}
+function openWindowsForm(html:string):void{
+    const containerToClose = document.querySelector('#rootContainerGradeChange')! as HTMLDivElement
+    containerToClose.classList.add('active');
+    containerToClose.innerHTML = html
+}
+
 
 //  HANDLE functions LIST
 
@@ -19,19 +35,8 @@ function handleClickViewGrades(){
         console.error(error)
     }
 }
-function handleClickAddGrades(){
-    try {
 
-        const html = renderAddGrade()
-
-        openWindowsForm(html)
-
-    } catch (error) {
-        console.error(error)
-    }
-}
-
-function handleClickAddCourse(ev:Event){
+function handleClickAddCourse(ev:any){
     try {
         const html = renderAddCourse();
 
@@ -40,86 +45,113 @@ function handleClickAddCourse(ev:Event){
         console.error(error)
     }
 }
-//  HANDLE functions Close
- // OPEN CLOSE COLLAPSE WINDOWS
-function handleClickCloseWindows(){
-    try {
-            const containerToClose = document.querySelector('#rootContainerGradeChange')! as HTMLDivElement
-            containerToClose.classList.remove('active')
-    } catch (error) {
-        console.error(error)
-    }
-}
-function openWindowsForm(html:string):void{
-    const containerToClose = document.querySelector('#rootContainerGradeChange')! as HTMLDivElement
-    containerToClose.classList.add('active');
-    containerToClose.innerHTML = html
+
+async function handleClickAddGrades(ev:any){
+    const html = (await renderAddGrades()).toString();
+    openWindowsForm(html)
 }
  ///handle  submit ////////////////////////////////////////
+ function handleChangeUserName(){
+    const rootUsersLogoSpan:HTMLSpanElement = document.querySelector('.app-container__header__iconUser-name')!
+    if(confirm("Are you sure to Change You Name ? ")) {
+        const newName = prompt("What Is your New Name ?")
+        if(newName === null) return
+         rootUsersLogoSpan.innerHTML = newName
+        console.log("Implement delete functionality here");
+      } else {
+         return
+      }
 
-
-function handleSubmitAddGrade(ev:any){
-    try {
-        ev.preventDefault()
-        const courseName = ev.target.elements.courseName.value
-        const assignmentName = ev.target.elements.assignmentName.value
-        const score = Number(ev.target.elements.score.value)
-        const date = ev.target.elements.courseName.value
-        if(!courseName) throw new Error("no founded CourseName")
-        if(!assignmentName) throw new Error("no founded assignmentName")
-        if(!score) throw new Error("no founded score")
-        if(!date) throw new Error("no founded date")
-        fetch('/api/students' ,{
-            method:"POST",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                    courseName:courseName,
-                    assignmentName:assignmentName,
-                    score:score,
-            })
-        })
-        .then((res) => {
-            return res.json()
-        })
-        .then(data => {
-            console.log(data);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-    } catch (error) {
-        console.error(error)
-    }
 }
-function handleSubmitAddCourse(ev:any){
+
+
+async function handleSubmitAddGrade(ev:any){
     try {
         ev.preventDefault();
-        const courseName = ev.target.elements.CourseName.value;
-        const teacherCourse = ev.target.elements.teacherCourse.value
+        const courseName = ev.target.elements.courseName.value;
+        const curCourse = await GetCurCourses(courseName)
+        console.log(curCourse);
+        const curTeacher = curCourse.teacher
+        const assignmentName = ev.target.elements.assignmentName.value
+        const score = ev.target.elements.score.value
+        const date = ev.target.elements.date.value
+        
         if (!courseName) throw new Error("No courseName");
-        if (!teacherCourse) throw new Error("No teacherCourse");
-        const newUser: any = { courseName, teacherCourse };
+        if (!curCourse) throw new Error("No curCourse");
+        if (!assignmentName) throw new Error("No teacherCourse");
+        if (!score) throw new Error("No score");
+        if (!date) throw new Error("No date");
     
         //send to server:
-        fetch("/api/courses/add-courses", {
+      await  fetch("/grades/add-grade", {
           method: "POST",
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(newUser),
+          body: JSON.stringify({ courseName:curCourse, teacherName:curTeacher , assignmentName , score ,date}),
         })
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
           })
-          .catch((error) => {
-            console.error(error);
+          .catch((error:any) => {
+            console.error(error.message);
           });
+          grades()
+          handleClickCloseWindows()
+          ev.target.reset()
     } catch (error) {
         console.error(error)
     }
 }
+async function handleSubmitAddCourse(ev:any){
+    try {
+        ev.preventDefault();
+        const courseName = ev.target.elements.CourseName.value;
+        const teacherCourse = ev.target.elements.teacherCourse.value
+
+        if (!courseName) throw new Error("No courseName");
+        if (!teacherCourse) throw new Error("No teacherCourse");
+    
+        //send to server:
+      await  fetch("/courses/add-course", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({   courseName, teacherCourse   }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((error:any) => {
+            console.error(error.message);
+          });
+          handleClickCloseWindows()
+          ev.target.reset()
+    } catch (error) {
+        console.error(error)
+    }
+}
+async function getAverageFromDB(){
+try {
+    const gradeDB = await fetch('/grades/get-grades');
+    if(!gradeDB) throw new Error('no found Grades DB')
+    const dataJson = await gradeDB.json();
+    const  average:Number | any  =  dataJson.grades.reduce((accumulator, currentValue )=>{
+        return Number(accumulator) + Number(currentValue.score)
+    },0)
+
+    if(average) {
+        const averageHtml:HTMLElement = document.getElementById('average')!
+        averageHtml.innerText =  (average / Number(dataJson.grades.length)).toFixed(2).toString()
+    }
+} catch (error) {
+    console.error(error)
+}
+}
+
+getAverageFromDB()

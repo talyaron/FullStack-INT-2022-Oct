@@ -36,19 +36,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.updateCourseName = exports.deleteCourse = exports.updateCourse = exports.addCourse = exports.getCourse = void 0;
-var teachersModel_1 = require("../teachers/teachersModel");
-var coursesModel_1 = require("./coursesModel");
-exports.getCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var courses, error_1;
+exports.updateGradeName = exports.deleteGrade = exports.updateGrade = exports.addGrade = exports.getGrades = void 0;
+var gradesModel_1 = require("./gradesModel");
+exports.getGrades = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var grades, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, coursesModel_1["default"].find({})];
+                return [4 /*yield*/, gradesModel_1["default"].find({})];
             case 1:
-                courses = _a.sent();
-                res.send({ courses: courses });
+                grades = _a.sent();
+                res.send({ grades: grades });
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _a.sent();
@@ -59,34 +58,29 @@ exports.getCourse = function (req, res) { return __awaiter(void 0, void 0, void 
         }
     });
 }); };
-exports.addCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, courseName, teacherCourse, teacherDB, courseDB, error_2;
+exports.addGrade = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, courseName, studentName, teacherName, assignmentName, score, date, gradeDB, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 3, , 4]);
-                _a = req.body, courseName = _a.courseName, teacherCourse = _a.teacherCourse;
-                console.log(req.body);
-                return [4 /*yield*/, teachersModel_1["default"].create({ name: teacherCourse })];
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, courseName = _a.courseName, studentName = _a.studentName, teacherName = _a.teacherName, assignmentName = _a.assignmentName, score = _a.score, date = _a.date;
+                return [4 /*yield*/, gradesModel_1["default"].create({ courseName: courseName, teacherName: teacherName, assignmentName: assignmentName, score: score, date: date })];
             case 1:
-                teacherDB = _b.sent();
-                console.log(teacherDB);
-                return [4 /*yield*/, coursesModel_1["default"].create({ name: courseName, teacher: teacherDB })];
+                gradeDB = _b.sent();
+                console.log(gradeDB);
+                res.status(201).send({ ok: true, gradeDB: gradeDB });
+                return [3 /*break*/, 3];
             case 2:
-                courseDB = _b.sent();
-                console.log(courseDB);
-                res.status(201).send({ ok: true });
-                return [3 /*break*/, 4];
-            case 3:
                 error_2 = _b.sent();
                 console.error(error_2);
                 res.status(500).send({ error: error_2.message });
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }); };
-exports.updateCourse = function (req, res) {
+exports.updateGrade = function (req, res) {
     try {
         // const { name, uid } = req.body;
         // if (!name) throw new Error("No name in data");
@@ -101,17 +95,17 @@ exports.updateCourse = function (req, res) {
         res.status(500).send({ error: error.message });
     }
 };
-exports.deleteCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _id, deleteCourse_1, courses, error_3;
+exports.deleteGrade = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _id, deleteCourse, courses, error_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 3, , 4]);
                 _id = req.body._id;
-                return [4 /*yield*/, coursesModel_1["default"].deleteOne({ _id: _id })];
+                return [4 /*yield*/, gradesModel_1["default"].deleteOne({ _id: _id })];
             case 1:
-                deleteCourse_1 = _a.sent();
-                return [4 /*yield*/, coursesModel_1["default"].find({})];
+                deleteCourse = _a.sent();
+                return [4 /*yield*/, gradesModel_1["default"].find({})];
             case 2:
                 courses = _a.sent();
                 res.send({ success: true, courses: courses });
@@ -125,7 +119,7 @@ exports.deleteCourse = function (req, res) { return __awaiter(void 0, void 0, vo
         }
     });
 }); };
-exports.updateCourseName = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+exports.updateGradeName = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         try {
         }

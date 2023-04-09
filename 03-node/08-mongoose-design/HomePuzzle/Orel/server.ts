@@ -1,6 +1,8 @@
 import mongoose from "mongoose"
 import express  from "express";
 import * as dotenv from 'dotenv'
+import coursesRoute from './API/courses/coursesRoute';
+import gradesRouter from './API/grades/gradeRouter'
 
 dotenv.config()
 
@@ -18,13 +20,16 @@ if(uri){
 const app = express();
 const PORT = 3000;
 
- 
-import coursesRoute from './API/courses/coursesRoute';
-app.use('/api/student', coursesRoute);
-
-
 app.use(express.json())
 app.use(express.static('public'))
+
+
+app.use('/courses', coursesRoute);
+app.use('/grades', gradesRouter);
+
+
+
+
 
 
 
