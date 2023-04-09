@@ -1,6 +1,7 @@
 addEventListener("load", getStudents)
 import bodyParser from "body-parser";
 import { student } from "../API/students/studentModel";
+import { course } from "../API/course/courseModel";
 async function formHandler(ev: any) {
     ev.preventDefault();
     console.log(ev);
@@ -34,7 +35,7 @@ async function formCourseHandler(ev: any) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({name}),
+            body: JSON.stringify({ name }),
         });
         ev.target.reset();
         const result = await response.json();
@@ -49,15 +50,100 @@ async function getStudents() {
         const response = await fetch("/api/student/get-students");
         const students = await response.json();
         const html = (students as student[]).map((student) => {
+            const courses = student.courses;
+            const coursesHtml = (courses as course[]).map((course) => {
+                return `
+                    <li>${course.name}</li>
+                `
+            }).join(" ")
             return `
                 <h1>${student.name}</h1>
-                <h2>${student.age}</h2>  
-                <button onclick="handleDelete('${student._id}')">Delete</button>          
+                <h2>${student.age}</h2>
+                <lu>
+                    ${coursesHtml}
+                </lu>  
+                <button onclick="handleDelete('${student._id}')">Delete</button>
+                <button onclick="addCourse('${student._id}')">Add courses</button>          
             `
         }).join("")
         const display = document.getElementById("display");
         if (!display) throw new Error("Display not found");
         display.innerHTML = html;
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+async function getCourses() {
+    try {
+        const response = await fetch("/api/course/get-courses");
+        const courses = await response.json();
+        console.log(courses);
+        const html = (courses as course[]).map((course) => {
+            return `
+            <h1>${course.name}</h1>
+            <button onclick="handleDelete('${course._id}')">Delete</button>
+            `
+        }).join("")
+        const display = document.getElementById("display");
+        if (!display) throw new Error("Display not found");
+        display.innerHTML = html;
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+async function addCourse(_id:string) {
+    try {
+        const addCourse = document.getElementById("addCourse");
+        if(!addCourse) throw new Error("addCourse not fount");
+        addCourse.innerHTML = "";
+        const response = await fetch("/api/course/get-courses");
+        const courses = await response.json();
+        console.log(courses);
+        const htmlSelect = document.createElement("select")
+        const html = (courses as course[]).map((course) => {
+            const option = document.createElement("option")
+            option.innerText = course.name;
+            option.value = course._id;
+            
+            return option;
+        });
+        html.forEach((option) => {
+            htmlSelect.appendChild(option)
+        })
+        addCourse.appendChild(htmlSelect);
+        const btn = document.createElement("button");
+        btn.innerText = "Add";
+        addCourse.appendChild(btn);
+        btn.addEventListener("click",() => {
+            addCourseHelper(htmlSelect.value, courses, _id)
+        });
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+async function addCourseHelper(_id:string, courses:course[], student_id:string) {
+    try {
+        const index = courses.findIndex(course => _id == course._id)
+        if(index == -1) throw new Error("course not found");
+        console.log(courses[index]);
+        const course = courses[index]
+        try {
+            const response = await fetch("/api/student/add-course", {
+              method: "POST", // or 'PUT'
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({course, student_id}),
+            });
+        
+            const result = await response.json();
+            console.log("Success:", result);
+          } catch (error) {
+            console.error("Error:", error);
+          }
     } catch (error) {
         console.error("Error:", error);
     }

@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.deleteStudent = exports.getStudents = exports.addStudent = void 0;
+exports.addCourse = exports.deleteStudent = exports.getStudents = exports.addStudent = void 0;
 var studentModel_1 = require("./studentModel");
 exports.addStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, name, age, error_1;
@@ -98,6 +98,39 @@ exports.deleteStudent = function (req, res) { return __awaiter(void 0, void 0, v
                 error_3 = _a.sent();
                 console.error(error_3);
                 res.status(500).send(error_3);
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); };
+exports.addCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, course_1, student_id, student, courses, index, error_4;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 3, , 4]);
+                _a = req.body, course_1 = _a.course, student_id = _a.student_id;
+                return [4 /*yield*/, studentModel_1["default"].findById(student_id)];
+            case 1:
+                student = _b.sent();
+                if (!student)
+                    throw new Error("student not found");
+                courses = student.courses;
+                index = courses.findIndex(function (course1) { return course1._id == course_1._id; });
+                if (index != -1)
+                    throw new Error("course already exists");
+                courses.push(course_1);
+                student.courses = courses;
+                return [4 /*yield*/, student.save()];
+            case 2:
+                _b.sent();
+                console.log(student);
+                res.status(200).send(true);
+                return [3 /*break*/, 4];
+            case 3:
+                error_4 = _b.sent();
+                console.error(error_4);
+                res.status(500).send(error_4);
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }

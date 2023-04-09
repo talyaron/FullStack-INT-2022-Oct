@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addCourse = void 0;
+exports.getCourses = exports.addCourse = void 0;
 var courseModel_1 = require("./courseModel");
 exports.addCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var name, course, error_1;
@@ -55,6 +55,26 @@ exports.addCourse = function (req, res) { return __awaiter(void 0, void 0, void 
                 error_1 = _a.sent();
                 console.error(error_1);
                 res.status(500).send(error_1);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.getCourses = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var courses, error_2;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, courseModel_1["default"].find({})];
+            case 1:
+                courses = _a.sent();
+                res.status(200).send(courses);
+                return [3 /*break*/, 3];
+            case 2:
+                error_2 = _a.sent();
+                console.error(error_2);
+                res.status(500).send(error_2);
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }

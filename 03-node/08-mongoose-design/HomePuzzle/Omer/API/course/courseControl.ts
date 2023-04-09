@@ -12,3 +12,13 @@ export const addCourse =async (req:any, res:any) => {
         res.status(500).send(error)
     }
 }
+
+export const getCourses = async (req:any, res:any) => {
+    try {
+        const courses = await courseModel.find({});
+        res.status(200).send(courses);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send(error)
+    }
+}
