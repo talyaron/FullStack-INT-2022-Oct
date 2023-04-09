@@ -14,6 +14,6 @@ const GradeSchema = new Schema({
   course:CourseSchema
 });
 
-const GradeModel = mongoose.model("users", GradeSchema);
+const GradeModel = mongoose.model("grades", GradeSchema);
 
 export default GradeModel;

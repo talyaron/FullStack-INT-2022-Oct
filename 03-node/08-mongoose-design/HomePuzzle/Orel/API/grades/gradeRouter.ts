@@ -3,17 +3,15 @@ import express from "express";
 const gradesRoute = express.Router();
 import {
   addGrade,
-  updateGrade,
   getGrades,
-  updateGradeName,
+  updateGradeScore,
   deleteGrade,
 } from "./gradesControl";
 
 gradesRoute
   .post("/add-grade", addGrade)
-  .put("/update-grade", updateGrade)
   .get("/get-grades", getGrades)
-  .patch("/update-grade-name", updateGradeName)
+  .patch("/update-grade-score", updateGradeScore)
   .delete("/delete-grade", deleteGrade);
 
 export default gradesRoute;

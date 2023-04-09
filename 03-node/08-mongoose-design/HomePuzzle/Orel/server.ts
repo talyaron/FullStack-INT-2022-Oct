@@ -3,7 +3,7 @@ import express  from "express";
 import * as dotenv from 'dotenv'
 import coursesRoute from './API/courses/coursesRoute';
 import gradesRouter from './API/grades/gradeRouter'
-
+import routeStudent from "./API/student/studentsRouter";
 dotenv.config()
 
 const uri:string | undefined = process.env.MONGODB_URI
@@ -26,6 +26,7 @@ app.use(express.static('public'))
 
 app.use('/courses', coursesRoute);
 app.use('/grades', gradesRouter);
+app.use('/student', routeStudent);
 
 
 

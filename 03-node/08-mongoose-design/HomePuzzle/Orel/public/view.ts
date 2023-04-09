@@ -6,7 +6,6 @@ try {
     const res = await fetch('/courses/get-courses')
     const data = await res.json();
     if(!data) throw new Error("no found data")
-    console.log('data',data);
      return data.courses.map(({name}) => name);
 } catch (error) {
     console.error(error)
@@ -90,20 +89,20 @@ async function grades(){
     const gradeDB = await fetch('/grades/get-grades');
     if(!gradeDB) throw new Error('no found Grades DB')
     const dataJson = await gradeDB.json();
-     const  html:string = dataJson.grades.map((grade , index ) =>{
+     const  html:string = dataJson.grades.map((grade:any , index:number ) =>{
        return  `
             <div class="grade">
             <ul class="header-grades-main-list">
                 <li class="header-grades-list__courseName">${index + 1}</li>
-                <li class="header-grades-list__courseName">Orel Karako</li>
+                <li class="header-grades-list__courseName">OrelK</li>
                 <li class="header-grades-list__courseName">${grade.courseName.name}</li>
                 <li class="header-grades-list__courseName">${grade.courseName.teacher.name}</li>
                 <li class="header-grades-list__courseName">${grade.assignmentName}</li>
                 <li class="header-grades-list__courseName">${grade.score}</li>
                 <li class="header-grades-list__courseName">${grade.date}</li>
                 <li class="header-grades-list__courseName buttonsEditRemove">
-                    <i class="fa-solid fa-pen-to-square" onclick="${grade._id}"></i>
-                    <i class="fa-solid fa-delete-left" onclick="${grade._id}"></i>
+                    <i class="fa-solid fa-pen-to-square" title="Edit Score" onclick="handleClickEditGrade('${grade._id}')"></i>
+                    <i class="fa-solid fa-delete-left" onclick="handleClickDelGrade('${grade._id}')"></i>
                 </li>
             </ul>
             </div>

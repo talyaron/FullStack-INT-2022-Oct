@@ -49,7 +49,6 @@ function renderOptionsWithCourses() {
                     data = _a.sent();
                     if (!data)
                         throw new Error("no found data");
-                    console.log('data', data);
                     return [2 /*return*/, data.courses.map(function (_a) {
                             var name = _a.name;
                             return name;
@@ -145,7 +144,7 @@ function grades() {
                 case 2:
                     dataJson = _a.sent();
                     html = dataJson.grades.map(function (grade, index) {
-                        return "\n            <div class=\"grade\">\n            <ul class=\"header-grades-main-list\">\n                <li class=\"header-grades-list__courseName\">" + (index + 1) + "</li>\n                <li class=\"header-grades-list__courseName\">Orel Karako</li>\n                <li class=\"header-grades-list__courseName\">" + grade.courseName.name + "</li>\n                <li class=\"header-grades-list__courseName\">" + grade.courseName.teacher.name + "</li>\n                <li class=\"header-grades-list__courseName\">" + grade.assignmentName + "</li>\n                <li class=\"header-grades-list__courseName\">" + grade.score + "</li>\n                <li class=\"header-grades-list__courseName\">" + grade.date + "</li>\n                <li class=\"header-grades-list__courseName buttonsEditRemove\">\n                    <i class=\"fa-solid fa-pen-to-square\" onclick=\"" + grade._id + "\"></i>\n                    <i class=\"fa-solid fa-delete-left\" onclick=\"" + grade._id + "\"></i>\n                </li>\n            </ul>\n            </div>\n            ";
+                        return "\n            <div class=\"grade\">\n            <ul class=\"header-grades-main-list\">\n                <li class=\"header-grades-list__courseName\">" + (index + 1) + "</li>\n                <li class=\"header-grades-list__courseName\">OrelK</li>\n                <li class=\"header-grades-list__courseName\">" + grade.courseName.name + "</li>\n                <li class=\"header-grades-list__courseName\">" + grade.courseName.teacher.name + "</li>\n                <li class=\"header-grades-list__courseName\">" + grade.assignmentName + "</li>\n                <li class=\"header-grades-list__courseName\">" + grade.score + "</li>\n                <li class=\"header-grades-list__courseName\">" + grade.date + "</li>\n                <li class=\"header-grades-list__courseName buttonsEditRemove\">\n                    <i class=\"fa-solid fa-pen-to-square\" title=\"Edit Score\" onclick=\"handleClickEditGrade('" + grade._id + "')\"></i>\n                    <i class=\"fa-solid fa-delete-left\" onclick=\"handleClickDelGrade('" + grade._id + "')\"></i>\n                </li>\n            </ul>\n            </div>\n            ";
                     }).join('');
                     rootGrade.innerHTML = html;
                     return [3 /*break*/, 4];

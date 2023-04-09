@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.updateGradeName = exports.deleteGrade = exports.updateGrade = exports.addGrade = exports.getGrades = void 0;
+exports.updateGradeScore = exports.deleteGrade = exports.addGrade = exports.getGrades = void 0;
 var gradesModel_1 = require("./gradesModel");
 exports.getGrades = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var grades, error_1;
@@ -59,12 +59,12 @@ exports.getGrades = function (req, res) { return __awaiter(void 0, void 0, void 
     });
 }); };
 exports.addGrade = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, courseName, studentName, teacherName, assignmentName, score, date, gradeDB, error_2;
+    var _a, courseName, teacherName, assignmentName, score, date, gradeDB, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                _a = req.body, courseName = _a.courseName, studentName = _a.studentName, teacherName = _a.teacherName, assignmentName = _a.assignmentName, score = _a.score, date = _a.date;
+                _a = req.body, courseName = _a.courseName, teacherName = _a.teacherName, assignmentName = _a.assignmentName, score = _a.score, date = _a.date;
                 return [4 /*yield*/, gradesModel_1["default"].create({ courseName: courseName, teacherName: teacherName, assignmentName: assignmentName, score: score, date: date })];
             case 1:
                 gradeDB = _b.sent();
@@ -80,35 +80,21 @@ exports.addGrade = function (req, res) { return __awaiter(void 0, void 0, void 0
         }
     });
 }); };
-exports.updateGrade = function (req, res) {
-    try {
-        // const { name, uid } = req.body;
-        // if (!name) throw new Error("No name in data");
-        // if (!uid) throw new Error("No uid in data");
-        // const user = users.find((user) => user.uid === uid);
-        // if (!user) throw new Error("No user in array");
-        // user.name = name;
-        // res.send({ ok: true });
-    }
-    catch (error) {
-        console.error(error);
-        res.status(500).send({ error: error.message });
-    }
-};
 exports.deleteGrade = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _id, deleteCourse, courses, error_3;
+    var _id, deleteGrade_1, grades, error_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 3, , 4]);
                 _id = req.body._id;
+                console.log(_id);
                 return [4 /*yield*/, gradesModel_1["default"].deleteOne({ _id: _id })];
             case 1:
-                deleteCourse = _a.sent();
+                deleteGrade_1 = _a.sent();
                 return [4 /*yield*/, gradesModel_1["default"].find({})];
             case 2:
-                courses = _a.sent();
-                res.send({ success: true, courses: courses });
+                grades = _a.sent();
+                res.send({ success: true, grades: grades });
                 return [3 /*break*/, 4];
             case 3:
                 error_3 = _a.sent();
@@ -119,14 +105,28 @@ exports.deleteGrade = function (req, res) { return __awaiter(void 0, void 0, voi
         }
     });
 }); };
-exports.updateGradeName = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        try {
+exports.updateGradeScore = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, _id, score, findGrade, grades, error_4;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 3, , 4]);
+                _a = req.body, _id = _a._id, score = _a.score;
+                console.log(_id, score);
+                return [4 /*yield*/, gradesModel_1["default"].updateOne({ _id: _id }, { score: score })];
+            case 1:
+                findGrade = _b.sent();
+                return [4 /*yield*/, gradesModel_1["default"].find({})];
+            case 2:
+                grades = _b.sent();
+                res.send({ success: true, grades: grades });
+                return [3 /*break*/, 4];
+            case 3:
+                error_4 = _b.sent();
+                console.error(error_4);
+                res.status(500).send({ error: error_4.message });
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
-        catch (error) {
-            console.error(error);
-            res.status(500).send({ error: error.message });
-        }
-        return [2 /*return*/];
     });
 }); };

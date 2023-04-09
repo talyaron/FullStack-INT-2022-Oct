@@ -12,7 +12,7 @@ export interface Grade {
 }
 
 export const  GradeSchema = new Schema({
-  studentName: StudentSchema,
+  studentName: String,
   courseName:CourseSchema,
   teacherName:TeacherSchema,
   assignmentName:String ,

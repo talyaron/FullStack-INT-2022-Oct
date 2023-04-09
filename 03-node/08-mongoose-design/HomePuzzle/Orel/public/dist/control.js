@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-//  HANDLE functions Close
+exports.__esModule = true;
 // OPEN CLOSE COLLAPSE WINDOWS
 function handleClickCloseWindows() {
     try {
@@ -100,6 +101,18 @@ function handleChangeUserName() {
         if (newName === null)
             return;
         rootUsersLogoSpan.innerHTML = newName;
+        fetch('/student/create-new-student', {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: newName
+            })
+        }).then(function (data) {
+            console.log(data);
+        })["catch"](function (err) { return console.log(err); });
         console.log("Implement delete functionality here");
     }
     else {
@@ -118,7 +131,6 @@ function handleSubmitAddGrade(ev) {
                     return [4 /*yield*/, GetCurCourses(courseName)];
                 case 1:
                     curCourse = _a.sent();
-                    console.log(curCourse);
                     curTeacher = curCourse.teacher;
                     assignmentName = ev.target.elements.assignmentName.value;
                     score = ev.target.elements.score.value;
@@ -140,7 +152,13 @@ function handleSubmitAddGrade(ev) {
                                 Accept: "application/json",
                                 "Content-Type": "application/json"
                             },
-                            body: JSON.stringify({ courseName: curCourse, teacherName: curTeacher, assignmentName: assignmentName, score: score, date: date })
+                            body: JSON.stringify({
+                                courseName: curCourse,
+                                teacherName: curTeacher,
+                                assignmentName: assignmentName,
+                                score: score,
+                                date: date
+                            })
                         })
                             .then(function (res) { return res.json(); })
                             .then(function (data) {
@@ -153,6 +171,7 @@ function handleSubmitAddGrade(ev) {
                     _a.sent();
                     grades();
                     handleClickCloseWindows();
+                    getAverageFromDB();
                     ev.target.reset();
                     return [3 /*break*/, 4];
                 case 3:
@@ -208,9 +227,92 @@ function handleSubmitAddCourse(ev) {
         });
     });
 }
+function handleClickEditGrade(_id) {
+    return __awaiter(this, void 0, void 0, function () {
+        var newScore, error_3;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 4, , 5]);
+                    if (!confirm("Are you sure to Edit This Grade? ")) return [3 /*break*/, 2];
+                    newScore = Number(prompt("Write the new Score ."));
+                    if (!newScore)
+                        alert("you must to write a Number");
+                    return [4 /*yield*/, fetch("/grades//update-grade-score", {
+                            method: "PATCH",
+                            headers: {
+                                Accept: "application/json",
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({
+                                _id: _id,
+                                score: newScore
+                            })
+                        })
+                            .then(function (res) { return res.json(); })
+                            .then(function (data) {
+                            console.log(data);
+                        })["catch"](function (error) {
+                            console.error(error.message);
+                        })];
+                case 1:
+                    _a.sent();
+                    getAverageFromDB();
+                    grades();
+                    return [3 /*break*/, 3];
+                case 2: return [2 /*return*/];
+                case 3: return [3 /*break*/, 5];
+                case 4:
+                    error_3 = _a.sent();
+                    console.error(error_3);
+                    return [3 /*break*/, 5];
+                case 5: return [2 /*return*/];
+            }
+        });
+    });
+}
+function handleClickDelGrade(_id) {
+    return __awaiter(this, void 0, void 0, function () {
+        var error_4;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 4, , 5]);
+                    console.log(_id);
+                    if (!confirm("Are you sure to Delete This Grade? ")) return [3 /*break*/, 2];
+                    return [4 /*yield*/, fetch("/grades/delete-grade", {
+                            method: "DELETE",
+                            headers: {
+                                Accept: "application/json",
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ _id: _id })
+                        })
+                            .then(function (res) { return res.json(); })
+                            .then(function (data) {
+                            console.log(data);
+                        })["catch"](function (error) {
+                            console.error(error.message);
+                        })];
+                case 1:
+                    _a.sent();
+                    getAverageFromDB();
+                    grades();
+                    return [3 /*break*/, 3];
+                case 2: return [2 /*return*/];
+                case 3: return [3 /*break*/, 5];
+                case 4:
+                    error_4 = _a.sent();
+                    console.error(error_4);
+                    return [3 /*break*/, 5];
+                case 5: return [2 /*return*/];
+            }
+        });
+    });
+}
 function getAverageFromDB() {
     return __awaiter(this, void 0, void 0, function () {
-        var gradeDB, dataJson, average, averageHtml, error_3;
+        var gradeDB, dataJson, average, averageHtml, error_5;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -232,12 +334,11 @@ function getAverageFromDB() {
                     }
                     return [3 /*break*/, 4];
                 case 3:
-                    error_3 = _a.sent();
-                    console.error(error_3);
+                    error_5 = _a.sent();
+                    console.error(error_5);
                     return [3 /*break*/, 4];
                 case 4: return [2 /*return*/];
             }
         });
     });
 }
-getAverageFromDB();
