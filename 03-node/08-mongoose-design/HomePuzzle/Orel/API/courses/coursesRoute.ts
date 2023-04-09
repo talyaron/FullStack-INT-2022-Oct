@@ -1,6 +1,6 @@
 
   import express from "express";
-const router = express.Router();
+const coursesRoute = express.Router();
 import {
   addCourse,
   updateCourse,
@@ -9,11 +9,11 @@ import {
   deleteCourse,
 } from "./coursesControl";
 
-router
+coursesRoute
   .post("/add-course", addCourse)
   .put("/update-course", updateCourse)
   .get("/get-courses", getCourse)
   .patch("/update-course-name", updateCourseName)
   .delete("/delete-course", deleteCourse);
 
-export default router;
+export default coursesRoute;
