@@ -40,15 +40,15 @@ exports.deleteCourse = exports.updateCourse = exports.addCourse = void 0;
 var coursesModel_1 = require("./coursesModel");
 var studentsModel_1 = require("../students/studentsModel");
 exports.addCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, course, _id, student, courseDB, students, error_1;
+    var _a, course, studentId, student, courseDB, students, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 4, , 5]);
-                _a = req.body, course = _a.course, _id = _a._id;
+                _b.trys.push([0, 5, , 6]);
+                _a = req.body, course = _a.course, studentId = _a.studentId;
                 console.log("course", course);
-                console.log("_id", _id);
-                return [4 /*yield*/, studentsModel_1["default"].findById({ _id: _id })];
+                console.log("studentId", studentId);
+                return [4 /*yield*/, studentsModel_1["default"].findById(studentId)];
             case 1:
                 student = _b.sent();
                 if (!student)
@@ -60,18 +60,21 @@ exports.addCourse = function (req, res) { return __awaiter(void 0, void 0, void 
                 console.log("courseDB.name", courseDB.name);
                 student.courses.push(courseDB);
                 console.log("student", student);
-                return [4 /*yield*/, studentsModel_1["default"].find({})];
+                return [4 /*yield*/, student.save()];
             case 3:
+                _b.sent();
+                return [4 /*yield*/, studentsModel_1["default"].find({})];
+            case 4:
                 students = _b.sent();
                 console.log("students", students);
                 res.status(201).send({ ok: true, students: students });
-                return [3 /*break*/, 5];
-            case 4:
+                return [3 /*break*/, 6];
+            case 5:
                 error_1 = _b.sent();
                 console.error(error_1);
                 res.status(500).send({ error: error_1.message });
-                return [3 /*break*/, 5];
-            case 5: return [2 /*return*/];
+                return [3 /*break*/, 6];
+            case 6: return [2 /*return*/];
         }
     });
 }); };

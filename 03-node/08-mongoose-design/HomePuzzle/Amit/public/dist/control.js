@@ -46,16 +46,16 @@ function handleAddStudent(ev) {
         console.error(error);
     }
 }
-function handleAddCourse(ev, _id) {
+function handleAddCourse(ev, studentId) {
     try {
-        console.log("student_id", _id);
+        console.log("studentId", studentId);
         ev.preventDefault();
         var course = ev.target.elements.course.value;
-        if (!_id)
-            throw new Error("No _id in form");
+        if (!studentId)
+            throw new Error("No studentId in form");
         if (!course)
             throw new Error("No course in form");
-        var data = { course: course, _id: _id };
+        var data = { course: course, studentId: studentId };
         console.log("data", data);
         fetch("/api/courses/add-course", {
             method: "POST",
@@ -66,7 +66,8 @@ function handleAddCourse(ev, _id) {
             body: JSON.stringify(data)
         })
             .then(function (res) { return res.json(); })
-            .then(function (students) {
+            .then(function (_a) {
+            var students = _a.students;
             console.log(students);
             renderStudents(students);
         })["catch"](function (error) {
