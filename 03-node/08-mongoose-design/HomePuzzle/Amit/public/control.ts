@@ -73,9 +73,9 @@ function handleAddCourse(ev: any, _id: string) {
             body: JSON.stringify(data)
         })
             .then((res) => res.json())
-            .then((student) => {
-                console.log(student);
-                renderStudents(student)
+            .then((students) => {
+                console.log(students);
+                renderStudents(students)
 
             })
             .catch((error) => {
