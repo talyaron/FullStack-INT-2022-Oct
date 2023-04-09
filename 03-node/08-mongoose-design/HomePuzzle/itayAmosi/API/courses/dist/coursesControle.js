@@ -36,37 +36,25 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addMockGrades = void 0;
-var gradesModel_1 = require("./gradesModel");
+exports.addMockCourse = void 0;
+var gradesModel_1 = require("../grades/gradesModel");
+var teachersModel_1 = require("../teachers/teachersModel");
+var coursesModel_1 = require("./coursesModel");
 var uuid_1 = require("uuid");
-// export const getStudentGradesInCourse = async (req: any, res: any) => {
-//   try {
-//     //got from the client
-//     const { courseId, studentId } = req.query;
-//     const grades = await GradeModel.find({
-//       course: { _id: courseId },
-//       user: { _id: studentId },
-//     });
-//     res.send({ grades });
-//     console.log(grades);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// };
-exports.addMockGrades = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var newGrades;
+exports.addMockCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var newCourse;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, gradesModel_1["default"].create({
+            case 0: return [4 /*yield*/, coursesModel_1["default"].create({
                     uid: uuid_1.v4(),
-                    name: uuid_1.v4().slice(0, 7),
-                    grade: [100]
+                    name: "English Class",
+                    teacher: teachersModel_1.TeacherSchema,
+                    grades: [gradesModel_1.GradeSchema]
                 })];
             case 1:
-                newGrades = _a.sent();
-                console.log(newGrades);
-                res.status(200).send({ ok: true, newGrades: newGrades });
+                newCourse = _a.sent();
+                console.log(newCourse);
+                res.status(200).send({ ok: true, newCourse: newCourse });
                 return [2 /*return*/];
         }
     });
