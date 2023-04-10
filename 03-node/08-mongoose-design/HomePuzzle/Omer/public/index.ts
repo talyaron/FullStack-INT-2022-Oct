@@ -53,22 +53,48 @@ async function getStudents() {
             const courses = student.courses;
             const coursesHtml = (courses as course[]).map((course) => {
                 return `
-                    <li>${course.name}</li>
+                    <li>${course.name} <button onclick="deleteCourseFromStudent('${course._id}', '${student._id}')">Delete Course</button></li>
                 `
             }).join(" ")
             return `
-                <h1>${student.name}</h1>
-                <h2>${student.age}</h2>
-                <lu>
-                    ${coursesHtml}
-                </lu>  
-                <button onclick="handleDelete('${student._id}')">Delete</button>
-                <button onclick="addCourse('${student._id}')">Add courses</button>          
+                <div class = "student">
+                    <h1>${student.name}</h1>
+                    <h2>${student.age}</h2>
+                    <lu>
+                        ${coursesHtml}
+                    </lu>  
+                    <button onclick="handleDelete('${student._id}')">Delete</button>
+                    <button onclick="addCourse('${student._id}')">Add courses</button>  
+                </div>        
             `
         }).join("")
         const display = document.getElementById("display");
         if (!display) throw new Error("Display not found");
         display.innerHTML = html;
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+async function deleteCourseFromStudent(courseId:string, studentId:string) {
+    try {
+        const response = await fetch("/api/student/get-students");
+        const students = await response.json();
+        try {
+            const response = await fetch("/api/student/delete-course", {
+              method: "DELETE", // or 'PUT'
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({studentId, courseId}),
+            });
+        
+            const result = await response.json();
+            console.log("Success:", result);
+          } catch (error) {
+            console.error("Error:", error);
+          }
+          getStudents();
     } catch (error) {
         console.error("Error:", error);
     }
@@ -82,7 +108,7 @@ async function getCourses() {
         const html = (courses as course[]).map((course) => {
             return `
             <h1>${course.name}</h1>
-            <button onclick="handleDelete('${course._id}')">Delete</button>
+            <button onclick="deleteCourse('${course._id}')">Delete</button>
             `
         }).join("")
         const display = document.getElementById("display");
@@ -91,6 +117,23 @@ async function getCourses() {
     } catch (error) {
         console.error("Error:", error);
     }
+}
+
+async function deleteCourse(courseId:string) {
+    try {
+        const response = await fetch("/api/course/delete-course", {
+          method: "DELETE", // or 'PUT'
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({courseId}),
+        });
+        getCourses();
+        const result = await response.json();
+        console.log("Success:", result);
+      } catch (error) {
+        console.error("Error:", error);
+      }
 }
 
 async function addCourse(_id:string) {
@@ -126,6 +169,9 @@ async function addCourse(_id:string) {
 
 async function addCourseHelper(_id:string, courses:course[], student_id:string) {
     try {
+        const addCourse = document.getElementById("addCourse");
+        if(!addCourse) throw new Error("addCourse not fount");
+        addCourse.innerHTML = "";
         const index = courses.findIndex(course => _id == course._id)
         if(index == -1) throw new Error("course not found");
         console.log(courses[index]);
@@ -144,6 +190,7 @@ async function addCourseHelper(_id:string, courses:course[], student_id:string) 
           } catch (error) {
             console.error("Error:", error);
           }
+          getStudents()
     } catch (error) {
         console.error("Error:", error);
     }
