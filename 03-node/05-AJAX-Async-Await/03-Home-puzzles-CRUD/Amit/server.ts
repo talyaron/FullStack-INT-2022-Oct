@@ -24,8 +24,26 @@ if (uri) {
 }
 
 ////////data//////////////
+//schema
+
+const StudentSchema = new Schema ({
+    name: String,
+    grades: [],
+})
+
+const StudentModel = mongoose.model("students", StudentSchema);
+
+const GradeSchema = new Schema ({
+    test: String,
+    value: Number,
+})
+
+const GradeModel = mongoose.model("grades", GradeSchema);
+
+//claesses
+
 class Student {
-    public grades: Grade[] = [];
+    public grades: [GradeSchema];
       constructor(
           public name: string,
           public _id?: string,
@@ -54,21 +72,6 @@ const students: Student[] = []
 
 
 
-//schema
-
-const StudentSchema = new Schema ({
-    name: String,
-    grades: [],
-})
-
-const StudentModel = mongoose.model("students", StudentSchema);
-
-const GradeSchema = new Schema ({
-    test: String,
-    value: Number,
-})
-
-const GradeModel = mongoose.model("grades", GradeSchema);
 
 ////getting data from public
 app.use(express.json());
@@ -114,7 +117,12 @@ app.post("/api/add-student", async (req, res) => {
 // add grade to student
 app.post("/students/:studentId/grades", async (req, res) => {
     try {
-        const student =  students.find(student => student._id === req.params.studentId);
+        console.log("req.params.studentId" , req.params.studentId);
+        
+        const student =  students.find(student =>{
+console.log("student._id" ,student._id);
+
+         student._id === req.params.studentId});
     if (!student) return res.sendStatus(404);
 console.log("student", student);
       const { newGrade } = req.body;

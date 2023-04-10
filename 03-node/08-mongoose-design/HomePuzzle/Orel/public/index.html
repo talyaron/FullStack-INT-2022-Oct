@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Link Font Awesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link JS files -->
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+    <!-- Link Style Css -->
+    <link rel="stylesheet" href="./dist/style.css">
+    <title>SchoolMasterGrade</title>
+</head>
+
+<body onload="handleOnLoad()">
+    <section class="app-container">
+        <header class="app-container__header">
+            <div class="app-container__header__iconUser" id="rootUsersLogo" onclick="handleChangeUserName()">
+                <span class="app-container__header__iconUser-name">
+                    User
+                </span>
+                <i class="fa-solid fa-circle-user"></i>
+            </div>
+
+            <ul class="app-container__header__navbar">
+                <li class="app-container__header__navbar__list">
+                    <button class="app-container__header__navbar__link" onclick="handleClickViewGrades()">
+                        View All Grades
+                    </button>
+                </li>
+                <li class="app-container__header__navbar__list">
+                    <button class="app-container__header__navbar__link" onclick="handleClickAddGrades()">
+                        Add Grade
+                    </button>
+                </li>
+
+                <li class="app-container__header__navbar__list">
+                    <button class="app-container__header__navbar__link" onclick="handleClickAddCourse()">
+                        Add Course
+                    </button>
+                </li>
+
+            </ul>
+
+            <div class="app-container__header__collapseMenu-btn" id="collapseMenuBtn" onclick="handleCollapseMenuBtn()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </header>
+        <main class="app-container__main">
+            <div id="rootContainerGradeChange" >
+
+            </div>
+
+            <h2 class="app-container__main__title">All Grades</h2>
+
+
+            <div id="rootGradesContainer">
+                <ul class="header-grades-top-list">
+                    <li class="header-grades-list__courseName">#</li>
+                    <li class="header-grades-list__courseName">Student Name</li>
+                    <li class="header-grades-list__courseName">Course Name</li>
+                    <li class="header-grades-list__courseName">Teacher Name</li>
+                    <li class="header-grades-list__courseName">Assignment Name</li>
+                    <li class="header-grades-list__courseName">Score</li>
+                    <li class="header-grades-list__courseName">Date</li>
+                    <li class="header-grades-list__courseName">Edit/Delete</li>
+                    </ul>
+                    <div id="rootGrades"> 
+                        
+                    </div>
+                    <ul class="header-grades-footer-list">
+                        <h3> average :
+                            <span id="average">?</span>
+                        </h3>
+                        </ul>
+            </div>
+
+
+        </main>
+        <footer class="app-container__footer">
+            <p>&copy; 2023 GradeMaster App. All rights reserved.</p>
+        </footer>
+    </section>
+</body>
+
+</html>
