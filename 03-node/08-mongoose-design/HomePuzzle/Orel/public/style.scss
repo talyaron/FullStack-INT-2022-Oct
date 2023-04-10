@@ -113,8 +113,11 @@ html {
                 padding: 16px;
                 text-decoration: underline;
             }
-
-            input {
+            label {
+                font-size: 1.4rem;
+                color: white;
+            }
+            input , select{
                 font-size: 1.1rem;
                 border: none;
                 outline: none;
@@ -243,7 +246,23 @@ html {
             margin: 0 10px;
         }
     }
+    .buttonsEditRemove{
+        width: 150px;
+        display: flex;
+        justify-content: space-around;
 
+        i{
+             font-size: 1.4rem;
+             cursor: pointer;
+
+             &:hover{
+ scale: 1.09;
+             }
+             &:active{
+ scale: 0.9;
+             }
+        }
+    }
     .header-grades-top-list {
         position: sticky;
         background-color: var(--background-color);
@@ -262,14 +281,18 @@ html {
 
     .header-grades-footer-list {
 
+        text-transform: capitalize;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 20px;
+        padding-top: 50px;
+        font-size: 2rem;
         position: sticky;
-        background-color: var(--background-color);
         bottom: 0;
+
         left: 0;
-        color: rgba(94, 8, 255, 0.994);
+        color: rgba(8, 37, 255, 0.994);
         border-top: 1px solid rgb(147, 96, 96);
 
         li {

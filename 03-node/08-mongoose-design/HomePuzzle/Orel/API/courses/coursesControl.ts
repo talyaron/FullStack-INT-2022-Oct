@@ -1,11 +1,12 @@
 
+import TeacherModel from "../teachers/teachersModel";
 import CourseModel from "./coursesModel";
 
 
 export const getCourse = async (req:any, res:any) => {
     try {
-      const users = await CourseModel.find({});
-      res.send({ users });
+      const courses = await CourseModel.find({});
+      res.send({ courses });
     } catch (error: any) {
       console.error(error);
       res.status(500).send({ error: error.message });
@@ -15,12 +16,13 @@ export const getCourse = async (req:any, res:any) => {
 
 export const addCourse = async (req:any, res:any) => {
   try {
-    const { name, teacherName } = req.body;
+    const { courseName, teacherCourse } = req.body;
     console.log(req.body)
-    console.log(name, teacherName);
 
     //add users to DB;
-    const courseDB = await CourseModel.create({ name, teacherName });
+    const teacherDB = await TeacherModel.create({ name:teacherCourse });
+    console.log(teacherDB);
+    const courseDB = await CourseModel.create({ name:courseName, teacher:teacherDB });
 
     console.log(courseDB);
 

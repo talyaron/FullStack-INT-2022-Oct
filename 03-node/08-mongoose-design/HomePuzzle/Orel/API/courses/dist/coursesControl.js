@@ -37,17 +37,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.updateCourseName = exports.deleteCourse = exports.updateCourse = exports.addCourse = exports.getCourse = void 0;
+var teachersModel_1 = require("../teachers/teachersModel");
 var coursesModel_1 = require("./coursesModel");
 exports.getCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var users, error_1;
+    var courses, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 return [4 /*yield*/, coursesModel_1["default"].find({})];
             case 1:
-                users = _a.sent();
-                res.send({ users: users });
+                courses = _a.sent();
+                res.send({ courses: courses });
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _a.sent();
@@ -59,26 +60,29 @@ exports.getCourse = function (req, res) { return __awaiter(void 0, void 0, void 
     });
 }); };
 exports.addCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, teacherName, courseDB, error_2;
+    var _a, courseName, teacherCourse, teacherDB, courseDB, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 2, , 3]);
-                _a = req.body, name = _a.name, teacherName = _a.teacherName;
+                _b.trys.push([0, 3, , 4]);
+                _a = req.body, courseName = _a.courseName, teacherCourse = _a.teacherCourse;
                 console.log(req.body);
-                console.log(name, teacherName);
-                return [4 /*yield*/, coursesModel_1["default"].create({ name: name, teacherName: teacherName })];
+                return [4 /*yield*/, teachersModel_1["default"].create({ name: teacherCourse })];
             case 1:
+                teacherDB = _b.sent();
+                console.log(teacherDB);
+                return [4 /*yield*/, coursesModel_1["default"].create({ name: courseName, teacher: teacherDB })];
+            case 2:
                 courseDB = _b.sent();
                 console.log(courseDB);
                 res.status(201).send({ ok: true });
-                return [3 /*break*/, 3];
-            case 2:
+                return [3 /*break*/, 4];
+            case 3:
                 error_2 = _b.sent();
                 console.error(error_2);
                 res.status(500).send({ error: error_2.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };

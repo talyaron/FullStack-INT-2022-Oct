@@ -14,7 +14,14 @@
         <input type="number" name="age" placeholder="Age">
         <input type="submit" value="Send">
     </form>
-    <button onclick="getStudents()">Get</button>
+    <form onsubmit="formCourseHandler(event)">
+        <input type="text" name="name" placeholder="Course Name">
+        <input type="submit" value="Send">
+    </form>
+    <button onclick="getStudents()">Get Students</button>
+    <button onclick="getCourses()">Get Courses</button>
     <div id="display"></div>
+    <div id="addCourse"></div>
+    
 </body>
 </html>

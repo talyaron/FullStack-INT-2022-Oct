@@ -7,7 +7,7 @@ dotenv.config();
 const uri: string | undefined = process.env.MONGODB_URI;
 
 //to be able to get data from client add this line
-app.use(express.json());
+
 
 if (uri) {
   mongoose
@@ -20,13 +20,15 @@ if (uri) {
   console.log("No URI to DB");
 }
 
+app.use(express.json());
+app.use(express.static("./client"));
 
 import usersRouter from './API/users/usersRoute';
 app.use('/api/users', usersRouter);
 
 
 //static file
-app.use(express.static("./client"));
+
 
 app.listen(3000, () => {
   console.log("server listen on port 3000");

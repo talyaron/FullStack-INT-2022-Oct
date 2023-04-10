@@ -16,6 +16,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Link JS files -->
     <script src="./dist/view.js" defer></script>
+    <script src="./dist/model.js" defer></script>
     <script src="./dist/control.js" defer></script>
     <script src="./dist/index.js" defer></script>
     <!-- Link Style Css -->
@@ -26,7 +27,7 @@
 <body onload="handleOnLoad()">
     <section class="app-container">
         <header class="app-container__header">
-            <div class="app-container__header__iconUser" id="rootUsersLogo">
+            <div class="app-container__header__iconUser" id="rootUsersLogo" onclick="handleChangeUserName()">
                 <span class="app-container__header__iconUser-name">
                     User
                 </span>
@@ -66,7 +67,24 @@
 
 
             <div id="rootGradesContainer">
-
+                <ul class="header-grades-top-list">
+                    <li class="header-grades-list__courseName">#</li>
+                    <li class="header-grades-list__courseName">Student Name</li>
+                    <li class="header-grades-list__courseName">Course Name</li>
+                    <li class="header-grades-list__courseName">Teacher Name</li>
+                    <li class="header-grades-list__courseName">Assignment Name</li>
+                    <li class="header-grades-list__courseName">Score</li>
+                    <li class="header-grades-list__courseName">Date</li>
+                    <li class="header-grades-list__courseName">Edit/Delete</li>
+                    </ul>
+                    <div id="rootGrades"> 
+                        
+                    </div>
+                    <ul class="header-grades-footer-list">
+                        <h3> average :
+                            <span id="average">?</span>
+                        </h3>
+                        </ul>
             </div>
 
 
