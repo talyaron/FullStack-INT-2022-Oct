@@ -2,15 +2,13 @@ import express from "express";
 const teacherRouter = express.Router();
 import {
   getAllTeachers,
-  getTeacher,
+  getTeacherCourses,
   createTeacher,
   deleteTeacher,
   updateTeacher,
 } from "../controllers/teacherController";
 
 teacherRouter.route("/").get(getAllTeachers).post(createTeacher);
-teacherRouter.route("/:id").patch(updateTeacher).delete(deleteTeacher);
-
-teacherRouter.route
+teacherRouter.route("/:id").get(getTeacherCourses).patch(updateTeacher).delete(deleteTeacher);
 
 export { teacherRouter };

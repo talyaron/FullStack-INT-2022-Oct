@@ -28,13 +28,6 @@ async function StartServer() {
   app.use("/api/v1/teachers", teacherRouter);
   app.use("/api/v1/courses", courseRouter);
   app.use("/api/v1/grades", gradeRouter);
-  app.get("/course", (req, res) => {
-    const { teacherId } = req.query;
-    console.log(teacherId);
-    res.sendFile("courses.html", {
-      root: path.join(__dirname, "../../public"),
-    })
-  });
 
   app.listen(config.server.port, () => {
     console.log(`Server is listening on port ${config.server.port}...`);

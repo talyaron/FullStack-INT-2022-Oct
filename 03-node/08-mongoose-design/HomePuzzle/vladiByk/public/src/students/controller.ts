@@ -4,8 +4,7 @@ const displayStudents = async () => {
       .then((res) => res.json())
       .then(({ students }) =>
         students.map(
-          (student: StudentTemplate) =>
-            new Student(student.name, student.id)
+          (student: StudentTemplate) => new Student(student.name, student.id)
         )
       );
     if (studentList) renderStudents(studentList);
@@ -47,3 +46,4 @@ const renderStudents = (students: Student[]) => {
     })
   );
 };
+

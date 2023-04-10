@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 const mongoose_1 = __importDefault(require("mongoose"));
-const path_1 = __importDefault(require("path"));
 const config_1 = require("../config/config");
 const studentRoutes_1 = require("../routes/studentRoutes");
 const teacherRoutes_1 = require("../routes/teacherRoutes");
@@ -40,13 +39,6 @@ function StartServer() {
         app.use("/api/v1/teachers", teacherRoutes_1.teacherRouter);
         app.use("/api/v1/courses", courseRoutes_1.courseRouter);
         app.use("/api/v1/grades", gradesRoutes_1.gradeRouter);
-        app.get("/course", (req, res) => {
-            const { teacherId } = req.query;
-            console.log(teacherId);
-            res.sendFile("courses.html", {
-                root: path_1.default.join(__dirname, "../../public"),
-            });
-        });
         app.listen(config_1.config.server.port, () => {
             console.log(`Server is listening on port ${config_1.config.server.port}...`);
         });

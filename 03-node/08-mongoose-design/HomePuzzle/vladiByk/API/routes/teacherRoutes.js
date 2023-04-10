@@ -9,5 +9,4 @@ const teacherRouter = express_1.default.Router();
 exports.teacherRouter = teacherRouter;
 const teacherController_1 = require("../controllers/teacherController");
 teacherRouter.route("/").get(teacherController_1.getAllTeachers).post(teacherController_1.createTeacher);
-teacherRouter.route("/:id").patch(teacherController_1.updateTeacher).delete(teacherController_1.deleteTeacher);
-teacherRouter.route;
+teacherRouter.route("/:id").get(teacherController_1.getTeacherCourses).patch(teacherController_1.updateTeacher).delete(teacherController_1.deleteTeacher);
