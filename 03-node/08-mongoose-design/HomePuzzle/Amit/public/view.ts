@@ -4,9 +4,14 @@ function renderStudents(students: Student[]) {
 
         const html = students
             .map((student) => {
-                return `<div class="StudentCard">
-          <p contenteditable oninput="handleStudentNameUpdate(event, '${student._id}')">${student.name}</p>
-          <div class="StudentCard__courses">courses:
+                return `
+          <div class="studentsContainer__studentCard">
+            <div class="studentsContainer__studentCard__name">
+                <button onclick="handleStudentNameUpdate('${student._id}')">update student name</button>
+                <p id="studentName-${student._id}" contenteditable=false >${student.name}</p>
+                <button id="saveNameBtn-${student._id}" onclick="handleSaveStudentNameUpdate('${student._id}')">save name</button>
+            </div>    
+            <div class="studentsContainer__studentCard__courses">courses:
             <form onsubmit="handleAddCourse(event, '${student._id}')">
                 <input type="text" name="course" placeholder="course name" required>
                 <button type="submit">add course</button>    
@@ -45,7 +50,7 @@ function renderCourses(students: Student[]) {
                 const html = student.courses
                     .map((course) => {
                         
-                        return `<div class="StudentCard__courses__course">
+                        return `<div class="studentsContainer__studentCard__courses__course">
                         <p contenteditable oninput="handleCourseUpdate(event, '${course._id}')">${course.name}</p>
                         <div id="gradesRoot-${course._id}"></div>
                         <button onclick='handleDeleteCourse("${course._id}")'>DELETE</button>
@@ -81,7 +86,7 @@ function renderCourses(students: Student[]) {
 //                 const html = student.grades
 //                     .map((grade) => {
                         
-//                         return `<div class="StudentCard__grade">
+//                         return `<div class="studentsContainer__StudentCard__grade">
 //                         <p contenteditable oninput="handleGradeUpdate(event, '${grade._id}')">${grade.test}: ${grade.value} </p>
 //                         <div id="gradeRoot-${grade._id}"></div>
 //                         <button onclick='handleDeleteGrade("${grade._id}")'>DELETE</button>

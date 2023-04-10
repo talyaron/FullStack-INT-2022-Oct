@@ -18,11 +18,11 @@ function handleGetStudents() {
 
 function handleAddStudent(ev) {
     try {
-        
+
         ev.preventDefault();
         const name = ev.target.elements.name.value;
         if (!name) throw new Error("No name on form");
-        
+
         const newStudent: any = { name };
         console.log("newStudent", newStudent);
 
@@ -48,6 +48,75 @@ function handleAddStudent(ev) {
     }
 }
 
+
+function handleDeleteStudent(_id: string) {
+    try {
+
+        fetch("/api/students/delete-student", {
+            method: "DELETE",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ _id }),
+        })
+            .then((res) => res.json())
+            .then(({ students }) => {
+                renderStudents(students);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+function handleStudentNameUpdate(_id: string) {
+    try {
+        const studentName: HTMLDivElement | null = document.querySelector(`#studentName-${_id}`);
+        if (!studentName) throw new Error("student name not found on DOM");
+        console.log("studentName", studentName);
+
+        studentName.contentEditable = "true";
+        studentName.style.color = "blue";
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+function handleSaveStudentNameUpdate(_id: string){
+    try {
+        const studentName: HTMLDivElement | null = document.querySelector(`#studentName-${_id}`);
+        if (!studentName) throw new Error("student name not found on DOM");
+
+        studentName.contentEditable = "false";
+        studentName.style.color = "black";
+
+        const updatedName = studentName.innerText; 
+
+
+        fetch("/api/students/update-student-name", {
+            method: "PATCH",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ _id , updatedName}),
+        })
+            .then((res) => res.json())
+            .then(({ students }) => {
+                renderStudents(students);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    } catch (error) {
+        console.error(error);
+    }
+}
 
 
 function handleAddCourse(ev: any, studentId: string) {
@@ -82,35 +151,7 @@ function handleAddCourse(ev: any, studentId: string) {
             });
 
         ev.target.reset();
-        
-    } catch (error) {
-        console.error(error);
-    }
-}
 
-
-
-
-function handleDeleteStudent(_id: string) {
-    try {
-
-        fetch("/api/students/delete-student", {
-            method: "DELETE",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ _id }),
-        })
-            .then((res) => res.json())
-            .then(({ students }) => {
-
-
-                renderStudents(students);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
     } catch (error) {
         console.error(error);
     }

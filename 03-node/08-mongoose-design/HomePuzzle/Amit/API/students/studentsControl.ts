@@ -27,13 +27,19 @@ export const getStudents = async (req:any, res:any) => {
   
 export const updateStudentName = async (req:any, res:any) => {
     try {
-      // const { name, uid } = req.body;
-      // if (!name) throw new Error("No name in data");
-      // if (!uid) throw new Error("No uid in data");
-      // const user = users.find((user) => user.uid === uid);
-      // if (!user) throw new Error("No user in array");
-      // user.name = name;
-      // res.send({ ok: true });
+      const { _id, updatedName} = req.body;
+      if (!_id) throw new Error("No _id in data");
+      if (!updatedName) throw new Error("No updated Name in data");
+
+      const student = await StudentModel.findById(_id);
+      if(!student) throw new Error("no student found");
+      
+      const updatedNameDB = await StudentModel.updateOne({_id}, {name: updatedName});
+
+      await student.save();
+      const students = await StudentModel.find({})
+      
+      res.send({ ok: true, students });
     } catch (error: any) {
       console.error(error);
       res.status(500).send({ error: error.message });

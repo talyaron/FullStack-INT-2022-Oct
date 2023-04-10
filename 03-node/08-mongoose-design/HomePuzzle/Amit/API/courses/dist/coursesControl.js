@@ -46,27 +46,21 @@ exports.addCourse = function (req, res) { return __awaiter(void 0, void 0, void 
             case 0:
                 _b.trys.push([0, 5, , 6]);
                 _a = req.body, course = _a.course, studentId = _a.studentId;
-                console.log("course", course);
-                console.log("studentId", studentId);
                 return [4 /*yield*/, studentsModel_1["default"].findById(studentId)];
             case 1:
                 student = _b.sent();
                 if (!student)
                     throw new Error("no student found");
-                console.log("student", student);
                 return [4 /*yield*/, coursesModel_1["default"].create({ name: course })];
             case 2:
                 courseDB = _b.sent();
-                console.log("courseDB.name", courseDB.name);
                 student.courses.push(courseDB);
-                console.log("student", student);
                 return [4 /*yield*/, student.save()];
             case 3:
                 _b.sent();
                 return [4 /*yield*/, studentsModel_1["default"].find({})];
             case 4:
                 students = _b.sent();
-                console.log("students", students);
                 res.status(201).send({ ok: true, students: students });
                 return [3 /*break*/, 6];
             case 5:

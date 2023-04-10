@@ -6,25 +6,18 @@ export const addCourse = async (req:any, res:any) => {
     try {
 
       const { course , studentId } = req.body;
-      console.log("course", course);
-      console.log("studentId", studentId);
       
       const student = await StudentModel.findById(studentId);
       if(!student) throw new Error("no student found")
-      console.log("student", student);
-      
+   
       const courseDB = await CourseModel.create({name: course});
-      console.log("courseDB.name", courseDB.name);
       
       student.courses.push(courseDB);
-      console.log("student", student);
 
-      await student.save()
+      await student.save();
 
       const students = await StudentModel.find({})
-      console.log("students", students);
       
-
       res.status(201).send({ ok: true, students });
     } catch (error: any) {
       console.error(error);
