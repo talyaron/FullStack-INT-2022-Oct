@@ -1,44 +1,29 @@
 import mongoose, { Schema } from "mongoose";
 import { v4 as uuidv4 } from "uuid";
 import { CourseSchema } from "../courses/coursesModel";
+import { GradeSchema } from "../grades/gradesModel";
 
 export class Student {
   public uid: string = uuidv4();
-  lasName: any;
   constructor(
     public name: string,
-    public lastname: string,
+    public lastName: string,
     public englishClass: number,
     public mathClass: number,
     public sportsClass: number,
     public historyClass: number,
     public avg: number
   ) {}
-
-  getSimple() {
-    return {
-      uid: this.uid,
-      name: this.name,
-      englishClass: this.englishClass,
-      mathClass: this.mathClass,
-      sportsClass: this.sportsClass,
-      historyClass: this.historyClass,
-    };
-  }
 }
 
-export const studentSchema = new Schema({
+export const StudentSchema = new Schema({
   uid: String,
   name: String,
-  lastname: String,
-  englishClass: Number,
-  mathClass: Number,
-  sportsClass: Number,
-  historyClass: Number,
-  avg: Number,
+  lastName: String,
   course: [CourseSchema],
+  grades: [GradeSchema],
 });
 
-const StudentModel = mongoose.model("students", studentSchema);
+const StudentModel = mongoose.model("students", StudentSchema);
 
 export default StudentModel;

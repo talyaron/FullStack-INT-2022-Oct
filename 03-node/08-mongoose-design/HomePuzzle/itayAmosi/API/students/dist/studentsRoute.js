@@ -6,6 +6,7 @@ var studentsControle_1 = require("./studentsControle");
 router
     .post("/add-student-grades", studentsControle_1.addStudentGrades)
     .post("/add-mock-student", studentsControle_1.addMockStudent)
+    .post("/add-mock-students", studentsControle_1.addMockStudents)
     .get("/get-students", studentsControle_1.getStudents)["delete"]("/delete-student", studentsControle_1.deleteStudent)
     .patch("/update-student-name", studentsControle_1.updateStudentName);
 exports["default"] = router;

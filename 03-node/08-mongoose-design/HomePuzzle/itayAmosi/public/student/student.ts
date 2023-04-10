@@ -30,7 +30,6 @@ function renderStudentDiv(student: Student) {
              </div>
              <button class="submit" onclick='handleDeleteStudent("${student.uid}")'>DELETE</button>
              <button id="avgBtn" type="submit" class="submit" onclick="calc(event)">Average</button>
-             <button id="" type="submit" class="submit" onclick="getStudentGradesInCourse()">get</button>
              </div>`;
              const studentRoot = document.querySelector("#studentRoot")
              if(!studentRoot) throw new Error("student Root not found")

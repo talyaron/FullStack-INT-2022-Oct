@@ -2,15 +2,11 @@ import express from "express";
 const router = express.Router();
 
 import {
-
+    addMockTeacher,
 } from "./teachersControle";
 
-/*  לעדכן בהמשך למורה */
+
 router
-//   .post("/", /*app name*/)
-//   .post("/", /*app name*/)
-//   .get("/", /*app name*/)
-//   .delete("/", /*app name*/)
-//   .patch("/", /*app name*/);
+  .post("/add-mock-teacher", addMockTeacher)
 
 export default router;

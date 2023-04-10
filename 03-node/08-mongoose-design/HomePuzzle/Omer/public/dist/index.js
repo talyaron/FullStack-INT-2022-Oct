@@ -124,7 +124,11 @@ function getStudents() {
                 case 2:
                     students = _a.sent();
                     html = students.map(function (student) {
-                        return "\n                <h1>" + student.name + "</h1>\n                <h2>" + student.age + "</h2>  \n                <button onclick=\"handleDelete('" + student._id + "')\">Delete</button>          \n            ";
+                        var courses = student.courses;
+                        var coursesHtml = courses.map(function (course) {
+                            return "\n                    <li>" + course.name + " <button onclick=\"deleteCourseFromStudent('" + course._id + "', '" + student._id + "')\">Delete Course</button></li>\n                ";
+                        }).join(" ");
+                        return "\n                <div class = \"student\">\n                    <h1>" + student.name + "</h1>\n                    <h2>" + student.age + "</h2>\n                    <lu>\n                        " + coursesHtml + "\n                    </lu>  \n                    <button onclick=\"handleDelete('" + student._id + "')\">Delete</button>\n                    <button onclick=\"addCourse('" + student._id + "')\">Add courses</button>  \n                </div>        \n            ";
                     }).join("");
                     display = document.getElementById("display");
                     if (!display)
@@ -140,9 +144,211 @@ function getStudents() {
         });
     });
 }
+function deleteCourseFromStudent(courseId, studentId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var response, students, response_1, result, error_4, error_5;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 8, , 9]);
+                    return [4 /*yield*/, fetch("/api/student/get-students")];
+                case 1:
+                    response = _a.sent();
+                    return [4 /*yield*/, response.json()];
+                case 2:
+                    students = _a.sent();
+                    _a.label = 3;
+                case 3:
+                    _a.trys.push([3, 6, , 7]);
+                    return [4 /*yield*/, fetch("/api/student/delete-course", {
+                            method: "DELETE",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ studentId: studentId, courseId: courseId })
+                        })];
+                case 4:
+                    response_1 = _a.sent();
+                    return [4 /*yield*/, response_1.json()];
+                case 5:
+                    result = _a.sent();
+                    console.log("Success:", result);
+                    return [3 /*break*/, 7];
+                case 6:
+                    error_4 = _a.sent();
+                    console.error("Error:", error_4);
+                    return [3 /*break*/, 7];
+                case 7:
+                    getStudents();
+                    return [3 /*break*/, 9];
+                case 8:
+                    error_5 = _a.sent();
+                    console.error("Error:", error_5);
+                    return [3 /*break*/, 9];
+                case 9: return [2 /*return*/];
+            }
+        });
+    });
+}
+function getCourses() {
+    return __awaiter(this, void 0, void 0, function () {
+        var response, courses, html, display, error_6;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 3, , 4]);
+                    return [4 /*yield*/, fetch("/api/course/get-courses")];
+                case 1:
+                    response = _a.sent();
+                    return [4 /*yield*/, response.json()];
+                case 2:
+                    courses = _a.sent();
+                    console.log(courses);
+                    html = courses.map(function (course) {
+                        return "\n            <h1>" + course.name + "</h1>\n            <button onclick=\"deleteCourse('" + course._id + "')\">Delete</button>\n            ";
+                    }).join("");
+                    display = document.getElementById("display");
+                    if (!display)
+                        throw new Error("Display not found");
+                    display.innerHTML = html;
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_6 = _a.sent();
+                    console.error("Error:", error_6);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+function deleteCourse(courseId) {
+    return __awaiter(this, void 0, void 0, function () {
+        var response, result, error_7;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 3, , 4]);
+                    return [4 /*yield*/, fetch("/api/course/delete-course", {
+                            method: "DELETE",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ courseId: courseId })
+                        })];
+                case 1:
+                    response = _a.sent();
+                    getCourses();
+                    return [4 /*yield*/, response.json()];
+                case 2:
+                    result = _a.sent();
+                    console.log("Success:", result);
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_7 = _a.sent();
+                    console.error("Error:", error_7);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+function addCourse(_id) {
+    return __awaiter(this, void 0, void 0, function () {
+        var addCourse_1, response, courses_1, htmlSelect_1, html, btn, error_8;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 3, , 4]);
+                    addCourse_1 = document.getElementById("addCourse");
+                    if (!addCourse_1)
+                        throw new Error("addCourse not fount");
+                    addCourse_1.innerHTML = "";
+                    return [4 /*yield*/, fetch("/api/course/get-courses")];
+                case 1:
+                    response = _a.sent();
+                    return [4 /*yield*/, response.json()];
+                case 2:
+                    courses_1 = _a.sent();
+                    console.log(courses_1);
+                    htmlSelect_1 = document.createElement("select");
+                    html = courses_1.map(function (course) {
+                        var option = document.createElement("option");
+                        option.innerText = course.name;
+                        option.value = course._id;
+                        return option;
+                    });
+                    html.forEach(function (option) {
+                        htmlSelect_1.appendChild(option);
+                    });
+                    addCourse_1.appendChild(htmlSelect_1);
+                    btn = document.createElement("button");
+                    btn.innerText = "Add";
+                    addCourse_1.appendChild(btn);
+                    btn.addEventListener("click", function () {
+                        addCourseHelper(htmlSelect_1.value, courses_1, _id);
+                    });
+                    return [3 /*break*/, 4];
+                case 3:
+                    error_8 = _a.sent();
+                    console.error("Error:", error_8);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
+}
+function addCourseHelper(_id, courses, student_id) {
+    return __awaiter(this, void 0, void 0, function () {
+        var addCourse_2, index, course, response, result, error_9, error_10;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 6, , 7]);
+                    addCourse_2 = document.getElementById("addCourse");
+                    if (!addCourse_2)
+                        throw new Error("addCourse not fount");
+                    addCourse_2.innerHTML = "";
+                    index = courses.findIndex(function (course) { return _id == course._id; });
+                    if (index == -1)
+                        throw new Error("course not found");
+                    console.log(courses[index]);
+                    course = courses[index];
+                    _a.label = 1;
+                case 1:
+                    _a.trys.push([1, 4, , 5]);
+                    return [4 /*yield*/, fetch("/api/student/add-course", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ course: course, student_id: student_id })
+                        })];
+                case 2:
+                    response = _a.sent();
+                    return [4 /*yield*/, response.json()];
+                case 3:
+                    result = _a.sent();
+                    console.log("Success:", result);
+                    return [3 /*break*/, 5];
+                case 4:
+                    error_9 = _a.sent();
+                    console.error("Error:", error_9);
+                    return [3 /*break*/, 5];
+                case 5:
+                    getStudents();
+                    return [3 /*break*/, 7];
+                case 6:
+                    error_10 = _a.sent();
+                    console.error("Error:", error_10);
+                    return [3 /*break*/, 7];
+                case 7: return [2 /*return*/];
+            }
+        });
+    });
+}
 function handleDelete(_id) {
     return __awaiter(this, void 0, void 0, function () {
-        var response, error_4;
+        var response, error_11;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -161,8 +367,8 @@ function handleDelete(_id) {
                     console.log("Success:");
                     return [3 /*break*/, 3];
                 case 2:
-                    error_4 = _a.sent();
-                    console.error("Error:", error_4);
+                    error_11 = _a.sent();
+                    console.error("Error:", error_11);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }
