@@ -59,14 +59,14 @@ exports.getStudents = function (req, res) { return __awaiter(void 0, void 0, voi
     });
 }); };
 exports.addStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, src, studentDB, error_2;
+    var _a, name, familyName, phoneNumber, studentDB, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                _a = req.body, name = _a.name, src = _a.src;
-                console.log(name, src);
-                return [4 /*yield*/, studentsModel_1["default"].create({ name: name, src: src })];
+                _a = req.body, name = _a.name, familyName = _a.familyName, phoneNumber = _a.phoneNumber;
+                console.log(name, familyName, phoneNumber);
+                return [4 /*yield*/, studentsModel_1["default"].create({ name: name, familyName: familyName, phoneNumber: phoneNumber })];
             case 1:
                 studentDB = _b.sent();
                 console.log(studentDB);
@@ -107,7 +107,7 @@ exports.updateStudent = function (req, res) {
 
 */
 exports.deleteStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _id, deltedStudent, students, error_3;
+    var _id, deletedStudent, students, error_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -115,7 +115,7 @@ exports.deleteStudent = function (req, res) { return __awaiter(void 0, void 0, v
                 _id = req.body._id;
                 return [4 /*yield*/, studentsModel_1["default"].deleteOne({ _id: _id })];
             case 1:
-                deltedStudent = _a.sent();
+                deletedStudent = _a.sent();
                 return [4 /*yield*/, studentsModel_1["default"].find({})];
             case 2:
                 students = _a.sent();

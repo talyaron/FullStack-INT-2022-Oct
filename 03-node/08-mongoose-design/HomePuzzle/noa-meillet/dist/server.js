@@ -20,7 +20,7 @@ else {
 var studentsRoute_1 = require("./API/students/studentsRoute");
 app.use('/api/students', studentsRoute_1["default"]);
 //static file
-app.use(express_1["default"].static("./public"));
-app.listen(3000, function () {
-    console.log("server listen on port 3000");
+app.use(express_1["default"].static("public"));
+app.listen(5000, function () {
+    console.log("server listen on port 5000");
 });

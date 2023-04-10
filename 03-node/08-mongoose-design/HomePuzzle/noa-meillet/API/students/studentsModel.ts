@@ -17,6 +17,6 @@ export const StudentSchema = new Schema({
     //courses:[CourseSchema] //fast, but not accurate -> cron jobs
   });
   
-  const StudetModel = mongoose.model("students", StudentSchema);
+  const StudentModel = mongoose.model("students", StudentSchema);
 
-  export default StudetModel;
+  export default StudentModel;
