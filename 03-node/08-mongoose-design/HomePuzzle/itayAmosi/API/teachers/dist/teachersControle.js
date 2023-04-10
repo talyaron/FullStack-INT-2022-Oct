@@ -36,8 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addMockTeacher = void 0;
-var coursesModel_1 = require("../courses/coursesModel");
+exports.getTeacher = exports.addMockTeacher = void 0;
 var teachersModel_1 = require("./teachersModel");
 var uuid_1 = require("uuid");
 exports.addMockTeacher = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -46,14 +45,34 @@ exports.addMockTeacher = function (req, res) { return __awaiter(void 0, void 0, 
         switch (_a.label) {
             case 0: return [4 /*yield*/, teachersModel_1["default"].create({
                     uid: uuid_1.v4(),
-                    name: uuid_1.v4().slice(0, 7),
-                    courses: [coursesModel_1.CourseSchema]
+                    name: "teacher_" + uuid_1.v4().slice(0, 7),
+                    lastName: uuid_1.v4().slice(0, 7)
                 })];
             case 1:
                 newTeacher = _a.sent();
                 console.log(newTeacher);
                 res.status(200).send({ ok: true, newTeacher: newTeacher });
                 return [2 /*return*/];
+        }
+    });
+}); };
+exports.getTeacher = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var teachers, error_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, teachersModel_1["default"].find({})];
+            case 1:
+                teachers = _a.sent();
+                res.send({ teachers: teachers });
+                return [3 /*break*/, 3];
+            case 2:
+                error_1 = _a.sent();
+                console.error(error_1);
+                res.status(500).send({ error: error_1.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }); };

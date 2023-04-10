@@ -29,7 +29,7 @@ button {
   background-color: bisque;
   margin-top: 5%;
   position: relative;
-  left: 50%;
+  left: 25%;
   transform: translate(-50%, -50%);
   height: 3rem;
   width: 6rem;
