@@ -5,8 +5,8 @@ function renderTeacherTable(teacher: Teacher) {
     if (!teacher) throw new Error("No student found");
     const html = `<table id="customers">
              <tr>
-               <td>${teacher._id}</td>
-               <td>${teacher.name}</td>
+               <td>${teacher._id} <button onclick='handleDeleteTeacher("${teacher._id}")'>delete</button></td>
+               <td contenteditable oninput="handleTeacherNameUpdate(event, '${teacher._id}')">${teacher.name}</td>
                <td>${teacher.lastName}</td>
                <td>${teacher.course}</td>
                <td>---</td>

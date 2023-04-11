@@ -3,6 +3,7 @@ import CourseModel, { CourseSchema } from "../courses/coursesModel";
 import { GradeSchema } from "../grades/gradesModel";
 import StudentModel from "./studentsModel";
 import { v4 as uuidv4 } from "uuid";
+import TeacherModel from "../teachers/teachersModel";
 
 // export const addStudentGrades = async (req: any, res: any) => {
 //   const { name, lastname, englishClass, mathClass, sportsClass, historyClass } =
@@ -57,9 +58,10 @@ export const getStudents = async (req: any, res: any) => {
 
 export const deleteStudent = async (req: any, res: any) => {
   try {
-    const uid = req.query.uid;
-    if (!uid) throw new Error("Invalid to find uid");
-    await StudentModel.deleteOne({ uid });
+    const _id = req.query._id;
+    if (!_id) throw new Error("Invalid to find _id");
+    await StudentModel.deleteOne({ _id });
+    console.log(_id)
     res.sendStatus(200);
   } catch (error: any) {
     console.error(error);
@@ -69,13 +71,12 @@ export const deleteStudent = async (req: any, res: any) => {
 
 export const updateStudentName = async (req: any, res: any) => {
   try {
-    const { name, uid } = req.query;
-    console.log(name, uid);
+    const { name, _id } = req.query;
+    console.log(name, _id);
     if (!name) throw new Error("No name in data");
-    if (!uid) throw new Error("No uid in data");
-    const student = await StudentModel.findOneAndUpdate({ uid }, { name });
+    if (!_id) throw new Error("No uid in data");
+    const student = await StudentModel.findOneAndUpdate({ _id }, { name });
     if (!student) throw new Error("No student in array");
-    // console.log(req.query)
     res.send({ ok: true });
   } catch (error: any) {
     console.error(error);
@@ -93,6 +94,5 @@ export const addMockStudents = async (req: any, res: any) => {
   console.log(newStudent);
   res.status(200).send({ ok: true, newStudent });
 };
-
 
 

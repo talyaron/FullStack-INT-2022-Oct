@@ -3,8 +3,8 @@ function renderStudentTable(StudentSchema) {
       if (!StudentSchema) throw new Error("No student found");
       const html = `<table id="customers">
                <tr>
-                 <td>${StudentSchema._id}</td>
-                 <td>${StudentSchema.name}</td>
+                 <td>${StudentSchema._id} <button onclick='handleDeleteStudent("${StudentSchema._id}")'>delete</button></td>
+                 <td contenteditable oninput="handleStudentNameUpdate(event, '${StudentSchema._id}')">${StudentSchema.name}</td>
                  <td>${StudentSchema.lastName}</td>
                  <td>${StudentSchema.CourseSchema}</td>
                  <td>${StudentSchema.GradeSchema}</td>

@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getTeacher = exports.addMockTeacher = void 0;
+exports.updateTeacherName = exports.deleteTeacher = exports.getTeacher = exports.addMockTeacher = void 0;
 var teachersModel_1 = require("./teachersModel");
 var uuid_1 = require("uuid");
 exports.addMockTeacher = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -71,6 +71,58 @@ exports.getTeacher = function (req, res) { return __awaiter(void 0, void 0, void
                 error_1 = _a.sent();
                 console.error(error_1);
                 res.status(500).send({ error: error_1.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.deleteTeacher = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _id, error_2;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                _id = req.query._id;
+                if (!_id)
+                    throw new Error("Invalid to find _id");
+                return [4 /*yield*/, teachersModel_1["default"].deleteOne({ _id: _id })];
+            case 1:
+                _a.sent();
+                console.log(_id);
+                res.sendStatus(200);
+                return [3 /*break*/, 3];
+            case 2:
+                error_2 = _a.sent();
+                console.error(error_2);
+                res.status(500).send({ error: error_2.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.updateTeacherName = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, name, _id, teacher, error_3;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                _a = req.query, name = _a.name, _id = _a._id;
+                console.log(name, _id);
+                if (!name)
+                    throw new Error("No name in data");
+                if (!_id)
+                    throw new Error("No uid in data");
+                return [4 /*yield*/, teachersModel_1["default"].findOneAndUpdate({ _id: _id }, { name: name })];
+            case 1:
+                teacher = _b.sent();
+                if (!teacher)
+                    throw new Error("No teacher in array");
+                res.send({ ok: true });
+                return [3 /*break*/, 3];
+            case 2:
+                error_3 = _b.sent();
+                console.error(error_3);
+                res.status(500).send({ error: error_3.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }

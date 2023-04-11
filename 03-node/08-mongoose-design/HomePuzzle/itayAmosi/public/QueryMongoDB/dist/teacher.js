@@ -4,7 +4,7 @@ function renderTeacherTable(teacher) {
     try {
         if (!teacher)
             throw new Error("No student found");
-        var html = "<table id=\"customers\">\n             <tr>\n               <td>" + teacher._id + "</td>\n               <td>" + teacher.name + "</td>\n               <td>" + teacher.lastName + "</td>\n               <td>" + teacher.course + "</td>\n               <td>---</td>\n               </tr>";
+        var html = "<table id=\"customers\">\n             <tr>\n               <td>" + teacher._id + " <button onclick='handleDeleteTeacher(\"" + teacher._id + "\")'>delete</button></td>\n               <td contenteditable oninput=\"handleTeacherNameUpdate(event, '" + teacher._id + "')\">" + teacher.name + "</td>\n               <td>" + teacher.lastName + "</td>\n               <td>" + teacher.course + "</td>\n               <td>---</td>\n               </tr>";
         var studentRoot = document.querySelector("#customers");
         if (!studentRoot)
             throw new Error("student Root not found");
