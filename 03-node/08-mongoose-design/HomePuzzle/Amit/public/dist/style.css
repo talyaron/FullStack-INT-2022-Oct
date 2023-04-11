@@ -42,11 +42,12 @@ body {
   top: -4.2rem;
   right: -26rem;
 }
-.studentsContainerform {
+.studentsContainer form {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 2rem;
-  width: 30rem;
+  width: 20rem;
+  margin: auto;
 }
 .studentsContainer__studentCard {
   border: 0.1rem solid black;
