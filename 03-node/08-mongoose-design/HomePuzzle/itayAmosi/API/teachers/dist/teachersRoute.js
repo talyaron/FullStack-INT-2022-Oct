@@ -4,5 +4,6 @@ var express_1 = require("express");
 var router = express_1["default"].Router();
 var teachersControle_1 = require("./teachersControle");
 router
-    .post("/add-mock-teacher", teachersControle_1.addMockTeacher);
+    .post("/add-mock-teacher", teachersControle_1.addMockTeacher)
+    .get("/get-teachers", teachersControle_1.getTeacher);
 exports["default"] = router;
