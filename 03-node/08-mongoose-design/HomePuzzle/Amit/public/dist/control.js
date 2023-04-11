@@ -75,7 +75,7 @@ function handleStudentNameUpdate(_id) {
         if (!studentName)
             throw new Error("student name not found on DOM");
         studentName.contentEditable = "true";
-        studentName.style.color = "blue";
+        studentName.style.color = "yellow";
     }
     catch (error) {
         console.error(error);
@@ -162,33 +162,33 @@ function handleDeleteCourse(courseId, studentId) {
         console.error(error);
     }
 }
-function handleCourseNameUpdate(_id) {
+function handleCourseUpdate(_id) {
     try {
-        var studentName = document.querySelector("#studentName-" + _id);
-        if (!studentName)
-            throw new Error("student name not found on DOM");
-        studentName.contentEditable = "true";
-        studentName.style.color = "blue";
+        var course = document.querySelector("#course-" + _id);
+        if (!course)
+            throw new Error("course name not found on DOM");
+        course.contentEditable = "true";
+        course.style.color = "yellow";
     }
     catch (error) {
         console.error(error);
     }
 }
-function handleSaveCourseNameUpdate(_id) {
+function handleSaveCourseUpdate(courseId, studentId) {
     try {
-        var studentName = document.querySelector("#studentName-" + _id);
-        if (!studentName)
-            throw new Error("student name not found on DOM");
-        studentName.contentEditable = "false";
-        studentName.style.color = "black";
-        var updatedName = studentName.innerText;
-        fetch("/api/students/update-student-name", {
+        var course = document.querySelector("#course-" + courseId);
+        if (!course)
+            throw new Error("course not found on DOM");
+        course.contentEditable = "false";
+        course.style.color = "black";
+        var updatedCourse = course.innerText;
+        fetch("/api/courses/update-course", {
             method: "PATCH",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ _id: _id, updatedName: updatedName })
+            body: JSON.stringify({ courseId: courseId, studentId: studentId, updatedCourse: updatedCourse })
         })
             .then(function (res) { return res.json(); })
             .then(function (_a) {

@@ -18,7 +18,7 @@ function renderStudents(students: Student[]) {
             </form>
             <div id="courseRoot-${student._id}"></div>
           </div>  
-          <button onclick="handleDeleteStudent('${student._id}')">DELETE</button>
+          <button onclick="handleDeleteStudent('${student._id}')">delete student</button>
           </div>
           `;
             })
@@ -41,8 +41,6 @@ function renderCourses(students: Student[]) {
         
         students.map((_student) => {
             try {
-                console.log("_student._id in render students", _student._id);
-                
                 const _id = _student._id
                 const student = students.find((student) => student._id === _id);
                 if (!student) throw new Error("student not found");
@@ -50,10 +48,15 @@ function renderCourses(students: Student[]) {
                 const html = student.courses
                     .map((course) => {
                         
-                        return `<div class="studentsContainer__studentCard__courses__course">
-                        <p contenteditable oninput="handleCourseUpdate(event, '${course._id}')">${course.name}</p>
+                        return `
+                        <div class="studentsContainer__studentCard__courses__course">
+                        <div class="studentsContainer__studentCard__courses__course__name">
+                            <button onclick="handleCourseUpdate('${course._id}')">udpate course</button>
+                            <p id="course-${course._id}" contenteditable="false">${course.name}</p>
+                            <button id="saveCourseBtn-${course._id}" onclick="handleSaveCourseUpdate('${course._id}', '${_student._id}')">save course</button>
+                        </div>    
                         <div id="gradesRoot-${course._id}"></div>
-                        <button onclick='handleDeleteCourse("${course._id}", "${_student._id}")'>DELETE</button>
+                        <button onclick='handleDeleteCourse("${course._id}", "${_student._id}")'>delete course</button>
                         </div>`;
                     })
                     .join(" ");

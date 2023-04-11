@@ -27,18 +27,34 @@ export const addCourse = async (req:any, res:any) => {
   
 export const updateCourse = async (req:any, res:any) => {
     try {
-      // const { name, uid } = req.body;
-      // if (!name) throw new Error("No name in data");
-      // if (!uid) throw new Error("No uid in data");
-      // const user = users.find((user) => user.uid === uid);
-      // if (!user) throw new Error("No user in array");
-      // user.name = name;
-      // res.send({ ok: true });
+      const { courseId, studentId, updatedCourse } = req.body;
+      if (!courseId) throw new Error("No course Id in data");
+      if (!studentId) throw new Error("No student Id in data");
+      if (!updatedCourse) throw new Error("No updated Course in data");
+
+      const student = await StudentModel.findById(studentId);
+      if(!student) throw new Error("no student found");
+
+      const course = await CourseModel.findById(courseId);
+      if(!course) throw new Error("no course found");
+
+      const updatedCourseDB = await CourseModel.updateOne({courseId}, {name: updatedCourse});
+
+      const _course = student.courses.find((course) => course._id?.toString() === courseId.toString())
+      if(!_course) throw new Error ("_course not found")
+      _course.name = updatedCourse;
+
+      await student.save();
+      const students = await StudentModel.find({})
+
+      res.send({ ok: true, students });
     } catch (error: any) {
       console.error(error);
       res.status(500).send({ error: error.message });
     }
   }
+
+
 
   export const deleteCourse = async (req:any , res:any) => {
     try {

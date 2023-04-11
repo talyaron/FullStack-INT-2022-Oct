@@ -80,7 +80,7 @@ function handleStudentNameUpdate(_id: string) {
         if (!studentName) throw new Error("student name not found on DOM");
 
         studentName.contentEditable = "true";
-        studentName.style.color = "blue";
+        studentName.style.color = "yellow";
 
     } catch (error) {
         console.error(error);
@@ -178,37 +178,36 @@ function handleDeleteCourse(courseId: string, studentId: string) {
 }
 
 
-function handleCourseNameUpdate(_id: string) {
+function handleCourseUpdate(_id: string) {
     try {
-        const studentName: HTMLDivElement | null = document.querySelector(`#studentName-${_id}`);
-        if (!studentName) throw new Error("student name not found on DOM");
+        const course: HTMLDivElement | null = document.querySelector(`#course-${_id}`);
+        if (!course) throw new Error("course name not found on DOM");
 
-        studentName.contentEditable = "true";
-        studentName.style.color = "blue";
+        course.contentEditable = "true";
+        course.style.color = "yellow";
 
     } catch (error) {
         console.error(error);
     }
 }
 
-function handleSaveCourseNameUpdate(_id: string) {
+function handleSaveCourseUpdate(courseId: string, studentId: string) {
     try {
-        const studentName: HTMLDivElement | null = document.querySelector(`#studentName-${_id}`);
-        if (!studentName) throw new Error("student name not found on DOM");
+        const course: HTMLDivElement | null = document.querySelector(`#course-${courseId}`);
+        if (!course) throw new Error("course not found on DOM");
 
-        studentName.contentEditable = "false";
-        studentName.style.color = "black";
+        course.contentEditable = "false";
+        course.style.color = "black";
 
-        const updatedName = studentName.innerText;
+        const updatedCourse = course.innerText;
 
-
-        fetch("/api/students/update-student-name", {
+        fetch("/api/courses/update-course", {
             method: "PATCH",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ _id, updatedName }),
+            body: JSON.stringify({ courseId, studentId, updatedCourse }),
         })
             .then((res) => res.json())
             .then(({ students }) => {

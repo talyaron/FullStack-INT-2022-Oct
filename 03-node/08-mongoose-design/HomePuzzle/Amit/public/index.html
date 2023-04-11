@@ -23,12 +23,12 @@
         <h2>Students</h2>
         <button class="studentsContainer__refreshBtn" onclick="handleGetStudents()">Refresh</button>
         
-        <form class="studentsContainer__addForm" onsubmit="handleAddStudent(event)">
+        <form onsubmit="handleAddStudent(event)">
             <input type="text" name="name" placeholder="student name" required>
             <button type="submit">add student</button>    
         </form>
         
-        <div class="studentsContainer__studentCard" id="studentsRoot"></div>
+        <div id="studentsRoot"></div>
     </div>
     
 </body>
