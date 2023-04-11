@@ -14,7 +14,8 @@
     <script src="./dist/grades.js" defer></script>
     
 </head>
-<body onload="
+<body
+ onload="
 handelTeacher(event)
 handelStudent(event)
 handelCourse(event)
@@ -27,7 +28,7 @@ handelGrade(event)
   <tr>
     <th>Uid</th>
     <th>Name</th>
-    <th>Last Name</th>
+    <th><span></span> Last Name</th>
     <th>Course</th>
     <th>Grades</th>
   </tr>
@@ -39,13 +40,11 @@ handelGrade(event)
     <td>90</td> -->
   </tr>
 </table>
-<button>get</button>
-<button>find</button>
-<button>delete</button>
-<button>update</button>
-<button onclick="addMockCourse()">Add-Mock-Course</button>
-<button onclick="addMockStudents()">Add-Mock-student</button>
-<button onclick="addMockGrades()">Add-Mock-grades</button>
-<button onclick="addMockTeacher()">Add-Mock-teacher</button>
+<!-- <button>get</button>
+<button>find</button> -->
+<button class="btn" onclick="addMockTeacher()">Add-Mock-teacher</button>
+<button class="btn" onclick="addMockStudents()">Add-Mock-student</button>
+<button class="btn" onclick="addMockCourse()">Add-Mock-Course</button>
+<button class="btn" onclick="addMockGrades()">Add-Mock-grades</button>
 </body>
 </html>

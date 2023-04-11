@@ -4,7 +4,7 @@ import { Course, CourseSchema } from "../courses/coursesModel";
 import { Grade, GradeSchema } from "../grades/gradesModel";
 
 export interface Student {
-  _id: any;
+  _id: string;
   name: string;
   lastName: string;
 }
