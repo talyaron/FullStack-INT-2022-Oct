@@ -1,3 +1,4 @@
+///////////////////////students/////////////////////
 function handleGetStudents() {
     try {
         fetch("/api/students/get-students")
@@ -25,7 +26,6 @@ function handleAddStudent(ev) {
         if (!name)
             throw new Error("No name on form");
         var newStudent = { name: name };
-        console.log("newStudent", newStudent);
         fetch("/api/students/add-student", {
             method: "POST",
             headers: {
@@ -35,8 +35,9 @@ function handleAddStudent(ev) {
             body: JSON.stringify(newStudent)
         })
             .then(function (res) { return res.json(); })
-            .then(function (data) {
-            console.log(data);
+            .then(function (_a) {
+            var students = _a.students;
+            renderStudents(students);
         })["catch"](function (error) {
             console.error(error);
         });
@@ -109,9 +110,9 @@ function handleSaveStudentNameUpdate(_id) {
         console.error(error);
     }
 }
+///////////////////////courses/////////////////////
 function handleAddCourse(ev, studentId) {
     try {
-        console.log("studentId", studentId);
         ev.preventDefault();
         var course = ev.target.elements.course.value;
         if (!studentId)
@@ -119,7 +120,6 @@ function handleAddCourse(ev, studentId) {
         if (!course)
             throw new Error("No course in form");
         var data = { course: course, studentId: studentId };
-        console.log("data", data);
         fetch("/api/courses/add-course", {
             method: "POST",
             headers: {
@@ -131,12 +131,36 @@ function handleAddCourse(ev, studentId) {
             .then(function (res) { return res.json(); })
             .then(function (_a) {
             var students = _a.students;
-            console.log(students);
             renderStudents(students);
         })["catch"](function (error) {
             console.error(error);
         });
         ev.target.reset();
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleDeleteCourse(courseId, studentId) {
+    try {
+        console.log("courseId", courseId);
+        console.log("studenId", studentId);
+        fetch("/api/courses/delete-course", {
+            method: "DELETE",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ courseId: courseId, studentId: studentId })
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (_a) {
+            var students = _a.students;
+            console.log("students after course deletion", students);
+            renderStudents(students);
+        })["catch"](function (error) {
+            console.error(error);
+        });
     }
     catch (error) {
         console.error(error);

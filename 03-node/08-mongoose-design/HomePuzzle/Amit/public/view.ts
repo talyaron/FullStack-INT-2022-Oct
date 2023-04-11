@@ -41,7 +41,7 @@ function renderCourses(students: Student[]) {
         
         students.map((_student) => {
             try {
-                console.log("_student.courses", _student.courses );
+                console.log("_student._id in render students", _student._id);
                 
                 const _id = _student._id
                 const student = students.find((student) => student._id === _id);
@@ -53,7 +53,7 @@ function renderCourses(students: Student[]) {
                         return `<div class="studentsContainer__studentCard__courses__course">
                         <p contenteditable oninput="handleCourseUpdate(event, '${course._id}')">${course.name}</p>
                         <div id="gradesRoot-${course._id}"></div>
-                        <button onclick='handleDeleteCourse("${course._id}")'>DELETE</button>
+                        <button onclick='handleDeleteCourse("${course._id}", "${_student._id}")'>DELETE</button>
                         </div>`;
                     })
                     .join(" ");

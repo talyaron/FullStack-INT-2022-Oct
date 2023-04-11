@@ -91,26 +91,48 @@ exports.updateCourse = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.deleteCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _id, deletedUser, courses, error_2;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var _a, courseId_1, studentId, student, course_1, courseIndex, deletedCourse, students, error_2;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 3, , 4]);
-                _id = req.body._id;
-                return [4 /*yield*/, coursesModel_1["default"].deleteOne({ _id: _id })];
+                _b.trys.push([0, 6, , 7]);
+                _a = req.body, courseId_1 = _a.courseId, studentId = _a.studentId;
+                console.log("courseId", courseId_1);
+                return [4 /*yield*/, studentsModel_1["default"].findById(studentId)];
             case 1:
-                deletedUser = _a.sent();
-                return [4 /*yield*/, coursesModel_1["default"].find({})];
+                student = _b.sent();
+                if (!student)
+                    throw new Error("no student found");
+                console.log("student.name", student.name);
+                return [4 /*yield*/, coursesModel_1["default"].findById(courseId_1)];
             case 2:
-                courses = _a.sent();
-                res.send({ ok: true, courses: courses });
-                return [3 /*break*/, 4];
+                course_1 = _b.sent();
+                if (!course_1)
+                    throw new Error("no course found");
+                console.log("course._id", course_1._id);
+                courseIndex = student.courses.findIndex(function () {
+                    console.log("course", course_1);
+                    course_1._id === courseId_1;
+                });
+                console.log("courseIndex", courseIndex);
+                student.courses.splice(courseIndex, 1);
+                return [4 /*yield*/, coursesModel_1["default"].findOneAndDelete(courseId_1)];
             case 3:
-                error_2 = _a.sent();
+                deletedCourse = _b.sent();
+                return [4 /*yield*/, student.save()];
+            case 4:
+                _b.sent();
+                return [4 /*yield*/, studentsModel_1["default"].find({})];
+            case 5:
+                students = _b.sent();
+                res.send({ ok: true, students: students });
+                return [3 /*break*/, 7];
+            case 6:
+                error_2 = _b.sent();
                 console.error(error_2);
                 res.status(500).send({ error: error_2.message });
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+                return [3 /*break*/, 7];
+            case 7: return [2 /*return*/];
         }
     });
 }); };

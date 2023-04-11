@@ -1,3 +1,5 @@
+///////////////////////students/////////////////////
+
 function handleGetStudents() {
     try {
         fetch("/api/students/get-students")
@@ -24,7 +26,6 @@ function handleAddStudent(ev) {
         if (!name) throw new Error("No name on form");
 
         const newStudent: any = { name };
-        console.log("newStudent", newStudent);
 
         fetch("/api/students/add-student", {
             method: "POST",
@@ -35,8 +36,8 @@ function handleAddStudent(ev) {
             body: JSON.stringify(newStudent),
         })
             .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
+            .then(({ students }) => {
+                renderStudents(students);
             })
             .catch((error) => {
                 console.error(error);
@@ -87,7 +88,7 @@ function handleStudentNameUpdate(_id: string) {
     }
 }
 
-function handleSaveStudentNameUpdate(_id: string){
+function handleSaveStudentNameUpdate(_id: string) {
     try {
         const studentName: HTMLDivElement | null = document.querySelector(`#studentName-${_id}`);
         if (!studentName) throw new Error("student name not found on DOM");
@@ -95,7 +96,7 @@ function handleSaveStudentNameUpdate(_id: string){
         studentName.contentEditable = "false";
         studentName.style.color = "black";
 
-        const updatedName = studentName.innerText; 
+        const updatedName = studentName.innerText;
 
 
         fetch("/api/students/update-student-name", {
@@ -104,7 +105,7 @@ function handleSaveStudentNameUpdate(_id: string){
                 Accept: "application/json",
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ _id , updatedName}),
+            body: JSON.stringify({ _id, updatedName }),
         })
             .then((res) => res.json())
             .then(({ students }) => {
@@ -119,10 +120,10 @@ function handleSaveStudentNameUpdate(_id: string){
 }
 
 
+///////////////////////courses/////////////////////
+
 function handleAddCourse(ev: any, studentId: string) {
     try {
-        console.log("studentId", studentId);
-
         ev.preventDefault();
 
         const course = ev.target.elements.course.value;
@@ -130,8 +131,6 @@ function handleAddCourse(ev: any, studentId: string) {
         if (!course) throw new Error("No course in form");
 
         const data: any = { course, studentId };
-
-        console.log("data", data);
 
         fetch(`/api/courses/add-course`, {
             method: "POST",
@@ -143,7 +142,6 @@ function handleAddCourse(ev: any, studentId: string) {
         })
             .then((res) => res.json())
             .then(({ students }) => {
-                console.log(students);
                 renderStudents(students)
             })
             .catch((error) => {
@@ -152,6 +150,36 @@ function handleAddCourse(ev: any, studentId: string) {
 
         ev.target.reset();
 
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+
+function handleDeleteCourse(courseId: string, studentId: string) {
+    try {
+
+        console.log("courseId", courseId);
+        console.log("studenId", studentId);
+
+
+        fetch("/api/courses/delete-course", {
+            method: "DELETE",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ courseId, studentId }),
+        })
+            .then((res) => res.json())
+            .then(({ students }) => {
+                console.log("students after course deletion", students);
+                renderStudents(students);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
     } catch (error) {
         console.error(error);
     }

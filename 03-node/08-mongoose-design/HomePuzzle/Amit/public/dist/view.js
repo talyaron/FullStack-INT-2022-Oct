@@ -21,14 +21,14 @@ function renderCourses(students) {
     try {
         students.map(function (_student) {
             try {
-                console.log("_student.courses", _student.courses);
+                console.log("_student._id in render students", _student._id);
                 var _id_1 = _student._id;
                 var student = students.find(function (student) { return student._id === _id_1; });
                 if (!student)
                     throw new Error("student not found");
                 var html = student.courses
                     .map(function (course) {
-                    return "<div class=\"studentsContainer__studentCard__courses__course\">\n                        <p contenteditable oninput=\"handleCourseUpdate(event, '" + course._id + "')\">" + course.name + "</p>\n                        <div id=\"gradesRoot-" + course._id + "\"></div>\n                        <button onclick='handleDeleteCourse(\"" + course._id + "\")'>DELETE</button>\n                        </div>";
+                    return "<div class=\"studentsContainer__studentCard__courses__course\">\n                        <p contenteditable oninput=\"handleCourseUpdate(event, '" + course._id + "')\">" + course.name + "</p>\n                        <div id=\"gradesRoot-" + course._id + "\"></div>\n                        <button onclick='handleDeleteCourse(\"" + course._id + "\", \"" + _student._id + "\")'>DELETE</button>\n                        </div>";
                 })
                     .join(" ");
                 var courseRoot = document.querySelector("#courseRoot-" + _id_1);
