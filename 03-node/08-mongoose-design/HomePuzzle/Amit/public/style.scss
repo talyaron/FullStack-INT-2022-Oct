@@ -1,0 +1,76 @@
+*{
+    box-sizing: border-box;
+    button{
+        background-color: yellow;
+        &:hover{
+            scale: 1.05;
+            cursor: pointer;
+        }
+        &:active{
+            background-color: blue;
+        }
+    }
+}
+
+body{
+    margin: auto;
+    background-color: seagreen;
+}
+
+.header{
+    margin: auto;
+    height: 2rem;
+    width: 8rem;
+    text-align: center;
+    font-size: 2rem;
+    position: sticky;
+}
+
+.studentsContainer{
+    margin: auto;
+    margin-top: .8rem;
+    height: auto;
+    width: 30rem;
+    border: 0.1rem solid black;
+    position: relative;
+    h2{
+        text-align: center;
+    }
+
+    &__refreshBtn{
+        position: relative;
+        top: -4.2rem;
+        right: -26rem;
+    }
+
+    &__addForm{
+        border: 0.1rem solid black;
+        display: flex;
+        justify-content: space-between;
+        height: 2rem;
+        width: 30rem;
+    }
+    &__studentCard{
+        border: 0.1rem solid black;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+        &__name{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 2rem;
+            width: 29.5rem;
+
+            p{
+                font-size: 2rem;
+                font-weight: 700;
+                margin:0;
+                line-height: 2rem;
+            }
+        }
+    }
+}

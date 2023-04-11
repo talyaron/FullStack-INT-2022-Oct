@@ -8,5 +8,5 @@ var GradeSchema = new mongoose_1.Schema({
     user: usersModel_1.UserSchema,
     course: coursesModel_1.CourseSchema
 });
-var GradeModel = mongoose_1["default"].model("users", GradeSchema);
+var GradeModel = mongoose_1["default"].model("grades", GradeSchema);
 exports["default"] = GradeModel;

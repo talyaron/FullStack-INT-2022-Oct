@@ -1,14 +1,10 @@
 "use strict";
 exports.__esModule = true;
+exports.TeacherSchema = void 0;
 var mongoose_1 = require("mongoose");
-var teacherSchema = new mongoose_1.Schema({
-    uid: String,
+exports.TeacherSchema = new mongoose_1.Schema({
     name: String,
-    englishClass: Number,
-    mathClass: Number,
-    sportsClass: Number,
-    historyClass: Number,
-    avg: Number
+    lastName: String
 });
-var TeacherModel = mongoose_1["default"].model("teachers", teacherSchema);
+var TeacherModel = mongoose_1["default"].model("teachers", exports.TeacherSchema);
 exports["default"] = TeacherModel;

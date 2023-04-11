@@ -9,6 +9,8 @@ dotenv.config();
 
 const uri: string | undefined = process.env.MONGODB_URI;
 
+app.use(express.json());
+
 if (uri) {
   mongoose
     .connect(uri)
@@ -27,6 +29,14 @@ app.use('/api/students', studentsRouter);
 
 import teachersRouter from './API/teachers/teachersRoute';
 app.use('/api/teachers', teachersRouter);
+
+
+import coursesRouter from './API/courses/coursesRoute';
+app.use('/api/courses', coursesRouter);
+
+
+import gradesRouter from './API/grades/gradesRoute';
+app.use('/api/grades', gradesRouter);
 
 app.use(express.static(`./public`));
 

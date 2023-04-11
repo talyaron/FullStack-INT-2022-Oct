@@ -7,7 +7,6 @@ var dotenv = require("dotenv"); // see https://github.com/motdotla/dotenv#how-do
 dotenv.config();
 var uri = process.env.MONGODB_URI;
 //to be able to get data from client add this line
-app.use(express_1["default"].json());
 if (uri) {
     mongoose_1["default"]
         .connect(uri)
@@ -18,10 +17,11 @@ if (uri) {
 else {
     console.log("No URI to DB");
 }
+app.use(express_1["default"].json());
+app.use(express_1["default"].static("./client"));
 var usersRoute_1 = require("./API/users/usersRoute");
 app.use('/api/users', usersRoute_1["default"]);
 //static file
-app.use(express_1["default"].static("./client"));
 app.listen(3000, function () {
     console.log("server listen on port 3000");
 });

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="./dist/index.js" defer></script>
+</head>
+<body>
+    <form onsubmit="formHandler(event)">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="number" name="age" placeholder="Age" required>
+        <input type="submit" value="Send" class="btn">
+    </form>
+    <form onsubmit="formCourseHandler(event)">
+        <input type="text" name="name" placeholder="Course Name" required>
+        <input type="submit" value="Send" class="btn">
+    </form>
+    <button onclick="getStudents()">Get Students</button>
+    <button onclick="getCourses()">Get Courses</button>
+    <div id="display"></div>
+    <div id="addCourse"></div>
+    
+</body>
+</html>

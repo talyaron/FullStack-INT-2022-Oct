@@ -105,7 +105,7 @@ exports.updateUserName = function (req, res) {
     }
 };
 exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _id, deltedUser, users, error_3;
+    var _id, deleteUser_1, users, error_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -113,7 +113,7 @@ exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void
                 _id = req.body._id;
                 return [4 /*yield*/, usersModel_1["default"].deleteOne({ _id: _id })];
             case 1:
-                deltedUser = _a.sent();
+                deleteUser_1 = _a.sent();
                 return [4 /*yield*/, usersModel_1["default"].find({})];
             case 2:
                 users = _a.sent();

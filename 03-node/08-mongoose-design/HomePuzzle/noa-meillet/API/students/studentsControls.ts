@@ -14,11 +14,11 @@ export const getStudents = async (req:any, res:any) => {
 
 export const addStudent = async (req:any, res:any) => {
   try {
-    const { name, src } = req.body;
-    console.log(name, src);
+    const { name, familyName, phoneNumber } = req.body;
+    console.log(name, familyName, phoneNumber);
 
     //add users to DB;
-    const studentDB = await StudentModel.create({ name, src });
+    const studentDB = await StudentModel.create({ name, familyName, phoneNumber });
 
     console.log(studentDB);
 
@@ -59,7 +59,7 @@ export const updateStudent = (req:any, res:any) => {
     try {
       const { _id } = req.body;
   
-      const deltedStudent = await StudentModel.deleteOne({ _id });
+      const deletedStudent = await StudentModel.deleteOne({ _id });
       const students = await StudentModel.find({});
   
       res.send({ ok: true, students });

@@ -9,5 +9,5 @@ exports.StudentSchema = new mongoose_1.Schema({
     // courses:[String] //[courseId] slow but accurate
     //courses:[CourseSchema] //fast, but not accurate -> cron jobs
 });
-var StudetModel = mongoose_1["default"].model("students", exports.StudentSchema);
-exports["default"] = StudetModel;
+var StudentModel = mongoose_1["default"].model("students", exports.StudentSchema);
+exports["default"] = StudentModel;

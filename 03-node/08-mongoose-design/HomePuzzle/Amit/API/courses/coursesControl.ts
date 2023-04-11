@@ -1,13 +1,24 @@
 import CourseModel from "./coursesModel";
+import StudentModel from "../students/studentsModel";
+
 
 export const addCourse = async (req:any, res:any) => {
     try {
-      const { name } = req.body;
+
+      const { course , studentId } = req.body;
       
-      const courseDB = await CourseModel.create({name});
-     
+      const student = await StudentModel.findById(studentId);
+      if(!student) throw new Error("no student found")
+   
+      const courseDB = await CourseModel.create({name: course});
       
-      res.status(201).send({ ok: true });
+      student.courses.push(courseDB);
+
+      await student.save();
+
+      const students = await StudentModel.find({})
+      
+      res.status(201).send({ ok: true, students });
     } catch (error: any) {
       console.error(error);
       res.status(500).send({ error: error.message });

@@ -36,54 +36,48 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.updateStudentName = exports.deleteStudent = exports.getStudents = exports.addMockStudent = exports.addStudentGrades = void 0;
+exports.addMockStudents = exports.updateStudentName = exports.deleteStudent = exports.getStudents = void 0;
+var coursesModel_1 = require("../courses/coursesModel");
 var studentsModel_1 = require("./studentsModel");
 var uuid_1 = require("uuid");
-exports.addStudentGrades = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, englishClass, mathClass, sportsClass, historyClass, newStudent;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
-            case 0:
-                _a = req.body, name = _a.name, englishClass = _a.englishClass, mathClass = _a.mathClass, sportsClass = _a.sportsClass, historyClass = _a.historyClass;
-                console.log(req.body);
-                if (!name || !englishClass || !mathClass || !sportsClass || !historyClass) {
-                    return [2 /*return*/, res.status(400).json({ error: "Missing required fields" })];
-                }
-                return [4 /*yield*/, studentsModel_1["default"].create({
-                        name: name,
-                        englishClass: englishClass,
-                        mathClass: mathClass,
-                        sportsClass: sportsClass,
-                        historyClass: historyClass,
-                        uid: uuid_1.v4()
-                    })];
-            case 1:
-                newStudent = _b.sent();
-                res.status(200).send({ ok: true, newStudent: newStudent });
-                return [2 /*return*/];
-        }
-    });
-}); };
-exports.addMockStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var newStudent;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, studentsModel_1["default"].create({
-                    name: uuid_1.v4().slice(0, 7),
-                    englishClass: 70,
-                    mathClass: 80,
-                    sportsClass: 90,
-                    historyClass: 89,
-                    uid: uuid_1.v4(),
-                    avg: 564
-                })];
-            case 1:
-                newStudent = _a.sent();
-                res.status(200).send({ ok: true, newStudent: newStudent });
-                return [2 /*return*/];
-        }
-    });
-}); };
+// export const addStudentGrades = async (req: any, res: any) => {
+//   const { name, lastname, englishClass, mathClass, sportsClass, historyClass } =
+//     req.body;
+//   if (
+//     !name ||
+//     !lastname ||
+//     !englishClass ||
+//     !mathClass ||
+//     !sportsClass ||
+//     !historyClass
+//   ) {
+//     return res.status(400).json({ error: "Missing required fields" });
+//   }
+//   const newStudent = await StudentModel.create({
+//     name,
+//     lastname,
+//     englishClass,
+//     mathClass,
+//     sportsClass,
+//     historyClass,
+//     uid: uuidv4(),
+//   });
+//   res.status(200).send({ ok: true, newStudent });
+// };
+// export const addMockStudent = async (req: any, res: any) => {
+//   const newStudent = await StudentModel.create({
+//     name: uuidv4().slice(0, 7),
+//     lastname: "moshe",
+//     englishClass: 70,
+//     mathClass: 80,
+//     sportsClass: 90,
+//     historyClass: 89,
+//     uid: uuidv4(),
+//     avg: 564,
+//   });
+//   console.log(newStudent);
+//   res.status(200).send({ ok: true, newStudent });
+// };
 exports.getStudents = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var students, error_1;
     return __generator(this, function (_a) {
@@ -110,7 +104,7 @@ exports.deleteStudent = function (req, res) { return __awaiter(void 0, void 0, v
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                uid = req.body.uid;
+                uid = req.query.uid;
                 if (!uid)
                     throw new Error("Invalid to find uid");
                 return [4 /*yield*/, studentsModel_1["default"].deleteOne({ uid: uid })];
@@ -133,7 +127,7 @@ exports.updateStudentName = function (req, res) { return __awaiter(void 0, void 
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                _a = req.body, name = _a.name, uid = _a.uid;
+                _a = req.query, name = _a.name, uid = _a.uid;
                 console.log(name, uid);
                 if (!name)
                     throw new Error("No name in data");
@@ -144,7 +138,7 @@ exports.updateStudentName = function (req, res) { return __awaiter(void 0, void 
                 student = _b.sent();
                 if (!student)
                     throw new Error("No student in array");
-                console.log(student);
+                // console.log(req.query)
                 res.send({ ok: true });
                 return [3 /*break*/, 3];
             case 2:
@@ -156,4 +150,21 @@ exports.updateStudentName = function (req, res) { return __awaiter(void 0, void 
         }
     });
 }); };
-// export const
+exports.addMockStudents = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var newStudent;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, studentsModel_1["default"].create({
+                    uid: uuid_1.v4(),
+                    name: "student_" + uuid_1.v4().slice(0, 7),
+                    lastName: uuid_1.v4().slice(0, 7),
+                    courses: coursesModel_1.CourseSchema
+                })];
+            case 1:
+                newStudent = _a.sent();
+                console.log(newStudent);
+                res.status(200).send({ ok: true, newStudent: newStudent });
+                return [2 /*return*/];
+        }
+    });
+}); };

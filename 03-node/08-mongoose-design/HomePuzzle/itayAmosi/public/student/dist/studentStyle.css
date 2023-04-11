@@ -6,7 +6,7 @@ body {
   background-size: cover;
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: auto;
 }
 
 #avgRoot {
@@ -140,4 +140,13 @@ body {
   color: #dc2f55;
   border-radius: 12px;
   font-family: cursive;
+}
+
+.link {
+  color: red;
+  font-size: 120%;
+  width: 150px;
+  height: 100px;
+  border-radius: 25%;
+  background-color: black;
 }

@@ -1,54 +1,20 @@
 import mongoose, { Schema } from "mongoose";
 import { v4 as uuidv4 } from "uuid";
+import { Course, CourseSchema } from "../courses/coursesModel";
+import { Grade, GradeSchema } from "../grades/gradesModel";
 
-
-export interface IStudent {
-  uid: string;
+export interface Student {
+  _id: any;
   name: string;
-  englishClass: number;
-  mathClass: number;
-  sportsClass: number;
-  historyClass: number;
-  avg: number;
+  lastName: string;
 }
 
-export class Student implements IStudent {
-  public uid: string = uuidv4();
-  constructor(
-    public name: string,
-    public englishClass: number,
-    public mathClass: number,
-    public sportsClass: number,
-    public historyClass: number,
-    public avg: number,
-  ) {}
-
-  getSimple() {
-    return {
-      uid: this.uid,
-      name: this.name,
-      englishClass: this.englishClass,
-      mathClass: this.mathClass,
-      sportsClass: this.sportsClass,
-      historyClass: this.historyClass,
-    };
-  }
-}
-
-const studentSchema = new Schema<IStudent>({
-  uid: String,
+export const StudentSchema = new Schema({
   name: String,
-  englishClass: Number,
-  mathClass: Number,
-  sportsClass: Number,
-  historyClass: Number,
-  avg: Number,
+  lastName: String,
+  courses: CourseSchema,
 });
 
-
-const StudentModel = mongoose.model<IStudent>("students", studentSchema);
-
+const StudentModel = mongoose.model("students", StudentSchema);
 
 export default StudentModel;
-
-

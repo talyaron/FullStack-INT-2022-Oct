@@ -46,37 +46,6 @@ function handleAddStudent(ev) {
         console.error(error);
     }
 }
-function handleAddCourse(ev, _id) {
-    try {
-        console.log("_id", _id);
-        ev.preventDefault();
-        var course = ev.target.elements.test.value;
-        if (!_id)
-            throw new Error("No _id in form");
-        if (!course)
-            throw new Error("No course in form");
-        var newCourse = { course: course };
-        console.log("newCourse", newCourse);
-        fetch("/api/courses/add-course", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(newCourse)
-        })
-            .then(function (res) { return res.json(); })
-            .then(function (data) {
-            console.log("data", data);
-        })["catch"](function (error) {
-            console.error(error);
-        });
-        ev.target.reset();
-    }
-    catch (error) {
-        console.error(error);
-    }
-}
 function handleDeleteStudent(_id) {
     try {
         fetch("/api/students/delete-student", {
@@ -94,6 +63,80 @@ function handleDeleteStudent(_id) {
         })["catch"](function (error) {
             console.error(error);
         });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleStudentNameUpdate(_id) {
+    try {
+        var studentName = document.querySelector("#studentName-" + _id);
+        if (!studentName)
+            throw new Error("student name not found on DOM");
+        console.log("studentName", studentName);
+        studentName.contentEditable = "true";
+        studentName.style.color = "blue";
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleSaveStudentNameUpdate(_id) {
+    try {
+        var studentName = document.querySelector("#studentName-" + _id);
+        if (!studentName)
+            throw new Error("student name not found on DOM");
+        studentName.contentEditable = "false";
+        studentName.style.color = "black";
+        var updatedName = studentName.innerText;
+        fetch("/api/students/update-student-name", {
+            method: "PATCH",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ _id: _id, updatedName: updatedName })
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (_a) {
+            var students = _a.students;
+            renderStudents(students);
+        })["catch"](function (error) {
+            console.error(error);
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleAddCourse(ev, studentId) {
+    try {
+        console.log("studentId", studentId);
+        ev.preventDefault();
+        var course = ev.target.elements.course.value;
+        if (!studentId)
+            throw new Error("No studentId in form");
+        if (!course)
+            throw new Error("No course in form");
+        var data = { course: course, studentId: studentId };
+        console.log("data", data);
+        fetch("/api/courses/add-course", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (_a) {
+            var students = _a.students;
+            console.log(students);
+            renderStudents(students);
+        })["catch"](function (error) {
+            console.error(error);
+        });
+        ev.target.reset();
     }
     catch (error) {
         console.error(error);

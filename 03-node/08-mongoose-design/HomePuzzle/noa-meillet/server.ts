@@ -20,13 +20,13 @@ if (uri) {
 }
 
 
-import usersRouter from './API/students/studentsRoute';
-app.use('/api/students', usersRouter);
+import studentsRouter from './API/students/studentsRoute';
+app.use('/api/students', studentsRouter);
 
 
 //static file
-app.use(express.static("./public"));
+app.use(express.static('./public'));
 
-app.listen(3000, () => {
-  console.log("server listen on port 3000");
+app.listen(5000, () => {
+  console.log("server listen on port 5000");
 });
