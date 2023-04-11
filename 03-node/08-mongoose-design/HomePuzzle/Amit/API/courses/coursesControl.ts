@@ -42,29 +42,15 @@ export const updateCourse = async (req:any, res:any) => {
 
   export const deleteCourse = async (req:any , res:any) => {
     try {
-      
       const {courseId , studentId } = req.body;
-
-      console.log("courseId" , courseId);
       
-    
       const student = await StudentModel.findById(studentId);
       if(!student) throw new Error("no student found");
-      console.log("student.name", student.name);
 
       const course = await CourseModel.findById(courseId);
       if(!course) throw new Error("no course found");
-      console.log("course._id", course._id);
-      
 
-      const courseIndex = student.courses.findIndex(() => {
-        console.log("course", course);
-        course._id === courseId;
-      })
-
-      
-
-      console.log("courseIndex", courseIndex);
+      const courseIndex = student.courses.findIndex((course) => course._id?.toString() === courseId.toString())
       student.courses.splice(courseIndex, 1);
 
       const deletedCourse = await CourseModel.findOneAndDelete(courseId);
@@ -78,3 +64,29 @@ export const updateCourse = async (req:any, res:any) => {
       res.status(500).send({ error: error.message });
     }
   }
+
+
+
+
+
+
+
+
+
+
+  // export const getStudentGradesInCourse = async (req: any, res: any) => {
+//     try {
+//       //got from the client
+//       const { courseId, studentId } = req.query;
+//       //https://docs.oracle.com/en/cloud/saas/cx-commerce/21b/ccdev/rest-api-query-parameters.html
+  
+//       const grades = await GradeModel.find({
+//         course: { _id: courseId },
+//         user: { _id: studentId },
+//       });
+//       res.send({ grades });
+//     } catch (error) {
+//       console.error(error);
+//       res.status(500).send({ error: error.message });
+//     }
+//   };

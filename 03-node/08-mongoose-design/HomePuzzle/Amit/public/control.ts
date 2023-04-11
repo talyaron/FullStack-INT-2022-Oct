@@ -78,7 +78,6 @@ function handleStudentNameUpdate(_id: string) {
     try {
         const studentName: HTMLDivElement | null = document.querySelector(`#studentName-${_id}`);
         if (!studentName) throw new Error("student name not found on DOM");
-        console.log("studentName", studentName);
 
         studentName.contentEditable = "true";
         studentName.style.color = "blue";
@@ -156,14 +155,8 @@ function handleAddCourse(ev: any, studentId: string) {
 }
 
 
-
 function handleDeleteCourse(courseId: string, studentId: string) {
     try {
-
-        console.log("courseId", courseId);
-        console.log("studenId", studentId);
-
-
         fetch("/api/courses/delete-course", {
             method: "DELETE",
             headers: {
@@ -174,7 +167,51 @@ function handleDeleteCourse(courseId: string, studentId: string) {
         })
             .then((res) => res.json())
             .then(({ students }) => {
-                console.log("students after course deletion", students);
+                renderStudents(students);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+function handleCourseNameUpdate(_id: string) {
+    try {
+        const studentName: HTMLDivElement | null = document.querySelector(`#studentName-${_id}`);
+        if (!studentName) throw new Error("student name not found on DOM");
+
+        studentName.contentEditable = "true";
+        studentName.style.color = "blue";
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+function handleSaveCourseNameUpdate(_id: string) {
+    try {
+        const studentName: HTMLDivElement | null = document.querySelector(`#studentName-${_id}`);
+        if (!studentName) throw new Error("student name not found on DOM");
+
+        studentName.contentEditable = "false";
+        studentName.style.color = "black";
+
+        const updatedName = studentName.innerText;
+
+
+        fetch("/api/students/update-student-name", {
+            method: "PATCH",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ _id, updatedName }),
+        })
+            .then((res) => res.json())
+            .then(({ students }) => {
                 renderStudents(students);
             })
             .catch((error) => {

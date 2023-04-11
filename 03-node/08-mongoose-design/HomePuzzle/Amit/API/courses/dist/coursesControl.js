@@ -91,30 +91,23 @@ exports.updateCourse = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.deleteCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, courseId_1, studentId, student, course_1, courseIndex, deletedCourse, students, error_2;
+    var _a, courseId_1, studentId, student, course, courseIndex, deletedCourse, students, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 6, , 7]);
                 _a = req.body, courseId_1 = _a.courseId, studentId = _a.studentId;
-                console.log("courseId", courseId_1);
                 return [4 /*yield*/, studentsModel_1["default"].findById(studentId)];
             case 1:
                 student = _b.sent();
                 if (!student)
                     throw new Error("no student found");
-                console.log("student.name", student.name);
                 return [4 /*yield*/, coursesModel_1["default"].findById(courseId_1)];
             case 2:
-                course_1 = _b.sent();
-                if (!course_1)
+                course = _b.sent();
+                if (!course)
                     throw new Error("no course found");
-                console.log("course._id", course_1._id);
-                courseIndex = student.courses.findIndex(function () {
-                    console.log("course", course_1);
-                    course_1._id === courseId_1;
-                });
-                console.log("courseIndex", courseIndex);
+                courseIndex = student.courses.findIndex(function (course) { var _a; return ((_a = course._id) === null || _a === void 0 ? void 0 : _a.toString()) === courseId_1.toString(); });
                 student.courses.splice(courseIndex, 1);
                 return [4 /*yield*/, coursesModel_1["default"].findOneAndDelete(courseId_1)];
             case 3:
@@ -136,3 +129,18 @@ exports.deleteCourse = function (req, res) { return __awaiter(void 0, void 0, vo
         }
     });
 }); };
+// export const getStudentGradesInCourse = async (req: any, res: any) => {
+//     try {
+//       //got from the client
+//       const { courseId, studentId } = req.query;
+//       //https://docs.oracle.com/en/cloud/saas/cx-commerce/21b/ccdev/rest-api-query-parameters.html
+//       const grades = await GradeModel.find({
+//         course: { _id: courseId },
+//         user: { _id: studentId },
+//       });
+//       res.send({ grades });
+//     } catch (error) {
+//       console.error(error);
+//       res.status(500).send({ error: error.message });
+//     }
+//   };
