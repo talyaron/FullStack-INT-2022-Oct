@@ -7,13 +7,12 @@ export const addCourse = async (req: Request, res: Response) => {
     const { course, studentId } = req.body;
     const courseDB = await CourseModel.create({ name: course });
     const courseObj = { _id: courseDB._id, name: course };
-    await StudentModel.findByIdAndUpdate(
+    const student = await StudentModel.findByIdAndUpdate(
       studentId,
       { $push: { courses: courseObj } },
       { new: true }
     );
-    const courses = await CourseModel.find({});
-    res.status(201).send({ ok: true, courses });
+    res.status(201).send({ ok: true, student });
   } catch (error: unknown) {
     console.error(error);
     if (error instanceof Error) {

@@ -1,0 +1,105 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
+    background-color: #f8f8f8;
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  input[type="text"] {
+    width: 25%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  button[type="submit"],
+  button[type="button"] {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #0077ff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  button[type="submit"]:hover,
+  button[type="button"]:hover {
+    background-color: #005ae6;
+  }
+
+  .student-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px black;
+  }
+
+  .student-card-name {
+    flex: 1;
+    margin-right: 1rem;
+  }
+
+  .student-card-controls {
+    display: flex;
+  }
+
+  .student-card-delete {
+    margin-left: 1rem;
+    background-color: #ff5c5c;
+  }
+
+  .student-card-delete:hover {
+    background-color: #e60000;
+  }
+
+  .student-card-delete,
+  .student-card-edit {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .student-card-edit {
+    background-color: #0077ff;
+    margin-right: 0.5rem;
+  }
+
+  .student-card-edit:hover {
+    background-color: #005ae6;
+  }
