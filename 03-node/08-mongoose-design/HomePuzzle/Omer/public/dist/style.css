@@ -20,7 +20,7 @@ button:hover, .btn:hover {
   background-color: #c6c5c5;
 }
 
-.display .student {
+#display .student {
   display: flex;
   flex-direction: column;
   justify-content: center;

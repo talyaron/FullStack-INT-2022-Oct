@@ -124,9 +124,11 @@ function getStudents() {
                 case 2:
                     students = _a.sent();
                     html = students.map(function (student) {
+                        var grades = student.grades;
                         var courses = student.courses;
                         var coursesHtml = courses.map(function (course) {
-                            return "\n                    <li>" + course.name + " <button onclick=\"deleteCourseFromStudent('" + course._id + "', '" + student._id + "')\">Delete Course</button></li>\n                ";
+                            var index = grades.findIndex(function (grade) { return grade.courseName == course.name; });
+                            return "\n                    <li>" + course.name + " Grade: " + grades[index].gradeNum + " <button onclick=\"deleteCourseFromStudent('" + course._id + "', '" + student._id + "', '" + course.name + "')\">Delete Course</button></li>\n                ";
                         }).join(" ");
                         return "\n                <div class = \"student\">\n                    <h1>Name: " + student.name + "</h1>\n                    <h2>Age: " + student.age + "</h2>\n                    <lu>\n                        " + coursesHtml + "\n                    </lu>  \n                    <button onclick=\"handleDelete('" + student._id + "')\">Delete</button>\n                    <button onclick=\"addCourse('" + student._id + "')\">Add courses</button>  \n                </div>        \n            ";
                     }).join("");
@@ -144,13 +146,13 @@ function getStudents() {
         });
     });
 }
-function deleteCourseFromStudent(courseId, studentId) {
+function deleteCourseFromStudent(courseId, studentId, courseName) {
     return __awaiter(this, void 0, void 0, function () {
-        var response, students, response_1, result, error_4, error_5;
+        var response, students, response_1, response1, result, error_4, error_5;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 8, , 9]);
+                    _a.trys.push([0, 9, , 10]);
                     return [4 /*yield*/, fetch("/api/student/get-students")];
                 case 1:
                     response = _a.sent();
@@ -159,7 +161,7 @@ function deleteCourseFromStudent(courseId, studentId) {
                     students = _a.sent();
                     _a.label = 3;
                 case 3:
-                    _a.trys.push([3, 6, , 7]);
+                    _a.trys.push([3, 7, , 8]);
                     return [4 /*yield*/, fetch("/api/student/delete-course", {
                             method: "DELETE",
                             headers: {
@@ -169,23 +171,32 @@ function deleteCourseFromStudent(courseId, studentId) {
                         })];
                 case 4:
                     response_1 = _a.sent();
-                    return [4 /*yield*/, response_1.json()];
+                    return [4 /*yield*/, fetch("/api/grade/delete-grade", {
+                            method: "DELETE",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ studentId: studentId, courseName: courseName })
+                        })];
                 case 5:
+                    response1 = _a.sent();
+                    return [4 /*yield*/, response_1.json()];
+                case 6:
                     result = _a.sent();
                     console.log("Success:", result);
-                    return [3 /*break*/, 7];
-                case 6:
+                    return [3 /*break*/, 8];
+                case 7:
                     error_4 = _a.sent();
                     console.error("Error:", error_4);
-                    return [3 /*break*/, 7];
-                case 7:
-                    getStudents();
-                    return [3 /*break*/, 9];
+                    return [3 /*break*/, 8];
                 case 8:
+                    getStudents();
+                    return [3 /*break*/, 10];
+                case 9:
                     error_5 = _a.sent();
                     console.error("Error:", error_5);
-                    return [3 /*break*/, 9];
-                case 9: return [2 /*return*/];
+                    return [3 /*break*/, 10];
+                case 10: return [2 /*return*/];
             }
         });
     });
@@ -254,7 +265,7 @@ function deleteCourse(courseId) {
 }
 function addCourse(_id) {
     return __awaiter(this, void 0, void 0, function () {
-        var addCourse_1, response, courses_1, htmlSelect_1, html, btn, error_8;
+        var addCourse_1, form, response, courses_1, htmlSelect_1, html, input_1, btn, error_8;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -263,6 +274,7 @@ function addCourse(_id) {
                     if (!addCourse_1)
                         throw new Error("addCourse not fount");
                     addCourse_1.innerHTML = "";
+                    form = document.createElement("form");
                     return [4 /*yield*/, fetch("/api/course/get-courses")];
                 case 1:
                     response = _a.sent();
@@ -280,12 +292,17 @@ function addCourse(_id) {
                     html.forEach(function (option) {
                         htmlSelect_1.appendChild(option);
                     });
-                    addCourse_1.appendChild(htmlSelect_1);
+                    form.appendChild(htmlSelect_1);
+                    input_1 = document.createElement("input");
+                    input_1.type = "number";
+                    input_1.required = true;
+                    form.appendChild(input_1);
                     btn = document.createElement("button");
                     btn.innerText = "Add";
-                    addCourse_1.appendChild(btn);
-                    btn.addEventListener("click", function () {
-                        addCourseHelper(htmlSelect_1.value, courses_1, _id);
+                    form.appendChild(btn);
+                    addCourse_1.appendChild(form);
+                    form.addEventListener("submit", function () {
+                        addCourseHelper(htmlSelect_1.value, courses_1, _id, parseInt(input_1.value));
                     });
                     return [3 /*break*/, 4];
                 case 3:
@@ -297,13 +314,13 @@ function addCourse(_id) {
         });
     });
 }
-function addCourseHelper(_id, courses, student_id) {
+function addCourseHelper(_id, courses, student_id, grade) {
     return __awaiter(this, void 0, void 0, function () {
-        var addCourse_2, index, course, response, result, error_9, error_10;
+        var addCourse_2, index, course, courseName, response, result, error_9, response, result, error_10, error_11;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 6, , 7]);
+                    _a.trys.push([0, 10, , 11]);
                     addCourse_2 = document.getElementById("addCourse");
                     if (!addCourse_2)
                         throw new Error("addCourse not fount");
@@ -313,6 +330,7 @@ function addCourseHelper(_id, courses, student_id) {
                         throw new Error("course not found");
                     console.log(courses[index]);
                     course = courses[index];
+                    courseName = course.name;
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 4, , 5]);
@@ -335,20 +353,40 @@ function addCourseHelper(_id, courses, student_id) {
                     console.error("Error:", error_9);
                     return [3 /*break*/, 5];
                 case 5:
-                    getStudents();
-                    return [3 /*break*/, 7];
+                    _a.trys.push([5, 8, , 9]);
+                    return [4 /*yield*/, fetch("/api/grade/add-grade", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ grade: grade, student_id: student_id, courseName: courseName })
+                        })];
                 case 6:
+                    response = _a.sent();
+                    return [4 /*yield*/, response.json()];
+                case 7:
+                    result = _a.sent();
+                    console.log("Success:", result);
+                    return [3 /*break*/, 9];
+                case 8:
                     error_10 = _a.sent();
                     console.error("Error:", error_10);
-                    return [3 /*break*/, 7];
-                case 7: return [2 /*return*/];
+                    return [3 /*break*/, 9];
+                case 9:
+                    getStudents();
+                    return [3 /*break*/, 11];
+                case 10:
+                    error_11 = _a.sent();
+                    console.error("Error:", error_11);
+                    return [3 /*break*/, 11];
+                case 11: return [2 /*return*/];
             }
         });
     });
 }
 function handleDelete(_id) {
     return __awaiter(this, void 0, void 0, function () {
-        var response, error_11;
+        var response, error_12;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
@@ -367,8 +405,8 @@ function handleDelete(_id) {
                     console.log("Success:");
                     return [3 /*break*/, 3];
                 case 2:
-                    error_11 = _a.sent();
-                    console.error("Error:", error_11);
+                    error_12 = _a.sent();
+                    console.error("Error:", error_12);
                     return [3 /*break*/, 3];
                 case 3: return [2 /*return*/];
             }
