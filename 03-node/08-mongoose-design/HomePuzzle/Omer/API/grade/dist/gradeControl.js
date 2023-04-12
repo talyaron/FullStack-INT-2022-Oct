@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.deleteGrade = exports.addGrade = void 0;
+exports.addGradeToStudent = exports.deleteGrade = exports.deleteGradeFromStudent = exports.deleteAllGrades = exports.addGrade = void 0;
 var studentModel_1 = require("../students/studentModel");
 var gradeModel_1 = require("./gradeModel");
 exports.addGrade = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -44,7 +44,7 @@ exports.addGrade = function (req, res) { return __awaiter(void 0, void 0, void 0
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 7, , 8]);
+                _b.trys.push([0, 9, , 10]);
                 _a = req.body, grade = _a.grade, student_id = _a.student_id, courseName_1 = _a.courseName;
                 return [4 /*yield*/, studentModel_1["default"].findById(student_id)];
             case 1:
@@ -55,37 +55,114 @@ exports.addGrade = function (req, res) { return __awaiter(void 0, void 0, void 0
                 index = grades.findIndex(function (grade) { return grade.courseName == courseName_1; });
                 if (!(index != -1)) return [3 /*break*/, 2];
                 res.status(200).send({ message: "grade already addes" });
-                return [3 /*break*/, 6];
-            case 2: return [4 /*yield*/, gradeModel_1["default"].create({ courseName: courseName_1, grade: grade })];
+                return [3 /*break*/, 8];
+            case 2: return [4 /*yield*/, gradeModel_1["default"].create({ courseName: courseName_1 })];
             case 3:
                 newGrade = _b.sent();
-                newGrade.gradeNum = grade;
-                return [4 /*yield*/, newGrade.save()];
+                newGrade.studentId = student_id;
+                return [4 /*yield*/, newGrade.gradeNum.push(grade)];
             case 4:
                 _b.sent();
-                grades.push(newGrade);
-                return [4 /*yield*/, student.save()];
+                return [4 /*yield*/, newGrade.save()];
             case 5:
                 _b.sent();
-                res.status(201).send(true);
-                _b.label = 6;
-            case 6: return [3 /*break*/, 8];
+                return [4 /*yield*/, grades.push(newGrade)];
+            case 6:
+                _b.sent();
+                return [4 /*yield*/, student.save()];
             case 7:
+                _b.sent();
+                res.status(201).send(true);
+                _b.label = 8;
+            case 8: return [3 /*break*/, 10];
+            case 9:
                 error_1 = _b.sent();
                 console.error(error_1);
                 res.status(500).send(error_1);
-                return [3 /*break*/, 8];
-            case 8: return [2 /*return*/];
+                return [3 /*break*/, 10];
+            case 10: return [2 /*return*/];
+        }
+    });
+}); };
+exports.deleteAllGrades = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var courseName_2, grades, error_2;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                courseName_2 = req.body.courseName;
+                return [4 /*yield*/, gradeModel_1["default"].find({})];
+            case 1:
+                grades = _a.sent();
+                grades.forEach(function (grade) { return __awaiter(void 0, void 0, void 0, function () {
+                    var id;
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0:
+                                if (!(grade.courseName == courseName_2)) return [3 /*break*/, 2];
+                                id = grade.id;
+                                return [4 /*yield*/, gradeModel_1["default"].findByIdAndDelete(id)];
+                            case 1:
+                                _a.sent();
+                                _a.label = 2;
+                            case 2: return [2 /*return*/];
+                        }
+                    });
+                }); });
+                res.status(200).send(true);
+                return [3 /*break*/, 3];
+            case 2:
+                error_2 = _a.sent();
+                console.error(error_2);
+                res.status(500).send(error_2);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.deleteGradeFromStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _id_1, grades, error_3;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                _id_1 = req.body._id;
+                return [4 /*yield*/, gradeModel_1["default"].find({})];
+            case 1:
+                grades = _a.sent();
+                grades.forEach(function (grade) { return __awaiter(void 0, void 0, void 0, function () {
+                    var id;
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0:
+                                if (!(grade.studentId == _id_1)) return [3 /*break*/, 2];
+                                id = grade.id;
+                                return [4 /*yield*/, gradeModel_1["default"].findByIdAndDelete(id)];
+                            case 1:
+                                _a.sent();
+                                _a.label = 2;
+                            case 2: return [2 /*return*/];
+                        }
+                    });
+                }); });
+                res.status(200).send(true);
+                return [3 /*break*/, 3];
+            case 2:
+                error_3 = _a.sent();
+                console.error(error_3);
+                res.status(500).send(error_3);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }); };
 exports.deleteGrade = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, studentId, courseName_2, student, grades, index, error_2;
+    var _a, studentId, courseName_3, student, grades, index, id, allGrades, error_4;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 3, , 4]);
-                _a = req.body, studentId = _a.studentId, courseName_2 = _a.courseName;
+                _b.trys.push([0, 5, , 6]);
+                _a = req.body, studentId = _a.studentId, courseName_3 = _a.courseName;
                 return [4 /*yield*/, studentModel_1["default"].findById(studentId)];
             case 1:
                 student = _b.sent();
@@ -94,7 +171,8 @@ exports.deleteGrade = function (req, res) { return __awaiter(void 0, void 0, voi
                 grades = student.grades;
                 if (!grades)
                     throw new Error("grades not found");
-                index = grades.findIndex(function (grade) { return grade.courseName == courseName_2; });
+                index = grades.findIndex(function (grade) { return grade.courseName == courseName_3; });
+                id = grades[index]._id;
                 if (index == -1)
                     throw new Error("course does not have grade");
                 grades.splice(index, 1);
@@ -102,14 +180,69 @@ exports.deleteGrade = function (req, res) { return __awaiter(void 0, void 0, voi
                 return [4 /*yield*/, student.save()];
             case 2:
                 _b.sent();
-                res.status(200).send(true);
-                return [3 /*break*/, 4];
+                return [4 /*yield*/, gradeModel_1["default"].find({})];
             case 3:
-                error_2 = _b.sent();
-                console.error(error_2);
-                res.status(500).send(error_2);
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+                allGrades = _b.sent();
+                if (!allGrades)
+                    throw new Error("grades not found");
+                return [4 /*yield*/, gradeModel_1["default"].findByIdAndDelete(id)];
+            case 4:
+                _b.sent();
+                res.status(200).send(true);
+                return [3 /*break*/, 6];
+            case 5:
+                error_4 = _b.sent();
+                console.error(error_4);
+                res.status(500).send(error_4);
+                return [3 /*break*/, 6];
+            case 6: return [2 /*return*/];
+        }
+    });
+}); };
+exports.addGradeToStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, studentId, courseName_4, grade, student, grades, index, id, curGrade_1, error_5;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 5, , 6]);
+                _a = req.body, studentId = _a.studentId, courseName_4 = _a.courseName, grade = _a.grade;
+                return [4 /*yield*/, studentModel_1["default"].findById(studentId)];
+            case 1:
+                student = _b.sent();
+                if (!student)
+                    throw new Error("student not found");
+                grades = student.grades;
+                if (!grades)
+                    throw new Error("grades not found");
+                index = grades.findIndex(function (grade) { return grade.courseName == courseName_4; });
+                if (index == -1)
+                    throw new Error("course does not have grade");
+                id = grades[index]._id;
+                return [4 /*yield*/, gradeModel_1["default"].findById(id)];
+            case 2:
+                curGrade_1 = _b.sent();
+                if (!curGrade_1)
+                    throw new Error("grade not found in model");
+                curGrade_1.gradeNum.push(grade);
+                student.grades.forEach(function (grade) {
+                    if (grade.courseName == curGrade_1.courseName) {
+                        grade.gradeNum = curGrade_1.gradeNum;
+                    }
+                });
+                return [4 /*yield*/, curGrade_1.save()];
+            case 3:
+                _b.sent();
+                return [4 /*yield*/, student.save()];
+            case 4:
+                _b.sent();
+                res.status(200).send(true);
+                return [3 /*break*/, 6];
+            case 5:
+                error_5 = _b.sent();
+                console.error(error_5);
+                res.status(500).send(error_5);
+                return [3 /*break*/, 6];
+            case 6: return [2 /*return*/];
         }
     });
 }); };
