@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student API</title>
+    <link rel="stylesheet" href="./style/css/button.css">
+    <link rel="stylesheet" href="./style/css/studentList.css" />
+    <link rel="stylesheet" href="./style/css/input.css">
+    <script
+      src="https://kit.fontawesome.com/0d9e773bea.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script>var exports = {};</script> -->
+    <script src="./src/students/view.js" defer></script>
+    <script src="./src/students//model.js" defer></script>
+    <script src="./src/students//controller.js" defer></script>
+    <script src="./src/students//index.js" defer></script>
+  </head>
+  <body>
+    <h1>Student list</h1>
+    <div id="root"></div>
+    <h4>Add student</h4>
+    <form id="addStudentForm">
+      <label for="name"
+        >Full name:
+        <input type="text" name="fullName" id="name" placeholder="John Doe"
+      /></label>
+      <label for="grade"
+        >Grade: <input type="number" name="grade" id="grade" placeholder="88"
+      /></label>
+      <button type="submit">Add</button>
+    </form>
+    <div class="editWindow"></div>
+  </body>
+</html>

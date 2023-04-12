@@ -58,7 +58,7 @@ export const updateUser = (req:any, res:any) => {
     try {
       const { _id } = req.body;
   
-      const deltedUser = await UserModel.deleteOne({ _id });
+      const deleteUser = await UserModel.deleteOne({ _id });
       const users = await UserModel.find({});
   
       res.send({ ok: true, users });
