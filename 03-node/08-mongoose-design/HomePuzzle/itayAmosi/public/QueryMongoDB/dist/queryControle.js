@@ -1,3 +1,5 @@
+"use strict";
+exports.__esModule = true;
 function handleDeleteStudent(_id) {
     try {
         fetch("/api/students/delete-student?" + new URLSearchParams({ _id: _id }).toString(), {
@@ -10,7 +12,7 @@ function handleDeleteStudent(_id) {
             .then(function () {
             var studentForm = document.getElementById(_id);
             if (!studentForm) {
-                throw new Error("Could not find student form");
+                throw new Error("student delete form HTML");
             }
             studentForm.remove();
         })["catch"](function (error) {
@@ -33,7 +35,7 @@ function handleDeleteTeacher(_id) {
             .then(function () {
             var teacherId = document.getElementById(_id);
             if (!teacherId) {
-                throw new Error("Could not find teacherID");
+                throw new Error("teacher delete from HTML");
             }
             teacherId.remove();
         })["catch"](function (error) {
@@ -47,7 +49,6 @@ function handleDeleteTeacher(_id) {
 function handleStudentNameUpdate(ev, _id) {
     try {
         var name = ev.target.textContent;
-        console.log({ name: name, _id: _id });
         fetch("/api/students/update-student-name?" + new URLSearchParams({ name: name, _id: _id }).toString(), {
             method: "PATCH",
             headers: {
@@ -63,7 +64,6 @@ function handleStudentNameUpdate(ev, _id) {
 function handleTeacherNameUpdate(ev, _id) {
     try {
         var name = ev.target.textContent;
-        console.log({ name: name, _id: _id });
         fetch("/api/teachers/update-teacher-name?" + new URLSearchParams({ name: name, _id: _id }).toString(), {
             method: "PATCH",
             headers: {
@@ -76,3 +76,10 @@ function handleTeacherNameUpdate(ev, _id) {
         console.error(error);
     }
 }
+// async function findStudents(){
+//     const searchBar = document.querySelector("#search") as HTMLInputElement;
+//     const input = searchBar.textContent;
+//     const user = await StudentModel.find({input});
+//     const response = await fetch("/api/students/find-students");
+//     return await response.json();
+//   }

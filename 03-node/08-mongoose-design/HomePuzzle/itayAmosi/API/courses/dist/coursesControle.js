@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getCourse = exports.addMockCourse = void 0;
+exports.getCoursesByIds = exports.addMockCourse = void 0;
 var coursesModel_1 = require("./coursesModel");
 var uuid_1 = require("uuid");
 exports.addMockCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -49,19 +49,19 @@ exports.addMockCourse = function (req, res) { return __awaiter(void 0, void 0, v
                 })];
             case 1:
                 newCourse = _a.sent();
-                console.log(newCourse);
                 res.status(200).send({ ok: true, newCourse: newCourse });
                 return [2 /*return*/];
         }
     });
 }); };
-exports.getCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var courses, error_1;
+exports.getCoursesByIds = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var ids, courses, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, coursesModel_1["default"].find({})];
+                ids = req.query.ids.split(',');
+                return [4 /*yield*/, coursesModel_1["default"].find({ _id: { $in: ids } })];
             case 1:
                 courses = _a.sent();
                 res.send({ courses: courses });

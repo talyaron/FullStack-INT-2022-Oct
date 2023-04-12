@@ -8,7 +8,9 @@ function renderTeacherTable(teacher: Teacher) {
                <td>${teacher._id} <button onclick='handleDeleteTeacher("${teacher._id}")'>delete</button></td>
                <td contenteditable oninput="handleTeacherNameUpdate(event, '${teacher._id}')">${teacher.name}</td>
                <td>${teacher.lastName}</td>
-               <td>${teacher.course}</td>
+               <td>${teacher.courses
+                .map((course) => course.name)
+                .join(", ")}</td>
                <td>---</td>
                </tr>`;
                const studentRoot = document.querySelector("#customers");
@@ -18,8 +20,6 @@ function renderTeacherTable(teacher: Teacher) {
                 console.error(error);
             }
         }
-        
-        // <td>${student.courses[`${GradeSchema}`]}</td>
 
 
 function handelTeacher() {
@@ -30,10 +30,10 @@ function handelTeacher() {
         try {
           if (!teachers) throw new Error("didnt find teachers");
           teachers.forEach((teacher) => {
-            renderTeacherTable(teacher);
-
-          });
-
+            getTeacherCourses(teacher.courses)
+            .then(({courses}) =>{
+              renderTeacherTable({...teacher,courses: courses})});
+            })
         } catch (error) {
           console.error(error);
         }
@@ -41,4 +41,12 @@ function handelTeacher() {
   } catch (error) {
     console.error(error);
   }
+}
+
+async function getTeacherCourses(ids: string[]) {
+  const response = await fetch(
+    "/api/courses/get-courses-by-ids?" +
+      new URLSearchParams({ ids: ids.join(",") }).toString()
+  );
+  return await response.json();
 }

@@ -24,14 +24,13 @@ export const addMockGrades = async (req: any, res: any) => {
     uid: uuidv4(),
     grade: 100,
   });
-  console.log(newGrades);
   res.status(200).send({ ok: true, newGrades });
 };
 
-export const getGrade = async (req: any, res: any) => {
+export const getGradesByStudentId = async (req: any, res: any) => {
   try {
-    const grades = await GradeModel.find({});
-
+    const studentId = req.query.studentId;
+    const grades = await GradeModel.find({studentId});
     res.send({ grades });
   } catch (error: any) {
     console.error(error);

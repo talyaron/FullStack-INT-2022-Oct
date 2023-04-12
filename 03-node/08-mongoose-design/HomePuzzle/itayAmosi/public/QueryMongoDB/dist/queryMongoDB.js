@@ -7,8 +7,8 @@ function addMockCourse() {
         }
     });
 }
-function addMockStudents() {
-    fetch("/api/students/add-mock-students", {
+function addMockStudent() {
+    fetch("/api/students/add-mock-student", {
         method: "POST",
         headers: {
             Accept: "application/json",

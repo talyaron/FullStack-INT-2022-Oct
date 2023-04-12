@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import { StudentSchema, Student } from "../students/studentModel";
+import StudentModel from "../students/studentModel";
 
 export interface Course {
     name:string;
