@@ -54,9 +54,14 @@ async function getStudents() {
             const grades = student.grades;
             const courses = student.courses;
             const coursesHtml = (courses as course[]).map((course) => {
-                const index = grades.findIndex(grade => grade.courseName == course.name);                
+                const index = grades.findIndex(grade => grade.courseName == course.name); 
+                const allGrades = grades[index].gradeNum.map((grade) => {
+                    return `${grade}`
+                }).join(" ")   
+                console.log(allGrades);
+                    
                 return `
-                    <li>${course.name} Grade: ${grades[index].gradeNum} <button onclick="deleteCourseFromStudent('${course._id}', '${student._id}', '${course.name}')">Delete Course</button></li>
+                    <li>${course.name} Grade: ${allGrades} <button onclick="deleteCourseFromStudent('${course._id}', '${student._id}', '${course.name}')">Delete Course</button><button onclick="addGrade('${student._id}', '${course.name}')">Add Grade</button> </li>
                 `
             }).join(" ")
             return `
@@ -118,7 +123,7 @@ async function getCourses() {
         const html = (courses as course[]).map((course) => {
             return `
             <h1>${course.name}</h1>
-            <button onclick="deleteCourse('${course._id}')">Delete</button>
+            <button onclick="deleteCourse('${course._id}', '${course.name}')">Delete</button>
             `
         }).join("")
         const display = document.getElementById("display");
@@ -129,7 +134,7 @@ async function getCourses() {
     }
 }
 
-async function deleteCourse(courseId: string) {
+async function deleteCourse(courseId: string, courseName:string) {
     try {
         const response = await fetch("/api/course/delete-course", {
             method: "DELETE", // or 'PUT'
@@ -137,6 +142,13 @@ async function deleteCourse(courseId: string) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ courseId }),
+        });
+        const response1 = await fetch("/api/grade//delete-allGrades", {
+            method: "DELETE", // or 'PUT'
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ courseName }),
         });
         getCourses();
         const result = await response.json();
@@ -235,11 +247,52 @@ async function handleDelete(_id: string) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ _id }),
-        }).then((res) => res.json()).then((students) => {
-            getStudents()
         })
+        const response1 = await fetch("/api/grade/delete-gradeStudent", {
+            method: "DELETE", // or 'PUT'
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ _id }),
+        })
+        getStudents()
 
         console.log("Success:");
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+async function addGrade(studentId:string, courseName:string) {
+    try {
+        const addCourse = document.getElementById("addCourse");
+        if (!addCourse) throw new Error("addGrade not fount");
+        addCourse.innerHTML = "";
+        const form = document.createElement("form");
+        const input = document.createElement("input");
+        const send = document.createElement("input");
+        input.type = "number";
+        send.type = "submit";
+        send.value = "Send";
+        input.required = true;
+        form.appendChild(input);
+        form.appendChild(send);
+        addCourse.appendChild(form)
+        form.addEventListener("submit", async () => {
+            const grade = parseInt(input.value);
+            addCourse.innerHTML = " ";
+            const response = await fetch("/api/grade/add-grade-toStudent", {
+                method: "POST", // or 'PUT'
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({studentId, courseName, grade}),
+              });
+          
+              const result = await response.json();
+              getStudents()
+              console.log("Success:", result);
+        })
     } catch (error) {
         console.error("Error:", error);
     }
