@@ -15,10 +15,13 @@
     
     <title>Document</title>
 </head>
-<body>
+<body onload="handleGetStudents()">
 
-    <div class="studentsContainer">students
-        <button onclick="handleGetStudents()">refresh students</button>
+    <h1 class="header">moodle</h1>
+
+    <div class="studentsContainer">
+        <h2>Students</h2>
+        <button class="studentsContainer__refreshBtn" onclick="handleGetStudents()">Refresh</button>
         
         <form onsubmit="handleAddStudent(event)">
             <input type="text" name="name" placeholder="student name" required>

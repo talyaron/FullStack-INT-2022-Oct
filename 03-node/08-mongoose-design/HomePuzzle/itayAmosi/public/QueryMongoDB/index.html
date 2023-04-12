@@ -6,77 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Query MongoDB</title>
     <link rel="stylesheet" href="./dist/style.css">
+    <script src="./dist/queryControle.js" defer></script>
     <script src="./dist/queryMongoDB.js" defer></script>
+    <script src="./dist/student.js" defer></script>
+    <script src="./dist/teacher.js" defer></script>
+    <script src="./dist/course.js" defer></script>
+    <script src="./dist/grades.js" defer></script>
     
 </head>
-<body>
+<body
+ onload="
+handelTeacher(event)
+handelStudent(event)
+handelCourse(event)
+handelGrade(event)
+">
     
 <h1>A Query MongoDB Table</h1>
 
 <table id="customers">
   <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
+    <th>Uid</th>
+    <th>Name</th>
+    <th><span></span> Last Name</th>
+    <th>Course</th>
+    <th>Grades</th>
   </tr>
   <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Berglunds snabbköp</td>
-    <td>Christina Berglund</td>
-    <td>Sweden</td>
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-  </tr>
-  <tr>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-  </tr>
-  <tr>
-    <td>Island Trading</td>
-    <td>Helen Bennett</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Königlich Essen</td>
-    <td>Philip Cramer</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Laughing Bacchus Winecellars</td>
-    <td>Yoshi Tannamuri</td>
-    <td>Canada</td>
-  </tr>
-  <tr>
-    <td>Magazzini Alimentari Riuniti</td>
-    <td>Giovanni Rovelli</td>
-    <td>Italy</td>
-  </tr>
-  <tr>
-    <td>North/South</td>
-    <td>Simon Crowther</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Paris spécialités</td>
-    <td>Marie Bertrand</td>
-    <td>France</td>
+    <!-- <td>c9b27d01-1f67-47b1-941a-770d6211f5a2</td>
+    <td>Moshe</td>
+    <td>Levi</td>
+    <td>English Class</td>
+    <td>90</td> -->
   </tr>
 </table>
-<button>get</button>
-<button>find</button>
-<button>delete</button>
-<button>update</button>
-<button onclick="addMockCourse()">Add-Mock-Course</button>
-<button onclick="addMockStudents()">Add-Mock-student</button>
-<button onclick="addMockGrades()">Add-Mock-grades</button>
-<button onclick="addMockTeacher()">Add-Mock-teacher</button>
+<!-- <button>get</button>
+<button>find</button> -->
+<button class="btn" onclick="addMockTeacher()">Add-Mock-teacher</button>
+<button class="btn" onclick="addMockStudents()">Add-Mock-student</button>
+<button class="btn" onclick="addMockCourse()">Add-Mock-Course</button>
+<button class="btn" onclick="addMockGrades()">Add-Mock-grades</button>
 </body>
 </html>

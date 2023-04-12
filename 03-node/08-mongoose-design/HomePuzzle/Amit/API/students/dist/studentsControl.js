@@ -39,24 +39,28 @@ exports.__esModule = true;
 exports.deleteStudent = exports.updateStudentName = exports.getStudents = exports.addStudent = void 0;
 var studentsModel_1 = require("./studentsModel");
 exports.addStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var name, studentDB, error_1;
+    var name, studentDB, students, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
+                _a.trys.push([0, 3, , 4]);
                 name = req.body.name;
                 return [4 /*yield*/, studentsModel_1["default"].create({ name: name })];
             case 1:
                 studentDB = _a.sent();
-                console.log(studentDB);
-                res.status(201).send({ ok: true });
-                return [3 /*break*/, 3];
+                return [4 /*yield*/, studentsModel_1["default"].find({})];
             case 2:
+                students = _a.sent();
+                if (!students)
+                    throw new Error("No students found");
+                res.status(201).send({ ok: true, students: students });
+                return [3 /*break*/, 4];
+            case 3:
                 error_1 = _a.sent();
                 console.error(error_1);
                 res.status(500).send({ error: error_1.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };
@@ -81,25 +85,45 @@ exports.getStudents = function (req, res) { return __awaiter(void 0, void 0, voi
     });
 }); };
 exports.updateStudentName = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        try {
-            // const { name, uid } = req.body;
-            // if (!name) throw new Error("No name in data");
-            // if (!uid) throw new Error("No uid in data");
-            // const user = users.find((user) => user.uid === uid);
-            // if (!user) throw new Error("No user in array");
-            // user.name = name;
-            // res.send({ ok: true });
+    var _a, _id, updatedName, student, updatedNameDB, students, error_3;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 5, , 6]);
+                _a = req.body, _id = _a._id, updatedName = _a.updatedName;
+                if (!_id)
+                    throw new Error("No _id in data");
+                if (!updatedName)
+                    throw new Error("No updated Name in data");
+                return [4 /*yield*/, studentsModel_1["default"].findById(_id)];
+            case 1:
+                student = _b.sent();
+                if (!student)
+                    throw new Error("no student found");
+                return [4 /*yield*/, studentsModel_1["default"].updateOne({ _id: _id }, { name: updatedName })];
+            case 2:
+                updatedNameDB = _b.sent();
+                return [4 /*yield*/, student.save()];
+            case 3:
+                _b.sent();
+                return [4 /*yield*/, studentsModel_1["default"].find({})];
+            case 4:
+                students = _b.sent();
+                if (!students)
+                    throw new Error("No students found");
+                res.send({ ok: true, students: students });
+                return [3 /*break*/, 6];
+            case 5:
+                error_3 = _b.sent();
+                console.error(error_3);
+                res.status(500).send({ error: error_3.message });
+                return [3 /*break*/, 6];
+            case 6: return [2 /*return*/];
         }
-        catch (error) {
-            console.error(error);
-            res.status(500).send({ error: error.message });
-        }
-        return [2 /*return*/];
     });
 }); };
 exports.deleteStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _id, deletedStudent, students, error_3;
+    var _id, deletedStudent, students, error_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -114,9 +138,9 @@ exports.deleteStudent = function (req, res) { return __awaiter(void 0, void 0, v
                 res.send({ ok: true, students: students });
                 return [3 /*break*/, 4];
             case 3:
-                error_3 = _a.sent();
-                console.error(error_3);
-                res.status(500).send({ error: error_3.message });
+                error_4 = _a.sent();
+                console.error(error_4);
+                res.status(500).send({ error: error_4.message });
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }
