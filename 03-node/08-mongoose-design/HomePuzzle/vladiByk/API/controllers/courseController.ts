@@ -8,7 +8,7 @@ export const getAllCourses = async (
   next: NextFunction
 ) => {
   try {
-    const teacherId = req.query.teacherId;
+    const { teacherId } = req.body;
     const teacher = await Teacher.findById(teacherId);
     const courses = await Course.find({ teachers: teacher });
     console.log(courses);

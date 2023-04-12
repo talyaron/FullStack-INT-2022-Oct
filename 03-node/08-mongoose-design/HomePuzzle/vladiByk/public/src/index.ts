@@ -56,32 +56,37 @@ function renderCoursesPage(coursesList: Course[], teacherId: string) {
 
   courses.forEach((course) =>
     course.addEventListener("click", () => {
-      console.log("Course clicked...");
+      console.log(`Course ${course} clicked...`);
+      
     })
   );
 
+  saveNewCourse(coursesList, teacherId);
+}
+
+function saveNewCourse(coursesList: Course[], teacherId: string) {
   const newCourseForm = document.querySelector(
     "#newCourseForm"
   ) as HTMLFormElement;
 
-  newCourseForm.addEventListener("submit", (e: Event) => {
+  newCourseForm.addEventListener("submit", async (e: Event) => {
     e.preventDefault();
     const courseName = newCourseForm.querySelector(
       "#addCourseName"
     ) as HTMLInputElement;
-    console.log("New course created...");
-    console.log(courseName.value);
+    const newCourse = await fetch(`/api/v1/courses`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name: courseName.value, teacherId }),
+    })
+      .then((res) => res.json())
+      .then(({ course }) => course)
+      .catch((error) => console.error(error));
+    coursesList.push(newCourse);
     courseName.value = "";
-  });
-}
-
-async function saveNewCourse(courseName: string, teacherId: string) {
-  await fetch(`/api/v1/courses`, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(teacherId),
+    renderCoursesPage(coursesList, teacherId);
   });
 }

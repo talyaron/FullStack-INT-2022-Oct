@@ -53,26 +53,28 @@ function renderCoursesPage(coursesList, teacherId) {
   </form>`;
     const courses = document.querySelectorAll(".course");
     courses.forEach((course) => course.addEventListener("click", () => {
-        console.log("Course clicked...");
+        console.log(`Course ${course} clicked...`);
     }));
+    saveNewCourse(coursesList, teacherId);
+}
+function saveNewCourse(coursesList, teacherId) {
     const newCourseForm = document.querySelector("#newCourseForm");
-    newCourseForm.addEventListener("submit", (e) => {
+    newCourseForm.addEventListener("submit", (e) => __awaiter(this, void 0, void 0, function* () {
         e.preventDefault();
         const courseName = newCourseForm.querySelector("#addCourseName");
-        console.log("New course created...");
-        console.log(courseName.value);
-        courseName.value = "";
-    });
-}
-function saveNewCourse(courseName, teacherId) {
-    return __awaiter(this, void 0, void 0, function* () {
-        yield fetch(`/api/v1/courses`, {
+        const newCourse = yield fetch(`/api/v1/courses`, {
             method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(teacherId),
-        });
-    });
+            body: JSON.stringify({ name: courseName.value, teacherId }),
+        })
+            .then((res) => res.json())
+            .then(({ course }) => course)
+            .catch((error) => console.error(error));
+        coursesList.push(newCourse);
+        courseName.value = "";
+        renderCoursesPage(coursesList, teacherId);
+    }));
 }

@@ -17,7 +17,7 @@ const CourseModel_1 = __importDefault(require("../models/CourseModel"));
 const TeacherModel_1 = __importDefault(require("../models/TeacherModel"));
 const getAllCourses = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const teacherId = req.query.teacherId;
+        const { teacherId } = req.body;
         const teacher = yield TeacherModel_1.default.findById(teacherId);
         const courses = yield CourseModel_1.default.find({ teachers: teacher });
         console.log(courses);
