@@ -42,7 +42,7 @@ export const createCourse = async (
     const { name, teacherId } = req.body;
     const teacher = await Teacher.findById(teacherId);
     const course = await Course.create({ name: name, teachers: [teacher] });
-    res.status(200).json({ msg: `Teacher ${course} is created...` });
+    res.status(200).json({ course });
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });

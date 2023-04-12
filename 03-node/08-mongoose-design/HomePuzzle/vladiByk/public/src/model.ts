@@ -1,12 +1,24 @@
-class Student {
+class Course {
   constructor(
     public name: string,
-    public id: string = ""
+    public teachers: string[] = [],
+    public _id: string
   ) {}
-  addGrade(
-    btn: HTMLInputElement,
-    newGradeInput: HTMLInputElement
-  ) {
+  async getStudents() {
+    const students = await fetch("/api/v1/students").then;
+    return "student list";
+  }
+}
+
+interface CourseTemplate {
+  name: string;
+  teachers: string[];
+  _id: string;
+}
+
+class Student {
+  constructor(public name: string, public id: string = "") {}
+  addGrade(btn: HTMLInputElement, newGradeInput: HTMLInputElement) {
     btn.addEventListener("click", () => {
       updateGrade(newGradeInput, this.id);
     });

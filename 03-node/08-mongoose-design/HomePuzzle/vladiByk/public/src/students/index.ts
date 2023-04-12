@@ -1,4 +1,5 @@
-displayStudents();
+
+
 
 const editWindow = document.querySelector(".editWindow") as HTMLDivElement;
 

@@ -8,8 +8,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+const root = document.querySelector("#root");
 const teacherLoginForm = document.querySelector("#teacherLoginForm");
 const teacherIdInput = document.querySelector("#teacherId");
+const teacherLoginDiv = document.querySelector(".teacherLoginContainer");
 teacherLoginForm.addEventListener("submit", displayTeacherCourses);
 function displayTeacherCourses(e) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -23,9 +25,54 @@ function displayTeacherCourses(e) {
             },
         })
             .then((res) => res.json())
-            .then((data) => data)
+            .then(({ courses }) => courses)
             .catch((error) => console.error(error));
-        console.log(courseList);
         teacherIdInput.value = "";
+        renderCoursesPage(courseList, teacherId);
+    });
+}
+function renderCoursesPage(coursesList, teacherId) {
+    root.innerHTML = "";
+    root.innerHTML = `
+  <h1>Available courses</h1>
+  <div class="coursesRoot">
+  ${coursesList
+        .map((course) => `<div class="course" id="${course._id}">${course.name}</div>`)
+        .join("")} 
+    </div>
+  <form id="newCourseForm">
+    <label for="addCourseName">
+      <input
+        type="text"
+        name="addCourseName"
+        id="addCourseName"
+        placeholder="Astrophysics..."
+      />
+    </label>
+    <button type="submit">Add</button>
+  </form>`;
+    const courses = document.querySelectorAll(".course");
+    courses.forEach((course) => course.addEventListener("click", () => {
+        console.log("Course clicked...");
+    }));
+    const newCourseForm = document.querySelector("#newCourseForm");
+    newCourseForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const courseName = newCourseForm.querySelector("#addCourseName");
+        console.log("New course created...");
+        console.log(courseName.value);
+        courseName.value = "";
+    });
+}
+function saveNewCourse(courseName, teacherId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield fetch(`/api/v1/courses`, {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(teacherId),
+        });
     });
 }

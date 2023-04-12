@@ -1,3 +1,5 @@
+
+
 const displayStudents = async () => {
   try {
     const studentList = await fetch(studentApi)
@@ -46,4 +48,3 @@ const renderStudents = (students: Student[]) => {
     })
   );
 };
-
