@@ -10,10 +10,9 @@
 </head>
 <body>
   <header>
-    <h1>Student Management System</h1>
+    <h1>Add Student</h1>
   </header>
   <main>
-    <h1>Add Student</h1>
     <form id="addStudentForm" onsubmit="handleAddStudent(event)">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" required>
@@ -26,10 +25,7 @@
   <label for="course">Course Name:</label>
   <input type="text" id="course" name="course">
   <label for="student">Student:</label>
-  <select id="student" name="student">
-    <% students.forEach((student) => { %>
-      <option value="<%= student._id %>"><%= student.name %></option>
-    <% }); %>
+  <select onclick="getStudents()" id="student" name="student">
   </select>
   <button type="submit">Add Course</button>
 </form>

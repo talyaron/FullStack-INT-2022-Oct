@@ -62,7 +62,7 @@ interface Student {
           <td><button onClick="handleUpdateStudent('${student._id}')">Update</button></td>
           <td><button onClick="handleDeleteStudent('${student._id}')">Delete</button></td>
        </tr>
-       <br><br>`;
+       <br>`;
         });
         studentsList.innerHTML = html;
       })
@@ -123,21 +123,3 @@ interface Student {
       console.error(error);
     }
   }
-  // const addCourse = document.querySelector("#add-course-form") as HTMLFormElement;
-  // addCourse.addEventListener('submit', async (event) => {
-  //   event.preventDefault();
-  //   const course = document.getElementById('course').value;
-  //   const studentId = document.getElementById('student').value;
-  //   const response = await fetch('/api/students/add-course', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({ course, studentId })
-  //   });
-  //   if (response.ok) {
-  //     const data = await response.json();
-  //     const courses = data.courses;
-  //   } else {
-  //     const error = await response.json();
-  //     console.error(error);
-  //   }
-  // });
