@@ -20,12 +20,14 @@ button:hover, .btn:hover {
     background-color: rgb(198, 197, 197);
 }
 
-.student {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    background-color: aqua;
-    border: 1px solid black;
-    max-width: 400px;
+.display {
+    .student {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        background-color: aqua;
+        border: 1px solid black;
+        max-width: 400px;
+    }
 }

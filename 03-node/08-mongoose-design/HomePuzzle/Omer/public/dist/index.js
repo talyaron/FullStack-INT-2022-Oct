@@ -128,7 +128,7 @@ function getStudents() {
                         var coursesHtml = courses.map(function (course) {
                             return "\n                    <li>" + course.name + " <button onclick=\"deleteCourseFromStudent('" + course._id + "', '" + student._id + "')\">Delete Course</button></li>\n                ";
                         }).join(" ");
-                        return "\n                <div class = \"student\">\n                    <h1>" + student.name + "</h1>\n                    <h2>" + student.age + "</h2>\n                    <lu>\n                        " + coursesHtml + "\n                    </lu>  \n                    <button onclick=\"handleDelete('" + student._id + "')\">Delete</button>\n                    <button onclick=\"addCourse('" + student._id + "')\">Add courses</button>  \n                </div>        \n            ";
+                        return "\n                <div class = \"student\">\n                    <h1>Name: " + student.name + "</h1>\n                    <h2>Age: " + student.age + "</h2>\n                    <lu>\n                        " + coursesHtml + "\n                    </lu>  \n                    <button onclick=\"handleDelete('" + student._id + "')\">Delete</button>\n                    <button onclick=\"addCourse('" + student._id + "')\">Add courses</button>  \n                </div>        \n            ";
                     }).join("");
                     display = document.getElementById("display");
                     if (!display)

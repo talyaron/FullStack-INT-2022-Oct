@@ -58,8 +58,8 @@ async function getStudents() {
             }).join(" ")
             return `
                 <div class = "student">
-                    <h1>${student.name}</h1>
-                    <h2>${student.age}</h2>
+                    <h1>Name: ${student.name}</h1>
+                    <h2>Age: ${student.age}</h2>
                     <lu>
                         ${coursesHtml}
                     </lu>  
