@@ -56,9 +56,11 @@ exports.createCourse = createCourse;
 const deleteCourse = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id: courseId } = req.params;
-        const course = yield CourseModel_1.default.deleteOne({ _id: courseId });
-        const courses = yield CourseModel_1.default.find({});
-        res.status(200).send({ courses, course });
+        const { teacherId } = req.body;
+        const teacher = yield TeacherModel_1.default.findById(teacherId);
+        const course = yield CourseModel_1.default.findByIdAndDelete({ _id: courseId });
+        const courses = yield CourseModel_1.default.find({ teachers: teacher });
+        res.status(200).send({ courses });
     }
     catch (error) {
         console.error(error);

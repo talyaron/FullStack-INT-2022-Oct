@@ -32,9 +32,12 @@ function renderCoursesPage(coursesList: Course[], teacherId: string) {
   root.innerHTML = `
   <h1>Available courses</h1>
   <div class="coursesRoot">
+  
   ${coursesList
     .map(
-      (course) => `<div class="course" id="${course._id}">${course.name}</div>`
+      (course) =>
+        `<div class="course" id="${course._id}">${course.name}
+        <span class="deleteCourse">Delete</span></div>`
     )
     .join("")} 
     </div>
@@ -49,6 +52,26 @@ function renderCoursesPage(coursesList: Course[], teacherId: string) {
     </label>
     <button type="submit">Add</button>
   </form>`;
+  const deleteButtons = document.querySelectorAll(
+    ".deleteCourse"
+  ) as NodeListOf<HTMLSpanElement>;
+
+  deleteButtons.forEach((btn) =>
+    btn.addEventListener("click", async () => {
+      console.log(`delete btn with id ${btn.parentElement?.id}...`);
+      await fetch(`/api/v1/courses/${btn.parentElement?.id}`, {
+        method: "Delete",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ teacherId }),
+      })
+        .then((res) => res.json())
+        .then(({ courses }) => renderCoursesPage(courses, teacherId))
+        .catch((error) => console.error(error));
+    })
+  );
 
   const courses = document.querySelectorAll(
     ".course"
@@ -56,8 +79,8 @@ function renderCoursesPage(coursesList: Course[], teacherId: string) {
 
   courses.forEach((course) =>
     course.addEventListener("click", () => {
-      console.log(`Course ${course} clicked...`);
-      
+      console.log(`Course ${course.textContent} clicked...`);
+      renderStudentPage(course.id)
     })
   );
 
@@ -89,4 +112,19 @@ function saveNewCourse(coursesList: Course[], teacherId: string) {
     courseName.value = "";
     renderCoursesPage(coursesList, teacherId);
   });
+}
+
+async function renderStudentPage(courseId: string) {
+  root.innerHTML = "";
+  const studentList = await fetch(`/api/v1/courses/${courseId}`)
+    .then((res) => res.json())
+    .then(({ students }) =>
+      students
+        .map(
+          (student: StudentTemplate) => new Student(student.name, student._id)
+        )
+        .join("")
+    )
+    .catch((error) => console.error(error));
+  console.log(studentList);
 }

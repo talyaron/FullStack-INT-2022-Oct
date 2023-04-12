@@ -44,6 +44,19 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  position: relative;
+}
+.coursesRoot .course span {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 0.6rem;
+  cursor: pointer;
+  padding: 5px;
+  background-color: aqua;
+}
+.coursesRoot .course span:hover {
+  color: red;
 }
 .coursesRoot .course:hover {
   box-shadow: 0 0 10px rgb(47, 6, 6);

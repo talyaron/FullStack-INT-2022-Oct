@@ -36,8 +36,10 @@ function renderCoursesPage(coursesList, teacherId) {
     root.innerHTML = `
   <h1>Available courses</h1>
   <div class="coursesRoot">
+  
   ${coursesList
-        .map((course) => `<div class="course" id="${course._id}">${course.name}</div>`)
+        .map((course) => `<div class="course" id="${course._id}">${course.name}
+        <span class="deleteCourse">Delete</span></div>`)
         .join("")} 
     </div>
   <form id="newCourseForm">
@@ -51,9 +53,26 @@ function renderCoursesPage(coursesList, teacherId) {
     </label>
     <button type="submit">Add</button>
   </form>`;
+    const deleteButtons = document.querySelectorAll(".deleteCourse");
+    deleteButtons.forEach((btn) => btn.addEventListener("click", () => __awaiter(this, void 0, void 0, function* () {
+        var _a, _b;
+        console.log(`delete btn with id ${(_a = btn.parentElement) === null || _a === void 0 ? void 0 : _a.id}...`);
+        yield fetch(`/api/v1/courses/${(_b = btn.parentElement) === null || _b === void 0 ? void 0 : _b.id}`, {
+            method: "Delete",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ teacherId }),
+        })
+            .then((res) => res.json())
+            .then(({ courses }) => renderCoursesPage(courses, teacherId))
+            .catch((error) => console.error(error));
+    })));
     const courses = document.querySelectorAll(".course");
     courses.forEach((course) => course.addEventListener("click", () => {
-        console.log(`Course ${course} clicked...`);
+        console.log(`Course ${course.textContent} clicked...`);
+        renderStudentPage(course.id);
     }));
     saveNewCourse(coursesList, teacherId);
 }
@@ -77,4 +96,16 @@ function saveNewCourse(coursesList, teacherId) {
         courseName.value = "";
         renderCoursesPage(coursesList, teacherId);
     }));
+}
+function renderStudentPage(courseId) {
+    return __awaiter(this, void 0, void 0, function* () {
+        root.innerHTML = "";
+        const studentList = yield fetch(`/api/v1/courses/${courseId}`)
+            .then((res) => res.json())
+            .then(({ students }) => students
+            .map((student) => new Student(student.name, student._id))
+            .join(""))
+            .catch((error) => console.error(error));
+        console.log(studentList);
+    });
 }

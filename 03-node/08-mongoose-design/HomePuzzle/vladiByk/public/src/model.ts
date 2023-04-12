@@ -38,5 +38,5 @@ class Student {
 interface StudentTemplate {
   name: string;
   grades: number[];
-  id: string;
+  _id: string;
 }
