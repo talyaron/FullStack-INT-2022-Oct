@@ -202,3 +202,122 @@ function handleSaveCourseUpdate(courseId, studentId) {
         console.error(error);
     }
 }
+///////////////////////grades/////////////////////
+function handleAddGrade(courseId, studentId) {
+    try {
+        var data = { courseId: courseId, studentId: studentId };
+        fetch("/api/grades/add-grade", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (_a) {
+            var students = _a.students;
+            console.log("students on handleAddGrade", students);
+            renderStudents(students);
+        })["catch"](function (error) {
+            console.error(error);
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleDeleteGrade(courseId, studentId, gradeId) {
+    try {
+        console.log("studentId", studentId);
+        fetch("/api/grades/delete-grade", {
+            method: "DELETE",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ courseId: courseId, studentId: studentId, gradeId: gradeId })
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (_a) {
+            var students = _a.students;
+            renderStudents(students);
+        })["catch"](function (error) {
+            console.error(error);
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleGradeUpdate(_id) {
+    try {
+        var grade = document.querySelector("#grade-" + _id);
+        if (!grade)
+            throw new Error("grade not found on DOM");
+        grade.contentEditable = "true";
+        grade.style.color = "yellow";
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleSaveGradeUpdate(courseId, studentId, gradeId) {
+    try {
+        console.log("gradeId", gradeId);
+        var grade = document.querySelector("#grade-" + gradeId);
+        if (!grade)
+            throw new Error("grade not found on DOM");
+        grade.contentEditable = "false";
+        grade.style.color = "black";
+        var updatedGrade = grade.innerText;
+        fetch("/api/grades/update-grade", {
+            method: "PATCH",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ courseId: courseId, studentId: studentId, gradeId: gradeId, updatedGrade: updatedGrade })
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (_a) {
+            var students = _a.students;
+            renderStudents(students);
+        })["catch"](function (error) {
+            console.error(error);
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+///////////////////////query/////////////////////
+function handleGradesInSpecificCourseQuery(ev) {
+    try {
+        ev.preventDefault();
+        var _course_1 = ev.target.elements.course.value;
+        if (!_course_1)
+            throw new Error("No course on form");
+        var course = { _course: _course_1 };
+        fetch("/api/courses/get-student-grades-in-course", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(course)
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (_a) {
+            var grades = _a.grades;
+            console.log("grades in " + _course_1 + ":", grades);
+            // renderStudentGradesInCourse(grades);
+        })["catch"](function (error) {
+            console.error(error);
+        });
+        ev.target.reset();
+    }
+    catch (error) {
+        console.error(error);
+    }
+}

@@ -36,9 +36,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.deleteCourse = exports.updateCourse = exports.addCourse = void 0;
+exports.getStudentGradesInCourse = exports.deleteCourse = exports.updateCourse = exports.addCourse = void 0;
 var coursesModel_1 = require("./coursesModel");
 var studentsModel_1 = require("../students/studentsModel");
+var gradesModel_1 = require("../grades/gradesModel");
 exports.addCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, course, studentId, student, courseDB, students, error_1;
     return __generator(this, function (_b) {
@@ -137,6 +138,8 @@ exports.deleteCourse = function (req, res) { return __awaiter(void 0, void 0, vo
                 if (!course)
                     throw new Error("no course found");
                 courseIndex = student.courses.findIndex(function (course) { var _a; return ((_a = course._id) === null || _a === void 0 ? void 0 : _a.toString()) === courseId_2.toString(); });
+                if ((!courseIndex) && (courseIndex !== 0))
+                    throw new Error("course Index not found");
                 student.courses.splice(courseIndex, 1);
                 return [4 /*yield*/, coursesModel_1["default"].findOneAndDelete(courseId_2)];
             case 3:
@@ -158,18 +161,30 @@ exports.deleteCourse = function (req, res) { return __awaiter(void 0, void 0, vo
         }
     });
 }); };
-// export const getStudentGradesInCourse = async (req: any, res: any) => {
-//     try {
-//       //got from the client
-//       const { courseId, studentId } = req.query;
-//       //https://docs.oracle.com/en/cloud/saas/cx-commerce/21b/ccdev/rest-api-query-parameters.html
-//       const grades = await GradeModel.find({
-//         course: { _id: courseId },
-//         user: { _id: studentId },
-//       });
-//       res.send({ grades });
-//     } catch (error) {
-//       console.error(error);
-//       res.status(500).send({ error: error.message });
-//     }
-//   };
+exports.getStudentGradesInCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var course, grades, error_4;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                course = req.query.course;
+                return [4 /*yield*/, gradesModel_1["default"].find({
+                        course: { course: course }
+                    })];
+            case 1:
+                grades = _a.sent();
+                console.log("grades", grades);
+                res.send({ ok: true, grades: grades });
+                return [3 /*break*/, 3];
+            case 2:
+                error_4 = _a.sent();
+                if (error_4 instanceof Error) {
+                    console.error(error_4);
+                    res.status(500).send({ error: error_4.message });
+                }
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+//https://docs.oracle.com/en/cloud/saas/cx-commerce/21b/ccdev/rest-api-query-parameters.html

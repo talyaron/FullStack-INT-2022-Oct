@@ -1,6 +1,6 @@
-interface Grade {
-    grade: number;
-    student: Student;
+interface Student {
+    name: string;
+    courses: Course[];
     _id?: string;
 }
 
@@ -10,8 +10,7 @@ interface Course {
     _id?: string;
 }
 
-interface Student {
-    name: string;
-    courses: Course[];
+interface Grade {
+    grade: number;
     _id?: string;
-  }
+}
