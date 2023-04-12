@@ -37,67 +37,146 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.deleteGrade = exports.updateGrade = exports.addGrade = void 0;
+var coursesModel_1 = require("../courses/coursesModel");
+var studentsModel_1 = require("../students/studentsModel");
 var gradesModel_1 = require("./gradesModel");
 exports.addGrade = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, grade, student, course, gradeDB, error_1;
+    var _a, courseId_1, studentId, student, course, courseIndex, gradeDB, students, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 2, , 3]);
-                _a = req.body, grade = _a.grade, student = _a.student, course = _a.course;
-                return [4 /*yield*/, gradesModel_1["default"].create({ grade: grade, student: student, course: course })];
+                _b.trys.push([0, 6, , 7]);
+                _a = req.body, courseId_1 = _a.courseId, studentId = _a.studentId;
+                if (!courseId_1)
+                    throw new Error("No course Id in data");
+                if (!studentId)
+                    throw new Error("No student Id in data");
+                return [4 /*yield*/, studentsModel_1["default"].findById(studentId)];
             case 1:
-                gradeDB = _b.sent();
-                res.status(201).send({ ok: true });
-                return [3 /*break*/, 3];
+                student = _b.sent();
+                if (!student)
+                    throw new Error("no student found");
+                return [4 /*yield*/, coursesModel_1["default"].findById(courseId_1)];
             case 2:
+                course = _b.sent();
+                if (!course)
+                    throw new Error("no course found");
+                courseIndex = student.courses.findIndex(function (course) { var _a; return ((_a = course._id) === null || _a === void 0 ? void 0 : _a.toString()) === courseId_1.toString(); });
+                if ((!courseIndex) && (courseIndex !== 0))
+                    throw new Error("no course index found");
+                return [4 /*yield*/, gradesModel_1["default"].create({ grade: undefined })];
+            case 3:
+                gradeDB = _b.sent();
+                student.courses[courseIndex].grades.push(gradeDB);
+                return [4 /*yield*/, student.save()];
+            case 4:
+                _b.sent();
+                return [4 /*yield*/, studentsModel_1["default"].find({})];
+            case 5:
+                students = _b.sent();
+                res.status(201).send({ ok: true, students: students });
+                return [3 /*break*/, 7];
+            case 6:
                 error_1 = _b.sent();
                 console.error(error_1);
                 res.status(500).send({ error: error_1.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 7];
+            case 7: return [2 /*return*/];
         }
     });
 }); };
 exports.updateGrade = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        try {
-            // const { name, uid } = req.body;
-            // if (!name) throw new Error("No name in data");
-            // if (!uid) throw new Error("No uid in data");
-            // const user = users.find((user) => user.uid === uid);
-            // if (!user) throw new Error("No user in array");
-            // user.name = name;
-            // res.send({ ok: true });
+    var _a, courseId_2, studentId, gradeId_1, updatedGrade, student, course, updatedGradeDB, courseIndex, grade, students, error_2;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 6, , 7]);
+                _a = req.body, courseId_2 = _a.courseId, studentId = _a.studentId, gradeId_1 = _a.gradeId, updatedGrade = _a.updatedGrade;
+                if (!courseId_2)
+                    throw new Error("No course Id in data");
+                if (!studentId)
+                    throw new Error("No student Id in data");
+                if (!updatedGrade)
+                    throw new Error("No updated Course in data");
+                return [4 /*yield*/, studentsModel_1["default"].findById(studentId)];
+            case 1:
+                student = _b.sent();
+                if (!student)
+                    throw new Error("no student found");
+                return [4 /*yield*/, coursesModel_1["default"].findById(courseId_2)];
+            case 2:
+                course = _b.sent();
+                if (!course)
+                    throw new Error("no course found");
+                return [4 /*yield*/, gradesModel_1["default"].updateOne({ gradeId: gradeId_1 }, { name: updatedGrade })];
+            case 3:
+                updatedGradeDB = _b.sent();
+                courseIndex = student.courses.findIndex(function (course) { var _a; return ((_a = course._id) === null || _a === void 0 ? void 0 : _a.toString()) === courseId_2.toString(); });
+                if ((!courseIndex) && (courseIndex !== 0))
+                    throw new Error("course Index not found");
+                grade = student.courses[courseIndex].grades.find(function (grade) { var _a; return ((_a = grade._id) === null || _a === void 0 ? void 0 : _a.toString()) === gradeId_1.toString(); });
+                if (!grade)
+                    throw new Error("grade not found");
+                grade.grade = parseInt(updatedGrade);
+                return [4 /*yield*/, student.save()];
+            case 4:
+                _b.sent();
+                return [4 /*yield*/, studentsModel_1["default"].find({})];
+            case 5:
+                students = _b.sent();
+                res.status(201).send({ ok: true, students: students });
+                return [3 /*break*/, 7];
+            case 6:
+                error_2 = _b.sent();
+                console.error(error_2);
+                res.status(500).send({ error: error_2.message });
+                return [3 /*break*/, 7];
+            case 7: return [2 /*return*/];
         }
-        catch (error) {
-            console.error(error);
-            res.status(500).send({ error: error.message });
-        }
-        return [2 /*return*/];
     });
 }); };
 exports.deleteGrade = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _id, deletedGrade, grades, error_2;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var _a, courseId_3, studentId, gradeId_2, student, course, courseIndex, gradeIndex, deletedGrade, students, error_3;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 3, , 4]);
-                _id = req.body._id;
-                return [4 /*yield*/, gradesModel_1["default"].deleteOne({ _id: _id })];
+                _b.trys.push([0, 6, , 7]);
+                _a = req.body, courseId_3 = _a.courseId, studentId = _a.studentId, gradeId_2 = _a.gradeId;
+                console.log("studentId", studentId);
+                return [4 /*yield*/, studentsModel_1["default"].findById(studentId)];
             case 1:
-                deletedGrade = _a.sent();
-                return [4 /*yield*/, gradesModel_1["default"].find({})];
+                student = _b.sent();
+                if (!student)
+                    throw new Error("no student found");
+                return [4 /*yield*/, coursesModel_1["default"].findById(courseId_3)];
             case 2:
-                grades = _a.sent();
-                res.send({ ok: true, grades: grades });
-                return [3 /*break*/, 4];
+                course = _b.sent();
+                if (!course)
+                    throw new Error("no course found");
+                courseIndex = student.courses.findIndex(function (course) { var _a; return ((_a = course._id) === null || _a === void 0 ? void 0 : _a.toString()) === courseId_3.toString(); });
+                if ((!courseIndex) && (courseIndex !== 0))
+                    throw new Error("course Index not found");
+                gradeIndex = student.courses[courseIndex].grades.findIndex(function (grade) { var _a; return ((_a = grade._id) === null || _a === void 0 ? void 0 : _a.toString()) === gradeId_2.toString(); });
+                if ((!gradeIndex) && (gradeIndex !== 0))
+                    throw new Error("grade Index not found");
+                student.courses[courseIndex].grades.splice(gradeIndex, 1);
+                return [4 /*yield*/, gradesModel_1["default"].findOneAndDelete(gradeId_2)];
             case 3:
-                error_2 = _a.sent();
-                console.error(error_2);
-                res.status(500).send({ error: error_2.message });
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+                deletedGrade = _b.sent();
+                return [4 /*yield*/, student.save()];
+            case 4:
+                _b.sent();
+                return [4 /*yield*/, studentsModel_1["default"].find({})];
+            case 5:
+                students = _b.sent();
+                res.send({ ok: true, students: students });
+                return [3 /*break*/, 7];
+            case 6:
+                error_3 = _b.sent();
+                console.error(error_3);
+                res.status(500).send({ error: error_3.message });
+                return [3 /*break*/, 7];
+            case 7: return [2 /*return*/];
         }
     });
 }); };

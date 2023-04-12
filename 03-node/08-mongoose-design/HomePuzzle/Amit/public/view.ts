@@ -6,19 +6,19 @@ function renderStudents(students: Student[]) {
             .map((student) => {
                 return `
           <div class="studentsContainer__studentCard">
-            <div class="studentsContainer__studentCard__name">
-                <button onclick="handleStudentNameUpdate('${student._id}')">update student name</button>
-                <p id="studentName-${student._id}" contenteditable=false >${student.name}</p>
-                <button id="saveNameBtn-${student._id}" onclick="handleSaveStudentNameUpdate('${student._id}')">save name</button>
-            </div>    
-            <div class="studentsContainer__studentCard__courses">courses:
-            <form onsubmit="handleAddCourse(event, '${student._id}')">
-                <input type="text" name="course" placeholder="course name" required>
-                <button type="submit">add course</button>    
-            </form>
-            <div id="courseRoot-${student._id}"></div>
-          </div>  
-          <button onclick="handleDeleteStudent('${student._id}')">DELETE</button>
+                <div class="studentsContainer__studentCard__name">
+                    <button onclick="handleStudentNameUpdate('${student._id}')">update student name</button>
+                    <p id="studentName-${student._id}" contenteditable="false">${student.name}</p>
+                    <button id="saveNameBtn-${student._id}" onclick="handleSaveStudentNameUpdate('${student._id}')">save name</button>
+                </div>    
+                <div class="studentsContainer__studentCard__courses">courses:
+                    <form onsubmit="handleAddCourse(event, '${student._id}')">
+                        <input type="text" name="course" placeholder="course name" required>
+                        <button type="submit">add course</button>    
+                    </form>
+                </div>    
+                <div id="courseRoot-${student._id}"></div> 
+                <button onclick="handleDeleteStudent('${student._id}')">delete student</button>
           </div>
           `;
             })
@@ -38,11 +38,8 @@ function renderStudents(students: Student[]) {
 
 function renderCourses(students: Student[]) {
     try {
-        
         students.map((_student) => {
             try {
-                console.log("_student.courses", _student.courses );
-                
                 const _id = _student._id
                 const student = students.find((student) => student._id === _id);
                 if (!student) throw new Error("student not found");
@@ -50,11 +47,18 @@ function renderCourses(students: Student[]) {
                 const html = student.courses
                     .map((course) => {
                         
-                        return `<div class="studentsContainer__studentCard__courses__course">
-                        <p contenteditable oninput="handleCourseUpdate(event, '${course._id}')">${course.name}</p>
-                        <div id="gradesRoot-${course._id}"></div>
-                        <button onclick='handleDeleteCourse("${course._id}")'>DELETE</button>
-                        </div>`;
+                        return `
+                        <div class="studentsContainer__studentCard__courses__course">
+                            <div class="studentsContainer__studentCard__courses__course__name">
+                                <button onclick="handleCourseUpdate('${course._id}')">udpate course</button>
+                                <p id="course-${course._id}" contenteditable="false">${course.name}</p>
+                                <button id="saveCourseBtn-${course._id}" onclick="handleSaveCourseUpdate('${course._id}', '${_student._id}')">save course</button>
+                            </div>    
+                            <button onclick='handleDeleteCourse("${course._id}", "${_student._id}")'>delete course</button>
+                            <div class="studentsContainer__studentCard__courses__course__grades" id="gradesRoot-${course._id}"></div>
+                            <button onclick="handleAddGrade('${course._id}', '${_student._id}')">add grade</button>
+                        </div>
+                        `;
                     })
                     .join(" ");
 
@@ -63,7 +67,7 @@ function renderCourses(students: Student[]) {
 
                 courseRoot.innerHTML = html;
 
-                // renderGrades(course._id);
+                renderGrades(student.courses, student);
 
             } catch (error) {
                 console.error(error)
@@ -75,37 +79,44 @@ function renderCourses(students: Student[]) {
 }
 
 
-// function renderGrades(courses: Course[]) {
-//     try {
-//         students.map((_student) => {
-//             try {
-//                 const _id = _student._id
-//                 const student = students.find((student) => student._id === _id);
-//                 if (!student) throw new Error("student not found");
+function renderGrades(courses: Course[], student: Student) {
+    try {
+        courses.map((_course) => {
+            try {
+                const _id = _course._id
+                const course = courses.find((course) => course._id === _id);
+                if (!course) throw new Error("course not found");
+                const courseIndex = courses.findIndex((course) => course._id === _id); 
+                if ((!courseIndex) && (courseIndex!==0)) throw new Error("course Index not found");
                 
-//                 const html = student.grades
-//                     .map((grade) => {
-                        
-//                         return `<div class="studentsContainer__StudentCard__grade">
-//                         <p contenteditable oninput="handleGradeUpdate(event, '${grade._id}')">${grade.test}: ${grade.value} </p>
-//                         <div id="gradeRoot-${grade._id}"></div>
-//                         <button onclick='handleDeleteGrade("${grade._id}")'>DELETE</button>
-//                         </div>`;
-//                     })
-//                     .join(" ");
+                let Gradecounter:number = 0;
+                const html = course.grades
+                    .map((grade) => {
+                        Gradecounter++;
+                        return `
+                            <div class="studentsContainer__studentCard__courses__course__grades__grade">
+                                <div>#${Gradecounter}:</div>
+                                <div id="grade-${grade._id}" contenteditable="true">${grade.grade}</div>
+                                <button onclick="handleGradeUpdate('${grade._id}')">update grade</button>
+                                <button onclick='handleSaveGradeUpdate("${course._id}", "${student._id}", "${grade._id}")'>save grade</button>
+                                <button onclick='handleDeleteGrade("${course._id}", "${student._id}", "${grade._id}")'>delete grade</button>
+                            </div>
+                        `;
+                    })
+                    .join(" ");
 
-//                 const gradesRoot = document.querySelector(`#studentGradesRoot-${_id}`);
-//                 if (!gradesRoot) throw new Error("gradesRoot not found on DOM");
+                const gradesRoot = document.querySelector(`#gradesRoot-${_id}`);
+                if (!gradesRoot) throw new Error("gradesRoot not found on DOM");
 
-//                 gradesRoot.innerHTML = html;
-//             } catch (error) {
-//                 console.error(error)
-//             }
-//         })
-//     } catch (error) {
-//         console.error(error)
-//     }
-// }
+                gradesRoot.innerHTML = html;
+            } catch (error) {
+                console.error(error)
+            }
+        })
+    } catch (error) {
+        console.error(error)
+    }
+}
 
 
 

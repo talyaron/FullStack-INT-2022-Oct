@@ -1,0 +1,80 @@
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #18122B;
+  color: white;
+}
+
+button .submitButton {
+  border: 1px solid #393053;
+  border-radius: 10px;
+}
+
+.submitButton {
+  border: 1px solid #393053;
+  border-radius: 10px;
+}
+
+.container {
+  padding-top: 50px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.getPostContainer {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 20px;
+  gap: 10px;
+  background-color: #635985;
+}
+
+#students_container {
+  position: relative;
+  width: 884px;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+}
+#students_container .studentCard {
+  position: relative;
+  padding: 6px;
+  width: 200px;
+  height: 300px;
+  border: 1px solid black;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: #635985;
+}
+#students_container .studentCard h1 {
+  font-size: 20px;
+  text-align: center;
+}
+#students_container .studentCard #addGradeBtn {
+  position: absolute;
+  bottom: 10px;
+}
+#students_container .studentCard .formClass {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+#students_container .studentCard .formClass .submitButton {
+  width: 50px;
+}
+
+.addGradeDiv {
+  width: 200px;
+  height: 210px;
+  background-color: rgba(0, 0, 0, 0.533);
+  z-index: 1;
+  border-radius: 10px;
+}

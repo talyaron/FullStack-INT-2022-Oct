@@ -51,9 +51,9 @@ export const addStudent = async (req:any, res:any) => {
     }
   }
   
-  export const deleteStudent = async (req:any , res:any) => {
+export const deleteStudent = async (req:any , res:any) => {
     try {
-      const { _id } = req.body;
+      const _id = req.body._id;
       if (!_id) {
         throw new Error("_id is missing from request body");
       }

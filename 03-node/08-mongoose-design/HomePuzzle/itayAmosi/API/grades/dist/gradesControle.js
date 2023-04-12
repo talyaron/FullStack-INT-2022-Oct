@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getGrade = exports.addMockGrades = void 0;
+exports.getGradesByStudentId = exports.addMockGrades = void 0;
 var gradesModel_1 = require("./gradesModel");
 var uuid_1 = require("uuid");
 // export const getStudentGradesInCourse = async (req: any, res: any) => {
@@ -64,19 +64,19 @@ exports.addMockGrades = function (req, res) { return __awaiter(void 0, void 0, v
                 })];
             case 1:
                 newGrades = _a.sent();
-                console.log(newGrades);
                 res.status(200).send({ ok: true, newGrades: newGrades });
                 return [2 /*return*/];
         }
     });
 }); };
-exports.getGrade = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var grades, error_1;
+exports.getGradesByStudentId = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var studentId, grades, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, gradesModel_1["default"].find({})];
+                studentId = req.query.studentId;
+                return [4 /*yield*/, gradesModel_1["default"].find({ studentId: studentId })];
             case 1:
                 grades = _a.sent();
                 res.send({ grades: grades });
