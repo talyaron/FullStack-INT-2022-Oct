@@ -31,10 +31,11 @@ body{
     margin-top: .8rem;
     height: auto;
     width: 30rem;
-    border: 0.1rem solid black;
+    // border: 0.1rem solid black;
     position: relative;
     h2{
         text-align: center;
+        font-size: 3rem;
     }
 
     &__refreshBtn{
@@ -43,12 +44,12 @@ body{
         right: -26rem;
     }
 
-    &__addForm{
-        border: 0.1rem solid black;
+    form{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         height: 2rem;
-        width: 30rem;
+        width: 20rem;
+        margin: auto;
     }
     &__studentCard{
         border: 0.1rem solid black;
@@ -71,6 +72,56 @@ body{
                 margin:0;
                 line-height: 2rem;
             }
+        }
+        &__courses{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: auto;
+            width: 29.5rem;
+            background-color: salmon;
+
+            p{
+                font-size: 2rem;
+                font-weight: 700;
+                margin:0;
+                line-height: 2rem;
+            }
+            form{
+                margin: auto;
+            }
+            &__course{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                height: 2rem;
+                width: 29.5rem;
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+                background-color: blue;
+    
+                p{
+                    font-size: 2rem;
+                    font-weight: 700;
+                    margin:0;
+                    line-height: 2rem;
+                }
+                &__name{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    height: 2rem;
+                    width: 29.5rem;
+        
+                    p{
+                        font-size: 2rem;
+                        font-weight: 700;
+                        margin:0;
+                        line-height: 2rem;
+                    }
+                    
+                } 
+            }    
         }
     }
 }

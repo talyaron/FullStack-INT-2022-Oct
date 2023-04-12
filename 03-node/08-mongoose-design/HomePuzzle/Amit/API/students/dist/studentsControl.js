@@ -39,24 +39,28 @@ exports.__esModule = true;
 exports.deleteStudent = exports.updateStudentName = exports.getStudents = exports.addStudent = void 0;
 var studentsModel_1 = require("./studentsModel");
 exports.addStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var name, studentDB, error_1;
+    var name, studentDB, students, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
+                _a.trys.push([0, 3, , 4]);
                 name = req.body.name;
                 return [4 /*yield*/, studentsModel_1["default"].create({ name: name })];
             case 1:
                 studentDB = _a.sent();
-                console.log(studentDB);
-                res.status(201).send({ ok: true });
-                return [3 /*break*/, 3];
+                return [4 /*yield*/, studentsModel_1["default"].find({})];
             case 2:
+                students = _a.sent();
+                if (!students)
+                    throw new Error("No students found");
+                res.status(201).send({ ok: true, students: students });
+                return [3 /*break*/, 4];
+            case 3:
                 error_1 = _a.sent();
                 console.error(error_1);
                 res.status(500).send({ error: error_1.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };
@@ -105,6 +109,8 @@ exports.updateStudentName = function (req, res) { return __awaiter(void 0, void 
                 return [4 /*yield*/, studentsModel_1["default"].find({})];
             case 4:
                 students = _b.sent();
+                if (!students)
+                    throw new Error("No students found");
                 res.send({ ok: true, students: students });
                 return [3 /*break*/, 6];
             case 5:

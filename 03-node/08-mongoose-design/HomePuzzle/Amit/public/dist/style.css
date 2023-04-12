@@ -31,23 +31,23 @@ body {
   margin-top: 0.8rem;
   height: auto;
   width: 30rem;
-  border: 0.1rem solid black;
   position: relative;
 }
 .studentsContainer h2 {
   text-align: center;
+  font-size: 3rem;
 }
 .studentsContainer__refreshBtn {
   position: relative;
   top: -4.2rem;
   right: -26rem;
 }
-.studentsContainer__addForm {
-  border: 0.1rem solid black;
+.studentsContainer form {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 2rem;
-  width: 30rem;
+  width: 20rem;
+  margin: auto;
 }
 .studentsContainer__studentCard {
   border: 0.1rem solid black;
@@ -65,6 +65,52 @@ body {
   width: 29.5rem;
 }
 .studentsContainer__studentCard__name p {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 2rem;
+}
+.studentsContainer__studentCard__courses {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  width: 29.5rem;
+  background-color: salmon;
+}
+.studentsContainer__studentCard__courses p {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 2rem;
+}
+.studentsContainer__studentCard__courses form {
+  margin: auto;
+}
+.studentsContainer__studentCard__courses__course {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 2rem;
+  width: 29.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: blue;
+}
+.studentsContainer__studentCard__courses__course p {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 2rem;
+}
+.studentsContainer__studentCard__courses__course__name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 2rem;
+  width: 29.5rem;
+}
+.studentsContainer__studentCard__courses__course__name p {
   font-size: 2rem;
   font-weight: 700;
   margin: 0;

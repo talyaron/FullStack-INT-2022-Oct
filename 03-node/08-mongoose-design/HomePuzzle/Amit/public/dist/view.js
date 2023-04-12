@@ -4,7 +4,7 @@ function renderStudents(students) {
             throw new Error("No students");
         var html = students
             .map(function (student) {
-            return "\n          <div class=\"studentsContainer__studentCard\">\n            <div class=\"studentsContainer__studentCard__name\">\n                <button onclick=\"handleStudentNameUpdate('" + student._id + "')\">update student name</button>\n                <p id=\"studentName-" + student._id + "\" contenteditable=false >" + student.name + "</p>\n                <button id=\"saveNameBtn-" + student._id + "\" onclick=\"handleSaveStudentNameUpdate('" + student._id + "')\">save name</button>\n            </div>    \n            <div class=\"studentsContainer__studentCard__courses\">courses:\n            <form onsubmit=\"handleAddCourse(event, '" + student._id + "')\">\n                <input type=\"text\" name=\"course\" placeholder=\"course name\" required>\n                <button type=\"submit\">add course</button>    \n            </form>\n            <div id=\"courseRoot-" + student._id + "\"></div>\n          </div>  \n          <button onclick=\"handleDeleteStudent('" + student._id + "')\">DELETE</button>\n          </div>\n          ";
+            return "\n          <div class=\"studentsContainer__studentCard\">\n            <div class=\"studentsContainer__studentCard__name\">\n                <button onclick=\"handleStudentNameUpdate('" + student._id + "')\">update student name</button>\n                <p id=\"studentName-" + student._id + "\" contenteditable=false >" + student.name + "</p>\n                <button id=\"saveNameBtn-" + student._id + "\" onclick=\"handleSaveStudentNameUpdate('" + student._id + "')\">save name</button>\n            </div>    \n            <div class=\"studentsContainer__studentCard__courses\">courses:\n            <form onsubmit=\"handleAddCourse(event, '" + student._id + "')\">\n                <input type=\"text\" name=\"course\" placeholder=\"course name\" required>\n                <button type=\"submit\">add course</button>    \n            </form>\n            <div id=\"courseRoot-" + student._id + "\"></div>\n          </div>  \n          <button onclick=\"handleDeleteStudent('" + student._id + "')\">delete student</button>\n          </div>\n          ";
         })
             .join(" ");
         var studentsRoot = document.querySelector("#studentsRoot");
@@ -21,14 +21,13 @@ function renderCourses(students) {
     try {
         students.map(function (_student) {
             try {
-                console.log("_student.courses", _student.courses);
                 var _id_1 = _student._id;
                 var student = students.find(function (student) { return student._id === _id_1; });
                 if (!student)
                     throw new Error("student not found");
                 var html = student.courses
                     .map(function (course) {
-                    return "<div class=\"studentsContainer__studentCard__courses__course\">\n                        <p contenteditable oninput=\"handleCourseUpdate(event, '" + course._id + "')\">" + course.name + "</p>\n                        <div id=\"gradesRoot-" + course._id + "\"></div>\n                        <button onclick='handleDeleteCourse(\"" + course._id + "\")'>DELETE</button>\n                        </div>";
+                    return "\n                        <div class=\"studentsContainer__studentCard__courses__course\">\n                        <div class=\"studentsContainer__studentCard__courses__course__name\">\n                            <button onclick=\"handleCourseUpdate('" + course._id + "')\">udpate course</button>\n                            <p id=\"course-" + course._id + "\" contenteditable=\"false\">" + course.name + "</p>\n                            <button id=\"saveCourseBtn-" + course._id + "\" onclick=\"handleSaveCourseUpdate('" + course._id + "', '" + _student._id + "')\">save course</button>\n                        </div>    \n                        <div id=\"gradesRoot-" + course._id + "\"></div>\n                        <button onclick='handleDeleteCourse(\"" + course._id + "\", \"" + _student._id + "\")'>delete course</button>\n                        </div>";
                 })
                     .join(" ");
                 var courseRoot = document.querySelector("#courseRoot-" + _id_1);

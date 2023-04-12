@@ -10,7 +10,7 @@ import {
 
 router
   .post("/add-course", addCourse)
-  .patch("/update-course-name", updateCourse)
+  .patch("/update-course", updateCourse)
   .delete("/delete-course", deleteCourse);
 
 export default router;

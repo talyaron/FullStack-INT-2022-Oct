@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="./dist/index.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>INT College Students</h1>
+        <div class="getPostContainer">
+            <form onsubmit=addStudent(event)>
+                <input type="text" name="studentName" id="studentName" placeholder="Student Name">
+                <input type="text" name="studentLastName" id="studentLastName" placeholder="Student Last Name">
+                <input class="submitButton" type="submit" value="Add Student">
+            </form>
+            <button class="submitButton" onclick=getStudents()>Show Students</button>
+        </div>
+    
+        <div id="students_container">
+        </div>
+    </div>
+</body>
+</html>

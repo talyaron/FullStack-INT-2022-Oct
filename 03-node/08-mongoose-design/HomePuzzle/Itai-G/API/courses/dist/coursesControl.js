@@ -40,11 +40,11 @@ exports.deleteCourse = exports.updateCourse = exports.addCourse = void 0;
 var coursesModel_1 = require("./coursesModel");
 var studentModel_1 = require("../students/studentModel");
 exports.addCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, course, studentId, courseDB, courseObj, courses, error_1;
+    var _a, course, studentId, courseDB, courseObj, student, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 4, , 5]);
+                _b.trys.push([0, 3, , 4]);
                 _a = req.body, course = _a.course, studentId = _a.studentId;
                 return [4 /*yield*/, coursesModel_1["default"].create({ name: course })];
             case 1:
@@ -52,20 +52,17 @@ exports.addCourse = function (req, res) { return __awaiter(void 0, void 0, void 
                 courseObj = { _id: courseDB._id, name: course };
                 return [4 /*yield*/, studentModel_1["default"].findByIdAndUpdate(studentId, { $push: { courses: courseObj } }, { "new": true })];
             case 2:
-                _b.sent();
-                return [4 /*yield*/, coursesModel_1["default"].find({})];
+                student = _b.sent();
+                res.status(201).send({ ok: true, student: student });
+                return [3 /*break*/, 4];
             case 3:
-                courses = _b.sent();
-                res.status(201).send({ ok: true, courses: courses });
-                return [3 /*break*/, 5];
-            case 4:
                 error_1 = _b.sent();
                 console.error(error_1);
                 if (error_1 instanceof Error) {
                     res.status(500).send({ error: error_1.message });
                 }
-                return [3 /*break*/, 5];
-            case 5: return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };
