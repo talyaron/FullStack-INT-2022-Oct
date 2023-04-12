@@ -28,5 +28,9 @@
     "uuid4": "^2.0.3",
     "uuidv4": "^6.2.13",
     "ws": "^8.13.0"
+  },
+    "optionalDependencies": {
+    "bufferutil": "^4.0.7",
+    "utf-8-validate": "^6.0.3"
   }
 }
