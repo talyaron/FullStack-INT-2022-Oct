@@ -5,6 +5,7 @@ import { CourseSchema } from "../courses/coursesModel";
 
 
 export interface Teacher{
+    courses: any;
     _id:string;
     name: string;
     lestName:string;

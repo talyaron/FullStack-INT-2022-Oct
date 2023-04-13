@@ -5,11 +5,13 @@ import {
   addCourse,
   updateCourse,
   deleteCourse,
+  getCourses
   
 } from "./coursesControl";
 
 router
-  .post("/add-course", addCourse)
+  .get('/all', getCourses)
+  .post("/add", addCourse)
   .patch("/update-course-name", updateCourse)
   .delete("/delete-course", deleteCourse);
 
