@@ -33,17 +33,19 @@ body {
 
 .btn {
   background-color: #e5ffc4;
-  margin-top: 5%;
+  margin-top: 2.9%;
   position: relative;
-  left: 80%;
+  left: 25%;
   transform: translate(-50%, -50%);
   height: 3rem;
   width: 6rem;
 }
 
 .search-wrapper {
+  margin-top: 1%;
+  float: left;
   position: relative;
-  left: 20%;
+  left: 12%;
   height: 5rem;
   width: 35em;
   font-size: 1.3rem;
