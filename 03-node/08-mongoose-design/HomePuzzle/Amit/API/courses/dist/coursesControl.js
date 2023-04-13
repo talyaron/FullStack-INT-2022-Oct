@@ -121,11 +121,11 @@ exports.updateCourse = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.deleteCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, courseId_2, studentId, student, course, courseIndex, deletedCourse, students, error_3;
+    var _a, courseId_2, studentId, student, course, courseIndex, students, error_3;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 6, , 7]);
+                _b.trys.push([0, 5, , 6]);
                 _a = req.body, courseId_2 = _a.courseId, studentId = _a.studentId;
                 return [4 /*yield*/, studentsModel_1["default"].findById(studentId)];
             case 1:
@@ -141,23 +141,22 @@ exports.deleteCourse = function (req, res) { return __awaiter(void 0, void 0, vo
                 if ((!courseIndex) && (courseIndex !== 0))
                     throw new Error("course Index not found");
                 student.courses.splice(courseIndex, 1);
-                return [4 /*yield*/, coursesModel_1["default"].findOneAndDelete(courseId_2)];
-            case 3:
-                deletedCourse = _b.sent();
+                // const deletedCourse = await CourseModel.findOneAndDelete(courseId);
                 return [4 /*yield*/, student.save()];
-            case 4:
+            case 3:
+                // const deletedCourse = await CourseModel.findOneAndDelete(courseId);
                 _b.sent();
                 return [4 /*yield*/, studentsModel_1["default"].find({})];
-            case 5:
+            case 4:
                 students = _b.sent();
                 res.send({ ok: true, students: students });
-                return [3 /*break*/, 7];
-            case 6:
+                return [3 /*break*/, 6];
+            case 5:
                 error_3 = _b.sent();
                 console.error(error_3);
                 res.status(500).send({ error: error_3.message });
-                return [3 /*break*/, 7];
-            case 7: return [2 /*return*/];
+                return [3 /*break*/, 6];
+            case 6: return [2 /*return*/];
         }
     });
 }); };

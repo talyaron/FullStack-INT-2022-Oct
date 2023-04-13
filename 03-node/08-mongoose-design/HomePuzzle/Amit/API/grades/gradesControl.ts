@@ -14,8 +14,8 @@ export const addGrade = async (req:any, res:any) => {
       const course = await CourseModel.findById(courseId);
       if(!course) throw new Error("no course found"); 
 
-      const courseIndex:number = student.courses.findIndex((course) => course._id?.toString() === courseId.toString());
-      if((!courseIndex) && (courseIndex!==0)) throw new Error("no course index found");
+      const courseIndex = student.courses.findIndex((course) => course._id?.toString() === courseId.toString());
+      if(courseIndex !==0) throw new Error("no course index found");
 
       const gradeDB = await GradeModel.create({grade: undefined});
       student.courses[courseIndex].grades.push(gradeDB);
