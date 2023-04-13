@@ -4,12 +4,12 @@ const router = express.Router();
 import {
     // getStudentGradesInCourse,
     addMockGrades,
-    getGrade,
+    getGradesByStudentId,
 } from "./gradesControle";
 
 
 router
   .post("/add-mock-grades", addMockGrades)
-  .get("/get-grades", getGrade)
+  .get("/get-grades", getGradesByStudentId)
 
 export default router;

@@ -8,13 +8,13 @@ export const addMockCourse = async (req:any, res:any) => {
         uid: uuidv4(),
         name: "English Class",
       });
-      console.log(newCourse);
       res.status(200).send({ ok: true, newCourse });
     };
 
-    export const getCourse = async (req: any, res: any) => {
+    export const getCoursesByIds = async (req: any, res: any) => {
       try {
-        const courses = await CourseModel.find({});
+        const ids = req.query.ids.split(',');
+        const courses = await CourseModel.find({ _id: {$in:ids}});
     
         res.send({ courses });
       } catch (error: any) {

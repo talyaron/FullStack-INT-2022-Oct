@@ -23,6 +23,8 @@ catch (error) {
 }
 var studentRoutes_1 = require("./API/students/studentRoutes");
 var courseRoutes_1 = require("./API/course/courseRoutes");
+var gradeRoutes_1 = require("./API/grade/gradeRoutes");
 app.use("/api/student", studentRoutes_1["default"]);
 app.use("/api/course", courseRoutes_1["default"]);
+app.use("/api/grade", gradeRoutes_1["default"]);
 app.listen(3000, function () { return console.log("server is listening on port 3000"); });
