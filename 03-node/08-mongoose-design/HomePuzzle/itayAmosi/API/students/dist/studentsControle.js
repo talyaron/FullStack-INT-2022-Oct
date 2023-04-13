@@ -48,7 +48,6 @@ exports.getStudents = function (req, res) { return __awaiter(void 0, void 0, voi
             case 0:
                 _b.trys.push([0, 2, , 3]);
                 filterQuery = (_a = req.query) !== null && _a !== void 0 ? _a : {};
-                console.log({ filterQuery: filterQuery });
                 return [4 /*yield*/, studentsModel_1["default"].find(filterQuery)];
             case 1:
                 students = _b.sent();

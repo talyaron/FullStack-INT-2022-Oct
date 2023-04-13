@@ -79,38 +79,6 @@ function renderTeacherTable(teacher) {
         console.error(error);
     }
 }
-function handleStudentNameUpdate(ev, _id) {
-    try {
-        var name = ev.target.textContent;
-        fetch("/api/students/update-student-name?" +
-            new URLSearchParams({ name: name, _id: _id }).toString(), {
-            method: "PATCH",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            }
-        });
-    }
-    catch (error) {
-        console.error(error);
-    }
-}
-function handleTeacherNameUpdate(ev, _id) {
-    try {
-        var name = ev.target.textContent;
-        fetch("/api/teachers/update-teacher-name?" +
-            new URLSearchParams({ name: name, _id: _id }).toString(), {
-            method: "PATCH",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            }
-        });
-    }
-    catch (error) {
-        console.error(error);
-    }
-}
 function handleSearchByUid(event) {
     var _a;
     try {
@@ -187,7 +155,6 @@ function getStudents(query) {
             switch (_a.label) {
                 case 0:
                     url = "/api/students/get-students?" + new URLSearchParams(query).toString();
-                    console.log(url);
                     return [4 /*yield*/, fetch(url)];
                 case 1:
                     response = _a.sent();

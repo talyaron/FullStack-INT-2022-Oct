@@ -79,3 +79,21 @@ function handleDeleteTeacher(_id: string) {
     console.error(error);
   }
 }
+function handleTeacherNameUpdate(ev: any, _id: string) {
+  try {
+    const name = ev.target.textContent;
+    fetch(
+      "/api/teachers/update-teacher-name?" +
+        new URLSearchParams({ name, _id }).toString(),
+      {
+        method: "PATCH",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+  } catch (error) {
+    console.error(error);
+  }
+}

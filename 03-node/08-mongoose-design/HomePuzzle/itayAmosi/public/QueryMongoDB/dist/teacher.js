@@ -127,3 +127,19 @@ function handleDeleteTeacher(_id) {
         console.error(error);
     }
 }
+function handleTeacherNameUpdate(ev, _id) {
+    try {
+        var name = ev.target.textContent;
+        fetch("/api/teachers/update-teacher-name?" +
+            new URLSearchParams({ name: name, _id: _id }).toString(), {
+            method: "PATCH",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            }
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}

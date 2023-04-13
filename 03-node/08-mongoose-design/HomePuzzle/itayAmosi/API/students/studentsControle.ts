@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from "uuid";
 export const getStudents = async (req: any, res: any) => {
   try {
     const filterQuery = req.query ?? {};
-    console.log({filterQuery})
     const students = await StudentModel.find(filterQuery);
     res.send({ students });
   } catch (error: any) {

@@ -96,3 +96,22 @@ function handleDeleteStudent(_id: string) {
     console.error(error);
   }
 }
+
+function handleStudentNameUpdate(ev: any, _id: string) {
+  try {
+    const name = ev.target.textContent;
+    fetch(
+      "/api/students/update-student-name?" +
+        new URLSearchParams({ name, _id }).toString(),
+      {
+        method: "PATCH",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+  } catch (error) {
+    console.error(error);
+  }
+}

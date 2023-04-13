@@ -48,3 +48,5 @@ export const addMockTeacher = async (req:any, res:any) => {
         res.status(500).send({ error: error.message });
       }
     };
+
+    
