@@ -220,3 +220,137 @@ function handleSaveCourseUpdate(courseId: string, studentId: string) {
         console.error(error);
     }
 }
+
+///////////////////////grades/////////////////////
+
+
+function handleAddGrade(courseId: string, studentId: string){
+    try {
+        const data: any = { courseId, studentId };
+
+        fetch(`/api/grades/add-grade`, {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data)
+        })
+            .then((res) => res.json())
+            .then(({ students }) => {
+                console.log("students on handleAddGrade", students);
+                renderStudents(students)
+            })
+            .catch((error) => {
+                console.error(error);
+            });        
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+function handleDeleteGrade(courseId: string, studentId: string, gradeId: string) {
+    try {
+        console.log("studentId", studentId);
+        
+        fetch("/api/grades/delete-grade", {
+            method: "DELETE",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ courseId, studentId, gradeId }),
+        })
+            .then((res) => res.json())
+            .then(({ students }) => {
+                renderStudents(students);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+function handleGradeUpdate(_id: string) {
+    try {
+        const grade: HTMLDivElement | null = document.querySelector(`#grade-${_id}`);
+        if (!grade) throw new Error("grade not found on DOM");
+
+        grade.contentEditable = "true";
+        grade.style.color = "yellow";
+
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+
+function handleSaveGradeUpdate(courseId: string, studentId: string, gradeId: string){
+    try {
+        console.log("gradeId", gradeId);
+        
+        const grade: HTMLDivElement | null = document.querySelector(`#grade-${gradeId}`);
+        if (!grade) throw new Error("grade not found on DOM");
+
+        grade.contentEditable = "false";
+        grade.style.color = "black";
+
+        const updatedGrade = grade.innerText;
+
+        fetch("/api/grades/update-grade", {
+            method: "PATCH",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ courseId, studentId, gradeId ,updatedGrade }),
+        })
+            .then((res) => res.json())
+            .then(({ students }) => {
+                renderStudents(students);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+///////////////////////query/////////////////////
+
+function handleGradesInSpecificCourseQuery(ev){
+    try {
+        ev.preventDefault();
+        const _course = ev.target.elements.course.value;
+        if (!_course) throw new Error("No course on form");
+    
+        const course: any = { _course };
+
+        fetch("/api/courses/get-student-grades-in-course", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(course),
+        })
+            .then((res) => res.json())
+            .then(({ grades }) => {
+                console.log(`grades in ${_course}:`, grades)
+                // renderStudentGradesInCourse(grades);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+
+        ev.target.reset();
+    } catch (error) {
+        console.error(error); 
+    }
+}
+

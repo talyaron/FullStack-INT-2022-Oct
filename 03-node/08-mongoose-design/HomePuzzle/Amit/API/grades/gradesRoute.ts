@@ -10,7 +10,7 @@ import {
 
 router
   .post("/add-grade", addGrade)
-  .patch("/update-grade-name", updateGrade)
+  .patch("/update-grade", updateGrade)
   .delete("/delete-grade", deleteGrade);
 
 export default router;

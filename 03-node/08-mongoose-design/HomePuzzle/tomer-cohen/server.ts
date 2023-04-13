@@ -23,7 +23,7 @@ if (uri) {
 }
 
 
-import studentsRouter from './API/students/studentsRoute';
+import studentsRouter from './API/student/studentRoute';
 app.use('/api/students', studentsRouter);
 
 

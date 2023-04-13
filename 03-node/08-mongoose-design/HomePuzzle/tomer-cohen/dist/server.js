@@ -17,8 +17,8 @@ if (uri) {
 else {
     console.log("No URI to DB");
 }
-var studentsRoute_1 = require("./API/students/studentsRoute");
-app.use('/api/students', studentsRoute_1["default"]);
+var studentRoute_1 = require("./API/student/studentRoute");
+app.use('/api/students', studentRoute_1["default"]);
 var teachersRoute_1 = require("./API/teachers/teachersRoute");
 app.use('/api/teachers', teachersRoute_1["default"]);
 var coursesRoute_1 = require("./API/courses/coursesRoute");

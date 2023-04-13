@@ -46,11 +46,11 @@ exports.addMockTeacher = function (req, res) { return __awaiter(void 0, void 0, 
             case 0: return [4 /*yield*/, teachersModel_1["default"].create({
                     uid: uuid_1.v4(),
                     name: "teacher_" + uuid_1.v4().slice(0, 7),
-                    lastName: uuid_1.v4().slice(0, 7)
+                    lastName: uuid_1.v4().slice(0, 7),
+                    courses: ["6435c4a5d371943c1cb39103", "6435c4e5d371943c1cb39120", "6435c4e5d371943c1cb3911c", "6435c4e5d371943c1cb3911e"]
                 })];
             case 1:
                 newTeacher = _a.sent();
-                console.log(newTeacher);
                 res.status(200).send({ ok: true, newTeacher: newTeacher });
                 return [2 /*return*/];
         }
@@ -88,7 +88,6 @@ exports.deleteTeacher = function (req, res) { return __awaiter(void 0, void 0, v
                 return [4 /*yield*/, teachersModel_1["default"].deleteOne({ _id: _id })];
             case 1:
                 _a.sent();
-                console.log(_id);
                 res.sendStatus(200);
                 return [3 /*break*/, 3];
             case 2:
@@ -107,7 +106,6 @@ exports.updateTeacherName = function (req, res) { return __awaiter(void 0, void 
             case 0:
                 _b.trys.push([0, 2, , 3]);
                 _a = req.query, name = _a.name, _id = _a._id;
-                console.log(name, _id);
                 if (!name)
                     throw new Error("No name in data");
                 if (!_id)
