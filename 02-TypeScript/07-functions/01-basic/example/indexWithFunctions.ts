@@ -6,6 +6,7 @@ function priceWithVat(price: number): number {
 
 for (let i = 0; i < 7; i++) {
   let userName = prompt("What is your name?");
+}
   
 function sayThankYou(name: string | null): string {
   if (name) {
@@ -13,8 +14,7 @@ function sayThankYou(name: string | null): string {
     return `Thank you ${name} for registering`;
   } else {
     return "";
-  }
-}
+  }}
 
 // userName = prompt("What is your name?");
 // console.log(sayThankYou(userName));

@@ -61,7 +61,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 2rem;
+  height: auto;
   width: 29.5rem;
 }
 .studentsContainer__studentCard__name p {
@@ -89,9 +89,9 @@ body {
 }
 .studentsContainer__studentCard__courses__course {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  height: 2rem;
+  height: auto;
   width: 29.5rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -107,7 +107,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 2rem;
+  height: auto;
   width: 29.5rem;
 }
 .studentsContainer__studentCard__courses__course__name p {
@@ -115,4 +115,24 @@ body {
   font-weight: 700;
   margin: 0;
   line-height: 2rem;
+}
+.studentsContainer__studentCard__courses__course__grades {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  width: 29.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: blue;
+}
+.studentsContainer__studentCard__courses__course__grades__grade {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: auto;
+  width: 29.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: blue;
 }
