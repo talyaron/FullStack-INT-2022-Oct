@@ -1,5 +1,5 @@
 import { triggerAsyncId } from "async_hooks";
-import studentModel from "./studentModel";
+import studentModel, { student } from "./studentModel";
 import CourseModel from "../../../../example/API/courses/coursesModel";
 
 export const addStudent = async (req:any, res:any) => {
@@ -52,6 +52,24 @@ export const addCourse =async (req:any, res:any) => {
             console.log(student);
             res.status(200).send(true)
         }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send(error)
+    }
+}
+
+export const deleteCourseFromStudent =async (req:any, res:any) => {
+    try {
+        const {studentId, courseId} = req.body;
+        const student = await studentModel.findById(studentId)
+        if(!student) throw new Error("students not found");
+        const courses = student.courses;
+        const index = courses.findIndex(course => course._id == courseId);
+        if(index == -1) throw new Error("course not found");
+        courses.splice(index,1);
+        student.courses = courses;
+        await student.save();
+        res.status(200).send(true)
     } catch (error) {
         console.error(error);
         res.status(500).send(error)

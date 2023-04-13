@@ -2,21 +2,17 @@ import express from "express";
 const router = express.Router();
 
 import {
-  addStudentGrades,
   addMockStudent,
-  addMockStudents,
   getStudents,
   deleteStudent,
+  // findStudents,
   updateStudentName,
 } from "./studentsControle";
 
-
 router
-  .post("/add-student-grades", addStudentGrades)
   .post("/add-mock-student", addMockStudent)
-  .post("/add-mock-students", addMockStudents)
   .get("/get-students", getStudents)
+  // .get("/find-students", findStudents)
   .delete("/delete-student", deleteStudent)
-  .patch("/update-student-name", updateStudentName);
-
+  .patch("/update-student-name", updateStudentName)
 export default router;

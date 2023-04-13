@@ -4,9 +4,11 @@ export const addStudent = async (req:any, res:any) => {
     try {
       const { name } = req.body;
       const studentDB = await StudentModel.create({name});
-      console.log(studentDB);
+
+      const students = await StudentModel.find({})
+      if (!students) throw new Error("No students found");
       
-      res.status(201).send({ ok: true });
+      res.status(201).send({ ok: true, students });
     } catch (error: any) {
       console.error(error);
       res.status(500).send({ error: error.message });
@@ -27,13 +29,20 @@ export const getStudents = async (req:any, res:any) => {
   
 export const updateStudentName = async (req:any, res:any) => {
     try {
-      // const { name, uid } = req.body;
-      // if (!name) throw new Error("No name in data");
-      // if (!uid) throw new Error("No uid in data");
-      // const user = users.find((user) => user.uid === uid);
-      // if (!user) throw new Error("No user in array");
-      // user.name = name;
-      // res.send({ ok: true });
+      const { _id, updatedName} = req.body;
+      if (!_id) throw new Error("No _id in data");
+      if (!updatedName) throw new Error("No updated Name in data");
+
+      const student = await StudentModel.findById(_id);
+      if(!student) throw new Error("no student found");
+      
+      const updatedNameDB = await StudentModel.updateOne({_id}, {name: updatedName});
+
+      await student.save();
+      const students = await StudentModel.find({})
+      if (!students) throw new Error("No students found");
+      
+      res.send({ ok: true, students });
     } catch (error: any) {
       console.error(error);
       res.status(500).send({ error: error.message });
@@ -58,19 +67,3 @@ export const updateStudentName = async (req:any, res:any) => {
 
 
 
-// export const getStudentGradesInCourse = async (req: any, res: any) => {
-//     try {
-//       //got from the client
-//       const { courseId, studentId } = req.query;
-//       //https://docs.oracle.com/en/cloud/saas/cx-commerce/21b/ccdev/rest-api-query-parameters.html
-  
-//       const grades = await GradeModel.find({
-//         course: { _id: courseId },
-//         user: { _id: studentId },
-//       });
-//       res.send({ grades });
-//     } catch (error) {
-//       console.error(error);
-//       res.status(500).send({ error: error.message });
-//     }
-//   };

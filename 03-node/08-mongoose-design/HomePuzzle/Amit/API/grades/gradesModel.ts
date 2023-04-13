@@ -4,12 +4,10 @@ import { StudentSchema, Student } from "../students/studentsModel";
 
 export interface Grade {
     grade: number;
-    student: Student;
-    course: Course;
 }
 
 export const GradeSchema = new Schema({
-    name: String,
+    grade: Number,
 });
 
 const GradeModel = mongoose.model("grades", GradeSchema);

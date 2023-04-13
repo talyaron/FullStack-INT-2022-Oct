@@ -7,3 +7,25 @@
 body {
   background-color: bisque;
 }
+
+button, .btn {
+  padding: 3px 5px;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px black solid;
+  cursor: pointer;
+}
+
+button:hover, .btn:hover {
+  background-color: #c6c5c5;
+}
+
+#display .student {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: aqua;
+  border: 1px solid black;
+  max-width: 400px;
+}
