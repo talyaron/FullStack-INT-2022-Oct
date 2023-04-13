@@ -1,6 +1,6 @@
 import CourseModel from "./coursesModel";
-import StudentModel from "../students/studentsModel";
-import GradeModel from "../grades/gradesModel";
+import StudentModel, {Student} from "../students/studentsModel";
+import GradeModel, {Grade} from "../grades/gradesModel";
 
 
 export const addCourse = async (req: any, res: any) => {
@@ -88,17 +88,27 @@ export const deleteCourse = async (req: any, res: any) => {
 }
 
 
-
 export const getStudentGradesInCourse = async (req: any, res: any) => {
   try {
-    const { course } = req.query;
+    const { name: courseName } = req.query;
 
-    const grades = await GradeModel.find({
-      course: { course },
-    });
-    console.log("grades", grades)
+    const gradesInCourse: {student: Student, grades:Grade[]}[] = [];
 
-    res.send({ ok: true, grades });
+    for await (const student of StudentModel.find()) {
+      console.log("student", student);
+      const matchingCourse = student.courses.find((c) => c.name === courseName);
+      console.log("matchingCourse", matchingCourse);
+      console.log("courseName", courseName);
+
+      if (!matchingCourse) continue
+      gradesInCourse.push({
+        student: student,
+        grades: matchingCourse.grades,
+      })
+    }
+    console.log("gradesInCourse", gradesInCourse);
+
+    res.send({ ok: true, gradesInCourse });
   } catch (error) {
     if (error instanceof Error) {
       console.error(error);

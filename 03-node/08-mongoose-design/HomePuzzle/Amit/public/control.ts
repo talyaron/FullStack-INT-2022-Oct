@@ -326,22 +326,19 @@ function handleSaveGradeUpdate(courseId: string, studentId: string, gradeId: str
 function handleGradesInSpecificCourseQuery(ev){
     try {
         ev.preventDefault();
-        const _course = ev.target.elements.course.value;
-        if (!_course) throw new Error("No course on form");
-    
-        const course: any = { _course };
+        const courseName: string | null  = ev.target.elements.course.value;
+        if (!courseName) throw new Error("No course on form");
 
-        fetch("/api/courses/get-student-grades-in-course", {
+        fetch(`/api/courses/get-student-grades-in-course?name=${courseName}`, {
             method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(course),
         })
             .then((res) => res.json())
-            .then(({ grades }) => {
-                console.log(`grades in ${_course}:`, grades)
+            .then(({gradesInCourse}) => {
+                console.log(`grades in ${courseName}:`, gradesInCourse)
                 // renderStudentGradesInCourse(grades);
             })
             .catch((error) => {
