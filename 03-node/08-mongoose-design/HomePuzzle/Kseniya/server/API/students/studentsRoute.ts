@@ -12,6 +12,6 @@ router
   .post("/add", addStudent)
   .get("/all", getStudents)
   .patch("/update-student-name", updateStudentName)
-  .delete(`/delete`, deleteStudent);
+  .delete(`/delete/:_id`, deleteStudent);
 
 export default router;

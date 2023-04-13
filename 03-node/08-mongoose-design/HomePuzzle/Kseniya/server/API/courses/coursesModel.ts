@@ -1,9 +1,9 @@
 import mongoose, { Schema } from "mongoose";
-import { GradeSchema } from "../grades/gradesModel";
-import { StudentSchema } from "../students/studentsModel";
+import { IStudent, StudentSchema } from "../students/studentsModel";
 
 export interface Course {
     name: string;
+    students?: IStudent[]
 }
 
 export const CourseSchema = new Schema({

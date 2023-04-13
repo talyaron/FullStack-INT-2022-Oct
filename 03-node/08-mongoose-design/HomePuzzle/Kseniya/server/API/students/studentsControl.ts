@@ -59,8 +59,7 @@ export const updateStudentName = async (req: any, res: any) => {
 
 export const deleteStudent = async (req: any, res: any) => {
   try {
-    const { _id } = req.body;
-
+    const { _id } = req.params;
     const deletedStudent = await StudentModel.deleteOne({ _id });
     const students = await StudentModel.find({});
 

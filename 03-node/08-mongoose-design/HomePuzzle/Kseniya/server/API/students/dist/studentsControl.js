@@ -131,7 +131,7 @@ exports.deleteStudent = function (req, res) { return __awaiter(void 0, void 0, v
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 3, , 4]);
-                _id = req.body._id;
+                _id = req.params._id;
                 return [4 /*yield*/, studentsModel_1["default"].deleteOne({ _id: _id })];
             case 1:
                 deletedStudent = _a.sent();

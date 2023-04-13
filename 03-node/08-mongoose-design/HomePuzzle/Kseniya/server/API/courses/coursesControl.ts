@@ -1,24 +1,35 @@
 import CourseModel from "./coursesModel";
 import StudentModel from "../students/studentsModel";
 
+export const getCourses = async (req: any, res:any) => {
+
+  try {
+    const courses = await CourseModel.find({})
+    res.send(courses);
+    return courses;
+
+  } catch (error: any) {
+     console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+ 
+}
 
 export const addCourse = async (req:any, res:any) => {
     try {
+      console.log(req.body)
+        const {course} = req.body
+        const courses = await CourseModel.find({})
 
-      const { course , studentId } = req.body;
-      
-      const student = await StudentModel.findById(studentId);
-      if(!student) throw new Error("no student found")
-   
-      const courseDB = await CourseModel.create({name: course});
-      
-      student.courses.push(courseDB);
+        let isExist = courses?.find((elememt) => elememt._id == course._id);
+        if (isExist !== undefined) {
+          throw new Error("student already exists");
+        }
 
-      await student.save();
-
-      const students = await StudentModel.find({})
-      
-      res.status(201).send({ ok: true, students });
+        const courseDB = await CourseModel.create({
+          name: course.name,
+        });
+        res.status(201).send({ ok: true });
     } catch (error: any) {
       console.error(error);
       res.status(500).send({ error: error.message });
