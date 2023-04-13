@@ -23,10 +23,10 @@ app.use(express_1["default"].json(), cors());
 //connecting to entities routes//
 var studentsRoute_1 = require("./API/students/studentsRoute");
 app.use('/students', studentsRoute_1["default"]);
-// import coursesRouter from './API/courses/coursesRoute';
-// app.use('/api/courses', coursesRouter);
+var coursesRoute_1 = require("./API/courses/coursesRoute");
+app.use('/courses', coursesRoute_1["default"]);
 // import gradesRouter from './API/grades/gradesRoute';
-// app.use('/api/grades', gradesRouter);
+// app.use('/grades', gradesRouter);
 app.listen(3001, function () {
-    console.log("server listen on port 3000");
+    console.log("server listen on port 3001");
 });

@@ -25,13 +25,13 @@ app.use(express.json(), cors());
 import studentsRouter from './API/students/studentsRoute';
 app.use('/students', studentsRouter);
 
-// import coursesRouter from './API/courses/coursesRoute';
-// app.use('/api/courses', coursesRouter);
+import coursesRouter from './API/courses/coursesRoute';
+app.use('/courses', coursesRouter);
 
 // import gradesRouter from './API/grades/gradesRoute';
-// app.use('/api/grades', gradesRouter);
+// app.use('/grades', gradesRouter);
 
 
 app.listen(3001, () => {
-  console.log("server listen on port 3000");
+  console.log("server listen on port 3001");
 });
