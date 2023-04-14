@@ -1,10 +1,16 @@
+body {
+  background-color: #2c313b;
+  color: white;
+}
+
 #customers {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
 
-#customers td, #customers th {
+#customers td,
+#customers th {
   border: 1px solid #ddd;
   padding: 8px;
 }
@@ -14,23 +20,54 @@
 }
 
 #customers tr:hover {
-  background-color: #ddd;
+  background-color: #ca2929;
 }
 
 #customers th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #04aa6d;
   color: white;
 }
 
-button {
-  background-color: bisque;
-  margin-top: 5%;
+.btn {
+  background-color: #e5ffc4;
+  margin-top: 2.9%;
   position: relative;
   left: 25%;
   transform: translate(-50%, -50%);
   height: 3rem;
   width: 6rem;
+}
+
+.search-wrapper {
+  margin-top: 1%;
+  position: relative;
+  align-items: center;
+  height: 5rem;
+  width: 35em;
+  font-size: 1.3rem;
+  gap: 0.25rem;
+}
+
+input {
+  width: 14em;
+  font-size: 1rem;
+}
+
+.hide {
+  display: none;
+}
+
+h1 {
+  background-image: linear-gradient(to left, pink, indigo, blue, red, green, yellow, orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  font-size: 5rem;
+}
+
+label {
+  color: #8bc010;
 }

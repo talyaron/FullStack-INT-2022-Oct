@@ -36,61 +36,25 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addMockStudents = exports.updateStudentName = exports.deleteStudent = exports.getStudents = void 0;
-var coursesModel_1 = require("../courses/coursesModel");
+exports.addMockStudent = exports.updateStudentName = exports.deleteStudent = exports.getStudents = void 0;
+var gradesModel_1 = require("../grades/gradesModel");
 var studentsModel_1 = require("./studentsModel");
 var uuid_1 = require("uuid");
-// export const addStudentGrades = async (req: any, res: any) => {
-//   const { name, lastname, englishClass, mathClass, sportsClass, historyClass } =
-//     req.body;
-//   if (
-//     !name ||
-//     !lastname ||
-//     !englishClass ||
-//     !mathClass ||
-//     !sportsClass ||
-//     !historyClass
-//   ) {
-//     return res.status(400).json({ error: "Missing required fields" });
-//   }
-//   const newStudent = await StudentModel.create({
-//     name,
-//     lastname,
-//     englishClass,
-//     mathClass,
-//     sportsClass,
-//     historyClass,
-//     uid: uuidv4(),
-//   });
-//   res.status(200).send({ ok: true, newStudent });
-// };
-// export const addMockStudent = async (req: any, res: any) => {
-//   const newStudent = await StudentModel.create({
-//     name: uuidv4().slice(0, 7),
-//     lastname: "moshe",
-//     englishClass: 70,
-//     mathClass: 80,
-//     sportsClass: 90,
-//     historyClass: 89,
-//     uid: uuidv4(),
-//     avg: 564,
-//   });
-//   console.log(newStudent);
-//   res.status(200).send({ ok: true, newStudent });
-// };
 exports.getStudents = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var students, error_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var filterQuery, students, error_1;
+    var _a;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, studentsModel_1["default"].find({})];
+                _b.trys.push([0, 2, , 3]);
+                filterQuery = (_a = req.query) !== null && _a !== void 0 ? _a : {};
+                return [4 /*yield*/, studentsModel_1["default"].find(filterQuery)];
             case 1:
-                students = _a.sent();
+                students = _b.sent();
                 res.send({ students: students });
                 return [3 /*break*/, 3];
             case 2:
-                error_1 = _a.sent();
+                error_1 = _b.sent();
                 console.error(error_1);
                 res.status(500).send({ error: error_1.message });
                 return [3 /*break*/, 3];
@@ -99,15 +63,15 @@ exports.getStudents = function (req, res) { return __awaiter(void 0, void 0, voi
     });
 }); };
 exports.deleteStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var uid, error_2;
+    var _id, error_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                uid = req.query.uid;
-                if (!uid)
-                    throw new Error("Invalid to find uid");
-                return [4 /*yield*/, studentsModel_1["default"].deleteOne({ uid: uid })];
+                _id = req.query._id;
+                if (!_id)
+                    throw new Error("Invalid to find _id");
+                return [4 /*yield*/, studentsModel_1["default"].deleteOne({ _id: _id })];
             case 1:
                 _a.sent();
                 res.sendStatus(200);
@@ -122,23 +86,21 @@ exports.deleteStudent = function (req, res) { return __awaiter(void 0, void 0, v
     });
 }); };
 exports.updateStudentName = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, uid, student, error_3;
+    var _a, name, _id, student, error_3;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                _a = req.query, name = _a.name, uid = _a.uid;
-                console.log(name, uid);
+                _a = req.query, name = _a.name, _id = _a._id;
                 if (!name)
                     throw new Error("No name in data");
-                if (!uid)
+                if (!_id)
                     throw new Error("No uid in data");
-                return [4 /*yield*/, studentsModel_1["default"].findOneAndUpdate({ uid: uid }, { name: name })];
+                return [4 /*yield*/, studentsModel_1["default"].findOneAndUpdate({ _id: _id }, { name: name })];
             case 1:
                 student = _b.sent();
                 if (!student)
                     throw new Error("No student in array");
-                // console.log(req.query)
                 res.send({ ok: true });
                 return [3 /*break*/, 3];
             case 2:
@@ -150,7 +112,7 @@ exports.updateStudentName = function (req, res) { return __awaiter(void 0, void 
         }
     });
 }); };
-exports.addMockStudents = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+exports.addMockStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var newStudent;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -158,11 +120,43 @@ exports.addMockStudents = function (req, res) { return __awaiter(void 0, void 0,
                     uid: uuid_1.v4(),
                     name: "student_" + uuid_1.v4().slice(0, 7),
                     lastName: uuid_1.v4().slice(0, 7),
-                    courses: coursesModel_1.CourseSchema
+                    courses: [
+                        "64383c4308c863c15e9fb645",
+                        "64383c4608c863c15e9fb647",
+                        "64383c4608c863c15e9fb649",
+                        "64383c4608c863c15e9fb64b",
+                    ]
                 })];
             case 1:
                 newStudent = _a.sent();
-                console.log(newStudent);
+                return [4 /*yield*/, gradesModel_1["default"].create({
+                        grade: Math.floor(Math.random() * 100) + 1,
+                        studentId: newStudent._id.toString(),
+                        courseId: "64383c4308c863c15e9fb645"
+                    })];
+            case 2:
+                _a.sent();
+                return [4 /*yield*/, gradesModel_1["default"].create({
+                        grade: Math.floor(Math.random() * 100) + 1,
+                        studentId: newStudent._id.toString(),
+                        courseId: "64383c4608c863c15e9fb647"
+                    })];
+            case 3:
+                _a.sent();
+                return [4 /*yield*/, gradesModel_1["default"].create({
+                        grade: Math.floor(Math.random() * 100) + 1,
+                        studentId: newStudent._id.toString(),
+                        courseId: "64383c4608c863c15e9fb649"
+                    })];
+            case 4:
+                _a.sent();
+                return [4 /*yield*/, gradesModel_1["default"].create({
+                        grade: Math.floor(Math.random() * 100) + 1,
+                        studentId: newStudent._id.toString(),
+                        courseId: "64383c4608c863c15e9fb64b"
+                    })];
+            case 5:
+                _a.sent();
                 res.status(200).send({ ok: true, newStudent: newStudent });
                 return [2 /*return*/];
         }
