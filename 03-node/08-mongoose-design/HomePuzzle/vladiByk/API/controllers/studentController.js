@@ -42,6 +42,7 @@ const createStudent = (req, res, next) => __awaiter(void 0, void 0, void 0, func
         const { name, courseId } = req.body;
         const course = yield CourseModel_1.default.findById(courseId);
         const student = yield StudentModel_1.default.create({ name, courses: [course] });
+        console.log(student);
         const students = yield StudentModel_1.default.find({});
         res.status(200).json({ students });
     }

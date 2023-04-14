@@ -12,7 +12,7 @@ const editWindow = document.querySelector(".editWindow");
 const openEditWindow = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const studentList = yield fetch(studentApi)
         .then((res) => res.json())
-        .then(({ students }) => students.map((student) => new Student(student.name, student.id)));
+        .then(({ students }) => students.map((student) => new Student(student.name, student._id)));
     editWindow.style.display = "flex";
     const findStudent = studentList.find((student) => student.id == id);
     if (!findStudent)

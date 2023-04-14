@@ -39,6 +39,7 @@ export const createStudent = async (
     const { name, courseId } = req.body;
     const course = await Course.findById(courseId);
     const student = await Student.create({ name, courses: [course] });
+    console.log(student);
     const students = await Student.find({});
     res.status(200).json({ students });
   } catch (error: any) {

@@ -1,3 +1,5 @@
+import { stringify } from "querystring";
+
 const root = document.querySelector("#root") as HTMLDivElement;
 const teacherLoginForm = document.querySelector(
   "#teacherLoginForm"
@@ -79,8 +81,8 @@ function renderCoursesPage(coursesList: Course[], teacherId: string) {
 
   courses.forEach((course) =>
     course.addEventListener("click", () => {
-      console.log(`Course ${course.textContent} clicked...`);
-      renderStudentPage(course.id)
+      console.log(`Course clicked...`);
+      renderStudentPage(course.id);
     })
   );
 
@@ -115,8 +117,7 @@ function saveNewCourse(coursesList: Course[], teacherId: string) {
 }
 
 async function renderStudentPage(courseId: string) {
-  root.innerHTML = "";
-  const studentList = await fetch(`/api/v1/courses/${courseId}`)
+  const studentList = await fetch(`${studentApi}/${courseId}`)
     .then((res) => res.json())
     .then(({ students }) =>
       students
@@ -126,5 +127,61 @@ async function renderStudentPage(courseId: string) {
         .join("")
     )
     .catch((error) => console.error(error));
-  console.log(studentList);
+  let html = `<div class="studentDiv">
+  <b>Vladislav Bykanov (test)</b>
+  <span>Average: 66 (test)</span>
+  <div class="crudIcons">
+    <i class="fa-regular fa-trash-can"></i>
+    <i class="fa-regular fa-pen-to-square"></i>
+   </div>
+  </div>`;
+  if (studentList) {
+    html = studentList
+      .map(
+        (student: Student) =>
+          `<div class="studentDiv" id="${student.id}">
+          <b>${student.name}</b>
+          <span>Average: ${student}</span>
+          <div class="crudIcons">
+            <i class="fa-regular fa-trash-can"></i>
+            <i class="fa-regular fa-pen-to-square"></i>
+           </div>
+          </div>`
+      )
+      .join("");
+  }
+
+  root.innerHTML = `
+  <h1>Student list</h1>
+  <div class="studentsContainer">
+  ${html}
+  </div>
+  <h4>Add student</h4>
+  <form id="addStudentForm">
+    <label for="name"
+      >Full name:
+      <input type="text" name="fullName" id="name" placeholder="John Doe"
+    /></label>
+    <label for="grade"
+      >Grade: <input type="number" name="grade" id="grade" placeholder="88"
+    /></label>
+    <button type="submit">Add</button>
+  </form>`;
+  saveNewStudent(courseId);
+}
+
+function saveNewStudent(courseId: string) {
+  const addStudentForm = document.querySelector(
+    "#addStudentForm"
+  ) as HTMLFormElement;
+
+  addStudentForm.addEventListener("submit", async (e: Event) => {
+    e.preventDefault();
+    const name = addStudentForm.fullName.value;
+    const grade = addStudentForm.grade.value;
+    const newStudent = await fetch(`${studentApi}`, {
+      method: "POST",
+      body: JSON.stringify({ name, courseId }),
+    }).catch((error) => console.error(error));
+  });
 }

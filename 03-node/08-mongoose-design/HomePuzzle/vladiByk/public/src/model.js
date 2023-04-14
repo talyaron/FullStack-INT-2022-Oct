@@ -26,14 +26,10 @@ class Student {
         this.name = name;
         this.id = id;
     }
-    addGrade(btn, newGradeInput) {
-        btn.addEventListener("click", () => {
-            updateGrade(newGradeInput, this.id);
-        });
-        newGradeInput.addEventListener("keydown", (e) => {
-            if (e.key === "Enter") {
-                updateGrade(newGradeInput, this.id);
-            }
+    getAverageInCourse(courseId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const average = yield fetch(`${gradesApi}`);
+            // return average.toFixed(2);
         });
     }
 }

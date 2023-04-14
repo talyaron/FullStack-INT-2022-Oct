@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 const root = document.querySelector("#root");
 const teacherLoginForm = document.querySelector("#teacherLoginForm");
 const teacherIdInput = document.querySelector("#teacherId");
@@ -71,7 +72,7 @@ function renderCoursesPage(coursesList, teacherId) {
     })));
     const courses = document.querySelectorAll(".course");
     courses.forEach((course) => course.addEventListener("click", () => {
-        console.log(`Course ${course.textContent} clicked...`);
+        console.log(`Course clicked...`);
         renderStudentPage(course.id);
     }));
     saveNewCourse(coursesList, teacherId);
@@ -99,13 +100,60 @@ function saveNewCourse(coursesList, teacherId) {
 }
 function renderStudentPage(courseId) {
     return __awaiter(this, void 0, void 0, function* () {
-        root.innerHTML = "";
-        const studentList = yield fetch(`/api/v1/courses/${courseId}`)
+        const studentList = yield fetch(`${studentApi}/${courseId}`)
             .then((res) => res.json())
             .then(({ students }) => students
             .map((student) => new Student(student.name, student._id))
             .join(""))
             .catch((error) => console.error(error));
-        console.log(studentList);
+        let html = `<div class="studentDiv">
+  <b>Vladislav Bykanov (test)</b>
+  <span>Average: 66 (test)</span>
+  <div class="crudIcons">
+    <i class="fa-regular fa-trash-can"></i>
+    <i class="fa-regular fa-pen-to-square"></i>
+   </div>
+  </div>`;
+        if (studentList) {
+            html = studentList
+                .map((student) => `<div class="studentDiv" id="${student.id}">
+          <b>${student.name}</b>
+          <span>Average: ${student}</span>
+          <div class="crudIcons">
+            <i class="fa-regular fa-trash-can"></i>
+            <i class="fa-regular fa-pen-to-square"></i>
+           </div>
+          </div>`)
+                .join("");
+        }
+        root.innerHTML = `
+  <h1>Student list</h1>
+  <div class="studentsContainer">
+  ${html}
+  </div>
+  <h4>Add student</h4>
+  <form id="addStudentForm">
+    <label for="name"
+      >Full name:
+      <input type="text" name="fullName" id="name" placeholder="John Doe"
+    /></label>
+    <label for="grade"
+      >Grade: <input type="number" name="grade" id="grade" placeholder="88"
+    /></label>
+    <button type="submit">Add</button>
+  </form>`;
+        saveNewStudent(courseId);
     });
+}
+function saveNewStudent(courseId) {
+    const addStudentForm = document.querySelector("#addStudentForm");
+    addStudentForm.addEventListener("submit", (e) => __awaiter(this, void 0, void 0, function* () {
+        e.preventDefault();
+        const name = addStudentForm.fullName.value;
+        const grade = addStudentForm.grade.value;
+        const newStudent = yield fetch(`${studentApi}`, {
+            method: "POST",
+            body: JSON.stringify({ name, courseId }),
+        }).catch((error) => console.error(error));
+    }));
 }
