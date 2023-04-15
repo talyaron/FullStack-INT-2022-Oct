@@ -6,15 +6,14 @@ export const addMockTeacher = async (req:any, res:any) => {
         uid: uuidv4(),
         name: "teacher_" + uuidv4().slice(0, 7),
         lastName: uuidv4().slice(0, 7),
-        courses: ["64383c4308c863c15e9fb645","64383c4608c863c15e9fb647", "64383c4608c863c15e9fb649", "64383c4608c863c15e9fb64b"],
+        courses: ["6435c4a5d371943c1cb39103","6435c4e5d371943c1cb39120", "6435c4e5d371943c1cb3911c", "6435c4e5d371943c1cb3911e"],
       });
       res.status(200).send({ ok: true, newTeacher });
     };
 
-    export const getTeachers = async (req: any, res: any) => {
+    export const getTeacher = async (req: any, res: any) => {
       try {
-        const filterQuery = req.query??{};
-        const teachers = await TeacherModel.find(filterQuery);
+        const teachers = await TeacherModel.find({});
     
         res.send({ teachers });
       } catch (error: any) {
@@ -48,5 +47,3 @@ export const addMockTeacher = async (req:any, res:any) => {
         res.status(500).send({ error: error.message });
       }
     };
-
-    

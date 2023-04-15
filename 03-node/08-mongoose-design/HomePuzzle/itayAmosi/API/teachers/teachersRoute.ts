@@ -3,7 +3,7 @@ const router = express.Router();
 
 import {
     addMockTeacher,
-    getTeachers,
+    getTeacher,
     deleteTeacher,
     updateTeacherName,
 } from "./teachersControle";
@@ -11,7 +11,7 @@ import {
 
 router
   .post("/add-mock-teacher", addMockTeacher)
-  .get("/get-teachers", getTeachers)
+  .get("/get-teachers", getTeacher)
   .delete("/delete-teacher", deleteTeacher)
   .patch("/update-teacher-name", updateTeacherName)
 export default router;
