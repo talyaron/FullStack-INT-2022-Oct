@@ -51,7 +51,7 @@ function renderStudentTable(student) {
     try {
         if (!student)
             throw new Error("No student found");
-        var html = "<table id=\"customers\">\n               <tr>\n                 <td>" + student._id + "\n                  <button onclick='handleDeleteStudent(\"" + student._id + "\")'>delete</button>\n                  </td>\n                 <td contenteditable oninput=\"handleStudentNameUpdate(event, '" + student._id + "')\">" + student.name + "</td>\n                 <td>" + student.lastName + "</td>\n                 <td>" + student.courses
+        var html = "\n               <tr class=\"studentRow\">\n                 <td>" + student._id + "\n                  <button onclick='handleDeleteStudent(\"" + student._id + "\")'>delete</button>\n                  </td>\n                 <td contenteditable oninput=\"handleStudentNameUpdate(event, '" + student._id + "')\">" + student.name + "</td>\n                 <td>" + student.lastName + "</td>\n                 <td>" + student.courses
             .map(function (course) { return course.name; })
             .join(", ") + "</td>\n                 <td>" + student.grades.join(", ") + "</td>\n\n                 </tr>";
         var studentRoot = document.querySelector("#customers");
@@ -127,4 +127,43 @@ function getStudentGrades(studentId) {
             }
         });
     });
+}
+function handleDeleteStudent(_id) {
+    try {
+        fetch("/api/students/delete-student?" + new URLSearchParams({ _id: _id }).toString(), {
+            method: "DELETE",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            }
+        })
+            .then(function () {
+            var studentForm = document.getElementById(_id);
+            if (!studentForm) {
+                throw new Error("student delete form HTML");
+            }
+            studentForm.remove();
+        })["catch"](function (error) {
+            console.error(error);
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleStudentNameUpdate(ev, _id) {
+    try {
+        var name = ev.target.textContent;
+        fetch("/api/students/update-student-name?" +
+            new URLSearchParams({ name: name, _id: _id }).toString(), {
+            method: "PATCH",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            }
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
 }
