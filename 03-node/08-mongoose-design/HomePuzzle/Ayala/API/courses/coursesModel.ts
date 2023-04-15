@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { TeacherSchema } from "../teachers/teachersModel";
+// import { TeacherSchema } from "../teachers/teachersModel";
 
 
 //schema
