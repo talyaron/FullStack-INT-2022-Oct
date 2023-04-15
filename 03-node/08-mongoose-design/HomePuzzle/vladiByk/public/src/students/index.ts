@@ -1,4 +1,5 @@
-displayStudents();
+
+
 
 const editWindow = document.querySelector(".editWindow") as HTMLDivElement;
 
@@ -8,7 +9,7 @@ const openEditWindow = async (id: string) => {
     .then(({ students }) =>
       students.map(
         (student: StudentTemplate) =>
-          new Student(student.name, student.id)
+          new Student(student.name, student._id)
       )
     );
   editWindow.style.display = "flex";

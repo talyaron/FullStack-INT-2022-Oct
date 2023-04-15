@@ -16,7 +16,7 @@ function renderStudents(students: Student[]) {
                         <input type="text" name="course" placeholder="course name" required>
                         <button type="submit">add course</button>    
                     </form>
-                </div>
+                </div>    
                 <div id="courseRoot-${student._id}"></div> 
                 <button onclick="handleDeleteStudent('${student._id}')">delete student</button>
           </div>
@@ -50,7 +50,7 @@ function renderCourses(students: Student[]) {
                         return `
                         <div class="studentsContainer__studentCard__courses__course">
                             <div class="studentsContainer__studentCard__courses__course__name">
-                                <button onclick="handleCourseUpdate('${course._id}')">update course</button>
+                                <button onclick="handleCourseUpdate('${course._id}')">udpate course</button>
                                 <p id="course-${course._id}" contenteditable="false">${course.name}</p>
                                 <button id="saveCourseBtn-${course._id}" onclick="handleSaveCourseUpdate('${course._id}', '${_student._id}')">save course</button>
                             </div>    
@@ -96,7 +96,7 @@ function renderGrades(courses: Course[], student: Student) {
                         return `
                             <div class="studentsContainer__studentCard__courses__course__grades__grade">
                                 <div>#${Gradecounter}:</div>
-                                <div id="grade-${grade._id}" contenteditable="true">${grade.grade ?? "___"}</div>
+                                <div id="grade-${grade._id}" contenteditable="true">${grade.grade}</div>
                                 <button onclick="handleGradeUpdate('${grade._id}')">update grade</button>
                                 <button onclick='handleSaveGradeUpdate("${course._id}", "${student._id}", "${grade._id}")'>save grade</button>
                                 <button onclick='handleDeleteGrade("${course._id}", "${student._id}", "${grade._id}")'>delete grade</button>

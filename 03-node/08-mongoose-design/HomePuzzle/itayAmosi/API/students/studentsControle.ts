@@ -2,17 +2,28 @@ import GradeModel, { GradeSchema } from "../grades/gradesModel";
 import StudentModel from "./studentsModel";
 import { v4 as uuidv4 } from "uuid";
 
+
+
 export const getStudents = async (req: any, res: any) => {
   try {
-    const filterQuery = req.query ?? {};
-    console.log({filterQuery})
-    const students = await StudentModel.find(filterQuery);
+    const students = await StudentModel.find({});
+
     res.send({ students });
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });
   }
 };
+// export const findStudents = async (req: any, res: any) => {
+//   try {
+
+
+//   res.send({ user });
+// } catch (error: any) {
+//   console.error(error);
+//   res.status(500).send({ error: error.message });
+// }
+// };
 
 export const deleteStudent = async (req: any, res: any) => {
   try {
@@ -43,34 +54,25 @@ export const updateStudentName = async (req: any, res: any) => {
 export const addMockStudent = async (req: any, res: any) => {
   const newStudent = await StudentModel.create({
     uid: uuidv4(),
-    name: "student_" + uuidv4().slice(0, 7),
+    name: "student_"+uuidv4().slice(0, 7),
     lastName: uuidv4().slice(0, 7),
-    courses: [
-      "64383c4308c863c15e9fb645",
-      "64383c4608c863c15e9fb647",
-      "64383c4608c863c15e9fb649",
-      "64383c4608c863c15e9fb64b",
-    ],
+    courses: ["6435c4a5d371943c1cb39103","6435c4e5d371943c1cb39120", "6435c4e5d371943c1cb3911c", "6435c4e5d371943c1cb3911e"],
   });
   await GradeModel.create({
     grade: Math.floor(Math.random() * 100) + 1,
-    studentId: newStudent._id.toString(),
-    courseId: "64383c4308c863c15e9fb645", //English class
+    studentId: newStudent._id.toString(), courseId: "6435c4a5d371943c1cb39103"
   });
   await GradeModel.create({
     grade: Math.floor(Math.random() * 100) + 1,
-    studentId: newStudent._id.toString(),
-    courseId: "64383c4608c863c15e9fb647", //History class
+    studentId: newStudent._id.toString(), courseId: "6435c4e5d371943c1cb39120"
   });
   await GradeModel.create({
     grade: Math.floor(Math.random() * 100) + 1,
-    studentId: newStudent._id.toString(),
-    courseId: "64383c4608c863c15e9fb649", //gym class
+    studentId: newStudent._id.toString(), courseId: "6435c4e5d371943c1cb3911c"
   });
   await GradeModel.create({
     grade: Math.floor(Math.random() * 100) + 1,
-    studentId: newStudent._id.toString(),
-    courseId: "64383c4608c863c15e9fb64b", //science class
+    studentId: newStudent._id.toString(), courseId: "6435c4e5d371943c1cb3911e"
   });
   res.status(200).send({ ok: true, newStudent });
 };
