@@ -16,6 +16,8 @@
     "nodemon": "^2.0.22"
   },
   "dependencies": {
+    "mongoos": "^0.0.1-security",
+    "mongoose": "^7.0.3",
     "uuidv4": "^6.2.13"
   }
 }

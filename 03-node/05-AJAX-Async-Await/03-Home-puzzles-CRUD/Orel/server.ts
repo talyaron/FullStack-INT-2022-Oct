@@ -41,6 +41,7 @@ try {
  return []
 }
 }
+
 const me = findMe("Orel", "Karako") as Student;
 me.grades.push(new Grade("react" , "Components" , 100))
 

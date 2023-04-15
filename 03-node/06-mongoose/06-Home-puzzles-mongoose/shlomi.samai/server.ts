@@ -16,7 +16,7 @@ if (uri) {
     .catch((err) => console.log(err));
 } else {
   console.log("No URI to DB");
-}
+} 
  
 const app = express();
 
