@@ -8,7 +8,7 @@ export const getAllCourses = async (
   next: NextFunction
 ) => {
   try {
-    const teacherId = req.query.teacherId;
+    const { teacherId } = req.body;
     const teacher = await Teacher.findById(teacherId);
     const courses = await Course.find({ teachers: teacher });
     console.log(courses);
@@ -42,7 +42,7 @@ export const createCourse = async (
     const { name, teacherId } = req.body;
     const teacher = await Teacher.findById(teacherId);
     const course = await Course.create({ name: name, teachers: [teacher] });
-    res.status(200).json({ msg: `Teacher ${course} is created...` });
+    res.status(200).json({ course });
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });
@@ -56,10 +56,12 @@ export const deleteCourse = async (
 ) => {
   try {
     const { id: courseId } = req.params;
-    const course = await Course.deleteOne({ _id: courseId });
-    const courses = await Course.find({});
+    const { teacherId } = req.body;
+    const teacher = await Teacher.findById(teacherId);
+    const course = await Course.findByIdAndDelete({ _id: courseId });
+    const courses = await Course.find({ teachers: teacher });
 
-    res.status(200).send({ courses, course });
+    res.status(200).send({ courses });
   } catch (error: any) {
     console.error(error);
     res.status(500).json({ error: error.message });

@@ -13,7 +13,18 @@ video {
   max-height: 100%;
 }
 
-body {
+#root {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2rem;
+  padding-bottom: 1rem;
+}
+
+.teacherLoginContainer {
   height: 100vh;
   width: 100vw;
   display: flex;
