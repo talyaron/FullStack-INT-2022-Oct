@@ -51,7 +51,7 @@ function renderTeacherTable(teacher) {
     try {
         if (!teacher)
             throw new Error("No student found");
-        var html = "<table id=\"customers\">\n             <tr>\n               <td>" + teacher._id + " <button onclick='handleDeleteTeacher(\"" + teacher._id + "\")'>delete</button></td>\n               <td contenteditable oninput=\"handleTeacherNameUpdate(event, '" + teacher._id + "')\">" + teacher.name + "</td>\n               <td>" + teacher.lastName + "</td>\n               <td>" + teacher.courses
+        var html = "\n             <tr class=\"teacherRow\">\n               <td>" + teacher._id + " <button onclick='handleDeleteTeacher(\"" + teacher._id + "\")'>delete</button></td>\n               <td contenteditable oninput=\"handleTeacherNameUpdate(event, '" + teacher._id + "')\">" + teacher.name + "</td>\n               <td>" + teacher.lastName + "</td>\n               <td>" + teacher.courses
             .map(function (course) { return course.name; })
             .join(", ") + "</td>\n               <td>---</td>\n               </tr>";
         var studentRoot = document.querySelector("#customers");
@@ -103,4 +103,43 @@ function getTeacherCourses(ids) {
             }
         });
     });
+}
+function handleDeleteTeacher(_id) {
+    try {
+        fetch("/api/teachers/delete-teacher?" + new URLSearchParams({ _id: _id }).toString(), {
+            method: "DELETE",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            }
+        })
+            .then(function () {
+            var teacherId = document.getElementById(_id);
+            if (!teacherId) {
+                throw new Error("teacher delete from HTML");
+            }
+            teacherId.remove();
+        })["catch"](function (error) {
+            console.error(error);
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleTeacherNameUpdate(ev, _id) {
+    try {
+        var name = ev.target.textContent;
+        fetch("/api/teachers/update-teacher-name?" +
+            new URLSearchParams({ name: name, _id: _id }).toString(), {
+            method: "PATCH",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            }
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
 }

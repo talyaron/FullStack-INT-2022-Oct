@@ -1,5 +1,5 @@
 body {
-  background-color: #2A2E37;
+  background-color: #2c313b;
   color: white;
 }
 
@@ -33,17 +33,18 @@ body {
 
 .btn {
   background-color: #e5ffc4;
-  margin-top: 5%;
+  margin-top: 2.9%;
   position: relative;
-  left: 80%;
+  left: 25%;
   transform: translate(-50%, -50%);
   height: 3rem;
   width: 6rem;
 }
 
 .search-wrapper {
+  margin-top: 1%;
   position: relative;
-  left: 20%;
+  align-items: center;
   height: 5rem;
   width: 35em;
   font-size: 1.3rem;
@@ -57,4 +58,16 @@ input {
 
 .hide {
   display: none;
+}
+
+h1 {
+  background-image: linear-gradient(to left, pink, indigo, blue, red, green, yellow, orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  font-size: 5rem;
+}
+
+label {
+  color: #8bc010;
 }
