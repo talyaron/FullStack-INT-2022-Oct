@@ -3,8 +3,8 @@ import { Student } from "../../API/students/studentsModel";
 function renderStudentTable(student: Student) {
   try {
     if (!student) throw new Error("No student found");
-    const html = `
-               <tr class="studentRow">
+    const html = `<table id="customers">
+               <tr>
                  <td>${student._id}
                   <button onclick='handleDeleteStudent("${
                     student._id
@@ -66,52 +66,4 @@ async function getStudentGrades(studentId: string) {
     "/api/grades/get-grades?" + new URLSearchParams({ studentId }).toString()
   );
   return await response.json();
-}
-
-function handleDeleteStudent(_id: string) {
-  try {
-    fetch(
-      "/api/students/delete-student?" + new URLSearchParams({ _id }).toString(),
-      {
-        method: "DELETE",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then(() => {
-        const studentForm = document.getElementById(_id);
-
-        if (!studentForm) {
-          throw new Error("student delete form HTML");
-        }
-        studentForm.remove();
-      })
-
-      .catch((error) => {
-        console.error(error);
-      });
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-function handleStudentNameUpdate(ev: any, _id: string) {
-  try {
-    const name = ev.target.textContent;
-    fetch(
-      "/api/students/update-student-name?" +
-        new URLSearchParams({ name, _id }).toString(),
-      {
-        method: "PATCH",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-      }
-    );
-  } catch (error) {
-    console.error(error);
-  }
 }
