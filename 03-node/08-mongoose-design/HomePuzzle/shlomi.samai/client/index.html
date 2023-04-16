@@ -10,38 +10,18 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="headline">players DB</div>
-    
-    <div> ***Players***
-    <form onsubmit="hendleAddTeam(event)">
+    <div class="headline">GOAT's</div>
+
+    <form onsubmit="hendleAddPlayer(event)">
     <input type="url" name="url" placeholder="url" required>
     <input type="text" name="name" placeholder="name" required>
     <button type="submit">ADD</button>
     </form>
 
     <button onclick="hendlegetplayers()">Show players</button>
-   
-    <div> ***teams***
+    <div class="playersConteiner">
 
-        <form onsubmit="hendleAddTeam(event)">
-        <input type="url" name="src" placeholder="src" required>
-        <input type="text" name="name" placeholder="name" required>
-        <button type="submit">ADD</button>
-        </form>
-    
-        <button onclick="hendleGetTeams()">Show teams</button></div>
-    //////queries/////////
-    <form onsubmit="hendleGetTeamsOfPlayer(event)">
-        <input type="text" name="teamName" placeholder="teamName" required>
-        <button type="submit">ADD</button>
-        </form>
-        <button onclick="hendleGetTeams()">Show teams</button></div>
-    <!-- //////////////////// -->
-        
-    <div class="filterd"></div>
-    <div class="playersConteiner"></div>
-    <div class="teamsConteiner"></div>
-
+    </div>
 </body>
 </html>
 

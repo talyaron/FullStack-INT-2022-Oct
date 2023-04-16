@@ -57,32 +57,14 @@
         <form id="grade-form" onsubmit="handleGradeSubmit(event)">
           <select name="courseId" required>
             <option value="">Select Course</option>
-            <option value="">1 Course</option>
           </select>
           <select name="studentId" required>
             <option value="">Select Student</option>
-            <option value="">1 Student</option>
           </select>
           <input type="number" name="grade" placeholder="Grade" min="0" max="100" required>
           <button type="submit">Add Grade</button>
         </form>
         <div id="grade-list"></div>
-        
-        
-        <div id="users-table">
-          <table>
-            <thead>
-              <tr>
-                <th>תלמיד</th>
-                <th>קורס</th>
-                <th>ציון</th>
-                <th>ציון ממוצע</th>
-              </tr>
-            </thead>
-            <tbody id="table-body">
-            </tbody>
-          </table>
-        </div>
       
        </div>
 </body>

@@ -5,10 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
-    "start": "nodemon server.ts"
-=======
->>>>>>> 1dac1d65df1c464f68bab8fe9370727a7bc91230
   },
   "keywords": [],
   "author": "",
