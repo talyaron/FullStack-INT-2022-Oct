@@ -1,11 +1,23 @@
-function renderCoursesPage(e) {
-    e.preventDefault()
-
+function coursesPage(e) {
+    e.preventDefault();
     try {
         const teacherUsername = e.target.elements.teacherUsername.value;
-        console.log(teacherUsername)
+        if (!teacherUsername) throw new Error("No user data");
+        fetch("/api/v1/get-courses", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name: teacherUsername }),
+        })
+            .then((res) => res.json())
+            .then((courses) => {
+                renderTeacherCourses(courses);
+            });
+        console.log(teacherUsername);
     } catch (error) {
-        console.log(error)
+        console.log(error);
     }
 }
 
