@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(242, 189, 207);
+    width: 100%;
+    height: 100vh;
+}
+
+.chooseOne{
+    width: 100%;
+    height: 100vh;
+    
+    &__env{
+        display: flex;
+        justify-content: center;
+        margin: 10px 0px;
+        color:dodgerblue;
+    }
+
+   &__main{
+    margin: 40px 0px;
+    width: 100%;
+    height: 100vh;
+    display:grid;
+    justify-content: center;
+    justify-items: center;
+    grid-template-columns: 25% 5%;
+    grid-template-rows: 30% 5%;
+
+  
+    .firstBtn{
+        color: red;
+        width: 100px;
+        height: 100px;
+        margin: 0px 1px;
+        
+    }
+   }
+
+}

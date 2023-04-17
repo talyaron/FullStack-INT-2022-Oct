@@ -1,34 +1,19 @@
 // express
 import express from "express";
 const app = express();
-const serverPort = 5000;
 
 // DB
 import mongoose from "mongoose";
-const { Schema } = mongoose;
+const serverPort = 5000;
 
 // dotenv
 import * as dotenv from "dotenv";
+import exp from "constants";
 dotenv.config();
 
 mongoose
     .connect(`${process.env.MONGO_DB}`)
     .then(() => console.log("DB connected!"));
-
-
-const TeacherSchema = new Schema({
-    name: String,
-    });
-
-const CourseSchema = new Schema({
-    name: String,
-    teacher: TeacherSchema,
-    students:[{name: String, grade: Number}]
-    });
-
-const TeacherModel = mongoose.model("teachers", TeacherSchema)
-const CourseModel = mongoose.model("courses", CourseSchema)
-
 
 // express USE
 app.use(express.static('public/index'));
