@@ -5,8 +5,7 @@ function renderStudentTable(student: Student) {
     if (!student) throw new Error("No student found");
     const html = `
                <tr class="studentRow">
-                 <td>${student._id}
-                  <button onclick='handleDeleteStudent("${
+                 <td>${student._id}<button onclick='handleDeleteStudent("${
                     student._id
                   }")'>delete</button>
                   </td>

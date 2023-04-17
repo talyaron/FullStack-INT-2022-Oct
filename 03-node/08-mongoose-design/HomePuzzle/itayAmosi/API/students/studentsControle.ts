@@ -6,7 +6,8 @@ import { v4 as uuidv4 } from "uuid";
 
 export const getStudents = async (req: any, res: any) => {
   try {
-    const students = await StudentModel.find({});
+    const filterQuery = req.query??{};
+    const students = await StudentModel.find(filterQuery);
 
     res.send({ students });
   } catch (error: any) {
@@ -14,16 +15,7 @@ export const getStudents = async (req: any, res: any) => {
     res.status(500).send({ error: error.message });
   }
 };
-// export const findStudents = async (req: any, res: any) => {
-//   try {
 
-
-//   res.send({ user });
-// } catch (error: any) {
-//   console.error(error);
-//   res.status(500).send({ error: error.message });
-// }
-// };
 
 export const deleteStudent = async (req: any, res: any) => {
   try {

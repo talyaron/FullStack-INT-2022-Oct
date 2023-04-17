@@ -57,18 +57,20 @@ exports.addMockTeacher = function (req, res) { return __awaiter(void 0, void 0, 
     });
 }); };
 exports.getTeacher = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var teachers, error_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var filterQuery, teachers, error_1;
+    var _a;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, teachersModel_1["default"].find({})];
+                _b.trys.push([0, 2, , 3]);
+                filterQuery = (_a = req.query) !== null && _a !== void 0 ? _a : {};
+                return [4 /*yield*/, teachersModel_1["default"].find(filterQuery)];
             case 1:
-                teachers = _a.sent();
+                teachers = _b.sent();
                 res.send({ teachers: teachers });
                 return [3 /*break*/, 3];
             case 2:
-                error_1 = _a.sent();
+                error_1 = _b.sent();
                 console.error(error_1);
                 res.status(500).send({ error: error_1.message });
                 return [3 /*break*/, 3];
