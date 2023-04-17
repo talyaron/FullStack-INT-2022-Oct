@@ -12,8 +12,9 @@ function coursesPage(e) {
             body: JSON.stringify({ name: teacherUsername }),
         })
             .then((res) => res.json())
-            .then((courses) => {
-                renderTeacherCourses(courses);
+            .then(({courses,teacherId}) => {
+                console.log(courses,teacherId)
+                renderTeacherCourses(courses,teacherId,teacherUsername);
             });
         console.log(teacherUsername);
     } catch (error) {
@@ -21,18 +22,14 @@ function coursesPage(e) {
     }
 }
 
-function renderTeacherCourses(courses: []) {
+function renderTeacherCourses(courses: [], teacherId, teacherUsername) {
     const loginPage = document.querySelector(".login-register_container");
     const body = document.querySelector("body");
     if (loginPage && body) {
         loginPage.remove();
         body.insertAdjacentHTML(
             "beforeend",
-            "<div id='courses_container'></div>"
-        );
-        body.insertAdjacentHTML(
-            "beforeend",
-            "<button onclick=addNewCourseDetails() id='add_course'>Add Course</button>"
+            `<div class='navBar'><p id='${teacherId}'></p>Welcome ${teacherUsername}</div><div id='courses_container'></div> <button onclick=addNewCourseDetails() id='add_course'>Add Course</button>`
         );
     }
     if (courses.length === 0) {
@@ -48,7 +45,7 @@ function renderTeacherCourses(courses: []) {
         const coursesContainer = document.querySelector("#courses_container");
         if (coursesContainer) {
             for (let i = 0; i < courses.length; i++) {
-                coursesContainer.insertAdjacentHTML("beforeend", "");
+                coursesContainer.insertAdjacentHTML("beforeend", `<div class='courseCard'><h1>${courses[i]['name']}</h1><p>Course Students ${courses[i]['students']}</p></div>`);
             }
         }
     }

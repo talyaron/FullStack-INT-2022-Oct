@@ -1,8 +1,8 @@
 function coursesPage(e) {
     e.preventDefault();
     try {
-        var teacherUsername = e.target.elements.teacherUsername.value;
-        if (!teacherUsername)
+        var teacherUsername_1 = e.target.elements.teacherUsername.value;
+        if (!teacherUsername_1)
             throw new Error("No user data");
         fetch("/api/v1/get-courses", {
             method: "POST",
@@ -10,25 +10,26 @@ function coursesPage(e) {
                 Accept: "application/json",
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ name: teacherUsername })
+            body: JSON.stringify({ name: teacherUsername_1 })
         })
             .then(function (res) { return res.json(); })
-            .then(function (courses) {
-            renderTeacherCourses(courses);
+            .then(function (_a) {
+            var courses = _a.courses, teacherId = _a.teacherId;
+            console.log(courses, teacherId);
+            renderTeacherCourses(courses, teacherId, teacherUsername_1);
         });
-        console.log(teacherUsername);
+        console.log(teacherUsername_1);
     }
     catch (error) {
         console.log(error);
     }
 }
-function renderTeacherCourses(courses) {
+function renderTeacherCourses(courses, teacherId, teacherUsername) {
     var loginPage = document.querySelector(".login-register_container");
     var body = document.querySelector("body");
     if (loginPage && body) {
         loginPage.remove();
-        body.insertAdjacentHTML("beforeend", "<div id='courses_container'></div>");
-        body.insertAdjacentHTML("beforeend", "<button onclick=addNewCourseDetails() id='add_course'>Add Course</button>");
+        body.insertAdjacentHTML("beforeend", "<div class='navBar'><p id='" + teacherId + "'></p>Welcome " + teacherUsername + "</div><div id='courses_container'></div> <button onclick=addNewCourseDetails() id='add_course'>Add Course</button>");
     }
     if (courses.length === 0) {
         var coursesContainer = document.querySelector("#courses_container");
@@ -41,7 +42,7 @@ function renderTeacherCourses(courses) {
         var coursesContainer = document.querySelector("#courses_container");
         if (coursesContainer) {
             for (var i = 0; i < courses.length; i++) {
-                coursesContainer.insertAdjacentHTML("beforeend", "");
+                coursesContainer.insertAdjacentHTML("beforeend", "<div class='courseCard'><h1>" + courses[i]['name'] + "</h1><p>Course Students " + courses[i]['students'] + "</p></div>");
             }
         }
     }

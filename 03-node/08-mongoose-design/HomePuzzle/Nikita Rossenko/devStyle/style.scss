@@ -50,3 +50,28 @@ body{
         margin: 0;
     }
 }
+
+#courses_container{
+    width: 840px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    .courseCard{
+        width: 200px;
+        height: 250px;
+        border: 1px solid black;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+    }
+
+}

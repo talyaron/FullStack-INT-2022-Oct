@@ -48,3 +48,25 @@ body {
   padding: 0;
   margin: 0;
 }
+
+#courses_container {
+  width: 840px;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+#courses_container .courseCard {
+  width: 200px;
+  height: 250px;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+#courses_container .courseCard h1 {
+  text-align: center;
+}
+#courses_container .courseCard p {
+  text-align: center;
+}
