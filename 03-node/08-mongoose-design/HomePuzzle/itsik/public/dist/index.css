@@ -31,8 +31,33 @@ body {
   grid-template-rows: 30% 5%;
 }
 .chooseOne__main .firstBtn {
+  background-color: black;
   color: red;
+  border: 4px solid palevioletred;
   width: 100px;
   height: 100px;
   margin: 0px 1px;
+  cursor: pointer;
+}
+
+.signup {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signup__formTeacher {
+  background-color: dodgerblue;
+  width: 300px;
+  height: 200px;
+}
+.signup__formTeacher__label {
+  display: flex;
+  justify-content: center;
+}
+.signup__formTeacher__input {
+  display: flex;
+  align-items: center;
+  outline: none;
 }
