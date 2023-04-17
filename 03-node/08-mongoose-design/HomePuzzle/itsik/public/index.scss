@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(242, 189, 207);
+    width: 100%;
+    height: 100vh;
+}
+
+.chooseOne{
+    width: 100%;
+    height: 100vh;
+    
+    &__env{
+        display: flex;
+        justify-content: center;
+        margin: 10px 0px;
+        color:dodgerblue;
+    }
+
+   &__main{
+    margin: 40px 0px;
+    width: 100%;
+    height: 100vh;
+    display:grid;
+    justify-content: center;
+    justify-items: center;
+    grid-template-columns: 25% 5%;
+    grid-template-rows: 30% 5%;
+
+  
+    .firstBtn{
+        background-color: black;
+        color: red;
+        border: 4px solid palevioletred;
+        width: 100px;
+        height: 100px;
+        margin: 0px 1px;
+        cursor: pointer;
+        
+    }
+   }
+
+}
+
+// teacher/student signup
+.signup{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+   &__formTeacher{
+    
+      background-color:dodgerblue;
+      width: 300px;
+      height:200px;
+
+      &__label{
+        display: flex;
+        justify-content: center;
+      }
+     
+          &__inputt{
+            display: flex;
+           justify-content: center;
+           outline: none;
+      }
+}
+
+
+
+}
