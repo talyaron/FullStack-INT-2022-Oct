@@ -1,0 +1,1 @@
+const tb = document.querySelector(".")

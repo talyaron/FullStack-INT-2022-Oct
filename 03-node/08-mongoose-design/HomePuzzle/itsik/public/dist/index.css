@@ -56,8 +56,8 @@ body {
   display: flex;
   justify-content: center;
 }
-.signup__formTeacher__input {
+.signup__formTeacher__inputt {
   display: flex;
-  align-items: center;
+  justify-content: center;
   outline: none;
 }

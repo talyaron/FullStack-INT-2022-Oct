@@ -1,0 +1,1 @@
+var tb = document.querySelector(".");
