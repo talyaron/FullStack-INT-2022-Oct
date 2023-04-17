@@ -51,7 +51,7 @@ function renderTeacherTable(teacher) {
     try {
         if (!teacher)
             throw new Error("No student found");
-        var html = "\n             <tr class=\"teacherRow\">\n               <td>" + teacher._id + " <button onclick='handleDeleteTeacher(\"" + teacher._id + "\")'>delete</button></td>\n               <td contenteditable oninput=\"handleTeacherNameUpdate(event, '" + teacher._id + "')\">" + teacher.name + "</td>\n               <td>" + teacher.lastName + "</td>\n               <td>" + teacher.courses
+        var html = "\n             <tr class=\"teacherRow\">\n               <td>" + teacher._id + "<button onclick='handleDeleteTeacher(\"" + teacher._id + "\")'>delete</button></td>\n               <td contenteditable oninput=\"handleTeacherNameUpdate(event, '" + teacher._id + "')\">" + teacher.name + "</td>\n               <td>" + teacher.lastName + "</td>\n               <td>" + teacher.courses
             .map(function (course) { return course.name; })
             .join(", ") + "</td>\n               <td>---</td>\n               </tr>";
         var studentRoot = document.querySelector("#customers");

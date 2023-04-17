@@ -41,18 +41,20 @@ var gradesModel_1 = require("../grades/gradesModel");
 var studentsModel_1 = require("./studentsModel");
 var uuid_1 = require("uuid");
 exports.getStudents = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var students, error_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var filterQuery, students, error_1;
+    var _a;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, studentsModel_1["default"].find({})];
+                _b.trys.push([0, 2, , 3]);
+                filterQuery = (_a = req.query) !== null && _a !== void 0 ? _a : {};
+                return [4 /*yield*/, studentsModel_1["default"].find(filterQuery)];
             case 1:
-                students = _a.sent();
+                students = _b.sent();
                 res.send({ students: students });
                 return [3 /*break*/, 3];
             case 2:
-                error_1 = _a.sent();
+                error_1 = _b.sent();
                 console.error(error_1);
                 res.status(500).send({ error: error_1.message });
                 return [3 /*break*/, 3];
@@ -60,14 +62,6 @@ exports.getStudents = function (req, res) { return __awaiter(void 0, void 0, voi
         }
     });
 }); };
-// export const findStudents = async (req: any, res: any) => {
-//   try {
-//   res.send({ user });
-// } catch (error: any) {
-//   console.error(error);
-//   res.status(500).send({ error: error.message });
-// }
-// };
 exports.deleteStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _id, error_2;
     return __generator(this, function (_a) {

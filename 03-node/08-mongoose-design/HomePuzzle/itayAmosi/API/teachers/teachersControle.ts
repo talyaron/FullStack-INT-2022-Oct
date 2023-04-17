@@ -13,7 +13,8 @@ export const addMockTeacher = async (req:any, res:any) => {
 
     export const getTeacher = async (req: any, res: any) => {
       try {
-        const teachers = await TeacherModel.find({});
+        const filterQuery = req.query??{};
+        const teachers = await TeacherModel.find(filterQuery);
     
         res.send({ teachers });
       } catch (error: any) {
