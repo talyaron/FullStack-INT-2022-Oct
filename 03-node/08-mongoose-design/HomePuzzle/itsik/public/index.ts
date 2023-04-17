@@ -25,7 +25,7 @@ function renderTeacher(){
     <label for="tpassword" class="signup__formTeacher__label">Teacher Password</label>
     <input type="password" name="tpassword" placeholder="enter password" class="signup__formTeacher__inputt">
     <br>
-    <button class="signUpBtn" onclick="signUpBtn(e)">Sign Up</button>
+    <button class="signUpBtn" onclick="signUpBtn()">Sign Up</button>
  </form>`
 
     divteacher.innerHTML = html
@@ -50,7 +50,7 @@ function renderStudent(){
     <br>
     <label for="tpassword" class="signup__formTeacher__label">Teacher Password</label>
     <input type="password" name="tpassword" placeholder="enter password" required class="signup__formTeacher__inputt">
-    <button class="signUpBtn" onclick="signUpBtn(e)">Sign Up</button>
+    <button class="signUpBtn" onclick="signUpBtn()">Sign Up</button>
  </form>
  `
 
@@ -68,7 +68,7 @@ function hendelGoback() {
 
 }
 
-function signUpBtn(e){
-    e.preventDefault()
-    console.log("asdasd")
+function signUpBtn(){
+  if() 
+    
 }
