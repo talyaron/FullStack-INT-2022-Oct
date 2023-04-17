@@ -86,18 +86,19 @@ app.post("/api/v1/add-teacher", function (req, res) { return __awaiter(void 0, v
     });
 }); });
 app.post("/api/v1/add-course", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, newCourseName, teacherId, teacherExists, teacherCreation;
+    var _a, newCourseName, teacherId, courseExists, courseCreation;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _a = req.body, newCourseName = _a.newCourseName, teacherId = _a.teacherId;
+                console.log(newCourseName, teacherId);
                 return [4 /*yield*/, CourseModel.findOne({ name: newCourseName, teacher: teacherId })];
             case 1:
-                teacherExists = _b.sent();
-                if (!(teacherExists == null)) return [3 /*break*/, 3];
-                return [4 /*yield*/, TeacherModel.create({ name: teacherUsername })];
+                courseExists = _b.sent();
+                if (!(courseExists == null)) return [3 /*break*/, 3];
+                return [4 /*yield*/, CourseModel.create({ name: newCourseName, teacher: teacherId, students: [] })];
             case 2:
-                teacherCreation = _b.sent();
+                courseCreation = _b.sent();
                 res.status(201).send({ ok: true });
                 return [3 /*break*/, 4];
             case 3:
@@ -108,17 +109,29 @@ app.post("/api/v1/add-course", function (req, res) { return __awaiter(void 0, vo
     });
 }); });
 app.post("/api/v1/get-courses", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var teacherUsername, courses;
+    var teacherUsername, teacherId, courses, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
+                _a.trys.push([0, 3, , 4]);
                 teacherUsername = req.body.teacherUsername;
-                return [4 /*yield*/, CourseModel.find({ teacher: teacherUsername })];
+                return [4 /*yield*/, TeacherModel.findOne(teacherUsername)];
             case 1:
+                teacherId = _a.sent();
+                return [4 /*yield*/, CourseModel.find({ teacher: teacherUsername })];
+            case 2:
                 courses = _a.sent();
-                console.log(courses);
-                res.status(201).send(courses);
-                return [2 /*return*/];
+                console.log(teacherId);
+                if (!teacherId)
+                    throw new Error("Teacher haven't found!");
+                res.status(201).send({ courses: courses, teacherId: teacherId['_id'] });
+                return [3 /*break*/, 4];
+            case 3:
+                error_1 = _a.sent();
+                console.log(error_1);
+                res.status(500);
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); });

@@ -49,9 +49,10 @@ app.post("/api/v1/add-teacher", async (req,res) => {
 
 app.post("/api/v1/add-course", async (req,res) => {
     const {newCourseName, teacherId} = req.body;
-    const teacherExists = await CourseModel.findOne({name:newCourseName, teacher:teacherId})
-    if (teacherExists == null){
-        const teacherCreation = await TeacherModel.create({name:teacherUsername})
+    console.log(newCourseName, teacherId)
+    const courseExists = await CourseModel.findOne({name:newCourseName, teacher:teacherId})
+    if (courseExists == null){
+        const courseCreation = await CourseModel.create({name:newCourseName, teacher:teacherId, students:[]})
         res.status(201).send({ok:true})
     }
     else {
@@ -60,10 +61,17 @@ app.post("/api/v1/add-course", async (req,res) => {
 })
 
 app.post("/api/v1/get-courses", async (req,res) => {
-    const {teacherUsername} = req.body;
-    const courses = await CourseModel.find({teacher:teacherUsername})
-    console.log(courses)
-    res.status(201).send(courses)
+    try {
+        const {teacherUsername} = req.body;
+        const teacherId = await TeacherModel.findOne(teacherUsername)
+        const courses = await CourseModel.find({teacher:teacherUsername})
+        console.log(teacherId)
+        if (!teacherId) throw new Error("Teacher haven't found!")
+        res.status(201).send({courses:courses, teacherId:teacherId['_id']})
+    } catch (error) {
+        console.log(error)
+        res.status(500)
+    }
 })
 
 
