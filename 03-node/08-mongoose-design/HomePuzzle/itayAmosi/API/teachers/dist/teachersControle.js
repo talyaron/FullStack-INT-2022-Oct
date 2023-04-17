@@ -47,7 +47,7 @@ exports.addMockTeacher = function (req, res) { return __awaiter(void 0, void 0, 
                     uid: uuid_1.v4(),
                     name: "teacher_" + uuid_1.v4().slice(0, 7),
                     lastName: uuid_1.v4().slice(0, 7),
-                    courses: ["6435c4a5d371943c1cb39103", "6435c4e5d371943c1cb39120", "6435c4e5d371943c1cb3911c", "6435c4e5d371943c1cb3911e"]
+                    courses: ["64383c4308c863c15e9fb645", "64383c4608c863c15e9fb647", "64383c4608c863c15e9fb649", "64383c4608c863c15e9fb64b"]
                 })];
             case 1:
                 newTeacher = _a.sent();

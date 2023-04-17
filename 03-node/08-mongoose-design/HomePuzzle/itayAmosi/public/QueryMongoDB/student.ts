@@ -3,8 +3,8 @@ import { Student } from "../../API/students/studentsModel";
 function renderStudentTable(student: Student) {
   try {
     if (!student) throw new Error("No student found");
-    const html = `<table id="customers">
-               <tr>
+    const html = `
+               <tr class="studentRow">
                  <td>${student._id}
                   <button onclick='handleDeleteStudent("${
                     student._id
@@ -66,4 +66,33 @@ async function getStudentGrades(studentId: string) {
     "/api/grades/get-grades?" + new URLSearchParams({ studentId }).toString()
   );
   return await response.json();
+}
+
+function handleDeleteStudent(_id: string) {
+  try {
+    fetch(
+      "/api/students/delete-student?" + new URLSearchParams({ _id }).toString(),
+      {
+        method: "DELETE",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then(() => {
+        const studentForm = document.getElementById(_id);
+
+        if (!studentForm) {
+          throw new Error("student delete form HTML");
+        }
+        studentForm.remove();
+      })
+
+      .catch((error) => {
+        console.error(error);
+      });
+  } catch (error) {
+    console.error(error);
+  }
 }
