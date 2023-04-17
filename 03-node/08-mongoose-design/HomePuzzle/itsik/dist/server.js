@@ -15,6 +15,8 @@ if (uri) {
     });
 }
 // imports
+var userLoginRoutes_1 = require("./API/userLogin/userLoginRoutes");
+app.use('API/userLogin', userLoginRoutes_1["default"]);
 // server json/static file's
 app.use(express_1["default"].json());
 app.use(express_1["default"].static("./public"));

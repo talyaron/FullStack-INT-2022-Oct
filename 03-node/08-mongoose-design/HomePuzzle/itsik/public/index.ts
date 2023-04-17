@@ -45,10 +45,10 @@ function renderStudent(){
     <label for="tname" class="signup__formTeacher__label">Student Name</label>
     <input type="text" name="tname" placeholder="enter name" required class="signup__formTeacher__inputt">
     <br>
-    <label for="temail" class="signup__formTeacher__label">Teacher Email</label>
+    <label for="temail" class="signup__formTeacher__label">Student Email</label>
     <input type="email" name="temail" placeholder="enter email" required class="signup__formTeacher__inputt">
     <br>
-    <label for="tpassword" class="signup__formTeacher__label">Teacher Password</label>
+    <label for="tpassword" class="signup__formTeacher__label">Student Password</label>
     <input type="password" name="tpassword" placeholder="enter password" required class="signup__formTeacher__inputt">
     <button class="signUpBtn" onclick="signUpBtn()">Sign Up</button>
  </form>
@@ -68,7 +68,7 @@ function hendelGoback() {
 
 }
 
-function signUpBtn(){
-  if() 
+// function signUpBtn(){
+//   if() 
     
-}
+// }
