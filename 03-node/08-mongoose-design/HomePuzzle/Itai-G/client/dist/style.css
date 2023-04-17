@@ -7,6 +7,7 @@
 body {
   font-family: Arial, sans-serif;
   font-size: 16px;
+  text-align: center;
   line-height: 1.4;
   background-color: #f8f8f8;
 }
@@ -40,10 +41,10 @@ input[type=text] {
 
 button[type=submit],
 button[type=button] {
-  display: block;
-  width: 100%;
+  width: 20%;
   padding: 0.5rem;
   border: none;
+  align-items: center;
   border-radius: 4px;
   background-color: #0077ff;
   color: #fff;

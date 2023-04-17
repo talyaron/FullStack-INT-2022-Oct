@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="./dist/style.css">
   <script src="./dist/index.js" defer></script>
 </head>
-<body>
+<body onload="renderselect(event)">
   <header>
     <h1>Add Student</h1>
   </header>
@@ -21,14 +21,16 @@
     <button id="getStudentsBtn" onclick="getStudents()">Get Students</button>
     <div id="studentsList"></div>
     <h2>Add Course</h2>
-<form id="add-course-form">
-  <label for="course">Course Name:</label>
-  <input type="text" id="course" name="course">
-  <label for="student">Student:</label>
-  <select onclick="getStudents()" id="student" name="student">
-  </select>
-  <button type="submit">Add Course</button>
-</form>
+    <form id="add-course-form">
+      <label for="course">Course Name:</label>
+      <input type="text" id="course" name="course">
+      <label for="student">Student:</label>
+      <select id="select" name="select">
+        <option value="volvo">Volvo</option>
+      </select>
+      <button type="submit" onsubmit="">Add Course</button>
+    </form>
   </main>
+  
 </body>
 </html>
