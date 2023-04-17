@@ -9,8 +9,7 @@ var Port = 3030;
 // db connect
 var uri = process.env.MONGODB_URI;
 if (uri) {
-    mongoose_1["default"]
-        .connect(uri)
+    mongoose_1["default"].connect(uri)
         .then(function () {
         console.log("our db is connected");
     });

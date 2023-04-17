@@ -8,8 +8,7 @@ const Port = 3030;
 // db connect
 const uri:string | undefined = process.env.MONGODB_URI;
 if(uri){
-mongoose
-.connect(uri)
+mongoose.connect(uri)
 .then(()=>{
     console.log(`our db is connected`)
     })
