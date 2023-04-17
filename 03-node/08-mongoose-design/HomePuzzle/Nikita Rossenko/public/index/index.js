@@ -50,8 +50,24 @@ function addNewCourseDetails() {
     var addCourseButton = document.querySelector("#add_course");
     var addCourseDetails = document.querySelector(".addCourseDetails_container");
     if (addCourseButton && !addCourseDetails) {
-        addCourseButton.insertAdjacentHTML("afterend", '<div class="addCourseDetails_container"><p>Course Name</p><form onsubmit=addNewCourse()><input type="text" name="newCourseName" id="newCourseName" placeholder="Math..."><button type="submit">Add</button></form></div>');
+        addCourseButton.insertAdjacentHTML("afterend", '<div class="addCourseDetails_container"><p>Course Name</p><form onsubmit=addNewCourse(event)><input type="text" name="newCourseName" id="newCourseName" placeholder="Math..."><button type="submit">Add</button></form></div>');
     }
 }
-function addNewCourse() {
+function addNewCourse(e) {
+    e.preventDefault();
+    var newCourseName = e.target.elements.newCourseName.value;
+    fetch("/api/v1/add-course", {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ newCourseName: newCourseName })
+    })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+        console.log(data);
+    })["catch"](function (error) {
+        console.error(error);
+    });
 }

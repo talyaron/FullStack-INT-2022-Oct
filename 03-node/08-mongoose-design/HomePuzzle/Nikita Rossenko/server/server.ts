@@ -46,6 +46,19 @@ app.post("/api/v1/add-teacher", async (req,res) => {
         res.status(500).send({ok:false})
     }
 })
+
+app.post("/api/v1/add-course", async (req,res) => {
+    const {newCourseName, teacherId} = req.body;
+    const teacherExists = await CourseModel.findOne({name:newCourseName, teacher:teacherId})
+    if (teacherExists == null){
+        const teacherCreation = await TeacherModel.create({name:teacherUsername})
+        res.status(201).send({ok:true})
+    }
+    else {
+        res.status(500).send({ok:false})
+    }
+})
+
 app.post("/api/v1/get-courses", async (req,res) => {
     const {teacherUsername} = req.body;
     const courses = await CourseModel.find({teacher:teacherUsername})
