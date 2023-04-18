@@ -2,22 +2,22 @@ import StudentModel from "../students/studentsModel";
 import GradeModel from "./gradesModel";
 import { v4 as uuidv4 } from "uuid";
 
-// export const getStudentGradesInCourse = async (req: any, res: any) => {
-//   try {
-//     //got from the client
-//     const { courses, student } = req.query;
-
-//     const grades = await GradeModel.find({
-//       courses: { name: courses },
-//       student: { name: student },
-//     });
-//     res.send({ grades });
-//     console.log(grades);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// };
+export const getStudentGradesInCourse = async (req: any, res: any) => {
+  try {
+    //got from the client
+    const { courses, student } = req.query;
+    
+    const grades = await GradeModel.find({
+      courses: { _id: courses },
+      student: { _id: student },
+    });
+    console.log(grades);
+    res.send({ grades });
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+};
 
 export const addMockGrades = async (req: any, res: any) => {
   const newGrades = await GradeModel.create({

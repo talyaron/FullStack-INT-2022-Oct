@@ -36,24 +36,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getGradesByStudentId = exports.addMockGrades = void 0;
+exports.getGradesByStudentId = exports.addMockGrades = exports.getStudentGradesInCourse = void 0;
 var gradesModel_1 = require("./gradesModel");
 var uuid_1 = require("uuid");
-// export const getStudentGradesInCourse = async (req: any, res: any) => {
-//   try {
-//     //got from the client
-//     const { courses, student } = req.query;
-//     const grades = await GradeModel.find({
-//       courses: { name: courses },
-//       student: { name: student },
-//     });
-//     res.send({ grades });
-//     console.log(grades);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// };
+exports.getStudentGradesInCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, courses, student, grades, error_1;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                _a = req.query, courses = _a.courses, student = _a.student;
+                return [4 /*yield*/, gradesModel_1["default"].find({
+                        courses: { _id: courses },
+                        student: { _id: student }
+                    })];
+            case 1:
+                grades = _b.sent();
+                console.log(grades);
+                res.send({ grades: grades });
+                return [3 /*break*/, 3];
+            case 2:
+                error_1 = _b.sent();
+                console.error(error_1);
+                res.status(500).send({ error: error_1.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
 exports.addMockGrades = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var newGrades;
     return __generator(this, function (_a) {
@@ -70,7 +80,7 @@ exports.addMockGrades = function (req, res) { return __awaiter(void 0, void 0, v
     });
 }); };
 exports.getGradesByStudentId = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var studentId, grades, error_1;
+    var studentId, grades, error_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -82,9 +92,9 @@ exports.getGradesByStudentId = function (req, res) { return __awaiter(void 0, vo
                 res.send({ grades: grades });
                 return [3 /*break*/, 3];
             case 2:
-                error_1 = _a.sent();
-                console.error(error_1);
-                res.status(500).send({ error: error_1.message });
+                error_2 = _a.sent();
+                console.error(error_2);
+                res.status(500).send({ error: error_2.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }
