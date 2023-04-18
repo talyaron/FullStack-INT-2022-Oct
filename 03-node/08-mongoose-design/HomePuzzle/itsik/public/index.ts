@@ -43,7 +43,7 @@ function renderStudent(){
     <button class="goBackBtn" onclick="hendelGoback()">go back</button>
     <form class="signup__formTeacher">
     <label for="tname" class="signup__formTeacher__label">Student Name</label>
-    <input type="text" name="tname" placeholder="enter name" required class="signup__formTeacher__inputt">
+    <input id="nameInput" type="text" name="tname" placeholder="enter name" required class="signup__formTeacher__inputt">
     <br>
     <label for="temail" class="signup__formTeacher__label">Student Email</label>
     <input type="email" name="temail" placeholder="enter email" required class="signup__formTeacher__inputt">
@@ -68,7 +68,25 @@ function hendelGoback() {
 
 }
 
-// function signUpBtn(){
-//   if() 
+async function signUpBtn(){
+   let nameInput = document.getElementById("nameInput")!.value
+   const options = {
+   method: 'POST',
+   headers: {
+       'Content-Type': 'application/json' ,
+       'Set-Cookie': 'token = 33'
+   },
+   body: JSON.stringify({ data : nameInput, })
+}
+try {
+   let result = await fetch(`localhost:3000/one`, options);
+   result = await result.json();
+   console.log(result)
+   
+}
+catch (err){
+   console.log(err)
+   console.log("no");
+}
     
-// }
+}
