@@ -30,7 +30,6 @@ function hendelGoback() {
     var divteacher = document.querySelector(".divteacher");
     divteacher.style.display = "none";
 }
-function signUpBtn() {
-    if ()
-        ;
-}
+// function signUpBtn(){
+//   if() 
+// }

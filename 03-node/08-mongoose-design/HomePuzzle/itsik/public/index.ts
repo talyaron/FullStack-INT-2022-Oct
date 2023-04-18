@@ -1,3 +1,10 @@
+interface User {
+   name: string;
+   password: string | number;
+  
+ }
+
+
 const tbsu = document.querySelector(".teacherbtn")as HTMLButtonElement;
 const sbsu = document.querySelector(".studentbtn")as HTMLButtonElement;
 tbsu.addEventListener("click", renderTeacher)
@@ -68,7 +75,7 @@ function hendelGoback() {
 
 }
 
-function signUpBtn(){
-  if() 
+// function signUpBtn(){
+//   if() 
     
-}
+// }
