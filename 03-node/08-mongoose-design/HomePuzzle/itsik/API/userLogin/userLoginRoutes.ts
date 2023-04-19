@@ -1,7 +1,9 @@
 import express from "express";
 const router = express.Router();
-import userRegister from "./userLoginModel";
+import { addUser } from "./userLoginControlls"
+
+router.post("/signUp", addUser)
+
 
 
 export default router;
-
