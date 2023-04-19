@@ -1,17 +1,12 @@
 import mongoose, {Schema}  from "mongoose";
 
-interface userLogin {
-
-    name:string;
-    password:string | number;
-}
-
 
 const userLoginSchema = new Schema({
     name: String,
-    password: Number,
+    password: String,
+    email: String,
 });
 
-const userRegister = mongoose.model("userLogin", userLoginSchema);
+const userRegister = mongoose.model("userlogins", userLoginSchema);
 
 export default userRegister;

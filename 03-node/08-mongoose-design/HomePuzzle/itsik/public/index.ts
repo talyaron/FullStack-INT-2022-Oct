@@ -24,7 +24,7 @@ function renderTeacher(){
     <br>
     <label for="tpassword" class="signup__formTeacher__label">Student Password</label>
     <input id="namePassword" type="password" name="tpassword" placeholder="enter password" required class="signup__formTeacher__inputt">
-    <button class="signUpBtn" onclick="signUpBtn()">Sign Up</button>
+    <button type="button" class="signUpBtn" onclick="signUpBtn()">Sign Up</button>
  </form>`
 
     divteacher.innerHTML = html
@@ -49,7 +49,7 @@ function renderStudent(){
     <br>
     <label for="tpassword" class="signup__formTeacher__label">Student Password</label>
     <input id="namePassword" type="password" name="tpassword" placeholder="enter password" required class="signup__formTeacher__inputt">
-    <button class="signUpBtn" onclick="signUpBtn()">Sign Up</button>
+    <button type="button" class="signUpBtn" onclick="signUpBtn()">Sign Up</button>
  </form>
  `
 
@@ -69,16 +69,19 @@ function hendelGoback() {
 
 async function signUpBtn(){
    let nameInput = document.getElementById("nameInput")as HTMLInputElement
+   let namePassword = document.getElementById("namePassword")as HTMLInputElement
+   let nameEmail = document.getElementById("nameEmail")as HTMLInputElement
    const options = {
    method: 'POST',
    headers: {
        'Content-Type': 'application/json' ,
        'Set-Cookie': 'token = 33'
    },
-   body: JSON.stringify({ data : nameInput.value, })
+   body: JSON.stringify({ name: nameInput.value, password: namePassword.value, email: nameEmail.value })
 }
+
 try {
-   let result = await fetch(`localhost:3000/one`, options);
+   let result = await fetch(`http://localhost:3000/API/userLogin/signUp`, options);
    result = await result.json();
    console.log(result)
    

@@ -3,7 +3,8 @@ exports.__esModule = true;
 var mongoose_1 = require("mongoose");
 var userLoginSchema = new mongoose_1.Schema({
     name: String,
-    password: Number
+    password: String,
+    email: String
 });
-var userRegister = mongoose_1["default"].model("userLogin", userLoginSchema);
+var userRegister = mongoose_1["default"].model("userlogins", userLoginSchema);
 exports["default"] = userRegister;

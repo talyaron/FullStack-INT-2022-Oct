@@ -45,7 +45,7 @@ function renderTeacher() {
     divteacher.style.display = "flex";
     var divstudent = document.querySelector(".divstudent");
     divstudent.style.display = "none";
-    var html = "\n <button class=\"goBackBtn\" onclick=\"hendelGoback()\">go back</button>\n    <form class=\"signup__formTeacher\">\n    <label for=\"tname\" class=\"signup__formTeacher__label\">Student Name</label>\n    <input id=\"nameInput\" type=\"text\" name=\"tname\" placeholder=\"enter name\" required class=\"signup__formTeacher__inputt\">\n    <br>\n    <label for=\"temail\" class=\"signup__formTeacher__label\">Student Email</label>\n    <input id=\"nameEmail\" type=\"email\" name=\"temail\" placeholder=\"enter email\" required class=\"signup__formTeacher__inputt\">\n    <br>\n    <label for=\"tpassword\" class=\"signup__formTeacher__label\">Student Password</label>\n    <input id=\"namePassword\" type=\"password\" name=\"tpassword\" placeholder=\"enter password\" required class=\"signup__formTeacher__inputt\">\n    <button class=\"signUpBtn\" onclick=\"signUpBtn()\">Sign Up</button>\n </form>";
+    var html = "\n <button class=\"goBackBtn\" onclick=\"hendelGoback()\">go back</button>\n    <form class=\"signup__formTeacher\">\n    <label for=\"tname\" class=\"signup__formTeacher__label\">Student Name</label>\n    <input id=\"nameInput\" type=\"text\" name=\"tname\" placeholder=\"enter name\" required class=\"signup__formTeacher__inputt\">\n    <br>\n    <label for=\"temail\" class=\"signup__formTeacher__label\">Student Email</label>\n    <input id=\"nameEmail\" type=\"email\" name=\"temail\" placeholder=\"enter email\" required class=\"signup__formTeacher__inputt\">\n    <br>\n    <label for=\"tpassword\" class=\"signup__formTeacher__label\">Student Password</label>\n    <input id=\"namePassword\" type=\"password\" name=\"tpassword\" placeholder=\"enter password\" required class=\"signup__formTeacher__inputt\">\n    <button type=\"button\" class=\"signUpBtn\" onclick=\"signUpBtn()\">Sign Up</button>\n </form>";
     divteacher.innerHTML = html;
 }
 function renderStudent() {
@@ -55,7 +55,7 @@ function renderStudent() {
     divstudent.style.display = "flex";
     var divteacher = document.querySelector(".divteacher");
     divteacher.style.display = "none";
-    var html = "\n    <button class=\"goBackBtn\" onclick=\"hendelGoback()\">go back</button>\n    <form class=\"signup__formTeacher\">\n    <label for=\"tname\" class=\"signup__formTeacher__label\">Student Name</label>\n    <input id=\"nameInput\" type=\"text\" name=\"tname\" placeholder=\"enter name\" required class=\"signup__formTeacher__inputt\">\n    <br>\n    <label for=\"temail\" class=\"signup__formTeacher__label\">Student Email</label>\n    <input id=\"nameEmail\" type=\"email\" name=\"temail\" placeholder=\"enter email\" required class=\"signup__formTeacher__inputt\">\n    <br>\n    <label for=\"tpassword\" class=\"signup__formTeacher__label\">Student Password</label>\n    <input id=\"namePassword\" type=\"password\" name=\"tpassword\" placeholder=\"enter password\" required class=\"signup__formTeacher__inputt\">\n    <button class=\"signUpBtn\" onclick=\"signUpBtn()\">Sign Up</button>\n </form>\n ";
+    var html = "\n    <button class=\"goBackBtn\" onclick=\"hendelGoback()\">go back</button>\n    <form class=\"signup__formTeacher\">\n    <label for=\"tname\" class=\"signup__formTeacher__label\">Student Name</label>\n    <input id=\"nameInput\" type=\"text\" name=\"tname\" placeholder=\"enter name\" required class=\"signup__formTeacher__inputt\">\n    <br>\n    <label for=\"temail\" class=\"signup__formTeacher__label\">Student Email</label>\n    <input id=\"nameEmail\" type=\"email\" name=\"temail\" placeholder=\"enter email\" required class=\"signup__formTeacher__inputt\">\n    <br>\n    <label for=\"tpassword\" class=\"signup__formTeacher__label\">Student Password</label>\n    <input id=\"namePassword\" type=\"password\" name=\"tpassword\" placeholder=\"enter password\" required class=\"signup__formTeacher__inputt\">\n    <button type=\"button\" class=\"signUpBtn\" onclick=\"signUpBtn()\">Sign Up</button>\n </form>\n ";
     divstudent.innerHTML = html;
 }
 function hendelGoback() {
@@ -68,23 +68,25 @@ function hendelGoback() {
 }
 function signUpBtn() {
     return __awaiter(this, void 0, void 0, function () {
-        var nameInput, options, result, err_1;
+        var nameInput, namePassword, nameEmail, options, result, err_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     nameInput = document.getElementById("nameInput");
+                    namePassword = document.getElementById("namePassword");
+                    nameEmail = document.getElementById("nameEmail");
                     options = {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                             'Set-Cookie': 'token = 33'
                         },
-                        body: JSON.stringify({ data: nameInput.value })
+                        body: JSON.stringify({ name: nameInput.value, password: namePassword.value, email: nameEmail.value })
                     };
                     _a.label = 1;
                 case 1:
                     _a.trys.push([1, 4, , 5]);
-                    return [4 /*yield*/, fetch("localhost:3000/one", options)];
+                    return [4 /*yield*/, fetch("http://localhost:3000/API/userLogin/signUp", options)];
                 case 2:
                     result = _a.sent();
                     return [4 /*yield*/, result.json()];
