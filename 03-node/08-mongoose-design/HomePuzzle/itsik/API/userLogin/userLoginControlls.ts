@@ -18,19 +18,7 @@ export const addUser = async (req:any, res:any) => {
     console.error(error);
     res.status(500).send({ error: error.message });
   }
-
-
-
-
-
 }
-
-
-
-
-
-
-
 
 // export const addUser = async (req:any, res:any) => {
 //     try {

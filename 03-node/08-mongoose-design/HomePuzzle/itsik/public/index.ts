@@ -4,15 +4,12 @@ interface User {
    email?: string;
   
  }
-
-
 const tbsu = document.querySelector(".teacherbtn")as HTMLButtonElement;
 const sbsu = document.querySelector(".studentbtn")as HTMLButtonElement;
 tbsu.addEventListener("click", renderTeacher)
 sbsu.addEventListener("click", renderStudent)
 
     
-
 function renderTeacher(){
  const choose = document.querySelector(".chooseOne")as HTMLDivElement;
  choose.style.display = "none";
@@ -108,29 +105,6 @@ function signUpBtn(ev: any) {
    }
  }
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // async function signUpBtn(){
 //    let nameInput = document.getElementById("nameInput")as HTMLInputElement
