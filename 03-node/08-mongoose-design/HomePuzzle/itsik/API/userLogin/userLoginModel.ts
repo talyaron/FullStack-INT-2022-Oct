@@ -1,7 +1,7 @@
 import mongoose, {Schema}  from "mongoose";
 
 
-const userLoginSchema = new Schema({
+export const userLoginSchema = new Schema({
     name: String,
     password: String,
     email: String,

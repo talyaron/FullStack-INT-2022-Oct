@@ -1,3 +1,11 @@
+interface User {
+   name: string;
+   password: string;
+   email?: string;
+  
+ }
+
+
 const tbsu = document.querySelector(".teacherbtn")as HTMLButtonElement;
 const sbsu = document.querySelector(".studentbtn")as HTMLButtonElement;
 tbsu.addEventListener("click", renderTeacher)
@@ -67,28 +75,85 @@ function hendelGoback() {
 
 }
 
-async function signUpBtn(){
-   let nameInput = document.getElementById("nameInput")as HTMLInputElement
-   let namePassword = document.getElementById("namePassword")as HTMLInputElement
-   let nameEmail = document.getElementById("nameEmail")as HTMLInputElement
-   const options = {
-   method: 'POST',
-   headers: {
-       'Content-Type': 'application/json' ,
-       'Set-Cookie': 'token = 33'
-   },
-   body: JSON.stringify({ name: nameInput.value, password: namePassword.value, email: nameEmail.value })
-}
 
-try {
-   let result = await fetch(`http://localhost:3000/API/userLogin/signUp`, options);
-   result = await result.json();
-   console.log(result)
+function signUpBtn(ev: any) {
+   try {
+    //  ev.preventDefault();
+     const name = ev.target.elements.name.value;
+     const password= ev.target.elements.password.value;
+     const email= ev.target.elements.email.value;
+     if (!name) throw new Error("No name");
+     if (!password) throw new Error("No password");
+     if (!email) throw new Error("No email insert");
+     const newUser: any = { name, password, email };
+ 
+     //send to server:
+     fetch("http://localhost:3000/API/userLogin/signUp", {
+       method: "POST",
+       headers: {
+         Accept: "application/json",
+         "Content-Type": "application/json",
+       },
+       body: JSON.stringify(newUser),
+     })
+       .then((res) => res.json())
+       .then((data) => {
+         console.log(data);
+       })
+       .catch((error) => {
+         console.error(error);
+       });
+   } catch (error) {
+     console.error(error);
+   }
+ }
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// async function signUpBtn(){
+//    let nameInput = document.getElementById("nameInput")as HTMLInputElement
+//    let namePassword = document.getElementById("namePassword")as HTMLInputElement
+//    let nameEmail = document.getElementById("nameEmail")as HTMLInputElement
+//    const options = {
+//    method: 'POST',
+//    headers: {
+//        'Content-Type': 'application/json' ,
+//        'Set-Cookie': 'token = 33'
+//    },
+//    body: JSON.stringify({ name: nameInput.value, password: namePassword.value, email: nameEmail.value })
+// }
+
+// try {
+//    let result = await fetch(`http://localhost:3000/API/userLogin/signUp`, options);
+//    result = await result.json();
+//    console.log(result)
    
-}
-catch (err){
-   console.log(err)
-   console.log("no");
-}
+// }
+// catch (err){
+//    console.log(err)
+//    console.log("no");
+// }
     
-}
+// }

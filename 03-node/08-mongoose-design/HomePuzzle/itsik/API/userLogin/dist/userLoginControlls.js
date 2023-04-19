@@ -37,28 +37,23 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.addUser = void 0;
-var mongoose_1 = require("mongoose");
 var userLoginModel_1 = require("./userLoginModel");
 exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var name, password, email, userDB, connection, error_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var _a, name, password, email, userDB, error_1;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                name = req.body.name;
-                password = req.body.password;
-                email = req.body.email;
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, name = _a.name, password = _a.password, email = _a.email;
                 console.log(name, password, email);
                 return [4 /*yield*/, userLoginModel_1["default"].create({ name: name, password: password, email: email })];
             case 1:
-                userDB = _a.sent();
+                userDB = _b.sent();
                 console.log(userDB);
-                connection = mongoose_1["default"].connection;
-                connection.collection("userlogins").insertOne(userDB);
                 res.status(201).send({ ok: true });
                 return [3 /*break*/, 3];
             case 2:
-                error_1 = _a.sent();
+                error_1 = _b.sent();
                 console.error(error_1);
                 res.status(500).send({ error: error_1.message });
                 return [3 /*break*/, 3];
@@ -66,3 +61,20 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
         }
     });
 }); };
+// export const addUser = async (req:any, res:any) => {
+//     try {
+//       const name = req.body.name
+//       const password = req.body.password
+//       const email = req.body.email
+//       console.log(name, password, email);
+//       //add users to DB;
+//       const userDB = await userRegister.create({ name, password, email });
+//       console.log(userDB);
+//        const connection = mongoose.connection;
+//        connection.collection("userlogins").insertOne(userDB)
+//       res.status(201).send({ ok: true });
+//     } catch (error: any) {
+//       console.error(error);
+//       res.status(500).send({ error: error.message });
+//     }
+//   };
