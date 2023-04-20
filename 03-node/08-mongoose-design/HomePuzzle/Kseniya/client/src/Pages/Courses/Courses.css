@@ -1,0 +1,21 @@
+.addCourseBtn{
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem 3rem 0 3rem ;
+}
+
+.subTitle{
+    font-size: 2rem;
+}
+
+.singleCourseWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 15rem;
+}
+
+.singleCourse{
+    margin: 0 0 0 3rem;
+    font-size: 1.5rem;
+}

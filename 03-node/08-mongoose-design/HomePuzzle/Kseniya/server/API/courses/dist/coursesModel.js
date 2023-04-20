@@ -1,9 +1,18 @@
 "use strict";
 exports.__esModule = true;
-exports.CourseSchema = void 0;
+exports.courseSchema = void 0;
 var mongoose_1 = require("mongoose");
-exports.CourseSchema = new mongoose_1.Schema({
-    name: String
+exports.courseSchema = new mongoose_1.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    students: [
+        {
+            type: mongoose_1.Schema.Types.ObjectId,
+            ref: 'Student'
+        }
+    ]
 });
-var CourseModel = mongoose_1["default"].model("courses", exports.CourseSchema);
+var CourseModel = mongoose_1["default"].model("Course", exports.courseSchema);
 exports["default"] = CourseModel;

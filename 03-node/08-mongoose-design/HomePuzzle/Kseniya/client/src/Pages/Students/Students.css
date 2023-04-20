@@ -1,0 +1,18 @@
+.studentsWrapper{
+    text-align: center
+}
+
+.title{
+    font-size: 3rem;
+}
+
+.student{
+    font-size: 2rem;
+
+}
+
+.studentWrapper{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
