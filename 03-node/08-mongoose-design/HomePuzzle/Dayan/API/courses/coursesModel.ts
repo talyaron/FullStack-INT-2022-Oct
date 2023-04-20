@@ -53,9 +53,6 @@ export const CourseSchema = new Schema(
               default: [],
             },
         ],
-    },
-    { 
-        timestamps: true
     }
 )
 

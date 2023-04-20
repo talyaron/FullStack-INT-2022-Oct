@@ -43,9 +43,6 @@ export const AdminSchema = new Schema<AdminDoc>(
             type: String,
             default: "admin"
         },
-    },
-    {
-        timestamps:true
     }
 )
 

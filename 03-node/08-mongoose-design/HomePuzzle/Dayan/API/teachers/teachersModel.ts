@@ -49,9 +49,6 @@ export const TeacherSchema = new Schema(
         course: {
             type: String,
         },
-    },
-    {
-        timestamps: true,
     }
 )
 

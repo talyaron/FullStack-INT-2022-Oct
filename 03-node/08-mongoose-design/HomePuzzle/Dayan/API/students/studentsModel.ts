@@ -52,9 +52,6 @@ export const StudentSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: "Course"
         },
-    },
-    {
-        timestamps: true,
     }
 )
 

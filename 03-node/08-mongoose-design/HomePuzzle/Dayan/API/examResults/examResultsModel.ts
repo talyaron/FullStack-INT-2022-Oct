@@ -28,9 +28,6 @@ export const ExamResultSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: "Subject",
         },
-    },
-    {
-        timestamps: true,
     }
 )
 

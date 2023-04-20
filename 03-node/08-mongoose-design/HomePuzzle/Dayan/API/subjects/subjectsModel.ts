@@ -19,9 +19,6 @@ export const SubjetSchema = new Schema(
               ref: "Teacher",
             },
         ],
-    },
-    { 
-        timestamps: true
     }
 )
 
