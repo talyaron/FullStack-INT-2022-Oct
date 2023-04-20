@@ -14,6 +14,7 @@ export const getUsers = async (req:any, res:any) => {
 
 export const addUser = async (req:any, res:any) => {
   try {
+
     const { name, src } = req.body;
     console.log(name, src);
 

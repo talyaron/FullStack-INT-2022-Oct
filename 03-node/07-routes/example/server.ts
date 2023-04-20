@@ -6,6 +6,7 @@ dotenv.config();
 
 const uri: string | undefined = process.env.MONGODB_URI;
 
+
 //to be able to get data from client add this line
 app.use(express.json());
 
