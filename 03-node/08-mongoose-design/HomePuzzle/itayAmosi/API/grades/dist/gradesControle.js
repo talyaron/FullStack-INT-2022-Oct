@@ -41,14 +41,13 @@ var gradesModel_1 = require("./gradesModel");
 var uuid_1 = require("uuid");
 // export const getStudentGradesInCourse = async (req: any, res: any) => {
 //   try {
-//     //got from the client
-//     const { courses, student } = req.query;
+//     const { courseId, studentId } = req.query;
+// if(!courseId || !studentId){ throw new Error(`Student and course not found`)}
 //     const grades = await GradeModel.find({
-//       courses: { name: courses },
-//       student: { name: student },
+//       course: { _id: courseId },
+//       user: { _id: studentId },
 //     });
 //     res.send({ grades });
-//     console.log(grades);
 //   } catch (error) {
 //     console.error(error);
 //     res.status(500).send({ error: error.message });

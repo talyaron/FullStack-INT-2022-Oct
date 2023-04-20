@@ -4,9 +4,10 @@ import { addCourse, updateCourse, deleteCourse } from "./coursesControl";
 
 const router = express.Router();
 
-router.post('/add-course',addCourse);
-router.put('/update-course',updateCourse);
-router.delete('./delete',deleteCourse);
+router
+.post('/add-course',addCourse)
+.put('/update-course',updateCourse)
+.delete('/delete-course', deleteCourse)
 
 
 export default router;

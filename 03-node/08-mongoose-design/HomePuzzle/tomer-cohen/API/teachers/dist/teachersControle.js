@@ -40,23 +40,37 @@ exports.updateTeacherName = exports.deleteTeacher = exports.getTeacher = exports
 var teachersModel_1 = require("./teachersModel");
 var uuid_1 = require("uuid");
 exports.addMockTeacher = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var newTeacher, error_1;
+    var newTeacher;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, teachersModel_1["default"].create({
-                        uid: uuid_1.v4(),
-                        name: " teacher_" + uuid_1.v4().slice(0, 7),
-                        lastName: uuid_1.v4().slice(0, 7)
-                    })];
+            case 0: return [4 /*yield*/, teachersModel_1["default"].create({
+                    uid: uuid_1.v4(),
+                    name: "teacher_" + uuid_1.v4().slice(0, 7),
+                    lastName: uuid_1.v4().slice(0, 7),
+                    courses: ["64383c4308c863c15e9fb645", "64383c4608c863c15e9fb647", "64383c4608c863c15e9fb649", "64383c4608c863c15e9fb64b"]
+                })];
             case 1:
                 newTeacher = _a.sent();
-                console.log(newTeacher);
                 res.status(200).send({ ok: true, newTeacher: newTeacher });
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.getTeacher = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var filterQuery, teachers, error_1;
+    var _a;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                filterQuery = (_a = req.query) !== null && _a !== void 0 ? _a : {};
+                return [4 /*yield*/, teachersModel_1["default"].find(filterQuery)];
+            case 1:
+                teachers = _b.sent();
+                res.send({ teachers: teachers });
                 return [3 /*break*/, 3];
             case 2:
-                error_1 = _a.sent();
+                error_1 = _b.sent();
                 console.error(error_1);
                 res.status(500).send({ error: error_1.message });
                 return [3 /*break*/, 3];
@@ -64,16 +78,19 @@ exports.addMockTeacher = function (req, res) { return __awaiter(void 0, void 0, 
         }
     });
 }); };
-exports.getTeacher = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var teachers, error_2;
+exports.deleteTeacher = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _id, error_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, teachersModel_1["default"].find({})];
+                _id = req.query._id;
+                if (!_id)
+                    throw new Error("Invalid to find _id");
+                return [4 /*yield*/, teachersModel_1["default"].deleteOne({ _id: _id })];
             case 1:
-                teachers = _a.sent();
-                res.send({ teachers: teachers });
+                _a.sent();
+                res.sendStatus(200);
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _a.sent();
@@ -84,38 +101,13 @@ exports.getTeacher = function (req, res) { return __awaiter(void 0, void 0, void
         }
     });
 }); };
-exports.deleteTeacher = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _id, error_3;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 2, , 3]);
-                _id = req.query._id;
-                if (!_id)
-                    throw new Error("now id find");
-                return [4 /*yield*/, teachersModel_1["default"].deleteOne({ _id: _id })];
-            case 1:
-                _a.sent();
-                console.log(_id);
-                res.sendStatus(200);
-                return [3 /*break*/, 3];
-            case 2:
-                error_3 = _a.sent();
-                console.error(error_3);
-                res.status(500).send({ error: error_3.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
-        }
-    });
-}); };
 exports.updateTeacherName = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, _id, teacher, error_4;
+    var _a, name, _id, teacher, error_3;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
                 _a = req.query, name = _a.name, _id = _a._id;
-                console.log(name, _id);
                 if (!name)
                     throw new Error("No name in data");
                 if (!_id)
@@ -128,9 +120,9 @@ exports.updateTeacherName = function (req, res) { return __awaiter(void 0, void 
                 res.send({ ok: true });
                 return [3 /*break*/, 3];
             case 2:
-                error_4 = _b.sent();
-                console.error(error_4);
-                res.status(500).send({ error: error_4.message });
+                error_3 = _b.sent();
+                console.error(error_3);
+                res.status(500).send({ error: error_3.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }

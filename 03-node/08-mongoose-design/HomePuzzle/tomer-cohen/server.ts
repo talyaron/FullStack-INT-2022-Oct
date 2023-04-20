@@ -23,7 +23,7 @@ if (uri) {
 }
 
 
-import studentsRouter from './API/student/studentRoute';
+import studentsRouter from './API/students/studentsRoute';
 app.use('/api/students', studentsRouter);
 
 
@@ -40,6 +40,6 @@ app.use('/api/grades', gradesRouter);
 
 app.use(express.static(`./public`));
 
-app.listen(3000, () => {
-  console.log("server listen on port 000");
+app.listen(4000, () => {
+  console.log("server listen on port 4000");
 });

@@ -36,48 +36,40 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getCourse = exports.addMockCourse = void 0;
+exports.getCoursesByIds = exports.addMockCourse = void 0;
 var coursesModel_1 = require("./coursesModel");
 var uuid_1 = require("uuid");
 exports.addMockCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var newCourse, error_1;
+    var newCourse;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, coursesModel_1["default"].create({
-                        uid: uuid_1.v4(),
-                        name: "English Class"
-                    })];
+            case 0: return [4 /*yield*/, coursesModel_1["default"].create({
+                    uid: uuid_1.v4(),
+                    name: "English Class"
+                })];
             case 1:
                 newCourse = _a.sent();
-                console.log(newCourse);
                 res.status(200).send({ ok: true, newCourse: newCourse });
-                return [3 /*break*/, 3];
-            case 2:
-                error_1 = _a.sent();
-                console.error(error_1);
-                res.status(500).send({ error: error_1.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [2 /*return*/];
         }
     });
 }); };
-exports.getCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var courses, error_2;
+exports.getCoursesByIds = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var ids, courses, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, coursesModel_1["default"].find({})];
+                ids = req.query.ids.split(',');
+                return [4 /*yield*/, coursesModel_1["default"].find({ _id: { $in: ids } })];
             case 1:
                 courses = _a.sent();
                 res.send({ courses: courses });
                 return [3 /*break*/, 3];
             case 2:
-                error_2 = _a.sent();
-                console.error(error_2);
-                res.status(500).send({ error: error_2.message });
+                error_1 = _a.sent();
+                console.error(error_1);
+                res.status(500).send({ error: error_1.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }

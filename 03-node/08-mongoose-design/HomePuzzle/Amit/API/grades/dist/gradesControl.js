@@ -62,7 +62,7 @@ exports.addGrade = function (req, res) { return __awaiter(void 0, void 0, void 0
                 if (!course)
                     throw new Error("no course found");
                 courseIndex = student.courses.findIndex(function (course) { var _a; return ((_a = course._id) === null || _a === void 0 ? void 0 : _a.toString()) === courseId_1.toString(); });
-                if ((!courseIndex) && (courseIndex !== 0))
+                if (courseIndex !== 0)
                     throw new Error("no course index found");
                 return [4 /*yield*/, gradesModel_1["default"].create({ grade: undefined })];
             case 3:
