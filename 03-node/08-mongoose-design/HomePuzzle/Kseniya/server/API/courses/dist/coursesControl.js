@@ -44,9 +44,10 @@ exports.getCourses = function (req, res) { return __awaiter(void 0, void 0, void
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, coursesModel_1["default"].find({})];
+                return [4 /*yield*/, coursesModel_1["default"].find({}).populate('students').exec()];
             case 1:
                 courses = _a.sent();
+                console.log(courses);
                 res.send(courses);
                 return [2 /*return*/, courses];
             case 2:
@@ -108,15 +109,15 @@ exports.updateCourse = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.deleteCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _id, deletedUser, courses, error_3;
+    var _id, deleteCourse_1, courses, error_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 3, , 4]);
-                _id = req.body._id;
+                _id = req.params._id;
                 return [4 /*yield*/, coursesModel_1["default"].deleteOne({ _id: _id })];
             case 1:
-                deletedUser = _a.sent();
+                deleteCourse_1 = _a.sent();
                 return [4 /*yield*/, coursesModel_1["default"].find({})];
             case 2:
                 courses = _a.sent();

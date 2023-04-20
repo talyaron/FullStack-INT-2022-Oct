@@ -1,0 +1,17 @@
+.addStudentWrapper{
+text-align: center;
+align-items: center;
+display: flex;
+justify-content: center;
+}
+
+.pageTitle{
+    font-size: 3rem;
+}
+
+.field{
+    margin-bottom: 2rem;
+}
+
+
+

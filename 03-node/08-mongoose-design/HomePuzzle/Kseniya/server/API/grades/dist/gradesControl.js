@@ -36,10 +36,30 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.deleteGrade = exports.updateGrade = exports.addGrade = void 0;
+exports.deleteGrade = exports.updateGrade = exports.addGrade = exports.getGrades = void 0;
 var gradesModel_1 = require("./gradesModel");
+exports.getGrades = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var grades, error_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, gradesModel_1["default"].find({}).populate('courses').exec()];
+            case 1:
+                grades = _a.sent();
+                res.send(grades);
+                return [2 /*return*/, grades];
+            case 2:
+                error_1 = _a.sent();
+                console.error(error_1);
+                res.status(500).send({ error: error_1.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
 exports.addGrade = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, grade, student, course, gradeDB, error_1;
+    var _a, grade, student, course, gradeDB, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -51,9 +71,9 @@ exports.addGrade = function (req, res) { return __awaiter(void 0, void 0, void 0
                 res.status(201).send({ ok: true });
                 return [3 /*break*/, 3];
             case 2:
-                error_1 = _b.sent();
-                console.error(error_1);
-                res.status(500).send({ error: error_1.message });
+                error_2 = _b.sent();
+                console.error(error_2);
+                res.status(500).send({ error: error_2.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }
@@ -78,7 +98,7 @@ exports.updateGrade = function (req, res) { return __awaiter(void 0, void 0, voi
     });
 }); };
 exports.deleteGrade = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _id, deletedGrade, grades, error_2;
+    var _id, deletedGrade, grades, error_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -93,9 +113,9 @@ exports.deleteGrade = function (req, res) { return __awaiter(void 0, void 0, voi
                 res.send({ ok: true, grades: grades });
                 return [3 /*break*/, 4];
             case 3:
-                error_2 = _a.sent();
-                console.error(error_2);
-                res.status(500).send({ error: error_2.message });
+                error_3 = _a.sent();
+                console.error(error_3);
+                res.status(500).send({ error: error_3.message });
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }
