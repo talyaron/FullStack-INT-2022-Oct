@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getstudentsforselect = exports.deleteStudent = exports.updateStudentName = exports.getStudents = exports.addStudent = void 0;
+exports.deleteStudent = exports.updateStudentName = exports.getStudents = exports.addStudent = void 0;
 var studentModel_1 = require("./studentModel");
 exports.addStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var name, studentDB, error_1;
@@ -147,17 +147,5 @@ exports.deleteStudent = function (req, res) { return __awaiter(void 0, void 0, v
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }
-    });
-}); };
-exports.getstudentsforselect = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var students;
-    return __generator(this, function (_a) {
-        try {
-            students = studentModel_1["default"].find({});
-            res.send({ students: students });
-        }
-        catch (error) {
-        }
-        return [2 /*return*/];
     });
 }); };

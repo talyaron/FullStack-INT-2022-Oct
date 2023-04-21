@@ -25,8 +25,8 @@ var studentsRoute_1 = require("./API/students/studentsRoute");
 app.use('/students', studentsRoute_1["default"]);
 var coursesRoute_1 = require("./API/courses/coursesRoute");
 app.use('/courses', coursesRoute_1["default"]);
-var gradesRoute_1 = require("./API/grades/gradesRoute");
-app.use('/grades', gradesRoute_1["default"]);
+// import gradesRouter from './API/grades/gradesRoute';
+// app.use('/grades', gradesRouter);
 app.listen(3001, function () {
     console.log("server listen on port 3001");
 });

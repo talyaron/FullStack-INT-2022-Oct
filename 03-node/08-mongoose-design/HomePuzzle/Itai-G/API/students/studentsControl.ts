@@ -65,14 +65,3 @@ export const deleteStudent = async (req:any , res:any) => {
       res.status(500).send({ error: error.message });
     }
   }
-
-  
-export const getstudentsforselect = async (req:any , res: any) => {
-  try {
-    const students = StudentModel.find({});
-    res.send({students})
-    
-  } catch (error) {
-    
-  }
-}

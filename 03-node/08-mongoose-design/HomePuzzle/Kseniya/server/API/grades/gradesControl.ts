@@ -1,18 +1,5 @@
 import GradeModel from "./gradesModel";
 
-
-export const getGrades = async (req: any, res: any) => {
-  try {
-    const grades = await GradeModel.find({}).populate('courses').exec();
-    res.send(grades);
-    return grades;
-
-  } catch (error: any) {
-     console.error(error);
-    res.status(500).send({ error: error.message });
-  }
-}
-
 export const addGrade = async (req:any, res:any) => {
     try {
       const { grade, student, course } = req.body;

@@ -6,16 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="../style/style.css">
         <script src="../index/index.js" defer></script>
-        <title>College Courses - Login</title>
+        <title>College Courses</title>
     </head>
     <body>
         <h1>College Courses</h1>
         <div class="login-register_container">
             <h1>Login</h1>
             <h2>Please enter your teacher Username</h2>
-            <form onsubmit=coursesPage(event)>
+            <form action="">
                 <input type="text" id="teacherUsername" name="teacherUsername" placeholder="Nikita...">
-                <button type="submit">Submit</button>
+                <button type="submit" onclick=renderTeacherPage()>Submit</button>
             </form>
             <a href="../register/register.html">Don't have a teacher username? Register</a>
         </div>

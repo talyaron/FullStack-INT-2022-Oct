@@ -47,7 +47,7 @@ exports.addMockTeacher = function (req, res) { return __awaiter(void 0, void 0, 
                     uid: uuid_1.v4(),
                     name: "teacher_" + uuid_1.v4().slice(0, 7),
                     lastName: uuid_1.v4().slice(0, 7),
-                    courses: ["64383c4308c863c15e9fb645", "64383c4608c863c15e9fb647", "64383c4608c863c15e9fb649", "64383c4608c863c15e9fb64b"]
+                    courses: ["6435c4a5d371943c1cb39103", "6435c4e5d371943c1cb39120", "6435c4e5d371943c1cb3911c", "6435c4e5d371943c1cb3911e"]
                 })];
             case 1:
                 newTeacher = _a.sent();
@@ -57,20 +57,18 @@ exports.addMockTeacher = function (req, res) { return __awaiter(void 0, void 0, 
     });
 }); };
 exports.getTeacher = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var filterQuery, teachers, error_1;
-    var _a;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
+    var teachers, error_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
             case 0:
-                _b.trys.push([0, 2, , 3]);
-                filterQuery = (_a = req.query) !== null && _a !== void 0 ? _a : {};
-                return [4 /*yield*/, teachersModel_1["default"].find(filterQuery)];
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, teachersModel_1["default"].find({})];
             case 1:
-                teachers = _b.sent();
+                teachers = _a.sent();
                 res.send({ teachers: teachers });
                 return [3 /*break*/, 3];
             case 2:
-                error_1 = _b.sent();
+                error_1 = _a.sent();
                 console.error(error_1);
                 res.status(500).send({ error: error_1.message });
                 return [3 /*break*/, 3];

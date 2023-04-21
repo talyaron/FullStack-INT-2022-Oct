@@ -1,9 +1,9 @@
 import StudentModel from "./studentsModel";
-import CourseModel from "../courses/coursesModel"
 
 export const getStudents = async (req: any, res: any) => {
   try {
-    const students = await StudentModel.find().populate('courses').exec();
+    const students = await StudentModel.find({});
+
     res.send(students);
     return students;
   } catch (error: any) {
@@ -14,18 +14,16 @@ export const getStudents = async (req: any, res: any) => {
 
 export const addStudent = async (req: any, res: any) => {
   try {
-    console.log(req.body)
-
     const { student } = req.body;
     const students = await StudentModel.find({});
 
-    let isExist = students?.find((elememt) => elememt.name == student.name);
+    let isExist = students?.find((elememt) => elememt._id == student._id);
     if (isExist !== undefined) {
       throw new Error("student already exists");
     }
     const studentDB = await StudentModel.create({
       name: student.name,
-      courses: student.courses
+      courses: student.courses,
     });
 
     res.status(201).send({ ok: true });
@@ -72,3 +70,19 @@ export const deleteStudent = async (req: any, res: any) => {
   }
 };
 
+// export const getStudentGradesInCourse = async (req: any, res: any) => {
+//     try {
+//       //got from the client
+//       const { courseId, studentId } = req.query;
+//       //https://docs.oracle.com/en/cloud/saas/cx-commerce/21b/ccdev/rest-api-query-parameters.html
+
+//       const grades = await GradeModel.find({
+//         course: { _id: courseId },
+//         user: { _id: studentId },
+//       });
+//       res.send({ grades });
+//     } catch (error) {
+//       console.error(error);
+//       res.status(500).send({ error: error.message });
+//     }
+//   };
