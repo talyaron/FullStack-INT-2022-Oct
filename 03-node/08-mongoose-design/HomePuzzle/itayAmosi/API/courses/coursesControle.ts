@@ -4,11 +4,9 @@ import CourseModel from "./coursesModel";
 import { v4 as uuidv4 } from "uuid";
 
 export const addMockCourse = async (req:any, res:any) => {
-    const newCourse = await CourseModel.create({
-        uid: uuidv4(),
-        name: "English Class",
-      });
-      res.status(200).send({ ok: true, newCourse });
+  const {name} = req.body;
+    const newCourse = await CourseModel.create({name});
+      res.status(200).send({ Course: newCourse });
     };
 
     export const getCoursesByIds = async (req: any, res: any) => {
@@ -22,3 +20,5 @@ export const addMockCourse = async (req:any, res:any) => {
         res.status(500).send({ error: error.message });
       }
     };
+
+    

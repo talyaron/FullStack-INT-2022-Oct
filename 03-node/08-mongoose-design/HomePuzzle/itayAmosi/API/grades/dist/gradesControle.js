@@ -36,24 +36,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getGradesByStudentId = exports.addMockGrades = void 0;
+exports.createGrade = exports.getGradesByStudentId = exports.addMockGrades = void 0;
+var coursesModel_1 = require("../courses/coursesModel");
+var examsModel_1 = require("../exams/examsModel");
+var studentsModel_1 = require("../students/studentsModel");
 var gradesModel_1 = require("./gradesModel");
 var uuid_1 = require("uuid");
-// export const getStudentGradesInCourse = async (req: any, res: any) => {
-//   try {
-//     //got from the client
-//     const { courses, student } = req.query;
-//     const grades = await GradeModel.find({
-//       courses: { name: courses },
-//       student: { name: student },
-//     });
-//     res.send({ grades });
-//     console.log(grades);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// };
 exports.addMockGrades = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var newGrades;
     return __generator(this, function (_a) {
@@ -87,6 +75,34 @@ exports.getGradesByStudentId = function (req, res) { return __awaiter(void 0, vo
                 res.status(500).send({ error: error_1.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.createGrade = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, grade, studentId, courseId, examId, _b, courseDB, studentDB, examDB, GradeDB;
+    return __generator(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                _a = req.body, grade = _a.grade, studentId = _a.studentId, courseId = _a.courseId, examId = _a.examId;
+                return [4 /*yield*/, Promise.all([coursesModel_1["default"].findById(courseId), studentsModel_1["default"].findById(studentId), examsModel_1["default"].findById(examId)])];
+            case 1:
+                _b = _c.sent(), courseDB = _b[0], studentDB = _b[1], examDB = _b[2];
+                if (!courseDB)
+                    throw new Error("cant find CourseDB");
+                if (!studentDB)
+                    throw new Error("cant find studentDB");
+                if (!examDB)
+                    throw new Error("cant find examDB");
+                return [4 /*yield*/, gradesModel_1["default"].create({
+                        student: studentDB,
+                        exam: examDB,
+                        course: courseDB,
+                        grade: grade
+                    })];
+            case 2:
+                GradeDB = _c.sent();
+                res.status(200).send({ Grade: GradeDB });
+                return [2 /*return*/];
         }
     });
 }); };

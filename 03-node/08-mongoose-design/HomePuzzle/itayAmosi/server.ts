@@ -38,6 +38,10 @@ app.use('/api/courses', coursesRouter);
 import gradesRouter from './API/grades/gradesRoute';
 app.use('/api/grades', gradesRouter);
 
+
+import examRouter from './API/exams/examsRoute';
+app.use('/api/exams', examRouter);
+
 app.use(express.static(`./public`));
 
 app.listen(4000, () => {
