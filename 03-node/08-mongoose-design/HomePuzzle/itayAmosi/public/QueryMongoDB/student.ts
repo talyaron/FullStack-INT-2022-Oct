@@ -95,3 +95,4 @@ function handleDeleteStudent(_id: string) {
     console.error(error);
   }
 }
+
