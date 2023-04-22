@@ -41,18 +41,20 @@ var gradesModel_1 = require("../grades/gradesModel");
 var studentsModel_1 = require("./studentsModel");
 var uuid_1 = require("uuid");
 exports.getStudents = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var students, error_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var filterQuery, students, error_1;
+    var _a;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, studentsModel_1["default"].find({})];
+                _b.trys.push([0, 2, , 3]);
+                filterQuery = (_a = req.query) !== null && _a !== void 0 ? _a : {};
+                return [4 /*yield*/, studentsModel_1["default"].find(filterQuery)];
             case 1:
-                students = _a.sent();
+                students = _b.sent();
                 res.send({ students: students });
                 return [3 /*break*/, 3];
             case 2:
-                error_1 = _a.sent();
+                error_1 = _b.sent();
                 console.error(error_1);
                 res.status(500).send({ error: error_1.message });
                 return [3 /*break*/, 3];
@@ -60,14 +62,6 @@ exports.getStudents = function (req, res) { return __awaiter(void 0, void 0, voi
         }
     });
 }); };
-// export const findStudents = async (req: any, res: any) => {
-//   try {
-//   res.send({ user });
-// } catch (error: any) {
-//   console.error(error);
-//   res.status(500).send({ error: error.message });
-// }
-// };
 exports.deleteStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _id, error_2;
     return __generator(this, function (_a) {
@@ -126,31 +120,31 @@ exports.addMockStudent = function (req, res) { return __awaiter(void 0, void 0, 
                     uid: uuid_1.v4(),
                     name: "student_" + uuid_1.v4().slice(0, 7),
                     lastName: uuid_1.v4().slice(0, 7),
-                    courses: ["6435c4a5d371943c1cb39103", "6435c4e5d371943c1cb39120", "6435c4e5d371943c1cb3911c", "6435c4e5d371943c1cb3911e"]
+                    courses: ["64383c4308c863c15e9fb645", "64383c4608c863c15e9fb647", "64383c4608c863c15e9fb649", "64383c4608c863c15e9fb64b"]
                 })];
             case 1:
                 newStudent = _a.sent();
                 return [4 /*yield*/, gradesModel_1["default"].create({
                         grade: Math.floor(Math.random() * 100) + 1,
-                        studentId: newStudent._id.toString(), courseId: "6435c4a5d371943c1cb39103"
+                        studentId: newStudent._id.toString(), courseId: "64383c4308c863c15e9fb645"
                     })];
             case 2:
                 _a.sent();
                 return [4 /*yield*/, gradesModel_1["default"].create({
                         grade: Math.floor(Math.random() * 100) + 1,
-                        studentId: newStudent._id.toString(), courseId: "6435c4e5d371943c1cb39120"
+                        studentId: newStudent._id.toString(), courseId: "64383c4608c863c15e9fb647"
                     })];
             case 3:
                 _a.sent();
                 return [4 /*yield*/, gradesModel_1["default"].create({
                         grade: Math.floor(Math.random() * 100) + 1,
-                        studentId: newStudent._id.toString(), courseId: "6435c4e5d371943c1cb3911c"
+                        studentId: newStudent._id.toString(), courseId: "64383c4608c863c15e9fb649"
                     })];
             case 4:
                 _a.sent();
                 return [4 /*yield*/, gradesModel_1["default"].create({
                         grade: Math.floor(Math.random() * 100) + 1,
-                        studentId: newStudent._id.toString(), courseId: "6435c4e5d371943c1cb3911e"
+                        studentId: newStudent._id.toString(), courseId: "64383c4608c863c15e9fb64b"
                     })];
             case 5:
                 _a.sent();

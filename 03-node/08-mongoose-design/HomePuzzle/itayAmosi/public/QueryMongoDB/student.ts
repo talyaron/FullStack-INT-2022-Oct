@@ -3,10 +3,9 @@ import { Student } from "../../API/students/studentsModel";
 function renderStudentTable(student: Student) {
   try {
     if (!student) throw new Error("No student found");
-    const html = `<table id="customers">
-               <tr>
-                 <td>${student._id}
-                  <button onclick='handleDeleteStudent("${
+    const html = `
+               <tr class="studentRow">
+                 <td>${student._id}<button onclick='handleDeleteStudent("${
                     student._id
                   }")'>delete</button>
                   </td>
@@ -96,4 +95,3 @@ function handleDeleteStudent(_id: string) {
     console.error(error);
   }
 }
-
