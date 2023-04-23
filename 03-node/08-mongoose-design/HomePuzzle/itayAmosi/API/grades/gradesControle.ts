@@ -37,6 +37,7 @@ export const createGrade = async (req: any, res: any) => {
     course: courseDB,
     grade,
   });
+  
 
   res.status(200).send({ Grade: GradeDB });
 };
