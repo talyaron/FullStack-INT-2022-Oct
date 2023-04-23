@@ -40,3 +40,14 @@ export const createGrade = async (req: any, res: any) => {
 
   res.status(200).send({ Grade: GradeDB });
 };
+
+
+export const getStudentGradesInCourse = async (req: any, res: any) => {
+  const { student, course } = req.query;
+  console.log(student, course);
+  const gradesDB = await GradeModel.find(course);
+
+  res.status(200).send({ Grades: gradesDB });
+};
+
+

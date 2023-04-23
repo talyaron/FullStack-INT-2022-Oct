@@ -11,7 +11,7 @@ export interface Grade {
 }
 
 export const GradeSchema = new Schema({
-  student: StudentSchema,
+  // student: StudentSchema,
   exam: ExamSchema,
   course: CourseSchema,
   grade: Number,

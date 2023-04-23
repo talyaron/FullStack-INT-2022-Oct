@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.createGrade = exports.getGradesByStudentId = exports.addMockGrades = void 0;
+exports.getStudentGradesInCourse = exports.createGrade = exports.getGradesByStudentId = exports.addMockGrades = void 0;
 var coursesModel_1 = require("../courses/coursesModel");
 var examsModel_1 = require("../exams/examsModel");
 var studentsModel_1 = require("../students/studentsModel");
@@ -102,6 +102,21 @@ exports.createGrade = function (req, res) { return __awaiter(void 0, void 0, voi
             case 2:
                 GradeDB = _c.sent();
                 res.status(200).send({ Grade: GradeDB });
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.getStudentGradesInCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, student, course, gradesDB;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _a = req.query, student = _a.student, course = _a.course;
+                console.log(student, course);
+                return [4 /*yield*/, gradesModel_1["default"].find(course)];
+            case 1:
+                gradesDB = _b.sent();
+                res.status(200).send({ Grades: gradesDB });
                 return [2 /*return*/];
         }
     });
