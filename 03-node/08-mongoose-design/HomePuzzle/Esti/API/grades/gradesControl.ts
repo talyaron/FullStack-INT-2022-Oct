@@ -43,7 +43,7 @@ export const addGrade = async (req:any, res:any) => {
     }
   }
 
-  export const updateGradeCurse = async (req:any , res:any)=>{
+  export const updateGrade = async (req:any , res:any)=>{
 
       try {
         const { _id  , score} = req.body;

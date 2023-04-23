@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.updateGradeCurse = exports.deleteGrade = exports.addGrade = exports.getGrades = void 0;
+exports.updateGrade = exports.deleteGrade = exports.addGrade = exports.getGrades = void 0;
 var gradesModel_1 = require("./gradesModel");
 exports.getGrades = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var grades, error_1;
@@ -105,7 +105,7 @@ exports.deleteGrade = function (req, res) { return __awaiter(void 0, void 0, voi
         }
     });
 }); };
-exports.updateGradeCurse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+exports.updateGrade = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, _id, score, findGrade, grades, error_4;
     return __generator(this, function (_b) {
         switch (_b.label) {
