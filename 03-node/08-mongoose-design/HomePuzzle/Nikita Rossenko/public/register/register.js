@@ -14,6 +14,7 @@ function registerTeacher(e) {
             throw new Error("Please fill the username field!");
         }
         var newTeacher = { teacherUsername: teacherUsername };
+        console.log(newTeacher);
         //send to server:
         fetch("/api/v1/add-teacher", {
             method: "POST",

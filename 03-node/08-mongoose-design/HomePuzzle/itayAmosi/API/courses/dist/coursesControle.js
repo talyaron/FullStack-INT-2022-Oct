@@ -38,18 +38,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.getCoursesByIds = exports.addMockCourse = void 0;
 var coursesModel_1 = require("./coursesModel");
-var uuid_1 = require("uuid");
 exports.addMockCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var newCourse;
+    var name, newCourse;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, coursesModel_1["default"].create({
-                    uid: uuid_1.v4(),
-                    name: "English Class"
-                })];
+            case 0:
+                name = req.body.name;
+                return [4 /*yield*/, coursesModel_1["default"].create({ name: name })];
             case 1:
                 newCourse = _a.sent();
-                res.status(200).send({ ok: true, newCourse: newCourse });
+                res.status(200).send({ Course: newCourse });
                 return [2 /*return*/];
         }
     });

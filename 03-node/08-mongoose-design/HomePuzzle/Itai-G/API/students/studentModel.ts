@@ -1,7 +1,7 @@
 import mongoose, { Schema, Document } from "mongoose";
 import { CourseSchema, Course } from "../courses/coursesModel";
 
-export interface Student {
+export interface Student extends Document {
   name: string;
   courses: Course[];
 }

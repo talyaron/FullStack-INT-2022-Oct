@@ -187,7 +187,6 @@ function getStudents(query) {
             switch (_a.label) {
                 case 0:
                     url = "/api/students/get-students?" + new URLSearchParams(query).toString();
-                    console.log(url);
                     return [4 /*yield*/, fetch(url)];
                 case 1:
                     response = _a.sent();

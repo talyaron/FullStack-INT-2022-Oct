@@ -2,7 +2,7 @@ import { error } from "console";
 import StudentModel, {
   Student,
   StudentSchema,
-} from "../../API/student/studentModel";
+} from "../API/student/studnetsModel";
 
 function handleDeleteStudent(_id: string) {
   try {

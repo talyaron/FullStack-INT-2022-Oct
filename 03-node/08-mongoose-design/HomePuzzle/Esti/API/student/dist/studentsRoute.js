@@ -2,10 +2,10 @@
 exports.__esModule = true;
 var express_1 = require("express");
 var router = express_1["default"].Router();
-var studentsControls_1 = require("./studentsControls");
+var studentsControl_1 = require("./studentsControl");
 router
-    .post("/add-student", studentsControls_1.addStudent)
-    .put("/update-student", studentsControls_1.updateStudent)
-    .get("/get-students", studentsControls_1.getStudents)
-    .patch("/update-student-name", studentsControls_1.updateStudentName)["delete"]("/delete-student", studentsControls_1.deleteStudent);
+    .post("/add-Student", studentsControl_1.addStudent)
+    .put("/update-Student", studentsControl_1.updateStudent)
+    .get("/get-Students", studentsControl_1.getStudents)
+    .patch("/update-Student-name", studentsControl_1.updateStudentName)["delete"]("/delete-Student", studentsControl_1.deleteStudent);
 exports["default"] = router;

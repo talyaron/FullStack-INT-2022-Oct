@@ -1,131 +1,66 @@
-
-
-
-// async function renderOptionsWithCourses(){
-// try {
-//     const res = await fetch('/courses/get-courses')
-//     const data = await res.json();
-//     if(!data) throw new Error("no found data")
-//      return data.courses.map(({name}) => name);
-// } catch (error) {
-//     console.error(error)
-// }    
-// }
-
-// async function GetCurCourses(CourseName:string){
-//     try {
-//         const res = await fetch('/courses/get-courses')
-//         const data = await res.json();
-//         if(!data) throw new Error("no found data")
-//         console.log('data',data);
-//          return data.courses.find(({name}) => name === CourseName );
-//     } catch (error) {
-//         console.error(error)
-//     }    
-//     }
-
-function renderAddClass(divClass:string) : string{
-    const addName = 
-    `
-    <div class="${divClass}">
-    <form action="" ><br>
-        <input type="text" class="name" placeholder="Add ${divClass} Name"><br>
-        <button class="addBtn" onclick="hendelAdd${divClass}">Add</button>
-        <button class="updateBtn" onclick="hendelupdate${divClass}">Update</button>
-        <button class="DelBtn" onclick="hendelDelete${divClass}">Delete</button>
-    </form>      
-    </div>
-
-    `
-    return addName
-}
-// function renderAddCourse(){
-//     const addCourse = 
-//     `
-//     <div id="btnExit">
-//     <i class="fa-solid fa-xmark" onclick="handleClickCloseWindows()"></i>
-//     </div>
-//     <form class="app-container__main__form" id="rootForm" onsubmit="handleSubmitAddCourse(event)">
-//     <h3>ADD New Course</h3>
-//     <input type="text" placeholder="Enter Course Name" name="CourseName">
+// import { log } from "console"
  
-//     <input type="text"  placeholder="Enter Teacher Course" name="teacherCourse">
- 
-//     <button type="submit">ADD</button>
-//     </form>
-//     `
-//     return addCourse
-// }
+// import { log } from "console"
 
-//  async function renderAddGrades(){
-// try {
-//     let addGrade = ''
-//     const options = await renderOptionsWithCourses();
-//     const optionsHtml:string = await options.map(name => `<option value="${name}">${name} </option>`).join('');
-//        if(!optionsHtml) {
-//         alert("no options . you must to  create course ")
-//        return addGrade = `
-//            <div id="btnExit">
-//            <i class="fa-solid fa-xmark" onclick="handleClickCloseWindows()"></i>
-//            </div>
-//            <h4>You Must To Create Course</h4>
-//            `
+function renderTeacherStudent(divClass: string) : void{
+    try {
+        let divName = ""
+        if(divClass === "Teacher") divName = "teacher";
+        if(divClass === "Student") divName = "student";
         
-//        } else {
-//       return  addGrade = 
-//            `
-//            <div id="btnExit">
-//            <i class="fa-solid fa-xmark" onclick="handleClickCloseWindows()"></i>
-//            </div>
-//            <form class="app-container__main__form" id="rootForm" onsubmit="handleSubmitAddGrade(event)">
-//            <h3>ADD GRADE</h3>
-//            <label for="_courseName" >Enter Course Name</label>
-//            <select id="_courseName" placeholder="Enter Course Name" name="courseName" id="rootSelectOptions">
-//            ${optionsHtml}
-//            </select>
-//            <input type="text" placeholder="Enter Assignment Name" name="assignmentName">
-//            <div>
-//            <input type="number" min="0" max="100" placeholder="Enter Score" name="score">
-//            <input type="date" name="date" >
-//            </div>
-//            <button type="submit">ADD</button>
-//            </form>
-//            `
-//        }
-// } catch (error) {
-//     console.error(error)
-//     return ' '
-// }
-// }
+        const html = 
+        `
+        <div class="singin">
+            <button class="goBack" onclick="hendelGoBack()">Go back</button>
 
-// async function grades(){
-//     try {
-//         const rootGrade = document.getElementById('rootGrades')!
-//     const gradeDB = await fetch('/grades/get-grades');
-//     if(!gradeDB) throw new Error('no found Grades DB')
-//     const dataJson = await gradeDB.json();
-//      const  html:string = dataJson.grades.map((grade:any , index:number ) =>{
-//        return  `
-//             <div class="grade">
-//             <ul class="header-grades-main-list">
-//                 <li class="header-grades-list__courseName">${index + 1}</li>
-//                 <li class="header-grades-list__courseName">OrelK</li>
-//                 <li class="header-grades-list__courseName">${grade.courseName.name}</li>
-//                 <li class="header-grades-list__courseName">${grade.courseName.teacher.name}</li>
-//                 <li class="header-grades-list__courseName">${grade.assignmentName}</li>
-//                 <li class="header-grades-list__courseName">${grade.score}</li>
-//                 <li class="header-grades-list__courseName">${grade.date}</li>
-//                 <li class="header-grades-list__courseName buttonsEditRemove">
-//                     <i class="fa-solid fa-pen-to-square" title="Edit Score" onclick="handleClickEditGrade('${grade._id}')"></i>
-//                     <i class="fa-solid fa-delete-left" onclick="handleClickDelGrade('${grade._id}')"></i>
-//                 </li>
-//             </ul>
-//             </div>
-//             `}).join('')
+            <form class="form" onsubmit="hendelSingIn('${divName}')">
+                <input type="text" name="name" placeholder='${divClass} Name' required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button class="submit">Sing in</button>
+            </form>
+            <button class="singupBtn" onclick="renderSingUp('${divClass}', event)">Sing Up</button>
+        </div>
 
-//             rootGrade.innerHTML = html
-//     } catch (error) {
-//         console.error(error)
-//     }
-//     }
-   
+        `
+
+        console.log(html)
+        const container = document.querySelector(".container") as HTMLDivElement
+        if(!container) throw new Error('Cotainer div dont in the DOM')
+        container.innerHTML = html
+
+    } catch (error) {
+        console.error(error)        
+    }
+
+}
+
+
+function renderSingUp(divClass: string) : void{
+    try {
+            let divName = ""
+            if(divClass === "Teacher") divName = "teacher"
+            if(divClass === "Student") divName = "student"
+
+    
+            const functionName = `hendelAdd${divClass}`
+            const html = 
+            `
+            <div class="${divName}">
+                <button class="goBack" onclick="hendelGoBack()">Go back</button>
+            
+                <form class="form" onsubmit="${functionName}(event)">
+                    <input type="text" name="name" placeholder="${divClass} Name"  required>
+                    <input type="email" name="email" placeholder="${divClass} Email"  required>
+                    <input type="password" name="password" placeholder="Password"  required>
+                    <button class="submit">Add ${divName}</button>
+                </form>
+            </div>
+           `
+            const container = document.querySelector(".container") as HTMLDivElement
+            if(!container) throw new Error('Cotainer div dont in the DOM')
+            container.innerHTML = html
+        } catch (error) {
+            console.error(error)
+        }
+  }
+  
