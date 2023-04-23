@@ -25,6 +25,8 @@ var coursesRoute_1 = require("./API/courses/coursesRoute");
 app.use('/api/courses', coursesRoute_1["default"]);
 var gradesRoute_1 = require("./API/grades/gradesRoute");
 app.use('/api/grades', gradesRoute_1["default"]);
+var examsRoute_1 = require("./API/exams/examsRoute");
+app.use('/api/exams', examsRoute_1["default"]);
 app.use(express_1["default"].static("./public"));
 app.listen(4000, function () {
     console.log("server listen on port 4000");
