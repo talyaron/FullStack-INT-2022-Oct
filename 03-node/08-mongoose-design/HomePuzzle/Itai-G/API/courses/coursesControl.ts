@@ -1,8 +1,19 @@
-import { Request, Response } from "express";
 import CourseModel from "./coursesModel";
 import StudentModel,{Student} from "../students/studentModel";
 
-export const addCourse = async (req: Request, res: Response) => {
+export const createCourse = async (req:any, res:any) => {
+  try {
+    const {name} = req.body;
+    const courseDB = await CourseModel.create({name});
+    res.send({course:courseDB})
+  } catch (error:any) {
+    console.error(error);
+      res.status(500).send({ error: error.message });
+  }
+};
+
+
+export const addCourse = async (req: any, res: any) => {
   try {
     const { course, studentId } = req.body;
     const courseDB = await CourseModel.create({ name: course });
@@ -21,7 +32,7 @@ export const addCourse = async (req: Request, res: Response) => {
   }
 };
 
-export const updateCourse = async (req: Request, res: Response) => {
+export const updateCourse = async (req: any, res: any) => {
   try {
     const { courseId, name } = req.body;
     const course = await CourseModel.findByIdAndUpdate(
@@ -30,7 +41,7 @@ export const updateCourse = async (req: Request, res: Response) => {
       { new: true }
     );
     res.send({ ok: true, course });
-  } catch (error: unknown) {
+  } catch (error) {
     console.error(error);
     if (error instanceof Error) {
       res.status(500).send({ error: error.message });
@@ -38,16 +49,17 @@ export const updateCourse = async (req: Request, res: Response) => {
   }
 };
 
-export const deleteCourse = async (req: Request, res: Response) => {
+export const deleteCourse = async (req: any, res: any) => {
   try {
     const { courseId } = req.body;
     const deletedCourse = await CourseModel.deleteOne({ _id: courseId });
     const courses = await CourseModel.find({});
     res.send({ ok: true, courses });
-  } catch (error: unknown) {
+  } catch (error) {
     console.error(error);
     if (error instanceof Error) {
       res.status(500).send({ error: error.message });
     }
   }
 };
+
