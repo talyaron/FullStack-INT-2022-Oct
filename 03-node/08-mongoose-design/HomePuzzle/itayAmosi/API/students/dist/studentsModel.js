@@ -2,13 +2,11 @@
 exports.__esModule = true;
 exports.StudentSchema = void 0;
 var mongoose_1 = require("mongoose");
-var gradesModel_1 = require("../grades/gradesModel");
+var examsModel_1 = require("../exams/examsModel");
 exports.StudentSchema = new mongoose_1.Schema({
     name: String,
     lastName: String,
-    courses: { type: [String] },
-    grades: { type: [Number] },
-    grade: gradesModel_1.GradeSchema
+    exams: examsModel_1.ExamSchema
 });
 var StudentModel = mongoose_1["default"].model("students", exports.StudentSchema);
 exports["default"] = StudentModel;

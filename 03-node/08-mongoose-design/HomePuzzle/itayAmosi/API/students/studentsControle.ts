@@ -1,3 +1,4 @@
+import ExamModel from "../exams/examsModel";
 import GradeModel, { GradeSchema } from "../grades/gradesModel";
 import StudentModel from "./studentsModel";
 import { v4 as uuidv4 } from "uuid";
@@ -43,28 +44,12 @@ export const updateStudentName = async (req: any, res: any) => {
   }
 };
 
-export const addMockStudent = async (req: any, res: any) => {
-  const newStudent = await StudentModel.create({
-    uid: uuidv4(),
-    name: "student_"+uuidv4().slice(0, 7),
-    lastName: uuidv4().slice(0, 7),
-    courses: ["64383c4308c863c15e9fb645","64383c4608c863c15e9fb647", "64383c4608c863c15e9fb649", "64383c4608c863c15e9fb64b"],
-  });
-  await GradeModel.create({
-    grade: Math.floor(Math.random() * 100) + 1,
-    studentId: newStudent._id.toString(), courseId: "64383c4308c863c15e9fb645"
-  });
-  await GradeModel.create({
-    grade: Math.floor(Math.random() * 100) + 1,
-    studentId: newStudent._id.toString(), courseId: "64383c4608c863c15e9fb647"
-  });
-  await GradeModel.create({
-    grade: Math.floor(Math.random() * 100) + 1,
-    studentId: newStudent._id.toString(), courseId: "64383c4608c863c15e9fb649"
-  });
-  await GradeModel.create({
-    grade: Math.floor(Math.random() * 100) + 1,
-    studentId: newStudent._id.toString(), courseId: "64383c4608c863c15e9fb64b"
-  });
-  res.status(200).send({ ok: true, newStudent });
+export const createStudent = async (req: any, res: any) => {
+  const { name, lastName, examsId} = req.body;
+  const examDB = await ExamModel.findById(examsId);
+  if (!examDB) throw new Error("cant find exam")
+  const studentDB = await StudentModel.create({name, lastName, exams:examDB});
+
+  res.status(200).send({ studentDB });
 };
+

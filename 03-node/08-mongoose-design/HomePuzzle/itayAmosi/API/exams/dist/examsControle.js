@@ -36,24 +36,24 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addMockExam = void 0;
-var coursesModel_1 = require("../courses/coursesModel");
+exports.createExam = void 0;
+var gradesModel_1 = require("../grades/gradesModel");
 var examsModel_1 = require("./examsModel");
-exports.addMockExam = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, topic, courseId, courseDB, newExam;
+exports.createExam = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, name, topic, gradesId, gradesDB, examDB;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _a = req.body, name = _a.name, topic = _a.topic, courseId = _a.courseId;
-                return [4 /*yield*/, coursesModel_1["default"].findById(courseId)];
+                _a = req.body, name = _a.name, topic = _a.topic, gradesId = _a.gradesId;
+                return [4 /*yield*/, gradesModel_1["default"].findById(gradesId)];
             case 1:
-                courseDB = _b.sent();
-                if (!courseDB)
-                    throw new Error("cant find CourseDB");
-                return [4 /*yield*/, examsModel_1["default"].create({ name: name, topic: topic, course: courseDB })];
+                gradesDB = _b.sent();
+                if (!gradesDB)
+                    throw new Error("cant find gradeDB");
+                return [4 /*yield*/, examsModel_1["default"].create({ name: name, topic: topic, grades: gradesDB })];
             case 2:
-                newExam = _b.sent();
-                res.status(200).send({ Exam: newExam });
+                examDB = _b.sent();
+                res.status(200).send({ Exam: examDB });
                 return [2 /*return*/];
         }
     });

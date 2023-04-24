@@ -37,9 +37,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.getStudentGradesInCourse = exports.createGrade = exports.getGradesByStudentId = exports.addMockGrades = void 0;
-var coursesModel_1 = require("../courses/coursesModel");
-var examsModel_1 = require("../exams/examsModel");
-var studentsModel_1 = require("../students/studentsModel");
 var gradesModel_1 = require("./gradesModel");
 var uuid_1 = require("uuid");
 exports.addMockGrades = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -79,28 +76,14 @@ exports.getGradesByStudentId = function (req, res) { return __awaiter(void 0, vo
     });
 }); };
 exports.createGrade = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, grade, studentId, courseId, examId, _b, courseDB, studentDB, examDB, GradeDB;
-    return __generator(this, function (_c) {
-        switch (_c.label) {
+    var grade, GradeDB;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
             case 0:
-                _a = req.body, grade = _a.grade, studentId = _a.studentId, courseId = _a.courseId, examId = _a.examId;
-                return [4 /*yield*/, Promise.all([coursesModel_1["default"].findById(courseId), studentsModel_1["default"].findById(studentId), examsModel_1["default"].findById(examId)])];
+                grade = req.body.grade;
+                return [4 /*yield*/, gradesModel_1["default"].create({ grade: grade })];
             case 1:
-                _b = _c.sent(), courseDB = _b[0], studentDB = _b[1], examDB = _b[2];
-                if (!courseDB)
-                    throw new Error("cant find CourseDB");
-                if (!studentDB)
-                    throw new Error("cant find studentDB");
-                if (!examDB)
-                    throw new Error("cant find examDB");
-                return [4 /*yield*/, gradesModel_1["default"].create({
-                        student: studentDB,
-                        exam: examDB,
-                        course: courseDB,
-                        grade: grade
-                    })];
-            case 2:
-                GradeDB = _c.sent();
+                GradeDB = _a.sent();
                 res.status(200).send({ Grade: GradeDB });
                 return [2 /*return*/];
         }
@@ -112,8 +95,7 @@ exports.getStudentGradesInCourse = function (req, res) { return __awaiter(void 0
         switch (_b.label) {
             case 0:
                 _a = req.query, student = _a.student, course = _a.course;
-                console.log(student, course);
-                return [4 /*yield*/, gradesModel_1["default"].find(course)];
+                return [4 /*yield*/, gradesModel_1["default"].find({})];
             case 1:
                 gradesDB = _b.sent();
                 res.status(200).send({ Grades: gradesDB });

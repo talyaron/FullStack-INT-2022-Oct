@@ -36,10 +36,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addMockStudent = exports.updateStudentName = exports.deleteStudent = exports.getStudents = void 0;
-var gradesModel_1 = require("../grades/gradesModel");
+exports.createStudent = exports.updateStudentName = exports.deleteStudent = exports.getStudents = void 0;
+var examsModel_1 = require("../exams/examsModel");
 var studentsModel_1 = require("./studentsModel");
-var uuid_1 = require("uuid");
 exports.getStudents = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var filterQuery, students, error_1;
     var _a;
@@ -112,43 +111,21 @@ exports.updateStudentName = function (req, res) { return __awaiter(void 0, void 
         }
     });
 }); };
-exports.addMockStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var newStudent;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, studentsModel_1["default"].create({
-                    uid: uuid_1.v4(),
-                    name: "student_" + uuid_1.v4().slice(0, 7),
-                    lastName: uuid_1.v4().slice(0, 7),
-                    courses: ["64383c4308c863c15e9fb645", "64383c4608c863c15e9fb647", "64383c4608c863c15e9fb649", "64383c4608c863c15e9fb64b"]
-                })];
+exports.createStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, name, lastName, examsId, examDB, studentDB;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _a = req.body, name = _a.name, lastName = _a.lastName, examsId = _a.examsId;
+                return [4 /*yield*/, examsModel_1["default"].findById(examsId)];
             case 1:
-                newStudent = _a.sent();
-                return [4 /*yield*/, gradesModel_1["default"].create({
-                        grade: Math.floor(Math.random() * 100) + 1,
-                        studentId: newStudent._id.toString(), courseId: "64383c4308c863c15e9fb645"
-                    })];
+                examDB = _b.sent();
+                if (!examDB)
+                    throw new Error("cant find exam");
+                return [4 /*yield*/, studentsModel_1["default"].create({ name: name, lastName: lastName, exams: examDB })];
             case 2:
-                _a.sent();
-                return [4 /*yield*/, gradesModel_1["default"].create({
-                        grade: Math.floor(Math.random() * 100) + 1,
-                        studentId: newStudent._id.toString(), courseId: "64383c4608c863c15e9fb647"
-                    })];
-            case 3:
-                _a.sent();
-                return [4 /*yield*/, gradesModel_1["default"].create({
-                        grade: Math.floor(Math.random() * 100) + 1,
-                        studentId: newStudent._id.toString(), courseId: "64383c4608c863c15e9fb649"
-                    })];
-            case 4:
-                _a.sent();
-                return [4 /*yield*/, gradesModel_1["default"].create({
-                        grade: Math.floor(Math.random() * 100) + 1,
-                        studentId: newStudent._id.toString(), courseId: "64383c4608c863c15e9fb64b"
-                    })];
-            case 5:
-                _a.sent();
-                res.status(200).send({ ok: true, newStudent: newStudent });
+                studentDB = _b.sent();
+                res.status(200).send({ studentDB: studentDB });
                 return [2 /*return*/];
         }
     });

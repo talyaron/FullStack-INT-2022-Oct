@@ -1,12 +1,12 @@
 import CourseModel from "../courses/coursesModel";
+import GradeModel from "../grades/gradesModel";
 import ExamModel from "./examsModel";
 
-export const addMockExam = async (req: any, res: any) => {
-  const { name, topic, courseId } = req.body;
-  const courseDB = await CourseModel.findById(courseId);
-  if (!courseDB) throw new Error(`cant find CourseDB`);
+export const createExam = async (req: any, res: any) => {
+  const { name, topic, gradesId } = req.body;
+  const gradesDB = await GradeModel.findById(gradesId);
+  if (!gradesDB) throw new Error(`cant find gradeDB`);
+  const examDB = await ExamModel.create({ name, topic, grades:gradesDB });
 
-  const newExam = await ExamModel.create({ name, topic, course:courseDB });
-
-  res.status(200).send({ Exam: newExam });
+  res.status(200).send({ Exam: examDB });
 };
