@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import { Course, CourseSchema } from "../courses/coursesModel";
+import { GradeSchema } from "../grades/gradesModel";
 
 export interface Student {
   _id: string;
@@ -14,6 +15,7 @@ export const StudentSchema = new Schema({
   lastName: String,
   courses: {type:[String]},
   grades: {type:[Number]},
+  grade: GradeSchema
 });
 
 const StudentModel = mongoose.model("students", StudentSchema);

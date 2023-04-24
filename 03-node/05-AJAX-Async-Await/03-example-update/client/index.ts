@@ -78,7 +78,10 @@ function handleAddUser(ev: any) {
     const src = ev.target.elements.src.value;
     if (!name) throw new Error("No name");
     if (!src) throw new Error("No src");
-    const newUser: any = {name , src};
+    const newUser: any = { 
+      name, 
+      src
+     };
 
     //send to server:
     fetch("/api/add-user", {

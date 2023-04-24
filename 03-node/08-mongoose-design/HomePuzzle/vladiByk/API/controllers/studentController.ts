@@ -15,18 +15,18 @@ export const getAllStudents = async (
   }
 };
 
-export const getStudentsInCourse = async (
+export const getStudent = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const { id: courseId } = req.params;
-    const course = await Course.findById(courseId);
-    const students = await Student.find({ courses: course });
-    res.status(200).json({ students });
-  } catch (error) {
+    const { id: studentId } = req.params;
+    const student = await Student.findById({ _id: studentId });
+    res.status(200).send({ student });
+  } catch (error: any) {
     console.error(error);
+    res.status(500).send({ error: error.message });
   }
 };
 
@@ -39,7 +39,6 @@ export const createStudent = async (
     const { name, courseId } = req.body;
     const course = await Course.findById(courseId);
     const student = await Student.create({ name, courses: [course] });
-    console.log(student);
     const students = await Student.find({});
     res.status(200).json({ students });
   } catch (error: any) {

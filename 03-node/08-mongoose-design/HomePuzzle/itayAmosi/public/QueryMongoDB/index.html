@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Query MongoDB</title>
     <link rel="stylesheet" href="./dist/style.css">
-    <script src="./dist/queryControle.js" defer></script>
     <script src="./dist/queryMongoDB.js" defer></script>
-    <script src="./dist/student.js" defer></script>
-    <script src="./dist/teacher.js" defer></script>
     <script src="./dist/course.js" defer></script>
     <script src="./dist/grades.js" defer></script>
+    <script src="./dist/teacher.js" defer></script>
+    <script src="./dist/student.js" defer></script>
+    <script src="./dist/queryControle.js" defer></script>
     
 </head>
 <body
@@ -22,10 +22,12 @@ handelStudent(event)
     
 <h1>A Query MongoDB Table</h1>
 <div class="search-wrapper">
-  <label for="search">Find In Data</label>
-  <input placeholder="Type a query:{ field: `value`}" type="search" id="search" data-search>
-  <button class="btn" onclick="addMockTeacher()">Add-Mock-teacher</button>
-  <button class="btn" onclick="addMockStudent()">Add-Mock-student</button>
+  <label for="search">Find By Uid</label>
+  <input oninput="handleSearchByUid(event)" placeholder="Type a Uid" type="search" id="search" data-search>
+</div>
+<div class="search-wrapper">
+  <label for="search">Find By Name</label>
+  <input oninput="handleSearchByName(event)" placeholder="Type a Name" type="search" id="search" data-search>
 </div>
 
 <table id="customers">
@@ -37,6 +39,8 @@ handelStudent(event)
     <th>Grades</th>
   </tr>
 </table>
+<button class="btn" onclick="addMockTeacher()">Add-Mock-teacher</button>
+<button class="btn" onclick="addMockStudent()">Add-Mock-student</button>
 <!-- <button>get</button>
 <button>find</button> -->
 </body>
