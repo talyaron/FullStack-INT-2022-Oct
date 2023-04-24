@@ -69,7 +69,7 @@ function encryptMessage() {
             var encryptedMessage = "";
             for (var i in messageChars) {
                 var letter = messageChars[i];
-                encryptedMessage = "" + encryptedMessage + encryptionDictionary[letter] + " ";
+                encryptedMessage += encryptionDictionary[letter] + " ";
             }
             console.log(encryptedMessage);
         }
