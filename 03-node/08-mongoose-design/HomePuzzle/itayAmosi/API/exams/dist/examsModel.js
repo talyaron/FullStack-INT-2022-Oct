@@ -2,12 +2,12 @@
 exports.__esModule = true;
 exports.ExamSchema = void 0;
 var mongoose_1 = require("mongoose");
-var coursesModel_1 = require("../courses/coursesModel");
+var gradesModel_1 = require("../grades/gradesModel");
 exports.ExamSchema = new mongoose_1.Schema({
     name: String,
     topic: String,
     questions: Object,
-    course: coursesModel_1.CourseSchema
+    grades: gradesModel_1.GradeSchema
 });
 // export const ExamStudentSchema = new Schema({
 //   student: StudentSchema,

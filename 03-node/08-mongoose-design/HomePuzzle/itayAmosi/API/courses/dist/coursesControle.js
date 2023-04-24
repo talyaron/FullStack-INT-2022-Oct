@@ -37,17 +37,23 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.getCoursesByIds = exports.addMockCourse = void 0;
+var studentsModel_1 = require("../students/studentsModel");
 var coursesModel_1 = require("./coursesModel");
 exports.addMockCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var name, newCourse;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var _a, name, studentId, studentDB, courseDB;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                name = req.body.name;
-                return [4 /*yield*/, coursesModel_1["default"].create({ name: name })];
+                _a = req.body, name = _a.name, studentId = _a.studentId;
+                return [4 /*yield*/, studentsModel_1["default"].findById(studentId)];
             case 1:
-                newCourse = _a.sent();
-                res.status(200).send({ Course: newCourse });
+                studentDB = _b.sent();
+                if (!studentDB)
+                    throw new Error("cant find studentDB");
+                return [4 /*yield*/, coursesModel_1["default"].create({ name: name, student: studentDB })];
+            case 2:
+                courseDB = _b.sent();
+                res.status(200).send({ Course: courseDB });
                 return [2 /*return*/];
         }
     });
@@ -58,8 +64,8 @@ exports.getCoursesByIds = function (req, res) { return __awaiter(void 0, void 0,
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                ids = req.query.ids.split(',');
-                return [4 /*yield*/, coursesModel_1["default"].find({ _id: { $in: ids } })];
+                ids = req.query;
+                return [4 /*yield*/, coursesModel_1["default"].find({})];
             case 1:
                 courses = _a.sent();
                 res.send({ courses: courses });

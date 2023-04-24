@@ -2,7 +2,7 @@ import express from "express";
 const router = express.Router();
 
 import {
-  addMockStudent,
+  createStudent,
   getStudents,
   deleteStudent,
   // findStudents,
@@ -10,7 +10,7 @@ import {
 } from "./studentsControle";
 
 router
-  .post("/add-mock-student", addMockStudent)
+  .post("/create-student", createStudent)
   .get("/get-students", getStudents)
   // .get("/find-students", findStudents)
   .delete("/delete-student", deleteStudent)

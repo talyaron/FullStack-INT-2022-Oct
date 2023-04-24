@@ -25,28 +25,17 @@ export const getGradesByStudentId = async (req: any, res: any) => {
 };
 
 export const createGrade = async (req: any, res: any) => {
-  const { grade, studentId, courseId, examId } = req.body;
-  const [courseDB, studentDB, examDB] = await Promise.all([ CourseModel.findById(courseId),StudentModel.findById(studentId),ExamModel.findById(examId)] );
-  if (!courseDB) throw new Error(`cant find CourseDB`);
-  if (!studentDB) throw new Error(`cant find studentDB`);
-  if (!examDB) throw new Error(`cant find examDB`);
-
-  const GradeDB = await GradeModel.create({
-    student: studentDB,
-    exam: examDB,
-    course: courseDB,
-    grade,
-  });
+  const { grade } = req.body;
+  const GradeDB = await GradeModel.create({grade});
   
-
   res.status(200).send({ Grade: GradeDB });
 };
 
 
 export const getStudentGradesInCourse = async (req: any, res: any) => {
   const { student, course } = req.query;
-  console.log(student, course);
-  const gradesDB = await GradeModel.find(course);
+  // console.log(student, course);
+  const gradesDB = await GradeModel.find({});
 
   res.status(200).send({ Grades: gradesDB });
 };

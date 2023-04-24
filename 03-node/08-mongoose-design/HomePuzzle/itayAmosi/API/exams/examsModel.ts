@@ -1,6 +1,7 @@
 import mongoose, { Schema } from "mongoose";
 import { CourseSchema } from "../courses/coursesModel";
 import { StudentSchema } from "../students/studentsModel";
+import { GradeSchema } from "../grades/gradesModel";
 
 export interface Exam {
   _id: any;
@@ -12,7 +13,9 @@ export const ExamSchema = new Schema({
   name: String,
   topic: String,
   questions: Object,
-  course: CourseSchema,
+  grades: GradeSchema,
+  // course: CourseSchema,
+
 });
 
 
