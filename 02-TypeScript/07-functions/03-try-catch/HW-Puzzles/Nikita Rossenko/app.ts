@@ -68,7 +68,7 @@ function encryptMessage(){
             let encryptedMessage:string = "";
             for (const i in messageChars){
                 let letter:string = messageChars[i]
-                encryptedMessage = `${encryptedMessage}`+ encryptionDictionary[letter]+ " " ;
+                encryptedMessage +=  encryptionDictionary[letter]+ " " ;
             }
             console.log(encryptedMessage)
         }
