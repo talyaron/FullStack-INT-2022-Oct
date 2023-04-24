@@ -7,8 +7,10 @@ export interface Grade extends Document  {
 }
 
 export const GradeSchema = new Schema({
-    grade: Number,
-});
+    student: StudentSchema,
+    course: CourseSchema,
+    grade: Number
+})
 
 const GradeModel = mongoose.model<Grade>("grades", GradeSchema);
 
