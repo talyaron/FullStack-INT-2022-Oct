@@ -45,10 +45,10 @@ export const updateStudentName = async (req: any, res: any) => {
 };
 
 export const createStudent = async (req: any, res: any) => {
-  const { name, lastName, examsId} = req.body;
-  const examDB = await ExamModel.findById(examsId);
-  if (!examDB) throw new Error("cant find exam")
-  const studentDB = await StudentModel.create({name, lastName, exams:examDB});
+  const { name, lastName, gradesId} = req.body;
+  const gradeDB = await GradeModel.findById(gradesId);
+  if (!gradeDB) throw new Error("cant find gradeDB")
+  const studentDB = await StudentModel.create({name, lastName, grades:gradeDB});
 
   res.status(200).send({ studentDB });
 };

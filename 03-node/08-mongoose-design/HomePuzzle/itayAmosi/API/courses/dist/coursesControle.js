@@ -36,21 +36,21 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getCoursesByIds = exports.addMockCourse = void 0;
-var studentsModel_1 = require("../students/studentsModel");
+exports.getCourses = exports.createCourse = void 0;
+var examsModel_1 = require("../exams/examsModel");
 var coursesModel_1 = require("./coursesModel");
-exports.addMockCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, studentId, studentDB, courseDB;
+exports.createCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, name, examsId, examDB, courseDB;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _a = req.body, name = _a.name, studentId = _a.studentId;
-                return [4 /*yield*/, studentsModel_1["default"].findById(studentId)];
+                _a = req.body, name = _a.name, examsId = _a.examsId;
+                return [4 /*yield*/, examsModel_1["default"].findById(examsId)];
             case 1:
-                studentDB = _b.sent();
-                if (!studentDB)
-                    throw new Error("cant find studentDB");
-                return [4 /*yield*/, coursesModel_1["default"].create({ name: name, student: studentDB })];
+                examDB = _b.sent();
+                if (!examDB)
+                    throw new Error("cant find exam");
+                return [4 /*yield*/, coursesModel_1["default"].create({ name: name, exam: examDB })];
             case 2:
                 courseDB = _b.sent();
                 res.status(200).send({ Course: courseDB });
@@ -58,13 +58,12 @@ exports.addMockCourse = function (req, res) { return __awaiter(void 0, void 0, v
         }
     });
 }); };
-exports.getCoursesByIds = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var ids, courses, error_1;
+exports.getCourses = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var courses, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                ids = req.query;
                 return [4 /*yield*/, coursesModel_1["default"].find({})];
             case 1:
                 courses = _a.sent();

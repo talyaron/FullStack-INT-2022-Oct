@@ -11,9 +11,9 @@ export interface Course {
 
 export const CourseSchema = new Schema({
   name: String,
-  teacher:TeacherSchema,
-  student:StudentSchema,
-  // exams: ExamSchema,
+  // teacher:TeacherSchema,
+  // student:StudentSchema,
+  exam: ExamSchema,
   // grades: GradeSchema
 });
 

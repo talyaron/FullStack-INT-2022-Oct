@@ -13,9 +13,7 @@ export const ExamSchema = new Schema({
   name: String,
   topic: String,
   questions: Object,
-  grades: GradeSchema,
-  // course: CourseSchema,
-
+  student: StudentSchema,
 });
 
 

@@ -37,7 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.createStudent = exports.updateStudentName = exports.deleteStudent = exports.getStudents = void 0;
-var examsModel_1 = require("../exams/examsModel");
+var gradesModel_1 = require("../grades/gradesModel");
 var studentsModel_1 = require("./studentsModel");
 exports.getStudents = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var filterQuery, students, error_1;
@@ -112,17 +112,17 @@ exports.updateStudentName = function (req, res) { return __awaiter(void 0, void 
     });
 }); };
 exports.createStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, lastName, examsId, examDB, studentDB;
+    var _a, name, lastName, gradesId, gradeDB, studentDB;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _a = req.body, name = _a.name, lastName = _a.lastName, examsId = _a.examsId;
-                return [4 /*yield*/, examsModel_1["default"].findById(examsId)];
+                _a = req.body, name = _a.name, lastName = _a.lastName, gradesId = _a.gradesId;
+                return [4 /*yield*/, gradesModel_1["default"].findById(gradesId)];
             case 1:
-                examDB = _b.sent();
-                if (!examDB)
-                    throw new Error("cant find exam");
-                return [4 /*yield*/, studentsModel_1["default"].create({ name: name, lastName: lastName, exams: examDB })];
+                gradeDB = _b.sent();
+                if (!gradeDB)
+                    throw new Error("cant find gradeDB");
+                return [4 /*yield*/, studentsModel_1["default"].create({ name: name, lastName: lastName, grades: gradeDB })];
             case 2:
                 studentDB = _b.sent();
                 res.status(200).send({ studentDB: studentDB });
