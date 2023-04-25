@@ -12,11 +12,11 @@ export interface Grade {
 
 export const GradeSchema = new Schema({
   // student: StudentSchema,
-  exam: ExamSchema,
-  course: CourseSchema,
-  grade: Number,
-  studentId: String,
-  courseId: String,
+  // exam: ExamSchema,
+  // course: CourseSchema,
+  grade:Number,
+  // studentId: String,
+  // courseId: String,
 });
 
 const GradeModel = mongoose.model("grades", GradeSchema);

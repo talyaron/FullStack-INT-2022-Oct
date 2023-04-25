@@ -1,3 +1,4 @@
+import StudentModel from "../../../../08-mongoose-design/HomePuzzle/itayAmosi/API/students/studentsModel";
 import UserModel from "../users/usersModel";
 import CourseModel, {ExamModel,GradeModel} from "./coursesModel";
 
@@ -51,10 +52,10 @@ export const createExam = async (req:any, res:any) => {
 
   export const getStudentGradesInCourse = async (req:any, res:any) => {
     try {
-      const { userId,courseId} = req.query;
-      console.log(userId,courseId)
-
-     const gradesDB = await GradeModel.find({'student._id':userId,'course._id':courseId})
+      const { studentId,courseId} = req.query;
+      
+      const gradesDB = await StudentModel.find({student:studentId, course:courseId})
+      console.log(gradesDB)
      //{student:{_id:userId}, course:{_id:courseId}
 
     console.log(gradesDB)

@@ -6,9 +6,7 @@ var gradesModel_1 = require("../grades/gradesModel");
 exports.StudentSchema = new mongoose_1.Schema({
     name: String,
     lastName: String,
-    courses: { type: [String] },
-    grades: { type: [Number] },
-    grade: gradesModel_1.GradeSchema
+    grades: gradesModel_1.GradeSchema
 });
 var StudentModel = mongoose_1["default"].model("students", exports.StudentSchema);
 exports["default"] = StudentModel;

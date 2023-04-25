@@ -37,6 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.getStudentGradesInCourse = exports.createGrade = exports.createExam = exports.createCourse = void 0;
+var studentsModel_1 = require("../../../../08-mongoose-design/HomePuzzle/itayAmosi/API/students/studentsModel");
 var usersModel_1 = require("../users/usersModel");
 var coursesModel_1 = require("./coursesModel");
 exports.createCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -117,18 +118,16 @@ exports.createGrade = function (req, res) { return __awaiter(void 0, void 0, voi
     });
 }); };
 exports.getStudentGradesInCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, userId, courseId, gradesDB, error_4;
+    var _a, studentId, courseId, gradesDB, error_4;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                _a = req.query, userId = _a.userId, courseId = _a.courseId;
-                console.log(userId, courseId);
-                return [4 /*yield*/, coursesModel_1.GradeModel.find({ 'student._id': userId, 'course._id': courseId })
-                    //{student:{_id:userId}, course:{_id:courseId}
-                ];
+                _a = req.query, studentId = _a.studentId, courseId = _a.courseId;
+                return [4 /*yield*/, studentsModel_1["default"].find({ student: studentId, course: courseId })];
             case 1:
                 gradesDB = _b.sent();
+                console.log(gradesDB);
                 //{student:{_id:userId}, course:{_id:courseId}
                 console.log(gradesDB);
                 res.send({ grades: gradesDB });
