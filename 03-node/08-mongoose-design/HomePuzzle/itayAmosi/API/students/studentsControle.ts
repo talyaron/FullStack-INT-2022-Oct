@@ -1,3 +1,4 @@
+import ExamModel from "../exams/examsModel";
 import GradeModel, { GradeSchema } from "../grades/gradesModel";
 import StudentModel from "./studentsModel";
 import { v4 as uuidv4 } from "uuid";
@@ -6,7 +7,8 @@ import { v4 as uuidv4 } from "uuid";
 
 export const getStudents = async (req: any, res: any) => {
   try {
-    const students = await StudentModel.find({});
+    const filterQuery = req.query??{};
+    const students = await StudentModel.find(filterQuery);
 
     res.send({ students });
   } catch (error: any) {
@@ -14,16 +16,7 @@ export const getStudents = async (req: any, res: any) => {
     res.status(500).send({ error: error.message });
   }
 };
-// export const findStudents = async (req: any, res: any) => {
-//   try {
 
-
-//   res.send({ user });
-// } catch (error: any) {
-//   console.error(error);
-//   res.status(500).send({ error: error.message });
-// }
-// };
 
 export const deleteStudent = async (req: any, res: any) => {
   try {
@@ -51,28 +44,12 @@ export const updateStudentName = async (req: any, res: any) => {
   }
 };
 
-export const addMockStudent = async (req: any, res: any) => {
-  const newStudent = await StudentModel.create({
-    uid: uuidv4(),
-    name: "student_"+uuidv4().slice(0, 7),
-    lastName: uuidv4().slice(0, 7),
-    courses: ["6435c4a5d371943c1cb39103","6435c4e5d371943c1cb39120", "6435c4e5d371943c1cb3911c", "6435c4e5d371943c1cb3911e"],
-  });
-  await GradeModel.create({
-    grade: Math.floor(Math.random() * 100) + 1,
-    studentId: newStudent._id.toString(), courseId: "6435c4a5d371943c1cb39103"
-  });
-  await GradeModel.create({
-    grade: Math.floor(Math.random() * 100) + 1,
-    studentId: newStudent._id.toString(), courseId: "6435c4e5d371943c1cb39120"
-  });
-  await GradeModel.create({
-    grade: Math.floor(Math.random() * 100) + 1,
-    studentId: newStudent._id.toString(), courseId: "6435c4e5d371943c1cb3911c"
-  });
-  await GradeModel.create({
-    grade: Math.floor(Math.random() * 100) + 1,
-    studentId: newStudent._id.toString(), courseId: "6435c4e5d371943c1cb3911e"
-  });
-  res.status(200).send({ ok: true, newStudent });
+export const createStudent = async (req: any, res: any) => {
+  const { name, lastName, gradesId} = req.body;
+  const gradeDB = await GradeModel.findById(gradesId);
+  if (!gradeDB) throw new Error("cant find gradeDB")
+  const studentDB = await StudentModel.create({name, lastName, grades:gradeDB});
+
+  res.status(200).send({ studentDB });
 };
+

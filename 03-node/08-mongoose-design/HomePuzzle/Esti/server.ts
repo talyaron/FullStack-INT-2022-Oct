@@ -1,9 +1,14 @@
-import mongoose from "mongoose"
+// import mongoose from "mongoose"
 import express  from "express";
 import * as dotenv from 'dotenv'
+import mongoose, { Schema } from "mongoose";
 import coursesRoute from './API/courses/coursesRoute';
-import gradesRouter from './API/grades/gradeRouter'
-import routeStudent from "./API/student/studentsRouter";
+import gradesRoute from './API/grades/gradeRoute'
+import studentRoute from "./API/student/studentsRoute";
+import teacherRoute from "./API/teachers/teachersRoute";
+
+
+
 dotenv.config()
 
 const uri:string | undefined = process.env.MONGODB_URI
@@ -18,20 +23,16 @@ if(uri){
 }
 
 const app = express();
-const PORT = 3000;
+const PORT = 3002;
 
 app.use(express.json())
-app.use(express.static('public'))
+app.use(express.static('./public'))
 
 
-app.use('/courses', coursesRoute);
-app.use('/grades', gradesRouter);
-app.use('/student', routeStudent);
-
-
-
-
-
+app.use('/api/courses', coursesRoute);
+app.use('/api/grades', gradesRoute);
+app.use('/api/student', studentRoute);
+app.use('/api/teacher', teacherRoute);
 
 
 app.listen(PORT ,()=>{

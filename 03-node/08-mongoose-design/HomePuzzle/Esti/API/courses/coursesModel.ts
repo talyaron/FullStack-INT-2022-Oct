@@ -6,8 +6,8 @@ export interface Courses{
 }
 
  export const CoursesSchema = new Schema({
-    name:String,
-    teacher:TeachersSchema
+    name: String,
+    teacher: TeachersSchema
  });
 
  const CoursesModel = mongoose.model('courses' , CoursesSchema);

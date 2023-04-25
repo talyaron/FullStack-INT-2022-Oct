@@ -6,18 +6,18 @@ import { TeachersSchema } from "../teachers/teachersModel";
 
 export interface Grade {
   studentName: string;
-  couresName:string ,
-  score:number,
-  date:string
+  couresName: string ,
+  score: number,
+  // date: string
 }
 
 export const  GradesSchema = new Schema({
-  studentName: String,
-  courseName:CoursesSchema,
-  teacherName:TeachersSchema,
-  couresName:String ,
-  score:Number,
-  date:String
+  studentName: StudentsSchema,
+  courseName: CoursesSchema,
+  teacherName: TeachersSchema,
+  couresName: CoursesSchema ,
+  score: Number,
+  // date:String
 });
 
 const GradesModel = mongoose.model("grades", GradesSchema);
