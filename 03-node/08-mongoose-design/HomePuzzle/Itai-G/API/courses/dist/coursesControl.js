@@ -38,7 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.deleteCourse = exports.updateCourse = exports.addCourse = exports.createCourse = void 0;
 var coursesModel_1 = require("./coursesModel");
-var studentModel_1 = require("../students/studentModel");
+var examsModel_1 = require("../exams/examsModel");
 exports.createCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var name, courseDB, error_1;
     return __generator(this, function (_a) {
@@ -61,20 +61,21 @@ exports.createCourse = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.addCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, course, studentId, courseDB, courseObj, student, error_2;
+    var _a, name, examId, examDB, courseDB, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 3, , 4]);
-                _a = req.body, course = _a.course, studentId = _a.studentId;
-                return [4 /*yield*/, coursesModel_1["default"].create({ name: course })];
+                _a = req.body, name = _a.name, examId = _a.examId;
+                return [4 /*yield*/, examsModel_1["default"].findById(examId)];
             case 1:
-                courseDB = _b.sent();
-                courseObj = { _id: courseDB._id, name: course };
-                return [4 /*yield*/, studentModel_1["default"].findByIdAndUpdate(studentId, { $push: { courses: courseObj } }, { "new": true })];
+                examDB = _b.sent();
+                if (!examDB)
+                    throw new Error("examDB doesnt found");
+                return [4 /*yield*/, coursesModel_1["default"].create({ name: name, exam: examDB })];
             case 2:
-                student = _b.sent();
-                res.status(201).send({ ok: true, student: student });
+                courseDB = _b.sent();
+                res.status(201).send({ Course: courseDB });
                 return [3 /*break*/, 4];
             case 3:
                 error_2 = _b.sent();

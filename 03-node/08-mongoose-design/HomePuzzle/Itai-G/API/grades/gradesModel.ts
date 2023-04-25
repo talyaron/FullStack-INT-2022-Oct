@@ -9,10 +9,8 @@ export interface Grade {
 }
 
 export const GradeSchema = new Schema ({
-    studentId:String,
-    courseId:String,
     grade:Number,
 })
-const Grademodel = model('grade', GradeSchema);
+const Grademodel = model('grades', GradeSchema);
 
 export default Grademodel;

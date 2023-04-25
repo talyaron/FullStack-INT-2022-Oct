@@ -1,5 +1,6 @@
 import CourseModel from "./coursesModel";
 import StudentModel,{Student} from "../students/studentModel";
+import ExamModel from "../exams/examsModel";
 
 export const createCourse = async (req:any, res:any) => {
   try {
@@ -15,15 +16,12 @@ export const createCourse = async (req:any, res:any) => {
 
 export const addCourse = async (req: any, res: any) => {
   try {
-    const { course, studentId } = req.body;
-    const courseDB = await CourseModel.create({ name: course });
-    const courseObj = { _id: courseDB._id, name: course };
-    const student = await StudentModel.findByIdAndUpdate(
-      studentId,
-      { $push: { courses: courseObj } },
-      { new: true }
-    );
-    res.status(201).send({ ok: true, student });
+    const { name , examId} = req.body;
+    const examDB = await ExamModel.findById(examId);
+    if(!examDB) throw new Error("examDB doesnt found");
+
+    const courseDB = await CourseModel.create({name,exam:examDB})
+    res.status(201).send({ Course:courseDB });
   } catch (error: unknown) {
     console.error(error);
     if (error instanceof Error) {
