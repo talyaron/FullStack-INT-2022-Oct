@@ -4,8 +4,7 @@ import StudentModel from "../students/studentsModel";
 export const getCourses = async (req: any, res:any) => {
 
   try {
-    const courses = await CourseModel.find({}).populate('students').exec();
-    console.log(courses)
+    const courses = await CourseModel.find({})
     res.send(courses);
     return courses;
 
@@ -57,9 +56,9 @@ export const updateCourse = async (req:any, res:any) => {
 
   export const deleteCourse = async (req:any , res:any) => {
     try {
-      const { _id } = req.params;
+      const { _id } = req.body;
   
-      const deleteCourse = await CourseModel.deleteOne({_id})
+      const deletedUser = await CourseModel.deleteOne({_id})
       const courses = await CourseModel.find({})
      
       res.send({ ok: true, courses });

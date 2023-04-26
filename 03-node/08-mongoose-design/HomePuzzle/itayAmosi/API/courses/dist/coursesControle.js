@@ -36,32 +36,35 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getCoursesByIds = exports.addMockCourse = void 0;
+exports.getCourses = exports.createCourse = void 0;
+var examsModel_1 = require("../exams/examsModel");
 var coursesModel_1 = require("./coursesModel");
-var uuid_1 = require("uuid");
-exports.addMockCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var newCourse;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, coursesModel_1["default"].create({
-                    uid: uuid_1.v4(),
-                    name: "English Class"
-                })];
+exports.createCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, name, examsId, examDB, courseDB;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _a = req.body, name = _a.name, examsId = _a.examsId;
+                return [4 /*yield*/, examsModel_1["default"].findById(examsId)];
             case 1:
-                newCourse = _a.sent();
-                res.status(200).send({ ok: true, newCourse: newCourse });
+                examDB = _b.sent();
+                if (!examDB)
+                    throw new Error("cant find exam");
+                return [4 /*yield*/, coursesModel_1["default"].create({ name: name, exam: examDB })];
+            case 2:
+                courseDB = _b.sent();
+                res.status(200).send({ Course: courseDB });
                 return [2 /*return*/];
         }
     });
 }); };
-exports.getCoursesByIds = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var ids, courses, error_1;
+exports.getCourses = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var courses, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                ids = req.query.ids.split(',');
-                return [4 /*yield*/, coursesModel_1["default"].find({ _id: { $in: ids } })];
+                return [4 /*yield*/, coursesModel_1["default"].find({})];
             case 1:
                 courses = _a.sent();
                 res.send({ courses: courses });

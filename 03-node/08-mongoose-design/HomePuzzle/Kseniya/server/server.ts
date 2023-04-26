@@ -28,8 +28,8 @@ app.use('/students', studentsRouter);
 import coursesRouter from './API/courses/coursesRoute';
 app.use('/courses', coursesRouter);
 
-import gradesRouter from './API/grades/gradesRoute';
-app.use('/grades', gradesRouter);
+// import gradesRouter from './API/grades/gradesRoute';
+// app.use('/grades', gradesRouter);
 
 
 app.listen(3001, () => {

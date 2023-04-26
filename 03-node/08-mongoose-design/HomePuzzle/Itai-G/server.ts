@@ -27,6 +27,13 @@ app.use('/api/students', studentsRouter)
 import courseRouter from './API/courses/coursesRoute';
 app.use('/api/courses', courseRouter)
 
+import gradesRouter from './API/grades/gradesRoute';
+app.use('/api/grades', gradesRouter)
+
+import examsRouter from './API/exams/exmsRouter';
+app.use('/api/exams', examsRouter)
+
+ 
 
 app.use(express.static("./client"));
 

@@ -36,34 +36,95 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.createNewStudent = void 0;
+exports.deleteStudent = exports.updateStudentName = exports.updateStudent = exports.addStudent = exports.getStudents = void 0;
 var studnetsModel_1 = require("./studnetsModel");
-var fs_1 = require("fs");
-exports.createNewStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var studentName, newStudent, newFile, error_1;
+exports.getStudents = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var students, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                studentName = req.body.name;
-                console.log(studentName);
-                return [4 /*yield*/, studnetsModel_1["default"].create({ name: studentName })];
+                return [4 /*yield*/, studnetsModel_1["default"].find({})];
             case 1:
-                newStudent = _a.sent();
-                res.send(newStudent);
-                newFile = fs_1["default"].writeFile("myName.txt", (studentName.toString()), function (err) {
-                    if (err)
-                        console.log(err);
-                    else {
-                        console.log(fs_1["default"].readFileSync("myName.txt", "utf8"));
-                    }
-                });
+                students = _a.sent();
+                res.send({ students: students });
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _a.sent();
                 console.error(error_1);
+                res.status(500).send({ error: error_1.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.addStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, name, email, password, studentDB, error_2;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, name = _a.name, email = _a.email, password = _a.password;
+                console.log(name, email, password);
+                return [4 /*yield*/, studnetsModel_1["default"].create({ name: name, email: email, password: password })];
+            case 1:
+                studentDB = _b.sent();
+                console.log(studentDB);
+                res.status(201).send({ ok: true });
+                return [3 /*break*/, 3];
+            case 2:
+                error_2 = _b.sent();
+                console.error(error_2);
+                res.status(500).send({ error: error_2.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.updateStudent = function (req, res) {
+    try {
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send({ error: error.message });
+    }
+};
+exports.updateStudentName = function (req, res) {
+    try {
+        // const { name, uid } = req.body;
+        // if (!name) throw new Error("No name in data");
+        // if (!uid) throw new Error("No uid in data");
+        // const student = students.find((student) => student.uid === uid);
+        // if (!student) throw new Error("No student in array");
+        // student.name = name;
+        // res.send({ ok: true });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send({ error: error.message });
+    }
+};
+exports.deleteStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _id, deleteStudent_1, students, error_3;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 3, , 4]);
+                _id = req.body._id;
+                return [4 /*yield*/, studnetsModel_1["default"].deleteOne({ _id: _id })];
+            case 1:
+                deleteStudent_1 = _a.sent();
+                return [4 /*yield*/, studnetsModel_1["default"].find({})];
+            case 2:
+                students = _a.sent();
+                res.send({ ok: true, students: students });
+                return [3 /*break*/, 4];
+            case 3:
+                error_3 = _a.sent();
+                console.error(error_3);
+                res.status(500).send({ error: error_3.message });
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };

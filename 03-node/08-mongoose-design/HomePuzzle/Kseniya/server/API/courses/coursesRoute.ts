@@ -13,6 +13,6 @@ router
   .get('/all', getCourses)
   .post("/add", addCourse)
   .patch("/update-course-name", updateCourse)
-  .delete("/delete/:_id", deleteCourse);
+  .delete("/delete-course", deleteCourse);
 
 export default router;

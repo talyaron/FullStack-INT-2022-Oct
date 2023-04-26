@@ -1,24 +1,16 @@
 import mongoose, { Schema } from "mongoose";
-import { courseSchema, ICourse } from "../courses/coursesModel";
+import { CourseSchema, Course } from "../courses/coursesModel";
 
 export interface IStudent {
   name: string;
-  courses?: ICourse[];
+  courses?: Course[];
 }
 
-export const studentSchema = new Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  courses: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Course'
-    }
-  ]
+export const StudentSchema = new Schema({
+  name: String,
+  courses: [CourseSchema],
 });
 
-const StudentModel = mongoose.model("Student", studentSchema);
+const StudentModel = mongoose.model("students", StudentSchema);
 
 export default StudentModel;

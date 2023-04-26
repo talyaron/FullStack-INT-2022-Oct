@@ -44,7 +44,7 @@ exports.getStudents = function (req, res) { return __awaiter(void 0, void 0, voi
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, studentsModel_1["default"].find().populate('courses').exec()];
+                return [4 /*yield*/, studentsModel_1["default"].find({})];
             case 1:
                 students = _a.sent();
                 res.send(students);
@@ -64,12 +64,11 @@ exports.addStudent = function (req, res) { return __awaiter(void 0, void 0, void
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 3, , 4]);
-                console.log(req.body);
                 student_1 = req.body.student;
                 return [4 /*yield*/, studentsModel_1["default"].find({})];
             case 1:
                 students = _a.sent();
-                isExist = students === null || students === void 0 ? void 0 : students.find(function (elememt) { return elememt.name == student_1.name; });
+                isExist = students === null || students === void 0 ? void 0 : students.find(function (elememt) { return elememt._id == student_1._id; });
                 if (isExist !== undefined) {
                     throw new Error("student already exists");
                 }
@@ -150,3 +149,18 @@ exports.deleteStudent = function (req, res) { return __awaiter(void 0, void 0, v
         }
     });
 }); };
+// export const getStudentGradesInCourse = async (req: any, res: any) => {
+//     try {
+//       //got from the client
+//       const { courseId, studentId } = req.query;
+//       //https://docs.oracle.com/en/cloud/saas/cx-commerce/21b/ccdev/rest-api-query-parameters.html
+//       const grades = await GradeModel.find({
+//         course: { _id: courseId },
+//         user: { _id: studentId },
+//       });
+//       res.send({ grades });
+//     } catch (error) {
+//       console.error(error);
+//       res.status(500).send({ error: error.message });
+//     }
+//   };

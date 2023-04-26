@@ -4,6 +4,7 @@ if (btn) {
     btn.addEventListener("click", function () {
         try {
             //synchonic coding
+            console.log("start");
             var result_1 = document.querySelector("#result");
             if (!result_1)
                 throw new Error("Couldnt find element result");

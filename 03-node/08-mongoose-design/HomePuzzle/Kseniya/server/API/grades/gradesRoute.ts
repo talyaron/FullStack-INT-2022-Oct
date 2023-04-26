@@ -5,7 +5,6 @@ import {
   addGrade,
   deleteGrade,
   getGrades
-  
 } from "./gradesControl";
 
 router

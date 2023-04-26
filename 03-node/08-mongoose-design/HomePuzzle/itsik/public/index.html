@@ -5,27 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grade-App</title>
-    <link rel="stylesheet" href="./dist/index.css">
-    <script src="./dist/index.js" defer></script>
+    <link rel="stylesheet" href="./dist/style.css">
 </head>
 <body>
-    <!-- first -->
-   <div class="chooseOne">
-    <h1 class="chooseOne__env">control your students environment</h1>
-    <div class="chooseOne__main">
-      <button class="chooseOne__main__btnteacher firstBtn teacherbtn">Teacher Sign-Up</button>
-      <button class="chooseOne__main__btnstudent firstBtn studentbtn">Student Sign-Up</button>
-     <button class="chooseOne__main__btnteacherIn firstBtn">Teacher Sign-In</button>
-      <button class="chooseOne__main__btnstudentIn firstBtn">Student Sign-In</button>
-   </div>
-</div>
+    <div class="container">
+      <div class="main">
+            <div class="reg">
+                <div class="sign">
+                    <h2>Sign Up Or Sign In</h2>
+                </div>
+                <form>
+                    <label for="">Student Name:</label>
+                    <input type="text">
+                    <label for="">Student Number:</label>
+                    <input type="number">
+                    <label for="">Student Email:</label>
+                    <input type="email">
+                    <label for="">Student Password:</label>
+                    <input type="password">
+                    <br>
+                    <button>Sign-Up</button>
+                    <br>
+                    <a href="./signIn.html">Sign-in</a>
+                </form>
+            </div>
+        </div>
+    </div>
 
-<!-- teacher sign-up -->
-
-<div class="signup divteacher"></div>
-
-<!-- student sign-up -->
-<div class="signup divstudent"></div>
-   
+    
 </body>
 </html>

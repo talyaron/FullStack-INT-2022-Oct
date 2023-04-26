@@ -5,7 +5,7 @@ if (btn) {
   btn.addEventListener("click", () => {
     try {
       //synchonic coding
-    
+      console.log("start");
       const result: HTMLElement | null = document.querySelector("#result");
       if (!result) throw new Error("Couldnt find element result");
       //get number from server

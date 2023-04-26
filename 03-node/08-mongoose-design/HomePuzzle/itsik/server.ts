@@ -1,37 +1,21 @@
-import  bodyParser from 'body-parser';
-import express from "express";
-import mongoose, {Schema}  from 'mongoose';
-import * as dotenv from "dotenv";
-import cors from "cors";
-
-
-dotenv.config();
+import mongoose from "mongoose";
+import express  from "express";
+import * as dotenv from 'dotenv';
+dotenv.config()
 const app = express();
-const Port = 3000;
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-// db connect
-const uri:string | undefined = process.env.MONGODB_URI;
-if(uri){
-mongoose.connect(uri)
-.then(()=>{
-    console.log(`our db is connected`)
-    })
-}
+const PORT = 3000;
+const uri:string | undefined = process.env.MONGODB_URI
 
-// imports
-import userLoginRoutes from './API/userLogin/userLoginRoutes';
-app.use('/API/userLogin', userLoginRoutes)
+mongoose.connect(uri).then(()=>{
+    console.log("DB connected");
+})
+
+app.use(express.json())
+app.use(express.static('public'))
 
 
 
 
-
-// server json/static file's
-app.use(express.json());
-app.use(express.static("./public"));
-
-app.listen(Port,()=>{
-    console.log(Port)
-} )
+app.listen(PORT ,()=>{
+    console.log(`the server run on PORT:${PORT}`);
+})

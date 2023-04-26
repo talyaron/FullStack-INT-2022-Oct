@@ -159,7 +159,6 @@ function handleTeacherSearch(query) {
 async function getStudents(query) {
   const url =
     "/api/students/get-students?" + new URLSearchParams(query).toString();
-  console.log(url);
   const response = await fetch(url);
   return await response.json();
 }
