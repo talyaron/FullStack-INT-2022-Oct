@@ -15,6 +15,8 @@ app.use(express.static('public'))
 
 
 
+import userRoutes from "./API/userRoutes";
+app.use('/', userRoutes)
 
 app.listen(PORT ,()=>{
     console.log(`the server run on PORT:${PORT}`);
