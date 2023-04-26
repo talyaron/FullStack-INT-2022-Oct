@@ -14,7 +14,8 @@ app.use(express.json())
 app.use(express.static('public'))
 
 
-
+import userRoutes from "./API/routes/uRouter";
+app.use('/', userRoutes)
 
 app.listen(PORT ,()=>{
     console.log(`the server run on PORT:${PORT}`);
