@@ -27,23 +27,6 @@ export const addGrade = async (req:any, res:any) => {
   };
 
 
-
-  
-export const updateGrade = async (req:any, res:any) => {
-    try {
-      // const { name, uid } = req.body;
-      // if (!name) throw new Error("No name in data");
-      // if (!uid) throw new Error("No uid in data");
-      // const user = users.find((user) => user.uid === uid);
-      // if (!user) throw new Error("No user in array");
-      // user.name = name;
-      // res.send({ ok: true });
-    } catch (error: any) {
-      console.error(error);
-      res.status(500).send({ error: error.message });
-    }
-  }
-
   export const deleteGrade = async (req:any , res:any) => {
     try {
       const { _id } = req.body;

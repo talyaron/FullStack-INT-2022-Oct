@@ -3,7 +3,6 @@ const router = express.Router();
 
 import {
   addGrade,
-  updateGrade,
   deleteGrade,
   getGrades
   
@@ -11,8 +10,7 @@ import {
 
 router
   .get('/all', getGrades)
-  .post("/add-grade", addGrade)
-  .patch("/update-grade-name", updateGrade)
-  .delete("/delete-grade", deleteGrade);
+  .post("/add", addGrade)
+  .delete("/delete", deleteGrade);
 
 export default router;

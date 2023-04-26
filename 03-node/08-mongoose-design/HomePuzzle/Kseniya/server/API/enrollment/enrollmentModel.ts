@@ -11,4 +11,4 @@ export const enrollmentSchema = new Schema({
     }
   });
 
-  const Enrollment = mongoose.model('Enrollment', enrollmentSchema);
+export const Enrollment = mongoose.model('Enrollment', enrollmentSchema);
