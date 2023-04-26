@@ -1,6 +1,7 @@
 import ExamModel from "../exams/examsModel";
-import GradeModel, { GradeSchema } from "../grades/gradesModel";
+import GradeModel from "../grades/gradesModel";
 import StudentModel from "./studentsModel";
+import StudentGradesModel from "./studentsModel";
 import { v4 as uuidv4 } from "uuid";
 
 
@@ -51,5 +52,22 @@ export const createStudent = async (req: any, res: any) => {
   const studentDB = await StudentModel.create({name, lastName, grades:gradeDB});
 
   res.status(200).send({ studentDB });
+};
+
+export const getGradesByStudentId = async (req: any, res: any) => {
+  try {
+    const { name, studentId } = req.body;
+    const studentDB = await StudentModel.findById(studentId);
+    // const [gradesDB,studentDB ] = await Promise.all([GradeModel.findById(gradesId),StudentModel.findById(studentId)]);
+    // if(!gradesDB && !studentDB) throw new Error(`cannot find gradesId in studentId`);
+    console.log(studentDB);
+    if(!studentDB) throw new Error(`cannot find studentId`);
+
+    const StudentGradesDB = await StudentGradesModel.create({ name, student:studentDB });
+    res.send({ StudentGrades: StudentGradesDB });
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
 };
 

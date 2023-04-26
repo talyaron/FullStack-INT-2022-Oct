@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.createExam = void 0;
+exports.getExams = exports.createExam = void 0;
 var studentsModel_1 = require("../students/studentsModel");
 var examsModel_1 = require("./examsModel");
 exports.createExam = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -56,6 +56,28 @@ exports.createExam = function (req, res) { return __awaiter(void 0, void 0, void
                 examDB = _b.sent();
                 res.status(200).send({ Exam: examDB });
                 return [2 /*return*/];
+        }
+    });
+}); };
+exports.getExams = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var filterQuery, exams, error_1;
+    var _a;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                filterQuery = (_a = req.query) !== null && _a !== void 0 ? _a : {};
+                return [4 /*yield*/, examsModel_1["default"].find({})];
+            case 1:
+                exams = _b.sent();
+                res.send({ exams: exams });
+                return [3 /*break*/, 3];
+            case 2:
+                error_1 = _b.sent();
+                console.error(error_1);
+                res.status(500).send({ error: error_1.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }); };

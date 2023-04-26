@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getCourses = exports.createCourse = void 0;
+exports.getStudentGradesInCourse = exports.getCourses = exports.createCourse = void 0;
 var examsModel_1 = require("../exams/examsModel");
 var coursesModel_1 = require("./coursesModel");
 exports.createCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -75,6 +75,23 @@ exports.getCourses = function (req, res) { return __awaiter(void 0, void 0, void
                 res.status(500).send({ error: error_1.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.getStudentGradesInCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, studentId, courseId, courseDB;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _a = req.query, studentId = _a.studentId, courseId = _a.courseId;
+                return [4 /*yield*/, coursesModel_1["default"].find({
+                        courseId: courseId,
+                        studentId: studentId
+                    })];
+            case 1:
+                courseDB = _b.sent();
+                res.status(200).send({ Course: courseDB });
+                return [2 /*return*/];
         }
     });
 }); };

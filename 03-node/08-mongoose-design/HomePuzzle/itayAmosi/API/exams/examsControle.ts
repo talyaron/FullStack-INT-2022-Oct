@@ -12,3 +12,15 @@ export const createExam = async (req: any, res: any) => {
 
   res.status(200).send({ Exam: examDB });
 };
+
+export const getExams = async (req: any, res: any) => {
+  try {
+    const filterQuery = req.query??{};
+    const exams = await ExamModel.find({});
+
+    res.send({ exams });
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+};

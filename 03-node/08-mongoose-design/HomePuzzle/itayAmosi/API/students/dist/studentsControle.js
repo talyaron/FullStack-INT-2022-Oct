@@ -36,9 +36,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.createStudent = exports.updateStudentName = exports.deleteStudent = exports.getStudents = void 0;
+exports.getGradesByStudentId = exports.createStudent = exports.updateStudentName = exports.deleteStudent = exports.getStudents = void 0;
 var gradesModel_1 = require("../grades/gradesModel");
 var studentsModel_1 = require("./studentsModel");
+var studentsModel_2 = require("./studentsModel");
 exports.getStudents = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var filterQuery, students, error_1;
     var _a;
@@ -127,6 +128,35 @@ exports.createStudent = function (req, res) { return __awaiter(void 0, void 0, v
                 studentDB = _b.sent();
                 res.status(200).send({ studentDB: studentDB });
                 return [2 /*return*/];
+        }
+    });
+}); };
+exports.getGradesByStudentId = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, name, studentId, studentDB, StudentGradesDB, error_4;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 3, , 4]);
+                _a = req.body, name = _a.name, studentId = _a.studentId;
+                return [4 /*yield*/, studentsModel_1["default"].findById(studentId)];
+            case 1:
+                studentDB = _b.sent();
+                // const [gradesDB,studentDB ] = await Promise.all([GradeModel.findById(gradesId),StudentModel.findById(studentId)]);
+                // if(!gradesDB && !studentDB) throw new Error(`cannot find gradesId in studentId`);
+                console.log(studentDB);
+                if (!studentDB)
+                    throw new Error("cannot find studentId");
+                return [4 /*yield*/, studentsModel_2["default"].create({ name: name, student: studentDB })];
+            case 2:
+                StudentGradesDB = _b.sent();
+                res.send({ StudentGrades: StudentGradesDB });
+                return [3 /*break*/, 4];
+            case 3:
+                error_4 = _b.sent();
+                console.error(error_4);
+                res.status(500).send({ error: error_4.message });
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };
