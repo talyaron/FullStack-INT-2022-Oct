@@ -8,5 +8,15 @@ const express_1 = __importDefault(require("express"));
 const gradeRouter = express_1.default.Router();
 exports.gradeRouter = gradeRouter;
 const gradeController_1 = require("../controllers/gradeController");
-gradeRouter.route("/").get(gradeController_1.getAllGrades).post(gradeController_1.createGrade);
-gradeRouter.route("/:id").get(gradeController_1.getGrade).patch(gradeController_1.updateGrade).delete(gradeController_1.deleteGrade);
+gradeRouter
+    .route("/")
+    .get(gradeController_1.getAllGrades)
+    .post(gradeController_1.createGrade)
+    .delete(gradeController_1.emptyCollection);
+gradeRouter
+    .route("/:id")
+    .get(gradeController_1.getStudentGradesInCourse)
+    .patch(gradeController_1.updateGrade)
+    .delete(gradeController_1.deleteGrade);
+gradeRouter
+    .route("/inCourse/:courseId").delete(gradeController_1.deleteAllGradesInCourse);

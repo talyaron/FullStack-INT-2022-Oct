@@ -8,8 +8,33 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const courseApi = "http://localhost:3000/api/v1/courses";
-const coursesRoot = document.querySelector("#coursesRoot");
+class Teacher {
+    constructor(name) {
+        this.name = name;
+    }
+}
+class Student {
+    constructor(name, id, courseId = "") {
+        this.name = name;
+        this.id = id;
+        this.courseId = courseId;
+    }
+    getAverageInCourse(courseId) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const grades = yield fetch(`${gradesApi}/${this.id}?courseId=${courseId}`)
+                    .then((res) => res.json())
+                    .then(({ grades }) => grades.map((grade) => grade.score))
+                    .catch((error) => console.error(error));
+                const gradesAverage = grades.reduce((a, b) => a + b, 0) / grades.length;
+                return gradesAverage;
+            }
+            catch (error) {
+                console.log(error);
+            }
+        });
+    }
+}
 class Course {
     constructor(name, teachers = [], id) {
         this.name = name;
@@ -23,28 +48,10 @@ class Course {
         });
     }
 }
-const displayCourses = () => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const coursesList = yield fetch(courseApi)
-            .then((res) => res.json())
-            .then(({ courses }) => courses.map((course) => new Course(course.name, course.teachers, course._id)));
-        if (coursesList)
-            renderCourses(coursesList);
+class Grade {
+    constructor(score, course, student) {
+        this.score = score;
+        this.course = course;
+        this.student = student;
     }
-    catch (error) {
-        console.error(error);
-    }
-});
-function renderCourses(coursesList) {
-    coursesRoot.innerHTML = coursesList
-        .map((course) => `<a href="./students.html" class="course" id="${course.id}">${course.name}</a>`)
-        .join("");
 }
-function deleteCourse(courseId) {
-    return __awaiter(this, void 0, void 0, function* () {
-        yield fetch(`${courseApi}/${courseId}`)
-            .then((res) => res.json())
-            .catch((error) => console.error(error));
-    });
-}
-displayCourses();
