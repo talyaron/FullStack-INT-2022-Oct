@@ -1,7 +1,7 @@
 import ExamModel from "../exams/examsModel";
 import GradeModel from "../grades/gradesModel";
 import StudentModel from "./studentsModel";
-import StudentGradesModel from "./studentsModel";
+import {StudentGradesModel} from "./studentsModel";
 import { v4 as uuidv4 } from "uuid";
 
 

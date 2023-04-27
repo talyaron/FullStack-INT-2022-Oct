@@ -13,17 +13,17 @@ export const ExamSchema = new Schema({
   name: String,
   topic: String,
   questions: Object,
-  student: StudentSchema,
+  courseId:String,
 });
 
 
-// export const ExamStudentSchema = new Schema({
-//   student: StudentSchema,
-//   exam: ExamSchema,
-//   course: CourseSchema,
-//   grade: Number,
+export const ExamStudentSchema = new Schema({
+  student: StudentSchema,
+  exam: ExamSchema,
+  course: CourseSchema,
+  grade: Number,
 
-// });
+});
 
 
 const ExamModel = mongoose.model("exams", ExamSchema);

@@ -146,7 +146,7 @@ exports.getGradesByStudentId = function (req, res) { return __awaiter(void 0, vo
                 console.log(studentDB);
                 if (!studentDB)
                     throw new Error("cannot find studentId");
-                return [4 /*yield*/, studentsModel_2["default"].create({ name: name, student: studentDB })];
+                return [4 /*yield*/, studentsModel_2.StudentGradesModel.create({ name: name, student: studentDB })];
             case 2:
                 StudentGradesDB = _b.sent();
                 res.send({ StudentGrades: StudentGradesDB });
