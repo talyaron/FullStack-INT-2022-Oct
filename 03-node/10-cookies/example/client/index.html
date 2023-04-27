@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="./dist/index.js" defer></script>
+</head>
+
+<body>
+    <h2>Rgister</h2>
+    <form onsubmit="handleAddUser(event)">
+        <input type="text" name="name" placeholder="User name" required>
+        <input type="password" name="password" placeholder="password" required>
+        <button type="submit">Register</button>
+    </form>
+    <h2>Login</h2>
+    <form onsubmit="handleLogin(event)">
+        <input type="text" name="name" placeholder="User name" required>
+        <input type="password" name="password" placeholder="password" required>
+        <button type="submit">Login</button>
+    </form>
+    <button onclick="handleGetUsers()">Get Users</button>
+    <div id="users"></div>
+    <a href="admin.html">Go admin</a>
+    <a href="./second.html">Second page</a>
+</body>
+
+</html>
