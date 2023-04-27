@@ -12,6 +12,9 @@ export interface Grade {
 
 export const GradeSchema = new Schema({
   grade: Number,
+  userId:String,
+  courseId:String,
+  examId:String
 });
 
 
