@@ -1,9 +1,14 @@
 import express from "express";
 const router = express.Router();
 
-import { addMockExam } from "./examsControle";
+import {
+    createExam,
+     getExams, 
+    } from "./examsControle";
 
 router
-.post("/add-mock-exam", addMockExam);
+
+.post("/create-exam", createExam)
+.get("/get-exams", getExams)
 
 export default router;

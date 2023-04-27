@@ -37,29 +37,32 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.deleteStudent = exports.updateStudentName = exports.getStudents = exports.addStudent = void 0;
+var gradesModel_1 = require("../grades/gradesModel");
 var studentModel_1 = require("./studentModel");
 exports.addStudent = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var name, studentDB, error_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var _a, name, gradeId, gradeDB, studentDB, error_1;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                name = req.body.name;
-                if (!name) {
-                    throw new Error("Name is missing from request body");
-                }
-                return [4 /*yield*/, studentModel_1["default"].create({ name: name })];
+                _b.trys.push([0, 3, , 4]);
+                _a = req.body, name = _a.name, gradeId = _a.gradeId;
+                return [4 /*yield*/, gradesModel_1["default"].findById(gradeId)];
             case 1:
-                studentDB = _a.sent();
-                console.log(studentDB);
-                res.status(201).send({ ok: true });
-                return [3 /*break*/, 3];
+                gradeDB = _b.sent();
+                if (!gradeDB) {
+                    throw new Error("gradeDB is missing from request body");
+                }
+                return [4 /*yield*/, studentModel_1["default"].create({ name: name, grade: gradeDB })];
             case 2:
-                error_1 = _a.sent();
+                studentDB = _b.sent();
+                res.status(200).send({ Student: studentDB });
+                return [3 /*break*/, 4];
+            case 3:
+                error_1 = _b.sent();
                 console.error(error_1);
                 res.status(500).send({ error: error_1.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };

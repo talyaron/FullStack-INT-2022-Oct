@@ -13,30 +13,13 @@ export const addMockGrades = async (req: any, res: any) => {
   res.status(200).send({ ok: true, newGrades });
 };
 
-export const getGradesByStudentId = async (req: any, res: any) => {
-  try {
-    const studentId = req.query.studentId;
-    const grades = await GradeModel.find({ studentId });
-    res.send({ grades });
-  } catch (error: any) {
-    console.error(error);
-    res.status(500).send({ error: error.message });
-  }
-};
+
 
 export const createGrade = async (req: any, res: any) => {
-  const { grade, studentId, courseId, examId } = req.body;
-  const [courseDB, studentDB, examDB] = await Promise.all([ CourseModel.findById(courseId),StudentModel.findById(studentId),ExamModel.findById(examId)] );
-  if (!courseDB) throw new Error(`cant find CourseDB`);
-  if (!studentDB) throw new Error(`cant find studentDB`);
-  if (!examDB) throw new Error(`cant find examDB`);
-
-  const GradeDB = await GradeModel.create({
-    student: studentDB,
-    exam: examDB,
-    course: courseDB,
-    grade,
-  });
-
+  const { grade } = req.body;
+  const GradeDB = await GradeModel.create({grade});
+  
   res.status(200).send({ Grade: GradeDB });
 };
+
+

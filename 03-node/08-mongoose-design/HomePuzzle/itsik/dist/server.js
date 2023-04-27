@@ -12,6 +12,8 @@ mongoose_1["default"].connect(uri).then(function () {
 });
 app.use(express_1["default"].json());
 app.use(express_1["default"].static('public'));
+var userRoutes_1 = require("./API/userRoutes");
+app.use('/', userRoutes_1["default"]);
 app.listen(PORT, function () {
     console.log("the server run on PORT:" + PORT);
 });
