@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getTeacher = exports.addMockTeacher = void 0;
+exports.updateTeacherName = exports.deleteTeacher = exports.getTeacher = exports.addMockTeacher = void 0;
 var teachersModel_1 = require("./teachersModel");
 var uuid_1 = require("uuid");
 exports.addMockTeacher = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -46,31 +46,83 @@ exports.addMockTeacher = function (req, res) { return __awaiter(void 0, void 0, 
             case 0: return [4 /*yield*/, teachersModel_1["default"].create({
                     uid: uuid_1.v4(),
                     name: "teacher_" + uuid_1.v4().slice(0, 7),
-                    lastName: uuid_1.v4().slice(0, 7)
+                    lastName: uuid_1.v4().slice(0, 7),
+                    courses: ["64383c4308c863c15e9fb645", "64383c4608c863c15e9fb647", "64383c4608c863c15e9fb649", "64383c4608c863c15e9fb64b"]
                 })];
             case 1:
                 newTeacher = _a.sent();
-                console.log(newTeacher);
                 res.status(200).send({ ok: true, newTeacher: newTeacher });
                 return [2 /*return*/];
         }
     });
 }); };
 exports.getTeacher = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var teachers, error_1;
+    var filterQuery, teachers, error_1;
+    var _a;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                filterQuery = (_a = req.query) !== null && _a !== void 0 ? _a : {};
+                return [4 /*yield*/, teachersModel_1["default"].find(filterQuery)];
+            case 1:
+                teachers = _b.sent();
+                res.send({ teachers: teachers });
+                return [3 /*break*/, 3];
+            case 2:
+                error_1 = _b.sent();
+                console.error(error_1);
+                res.status(500).send({ error: error_1.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.deleteTeacher = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _id, error_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, teachersModel_1["default"].find({})];
+                _id = req.query._id;
+                if (!_id)
+                    throw new Error("Invalid to find _id");
+                return [4 /*yield*/, teachersModel_1["default"].deleteOne({ _id: _id })];
             case 1:
-                teachers = _a.sent();
-                res.send({ teachers: teachers });
+                _a.sent();
+                res.sendStatus(200);
                 return [3 /*break*/, 3];
             case 2:
-                error_1 = _a.sent();
-                console.error(error_1);
-                res.status(500).send({ error: error_1.message });
+                error_2 = _a.sent();
+                console.error(error_2);
+                res.status(500).send({ error: error_2.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.updateTeacherName = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, name, _id, teacher, error_3;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                _a = req.query, name = _a.name, _id = _a._id;
+                if (!name)
+                    throw new Error("No name in data");
+                if (!_id)
+                    throw new Error("No uid in data");
+                return [4 /*yield*/, teachersModel_1["default"].findOneAndUpdate({ _id: _id }, { name: name })];
+            case 1:
+                teacher = _b.sent();
+                if (!teacher)
+                    throw new Error("No teacher in array");
+                res.send({ ok: true });
+                return [3 /*break*/, 3];
+            case 2:
+                error_3 = _b.sent();
+                console.error(error_3);
+                res.status(500).send({ error: error_3.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }

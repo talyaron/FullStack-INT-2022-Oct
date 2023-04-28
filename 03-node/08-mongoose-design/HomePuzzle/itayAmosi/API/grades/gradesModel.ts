@@ -1,21 +1,22 @@
 import mongoose, { Schema } from "mongoose";
-import { CourseSchema } from "../courses/coursesModel";
 import { StudentSchema } from "../students/studentsModel";
-import { v4 as uuidv4 } from "uuid";
-//schema
+import { ExamSchema } from "../exams/examsModel";
+import { CourseSchema } from "../courses/coursesModel";
 
 export interface Grade {
   _id: any;
   grade: number;
-  gradCourse:typeof CourseSchema;
+  studentId: string;
+  courseId: string;
 }
 
 export const GradeSchema = new Schema({
   grade: Number,
-  gradCourse: CourseSchema,
-  // students: StudentSchema,
-  // courses: CourseSchema,
+  userId:String,
+  courseId:String,
+  examId:String
 });
+
 
 const GradeModel = mongoose.model("grades", GradeSchema);
 

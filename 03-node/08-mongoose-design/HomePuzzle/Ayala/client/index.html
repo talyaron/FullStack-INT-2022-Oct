@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/type.css">
+    <script src="./dist/index.js"></script>
+</head>
+<body>
+  
+    <form onsubmit="handleAddUser(event)">
+        <input type="text" name="name" placeholder="User name" required>
+        <input type="text" name="src" placeholder="image url" required>
+        <button type="submit">ADD</button>
+    </form>
+    <button onclick="handleGetUsers()">Get Users</button>
+    <!-- <button onclick="handleUserNameUpdate()">Update Users</button>
+    <button onclick="handleDeleteUser()">Delete Users</button> -->
+    <div id="users"></div>
+
+    
+
+
+
+
+       <div class="all">
+        <h1>School App</h1>
+
+        <!-- Courses CRUD -->
+        <h2>Courses</h2>
+        <form id="course-form" onsubmit="handleCourseSubmit(event)">
+          <input type="text" name="courseName" placeholder="Course Name" required>
+          <button type="submit">Add Course</button>
+        </form>
+        <div id="course-list"></div>
+      
+        <!-- Students CRUD -->
+        <h2>Students</h2>
+        <form id="student-form" onsubmit="handleStudentSubmit(event)">
+          <input type="text" name="studentName" placeholder="Student Name" required>
+          <button type="submit">Add Student</button>
+        </form>
+        <div id="student-list"></div>
+      
+        <!-- Teachers CRUD -->
+        <h2>Teachers</h2>
+        <form id="teacher-form" onsubmit="handleTeacherSubmit(event)">
+          <input type="text" name="teacherName" placeholder="Teacher Name" required>
+          <button type="submit">Add Teacher</button>
+        </form>
+        <div id="teacher-list"></div>
+      
+       
+        <h2>Grades</h2>
+        <form id="grade-form" onsubmit="handleGradeSubmit(event)">
+          <select name="courseId" required>
+            <option value="">Select Course</option>
+          </select>
+          <select name="studentId" required>
+            <option value="">Select Student</option>
+          </select>
+          <input type="number" name="grade" placeholder="Grade" min="0" max="100" required>
+          <button type="submit">Add Grade</button>
+        </form>
+        <div id="grade-list"></div>
+      
+       </div>
+</body>
+</html>

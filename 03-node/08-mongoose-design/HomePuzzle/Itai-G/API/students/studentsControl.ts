@@ -1,16 +1,17 @@
+import Grademodel from "../grades/gradesModel";
 import StudentModel from "./studentModel";
 
 
 export const addStudent = async (req:any, res:any) => {
     try {
-      const { name } = req.body;
-      if (!name) {
-        throw new Error("Name is missing from request body");
+      const { name , gradeId } = req.body;
+      const gradeDB = await Grademodel.findById(gradeId)
+      if (!gradeDB) {
+        throw new Error("gradeDB is missing from request body");
       }
-      const studentDB = await StudentModel.create({name});
-      console.log(studentDB);
+      const studentDB = await StudentModel.create({name,grade:gradeDB});
       
-      res.status(201).send({ ok: true });
+      res.status(200).send({Student: studentDB });
     } catch (error: any) {
       console.error(error);
       res.status(500).send({ error: error.message });
@@ -51,9 +52,9 @@ export const addStudent = async (req:any, res:any) => {
     }
   }
   
-  export const deleteStudent = async (req:any , res:any) => {
+export const deleteStudent = async (req:any , res:any) => {
     try {
-      const { _id } = req.body;
+      const _id = req.body._id;
       if (!_id) {
         throw new Error("_id is missing from request body");
       }

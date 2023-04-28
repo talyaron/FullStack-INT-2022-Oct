@@ -1,15 +1,17 @@
-import mongoose, { Schema } from "mongoose";
-import { GradeSchema } from "../grades/gradesModel";
+import mongoose, { Schema, Document } from "mongoose";
+import { GradeSchema, Grade } from "../grades/gradesModel";
 import { StudentSchema } from "../students/studentsModel";
 
-export interface Course {
+export interface Course extends Document{
     name: string;
+    grades: Grade[];
 }
 
 export const CourseSchema = new Schema({
     name: String,
+    grades: [GradeSchema],
 });
 
-const CourseModel = mongoose.model("courses", CourseSchema);
+const CourseModel = mongoose.model<Course>("courses", CourseSchema);
 
 export default CourseModel;

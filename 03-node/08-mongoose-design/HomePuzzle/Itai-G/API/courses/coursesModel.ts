@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
-import { StudentSchema, Student } from "../students/studentModel";
+import StudentModel from "../students/studentModel";
+import { ExamSchema } from "../exams/examsModel";
 
 export interface Course {
     name:string;
@@ -7,6 +8,7 @@ export interface Course {
 
 export const CourseSchema = new Schema ({
     name:String,
+    exam:ExamSchema
 })
 const CourseModel = model('Course', CourseSchema);
 

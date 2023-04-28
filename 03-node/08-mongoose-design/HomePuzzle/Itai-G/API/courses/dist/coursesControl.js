@@ -36,41 +36,60 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.deleteCourse = exports.updateCourse = exports.addCourse = void 0;
+exports.deleteCourse = exports.updateCourse = exports.addCourse = exports.createCourse = void 0;
 var coursesModel_1 = require("./coursesModel");
-var studentModel_1 = require("../students/studentModel");
+var examsModel_1 = require("../exams/examsModel");
+exports.createCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var name, courseDB, error_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                name = req.body.name;
+                return [4 /*yield*/, coursesModel_1["default"].create({ name: name })];
+            case 1:
+                courseDB = _a.sent();
+                res.send({ course: courseDB });
+                return [3 /*break*/, 3];
+            case 2:
+                error_1 = _a.sent();
+                console.error(error_1);
+                res.status(500).send({ error: error_1.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
 exports.addCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, course, studentId, courseDB, courseObj, courses, error_1;
+    var _a, name, examId, examDB, courseDB, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 4, , 5]);
-                _a = req.body, course = _a.course, studentId = _a.studentId;
-                return [4 /*yield*/, coursesModel_1["default"].create({ name: course })];
+                _b.trys.push([0, 3, , 4]);
+                _a = req.body, name = _a.name, examId = _a.examId;
+                return [4 /*yield*/, examsModel_1["default"].findById(examId)];
             case 1:
-                courseDB = _b.sent();
-                courseObj = { _id: courseDB._id, name: course };
-                return [4 /*yield*/, studentModel_1["default"].findByIdAndUpdate(studentId, { $push: { courses: courseObj } }, { "new": true })];
+                examDB = _b.sent();
+                if (!examDB)
+                    throw new Error("examDB doesnt found");
+                return [4 /*yield*/, coursesModel_1["default"].create({ name: name, exam: examDB })];
             case 2:
-                _b.sent();
-                return [4 /*yield*/, coursesModel_1["default"].find({})];
+                courseDB = _b.sent();
+                res.status(201).send({ Course: courseDB });
+                return [3 /*break*/, 4];
             case 3:
-                courses = _b.sent();
-                res.status(201).send({ ok: true, courses: courses });
-                return [3 /*break*/, 5];
-            case 4:
-                error_1 = _b.sent();
-                console.error(error_1);
-                if (error_1 instanceof Error) {
-                    res.status(500).send({ error: error_1.message });
+                error_2 = _b.sent();
+                console.error(error_2);
+                if (error_2 instanceof Error) {
+                    res.status(500).send({ error: error_2.message });
                 }
-                return [3 /*break*/, 5];
-            case 5: return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };
 exports.updateCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, courseId, name, course, error_2;
+    var _a, courseId, name, course, error_3;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -82,10 +101,10 @@ exports.updateCourse = function (req, res) { return __awaiter(void 0, void 0, vo
                 res.send({ ok: true, course: course });
                 return [3 /*break*/, 3];
             case 2:
-                error_2 = _b.sent();
-                console.error(error_2);
-                if (error_2 instanceof Error) {
-                    res.status(500).send({ error: error_2.message });
+                error_3 = _b.sent();
+                console.error(error_3);
+                if (error_3 instanceof Error) {
+                    res.status(500).send({ error: error_3.message });
                 }
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
@@ -93,7 +112,7 @@ exports.updateCourse = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.deleteCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var courseId, deletedCourse, courses, error_3;
+    var courseId, deletedCourse, courses, error_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -108,10 +127,10 @@ exports.deleteCourse = function (req, res) { return __awaiter(void 0, void 0, vo
                 res.send({ ok: true, courses: courses });
                 return [3 /*break*/, 4];
             case 3:
-                error_3 = _a.sent();
-                console.error(error_3);
-                if (error_3 instanceof Error) {
-                    res.status(500).send({ error: error_3.message });
+                error_4 = _a.sent();
+                console.error(error_4);
+                if (error_4 instanceof Error) {
+                    res.status(500).send({ error: error_4.message });
                 }
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
