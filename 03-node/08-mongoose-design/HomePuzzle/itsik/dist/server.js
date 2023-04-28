@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
-var mongoose_1 = require("mongoose");
 var express_1 = require("express");
+var mongoose_1 = require("mongoose");
 var dotenv = require("dotenv");
 dotenv.config();
 var app = express_1["default"]();
@@ -12,7 +12,7 @@ mongoose_1["default"].connect(uri).then(function () {
 });
 app.use(express_1["default"].json());
 app.use(express_1["default"].static('public'));
-var userRoutes_1 = require("./API/userRoutes");
+var userRoutes_1 = require("./API/students/userRoutes");
 app.use('/', userRoutes_1["default"]);
 app.listen(PORT, function () {
     console.log("the server run on PORT:" + PORT);

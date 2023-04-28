@@ -53,6 +53,7 @@
    .addStudentForm{
     font-size: 28px;
     
+    
 
     &__h2f{
         font-weight: normal;
@@ -74,4 +75,31 @@
    }
     
 
+   }
+
+  //  bord/table
+
+  table{
+    
+    font-size: 30px;
+   }
+
+   tr, th, td{
+    padding: 6px 6px;
+    border: 3px solid rgb(234, 160, 11);
+    text-align: center;
+   }
+
+   th{
+    background-color: cadetblue;
+   }
+
+   tbody, tr, td{
+    background-color: #7f369c;
+    
+   }
+
+   #tbtn{
+    font-size: 26px;
+    background-color: lawngreen;
    }

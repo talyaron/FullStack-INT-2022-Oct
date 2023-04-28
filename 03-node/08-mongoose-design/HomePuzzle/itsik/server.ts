@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
 import express  from "express";
+import mongoose,  { Schema } from "mongoose";
 import * as dotenv from 'dotenv';
 dotenv.config()
 const app = express();
@@ -15,7 +15,7 @@ app.use(express.static('public'))
 
 
 
-import userRoutes from "./API/userRoutes";
+import userRoutes from "./API/students/userRoutes";
 app.use('/', userRoutes)
 
 app.listen(PORT ,()=>{
