@@ -28,9 +28,20 @@ const mongoose_1 = __importStar(require("mongoose"));
 const StudentModel_1 = require("./StudentModel");
 const CourseModel_1 = require("./CourseModel");
 exports.GradeSchema = new mongoose_1.Schema({
-    grade: Number,
-    course: CourseModel_1.CourseSchema,
-    student: StudentModel_1.StudentSchema,
+    score: {
+        type: Number,
+        required: true,
+        max: 100,
+        min: 0,
+    },
+    course: {
+        type: CourseModel_1.CourseSchema,
+        required: true,
+    },
+    student: {
+        type: StudentModel_1.StudentSchema,
+        required: true,
+    },
 }, {
     versionKey: false,
 });

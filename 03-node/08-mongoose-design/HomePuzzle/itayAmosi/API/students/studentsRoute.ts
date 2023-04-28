@@ -7,6 +7,7 @@ import {
   deleteStudent,
   // findStudents,
   updateStudentName,
+  getGradesByStudentId,
 } from "./studentsControle";
 
 router
@@ -15,4 +16,5 @@ router
   // .get("/find-students", findStudents)
   .delete("/delete-student", deleteStudent)
   .patch("/update-student-name", updateStudentName)
+  .post("/get-grades-student", getGradesByStudentId)
 export default router;

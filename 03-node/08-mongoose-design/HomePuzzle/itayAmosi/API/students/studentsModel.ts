@@ -14,9 +14,16 @@ export interface Student {
 export const StudentSchema = new Schema({
   name: String,
   lastName: String,
-  exams: ExamSchema,
+  grades: GradeSchema,
+});
+
+export const GradesByStudentSchema = new Schema({
+  name: String,
+  grades: GradeSchema,
+  student: StudentSchema,
 });
 
 const StudentModel = mongoose.model("students", StudentSchema);
+export const StudentGradesModel = mongoose.model("student-Grades", GradesByStudentSchema);
 
 export default StudentModel;

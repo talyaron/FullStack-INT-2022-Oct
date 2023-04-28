@@ -16,15 +16,34 @@ export const getAllGrades = async (
   }
 };
 
-export const getGrade = async (
+export const getStudentGradesInCourse = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const { id: gradeId } = req.params;
-    const grade = await Grade.findById({ _id: gradeId });
-    res.status(200).send({ grade });
+    const { courseId } = req.query;
+    const { id: studentId } = req.params;
+    const course = await Course.findById(courseId);
+    const student = await Student.findById(studentId);
+    const grades = await Grade.find({ course, student });
+    res.status(200).send({ grades });
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+};
+
+export const deleteAllGradesInCourse = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { courseId } = req.params;
+    const course = await Course.findById(courseId);
+    const grades = await Grade.deleteMany({ course });
+    res.status(200).send({ grades });
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });
@@ -37,18 +56,20 @@ export const createGrade = async (
   next: NextFunction
 ) => {
   try {
-    const { grade, courseId, studentId } = req.body;
+    const { score, courseId, studentId } = req.body;
     const student = await Student.findById(studentId);
     const course = await Course.findById(courseId);
     if (student || course) {
-      await Grade.create({
-        grade,
+      const grade = await Grade.create({
+        score,
         course: course,
         student: student,
       });
+      res.status(200).json({ grade });
+    } else {
+      const grades = await Grade.find({});
+      res.status(200).json({ grades });
     }
-    const grades = await Grade.find({});
-    res.status(200).json({ grades });
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });
@@ -61,11 +82,11 @@ export const deleteGrade = async (
   next: NextFunction
 ) => {
   try {
-    const { id: gradeId } = req.body;
-    const grade = await Grade.deleteOne({ _id: gradeId });
+    const { id: gradeId } = req.params;
+    const grade = await Grade.findByIdAndDelete(gradeId);
     const grades = await Grade.find({});
 
-    res.status(200).send({ grades });
+    res.status(200).send({ grade });
   } catch (error: any) {
     console.error(error);
     res.status(500).json({ error: error.message });
@@ -79,10 +100,24 @@ export const updateGrade = async (
 ) => {
   try {
     const { id: gradeId } = req.params;
-    const data = req.body;
-    const grades = await Grade.find({});
-    const grade = await Grade.findById({ _id: gradeId });
-    res.status(200).send("Grade updated...");
+    const { newScore } = req.body;
+    await Grade.findByIdAndUpdate(gradeId, { score: newScore });
+    const grade = await Grade.findById(gradeId);
+    res.status(200).json({ grade });
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+};
+
+export const emptyCollection = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const grades = await Grade.deleteMany({});
+    res.status(201).json({ grades });
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });
