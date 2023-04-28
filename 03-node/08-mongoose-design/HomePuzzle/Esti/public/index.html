@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./dist/style.css">
+    <title>GradeSatistic</title>
+    
+    <script src="./dist/view.js" defer></script>
+    <script src="./control/dist/student.js" defer></script>
+    <script src="./control/dist/teacher.js" defer></script>
+    <script src="./control/dist/control.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+</head>
+<body>
+    <div class="header">
+        <h1 class="header__name"></h1>
+        <nav class="header__nav">
+            <ul class="header__nav_ul">
+                <li "header__nav_ul_li">Add</li>
+                <li "header__nav_ul_li">Update</li>
+                <li "header__nav_ul_li">Delete</li>
+                <li "header__nav_ul_li">Go to admin page</li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <div class="container">
+        <div class="choiceBtn">
+            <h2>Choice</h2>
+            <button onclick="renderTeacherStudent('Teacher')">Teachr</button>
+            <br>
+            <button onclick="renderTeacherStudent('Student')">Student</button>
+        </div>
+    
+        <div class="teacher"></div>
+
+        <div class="student"></div>
+    </div>
+</body>
+</html>

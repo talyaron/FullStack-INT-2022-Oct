@@ -2,13 +2,15 @@ import express from "express";
 const router = express.Router();
 
 import {
-    addMockCourse,
-    getCourse,
+    createCourse,
+    getCourses,
+    getStudentGradesInCourse,
 } from "./coursesControle";
 
 
 router
-.post("/add-mock-course", addMockCourse)
-.get("/get-course", getCourse)
+.post("/create-course", createCourse)
+.get("/get-courses", getCourses)
+.get("/get-student-course-grades", getStudentGradesInCourse)
 
 export default router;

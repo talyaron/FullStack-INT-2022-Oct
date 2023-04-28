@@ -36,26 +36,29 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getCourse = exports.addMockCourse = void 0;
+exports.getStudentGradesInCourse = exports.getCourses = exports.createCourse = void 0;
+var examsModel_1 = require("../exams/examsModel");
 var coursesModel_1 = require("./coursesModel");
-var uuid_1 = require("uuid");
-exports.addMockCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var newCourse;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, coursesModel_1["default"].create({
-                    uid: uuid_1.v4(),
-                    name: "English Class"
-                })];
+exports.createCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, name, examsId, examDB, courseDB;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _a = req.body, name = _a.name, examsId = _a.examsId;
+                return [4 /*yield*/, examsModel_1["default"].findById(examsId)];
             case 1:
-                newCourse = _a.sent();
-                console.log(newCourse);
-                res.status(200).send({ ok: true, newCourse: newCourse });
+                examDB = _b.sent();
+                if (!examDB)
+                    throw new Error("cant find exam");
+                return [4 /*yield*/, coursesModel_1["default"].create({ name: name, exam: examDB })];
+            case 2:
+                courseDB = _b.sent();
+                res.status(200).send({ Course: courseDB });
                 return [2 /*return*/];
         }
     });
 }); };
-exports.getCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+exports.getCourses = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var courses, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -72,6 +75,23 @@ exports.getCourse = function (req, res) { return __awaiter(void 0, void 0, void 
                 res.status(500).send({ error: error_1.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.getStudentGradesInCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, studentId, courseId, courseDB;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _a = req.query, studentId = _a.studentId, courseId = _a.courseId;
+                return [4 /*yield*/, coursesModel_1["default"].find({
+                        courseId: courseId,
+                        studentId: studentId
+                    })];
+            case 1:
+                courseDB = _b.sent();
+                res.status(200).send({ Course: courseDB });
+                return [2 /*return*/];
         }
     });
 }); };

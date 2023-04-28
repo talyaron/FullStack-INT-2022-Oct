@@ -6,22 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Query MongoDB</title>
     <link rel="stylesheet" href="./dist/style.css">
-    <script src="./dist/queryControle.js" defer></script>
     <script src="./dist/queryMongoDB.js" defer></script>
-    <script src="./dist/student.js" defer></script>
-    <script src="./dist/teacher.js" defer></script>
     <script src="./dist/course.js" defer></script>
     <script src="./dist/grades.js" defer></script>
+    <script src="./dist/teacher.js" defer></script>
+    <script src="./dist/student.js" defer></script>
+    <script src="./dist/queryControle.js" defer></script>
     
 </head>
-<body onload="
+<body
+ onload="
 handelTeacher(event)
 handelStudent(event)
-handelCourse(event)
-handelGrade(event)
 ">
     
 <h1>A Query MongoDB Table</h1>
+<div class="search-wrapper">
+  <label for="search">Find By Uid</label>
+  <input oninput="handleSearchByUid(event)" placeholder="Type a Uid" type="search" id="search" data-search>
+</div>
+<div class="search-wrapper">
+  <label for="search">Find By Name</label>
+  <input oninput="handleSearchByName(event)" placeholder="Type a Name" type="search" id="search" data-search>
+</div>
 
 <table id="customers">
   <tr>
@@ -31,21 +38,10 @@ handelGrade(event)
     <th>Course</th>
     <th>Grades</th>
   </tr>
-  <tr>
-    <!-- <td>c9b27d01-1f67-47b1-941a-770d6211f5a2</td>
-    <td>Moshe</td>
-    <td>Levi</td>
-    <td>English Class</td>
-    <td>90</td> -->
-  </tr>
 </table>
-<button>get</button>
-<button>find</button>
-<button>delete</button>
-<button>update</button>
-<button onclick="addMockCourse()">Add-Mock-Course</button>
-<button onclick="addMockStudents()">Add-Mock-student</button>
-<button onclick="addMockGrades()">Add-Mock-grades</button>
-<button onclick="addMockTeacher()">Add-Mock-teacher</button>
+<button class="btn" onclick="addMockTeacher()">Add-Mock-teacher</button>
+<button class="btn" onclick="createStudent()">Add-Mock-student</button>
+<!-- <button>get</button>
+<button>find</button> -->
 </body>
 </html>
