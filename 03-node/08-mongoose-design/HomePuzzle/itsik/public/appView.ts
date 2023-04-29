@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 interface User {
   name: string;
   fname: string;
@@ -121,3 +122,5 @@ function renderNavBar(){
       function htmlAddTeacher(){
 
       }
+=======
+>>>>>>> 9d17da2ffdf69fd17686b5de32d1eacacfd74e44

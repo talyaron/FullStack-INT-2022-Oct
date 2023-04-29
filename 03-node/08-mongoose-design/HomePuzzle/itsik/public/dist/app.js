@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function handleAddUser(ev) {
     ev.preventDefault();
     var name = ev.target.elements.name.value;
@@ -7,3 +8,5 @@ function handleAddUser(ev) {
     var newStudent = { name: name, fname: fname, phone: phone, email: email };
     console.log(newStudent);
 }
+=======
+>>>>>>> 9d17da2ffdf69fd17686b5de32d1eacacfd74e44

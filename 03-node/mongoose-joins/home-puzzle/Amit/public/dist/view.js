@@ -18,63 +18,72 @@ function renderStudents(students) {
     }
 }
 function renderCourses(students) {
-    try {
-        students.map(function (_student) {
-            try {
-                var _id_1 = _student._id;
-                var student = students.find(function (student) { return student._id === _id_1; });
-                if (!student)
-                    throw new Error("student not found");
-                var html = student.courses
-                    .map(function (course) {
-                    return "\n                        <div class=\"studentsContainer__studentCard__courses__course\">\n                            <div class=\"studentsContainer__studentCard__courses__course__name\">\n                                <button onclick=\"handleCourseUpdate('" + course._id + "')\">update course</button>\n                                <p id=\"course-" + course._id + "\" contenteditable=\"false\">" + course.name + "</p>\n                                <button id=\"saveCourseBtn-" + course._id + "\" onclick=\"handleSaveCourseUpdate('" + course._id + "', '" + _student._id + "')\">save course</button>\n                            </div>    \n                            <button onclick='handleDeleteCourse(\"" + course._id + "\", \"" + _student._id + "\")'>delete course</button>\n                            <div class=\"studentsContainer__studentCard__courses__course__grades\" id=\"gradesRoot-" + course._id + "\"></div>\n                            <button onclick=\"handleAddGrade('" + course._id + "', '" + _student._id + "')\">add grade</button>\n                        </div>\n                        ";
-                })
-                    .join(" ");
-                var courseRoot = document.querySelector("#courseRoot-" + _id_1);
-                if (!courseRoot)
-                    throw new Error("course Root not found on DOM");
-                courseRoot.innerHTML = html;
-                renderGrades(student.courses, student);
-            }
-            catch (error) {
-                console.error(error);
-            }
-        });
-    }
-    catch (error) {
-        console.error(error);
-    }
+    // try {
+    //     students.map((_student) => {
+    //         try {
+    //             const _id = _student._id
+    //             const student = students.find((student) => student._id === _id);
+    //             if (!student) throw new Error("student not found");
+    //             const html = student.courses
+    //                 .map((course) => {
+    //                     return `
+    //                     <div class="studentsContainer__studentCard__courses__course">
+    //                         <div class="studentsContainer__studentCard__courses__course__name">
+    //                             <button onclick="handleCourseUpdate('${course._id}')">update course</button>
+    //                             <p id="course-${course._id}" contenteditable="false">${course.name}</p>
+    //                             <button id="saveCourseBtn-${course._id}" onclick="handleSaveCourseUpdate('${course._id}', '${_student._id}')">save course</button>
+    //                         </div>    
+    //                         <button onclick='handleDeleteCourse("${course._id}", "${_student._id}")'>delete course</button>
+    //                         <div class="studentsContainer__studentCard__courses__course__grades" id="gradesRoot-${course._id}"></div>
+    //                         <button onclick="handleAddGrade('${course._id}', '${_student._id}')">add grade</button>
+    //                     </div>
+    //                     `;
+    //                 })
+    //                 .join(" ");
+    //             const courseRoot = document.querySelector(`#courseRoot-${_id}`);
+    //             if (!courseRoot) throw new Error("course Root not found on DOM");
+    //             courseRoot.innerHTML = html;
+    //             renderGrades(student.courses, student);
+    //         } catch (error) {
+    //             console.error(error)
+    //         }
+    //     })
+    // } catch (error) {
+    //     console.error(error)
+    // }
 }
 function renderGrades(courses, student) {
-    try {
-        courses.map(function (_course) {
-            try {
-                var _id_2 = _course._id;
-                var course_1 = courses.find(function (course) { return course._id === _id_2; });
-                if (!course_1)
-                    throw new Error("course not found");
-                var courseIndex = courses.findIndex(function (course) { return course._id === _id_2; });
-                if ((!courseIndex) && (courseIndex !== 0))
-                    throw new Error("course Index not found");
-                var Gradecounter_1 = 0;
-                var html = course_1.grades
-                    .map(function (grade) {
-                    var _a;
-                    Gradecounter_1++;
-                    return "\n                            <div class=\"studentsContainer__studentCard__courses__course__grades__grade\">\n                                <div>#" + Gradecounter_1 + ":</div>\n                                <div id=\"grade-" + grade._id + "\" contenteditable=\"true\">" + ((_a = grade.grade) !== null && _a !== void 0 ? _a : "___") + "</div>\n                                <button onclick=\"handleGradeUpdate('" + grade._id + "')\">update grade</button>\n                                <button onclick='handleSaveGradeUpdate(\"" + course_1._id + "\", \"" + student._id + "\", \"" + grade._id + "\")'>save grade</button>\n                                <button onclick='handleDeleteGrade(\"" + course_1._id + "\", \"" + student._id + "\", \"" + grade._id + "\")'>delete grade</button>\n                            </div>\n                        ";
-                })
-                    .join(" ");
-                var gradesRoot = document.querySelector("#gradesRoot-" + _id_2);
-                if (!gradesRoot)
-                    throw new Error("gradesRoot not found on DOM");
-                gradesRoot.innerHTML = html;
-            }
-            catch (error) {
-                console.error(error);
-            }
-        });
-    }
-    catch (error) {
-        console.error(error);
-    }
+    // try {
+    //     courses.map((_course) => {
+    //         try {
+    //             const _id = _course._id
+    //             const course = courses.find((course) => course._id === _id);
+    //             if (!course) throw new Error("course not found");
+    //             const courseIndex = courses.findIndex((course) => course._id === _id); 
+    //             if ((!courseIndex) && (courseIndex!==0)) throw new Error("course Index not found");
+    //             let Gradecounter:number = 0;
+    //             const html = course.grades
+    //                 .map((grade) => {
+    //                     Gradecounter++;
+    //                     return `
+    //                         <div class="studentsContainer__studentCard__courses__course__grades__grade">
+    //                             <div>#${Gradecounter}:</div>
+    //                             <div id="grade-${grade._id}" contenteditable="true">${grade.grade ?? "___"}</div>
+    //                             <button onclick="handleGradeUpdate('${grade._id}')">update grade</button>
+    //                             <button onclick='handleSaveGradeUpdate("${course._id}", "${student._id}", "${grade._id}")'>save grade</button>
+    //                             <button onclick='handleDeleteGrade("${course._id}", "${student._id}", "${grade._id}")'>delete grade</button>
+    //                         </div>
+    //                     `;
+    //                 })
+    //                 .join(" ");
+    //             const gradesRoot = document.querySelector(`#gradesRoot-${_id}`);
+    //             if (!gradesRoot) throw new Error("gradesRoot not found on DOM");
+    //             gradesRoot.innerHTML = html;
+    //         } catch (error) {
+    //             console.error(error)
+    //         }
+    //     })
+    // } catch (error) {
+    //     console.error(error)
+    // }
 }
