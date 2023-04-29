@@ -60,6 +60,8 @@ function encryptMessagee(message) {
             for (var i in messageChars) {
                 var letter = messageChars[i];
                 encryptedMessage += (letter.charCodeAt(0) - ("a".charCodeAt(0)) + 1) + " ";
+                console.log(letter.charCodeAt(0) + ',' + ("a".charCodeAt(0)) + 1);
+                console.log(encryptedMessage);
             }
             return (encryptedMessage);
         }
@@ -69,6 +71,10 @@ function encryptMessagee(message) {
         return false;
     }
 }
+// 3) create the function in puzzle 2, but add another argument that tells the function to encrypt
+// (letter to numbers) or decrypt (numbers to letters). If you want to challenge yourself, create a better 
+// encryption method.
+// let the user enter a message, and then return for her the encrypted code. let here also decrypt a massege.
 function decryptMessage(hashedString) {
     if (!hashedString)
         return false;
@@ -89,7 +95,3 @@ function decryptMessage(hashedString) {
     var encryptPass = decryptMessage(hashPass);
     console.log(encryptPass);
 }
-// 3) create the function in puzzle 2, but add another argument that tells the function to encrypt
-// (letter to numbers) or decrypt (numbers to letters). If you want to challenge yourself, create a better 
-// encryption method.
-// let the user enter a message, and then return for her the encrypted code. let here also decrypt a massege.
