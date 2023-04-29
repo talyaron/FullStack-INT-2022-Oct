@@ -21,6 +21,7 @@ html, body {
 }
 
 .nav a {
+  margin-top: 20px;
   display: inline-block;
   padding: 0.5em;
   color: black;
@@ -31,23 +32,20 @@ html, body {
   text-align: center;
   font-size: 1.1em;
   font-weight: lighter;
-  background-color: rgba(13, 235, 43, 0.445);
-  color: #da1212;
+  border-bottom: 1px;
 }
 
 .main-nav li {
   padding: 0 5%;
+  margin-top: 5px;
 }
 
 .nav a:hover {
-  background-color: rgba(13, 235, 43, 0.445);
+  background-color: rgba(235, 33, 33, 0.3);
 }
 
 .main-header {
-  background-color: rgba(13, 235, 43, 0.445);
-  background-image: url("");
-  background-blend-mode: multiply;
-  background-size: cover;
+  background-color: rgba(245, 50, 50, 0.6);
   padding-bottom: 30px;
 }
 
@@ -55,9 +53,9 @@ html, body {
   text-align: center;
   margin: 0;
   font-size: 4em;
-  font-family: "Metal Mania";
+  font-family: "Booter - Zero Zero";
   font-weight: normal;
-  color: #d81bb8;
+  color: white;
 }
 
 .content-section {
@@ -65,7 +63,7 @@ html, body {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 1.5em;
 }
@@ -175,20 +173,24 @@ html, body {
 
 .tour-date {
   color: #555;
-  width: 11%;
+  width: 15%;
   font-weight: bold;
 }
 
-.tour-city {
-  width: 24%;
+.tour-name {
+  width: 20%;
 }
 
-.tour-arena {
-  width: 42%;
+.tour-price {
+  width: 20%;
+}
+
+.tour-descriptions {
+  width: 30%;
 }
 
 .tour-btn {
-  max-width: 19%;
+  width: 10%;
 }
 
 .shop-item {
@@ -200,9 +202,8 @@ html, body {
   width: 100%;
   text-align: center;
   font-weight: bold;
-  font-family: "Metal Mania";
   font-size: 1.5em;
-  color: #5f5cfcdc;
+  color: #333;
   margin-bottom: 15px;
 }
 
@@ -225,7 +226,6 @@ html, body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 150px;
 }
 
 .cart-header {
@@ -330,15 +330,7 @@ html, body {
   font-size: 1.75em;
 }
 
-.text {
-  width: 350px;
-  height: 150px;
-  text-align: center;
-  margin-top: 2%;
-  margin-left: 40%;
-  font-family: "Metal Mania";
-}
-
-.btnMain {
-  color: #da1212;
+img {
+  width: 100%;
+  height: 100%;
 }
