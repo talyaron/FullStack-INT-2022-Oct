@@ -84,6 +84,7 @@ function renderNavBar(){
         <button type="submit" class="addStudentForm__btn">הוסף</button>
     </form>`
         main.innerHTML = html
+       
     }
 
     function htmlAddPro(){
@@ -113,6 +114,7 @@ function renderNavBar(){
         <button type="submit" class="addStudentForm__btn">הוסף</button>
         </form>`
         main.innerHTML = html
+        
 
       }
 
