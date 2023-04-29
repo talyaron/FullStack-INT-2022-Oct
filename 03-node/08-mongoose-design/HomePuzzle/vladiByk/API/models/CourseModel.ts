@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import {TeacherSchema} from "./TeacherModel";
+import { TeacherSchema } from "./TeacherModel";
 
 interface Course {
   name: string;
@@ -12,7 +12,10 @@ export const CourseSchema: Schema = new Schema(
       type: String,
       required: true,
     },
-    teachers: [TeacherSchema],
+    teachers: {
+      type: [TeacherSchema],
+      required: true,
+    },
   },
   {
     versionKey: false,

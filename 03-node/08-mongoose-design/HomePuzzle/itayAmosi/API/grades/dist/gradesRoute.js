@@ -5,7 +5,5 @@ var router = express_1["default"].Router();
 var gradesControle_1 = require("./gradesControle");
 router
     .post("/add-mock-grades", gradesControle_1.addMockGrades)
-    .post("/create-grade", gradesControle_1.createGrade)
-    .get("/get-grades", gradesControle_1.getGradesByStudentId)
-    .get("/get-student-course-grades", gradesControle_1.getStudentGradesInCourse);
+    .post("/create-grade", gradesControle_1.createGrade);
 exports["default"] = router;

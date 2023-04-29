@@ -31,7 +31,10 @@ exports.StudentSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
-    courses: [CourseModel_1.CourseSchema],
+    courses: {
+        type: [CourseModel_1.CourseSchema],
+        required: true,
+    },
 }, {
     versionKey: false,
 });

@@ -12,7 +12,10 @@ export const StudentSchema: Schema = new Schema(
       type: String,
       required: true,
     },
-    courses: [CourseSchema],
+    courses: {
+      type: [CourseSchema],
+      required: true,
+    },
   },
   {
     versionKey: false,

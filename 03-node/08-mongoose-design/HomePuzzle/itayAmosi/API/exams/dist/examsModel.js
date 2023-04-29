@@ -1,20 +1,21 @@
 "use strict";
 exports.__esModule = true;
-exports.ExamSchema = void 0;
+exports.ExamStudentSchema = exports.ExamSchema = void 0;
 var mongoose_1 = require("mongoose");
 var coursesModel_1 = require("../courses/coursesModel");
+var studentsModel_1 = require("../students/studentsModel");
 exports.ExamSchema = new mongoose_1.Schema({
     name: String,
     topic: String,
     questions: Object,
-    course: coursesModel_1.CourseSchema
+    courseId: String
 });
-// export const ExamStudentSchema = new Schema({
-//   student: StudentSchema,
-//   exam: ExamSchema,
-//   course: CourseSchema,
-//   grade: Number,
-// });
+exports.ExamStudentSchema = new mongoose_1.Schema({
+    student: studentsModel_1.StudentSchema,
+    exam: exports.ExamSchema,
+    course: coursesModel_1.CourseSchema,
+    grade: Number
+});
 var ExamModel = mongoose_1["default"].model("exams", exports.ExamSchema);
 // export const ExamStudentModel = mongoose.model("exam-students", ExamStudentSchema);
 exports["default"] = ExamModel;

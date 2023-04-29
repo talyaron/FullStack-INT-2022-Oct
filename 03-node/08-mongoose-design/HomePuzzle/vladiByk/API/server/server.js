@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 const mongoose_1 = __importDefault(require("mongoose"));
+const path_1 = __importDefault(require("path"));
 const config_1 = require("../config/config");
 const studentRoutes_1 = require("../routes/studentRoutes");
 const teacherRoutes_1 = require("../routes/teacherRoutes");
@@ -26,7 +27,7 @@ function StartServer() {
         yield mongoose_1.default
             .connect(config_1.config.mongo.url, { retryWrites: true, w: "majority" })
             .then(() => {
-            console.log("Connected to DB...");
+            console.log("Connected to MongoDB...");
         })
             .catch((err) => {
             console.error(err);
@@ -39,6 +40,12 @@ function StartServer() {
         app.use("/api/v1/teachers", teacherRoutes_1.teacherRouter);
         app.use("/api/v1/courses", courseRoutes_1.courseRouter);
         app.use("/api/v1/grades", gradesRoutes_1.gradeRouter);
+        app.get("/course", (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+            res.sendFile(path_1.default.join(__dirname, "../../public", "students.html"));
+        }));
+        app.get("/teacher", (req, res, next) => __awaiter(this, void 0, void 0, function* () {
+            res.sendFile(path_1.default.join(__dirname, "../../public", "courses.html"));
+        }));
         app.listen(config_1.config.server.port, () => {
             console.log(`Server is listening on port ${config_1.config.server.port}...`);
         });
