@@ -12,7 +12,6 @@
 </head>
 <body onload="
 renderFooter()
-renderitems()
 ">
     <header id="header" class="main-header">
         <nav class="nav main-nav">
@@ -31,7 +30,8 @@ renderitems()
         <input type="text" name="src" placeholder="image url" required>
         <input type="number" name="price" placeholder="price" required>
         <input type="text" name="description" placeholder="description" required>
-        <button class="btnAdmin" type="submit" onclick="">ADD</button>
+        <button class="btnAdmin" type="submit">UP</button>
+        <button class="btnAdmin" type="button" onclick="handleGetCollections(event)">ADD</button>
     </form>
     <h2 class="section-header">ADMIN PAGE</h2>
     <section class="content-section container">

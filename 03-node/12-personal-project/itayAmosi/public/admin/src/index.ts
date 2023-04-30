@@ -1,4 +1,4 @@
-import { Collections } from "../../../API/item/collectionsModel"
+// import { Collection } from "../../../API/item/collectionsModel"
 
 function handleAddCollections(ev: any) {
     try {
@@ -31,22 +31,3 @@ function handleAddCollections(ev: any) {
       console.error(error);
     }
   }
-
-
-//   function handleGetCollections() {
-//     try {
-//       fetch("/api/collections/get-collections")
-//         .then((res) => res.json())
-//         .then(({ collections }) => {
-//           try {
-//             if (!collections) throw new Error("didnt find collections");
-
-//             // renderCollections(collections);
-//           } catch (error) {
-//             console.error(error);
-//           }
-//         });
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   }
