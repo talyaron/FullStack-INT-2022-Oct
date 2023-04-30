@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="./src/dist/index.js" defer></script>
+    <script src="../globalSrc/dist/view.js" defer></script>
+    <script src="../main/collections/src/dist/view.js" defer></script>
+</head>
+<body onload="
+renderFooter()
+renderitems()
+">
+    <header id="header" class="main-header">
+        <nav class="nav main-nav">
+            <nav class="nav main-nav">
+                <ul>
+                <li><a href="../main/index.html">MAIN</a></li>
+                <li><a href="../main/collections/index.html">Collections</a></li>
+                <li><a href="../main/cart/index.html">Cart</a></li>
+                <li><a href="../login/index.html">LOGUOT</a></li>
+                </ul>
+            </nav>
+        </nav>
+    </header>
+    <form class="adminForm" onsubmit="handleAddCollections(event)">
+        <input type="text" name="name" placeholder="name" required>
+        <input type="text" name="src" placeholder="image url" required>
+        <input type="number" name="price" placeholder="price" required>
+        <input type="text" name="description" placeholder="description" required>
+        <button class="btnAdmin" type="submit" onclick="">ADD</button>
+    </form>
+    <h2 class="section-header">ADMIN PAGE</h2>
+    <section class="content-section container">
+        <div id="items">
+        </div>
+    </section>
+    <footer id="footer" class="main-footer">
+    </footer>
+</body>
+</html>
