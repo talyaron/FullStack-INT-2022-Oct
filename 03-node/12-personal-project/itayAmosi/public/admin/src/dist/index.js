@@ -1,6 +1,5 @@
-"use strict";
-exports.__esModule = true;
-function handleAddCollections(ev) {
+// import { Collection } from "../../../API/item/collectionsModel"
+function handleAddProducts(ev) {
     try {
         ev.preventDefault();
         var name = ev.target.elements.name.value;
@@ -15,15 +14,15 @@ function handleAddCollections(ev) {
             throw new Error("No price");
         if (!description)
             throw new Error("No description");
-        var newCollections = { name: name, src: src, price: price, description: description };
-        //send to server:
-        fetch("/api/collections/add-collections", {
+        var newProducts = { name: name, src: src, price: price, description: description };
+        console.log(newProducts);
+        fetch("/api/collections/add-products", {
             method: "POST",
             headers: {
                 Accept: "application/json",
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newCollections)
+            body: JSON.stringify(newProducts)
         })
             .then(function (res) { return res.json(); })
             .then(function (data) {
@@ -35,19 +34,3 @@ function handleAddCollections(ev) {
         console.error(error);
     }
 }
-//   function handleGetCollections() {
-//     try {
-//       fetch("/api/collections/get-collections")
-//         .then((res) => res.json())
-//         .then(({ collections }) => {
-//           try {
-//             if (!collections) throw new Error("didnt find collections");
-//             // renderCollections(collections);
-//           } catch (error) {
-//             console.error(error);
-//           }
-//         });
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   }

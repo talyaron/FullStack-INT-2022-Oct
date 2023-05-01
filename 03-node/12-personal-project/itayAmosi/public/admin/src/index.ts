@@ -1,6 +1,6 @@
-import { Collections } from "../../../API/item/collectionsModel"
+// import { Collection } from "../../../API/item/collectionsModel"
 
-function handleAddCollections(ev: any) {
+function handleAddProducts(ev: any) {
     try {
       ev.preventDefault();
       const name = ev.target.elements.name.value;
@@ -11,15 +11,15 @@ function handleAddCollections(ev: any) {
       if (!src) throw new Error("No src");
       if (!price) throw new Error("No price");
       if (!description) throw new Error("No description");
-      const newCollections: any = { name, src, price, description };
-      //send to server:
-      fetch("/api/collections/add-collections", {
+      const newProducts: any = { name, src, price, description };
+      console.log(newProducts);
+      fetch("/api/collections/add-products", {
         method: "POST",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(newCollections),
+        body: JSON.stringify(newProducts),
       })
         .then((res) => res.json())
         .then((data) => {
@@ -31,22 +31,3 @@ function handleAddCollections(ev: any) {
       console.error(error);
     }
   }
-
-
-//   function handleGetCollections() {
-//     try {
-//       fetch("/api/collections/get-collections")
-//         .then((res) => res.json())
-//         .then(({ collections }) => {
-//           try {
-//             if (!collections) throw new Error("didnt find collections");
-
-//             // renderCollections(collections);
-//           } catch (error) {
-//             console.error(error);
-//           }
-//         });
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   }

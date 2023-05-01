@@ -31,8 +31,8 @@ import collectionsRouter from './API/collection/collectionsRoute';
 app.use('/api/collections', collectionsRouter);
 
 
-// import coursesRouter from './API/courses/coursesRoute';
-// app.use('/api/courses', coursesRouter);
+import favouritesRouter from './API/favourites/favouritesRoute';
+app.use('/api/favourites', favouritesRouter);
 
 
 // import gradesRouter from './API/grades/gradesRoute';
