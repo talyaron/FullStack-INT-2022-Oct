@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main-site</title>
+    <script src="./dist/"></script>
+    <script src="./dist/main.js"></script>
+    <link rel="stylesheet" href="./dist/main.css">
+</head>
+<body>
+    <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><button id="login-btn">Login</button></li>
+          <li><button id="register-btn">Register</button></li>
+        </ul>
+      </nav>
+  
+      <div id="login-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Login</h2>
+          <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required />
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+  
+      <div id="register-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Register</h2>
+          <form>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required />
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+            <button type="submit">Register</button>
+          </form>
+        </div>
+      </div>
+  
+      <div id="products-container"></div>
+  
+      </body>
+</html>

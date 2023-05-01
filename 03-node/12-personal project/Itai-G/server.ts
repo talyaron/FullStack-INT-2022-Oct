@@ -26,6 +26,10 @@ app.use(express.static("./client"));
 import usersRouter from './API/users/usersRoute';
 app.use('/api/users', usersRouter);
 
+import ProductRouter from './API/products/productsRoute';
+app.use('/api/products', ProductRouter);
+
+
 app.listen(3000, () => {
   console.log("server listen on port 3000");
 });

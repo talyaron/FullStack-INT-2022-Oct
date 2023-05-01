@@ -6,7 +6,7 @@ function handleLogin (ev: any){
         if(!name) throw new Error("no name");
         if(!password) throw new Error("no password");
         const newUser: any = {name, password};
-        window.location.href = "../main/main.html"
+        
         fetch("/api/users/login",{
             method:"POST",
             headers:{
@@ -18,6 +18,7 @@ function handleLogin (ev: any){
         .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        window.location.href = "../main/main.html"
       })
       .catch((error) => {
         console.error(error);

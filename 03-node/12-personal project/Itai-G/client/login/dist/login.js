@@ -8,7 +8,6 @@ function handleLogin(ev) {
         if (!password)
             throw new Error("no password");
         var newUser = { name: name, password: password };
-        window.location.href = "../main/main.html";
         fetch("/api/users/login", {
             method: "POST",
             headers: {
@@ -20,6 +19,7 @@ function handleLogin(ev) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
+            window.location.href = "../main/main.html";
         })["catch"](function (error) {
             console.error(error);
         });

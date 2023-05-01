@@ -1,17 +1,11 @@
 /* Global styles */
-
-$primary-color: #007bff;
-$secondary-color: #6c757d;
-$light-color: #f8f9fa;
-
 /* Navigation styles */
-
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: $primary-color;
-  color: $light-color;
+  background-color: #007bff;
+  color: #f8f9fa;
   padding: 1rem;
 }
 
@@ -31,34 +25,42 @@ nav ul li:first-child {
 }
 
 nav ul li a {
-  color: $light-color;
+  color: #f8f9fa;
   text-decoration: none;
 }
 
 /* Modal styles */
-
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto;
+  /* 15% from the top and centered */
   padding: 20px;
-  border: 1px solid $secondary-color;
-  width: 80%; /* Could be more or less, depending on screen size */
+  border: 1px solid #6c757d;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
 }
 
 .close {
-  color: $secondary-color;
+  color: #6c757d;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -72,7 +74,6 @@ nav ul li a {
 }
 
 /* Product styles */
-
 #products-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -82,7 +83,7 @@ nav ul li a {
 }
 
 .product-card {
-  border: 1px solid $secondary-color;
+  border: 1px solid #6c757d;
   padding: 1rem;
   text-align: center;
 }
