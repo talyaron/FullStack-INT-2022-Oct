@@ -6,7 +6,7 @@ exports.productSchema = new mongoose_1.Schema({
     src: String,
     name: String,
     price: String,
-    descriptions: String
+    description: String
 });
 var ProductModel = mongoose_1["default"].model("collections", exports.productSchema);
 exports["default"] = ProductModel;

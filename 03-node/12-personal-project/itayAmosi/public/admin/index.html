@@ -12,6 +12,7 @@
 </head>
 <body onload="
 renderFooter()
+handleGetProduct()
 ">
     <header id="header" class="main-header">
         <nav class="nav main-nav">
@@ -30,8 +31,8 @@ renderFooter()
         <input type="number" name="price" placeholder="price" required>
         <input type="text" name="name" placeholder="name" required>
         <input type="text" name="description" placeholder="description" required>
-        <button class="btnAdmin" type="submit">UP</button>
-        <button class="btnAdmin" type="button" onclick="handleGetProduct(event)">ADD</button>
+        <button class="btnAdmin" type="submit" onclick="handleGetProduct(event)">UP</button>
+        <button class="btnAdmin" type="button">ADD</button>
     </form>
     <h2 class="section-header">ADMIN PAGE</h2>
     <section class="content-section container">

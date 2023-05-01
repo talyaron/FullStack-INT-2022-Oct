@@ -4,14 +4,14 @@ export interface Product {
   src: string;
   price: string;
   name: string;
-  descriptions: string;
+  description: string;
 }
 
 export const productSchema = new Schema({
   src: String,
   name: String,
   price: String,
-  descriptions: String,
+  description: String,
 });
 
 const ProductModel = mongoose.model("collections", productSchema);
