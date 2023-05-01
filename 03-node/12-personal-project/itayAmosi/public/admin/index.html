@@ -25,13 +25,13 @@ renderFooter()
             </nav>
         </nav>
     </header>
-    <form class="adminForm" onsubmit="handleAddCollections(event)">
-        <input type="text" name="name" placeholder="name" required>
+    <form class="adminForm" onsubmit="handleAddProducts(event)">
         <input type="text" name="src" placeholder="image url" required>
         <input type="number" name="price" placeholder="price" required>
+        <input type="text" name="name" placeholder="name" required>
         <input type="text" name="description" placeholder="description" required>
         <button class="btnAdmin" type="submit">UP</button>
-        <button class="btnAdmin" type="button" onclick="handleGetCollections(event)">ADD</button>
+        <button class="btnAdmin" type="button" onclick="handleGetProduct(event)">ADD</button>
     </form>
     <h2 class="section-header">ADMIN PAGE</h2>
     <section class="content-section container">

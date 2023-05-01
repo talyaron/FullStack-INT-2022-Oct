@@ -36,18 +36,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addCollections = exports.getCollection = void 0;
+exports.addProducts = exports.getProducts = void 0;
 var collectionsModel_1 = require("./collectionsModel");
-exports.getCollection = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var collectionsDB, error_1;
+exports.getProducts = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var productsDB, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 return [4 /*yield*/, collectionsModel_1["default"].find({})];
             case 1:
-                collectionsDB = _a.sent();
-                res.send({ collectionsDB: collectionsDB });
+                productsDB = _a.sent();
+                res.send({ products: productsDB });
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _a.sent();
@@ -58,8 +58,8 @@ exports.getCollection = function (req, res) { return __awaiter(void 0, void 0, v
         }
     });
 }); };
-exports.addCollections = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, src, price, description, CollectionsDB, error_2;
+exports.addProducts = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, name, src, price, description, productsDB, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -67,8 +67,8 @@ exports.addCollections = function (req, res) { return __awaiter(void 0, void 0, 
                 _a = req.body, name = _a.name, src = _a.src, price = _a.price, description = _a.description;
                 return [4 /*yield*/, collectionsModel_1["default"].create({ name: name, src: src, price: price, description: description })];
             case 1:
-                CollectionsDB = _b.sent();
-                res.status(201).send({ ok: true, CollectionsDB: CollectionsDB });
+                productsDB = _b.sent();
+                res.status(201).send({ ok: true, productsDB: productsDB });
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _b.sent();

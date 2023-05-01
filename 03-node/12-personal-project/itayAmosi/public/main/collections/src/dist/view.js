@@ -1,10 +1,6 @@
-"use strict";
-// import {Collection} from "../../../../API/collection/collectionsModel";
-exports.__esModule = true;
-exports.handleGetCollections = exports.renderCollection = void 0;
-function renderCollection(collections) {
+function renderProduct(products) {
     try {
-        var html = "\n      <div class=\"tour-row\">\n      <button class=\"tour-item tour-date\"><img src=\"" + collections.src + "\"></button>\n      <span class=\"tour-item tour-price\">" + collections.price + "</span>\n      <span class=\"tour-item tour-name\">" + collections.name + "</span>\n      <span class=\"tour-item tour-descriptions\">" + collections.descriptions + "</span>\n      <button type=\"button\" class=\"tour-item tour-btn btn btn-primary\">Add to Favourites</button>\n  </div>\n";
+        var html = "\n      <div class=\"tour-row\">\n      <button class=\"tour-item tour-date\"><img src=\"" + products.src + "\"></button>\n      <span class=\"tour-item tour-price\">" + products.price + "</span>\n      <span class=\"tour-item tour-name\">" + products.name + "</span>\n      <span class=\"tour-item tour-descriptions\">" + products.descriptions + "</span>\n      <button type=\"button\" class=\"tour-item tour-btn btn btn-primary\">Add to Favourites</button>\n  </div>\n";
         var itemsRoot = document.querySelector("#items");
         if (!itemsRoot)
             throw new Error("itemsRoot not found");
@@ -14,19 +10,22 @@ function renderCollection(collections) {
         console.error(error);
     }
 }
-exports.renderCollection = renderCollection;
-function handleGetCollections() {
+function handleGetProduct() {
     try {
-        fetch("/api/collections/get-collections")
+        fetch("/api/collections/get-products")
             .then(function (res) { return res.json(); })
             .then(function (_a) {
-            var collections = _a.collections;
-            // if (!collections) throw new Error("didnt find collections");
-            renderCollection(collections);
+            var products = _a.products;
+            console.log(products);
+            if (!products)
+                throw new Error("didnt find product");
+            var html = products
+                .map(function (products) {
+                return renderProduct(products);
+            });
         });
     }
     catch (error) {
         console.error(error);
     }
 }
-exports.handleGetCollections = handleGetCollections;

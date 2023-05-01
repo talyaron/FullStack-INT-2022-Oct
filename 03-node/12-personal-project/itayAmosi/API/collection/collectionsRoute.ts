@@ -1,11 +1,11 @@
 import express from "express";
 const router = express.Router();
 import { 
-    addCollections,
-     getCollection
+    addProducts,
+    getProducts
  } from "./collectionsControls";
 
 router
-.post("/add-collections", addCollections)
-.get("/get-collections", getCollection)
+.post("/add-products", addProducts)
+.get("/get-products", getProducts)
 export default router;

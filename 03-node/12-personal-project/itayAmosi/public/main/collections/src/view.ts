@@ -1,21 +1,18 @@
-// import {Collection} from "../../../../API/collection/collectionsModel";
-
-export interface Collection {
+interface Product {
   src: string;
   price: string;
   name: string;
   descriptions: string;
 }
 
-
-export function renderCollection(collections:Collection) {
+function renderProduct(products: Array<Product>) {
   try {
     const html = `
       <div class="tour-row">
-      <button class="tour-item tour-date"><img src="${collections.src}"></button>
-      <span class="tour-item tour-price">${collections.price}</span>
-      <span class="tour-item tour-name">${collections.name}</span>
-      <span class="tour-item tour-descriptions">${collections.descriptions}</span>
+      <button class="tour-item tour-date"><img src="${products.src}"></button>
+      <span class="tour-item tour-price">${products.price}</span>
+      <span class="tour-item tour-name">${products.name}</span>
+      <span class="tour-item tour-descriptions">${products.descriptions}</span>
       <button type="button" class="tour-item tour-btn btn btn-primary">Add to Favourites</button>
   </div>
 `;
@@ -26,14 +23,19 @@ export function renderCollection(collections:Collection) {
     console.error(error);
   }
 }
-
-export function handleGetCollections() {
+function handleGetProduct() {
   try {
-    fetch("/api/collections/get-collections")
+    
+    fetch("/api/collections/get-products")
       .then((res) => res.json())
-      .then(({ collections }) => {
-        // if (!collections) throw new Error("didnt find collections");
-        renderCollection(collections);
+      .then(({ products }) => {
+        console.log(products);
+        if (!products) throw new Error("didnt find product");
+        const html = products
+        .map((products) => {
+          return   renderProduct(products);
+        })
+      
       });
   } catch (error) {
     console.error(error);
