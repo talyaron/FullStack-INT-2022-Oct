@@ -1,11 +1,10 @@
 "use strict";
 exports.__esModule = true;
-exports.FavouriteSchema = void 0;
+exports.CartSchema = void 0;
 var mongoose_1 = require("mongoose");
-exports.FavouriteSchema = new mongoose_1.Schema({
-    src: String,
-    name: String,
-    price: String
+exports.CartSchema = new mongoose_1.Schema({
+    userId: String,
+    productIds: { required: true, type: [String], "default": [] }
 });
-var FavouriteModel = mongoose_1["default"].model("favourites", exports.FavouriteSchema);
-exports["default"] = FavouriteModel;
+var CartModel = mongoose_1["default"].model("carts", exports.CartSchema);
+exports["default"] = CartModel;

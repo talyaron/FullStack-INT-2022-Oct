@@ -18,7 +18,10 @@ export const login = async (req:any, res:any) => {
 
     const userDB = await UserModel.findOne({ email, password });
 
-    if(!userDB) throw new Error("email or password are inncorect")
+    if(!userDB){
+      res.status(401).send({ error: "email or password are inncorect" });
+      return
+    } 
    
     // res.cookie('user', userDB._id, { maxAge: 50000000, httpOnly: true });
 

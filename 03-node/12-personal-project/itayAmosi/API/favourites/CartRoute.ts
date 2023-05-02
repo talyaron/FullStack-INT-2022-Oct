@@ -1,9 +1,9 @@
 import express from "express";
 const router = express.Router();
 
-import { addFavourite } from "./favouritesControls";
+import { addCrat } from "./CartControls";
 
 
 router
-.post("/add-favourite", addFavourite)
+.post("/add-cart", addCrat)
 export default router;
