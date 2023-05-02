@@ -37,7 +37,7 @@ function handleLogin(ev) {
                 return;
             }
             var _a = data.userDB, password = _a.password, currentUser = __rest(_a, ["password"]);
-            localStorage.setItem("currentUser", JSON.stringify(currentUser));
+            localStorage.setItem("currentUser", JSON.stringify(currentUser)); //cookie
             //save user without password in cookies
             window.location.href = "/main/index.html";
         })["catch"](function (error) {

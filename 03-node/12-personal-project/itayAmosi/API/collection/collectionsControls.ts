@@ -23,6 +23,18 @@ export const addProducts = async (req:any, res:any) => {
   }
 };
 
+export const getProductsByIds = async (req:any, res:any) => { //מוצרים FUCHE
+  try {
+    const {productIds} = req.query;
+    const productsDB = await ProductModel.find({_id:{$in: productIds}});
+
+    res.send({products: productsDB });
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+}
+
 
 
 //   export const deleteItems = async (req:any, res:any) => {

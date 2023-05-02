@@ -49,7 +49,6 @@ function handleAddToCart(_id) {
             if (!productId) {
                 throw new Error("productId not found");
             }
-            console.log(productId);
             // return renderCartItems(product)
         })["catch"](function (error) {
             console.error(error);
@@ -60,21 +59,3 @@ function handleAddToCart(_id) {
     }
 }
 // appointment
-// function renderProduct(products:Product) {
-//   try {
-//     const html = `
-//       <div class="tour-row">
-//       <button class="tour-item tour-date"><img src="${products.src}"></button>
-//       <span class="tour-item tour-price">${products.price}$</span>
-//       <span class="tour-item tour-name">${products.name}</span>
-//       <span class="tour-item tour-descriptions">${products.description}</span>
-//       <button type="button" class="tour-item tour-btn btn btn-primary" onclick="handleAddToFavourites(event)">Add to Favourites</button>
-//   </div>
-// `;
-//     const itemsRoot = document.querySelector("#items");
-//     if (!itemsRoot) throw new Error("itemsRoot not found");
-//     itemsRoot.innerHTML += html;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
