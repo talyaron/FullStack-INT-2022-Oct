@@ -32,7 +32,7 @@ export function handleLogin(ev: any) {
           return
           }
           const {password, ...currentUser} = data.userDB
-          localStorage.setItem("currentUser", JSON.stringify(currentUser))
+          localStorage.setItem("currentUser", JSON.stringify(currentUser)) //cookie
           //save user without password in cookies
           window.location.href = "/main/index.html";
         })

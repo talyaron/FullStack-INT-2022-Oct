@@ -1,22 +1,37 @@
+enum CartStatus{
+  Open = "open",
+  Closed = "closed",
+}
+
+interface Cart {
+  userId: string;
+  productIds: string[];
+  _id: string;
+  status: CartStatus;
+}
+
 interface Product {
+  _id: string;
   src: string;
   price: string;
   name: string;
   description: string;
 }
 
-function renderCartItems(products: Product) {
+function renderCartItems(cart: Array<Cart>) {
   try {
     const html = `
-      <div class="shop-item">
-      <img class="shop-item-image" src="${products.src}">
-      <div class="shop-item-details">
-      <span class="shop-item-name">green nails</span>
-      </div>
-      <span class="shop-item-price">$12.99</span>
-      <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-      <button id="delete" class="btn delete btn-primary shop-item-button" type="button" onclick="handleDeleteProduct()">DELETE</button>
-      </div>
+    <div class="cart-row">
+    <div class="cart-item cart-column">
+        <img class="cart-item-image" src="${cart}" height="100">
+        <span class="cart-item-title">Album 3</span>
+    </div>
+    <span class="cart-price cart-column">$9.99</span>
+    <div class="cart-quantity cart-column">
+        <input class="cart-quantity-input" type="number" value="1">
+        <button class="btn btn-danger" type="button">REMOVE</button>
+    </div>
+</div>
 `;
     const cartItemsRoot = document.querySelector("#cartItems");
     if (!cartItemsRoot) throw new Error("cartItemsRoot not found");
@@ -26,72 +41,72 @@ function renderCartItems(products: Product) {
   }
 }
 
-// function handleAddToFavourites(_id: string, products) {
-//   try {
-//     fetch(
-//       "/api/favourites/add-favourite?" +
-//         new URLSearchParams({ _id }).toString(),
-//       {
-//         method: "POST",
-//         headers: {
-//           Accept: "application/json",
-//           "Content-Type": "application/json",
-//         },
-//       }
-//     )
-//       .then(() => {
-//         const productId = document.getElementById(_id);
-//         if (!productId) {
-//           throw new Error("student delete form HTML");
-//         }
-//         productId.remove();
-//         return renderCartItems(products)
-//       })
+function handleGetCart() {
+  try {
+    const currentLocalStorageUser = localStorage.getItem("currentUser"); //cookies
+    if(!currentLocalStorageUser){
+      window.location.href = "/login/index.html";
+      return
+    }
+    const currentUser = JSON.parse(currentLocalStorageUser)
+    fetch(
+      "/api/cart/get-cart?" +
+        new URLSearchParams({ userId:currentUser._id }).toString(),
+      {
+        method: "get",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    )
+    .then((res) => res.json())
+    .then(({cart}) => {
+      console.log(cart);
+      const html = cart
+      .map((cart) => {
+        return renderCartItems(cart)
 
-//       .catch((error) => {
-//         console.error(error);
-//       });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
+      })
+    })
+      .catch((error) => {
+        console.error(error);
+      });
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-// function handleDeleteProduct(_id: string) {
-//   try {
-//     console.log(_id);
 
-//     fetch("/api/users/delete-user", {
-//       method: "DELETE",
-//       headers: {
-//         Accept: "application/json",
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ _id }),
-//     })
-//       .then((res) => res.json())
-//       .then(({ products }) => {
-//         renderProduct(products);
-//       })
-//       .catch((error) => {
-//         console.error(error);
-//       });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
 
-// function addToFavourites(_id: Product) {
-//   try {
-//     fetch("/api/collections/add-favourites")
-//       .then((res) => res.json())
-//       .then(({ products }) => {
-//         console.log(products);
-//         if (!products) throw new Error("didnt find product");
-//         const html = products.map((products) => {
-//           return renderCartItems(products);
-//         });
-//       });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
+
+function GetCartItems() {
+  try {
+    const currentLocalStorageUser = localStorage.getItem("currentUser"); //cookies
+    if(!currentLocalStorageUser){
+      window.location.href = "/login/index.html";
+      return
+    }
+    const currentUser = JSON.parse(currentLocalStorageUser)
+    fetch(
+      "/api/cart/get-products-by-id?" +
+        new URLSearchParams({ userId:currentUser._id }).toString(),
+      {
+        method: "get",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    )
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+    })
+      .catch((error) => {
+        console.error(error);
+      });
+  } catch (error) {
+    console.error(error);
+  }
+}

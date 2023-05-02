@@ -36,21 +36,26 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getProductsByIds = exports.addProducts = exports.getProducts = void 0;
-var collectionsModel_1 = require("./collectionsModel");
-exports.getProducts = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var productsDB, error_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+exports.getCartByFilter = exports.addCrat = void 0;
+var CartModel_1 = require("./CartModel");
+exports.addCrat = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, _id, userId, cartDB, error_1;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, collectionsModel_1["default"].find({})];
+                _b.trys.push([0, 2, , 3]);
+                _a = req.query, _id = _a._id, userId = _a.userId;
+                return [4 /*yield*/, CartModel_1.CartModel.findOneAndUpdate({ userId: userId, status: CartModel_1.CartStatus.Open }, {
+                        $addToSet: { productIds: _id }
+                    }, {
+                        upsert: true, "new": true, setDefaultsOnInsert: true
+                    })];
             case 1:
-                productsDB = _a.sent();
-                res.send({ products: productsDB });
+                cartDB = _b.sent();
+                res.status(201).send({ ok: true, cartDB: cartDB });
                 return [3 /*break*/, 3];
             case 2:
-                error_1 = _a.sent();
+                error_1 = _b.sent();
                 console.error(error_1);
                 res.status(500).send({ error: error_1.message });
                 return [3 /*break*/, 3];
@@ -58,20 +63,21 @@ exports.getProducts = function (req, res) { return __awaiter(void 0, void 0, voi
         }
     });
 }); };
-exports.addProducts = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, src, price, description, productsDB, error_2;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
+exports.getCartByFilter = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var userId, cart, error_2;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
             case 0:
-                _b.trys.push([0, 2, , 3]);
-                _a = req.body, name = _a.name, src = _a.src, price = _a.price, description = _a.description;
-                return [4 /*yield*/, collectionsModel_1["default"].create({ name: name, src: src, price: price, description: description })];
+                _a.trys.push([0, 2, , 3]);
+                userId = req.query.userId;
+                return [4 /*yield*/, CartModel_1.CartModel.find({ userId: userId, status: CartModel_1.CartStatus.Open })];
             case 1:
-                productsDB = _b.sent();
-                res.status(201).send({ ok: true, productsDB: productsDB });
+                cart = _a.sent();
+                console.log(cart);
+                res.send({ cart: cart });
                 return [3 /*break*/, 3];
             case 2:
-                error_2 = _b.sent();
+                error_2 = _a.sent();
                 console.error(error_2);
                 res.status(500).send({ error: error_2.message });
                 return [3 /*break*/, 3];
@@ -79,35 +85,3 @@ exports.addProducts = function (req, res) { return __awaiter(void 0, void 0, voi
         }
     });
 }); };
-exports.getProductsByIds = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var productIds, productsDB, error_3;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 2, , 3]);
-                productIds = req.query.productIds;
-                return [4 /*yield*/, collectionsModel_1["default"].find({ productIds: productIds })];
-            case 1:
-                productsDB = _a.sent();
-                res.send({ products: productsDB });
-                return [3 /*break*/, 3];
-            case 2:
-                error_3 = _a.sent();
-                console.error(error_3);
-                res.status(500).send({ error: error_3.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
-        }
-    });
-}); };
-//   export const deleteItems = async (req:any, res:any) => {
-//     try {
-//       const { _id } = req.body;
-//       const deleteUser = await UserModel.deleteOne({ _id });
-//       const users = await UserModel.find({});
-//       res.send({ ok: true, users });
-//     } catch (error: any) {
-//       console.error(error);
-//       res.status(500).send({ error: error.message });
-//     }
-//   }
