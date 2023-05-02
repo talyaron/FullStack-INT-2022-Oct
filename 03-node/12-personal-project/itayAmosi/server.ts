@@ -31,7 +31,7 @@ import collectionsRouter from './API/collection/collectionsRoute';
 app.use('/api/collections', collectionsRouter);
 
 
-import cartRouter from './API/favourites/CartRoute';
+import cartRouter from './API/cart/CartRoute';
 app.use('/api/cart', cartRouter);
 
 

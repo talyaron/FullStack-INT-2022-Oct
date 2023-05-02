@@ -21,7 +21,7 @@ var usersRoute_1 = require("./API/user/usersRoute");
 app.use('/api/users', usersRoute_1["default"]);
 var collectionsRoute_1 = require("./API/collection/collectionsRoute");
 app.use('/api/collections', collectionsRoute_1["default"]);
-var CartRoute_1 = require("./API/favourites/CartRoute");
+var CartRoute_1 = require("./API/cart/CartRoute");
 app.use('/api/cart', CartRoute_1["default"]);
 // import gradesRouter from './API/grades/gradesRoute';
 // app.use('/api/grades', gradesRouter);
