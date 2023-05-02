@@ -1,19 +1,19 @@
 import mongoose, { Schema } from "mongoose";
 
-export interface Collection {
+export interface Product {
   src: string;
   price: string;
   name: string;
-  descriptions: string;
+  description: string;
 }
 
-export const collectionsSchema = new Schema({
+export const productSchema = new Schema({
   src: String,
   name: String,
   price: String,
-  descriptions: String,
+  description: String,
 });
 
-const CollectionModel = mongoose.model("collections", collectionsSchema);
+const ProductModel = mongoose.model("collections", productSchema);
 
-export default CollectionModel;
+export default ProductModel;

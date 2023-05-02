@@ -1,10 +1,10 @@
-import CollectionModel from "./collectionsModel";
+import ProductModel from "./collectionsModel";
 
-export const getCollection = async (req:any, res:any) => {
+export const getProducts = async (req:any, res:any) => {
     try {
-      const collectionsDB = await CollectionModel.find({});
+      const productsDB = await ProductModel.find({});
 
-      res.send({ collectionsDB });
+      res.send({products: productsDB });
     } catch (error: any) {
       console.error(error);
       res.status(500).send({ error: error.message });
@@ -12,11 +12,11 @@ export const getCollection = async (req:any, res:any) => {
   }
 
 
-export const addCollections = async (req:any, res:any) => {
+export const addProducts = async (req:any, res:any) => {
   try {
     const { name, src, price, description } = req.body;
-    const CollectionsDB = await CollectionModel.create({ name, src, price, description });
-    res.status(201).send({ ok: true, CollectionsDB });
+    const productsDB = await ProductModel.create({ name, src, price, description });
+    res.status(201).send({ ok: true, productsDB });
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });
