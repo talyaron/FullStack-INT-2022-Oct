@@ -86,7 +86,7 @@ exports.getProductsByIds = function (req, res) { return __awaiter(void 0, void 0
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 productIds = req.query.productIds;
-                return [4 /*yield*/, collectionsModel_1["default"].find({ _id: { $in: productIds } })];
+                return [4 /*yield*/, collectionsModel_1["default"].find({ productIds: productIds })];
             case 1:
                 productsDB = _a.sent();
                 res.send({ products: productsDB });

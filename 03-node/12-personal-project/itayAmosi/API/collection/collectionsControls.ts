@@ -26,7 +26,7 @@ export const addProducts = async (req:any, res:any) => {
 export const getProductsByIds = async (req:any, res:any) => { //מוצרים FUCHE
   try {
     const {productIds} = req.query;
-    const productsDB = await ProductModel.find({_id:{$in: productIds}});
+    const productsDB = await ProductModel.find({productIds});
 
     res.send({products: productsDB });
   } catch (error: any) {

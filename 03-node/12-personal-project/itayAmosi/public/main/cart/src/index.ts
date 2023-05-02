@@ -1,3 +1,8 @@
+enum CartStatus{
+  Open = "open",
+  Closed = "closed",
+}
+
 interface Cart {
   userId: string;
   productIds: string[];
@@ -18,7 +23,7 @@ function renderCartItems(cart: Array<Cart>) {
     const html = `
     <div class="cart-row">
     <div class="cart-item cart-column">
-        <img class="cart-item-image" src="${cart.}" height="100">
+        <img class="cart-item-image" src="${cart}" height="100">
         <span class="cart-item-title">Album 3</span>
     </div>
     <span class="cart-price cart-column">$9.99</span>
