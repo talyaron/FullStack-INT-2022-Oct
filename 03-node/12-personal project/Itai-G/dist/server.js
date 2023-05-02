@@ -24,6 +24,10 @@ var usersRoute_1 = require("./API/users/usersRoute");
 app.use('/api/users', usersRoute_1["default"]);
 var productsRoute_1 = require("./API/products/productsRoute");
 app.use('/api/products', productsRoute_1["default"]);
+var orderRoute_1 = require("./API/orders/orderRoute");
+app.use('/api/order', orderRoute_1["default"]);
+var cartRoute_1 = require("./API/cart/cartRoute");
+app.use('/api/cart', cartRoute_1["default"]);
 app.listen(3000, function () {
     console.log("server listen on port 3000");
 });

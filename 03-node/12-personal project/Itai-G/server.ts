@@ -29,6 +29,14 @@ app.use('/api/users', usersRouter);
 import ProductRouter from './API/products/productsRoute';
 app.use('/api/products', ProductRouter);
 
+import OrderRouter from './API/orders/orderRoute';
+app.use('/api/order', OrderRouter);
+
+import CartRouter from './API/cart/cartRoute';
+app.use('/api/cart', CartRouter);
+
+
+
 
 app.listen(3000, () => {
   console.log("server listen on port 3000");

@@ -13,11 +13,11 @@ export const getProducts = async (req: any, res: any) => {
 
   export const createProduct = async (req: any, res: any) => {
     try {
-      const { name, description, price, imgUrl } = req.body;
+      const { name, descreption, price, imgUrl } = req.body;
   
       const productDB = await ProductModel.create({
         name,
-        description,
+        descreption,
         price,
         imgUrl,
       });

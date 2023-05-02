@@ -17,7 +17,8 @@ function handleLogin (ev: any){
         })
         .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        const {password, ...currentUser} = data.userDB
+        localStorage.setItem("currentUser", JSON.stringify(currentUser))
         window.location.href = "../main/main.html"
       })
       .catch((error) => {

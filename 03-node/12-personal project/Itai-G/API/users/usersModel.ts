@@ -5,6 +5,7 @@ interface User {
     name: string;
     password:string;
     email:string;
+    userType:UserType;
 }
 
 
@@ -14,7 +15,7 @@ export enum UserType{
     PUBLIC = "public",
 }
 
-export const UserSchema = new Schema ({
+export const UserSchema = new Schema<User>({
     name:{require:true, type:String},
     password:{require:true, type:String},
     email:{type:String},

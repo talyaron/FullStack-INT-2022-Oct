@@ -36,18 +36,20 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.deleteProduct = exports.getProductById = exports.updateProduct = exports.createProduct = exports.getProducts = void 0;
-var productsModel_1 = require("./productsModel");
-exports.getProducts = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var productsDB, error_1;
+exports.getOrderById = exports.deleteOrder = exports.updateOrder = exports.createOrder = exports.getOrders = void 0;
+var orderModel_1 = require("./orderModel");
+var productsModel_1 = require("../products/productsModel");
+var usersModel_1 = require("../users/usersModel");
+exports.getOrders = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var orders, error_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, productsModel_1["default"].find({})];
+                return [4 /*yield*/, orderModel_1["default"].find({})];
             case 1:
-                productsDB = _a.sent();
-                res.send({ products: productsDB });
+                orders = _a.sent();
+                res.send({ orders: orders });
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _a.sent();
@@ -58,46 +60,54 @@ exports.getProducts = function (req, res) { return __awaiter(void 0, void 0, voi
         }
     });
 }); };
-exports.createProduct = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, descreption, price, imgUrl, productDB, error_2;
+exports.createOrder = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, userId, productId, quantity, user, product, orderDB, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 2, , 3]);
-                _a = req.body, name = _a.name, descreption = _a.descreption, price = _a.price, imgUrl = _a.imgUrl;
-                return [4 /*yield*/, productsModel_1["default"].create({
-                        name: name,
-                        descreption: descreption,
-                        price: price,
-                        imgUrl: imgUrl
-                    })];
+                _b.trys.push([0, 4, , 5]);
+                _a = req.body, userId = _a.userId, productId = _a.productId, quantity = _a.quantity;
+                return [4 /*yield*/, usersModel_1["default"].findById(userId)];
             case 1:
-                productDB = _b.sent();
-                res.status(201).send({ product: productDB });
-                return [3 /*break*/, 3];
+                user = _b.sent();
+                if (!user)
+                    throw new Error("User not found");
+                return [4 /*yield*/, productsModel_1["default"].findById(productId)];
             case 2:
+                product = _b.sent();
+                if (!product)
+                    throw new Error("Product not found");
+                return [4 /*yield*/, orderModel_1["default"].create({
+                        userId: userId,
+                        productId: productId,
+                        quantity: quantity
+                    })];
+            case 3:
+                orderDB = _b.sent();
+                res.status(201).send({ order: orderDB });
+                return [3 /*break*/, 5];
+            case 4:
                 error_2 = _b.sent();
                 console.error(error_2);
                 res.status(500).send({ error: error_2.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 5];
+            case 5: return [2 /*return*/];
         }
     });
 }); };
-exports.updateProduct = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var productId, _a, name, description, price, imgUrl, productDB, error_3;
+exports.updateOrder = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, orderId, quantity, orderDB, error_3;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                productId = req.body.productId;
-                _a = req.body, name = _a.name, description = _a.description, price = _a.price, imgUrl = _a.imgUrl;
-                return [4 /*yield*/, productsModel_1["default"].findOneAndUpdate({ _id: productId }, { name: name, description: description, price: price, imgUrl: imgUrl }, { "new": true })];
+                _a = req.body, orderId = _a.orderId, quantity = _a.quantity;
+                return [4 /*yield*/, orderModel_1["default"].findOneAndUpdate({ _id: orderId }, { quantity: quantity }, { "new": true })];
             case 1:
-                productDB = _b.sent();
-                if (!productDB)
-                    throw new Error("Could not find product");
-                res.send({ product: productDB });
+                orderDB = _b.sent();
+                if (!orderDB)
+                    throw new Error("Could not find order");
+                res.send({ order: orderDB });
                 return [3 /*break*/, 3];
             case 2:
                 error_3 = _b.sent();
@@ -108,19 +118,19 @@ exports.updateProduct = function (req, res) { return __awaiter(void 0, void 0, v
         }
     });
 }); };
-exports.getProductById = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var productId, product, error_4;
+exports.deleteOrder = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var orderId, orderDB, error_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                productId = req.body.productId;
-                return [4 /*yield*/, productsModel_1["default"].findById(productId)];
+                orderId = req.body.orderId;
+                return [4 /*yield*/, orderModel_1["default"].findOneAndDelete({ _id: orderId })];
             case 1:
-                product = _a.sent();
-                if (!product)
-                    throw new Error("Product not found");
-                res.send({ product: product });
+                orderDB = _a.sent();
+                if (!orderDB)
+                    throw new Error("Could not find order");
+                res.send({ order: orderDB });
                 return [3 /*break*/, 3];
             case 2:
                 error_4 = _a.sent();
@@ -131,19 +141,19 @@ exports.getProductById = function (req, res) { return __awaiter(void 0, void 0, 
         }
     });
 }); };
-exports.deleteProduct = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var productId, productDB, error_5;
+exports.getOrderById = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var orderId, orderDB, error_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                productId = req.body.productId;
-                return [4 /*yield*/, productsModel_1["default"].findOneAndDelete({ productId: productId })];
+                orderId = req.body.orderId;
+                return [4 /*yield*/, orderModel_1["default"].findById({ _id: orderId })];
             case 1:
-                productDB = _a.sent();
-                if (!productDB)
-                    throw new Error("Could not find product");
-                res.send({ product: productDB });
+                orderDB = _a.sent();
+                if (!orderDB)
+                    throw new Error('Order not found');
+                res.send({ order: orderDB });
                 return [3 /*break*/, 3];
             case 2:
                 error_5 = _a.sent();
