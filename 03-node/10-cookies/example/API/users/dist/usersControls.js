@@ -38,6 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 exports.getUser = exports.updateUserType = exports.deleteUser = exports.updateUserName = exports.updateUser = exports.login = exports.addUser = exports.getUsers = void 0;
 var usersModel_1 = require("./usersModel");
+// import jwt from 'jwt-simple';
 var secret = process.env.JWT_SECRET;
 exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var users, error_1;
@@ -60,14 +61,14 @@ exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0
     });
 }); };
 exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, password, userDB, error_2;
+    var _a, name, email, password, tel, userDB, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                _a = req.body, name = _a.name, password = _a.password;
+                _a = req.body, name = _a.name, email = _a.email, password = _a.password, tel = _a.tel;
                 console.log(name, password);
-                return [4 /*yield*/, usersModel_1["default"].create({ name: name, password: password })];
+                return [4 /*yield*/, usersModel_1["default"].create({ name: name, email: email, password: password, tel: tel })];
             case 1:
                 userDB = _b.sent();
                 console.log(userDB);

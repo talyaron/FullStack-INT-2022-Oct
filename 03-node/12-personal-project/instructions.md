@@ -17,3 +17,5 @@ Tech.
 Ideas:
  - Shoe shop (admin, main).
  - game with scores for users.
+
+Good luck

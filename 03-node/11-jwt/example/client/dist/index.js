@@ -107,7 +107,6 @@ function handleLogin(ev) {
         if (!password)
             throw new Error("No Password");
         var newUser = { name: name, password: password };
-        //send to server:
         fetch("/api/users/login", {
             method: "POST",
             headers: {

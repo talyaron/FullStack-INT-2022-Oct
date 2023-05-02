@@ -16,8 +16,6 @@ export const CourseStudentSchema = new Schema({
 })
 
 
-export const GradeModel = mongoose.model('grades', GradeSchema);
-
 export const CourseStudentModel = mongoose.model("course-students", CourseStudentSchema);
 
 const CourseModel = mongoose.model<Course>("courses", CourseSchema);
