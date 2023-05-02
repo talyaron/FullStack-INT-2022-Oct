@@ -36,19 +36,24 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addFavourite = void 0;
-var favouritesModel_1 = require("./favouritesModel");
-exports.addFavourite = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, src, price, favouriteDB, error_1;
+exports.addCrat = void 0;
+var CartModel_1 = require("./CartModel");
+exports.addCrat = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, _id, userId, cartDB, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                _a = req.body, name = _a.name, src = _a.src, price = _a.price;
-                return [4 /*yield*/, favouritesModel_1["default"].create({ name: name, src: src, price: price })];
+                _a = req.query, _id = _a._id, userId = _a.userId;
+                return [4 /*yield*/, CartModel_1["default"].findOneAndUpdate({ userId: userId }, {
+                        $addToSet: { productIds: _id }
+                    }, {
+                        upsert: true, "new": true, setDefaultsOnInsert: true
+                    })];
             case 1:
-                favouriteDB = _b.sent();
-                res.status(201).send({ ok: true, favouriteDB: favouriteDB });
+                cartDB = _b.sent();
+                console.log(cartDB);
+                res.status(201).send({ ok: true, cartDB: cartDB });
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _b.sent();

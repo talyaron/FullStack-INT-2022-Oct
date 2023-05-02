@@ -58,8 +58,10 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                 return [4 /*yield*/, usersModel_1["default"].findOne({ email: email, password: password })];
             case 1:
                 userDB = _b.sent();
-                if (!userDB)
-                    throw new Error("email or password are inncorect");
+                if (!userDB) {
+                    res.status(401).send({ error: "email or password are inncorect" });
+                    return [2 /*return*/];
+                }
                 // res.cookie('user', userDB._id, { maxAge: 50000000, httpOnly: true });
                 res.status(201).send({ ok: true, userDB: userDB });
                 return [3 /*break*/, 3];
