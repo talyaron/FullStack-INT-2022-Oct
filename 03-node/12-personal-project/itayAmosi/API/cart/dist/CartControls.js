@@ -70,10 +70,9 @@ exports.getCartByFilter = function (req, res) { return __awaiter(void 0, void 0,
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 userId = req.query.userId;
-                return [4 /*yield*/, CartModel_1.CartModel.find({ userId: userId, status: CartModel_1.CartStatus.Open })];
+                return [4 /*yield*/, CartModel_1.CartModel.findOne({ userId: userId, status: CartModel_1.CartStatus.Open })];
             case 1:
                 cart = _a.sent();
-                console.log(cart);
                 res.send({ cart: cart });
                 return [3 /*break*/, 3];
             case 2:

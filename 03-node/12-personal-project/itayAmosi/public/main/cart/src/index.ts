@@ -18,12 +18,12 @@ interface Product {
   description: string;
 }
 
-function renderCartItems(cart: Array<Cart>) {
+function renderCartItems(product: Product) {
   try {
     const html = `
     <div class="cart-row">
     <div class="cart-item cart-column">
-        <img class="cart-item-image" src="${cart}" height="100">
+        <img class="cart-item-image" src="${product.src}" height="100">
         <span class="cart-item-title">Album 3</span>
     </div>
     <span class="cart-price cart-column">$9.99</span>
@@ -63,11 +63,8 @@ function handleGetCart() {
     .then((res) => res.json())
     .then(({cart}) => {
       console.log(cart);
-      const html = cart
-      .map((cart) => {
-        return renderCartItems(cart)
+      GetCartItems(cart.productIds)
 
-      })
     })
       .catch((error) => {
         console.error(error);
@@ -80,17 +77,12 @@ function handleGetCart() {
 
 
 
-function GetCartItems() {
+function GetCartItems(productIds: string[]){
   try {
-    const currentLocalStorageUser = localStorage.getItem("currentUser"); //cookies
-    if(!currentLocalStorageUser){
-      window.location.href = "/login/index.html";
-      return
-    }
-    const currentUser = JSON.parse(currentLocalStorageUser)
+
     fetch(
-      "/api/cart/get-products-by-id?" +
-        new URLSearchParams({ userId:currentUser._id }).toString(),
+      "/api/collections/get-products-by-id?" +
+        new URLSearchParams({ productIds: productIds.join(",")}).toString(),
       {
         method: "get",
         headers: {

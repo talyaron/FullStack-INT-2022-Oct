@@ -23,10 +23,9 @@ export const addCrat = async (req: any, res: any) => {
 export const getCartByFilter = async (req: any, res: any) => {
   try {
     const { userId } = req.query;
-    const cart = await CartModel.find(
+    const cart = await CartModel.findOne(
       { userId, status:CartStatus.Open }
     );
-console.log(cart);
     res.send({ cart });
   } catch (error: any) {
     console.error(error);
