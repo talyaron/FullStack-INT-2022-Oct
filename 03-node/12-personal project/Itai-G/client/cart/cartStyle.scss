@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://img.freepik.com/free-photo/grunge-paint-background_1409-1337.jpg?w=2000');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  }
+  
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 10px;
+  }
+  
+  .topNav {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .topNav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .topNav li {
+    margin-right: 10px;
+  }
+  
+  .topNav li:last-child {
+    margin-right: 0;
+  }
+  
+  .topNav a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .topNav button {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .topNav button:hover {
+    background-color: #ccc;
+  }
+  
+  #cartContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .cartItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 700px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.394);
+  }
+  
+  .cartItem img {
+    width: 150px;
+    height: 120px;
+  }
+  
+  .cartItem input {
+    width: 30px;
+    border-radius: 29%;
+  }
+  
+  .cartItem button {
+    width: 55px;
+    height: 40px;
+    border-radius: 25%;
+  }
+  
+  .cartItem button:hover {
+    background-color: #ccc;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  #buyBtn {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    color: #333;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  #buyBtn:hover {
+    background-color: #ccc;
+  }

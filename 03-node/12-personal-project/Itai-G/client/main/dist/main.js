@@ -47,10 +47,6 @@ function addToCart(_id) {
         })
             .then(function () {
             var productId = document.getElementById(_id);
-            if (!productId) {
-                throw new Error("productId not found");
-            }
-            console.log(productId);
         })["catch"](function (error) {
             console.error(error);
         });
