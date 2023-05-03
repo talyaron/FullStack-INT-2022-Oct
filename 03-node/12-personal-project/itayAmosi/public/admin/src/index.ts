@@ -23,6 +23,8 @@ function handleAddProducts(ev: any) {
       })
         .then((res) => res.json())
         .then((data) => {
+          const form = document.getElementById("addNewProduct") as HTMLFormElement;
+          form.reset()
         })
         .catch((error) => {
           console.error(error);

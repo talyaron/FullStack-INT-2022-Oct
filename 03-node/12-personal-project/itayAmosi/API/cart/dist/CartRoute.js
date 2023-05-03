@@ -5,5 +5,7 @@ var router = express_1["default"].Router();
 var CartControls_1 = require("./CartControls");
 router
     .post("/add-cart", CartControls_1.addCrat)
-    .get("/get-cart", CartControls_1.getCartByFilter);
+    .post("/add-purchase", CartControls_1.successfulPurchase)
+    .get("/get-cart", CartControls_1.getCartByFilter)
+    .patch("/remove-item-from-cart", CartControls_1.removeProductFromCart);
 exports["default"] = router;

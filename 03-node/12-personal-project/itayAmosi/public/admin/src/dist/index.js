@@ -26,6 +26,8 @@ function handleAddProducts(ev) {
         })
             .then(function (res) { return res.json(); })
             .then(function (data) {
+            var form = document.getElementById("addNewProduct");
+            form.reset();
         })["catch"](function (error) {
             console.error(error);
         });

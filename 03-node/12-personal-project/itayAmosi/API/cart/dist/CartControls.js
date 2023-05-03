@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getCartByFilter = exports.addCrat = void 0;
+exports.successfulPurchase = exports.removeProductFromCart = exports.getCartByFilter = exports.addCrat = void 0;
 var CartModel_1 = require("./CartModel");
 exports.addCrat = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, _id, userId, cartDB, error_1;
@@ -73,12 +73,74 @@ exports.getCartByFilter = function (req, res) { return __awaiter(void 0, void 0,
                 return [4 /*yield*/, CartModel_1.CartModel.findOne({ userId: userId, status: CartModel_1.CartStatus.Open })];
             case 1:
                 cart = _a.sent();
+                console.log(cart);
                 res.send({ cart: cart });
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _a.sent();
                 console.error(error_2);
                 res.status(500).send({ error: error_2.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.removeProductFromCart = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, productId, userId, cart, error_3;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                _a = req.query, productId = _a.productId, userId = _a.userId;
+                return [4 /*yield*/, CartModel_1.CartModel.updateOne({ userId: userId, status: CartModel_1.CartStatus.Open }, { $pull: { productIds: productId } })];
+            case 1:
+                cart = _b.sent();
+                res.send({ ok: true });
+                return [3 /*break*/, 3];
+            case 2:
+                error_3 = _b.sent();
+                console.error(error_3);
+                res.status(500).send({ error: error_3.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+// export const removeProductFromCart = async (req: any, res: any) => {
+//   try {
+//     const { productId , userId } = req.query;
+//     const cartDB = await CartModel.updateOne(
+//       { userId, status:CartStatus.Open },
+//       { $pull: { productIds: productId } },
+//       {
+//         upsert:true, new:true ,setDefaultsOnInsert: true
+//       }
+//     );
+//     console.log(cartDB);
+//     res.send({ ok: true, cart:cartDB });
+//   } catch (error: any) {
+//     console.error(error);
+//     res.status(500).send({ error: error.message });
+//   }
+// };
+exports.successfulPurchase = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, _id, userId, cartDB, error_4;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                _a = req.query, _id = _a._id, userId = _a.userId;
+                return [4 /*yield*/, CartModel_1.CartModel.findOneAndUpdate({ userId: userId, status: CartModel_1.CartStatus.Open }, {
+                        status: CartModel_1.CartStatus.Closed
+                    })];
+            case 1:
+                cartDB = _b.sent();
+                res.status(201).send({ ok: true, cartDB: cartDB });
+                return [3 /*break*/, 3];
+            case 2:
+                error_4 = _b.sent();
+                console.error(error_4);
+                res.status(500).send({ error: error_4.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }
