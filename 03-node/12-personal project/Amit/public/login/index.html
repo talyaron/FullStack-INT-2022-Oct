@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- link to css -->
+    <link rel="stylesheet" href="./dist/style.css">
+
+    <!-- links to js files -->
+    <!-- <script src="./dist/model.js" defer></script> -->
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+
+    <title>login</title>
+</head>
+<body>
+    <h1>please enter a password and a user name to login</h1>
+    <form class="login-form" onsubmit="handleLogin(event)">
+        <input type="name" class="name" name="name" placeholder="Enter User Name" required>
+        <input type="password" class="password" name="password" placeholder="Enter Password" required>
+        <button class="login-form__btn-submit" type="submit">login</button>
+    </form>
+</body>
+</html>
+
+ 
