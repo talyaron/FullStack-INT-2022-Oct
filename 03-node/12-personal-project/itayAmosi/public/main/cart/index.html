@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="../../globalSrc/dist/view.js" defer></script>
+    <script src="./src/dist/index.js" defer></script>
+</head>
+<body onload="
+renderFooter()
+handleGetCart()
+">
+    <header id="header" class="main-header">
+        <nav class="nav main-nav">
+            <nav class="nav main-nav">
+                <ul>
+                <li><a href="../index.html">MAIN</a></li>
+                <li><a href="../collections/index.html">Collections</a></li>
+                <li><a href="./index.html">Cart</a></li>
+                <li><a href="../../login/index.html">LOGUOT</a></li>
+                </ul>
+            </nav>
+        </nav>
+        <h1 class="section-header">Cart</h1>
+    </header>
+    <section class="container content-section">
+        <div class="shop-items"></div>
+    </section>
+    <section class="container content-section">
+        <h2 class="section-header">Final Purchase</h2>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">ITEM</span>
+            <span class="cart-price cart-header cart-column">PRICE</span>
+            <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+        </div>
+        <div  id="cartItems" class="cart-items">
+        </div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">$0</span>
+        </div>
+        <button class="btn btn-primary btn-purchase" type="button" onclick="handelPurchase(event)">PURCHASE</button>
+    </section>
+    <footer id="footer" class="main-footer">
+    </footer>
+</body>
+</html>

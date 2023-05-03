@@ -1,5 +1,5 @@
 import UserModel from "./usersModel";
-import jwt from 'jwt-simple';
+// import jwt from 'jwt-simple';
 const secret = process.env.JWT_SECRET;
 
 export const getUsers = async (req:any, res:any) => {
@@ -16,11 +16,11 @@ export const getUsers = async (req:any, res:any) => {
 
 export const addUser = async (req:any, res:any) => {
   try {
-    const { name, password } = req.body;
+    const { name, email, password, tel } = req.body;
     console.log(name, password);
 
     //add users to DB;
-    const userDB = await UserModel.create({ name, password });
+    const userDB = await UserModel.create({ name, email, password, tel });
 
     console.log(userDB);
     

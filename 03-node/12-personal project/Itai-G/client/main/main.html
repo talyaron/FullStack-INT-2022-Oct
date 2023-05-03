@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>main-site</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-Dq3Up6KjhbPJOdOyUMLhr6Uv5Ncq+5rjKZ8W0X9vNcP/21axjCC0y8WGO2VupvSglxrnSfSaqn1WZQDlZcL4/Q==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="./dist/main.css" />
+    <script src="./dist/main.js" defer></script>
+  </head>
+  <body onload="handleGetProduct()">
+    <div class="mainContainer">
+      <div class="topNav">
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="http://localhost:3000/login/login.html">Login</a></li>
+            <li><a href="http://localhost:3000/register/register.html">Register</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div id="productsContainer"></div>
+    </div>
+  </body>
+</html>
