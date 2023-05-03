@@ -5,8 +5,6 @@
 }
 
 body {
-  margin: 0;
-  padding: 0;
   font-family: Arial, sans-serif;
   background-image: url("https://img.freepik.com/free-photo/grunge-paint-background_1409-1337.jpg?w=2000");
   background-repeat: no-repeat;
@@ -15,12 +13,26 @@ body {
   height: 100vh;
 }
 
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 10px;
+}
+
 .topNav {
   background-color: #333;
   color: #fff;
   display: flex;
   justify-content: space-between;
   padding: 10px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .topNav ul {
@@ -56,7 +68,7 @@ body {
   background-color: #ccc;
 }
 
-#productsContainer {
+#cartContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,7 +76,7 @@ body {
   width: 100%;
 }
 
-.storeItem {
+.cartItem {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -76,15 +88,42 @@ body {
   background-color: rgba(255, 255, 255, 0.394);
 }
 
-img {
+.cartItem img {
   width: 150px;
   height: 120px;
 }
 
-input {
+.cartItem input {
   width: 30px;
+  border-radius: 29%;
 }
 
-button {
-  width: 100px;
+.cartItem button {
+  width: 55px;
+  height: 40px;
+  border-radius: 25%;
+}
+
+.cartItem button:hover {
+  background-color: #ccc;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+#buyBtn {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #fff;
+  color: #333;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#buyBtn:hover {
+  background-color: #ccc;
 }

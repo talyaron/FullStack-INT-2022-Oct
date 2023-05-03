@@ -71,10 +71,7 @@ function renderProducts(product: Product) {
           )
             .then(() => {
               const productId = document.getElementById(_id);
-              if (!productId) {
-                throw new Error("productId not found");
-              }
-              console.log(productId);
+            
             })
       
             .catch((error) => {
@@ -84,4 +81,3 @@ function renderProducts(product: Product) {
           console.error(error);
         }
       }
-  

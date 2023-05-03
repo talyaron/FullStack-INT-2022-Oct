@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addItem = void 0;
+exports.successfulPurchase = exports.removeProductFromCart = exports.getCartByUserId = exports.addItem = void 0;
 var cartModel_1 = require("./cartModel");
 exports.addItem = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, _id, userId, cartDB, error_1;
@@ -59,6 +59,72 @@ exports.addItem = function (req, res) { return __awaiter(void 0, void 0, void 0,
                 error_1 = _b.sent();
                 console.error(error_1);
                 res.status(500).send({ error: error_1.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.getCartByUserId = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var userId, cart, error_2;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                userId = req.query.userId;
+                return [4 /*yield*/, cartModel_1.CartModel.findOne({ userId: userId, status: cartModel_1.CartStatus.Open })];
+            case 1:
+                cart = _a.sent();
+                res.send({ cart: cart });
+                return [3 /*break*/, 3];
+            case 2:
+                error_2 = _a.sent();
+                console.error(error_2);
+                res.status(500).send({ error: error_2.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.removeProductFromCart = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, productId, userId, cart, error_3;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                _a = req.query, productId = _a.productId, userId = _a.userId;
+                console.log(productId);
+                return [4 /*yield*/, cartModel_1.CartModel.updateOne({ userId: userId, status: cartModel_1.CartStatus.Open }, { $pull: { productIds: productId } })];
+            case 1:
+                cart = _b.sent();
+                res.send({ ok: true });
+                return [3 /*break*/, 3];
+            case 2:
+                error_3 = _b.sent();
+                console.error(error_3);
+                res.status(500).send({ error: error_3.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
+exports.successfulPurchase = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, _id, userId, cartDB, error_4;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                _a = req.query, _id = _a._id, userId = _a.userId;
+                return [4 /*yield*/, cartModel_1.CartModel.findOneAndUpdate({ userId: userId, status: cartModel_1.CartStatus.Open }, {
+                        status: cartModel_1.CartStatus.Closed
+                    })];
+            case 1:
+                cartDB = _b.sent();
+                res.status(201).send({ ok: true, cartDB: cartDB });
+                return [3 /*break*/, 3];
+            case 2:
+                error_4 = _b.sent();
+                console.error(error_4);
+                res.status(500).send({ error: error_4.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }
