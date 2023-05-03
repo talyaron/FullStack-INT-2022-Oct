@@ -26,7 +26,7 @@ function renderCartItems(product: Product) {
         <img class="cart-item-image" src="${product.src}" height="100">
         <span class="cart-item-title">${product.name}</span>
     </div>
-    <span class="cart-price cart-column">${product.price}$</span>
+    <span id="price" class="cart-price cart-column">${product.price}$</span>
     <div class="cart-quantity cart-column">
         <input class="cart-quantity-input" type="number" value="1">
         <button class="btn btn-danger" type="button" onclick="removeItemsFromCart('${product._id}')">REMOVE</button>
@@ -122,7 +122,6 @@ function removeItemsFromCart(productId:string) {
     )
     .then((res) => res.json())
     .then((data) => {
-      console.log("hiii");
       const product = document.getElementById(productId);
 
         if (!product) {
@@ -160,7 +159,6 @@ function handelPurchase() {
     )
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       alert("Thank you for purchasing the receipt that will be sent to your email, The products are on their way to you");
       window.location.href = "/main/index.html";
         

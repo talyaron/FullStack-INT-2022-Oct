@@ -5,7 +5,7 @@ var CartStatus;
 })(CartStatus || (CartStatus = {}));
 function renderCartItems(product) {
     try {
-        var html = "\n    <div id=\"" + product._id + "\" class=\"cart-row\">\n    <div class=\"cart-item cart-column\">\n        <img class=\"cart-item-image\" src=\"" + product.src + "\" height=\"100\">\n        <span class=\"cart-item-title\">" + product.name + "</span>\n    </div>\n    <span class=\"cart-price cart-column\">" + product.price + "$</span>\n    <div class=\"cart-quantity cart-column\">\n        <input class=\"cart-quantity-input\" type=\"number\" value=\"1\">\n        <button class=\"btn btn-danger\" type=\"button\" onclick=\"removeItemsFromCart('" + product._id + "')\">REMOVE</button>\n    </div>\n</div>\n";
+        var html = "\n    <div id=\"" + product._id + "\" class=\"cart-row\">\n    <div class=\"cart-item cart-column\">\n        <img class=\"cart-item-image\" src=\"" + product.src + "\" height=\"100\">\n        <span class=\"cart-item-title\">" + product.name + "</span>\n    </div>\n    <span id=\"price\" class=\"cart-price cart-column\">" + product.price + "$</span>\n    <div class=\"cart-quantity cart-column\">\n        <input class=\"cart-quantity-input\" type=\"number\" value=\"1\">\n        <button class=\"btn btn-danger\" type=\"button\" onclick=\"removeItemsFromCart('" + product._id + "')\">REMOVE</button>\n    </div>\n</div>\n";
         var cartItemsRoot = document.querySelector("#cartItems");
         if (!cartItemsRoot)
             throw new Error("cartItemsRoot not found");
@@ -86,7 +86,6 @@ function removeItemsFromCart(productId) {
         })
             .then(function (res) { return res.json(); })
             .then(function (data) {
-            console.log("hiii");
             var product = document.getElementById(productId);
             if (!product) {
                 throw new Error("product delete form HTML");
@@ -118,7 +117,6 @@ function handelPurchase() {
         })
             .then(function (res) { return res.json(); })
             .then(function (data) {
-            console.log(data);
             alert("Thank you for purchasing the receipt that will be sent to your email, The products are on their way to you");
             window.location.href = "/main/index.html";
         })["catch"](function (error) {

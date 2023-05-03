@@ -1,20 +1,10 @@
 import UserModel from "./usersModel";
-
-// export const getUsers = async (req:any, res:any) => {
-//     try {
-//       const users = await UserModel.find({});
-  
-//       res.send({ users });
-//     } catch (error: any) {
-//       console.error(error);
-//       res.status(500).send({ error: error.message });
-//     }
-//   }
+var jwt = require('jwt-simple');
+const secret = process.env.JWT_SECRET;
 
 export const login = async (req:any, res:any) => {
   try {
     const { email, password } = req.body;
-    console.log(email, password);
 
     const userDB = await UserModel.findOne({ email, password });
 
@@ -22,9 +12,8 @@ export const login = async (req:any, res:any) => {
       res.status(401).send({ error: "email or password are inncorect" });
       return
     } 
-   
-    // res.cookie('user', userDB._id, { maxAge: 50000000, httpOnly: true });
-
+    const token = jwt.encode({ userId: userDB._id,role:"public"},secret);
+    res.cookie('currentUser', token, {httpOnly: true });
     res.status(201).send({ ok: true, userDB });
   } catch (error: any) {
     console.error(error);

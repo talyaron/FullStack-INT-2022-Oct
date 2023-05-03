@@ -15,7 +15,6 @@ function handleAddProducts(ev) {
         if (!description)
             throw new Error("No description");
         var newProducts = { name: name, src: src, price: price, description: description };
-        console.log(newProducts);
         fetch("/api/collections/add-products", {
             method: "POST",
             headers: {
