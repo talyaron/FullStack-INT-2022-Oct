@@ -15,7 +15,18 @@ window.addEventListener("click", (e) => __awaiter(void 0, void 0, void 0, functi
         displayProfile(currentUser);
     }
     if (target.classList.contains("notificationsIcon")) {
-        // nothing yet...
+        if (!notificationDiv.style.display) {
+            const userNotifications = yield fetch(`${usersAPI}/getNotifications/${currentUser.id}`)
+                .then((res) => res.json())
+                .then(({ notifications }) => notifications)
+                .catch((error) => console.error(error));
+            notificationDiv.innerHTML = "";
+            notificationDiv.append(renderNotifications(userNotifications));
+            notificationDiv.style.display = "flex";
+        }
+        else {
+            notificationDiv.style.display = "";
+        }
     }
     if (target.classList.contains("signOutbtn")) {
         removeCookie(usersAPI);

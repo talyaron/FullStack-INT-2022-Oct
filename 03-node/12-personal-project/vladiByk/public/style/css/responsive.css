@@ -2,7 +2,6 @@
   html {
     font-size: 12px;
   }
-
   .mainpageContainer__main__boards__boardArea {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -12,7 +11,6 @@
   html {
     font-size: 10px;
   }
-
   .mainpageContainer__main__boards__boardArea {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -36,4 +34,4 @@
   .mainpageContainer__main__boards__boardArea .board {
     width: 80%;
   }
-}
+}/*# sourceMappingURL=responsive.css.map */

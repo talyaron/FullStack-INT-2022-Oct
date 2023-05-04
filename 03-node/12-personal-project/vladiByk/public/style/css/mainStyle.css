@@ -33,7 +33,7 @@
   margin-top: 3em;
 }
 .mainpageContainer__main__boards__boardArea .board {
-  box-shadow: 0 0 10px white;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
   border-radius: 10px;
   aspect-ratio: 1/1;
   cursor: pointer;
@@ -65,7 +65,7 @@
   height: 20%;
 }
 .mainpageContainer__main__boards__boardArea .board .removeBoard:hover {
-  background-color: red;
+  background-color: rgb(255, 0, 0);
   border: none;
 }
 .mainpageContainer__main__boards__boardArea .board:hover {
@@ -73,4 +73,4 @@
 }
 .mainpageContainer__main::-webkit-scrollbar {
   display: none;
-}
+}/*# sourceMappingURL=mainStyle.css.map */

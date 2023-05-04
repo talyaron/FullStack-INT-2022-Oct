@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateUser = exports.deleteUser = exports.passwordRecovery = exports.login = exports.getUser = exports.createUser = exports.getAllUsers = void 0;
+exports.getNotifications = exports.updateUser = exports.deleteUser = exports.passwordRecovery = exports.login = exports.getUser = exports.createUser = exports.getAllUsers = void 0;
 const UserModel_1 = __importDefault(require("../model/UserModel"));
 const jwt_simple_1 = __importDefault(require("jwt-simple"));
 const secret = process.env.JWT_SECRET;
@@ -110,7 +110,7 @@ const passwordRecovery = (req, res, next) => __awaiter(void 0, void 0, void 0, f
 exports.passwordRecovery = passwordRecovery;
 const deleteUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { id: userId } = req.params;
+        const { userId } = req.params;
         const user = yield UserModel_1.default.deleteOne({ _id: userId });
         const users = yield UserModel_1.default.find({});
         res.status(200).send({ users });
@@ -123,7 +123,7 @@ const deleteUser = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
 exports.deleteUser = deleteUser;
 const updateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { id: userId } = req.params;
+        const { userId } = req.params;
         const data = req.body;
         const users = yield UserModel_1.default.find({});
         const user = yield UserModel_1.default.findById({ _id: userId });
@@ -135,3 +135,18 @@ const updateUser = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
     }
 });
 exports.updateUser = updateUser;
+const getNotifications = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { userId } = req.params;
+        const user = yield UserModel_1.default.findById(userId).populate("notifications");
+        if (!user)
+            throw new Error("User not found at get notifications route.");
+        const notifications = user.notifications.map((x) => x.message);
+        res.status(201).json({ notifications });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send({ error: error.message });
+    }
+});
+exports.getNotifications = getNotifications;

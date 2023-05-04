@@ -1,7 +1,9 @@
 import { NextFunction, Response, Request } from "express";
-import Board from "../model/BoardModel";
+import Board, { BoardInterface } from "../model/BoardModel";
 import User from "../model/UserModel";
 import List from "../model/ListModel";
+import Notification from "../model/notificationModel";
+
 import jwt from "jwt-simple";
 const secret = process.env.JWT_SECRET;
 
@@ -26,16 +28,24 @@ export const createBoard = async (
   try {
     const { boardName, imageSrc, userId } = req.body;
 
-    const user = await User.findById(userId);
-
     const board = await Board.create({
       boardName,
       imageSrc,
-      userArray: [user],
+      userArray: [userId],
     });
 
+    // const createNotification = await Notification.create({
+    //   message: `Board by the name "${boardName}" is created.`,
+    // });
+
+    // await User.findByIdAndUpdate(userId, {
+    //   $push: { notifications: createNotification._id },
+    // });
+
     if (!secret) throw new Error("Missing jwt secret");
+
     const boardId = board._id;
+
     const token = jwt.encode({ boardId, role: "public" }, secret);
 
     if (!token) throw new Error("Missing token...");
@@ -77,9 +87,9 @@ export const getAllUserBoards = async (
   try {
     const { id: userId } = req.params;
 
-    const user = await User.findById(userId);
+    // const user = await User.findById(userId);
 
-    const boards = await Board.find({ userArray: user });
+    const boards = await Board.find({ userArray: userId });
 
     res.status(200).send({ boards });
   } catch (error: any) {
@@ -95,7 +105,17 @@ export const deleteBoard = async (
 ) => {
   try {
     const { id: boardId } = req.params;
-    const board = await Board.deleteOne({ _id: boardId });
+    const { userId } = req.body;
+
+    const findBoard: BoardInterface | null = await Board.findById(boardId);
+
+    if (findBoard) {
+      findBoard.listArray.forEach(
+        async (list) => await List.findByIdAndDelete(list)
+      );
+    }
+
+    await Board.deleteOne({ _id: boardId });
 
     res.status(200).send({ ok: true });
   } catch (error: any) {
@@ -112,10 +132,8 @@ export const addListToBoard = async (
   try {
     const { boardId, listId } = req.body;
 
-    const list = await List.findById(listId);
-
     await Board.findByIdAndUpdate(boardId, {
-      $push: { listArray: list },
+      $push: { listArray: listId },
     });
 
     const board = await Board.findById(boardId);
@@ -134,11 +152,28 @@ export const updateBoard = async (
   try {
     const { id: boardId } = req.params;
 
-    const { boardName, imageSrc } = req.body;
+    const { boardName, imageSrc, listArray } = req.body;
 
-    await Board.findByIdAndUpdate(boardId, { boardName, imageSrc });
+    await Board.findByIdAndUpdate(boardId, { boardName, imageSrc, listArray });
 
     const board = await Board.findById(boardId);
+
+    res.status(201).json({ board });
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+};
+
+export const getLists = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { id: boardId } = req.params;
+
+    const board = await Board.findById(boardId).populate("listArray");
 
     res.status(201).json({ board });
   } catch (error: any) {

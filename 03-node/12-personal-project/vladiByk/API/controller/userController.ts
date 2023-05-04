@@ -1,6 +1,7 @@
 import { NextFunction, Response, Request } from "express";
-import User from "../model/UserModel";
+import User, { UserInterface } from "../model/UserModel";
 import jwt from "jwt-simple";
+import { error } from "console";
 const secret = process.env.JWT_SECRET;
 
 export const getAllUsers = async (
@@ -126,7 +127,7 @@ export const deleteUser = async (
   next: NextFunction
 ) => {
   try {
-    const { id: userId } = req.params;
+    const { userId } = req.params;
     const user = await User.deleteOne({ _id: userId });
     const users = await User.find({});
 
@@ -143,7 +144,7 @@ export const updateUser = async (
   next: NextFunction
 ) => {
   try {
-    const { id: userId } = req.params;
+    const { userId } = req.params;
     const data = req.body;
     const users = await User.find({});
     const user = await User.findById({ _id: userId });
@@ -155,3 +156,24 @@ export const updateUser = async (
   }
 };
 
+export const getNotifications = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { userId } = req.params;
+
+    const user: UserInterface | null = await User.findById(userId).populate(
+      "notifications"
+    );
+    if (!user) throw new Error("User not found at get notifications route.");
+
+    const notifications = user.notifications.map((x) => x.message);
+
+    res.status(201).json({ notifications });
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+};

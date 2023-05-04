@@ -3,7 +3,7 @@ const listRouter = express.Router();
 import {
   getAllLists,
   createList,
-  getBoardLists,
+  // getBoardLists,
   deleteList,
   updateList,
 } from "../controller/listController";
@@ -12,7 +12,7 @@ listRouter.route("/").get(getAllLists).post(createList);
 
 listRouter
   .route("/:id")
-  .get(getBoardLists)
+  // .get(getBoardLists)
   .patch(updateList)
   .delete(deleteList);
 
