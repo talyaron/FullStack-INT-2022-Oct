@@ -4,8 +4,15 @@
   box-sizing: border-box;
 }
 
+#main {
+  display: flex;
+}
+#main button {
+  height: 25px;
+}
 #main img {
   aspect-ratio: 9/16;
+  width: 200px;
   object-fit: cover;
   object-position: center;
 }

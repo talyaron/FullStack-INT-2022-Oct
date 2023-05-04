@@ -5,8 +5,13 @@
 }
 
 #main {
+    display: flex;
+    button {
+        height: 25px;
+    }
     img {
         aspect-ratio: 9/16;
+        width: 200px;
         object-fit: cover;
         object-position: center;
     }
