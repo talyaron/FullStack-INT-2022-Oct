@@ -1,27 +1,35 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
   background-image: url("https://img.freepik.com/free-photo/grunge-paint-background_1409-1337.jpg?w=2000");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
+  height: 100vh;
 }
 
 .mainContainer {
-  width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .topNav {
+  background-color: #333;
+  color: #fff;
   display: flex;
   justify-content: space-between;
-  margin-top: -250px;
   padding: 10px;
+  width: 100%;
 }
 
 .topNav ul {
@@ -40,6 +48,7 @@ body {
 }
 
 .topNav a {
+  color: #fff;
   text-decoration: none;
 }
 
@@ -57,43 +66,48 @@ body {
 }
 
 form {
-  width: 50%;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 20px;
-}
-
-h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  border-radius: 10px;
+  width: 50%;
+  max-width: 700px;
 }
 
 label {
-  display: block;
+  font-size: 18px;
   margin-bottom: 10px;
 }
 
-input[type=text],
-input[type=email],
-input[type=password] {
-  width: 100%;
-  padding: 10px;
+input,
+textarea {
+  font-size: 16px;
+  padding: 5px;
+  margin-bottom: 20px;
   border-radius: 5px;
   border: none;
-  margin-bottom: 20px;
+  width: 100%;
 }
 
-button[type=submit] {
+input[type=submit] {
   background-color: #333;
   color: #fff;
+  font-size: 16px;
+  padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
   cursor: pointer;
 }
 
-button[type=submit]:hover {
-  background-color: #fff;
-  color: #333;
+input[type=submit]:hover {
+  background-color: #555;
+}
+
+@media screen and (max-width: 768px) {
+  form {
+    width: 80%;
+  }
 }
