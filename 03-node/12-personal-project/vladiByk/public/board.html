@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board</title>
+    <link rel="icon" type="image/png" href="./img/kanban3.png" />
+    <script
+      src="https://kit.fontawesome.com/0d9e773bea.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <link rel="stylesheet" href="./style/css/boardStyle.css" />
+    <link rel="stylesheet" href="./style/css/notifications.css" />
+    <link rel="stylesheet" href="./style/css/button.css" />
+    <link rel="stylesheet" href="./style/css/topNavBar.css" />
+    <link rel="stylesheet" href="./style/css/profileWindow.css" />
+    <link rel="stylesheet" href="./style/css/createBoardWindow.css" />
+    <link rel="stylesheet" href="./style/css/responsive.css" />
+    <script src="./src/view.js" defer></script>
+    <script src="./src/helpers.js" defer></script>
+    <script src="./src/control.js" defer></script>
+    <script src="./src/model.js" defer></script>
+    <script src="./src/main.js" defer></script>
+    <script src="./src/icons.js" defer></script>
+  </head>
+
+  <body>
+    <div class="boardContainer">
+      <nav class="topNav">
+        <div class="leftSideDiv">
+          <img src="./img/Logo.png" alt="" />
+          <input
+            placeholder="New List..."
+            id="newListInput"
+            type="text"
+            maxlength="20"
+            required
+          />
+          <button id="addListBtn">Add List+</button>
+        </div>
+        <div class="topNav__boardName">Board Name</div>
+        <div class="topNav__iconDiv">
+          <i class="fa-solid fa-file-pen editBoardIcon" title="Edit Board"></i>
+          <i
+            class="fa-solid fa-hand-point-left backToMainIcon"
+            title="Back To Main"
+          ></i>
+          <i class="fa-solid fa-bell notificationsIcon" title="Notifications"
+            ><div class="notificationDiv">
+            </div></i
+          >
+          <i class="fa-solid fa-user profileIcon" title="Profile Info"></i>
+        </div>
+      </nav>
+      <main class="boardContainer__main">
+        <div class="boardContainer__main__trashDiv">
+          <i
+            title="Drag here to delete"
+            class="fa-solid fa-trash-can"
+            id="trash"
+          ></i>
+        </div>
+      </main>
+    </div>
+    <div class="profileWindow">
+      <!-- <i
+        class="fa-regular fa-pen-to-square editprofileBtn"
+        title="Edit Profile Info"
+      ></i> -->
+      <i
+        class="fa-solid fa-arrow-right-from-bracket exitProfilePage"
+        title="Back To Page"
+      ></i>
+      <button class="signOutbtn">Sign out</button>
+      <div class="profile"></div>
+    </div>
+    <div class="editBoardWindow">
+      <h1>Edit Board</h1>
+      <label for="boardName">Name your board:</label>
+      <input type="text" name="boardName" id="updatedBoardName" />
+      <button id="updatedBoardImageBtn">Edit Background Image</button>
+      <img id="imageEditWindow" src="./img/Logo.png" alt="KanbanLogo" />
+      <div>
+        <button class="editBoardBtn">Edit</button>
+        <button class="cancelEditBoardBtn">CANCEL</button>
+      </div>
+      <div class="backgroundSelectionDiv">
+        <img
+          class="backgroundImage"
+          src="https://images.unsplash.com/photo-1682258480218-9ec54c988478?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80"
+          alt=""
+        />
+        <img
+          class="backgroundImage"
+          src="https://images.unsplash.com/photo-1682334288172-88e43f2d7d59?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1589&q=80"
+          alt=""
+        />
+        <img
+          class="backgroundImage"
+          src="https://images.unsplash.com/photo-1682370992900-d2ba92e09d7b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
+          alt=""
+        />
+        <img
+          class="backgroundImage"
+          src="https://images.unsplash.com/photo-1682343161292-abeebabf3e86?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+          alt=""
+        />
+        <img
+          class="backgroundImage"
+          src="https://plus.unsplash.com/premium_photo-1682320426424-42e9417438c2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80"
+          alt=""
+        />
+        <img
+          class="backgroundImage"
+          src="https://images.unsplash.com/photo-1682364284611-b3201041f7d8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
+          alt=""
+        />
+        <img
+          class="backgroundImage"
+          src="https://plus.unsplash.com/premium_photo-1674086970842-a72b3ffd004d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80"
+          alt=""
+        />
+        <img
+          class="backgroundImage"
+          src="https://images.unsplash.com/photo-1682361370648-521dce49abb2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
+          alt=""
+        />
+        <img
+          class="backgroundImage"
+          src="https://images.unsplash.com/photo-1682079809978-559f47823e87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80"
+          alt=""
+        />
+      </div>
+    </div>
+
+    <!-- <div id="warningWindow">
+      <h2>Are you sure you want to delete?</h2>
+      <div>
+        <button class="xMark"><i class="fa-solid fa-xmark"></i></button>
+        <button class="vMark"><i class="fa-solid fa-check"></i></button>
+      </div>
+    </div> -->
+  </body>
+</html>

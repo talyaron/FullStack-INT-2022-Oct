@@ -68,7 +68,6 @@ function handleAddToCart(_id:string) {
         if (!productId) {
           throw new Error("productId not found");
         }
-        // return renderCartItems(product)
       })
 
       .catch((error) => {
@@ -78,7 +77,6 @@ function handleAddToCart(_id:string) {
     console.error(error);
   }
 }
-// appointment
 
 
 

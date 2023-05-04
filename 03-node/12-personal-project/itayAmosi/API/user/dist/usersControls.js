@@ -36,25 +36,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addUser = exports.login = void 0;
+exports.getUsers = exports.addUser = exports.login = void 0;
 var usersModel_1 = require("./usersModel");
-// export const getUsers = async (req:any, res:any) => {
-//     try {
-//       const users = await UserModel.find({});
-//       res.send({ users });
-//     } catch (error: any) {
-//       console.error(error);
-//       res.status(500).send({ error: error.message });
-//     }
-//   }
+var jwt = require('jwt-simple');
+var secret = process.env.JWT_SECRET;
 exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, email, password, userDB, error_1;
+    var _a, email, password, userDB, token, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
                 _a = req.body, email = _a.email, password = _a.password;
-                console.log(email, password);
                 return [4 /*yield*/, usersModel_1["default"].findOne({ email: email, password: password })];
             case 1:
                 userDB = _b.sent();
@@ -62,7 +54,8 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                     res.status(401).send({ error: "email or password are inncorect" });
                     return [2 /*return*/];
                 }
-                // res.cookie('user', userDB._id, { maxAge: 50000000, httpOnly: true });
+                token = jwt.encode({ userId: userDB._id, role: "public" }, secret);
+                res.cookie('currentUser', token, { httpOnly: true });
                 res.status(201).send({ ok: true, userDB: userDB });
                 return [3 /*break*/, 3];
             case 2:
@@ -95,24 +88,23 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
         }
     });
 }); };
-//   export const deleteUser = async (req:any, res:any) => {
-//     try {
-//       const { _id } = req.body;
-//       const deleteUser = await UserModel.deleteOne({ _id });
-//       const users = await UserModel.find({});
-//       res.send({ ok: true, users });
-//     } catch (error: any) {
-//       console.error(error);
-//       res.status(500).send({ error: error.message });
-//     }
-//   }
-//   export const updateUserType = async (req:any, res:any) => {
-//     try {
-//       const { userId, userType } = req.body;
-//       const userDB = await UserModel.findOneAndUpdate({_id:userId},{userType})
-//       res.send({ ok: true,userDB });
-//     } catch (error: any) {
-//       console.error(error);
-//       res.status(500).send({ error: error.message });
-//     }
-//   }
+exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var users, error_3;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, usersModel_1["default"].find({})];
+            case 1:
+                users = _a.sent();
+                res.send({ users: users });
+                return [3 /*break*/, 3];
+            case 2:
+                error_3 = _a.sent();
+                console.error(error_3);
+                res.status(500).send({ error: error_3.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };

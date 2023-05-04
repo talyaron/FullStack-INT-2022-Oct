@@ -86,7 +86,6 @@ exports.getProductsByIds = function (req, res) { return __awaiter(void 0, void 0
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 productIds = req.query.productIds;
-                console.log(productIds);
                 return [4 /*yield*/, collectionsModel_1["default"].find({ _id: { $in: productIds.split(',') } })];
             case 1:
                 productsDB = _a.sent();
@@ -101,14 +100,3 @@ exports.getProductsByIds = function (req, res) { return __awaiter(void 0, void 0
         }
     });
 }); };
-//   export const deleteItems = async (req:any, res:any) => {
-//     try {
-//       const { _id } = req.body;
-//       const deleteUser = await UserModel.deleteOne({ _id });
-//       const users = await UserModel.find({});
-//       res.send({ ok: true, users });
-//     } catch (error: any) {
-//       console.error(error);
-//       res.status(500).send({ error: error.message });
-//     }
-//   }

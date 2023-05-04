@@ -49,7 +49,6 @@ function handleAddToCart(_id) {
             if (!productId) {
                 throw new Error("productId not found");
             }
-            // return renderCartItems(product)
         })["catch"](function (error) {
             console.error(error);
         });
@@ -58,4 +57,3 @@ function handleAddToCart(_id) {
         console.error(error);
     }
 }
-// appointment
