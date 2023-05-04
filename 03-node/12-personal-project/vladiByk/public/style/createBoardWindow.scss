@@ -4,7 +4,6 @@
   background-color: #f4f4f4;
   height: 90vh;
   max-width: 90vw;
-  // aspect-ratio: 1/1;
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -57,7 +56,6 @@
 #warningWindow {
   position: absolute;
   background-color: #000000c1;
-  // box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.502);
   width: 40%;
   aspect-ratio: 3/1;
   display: flex;

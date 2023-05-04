@@ -35,30 +35,13 @@ export const addUser = async (req:any, res:any) => {
 };
 
 
-//   export const deleteUser = async (req:any, res:any) => {
-//     try {
-//       const { _id } = req.body;
-  
-//       const deleteUser = await UserModel.deleteOne({ _id });
-//       const users = await UserModel.find({});
-  
-//       res.send({ ok: true, users });
-//     } catch (error: any) {
-//       console.error(error);
-//       res.status(500).send({ error: error.message });
-//     }
-//   }
+export const getUsers = async (req:any, res:any) => {
+  try {
+    const users = await UserModel.find({});
 
-//   export const updateUserType = async (req:any, res:any) => {
-//     try {
-//       const { userId, userType } = req.body;
-  
-//       const userDB = await UserModel.findOneAndUpdate({_id:userId},{userType})
-    
-  
-//       res.send({ ok: true,userDB });
-//     } catch (error: any) {
-//       console.error(error);
-//       res.status(500).send({ error: error.message });
-//     }
-//   }
+    res.send({ users });
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+}

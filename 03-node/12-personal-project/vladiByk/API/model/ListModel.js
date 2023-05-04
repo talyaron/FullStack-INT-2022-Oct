@@ -25,14 +25,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ListSchema = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
-const BoardModel_1 = require("./BoardModel");
 exports.ListSchema = new mongoose_1.Schema({
     listName: {
         type: String,
-        required: true,
-    },
-    board: {
-        type: BoardModel_1.BoardSchema,
         required: true,
     },
     cardsArray: {

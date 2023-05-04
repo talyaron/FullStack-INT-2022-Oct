@@ -5,6 +5,7 @@ import {
   createUser,
   getUser,
   login,
+  getNotifications,
   deleteUser,
   updateUser,
   passwordRecovery,
@@ -24,6 +25,8 @@ userRouter.route("/removeCookie").delete(removeUserCookie);
 
 userRouter.route("/getUser").get(userCookieAuthentication, getUser);
 
-userRouter.route("/:id").patch(updateUser).delete(deleteUser);
+userRouter.route("/getNotifications/:userId").get(getNotifications);
+
+userRouter.route("/:userId").patch(updateUser).delete(deleteUser);
 
 export { userRouter };

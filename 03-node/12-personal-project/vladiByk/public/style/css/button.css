@@ -35,7 +35,8 @@ button {
   position: relative;
   text-decoration: none;
   transition: all 250ms;
-  user-select: none;
+  -moz-user-select: none;
+       user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
@@ -101,4 +102,4 @@ form input {
   flex-direction: column;
   font-size: 1.4rem;
   display: none;
-}
+}/*# sourceMappingURL=button.css.map */

@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.addUser = exports.login = void 0;
+exports.getUsers = exports.addUser = exports.login = void 0;
 var usersModel_1 = require("./usersModel");
 var jwt = require('jwt-simple');
 var secret = process.env.JWT_SECRET;
@@ -88,24 +88,23 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
         }
     });
 }); };
-//   export const deleteUser = async (req:any, res:any) => {
-//     try {
-//       const { _id } = req.body;
-//       const deleteUser = await UserModel.deleteOne({ _id });
-//       const users = await UserModel.find({});
-//       res.send({ ok: true, users });
-//     } catch (error: any) {
-//       console.error(error);
-//       res.status(500).send({ error: error.message });
-//     }
-//   }
-//   export const updateUserType = async (req:any, res:any) => {
-//     try {
-//       const { userId, userType } = req.body;
-//       const userDB = await UserModel.findOneAndUpdate({_id:userId},{userType})
-//       res.send({ ok: true,userDB });
-//     } catch (error: any) {
-//       console.error(error);
-//       res.status(500).send({ error: error.message });
-//     }
-//   }
+exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var users, error_3;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, usersModel_1["default"].find({})];
+            case 1:
+                users = _a.sent();
+                res.send({ users: users });
+                return [3 /*break*/, 3];
+            case 2:
+                error_3 = _a.sent();
+                console.error(error_3);
+                res.status(500).send({ error: error_3.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };

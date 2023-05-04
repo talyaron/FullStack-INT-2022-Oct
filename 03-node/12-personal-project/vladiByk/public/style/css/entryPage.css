@@ -68,6 +68,9 @@ span {
   z-index: 1;
   overflow-y: auto;
 }
+.mainContainer .signUpContainer input::-moz-placeholder {
+  font-size: 0.7rem;
+}
 .mainContainer .signUpContainer input::placeholder {
   font-size: 0.7rem;
 }
@@ -108,7 +111,7 @@ span {
   padding: 1em;
 }
 .mainContainer .overlayContainer .overlay .panel h1 {
-  background: linear-gradient(90deg, #edff00 0%, #ff9e00 69%);
+  background: linear-gradient(90deg, rgb(237, 255, 0) 0%, rgb(255, 158, 0) 69%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 1.7rem;
@@ -149,4 +152,4 @@ span {
   html {
     font-size: 12px;
   }
-}
+}/*# sourceMappingURL=entryPage.css.map */
