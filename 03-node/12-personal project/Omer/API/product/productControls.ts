@@ -31,9 +31,11 @@ export const addProductToWish =async (req:any, res:any) => {
         const {productId, userId} = req.body;
         const user = await logInModel.findById(userId);
         if(!user) throw new Error("No user found");
-        const index = user.products.findIndex(product => product == productId);
+        const index = user.products.findIndex(product => product._id == productId);
         if(index != -1) throw new Error("Item already added");
-        user.products.push(productId);
+        const pro = await productModel.findById(productId)
+        if(!pro) throw new Error("No product found");
+        user.products.push(pro);
         user.save()
         res.status(200).send(true)
     } catch (error) {
@@ -51,14 +53,7 @@ export const getUserWish = async (req:any, res:any) => {
         
         const user = await logInModel.findById(_id);
         if(!user) throw new Error("No user found");
-        const products:any[] = [];
-        user.products.forEach(async (productId) => {            
-            const product = await productModel.findById(productId);
-            // console.log(product);
-            
-            await products.push(product)
-        })        
-        console.log("products:" + products);
+        const products = user.products       
         
         res.status(200).send(products)
     } catch (error) {

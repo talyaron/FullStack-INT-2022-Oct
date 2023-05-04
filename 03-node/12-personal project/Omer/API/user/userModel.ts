@@ -1,17 +1,17 @@
 import mongoose, {Schema} from "mongoose";
-import productModel, { product } from "../product/productModel";
+import productModel, { product, productSchema } from "../product/productModel";
 
 export interface logIn {
     _id:string,
     name:string,
     password:string,
-    products:[string]
+    products:[product]
 }
 
 export const logInSchema = new Schema({
     name:String,
     password:String,
-    products:[String]
+    products:[productSchema]
 });
 
 const logInModel = mongoose.model("log-in", logInSchema);

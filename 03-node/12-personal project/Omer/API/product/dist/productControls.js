@@ -83,35 +83,40 @@ exports.getProducts = function (req, res) { return __awaiter(void 0, void 0, voi
     });
 }); };
 exports.addProductToWish = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, productId_1, userId, user, index, error_3;
+    var _a, productId_1, userId, user, index, pro, error_3;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 2, , 3]);
+                _b.trys.push([0, 3, , 4]);
                 _a = req.body, productId_1 = _a.productId, userId = _a.userId;
                 return [4 /*yield*/, userModel_1["default"].findById(userId)];
             case 1:
                 user = _b.sent();
                 if (!user)
                     throw new Error("No user found");
-                index = user.products.findIndex(function (product) { return product == productId_1; });
+                index = user.products.findIndex(function (product) { return product._id == productId_1; });
                 if (index != -1)
                     throw new Error("Item already added");
-                user.products.push(productId_1);
+                return [4 /*yield*/, productModel_1["default"].findById(productId_1)];
+            case 2:
+                pro = _b.sent();
+                if (!pro)
+                    throw new Error("No product found");
+                user.products.push(pro);
                 user.save();
                 res.status(200).send(true);
-                return [3 /*break*/, 3];
-            case 2:
+                return [3 /*break*/, 4];
+            case 3:
                 error_3 = _b.sent();
                 console.error(error_3);
                 res.status(500).send(error_3);
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
         }
     });
 }); };
 exports.getUserWish = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var id, _id, user, products_1, error_4;
+    var id, _id, user, products, error_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -125,25 +130,8 @@ exports.getUserWish = function (req, res) { return __awaiter(void 0, void 0, voi
                 user = _a.sent();
                 if (!user)
                     throw new Error("No user found");
-                products_1 = [];
-                user.products.forEach(function (productId) { return __awaiter(void 0, void 0, void 0, function () {
-                    var product;
-                    return __generator(this, function (_a) {
-                        switch (_a.label) {
-                            case 0: return [4 /*yield*/, productModel_1["default"].findById(productId)];
-                            case 1:
-                                product = _a.sent();
-                                // console.log(product);
-                                return [4 /*yield*/, products_1.push(product)];
-                            case 2:
-                                // console.log(product);
-                                _a.sent();
-                                return [2 /*return*/];
-                        }
-                    });
-                }); });
-                console.log("products:" + products_1);
-                res.status(200).send(products_1);
+                products = user.products;
+                res.status(200).send(products);
                 return [3 /*break*/, 3];
             case 2:
                 error_4 = _a.sent();
