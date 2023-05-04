@@ -1,12 +1,14 @@
 "use strict";
 exports.__esModule = true;
 var express_1 = require("express");
+var cookieParser = require('cookie-parser');
 var app = express_1["default"]();
+app.use(cookieParser());
 var mongoose_1 = require("mongoose");
 var dotenv = require("dotenv"); // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 dotenv.config();
-var uri = process.env.MONGODB_URI;
 app.use(express_1["default"].json());
+var uri = process.env.MONGODB_URI;
 if (uri) {
     mongoose_1["default"]
         .connect(uri)
@@ -21,12 +23,8 @@ var usersRoute_1 = require("./API/user/usersRoute");
 app.use('/api/users', usersRoute_1["default"]);
 var collectionsRoute_1 = require("./API/collection/collectionsRoute");
 app.use('/api/collections', collectionsRoute_1["default"]);
-var favouritesRoute_1 = require("./API/favourites/favouritesRoute");
-app.use('/api/favourites', favouritesRoute_1["default"]);
-// import gradesRouter from './API/grades/gradesRoute';
-// app.use('/api/grades', gradesRouter);
-// import examRouter from './API/exams/examsRoute';
-// app.use('/api/exams', examRouter);
+var CartRoute_1 = require("./API/cart/CartRoute");
+app.use('/api/cart', CartRoute_1["default"]);
 app.use(express_1["default"].static("./public"));
 app.listen(3000, function () {
     console.log("server listen on port 3000");

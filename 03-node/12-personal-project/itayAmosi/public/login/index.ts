@@ -1,6 +1,14 @@
-import {User} from "../../API/user/usersModel"
 
-export function handleLogin(ev: any, user:User) {
+interface User {
+  name: string;
+  email: string;
+  password: string;
+  phoneNumber: string;
+  _id: string;
+}
+
+
+export function handleLogin(ev: any) {
     try {
       ev.preventDefault();
       const email = ev.target.elements.email.value;
@@ -8,9 +16,7 @@ export function handleLogin(ev: any, user:User) {
       if (!email) throw new Error("No name");
       if (!password) throw new Error("No Password");
       const loginUser: any = { email, password };
-      // if(password === user.password) throw new Error("password incorrect");
-      window.location.href = "/main/index.html";
-      //send to server:
+
       fetch("/api/users/login", {
         method: "POST",
         headers: {
@@ -21,6 +27,14 @@ export function handleLogin(ev: any, user:User) {
       })
         .then((res) => res.json())
         .then((data) => {
+          if(data.error) {
+          alert(data.error)
+          return
+          }
+          const {password, ...currentUser} = data.userDB
+          localStorage.setItem("currentUser", JSON.stringify(currentUser)) //cookie
+          //save user without password in cookies
+          window.location.href = "/main/index.html";
         })
         .catch((error) => {
           console.error(error);
