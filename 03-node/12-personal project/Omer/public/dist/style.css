@@ -1,0 +1,11 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#main img {
+  aspect-ratio: 9/16;
+  object-fit: cover;
+  object-position: center;
+}
