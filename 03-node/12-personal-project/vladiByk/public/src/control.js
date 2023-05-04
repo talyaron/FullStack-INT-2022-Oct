@@ -93,7 +93,8 @@ function createBoard(boardName, imageSrc, userId) {
             if (userBoards.find((board) => board.boardName.toLowerCase() == boardName.toLowerCase())) {
                 return alert("There is already a board with that name");
             }
-            const newBoard = yield fetch(`${boardsAPI}`, {
+            //create board
+            yield fetch(`${boardsAPI}`, {
                 method: "POST",
                 headers: {
                     Accept: "application/json",
@@ -101,6 +102,9 @@ function createBoard(boardName, imageSrc, userId) {
                 },
                 body: JSON.stringify({ boardName, imageSrc, userId }),
             }).catch((error) => console.error(error));
+            //create notification
+            const message = `"${boardName}" is created.`;
+            yield createNotification(message, userId);
             location.href = "/board";
         }
         catch (error) {
@@ -244,4 +248,12 @@ function renderBoardInBoardPage() {
     catch (error) {
         console.error(error);
     }
+}
+function renderNotifications(list) {
+    const ulEl = document.createElement("ul");
+    ulEl.innerHTML = list
+        .reverse()
+        .map((el) => `<li>${el}</li>`)
+        .join("");
+    return ulEl;
 }

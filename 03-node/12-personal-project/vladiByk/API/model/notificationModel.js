@@ -23,17 +23,14 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ListSchema = void 0;
+exports.NotificationSchema = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
-exports.ListSchema = new mongoose_1.Schema({
-    listName: {
+exports.NotificationSchema = new mongoose_1.Schema({
+    message: {
         type: String,
         required: true,
-    },
-    cardsArray: {
-        type: [String],
     },
 }, {
     versionKey: false,
 });
-exports.default = mongoose_1.default.model("List", exports.ListSchema);
+exports.default = mongoose_1.default.model("Notification", exports.NotificationSchema);

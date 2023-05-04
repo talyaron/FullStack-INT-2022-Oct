@@ -61,7 +61,7 @@
 
 #warningWindow {
   position: absolute;
-  background-color: #000000c1;
+  background-color: rgba(0, 0, 0, 0.7568627451);
   width: 40%;
   aspect-ratio: 3/1;
   display: flex;
@@ -80,4 +80,4 @@
 #warningWindow .vMark {
   background-color: darkgreen;
   width: 10vw;
-}
+}/*# sourceMappingURL=createBoardWindow.css.map */

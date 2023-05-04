@@ -31,14 +31,21 @@
   padding: 3px 0.4em;
   font-size: 80%;
 }
+.topNav__search:focus::-moz-placeholder {
+  color: transparent;
+}
 .topNav__search:focus::placeholder {
   color: transparent;
+}
+.topNav__boardName {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.197);
+  padding: 0 1rem;
 }
 .topNav__iconDiv {
   display: flex;
   align-items: center;
   margin-right: 0.5em;
-  gap: 3rem;
+  gap: 2rem;
   height: 100%;
 }
 .topNav__iconDiv i {
@@ -50,4 +57,4 @@
 }
 .topNav__iconDiv i:hover {
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.541);
-}
+}/*# sourceMappingURL=topNavBar.css.map */

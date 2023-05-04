@@ -1,5 +1,5 @@
 .profileWindow {
-  background-color: #0d0e0dd2;
+  background-color: rgba(13, 14, 13, 0.8235294118);
   color: wheat;
   height: 90%;
   width: 50%;
@@ -43,4 +43,4 @@
 }
 .profileWindow ul li {
   display: block;
-}
+}/*# sourceMappingURL=profileWindow.css.map */
