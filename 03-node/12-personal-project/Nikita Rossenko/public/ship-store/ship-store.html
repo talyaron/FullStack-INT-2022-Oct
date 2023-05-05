@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./dist/shipStore.js" defer></script>
+    <script src="../helpers/dist/helper.js" defer></script>
+    <link rel="stylesheet" href="../dist/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./dist/shipStore.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Alternative Home - App Store</title>
+</head>
+<body onload=start()>
+    <div class="navBar">
+        <div class="navBar_container">
+            <div class="navBar_logo">
+                <img id="logo" src="./images/logo.png" />
+            </div>
+            <div class="navBar_links">
+                <div class="links">
+                    <a class="link" href="/">Home</a>
+                    <a
+                        class="link"
+                        href="ship-store.html"
+                        >Starship Store</a
+                    >
+                    <a class="link" href="/">Environment</a>
+                    <a class="link" href="/">Contact</a>
+                </div>
+                <div class="logoutLoginDiv">
+                    <div class="accountIcon">
+                        <span class="icon material-symbols-outlined">account_circle</span>
+                        <div class="profileDetails">
+                            <p class="username" id="username"></p>
+                            <a class="link" id="loginLogoutBtn"></a>
+                        </div>
+                    </div>
+                    <div class="cartIcon">
+                        <p class="itemsQuantity"></p>
+                        <span class="icon cartIcon material-symbols-outlined">shopping_cart</span>
+                        <div class="cartDetails">
+                            <div class="cartItems"></div>
+                            <button id="checkout">Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main_container">
+        <h1>Starship Store</h1>
+        <div class="video_container">
+            <div class="enterShop">Enter</div>
+            <div class="darken"></div>
+            <video onclick="openShop()" id="spaceshipShopEntrance" onmouseover="this.play()" onmouseout="this.pause()" loop src="../index/images/animated/Untitled design (54).mp4"></video>
+        </div>
+    </div>
+    <div class="backgroundSides">
+        <div class="backgroundAnimation">
+            <img src="../index/images/background/left.png">
+            <img src="../index/images/background/right.png">
+        </div>
+        <div class="backgroundAnimation">
+            <img src="../index/images/background/left2.png">
+            <img src="../index/images/background/right2.png">
+        </div>
+    </div>
+
+    <div class="container sliderContainer">
+        <h2>Space Ships</h2>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+            <li data-target="#myCarousel" data-slide-to="5"></li>
+            <li data-target="#myCarousel" data-slide-to="6"></li>
+            <li data-target="#myCarousel" data-slide-to="7"></li>
+            <li data-target="#myCarousel" data-slide-to="8"></li>
+            <li data-target="#myCarousel" data-slide-to="9"></li>
+          </ol>
+      
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+      
+          </div>
+      
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+      <button onclick=openAddDialog() id="openAddDialog">Add Starship</button>
+      <div class="footer_container">
+        <div class="copyright">
+            <p>Copyright © Nikita Rossenko 2023, All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>
