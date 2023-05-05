@@ -4,10 +4,12 @@
     box-sizing: border-box;
 }
 
-#main {
+.card {
     display: flex;
+    flex-direction: column;
     button {
         height: 25px;
+        width: 100px;
     }
     img {
         aspect-ratio: 9/16;
