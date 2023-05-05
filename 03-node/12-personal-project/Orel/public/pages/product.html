@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+    <!-- Link Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link css -->
+    <link rel="stylesheet" href="./dist/product.css">
+    <!-- link Js -->
+    <script src="./dist/product.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+    <!-- Title -->
+    <title>ShoesHot:Home</title>
+</head>
+
+<body onload="handleGetUser() , getProducts()">
+    <section class="container">
+        <div class="pannel">
+            <h4 style="padding-left: 50px;">Admin pannel</h4>
+            <div class="pannel-container">
+                <button class="pannel-container__add" onclick="handleClickAddNewProduct()">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+
+            <div class="collapse-container">
+                <button id="closeCollapseContainerBtn" onclick="handleClickCloseCollapseContainer()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <h2>Add New Product</h2>
+                <form action="/products" onsubmit="handleSubmitNewProduct(event)">
+                    <label for="name">ENTER NAME :</label>
+                    <input id="name" type="text" placeholder="ENTER NAME" name="name">
+                    <label for="detail">ENTER DETAIL : </label>
+                    <input type="text" id="detail" placeholder="ENTER DETAILS" name="detail">
+                    <label for="price">ENTER PRICE : </label>
+                    <input id="price" type="number" placeholder="ENTER PRICE" name="price">
+                    <label for="src">ENTER SRC : </label>
+                    <input id="src" type="text" placeholder="ENTER SRC address for the  IMG" name="src">
+                    <button type="submit">ADD PRODUCT</button>
+                </form>
+
+            </div>
+        </div>
+        <header class="container__header">
+            <nav class="container__nav">
+                <ul class="container__navbar">
+                    <li class="container__list">
+                        <a href="#" class="container__link">
+                            about us
+                        </a>
+                    </li>
+   <div class="rightNavbar">
+    <li class="container__list" id="middleChangeLi">
+
+    </li>
+    <li class="container__list">
+        <span id="rootUserLogin">
+            <button id="userCircleBtn" onclick="handleClickBtnCircle()"></button>
+            <div class="collapseMenuListUser">
+                <ul>
+                    <li onclick="handleChangeNameUser()">Change Name</li>
+                    <li onclick="handleAddPicUser()">Add Picture</li>
+                    <li onclick="logout()">logout</li>
+                </ul>
+            </div>
+        </span>
+
+    </li>
+   </div>
+                </ul>
+            </nav>
+        </header>
+        <main class="container__main">
+            <a href="/" class="container__main__prev-btn">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <div class="container__main__products" id="rootProducts"></div>
+        </main>
+
+    </section>
+</body>
+
+</html>
