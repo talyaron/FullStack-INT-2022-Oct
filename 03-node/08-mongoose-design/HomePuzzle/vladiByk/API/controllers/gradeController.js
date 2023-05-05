@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateGrade = exports.deleteGrade = exports.createGrade = exports.getGrade = exports.getAllGrades = void 0;
+exports.emptyCollection = exports.updateGrade = exports.deleteGrade = exports.createGrade = exports.deleteAllGradesInCourse = exports.getStudentGradesInCourse = exports.getAllGrades = void 0;
 const GradeModel_1 = __importDefault(require("../models/GradeModel"));
 const StudentModel_1 = __importDefault(require("../models/StudentModel"));
 const CourseModel_1 = __importDefault(require("../models/CourseModel"));
@@ -26,32 +26,51 @@ const getAllGrades = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
     }
 });
 exports.getAllGrades = getAllGrades;
-const getGrade = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+const getStudentGradesInCourse = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { id: gradeId } = req.params;
-        const grade = yield GradeModel_1.default.findById({ _id: gradeId });
-        res.status(200).send({ grade });
+        const { courseId } = req.query;
+        const { id: studentId } = req.params;
+        const course = yield CourseModel_1.default.findById(courseId);
+        const student = yield StudentModel_1.default.findById(studentId);
+        const grades = yield GradeModel_1.default.find({ course, student });
+        res.status(200).send({ grades });
     }
     catch (error) {
         console.error(error);
         res.status(500).send({ error: error.message });
     }
 });
-exports.getGrade = getGrade;
+exports.getStudentGradesInCourse = getStudentGradesInCourse;
+const deleteAllGradesInCourse = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { courseId } = req.params;
+        const course = yield CourseModel_1.default.findById(courseId);
+        const grades = yield GradeModel_1.default.deleteMany({ course });
+        res.status(200).send({ grades });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send({ error: error.message });
+    }
+});
+exports.deleteAllGradesInCourse = deleteAllGradesInCourse;
 const createGrade = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { grade, courseId, studentId } = req.body;
+        const { score, courseId, studentId } = req.body;
         const student = yield StudentModel_1.default.findById(studentId);
         const course = yield CourseModel_1.default.findById(courseId);
         if (student || course) {
-            yield GradeModel_1.default.create({
-                grade,
+            const grade = yield GradeModel_1.default.create({
+                score,
                 course: course,
                 student: student,
             });
+            res.status(200).json({ grade });
         }
-        const grades = yield GradeModel_1.default.find({});
-        res.status(200).json({ grades });
+        else {
+            const grades = yield GradeModel_1.default.find({});
+            res.status(200).json({ grades });
+        }
     }
     catch (error) {
         console.error(error);
@@ -61,10 +80,10 @@ const createGrade = (req, res, next) => __awaiter(void 0, void 0, void 0, functi
 exports.createGrade = createGrade;
 const deleteGrade = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { id: gradeId } = req.body;
-        const grade = yield GradeModel_1.default.deleteOne({ _id: gradeId });
+        const { id: gradeId } = req.params;
+        const grade = yield GradeModel_1.default.findByIdAndDelete(gradeId);
         const grades = yield GradeModel_1.default.find({});
-        res.status(200).send({ grades });
+        res.status(200).send({ grade });
     }
     catch (error) {
         console.error(error);
@@ -75,10 +94,10 @@ exports.deleteGrade = deleteGrade;
 const updateGrade = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id: gradeId } = req.params;
-        const data = req.body;
-        const grades = yield GradeModel_1.default.find({});
-        const grade = yield GradeModel_1.default.findById({ _id: gradeId });
-        res.status(200).send("Grade updated...");
+        const { newScore } = req.body;
+        yield GradeModel_1.default.findByIdAndUpdate(gradeId, { score: newScore });
+        const grade = yield GradeModel_1.default.findById(gradeId);
+        res.status(200).json({ grade });
     }
     catch (error) {
         console.error(error);
@@ -86,3 +105,14 @@ const updateGrade = (req, res, next) => __awaiter(void 0, void 0, void 0, functi
     }
 });
 exports.updateGrade = updateGrade;
+const emptyCollection = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const grades = yield GradeModel_1.default.deleteMany({});
+        res.status(201).json({ grades });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send({ error: error.message });
+    }
+});
+exports.emptyCollection = emptyCollection;

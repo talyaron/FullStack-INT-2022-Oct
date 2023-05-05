@@ -31,7 +31,10 @@ exports.CourseSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
-    teachers: [TeacherModel_1.TeacherSchema],
+    teachers: {
+        type: [TeacherModel_1.TeacherSchema],
+        required: true,
+    },
 }, {
     versionKey: false,
 });

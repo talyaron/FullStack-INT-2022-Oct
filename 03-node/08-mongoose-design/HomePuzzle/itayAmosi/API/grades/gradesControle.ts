@@ -13,31 +13,13 @@ export const addMockGrades = async (req: any, res: any) => {
   res.status(200).send({ ok: true, newGrades });
 };
 
-export const getGradesByStudentId = async (req: any, res: any) => {
-  try {
-    const studentId = req.query.studentId;
-    const grades = await GradeModel.find({ studentId });
-    res.send({ grades });
-  } catch (error: any) {
-    console.error(error);
-    res.status(500).send({ error: error.message });
-  }
-};
+
 
 export const createGrade = async (req: any, res: any) => {
   const { grade } = req.body;
   const GradeDB = await GradeModel.create({grade});
   
   res.status(200).send({ Grade: GradeDB });
-};
-
-
-export const getStudentGradesInCourse = async (req: any, res: any) => {
-  const { student, course } = req.query;
-  // console.log(student, course);
-  const gradesDB = await GradeModel.find({});
-
-  res.status(200).send({ Grades: gradesDB });
 };
 
 

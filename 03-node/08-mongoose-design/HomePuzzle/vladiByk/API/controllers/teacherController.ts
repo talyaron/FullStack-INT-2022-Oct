@@ -15,7 +15,7 @@ export const getAllTeachers = async (
   }
 };
 
-export const getTeacherCourses = async (
+export const getTeacher = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -23,8 +23,7 @@ export const getTeacherCourses = async (
   try {
     const { id: teacherId } = req.params;
     const teacher = await Teacher.findById(teacherId);
-    const courses = await Course.find({ teachers: teacher });
-    res.status(200).json({ courses });
+    res.status(200).json({ teacher });
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });

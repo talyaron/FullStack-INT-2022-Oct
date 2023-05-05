@@ -1,9 +1,14 @@
 import express from "express";
 const router = express.Router();
 
-import { createExam } from "./examsControle";
+import {
+    createExam,
+     getExams, 
+    } from "./examsControle";
 
 router
-.post("/create-exam", createExam);
+
+.post("/create-exam", createExam)
+.get("/get-exams", getExams)
 
 export default router;

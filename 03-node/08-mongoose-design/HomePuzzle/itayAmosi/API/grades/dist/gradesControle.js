@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getStudentGradesInCourse = exports.createGrade = exports.getGradesByStudentId = exports.addMockGrades = void 0;
+exports.createGrade = exports.addMockGrades = void 0;
 var gradesModel_1 = require("./gradesModel");
 var uuid_1 = require("uuid");
 exports.addMockGrades = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
@@ -54,27 +54,6 @@ exports.addMockGrades = function (req, res) { return __awaiter(void 0, void 0, v
         }
     });
 }); };
-exports.getGradesByStudentId = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var studentId, grades, error_1;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 2, , 3]);
-                studentId = req.query.studentId;
-                return [4 /*yield*/, gradesModel_1["default"].find({ studentId: studentId })];
-            case 1:
-                grades = _a.sent();
-                res.send({ grades: grades });
-                return [3 /*break*/, 3];
-            case 2:
-                error_1 = _a.sent();
-                console.error(error_1);
-                res.status(500).send({ error: error_1.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
-        }
-    });
-}); };
 exports.createGrade = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var grade, GradeDB;
     return __generator(this, function (_a) {
@@ -85,20 +64,6 @@ exports.createGrade = function (req, res) { return __awaiter(void 0, void 0, voi
             case 1:
                 GradeDB = _a.sent();
                 res.status(200).send({ Grade: GradeDB });
-                return [2 /*return*/];
-        }
-    });
-}); };
-exports.getStudentGradesInCourse = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, student, course, gradesDB;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
-            case 0:
-                _a = req.query, student = _a.student, course = _a.course;
-                return [4 /*yield*/, gradesModel_1["default"].find({})];
-            case 1:
-                gradesDB = _b.sent();
-                res.status(200).send({ Grades: gradesDB });
                 return [2 /*return*/];
         }
     });
