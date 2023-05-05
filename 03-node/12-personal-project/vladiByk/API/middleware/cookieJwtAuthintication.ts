@@ -37,7 +37,7 @@ export const boardCookieAuthentication = async (
     if (!token) throw new Error("Missing token from cookise");
 
     const decodedToken = jwt.decode(token.board, secret);
-    
+
     req.body = decodedToken.boardId;
 
     next();

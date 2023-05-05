@@ -33,15 +33,11 @@
   &__search:focus::placeholder {
     color: transparent;
   }
-  &__boardName {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.197);
-    padding: 0 1rem;
-  }
   &__iconDiv {
     display: flex;
     align-items: center;
     margin-right: 0.5em;
-    gap: 2rem;
+    gap: 3rem;
     height: 100%;
     i {
       cursor: pointer;

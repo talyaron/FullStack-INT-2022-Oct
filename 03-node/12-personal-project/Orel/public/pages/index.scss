@@ -1,0 +1,258 @@
+// RESET
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+// MAIN
+
+body , html{
+
+    height: 100%;
+}
+
+// ID
+#cartBtn{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: unset;
+    position: relative;
+    &:hover{
+        scale: 1.1;
+    }
+    i{
+    
+        font-size: 2rem;
+
+    }
+    a{
+        color: black;
+    }
+    span{
+        display: grid;
+        place-items:center;
+        border: 1px solid rgb(255, 175, 3);
+        border-radius: 50%;
+        background-color: aliceblue;
+        width: 20px;
+        height: 20px;
+        color: rgb(189, 0, 0);
+        position: absolute;
+        right: -10px;
+        top: -10px;
+        font-weight: 700;
+
+    }
+}
+
+#rootUserLogin{
+    display: none;
+    position: relative;
+    
+    &.activeLogin{
+        display: block;
+    }
+}
+#userCircleBtn{
+
+    z-index: 999;
+    box-shadow: inset 0 0 5px , 0 0 15px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid black;
+    width: 50px;
+    outline: none;
+    height: 50px;
+    background-color: #80be02;
+    border-radius: 50%; 
+    &:hover{
+        scale: 1.1;
+        box-shadow: inset 0 0 3px;
+    }
+
+}
+
+//Class Collapse
+.collapseMenuListUser{
+    display: none;
+    position: absolute;
+    z-index: 999;
+    width: 150px;
+    border: 1px solid black;
+    padding: 15px;
+    border-radius: 25px 0 25px 25px;
+    rotate: -3deg;
+    right: 29px;
+    top: 52px;
+    background-color: #7fbe02d5;
+    &.active{
+        display: block;
+    }
+    li {
+        width: 100%;
+        cursor: pointer;
+        background-color: none;
+        list-style: none;
+        border-bottom: 2px dotted black;
+        &:hover{
+            background-color: #7fbe02;
+        }
+        &:active{
+            background-color: #68cc15;
+            scale: 0.95;
+        }
+    }
+}
+
+// Sections
+.container{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg ,rgba(124, 255, 1, 0.445) ,rgba(145, 226, 14, 0.39)) , url("../../images/backgorundMain.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &__header{
+
+        width: inherit;
+    }
+
+    &__navbar{
+ 
+        padding: 10px 20px;
+        display: flex;
+        width: inherit;
+        justify-content: space-between;
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        margin-top: 10px;
+        list-style: none;
+    }
+
+    &__link {
+        letter-spacing: 1.2px;
+        font-weight: 500;
+        color: rgb(10, 24, 16);
+        padding: 10px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 1.2rem;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    &__link.login-btn , &__link.register-btn{
+        margin-left: 7px;
+        width: 120px;
+background: linear-gradient(45deg ,rgba(124, 255, 1, 0.445) ,rgba(145, 226, 14, 0.39));
+border-radius: 15px;
+box-shadow: inset 0 0 5px;
+transition: all 0.4s;
+
+&:hover{
+    background: linear-gradient(90deg ,rgba(124, 255, 1, 0.445) ,rgba(145, 226, 14, 0.39));
+    box-shadow: inset 0 0 8px ;
+    text-decoration: none;
+}
+    
+    }
+
+&__main{
+    overflow: hidden;
+    width: 100%;
+    height: calc(100% - 90px);
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+
+
+    &__title{
+        width: 80%;
+        font-family: 'Instrument Serif', serif;
+        font-size: 4.5rem;
+    }
+    
+    &__subtitle{
+        width: 70%;
+        font-family: 'Instrument Serif', serif;
+        font-size: 2rem;
+    }
+
+    &__btn{
+        cursor: pointer;
+        border: none;
+        border-radius: 15px;
+        margin-top: 15px;
+        background: linear-gradient(45deg ,rgba(93, 184, 9, 0.74) ,rgba(187, 255, 2, 0.925));
+        padding: 16px;
+        font-weight: bold;
+        font-size: 1.2rem;
+transition: all 0.4s ease-in;
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
+        &:hover{
+            background: linear-gradient(45deg  ,rgba(187, 255, 2, 0.925) ,rgba(93, 184, 9, 0.74));
+        }
+    }
+    &__detail-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__pic-container{
+        position: relative;
+        img{
+            width: 50rem;
+        }
+
+
+
+        &__sliders{
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+
+            button{
+                cursor: pointer;
+                padding: 10px;
+                background: unset;
+                border: unset;
+
+                i{
+                    font-size: 2.5rem;
+                    color: rgb(56, 55, 55);
+                    font-weight: 700;
+                }
+                &:hover{
+                    scale: 1.2;
+                    i{
+                        color:black
+                    }
+                }
+            }
+        }
+    }
+
+}
+}

@@ -2,7 +2,6 @@
 const usersAPI = "/api/v1/users";
 const boardsAPI = "/api/v1/boards";
 const listsAPI = "/api/v1/lists";
-const notificationsAPI = "/api/v1/notifications";
 // Entry Page elements
 const signInForm = document.querySelector("#signInForm");
 const signUpForm = document.querySelector("#signUpForm");
@@ -23,7 +22,6 @@ const newBoardWindow = document.querySelector(".newBoardWindow");
 const boardArea = document.querySelector(".mainpageContainer__main__boards__boardArea");
 const backgroundImageSelectionDiv = document.querySelector(".backgroundSelectionDiv");
 const imageDisplayedInCreate = document.querySelector("#imageCreateWindow");
-const notificationDiv = document.querySelector(".notificationDiv");
 // Buttons
 const createBoardWindowBtn = document.querySelector(".createBoardWindowBtn");
 const createBoardBtn = document.querySelector(".createBoardBtn");

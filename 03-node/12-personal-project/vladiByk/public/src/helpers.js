@@ -75,15 +75,3 @@ function removeCookie(api) {
         }
     });
 }
-function createNotification(message, userId) {
-    return __awaiter(this, void 0, void 0, function* () {
-        yield fetch(`${notificationsAPI}`, {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ message, userId }),
-        });
-    });
-}
