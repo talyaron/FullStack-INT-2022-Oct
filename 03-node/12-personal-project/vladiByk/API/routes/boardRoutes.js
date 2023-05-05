@@ -14,7 +14,6 @@ const setCookieJWT_1 = require("../middleware/setCookieJWT");
 boardRouter.route("/").get(boardController_1.getAllBoards).post(boardController_1.createBoard, setCookieJWT_1.setBoardCookie);
 boardRouter.route("/removeCookie").delete(removeCookie_1.removeBoardCookie);
 boardRouter.route("/getBoard").get(cookieJwtAuthintication_1.boardCookieAuthentication, boardController_1.getBoard);
-boardRouter.route("/getlists/:id").get(boardController_1.getLists);
 boardRouter.route("/addList").patch(boardController_1.addListToBoard);
 boardRouter
     .route("/:id")

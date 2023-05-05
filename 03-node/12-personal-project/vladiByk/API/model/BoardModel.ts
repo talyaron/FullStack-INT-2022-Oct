@@ -1,10 +1,9 @@
 import mongoose, { Schema } from "mongoose";
-import { ListInterface } from "../model/ListModel";
-export interface BoardInterface {
-  boardName: string;
-  imageSrc: string;
-  userArray: [string];
-  listArray: [string];
+import { UserSchema } from "./UserModel";
+import { ListSchema } from "./ListModel";
+
+interface Board {
+  name: string;
   _id: string;
 }
 
@@ -19,14 +18,13 @@ export const BoardSchema: Schema = new Schema(
       required: true,
     },
     userArray: {
-      type: [{ type: Schema.Types.ObjectId, ref: "User" }],
+      type: [UserSchema],
       required: true,
     },
-    listArray: [{ type: Schema.Types.ObjectId, ref: "List" }],
   },
   {
     versionKey: false,
   }
 );
 
-export default mongoose.model<BoardInterface>("Board", BoardSchema);
+export default mongoose.model<Board>("Board", BoardSchema);

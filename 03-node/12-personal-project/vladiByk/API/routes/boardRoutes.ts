@@ -5,7 +5,6 @@ import {
   getAllBoards,
   createBoard,
   getBoard,
-  getLists,
   updateBoard,
   getAllUserBoards,
   deleteBoard,
@@ -23,8 +22,6 @@ boardRouter.route("/").get(getAllBoards).post(createBoard, setBoardCookie);
 boardRouter.route("/removeCookie").delete(removeBoardCookie);
 
 boardRouter.route("/getBoard").get(boardCookieAuthentication, getBoard);
-
-boardRouter.route("/getlists/:id").get(getLists);
 
 boardRouter.route("/addList").patch(addListToBoard);
 

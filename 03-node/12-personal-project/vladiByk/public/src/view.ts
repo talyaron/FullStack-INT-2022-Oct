@@ -1,7 +1,6 @@
 const usersAPI = "/api/v1/users";
 const boardsAPI = "/api/v1/boards";
 const listsAPI = "/api/v1/lists";
-const notificationsAPI = "/api/v1/notifications";
 
 // Entry Page elements
 const signInForm = document.querySelector("#signInForm") as HTMLFormElement;
@@ -49,9 +48,6 @@ const backgroundImageSelectionDiv = document.querySelector(
 const imageDisplayedInCreate = document.querySelector(
   "#imageCreateWindow"
 ) as HTMLImageElement;
-const notificationDiv = document.querySelector(
-  ".notificationDiv"
-) as HTMLDivElement;
 
 // Buttons
 const createBoardWindowBtn = document.querySelector(

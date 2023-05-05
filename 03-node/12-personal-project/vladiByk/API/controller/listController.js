@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateList = exports.deleteList = exports.createList = exports.getAllLists = void 0;
+exports.updateList = exports.deleteList = exports.getBoardLists = exports.createList = exports.getAllLists = void 0;
 const ListModel_1 = __importDefault(require("../model/ListModel"));
 const BoardModel_1 = __importDefault(require("../model/BoardModel"));
 const getAllLists = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
@@ -28,13 +28,8 @@ exports.getAllLists = getAllLists;
 const createList = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { listName, boardId } = req.body;
-        const list = yield ListModel_1.default.create({ listName });
         const board = yield BoardModel_1.default.findById(boardId);
-        if (!board)
-            return;
-        yield BoardModel_1.default.findByIdAndUpdate(boardId, {
-            $push: { listArray: list._id },
-        });
+        const list = yield ListModel_1.default.create({ listName, board });
         res.status(200).json({ list });
     }
     catch (error) {
@@ -43,11 +38,25 @@ const createList = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
     }
 });
 exports.createList = createList;
+const getBoardLists = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { id: boardId } = req.params;
+        const board = yield BoardModel_1.default.findById(boardId);
+        const lists = yield ListModel_1.default.find({ board });
+        res.status(200).json({ lists });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send({ error: error.message });
+    }
+});
+exports.getBoardLists = getBoardLists;
 const deleteList = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id: listId } = req.params;
-        yield ListModel_1.default.deleteOne({ _id: listId });
-        res.status(200).json({ msg: "Delete successfully." });
+        const list = yield ListModel_1.default.deleteOne({ _id: listId });
+        const lists = yield ListModel_1.default.find({});
+        res.status(200).send({ lists });
     }
     catch (error) {
         console.error(error);
@@ -58,10 +67,12 @@ exports.deleteList = deleteList;
 const updateList = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id: listId } = req.params;
-        const { listName, cardsArray } = req.body;
+        const { listName, cardsArray, boardId } = req.body;
+        const board = yield BoardModel_1.default.findById(boardId);
         const list = yield ListModel_1.default.findByIdAndUpdate(listId, {
             listName,
             cardsArray,
+            board,
         });
         res.status(201).json({ list });
     }
