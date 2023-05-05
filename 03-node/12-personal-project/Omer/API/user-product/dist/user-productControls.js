@@ -42,28 +42,36 @@ var user_productModel_1 = require("./user-productModel");
 var secret = process.env.SECRET_TOKEN;
 var jwt_simple_1 = require("jwt-simple");
 exports.addUserProduct = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, userName, userId, productId, product, error_1;
+    var _a, userName, userId, productId, product, userPro, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
-                _b.trys.push([0, 3, , 4]);
+                _b.trys.push([0, 6, , 7]);
                 _a = req.body, userName = _a.userName, userId = _a.userId, productId = _a.productId;
                 return [4 /*yield*/, productModel_1["default"].findById(productId)];
             case 1:
                 product = _b.sent();
                 if (!product)
                     throw new Error("No product found");
-                return [4 /*yield*/, user_productModel_1["default"].create({ userName: userName, userId: userId, product: product, productId: productId })];
+                return [4 /*yield*/, user_productModel_1["default"].findOne({ userId: userId, productId: productId })];
             case 2:
+                userPro = _b.sent();
+                if (!!userPro) return [3 /*break*/, 4];
+                return [4 /*yield*/, user_productModel_1["default"].create({ userName: userName, userId: userId, product: product, productId: productId })];
+            case 3:
                 _b.sent();
                 res.status(201).send(true);
-                return [3 /*break*/, 4];
-            case 3:
+                return [3 /*break*/, 5];
+            case 4:
+                res.status(200).send(false);
+                _b.label = 5;
+            case 5: return [3 /*break*/, 7];
+            case 6:
                 error_1 = _b.sent();
                 console.error(error_1);
                 res.status(500).send(error_1);
-                return [3 /*break*/, 4];
-            case 4: return [2 /*return*/];
+                return [3 /*break*/, 7];
+            case 7: return [2 /*return*/];
         }
     });
 }); };

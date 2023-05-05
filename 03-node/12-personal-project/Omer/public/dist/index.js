@@ -284,6 +284,9 @@ function addProductToCustomer(productId) {
                 case 4:
                     result = _a.sent();
                     console.log("Success:", result);
+                    if (!result) {
+                        alert("Item has already been added");
+                    }
                     return [3 /*break*/, 6];
                 case 5:
                     error_7 = _a.sent();

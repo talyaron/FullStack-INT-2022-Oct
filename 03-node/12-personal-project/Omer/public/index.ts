@@ -168,6 +168,9 @@ async function addProductToCustomer(productId: string) {
 
         const result = await response1.json();
         console.log("Success:", result);
+        if(!result) {
+            alert("Item has already been added")
+        }
     } catch (error) {
         console.error(error);
     }

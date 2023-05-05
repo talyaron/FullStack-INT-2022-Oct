@@ -9,10 +9,13 @@ export const addUserProduct = async (req:any, res:any) => {
         const {userName, userId, productId} = req.body;
         const product = await productModel.findById(productId);
         if(!product) throw new Error("No product found");
-        
-        
-        await UserProductModel.create({userName, userId, product, productId});
-        res.status(201).send(true)
+        const userPro = await UserProductModel.findOne({userId:userId, productId:productId})
+        if(!userPro) {
+            await UserProductModel.create({userName, userId, product, productId});
+            res.status(201).send(true)
+        } else {
+            res.status(200).send(false)
+        }
     } catch (error) {
         console.error(error);
         res.status(500).send(error);
