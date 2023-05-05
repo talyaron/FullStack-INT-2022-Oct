@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="./dist/index.js" defer></script>
+</head>
+<body>
+    <a href="./index.html">Home</a>
+    <form onsubmit="signUp(event)">
+        <input type="text" name="name" placeholder="Name">
+        <input type="password" name="password" id="password" placeholder="Password"> 
+        <label for="password">
+            <input type="checkbox" id="checkbox" onchange="showPassword()"> Show Password
+        </label>
+        <select name="role">
+            <option value="Admin">Admin</option>
+            <option value="Customer">Customer</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
