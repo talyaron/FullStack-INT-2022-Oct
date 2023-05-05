@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/adminStyle.css">
+    <script src="./dist/admin.js"></script>
+</head>
+<body>
+    <div class="mainContainer">
+        <div class="topNav">
+            <nav>
+              <ul>
+                <li><a href="http://localhost:3000/main/main.html">Home</a></li>
+                <li><a href="http://localhost:3000/login/login.html">Login</a></li>
+                <li><a href="http://localhost:3000/register/register.html">Register</a></li>
+                <li><a href="http://localhost:3000//cart/cart.html">Cart</a></li>
+              </ul>
+            </nav>
+        </div>
+    <form id="productForm" onsubmit="handleAddProduct(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+      
+        <label for="descreption">Description:</label>
+        <textarea id="descreption" name="descreption" required></textarea><br>
+      
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" min="0" step="0.01" required><br>
+      
+        <label for="imgUrl">Image URL:</label>
+        <input type="url" id="imgUrl" name="imgUrl" required><br>
+      
+        <input type="submit" value="Create Product">
+      </form>
+    </div>
+</body>
+</html>
