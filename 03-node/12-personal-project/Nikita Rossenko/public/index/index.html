@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="./dist/index.js" defer></script>
+        <script src="../helpers/dist/helper.js" defer></script>
+        <link rel="stylesheet" href="../dist/style.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link
+            rel="stylesheet"
+            href="https://www.w3schools.com/w3css/4/w3.css"
+        />
+        <title>Alternative Home - Home</title>
+    </head>
+    <body onload="checkLoggedIn()">
+        <div class="navBar">
+            <div class="navBar_container">
+                <div class="navBar_logo">
+                    <img id="logo" src="./images/logo.png" />
+                </div>
+                <div class="navBar_links">
+                    <div class="links">
+                        <a class="link" href="/">Home</a>
+                        <a
+                            class="link"
+                            onclick="checkLoggedInStore()"
+                            >Starship Store</a
+                        >
+                        <a class="link" href="/">Environment</a>
+                        <a class="link" href="/">Contact</a>
+                    </div>
+                    <div class="logoutLoginDiv">
+                        <div class="accountIcon">
+                            <span class="icon material-symbols-outlined">account_circle</span>
+                            <div class="profileDetails">
+                                <p class="username" id="username"></p>
+                                <a class="link" id="loginLogoutBtn"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="videoContainer">
+            <div class="sentensesContainer">
+                <h1 class="sentensesSlide w3-animate-fading">
+                    Mission MARS - Reaching Mars is a challenging and ambitious
+                    endeavor that requires advanced technologies and extensive
+                    planning.
+                </h1>
+                <h1 class="sentensesSlide w3-animate-fading">
+                    Mars exploration missions aim to expand our knowledge of the
+                    red planet's geology, atmosphere, and potential for
+                    supporting microbial life.
+                </h1>
+                <h1 class="sentensesSlide w3-animate-fading">
+                    The ultimate goal of flying to Mars for colonization is to
+                    establish a sustainable human settlement that can support
+                    long-term exploration and research of the planet.
+                </h1>
+                <h1 class="sentensesSlide w3-animate-fading">
+                    Until humans reach Mars, it is crucial to prioritize the
+                    protection of planet Earth by implementing sustainable
+                    practices and reducing our impact on the environment.
+                </h1>
+            </div>
+            <div class="darken"></div>
+            <video src="../media/videos/world-2.mp4" autoplay loop muted></video>
+        </div>
+        <div class="overview_container">
+            <div class="brief">
+                <h1>Ecological Safety</h1>
+                <p>
+                    Ecological safety is a critical concern for our planet, as
+                    it directly affects the well-being of all living organisms,
+                    including humans. It involves the protection of the natural
+                    environment from harmful human activities, such as
+                    pollution, deforestation, and climate change. The concept of
+                    ecological safety emphasizes the need to maintain a healthy
+                    and sustainable environment for the present and future
+                    generations. Pollution is one of the most significant
+                    threats to ecological safety. It can take many forms,
+                    including air pollution, water pollution, and soil
+                    contamination. Industrial activities, transportation, and
+                    agriculture are among the major sources of pollution. The
+                    release of greenhouse gases, such as carbon dioxide and
+                    methane, is also contributing to climate change, which poses
+                    a severe threat to ecological safety.
+                </p>
+                <h1>Alternative Home</h1>
+                <p>
+                    The concept of Mars as an alternative home for humanity has
+                    been gaining popularity in recent years, as space
+                    exploration and colonization become increasingly feasible.
+                    Mars offers a unique set of conditions that make it an
+                    attractive option for space colonization, including a
+                    similar day/night cycle as Earth, a thin atmosphere that can
+                    be adapted for human habitation, and the presence of water
+                    in the form of ice. Additionally, Mars exploration missions
+                    have revealed a wealth of scientific data about the planet's
+                    geology, atmosphere, and potential for supporting microbial
+                    life.
+                </p>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <h1>Population</h1>
+                    <p class="number">8</p>
+                    <p>Billion People</p>
+                </div>
+                <div class="card">
+                    <h1>Waste a year</h1>
+                    <p class="number">2.12</p>
+                    <p>Billion tons</p>
+                </div>
+                <div class="card">
+                    <h1>Population growth</h1>
+                    <p class="number">83</p>
+                    <p>Million Annually</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer_container">
+            <div class="copyright">
+                <p>Copyright © Nikita Rossenko 2023, All rights reserved.</p>
+            </div>
+        </div>
+    </body>
+</html>

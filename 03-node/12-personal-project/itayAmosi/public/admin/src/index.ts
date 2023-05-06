@@ -12,7 +12,6 @@ function handleAddProducts(ev: any) {
       if (!price) throw new Error("No price");
       if (!description) throw new Error("No description");
       const newProducts: any = { name, src, price, description };
-      console.log(newProducts);
       fetch("/api/collections/add-products", {
         method: "POST",
         headers: {
@@ -23,6 +22,8 @@ function handleAddProducts(ev: any) {
       })
         .then((res) => res.json())
         .then((data) => {
+          const form = document.getElementById("addNewProduct") as HTMLFormElement;
+          form.reset()
         })
         .catch((error) => {
           console.error(error);

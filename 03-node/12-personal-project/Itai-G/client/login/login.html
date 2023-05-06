@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./dist/login.js"></script>
+    <link rel="stylesheet" href="./dist/login.css">
+</head>
+<body>
+  <div class="topNav">
+    <nav>
+      <ul>
+        <li><a href="http://localhost:3000/main/main.html">Home</a></li>
+        <li><a href="http://localhost:3000/login/login.html">Login</a></li>
+        <li><a href="http://localhost:3000/register/register.html">Register</a></li>
+        <li><a href="http://localhost:3000//cart/cart.html">Cart</a></li>
+      </ul>
+    </nav>
+    <div class="card">
+    <h1>Login</h1>
+    <form onsubmit="handleLogin(event)">
+      <label for="name">Name:</label>
+      <input type="text" placeholder="name" name="name" required>
+      
+      <label for="password">Password:</label>
+      <input type="password" placeholder="password" name="password" required>
+      <br>
+      <button type="submit">Login</button>
+      <a href="http://localhost:3000/register/register.html">Register</a>
+    </form>
+</div>
+</body>
+</html>

@@ -1,15 +1,18 @@
 import express from "express";
 import { v4 as uuidv4 } from "uuid";
-const app = express();
 
+const cookieParser = require('cookie-parser')
+
+const app = express();
+app.use(cookieParser())
 import mongoose, { Schema } from "mongoose";
 import * as dotenv from "dotenv"; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 import { isUndefined } from "util";
 dotenv.config();
 
-const uri: string | undefined = process.env.MONGODB_URI;
 
 app.use(express.json());
+const uri: string | undefined = process.env.MONGODB_URI;
 
 if (uri) {
   mongoose
@@ -31,16 +34,9 @@ import collectionsRouter from './API/collection/collectionsRoute';
 app.use('/api/collections', collectionsRouter);
 
 
-import favouritesRouter from './API/favourites/favouritesRoute';
-app.use('/api/favourites', favouritesRouter);
+import cartRouter from './API/cart/CartRoute';
+app.use('/api/cart', cartRouter);
 
-
-// import gradesRouter from './API/grades/gradesRoute';
-// app.use('/api/grades', gradesRouter);
-
-
-// import examRouter from './API/exams/examsRoute';
-// app.use('/api/exams', examRouter);
 
 app.use(express.static(`./public`));
 

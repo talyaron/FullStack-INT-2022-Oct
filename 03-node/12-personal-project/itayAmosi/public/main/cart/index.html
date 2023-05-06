@@ -11,9 +11,12 @@
 </head>
 <body onload="
 renderFooter()
+handleGetCart()
+// updateCartTotal()
 ">
     <header id="header" class="main-header">
         <nav class="nav main-nav">
+            <a href="../../admin/index.html">admin</a>
             <nav class="nav main-nav">
                 <ul>
                 <li><a href="../index.html">MAIN</a></li>
@@ -23,10 +26,10 @@ renderFooter()
                 </ul>
             </nav>
         </nav>
-        <h1 class="section-header">Favourites</h1>
+        <h1 class="section-header">Cart</h1>
     </header>
     <section class="container content-section">
-        <div id="cartItems" class="shop-items"></div>
+        <div class="shop-items"></div>
     </section>
     <section class="container content-section">
         <h2 class="section-header">Final Purchase</h2>
@@ -35,13 +38,13 @@ renderFooter()
             <span class="cart-price cart-header cart-column">PRICE</span>
             <span class="cart-quantity cart-header cart-column">QUANTITY</span>
         </div>
-        <div class="cart-items">
+        <div  id="cartItems" class="cart-items">
         </div>
-        <div class="cart-total">
+        <!-- <div class="cart-total">
             <strong class="cart-total-title">Total</strong>
             <span class="cart-total-price">$0</span>
-        </div>
-        <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
+        </div> -->
+        <button class="btn btn-primary btn-purchase" type="button" onclick="handelPurchase(event)">PURCHASE</button>
     </section>
     <footer id="footer" class="main-footer">
     </footer>
