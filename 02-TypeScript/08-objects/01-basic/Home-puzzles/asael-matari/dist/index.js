@@ -6,17 +6,22 @@ var whthp = function (obj) {
     try {
         if (!obj)
             throw Error("what the name of the movie");
-        console.log(obj.price);
-        console.log("THE PRICE OF THE MOVIE " + obj.name + " is " + obj.price);
-        return obj.price;
+        console.log("THE PRICE OF THE MOVIE " + obj.name + " is " + obj.price + " dollars");
+        return obj.price * 3.53;
     }
     catch (error) {
         console.error(error);
         return false;
     }
 };
-var asael = { name: "asael", whatRented: "bambi" };
-var bambi = { name: "bambi", price: 180, whoRented: asael.name };
+var users = [
+    { name: "asael", whatRented: "bambi" },
+    { name: "lea", whatRented: "lord of the rings" }
+];
+var movies = [
+    { name: "bambi", price: 180, whoRented: "asael" },
+    { name: "lord of the rings", price: 200, whoRented: "" }
+];
 // whthp(bambi)
 // 2. create a function that gets a video and a person and returns the object of the video, with reference to the
 // person that took it.

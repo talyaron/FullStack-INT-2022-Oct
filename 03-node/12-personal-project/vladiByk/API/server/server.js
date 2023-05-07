@@ -21,7 +21,6 @@ const config_1 = require("../config/config");
 const userRoutes_1 = require("../routes/userRoutes");
 const boardRoutes_1 = require("../routes/boardRoutes");
 const listRoutes_1 = require("../routes/listRoutes");
-const notificationRoute_1 = require("../routes/notificationRoute");
 StartServer();
 function StartServer() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -41,7 +40,6 @@ function StartServer() {
         app.use("/api/v1/users", userRoutes_1.userRouter);
         app.use("/api/v1/boards", boardRoutes_1.boardRouter);
         app.use("/api/v1/lists", listRoutes_1.listRouter);
-        app.use("/api/v1/notifications", notificationRoute_1.notificationRouter);
         app.get("/main", (req, res, next) => __awaiter(this, void 0, void 0, function* () {
             res.sendFile(path_1.default.join(__dirname, "../../public", "main.html"));
         }));

@@ -3,13 +3,12 @@ import { CourseSchema, Course } from "../courses/coursesModel";
 
 export interface IStudent {
   name: string;
-  courses?: Course[];
 }
 
 export const StudentSchema = new Schema({
-  name: String,
-  courses: [CourseSchema],
+  name: String
 });
+
 
 const StudentModel = mongoose.model("students", StudentSchema);
 

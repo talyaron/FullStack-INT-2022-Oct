@@ -50,7 +50,6 @@ exports.UserSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
-    notifications: [{ type: mongoose_1.Schema.Types.ObjectId, ref: "Notification" }],
 }, {
     versionKey: false,
 });
