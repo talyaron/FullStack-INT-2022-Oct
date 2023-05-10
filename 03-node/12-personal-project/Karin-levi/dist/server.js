@@ -4,15 +4,11 @@ var express_1 = require("express");
 var app = express_1["default"]();
 app.use(express_1["default"].json());
 //todo
-var User = /** @class */ (function () {
-    function User() {
-    }
-    return User;
-}());
-var users = [];
+var users = new Map();
+users.set("1", "1");
 app.post('/login', function (req, res) {
     var _a = req.body, username = _a.username, password = _a.password;
-    if (username === 'myusername' && password === 'mypassword') {
+    if (users.has(username) && users.get(username) === password) {
         res.json({ success: true });
     }
     else {
