@@ -40,7 +40,7 @@ try {
             <h4>Price: </h4><span id="cartItemPrice">${product.product.price}$</span>
         </div>
         <div class="container-edit-product-cart">
-            <button>      <i class="fa-solid fa-trash-can" onclick="handleClickRemoveFromTheCart('${product.product._id}')"></i></button>
+            <button>      <i class="fa-solid fa-trash-can" onclick="handleClickRemoveFromTheCart('${product._id}')"></i></button>
         </div>
     </li>
         `
@@ -64,4 +64,24 @@ try {
     console.error(error)
         return ''
 }
+}
+
+async function handleClickRemoveFromTheCart(uid:string){
+    try {
+if(confirm("Are You Sure?")){
+    const dataJs = await fetch('/api/users//delete-product-from-cart' , {
+        method:"DELETE" ,
+        headers: {
+            "Content-Type": "application/json",
+        
+          },
+        body:JSON.stringify({uid})
+    }).then(data=>console.log(data))
+    .catch(err=>console.error(err))
+    alert("DELETE SUCCEED")
+    location.reload();
+} 
+    } catch (error) {
+        console.error(error)
+    }
 }

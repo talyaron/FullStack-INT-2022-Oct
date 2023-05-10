@@ -11,5 +11,5 @@ routerUsers
     .post("/create-user", userControl_1.createUser)
     .post("/create-product-cart", userControl_1.createCartList)
     .post('/login', userControl_1.login)
-    .put("/change-user-name", userControl_1.changeNameUser);
+    .put("/change-user-name", userControl_1.changeNameUser)["delete"]("/delete-product-from-cart", userControl_1.deleteProductFromCart);
 exports["default"] = routerUsers;

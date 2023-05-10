@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.logout = exports.login = exports.getUser = exports.changeNameUser = exports.createUser = exports.getUsers = exports.createCartList = exports.getCartUser = void 0;
+exports.logout = exports.login = exports.getUser = exports.changeNameUser = exports.createUser = exports.getUsers = exports.createCartList = exports.deleteProductFromCart = exports.getCartUser = void 0;
 var productsModel_1 = require("../products/productsModel");
 var userModel_1 = require("./userModel");
 var userModel_2 = require("./userModel");
@@ -73,8 +73,34 @@ exports.getCartUser = function (req, res) { return __awaiter(void 0, void 0, voi
         }
     });
 }); };
+exports.deleteProductFromCart = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var uid, deleteProduct, error_2;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                _a.trys.push([0, 2, , 3]);
+                uid = req.body.uid;
+                if (!uid)
+                    throw new Error("no user Cookie");
+                return [4 /*yield*/, userModel_1.UsersProductModel.findByIdAndDelete(uid)];
+            case 1:
+                deleteProduct = _a.sent();
+                if (!deleteProduct)
+                    throw new Error("no product founded");
+                console.log("DELETE SUCCEED");
+                res.status(201).send({ ok: true, product: deleteProduct });
+                return [3 /*break*/, 3];
+            case 2:
+                error_2 = _a.sent();
+                res.status(500).send({ ok: false });
+                console.error(error_2);
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
 exports.createCartList = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var user, decodedUserID, _a, productId, size, getUser_1, getProduct, newProductCart, error_2;
+    var user, decodedUserID, _a, productId, size, getUser_1, getProduct, newProductCart, error_3;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -104,15 +130,15 @@ exports.createCartList = function (req, res) { return __awaiter(void 0, void 0, 
                 res.status(201).send({ ok: true, productCart: newProductCart });
                 return [3 /*break*/, 5];
             case 4:
-                error_2 = _b.sent();
-                console.error(error_2);
+                error_3 = _b.sent();
+                console.error(error_3);
                 return [3 /*break*/, 5];
             case 5: return [2 /*return*/];
         }
     });
 }); };
 exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var users, error_3;
+    var users, error_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -125,8 +151,8 @@ exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0
                 res.status(201).send({ ok: true, users: users });
                 return [3 /*break*/, 3];
             case 2:
-                error_3 = _a.sent();
-                console.error(error_3);
+                error_4 = _a.sent();
+                console.error(error_4);
                 res.status(500).send({ ok: false });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
@@ -134,7 +160,7 @@ exports.getUsers = function (req, res) { return __awaiter(void 0, void 0, void 0
     });
 }); };
 exports.createUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, email, password, users, userID, token, error_4;
+    var _a, name, email, password, users, userID, token, error_5;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -159,8 +185,8 @@ exports.createUser = function (req, res) { return __awaiter(void 0, void 0, void
                 res.status(201).send({ ok: true, users: users });
                 return [3 /*break*/, 4];
             case 3:
-                error_4 = _b.sent();
-                console.error(error_4);
+                error_5 = _b.sent();
+                console.error(error_5);
                 res.status(500).send({ ok: false });
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
@@ -190,7 +216,7 @@ exports.changeNameUser = function (req, res) { return __awaiter(void 0, void 0, 
     });
 }); };
 exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var user, decodedUserID, userDB, userInfo, error_5;
+    var user, decodedUserID, userDB, userInfo, error_6;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -208,16 +234,16 @@ exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
                 res.send(JSON.stringify(userInfo));
                 return [3 /*break*/, 3];
             case 2:
-                error_5 = _a.sent();
-                console.error(error_5);
-                res.status(500).send({ error: error_5.message });
+                error_6 = _a.sent();
+                console.error(error_6);
+                res.status(500).send({ error: error_6.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }
     });
 }); };
 exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, email, password, findUser, token, error_6;
+    var _a, email, password, findUser, token, error_7;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
@@ -243,9 +269,9 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                 }
                 return [3 /*break*/, 3];
             case 2:
-                error_6 = _b.sent();
-                console.error(error_6);
-                res.status(500).send({ error: error_6.message });
+                error_7 = _b.sent();
+                console.error(error_7);
+                res.status(500).send({ error: error_7.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }
