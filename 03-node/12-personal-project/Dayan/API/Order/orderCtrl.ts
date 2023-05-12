@@ -62,17 +62,86 @@ export const createOrder = AsyncHandler(async (req:any, res:any) => {
     userFound.orders.push(order)
     await userFound.save()
 
-    //Make the payment:
-
-    //Payment webhook:
-
-
-
     res.status(201).json({
         status: "success",
         message:"The order has successfully created",
         order
     })
 })
+//-------------------------------------------
 
+//-----Get all orders (By Admin)
+export const getAllOrders = AsyncHandler(async (req:any, res:any) => {
+
+    //Find all orders
+    const orders = await OrderModel.find().populate("user")
+    
+    res.status(200).json({
+        status: "success",
+        message: "All the orders fetched succesfully",
+        orders,
+    })
+})
+//-------------------------------------------
+
+//-----Get sales sum of the orders (By Admin) - סיכום של הזמנות ומכירות
+export const getSum = AsyncHandler(async (req:any, res:any) => {
+    //Check the order status
+    /*
+        aggregate():
+        פונקציה זו משמשת לקבלת מידע על ההזמנות ממסד הנתונים.
+        המידע המבוקש כולל את המחיר המינימלי, המחיר המקסימלי,
+        הסכום הכולל והממוצע של כל ההזמנות.
+    */
+    const orders = await OrderModel.aggregate([
+        {
+            $group: {
+                _id: null,
+                minimumSale: {
+                    $min: "$totalPrice",
+                },
+                maxSale: {
+                    $max: "$totalPrice",
+                },
+                totalSales: {
+                    $sum: "$totalPrice",
+                },
+                avgSale: {
+                    $avg: "$totalPrice",
+                },
+            },
+        }
+    ]);
+    //Get the date
+    /*
+        aggregate לאחר מכן, ניצור את התאריך הנוכחי ונשתמש בפונקציית
+        על מנת לקבל מידע על המכירות שבוצעו היום ממסד הנתונים.
+        המידע המבוקש יכלול את הסכום הכולל של כל המכירות שבוצעו היום.
+    */
+    const date = new Date()
+    const today = new Date(date.getFullYear(), date.getMonth(), date.getDate())
+    const soldtoday = await OrderModel.aggregate([
+        {
+            $match: {
+                createdAt: {
+                    $gte: today,
+                },
+            },
+        },
+        {
+            $group: {
+                _id: null,
+                totalSales: {
+                    $sum: "$totalPrice",
+                },
+            },
+        },
+    ]);
+
+    res.status(200).json({
+        status: "success",
+        orders,
+        soldtoday,
+    });
+})
 //-------------------------------------------
