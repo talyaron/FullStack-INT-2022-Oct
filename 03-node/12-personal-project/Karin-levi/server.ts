@@ -24,6 +24,19 @@ app.post('/login', (req, res) => {
     }
 });
 
+app.post('/register', (req, res) => {
+    const { username, password } = req.body;
+
+    if (users.has(username)) {
+        res.json({ success: false });
+    } else {
+        users.set(username, password);
+        res.json({ success: true });
+    }
+});
+
+
+
 
 
 app.use(express.static("./public"));
@@ -31,3 +44,5 @@ app.use(express.static("./public"));
 app.listen(3001, () => {
     console.log("server listen on port 3001");
 });
+
+
