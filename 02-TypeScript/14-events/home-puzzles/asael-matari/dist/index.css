@@ -1,0 +1,20 @@
+body {
+  margin: 0%;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.wrapper .box {
+  width: 10vw;
+  height: 10vh;
+  background-color: blue;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
