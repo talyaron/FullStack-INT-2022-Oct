@@ -1,0 +1,13 @@
+.miniRecipeWrapper{
+    margin: 0 0 2rem 8rem;
+}
+
+.miniImg {
+  height: 15rem;
+  padding: 0 0 1rem 1rem;
+}
+
+.recipeTitle{
+    font-size: 1.5rem;
+    padding: 0 0 1rem 1rem;
+}

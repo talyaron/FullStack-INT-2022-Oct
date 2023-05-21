@@ -1,15 +1,15 @@
+function register(event) {
 
-function login(event) {
     event.preventDefault();
     const form = event.target;
 
-    const formData = new FormData(form); 
+    const formData = new FormData(form);
 
-    const username = formData.get('username'); 
+    const username = formData.get('username');
     const password = formData.get('password');
 
 
-    fetch('/login', {
+    fetch('/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -19,13 +19,13 @@ function login(event) {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert('Login successful!');
+                window.location.href = "./main.html";
             } else {
-                alert('Incorrect username or password. Please try again.');
+                alert('username already exists');
             }
         })
         .catch(error => {
-            console.error('Login failed:', error);
-            alert('Login failed. Please try again later.');
+            console.error('Register failed:', error);
+            alert('Register failed. Please try again later.');
         });
 }
