@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form</title>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+    <link rel="stylesheet" href="./dist/index.css"/>
+  </head>
+  <body>
+    <form onsubmit="handleDetails(event)">
+        <input type="text" name="name" placeholder="name">
+        <input type="text" name="address" placeholder="address">
+        <input type="text" name="email" placeholder="email">
+        <input type="number" name="phone" placeholder="phone">
+        <input type="password" name="password" placeholder="password">
+        <input type="color" name="color"  oninput="handleChangerColor(event)" placeholder="color">
+        <input type="text" name="image" placeholder="Image URL">
+        <input type="submit"  >
+    </form>
+    <div class="containerOfDetails" ></div>
+  </body>
+</html>

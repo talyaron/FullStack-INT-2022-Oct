@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+form {
+  margin: 10px;
+}
+
+.containerOfDetails {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.containerOfDetails .userDetailsCard {
+  width: auto;
+  height: auto;
+}
+.containerOfDetails .userDetailsCard img {
+  width: 100%;
+}
+.containerOfDetails .userDetailsCard p {
+  margin-left: 20px;
+}
