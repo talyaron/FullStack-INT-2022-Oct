@@ -5,7 +5,7 @@ import AsyncHandler from "express-async-handler"
 
 //-----Create product (By Admin)
 export const createProduct = AsyncHandler(async (req:any, res:any) => {
-    const { name, description, brand, category, sizes, colors, price, totalQty} = req.body
+    const { name, description, brand, category, sizes, colors, price, totalQty } = req.body
 
     //Check if the product already exists in DB:
     const productFound = await ProductModel.findOne({ name })

@@ -14,4 +14,5 @@ const isAdmin = async (req:any, res:any, next:NextFunction) => {
         next(err)
     }
 }
+
 export default isAdmin

@@ -8,8 +8,8 @@ import { createProduct, getAllProducts, getSingleProduct, updateProduct, deleteP
 
 productRouter
     .post("/create-product", isAdminLogin, isAdmin, createProduct)
-    .get("/get-all-products", isAdminLogin, isAdmin, getAllProducts)
-    .get("/get-single-product/:productID", isAdminLogin, isAdmin, getSingleProduct)
+    .get("/get-all-products", getAllProducts)
+    .get("/get-single-product/:productID", getSingleProduct)
     .put("/update-product/:productID", isAdminLogin, isAdmin, updateProduct)
     .delete("/delete-product/:productID", isAdminLogin, isAdmin, deleteProduct)
 

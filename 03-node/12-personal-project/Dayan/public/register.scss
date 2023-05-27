@@ -1,0 +1,169 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #084f72;
+}
+
+.container{
+    position: relative;
+    max-width: 430px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+    &__forms{
+        display: flex;
+        align-items: center;
+        height: 550px;
+        width: 200%;
+
+        &__register{
+            width: 50%;
+            padding: 30px;
+
+            &__title{
+                position: relative;
+                font-size: 27px;
+                font-weight: 600;
+            }
+
+            &__title::before{
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height: 3px;
+                width: 30px;
+                background-color: #256d91;
+                border-radius: 25px;
+            }
+
+            &__form{
+
+                &__input{
+                    margin-top: 30px;
+                    position: relative;
+                    height: 50px;
+                    width: 100%;
+
+                    input{
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                        padding: 0 35px;
+                        border: none;
+                        outline: none;
+                        font-size: 16px;
+                        border-bottom: 2px solid #ccc;
+                        border-top: 2px solid transparent;
+                        transition:  all 0.2s ease;
+                    }
+
+                    input:is(:focus, :valid){
+                        border-bottom-color: #256d91;
+                    }
+
+                    i{
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        color: #999;
+                        font-size: 23px;
+                    }
+
+                    input:is(:focus, :valid) ~ i{
+                        color: #256d91;
+                    }
+
+                    i.icon{
+                        left: 0;
+                    }
+
+                    i.showHidePw{
+                        right: 0;
+                    }
+                }
+
+                &__checkbox{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-top: 20px;
+
+                    &__content{
+                        display: flex;
+                        align-items: center;
+
+                        input{
+                            margin: 0 8px -2px 4px;
+                            accent-color: #256d91;
+                        }
+
+                        label{
+                            color: #333;
+                            font-size: 15px;
+                        }
+                    }
+
+                    &__text{
+                        color: #256d91;
+                        text-decoration: none;
+                    }
+
+                    &__text:hover{
+                        text-decoration: underline;
+                    }
+                }
+
+                &__button{
+                    margin-top: 25px;
+
+                    input{
+                        width: 100%;
+                        border: none;
+                        background: #084f72;
+                        color: #fff;
+                        font-size: 17px;
+                        font-weight: 500;
+                        letter-spacing: 1px;
+                        padding: 8px 30px;
+                        margin: 30px 0;
+                        border-radius: 30px;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                    }
+
+                    input:hover{
+                        background: #256d91;
+                    }
+                }
+            }
+
+            &__login-signup{
+                margin-top: 25px;
+                text-align: center;
+
+                &__text{
+                    &__signupNow{
+                        color: #256d91;
+                        text-decoration: none;
+                    }
+                    &__signupNow:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+        }
+    }
+}

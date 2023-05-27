@@ -13,6 +13,8 @@ const app = express()
 
 app.use(express.json())
 
+app.use(express.static('public'))
+
 /*
     The cookie-parser model makes it possible to read and 
     write the cookie values ​​on the server side, 
@@ -68,7 +70,7 @@ app.use(notFoundErr)
 app.use(globalErrHandler)
 
 
-app.use(express.static('public'))
+
 
 //-----Server
 app.listen(PORT, () => {

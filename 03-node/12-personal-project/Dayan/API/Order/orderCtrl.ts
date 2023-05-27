@@ -6,7 +6,7 @@ import AsyncHandler from "express-async-handler"
 
 //-----Create order (By User)
 export const createOrder = AsyncHandler(async (req:any, res:any) => {
-    const { orderItems, shippingAddress, totalPrice } = req.body
+    const { orderItems, totalPrice } = req.body
 
     //Find the user:
     const userFound = await UserModel.findById(req.userAuth._id)
@@ -62,6 +62,10 @@ export const createOrder = AsyncHandler(async (req:any, res:any) => {
     userFound.orders.push(order)
     await userFound.save()
 
+    //Make the payment:
+
+    //Payment webhook:
+
     res.status(201).json({
         status: "success",
         message:"The order has successfully created",
@@ -72,14 +76,29 @@ export const createOrder = AsyncHandler(async (req:any, res:any) => {
 
 //-----Get all orders (By Admin)
 export const getAllOrders = AsyncHandler(async (req:any, res:any) => {
-
-    //Find all orders
-    const orders = await OrderModel.find().populate("user")
-    
+    const orders = await OrderModel.find().populate("orderItems")
     res.status(200).json({
         status: "success",
         message: "All the orders fetched succesfully",
-        orders,
+        orders
+    })
+})
+//-------------------------------------------
+
+//-----Get single order (By Admin)
+export const getSingleOrder = AsyncHandler(async (req:any, res:any) => {
+    /*
+        populate("user"):
+        נותן מידע מלא על היוזר שביצע את ההזמנה במקום רק את המספר מזהה שלו.
+    */
+    const order = await OrderModel.findById(req.params.orderID).populate("user")
+    if(!order){
+        throw new Error("Order not found")
+    }
+    res.status(200).json({
+        status: "success",
+        message:"The order fetched succesfully",
+        order
     })
 })
 //-------------------------------------------
@@ -143,5 +162,26 @@ export const getSum = AsyncHandler(async (req:any, res:any) => {
         orders,
         soldtoday,
     });
+})
+//-------------------------------------------
+
+//-----Update order shipping status (By Admin)
+export const updateShippingStatus = AsyncHandler(async (req:any, res:any) => {
+    const id = req.params.orderID
+    const order = await OrderModel.findByIdAndUpdate(
+        id,
+        {
+            status: req.body.status
+        },
+        {
+            new: true
+        }
+    )
+
+    res.status(200).json({
+        status: "success",
+        message:"The shipment status has been successfully updated",
+        order
+    })
 })
 //-------------------------------------------

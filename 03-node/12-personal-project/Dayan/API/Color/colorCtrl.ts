@@ -27,7 +27,7 @@ export const creatColor = AsyncHandler(async (req:any, res:any) => {
 })
 //-------------------------------------------
 
-//-----Get all colors (By Admin)
+//-----Get all colors
 export const getAllColors = AsyncHandler(async (req:any, res:any) => {
     const colors = await ColorModel.find()
     res.status(200).json({
@@ -38,7 +38,7 @@ export const getAllColors = AsyncHandler(async (req:any, res:any) => {
 })
 //-------------------------------------------
 
-//-----Get single color (By Admin)
+//-----Get single color
 export const getSingleColor = AsyncHandler(async (req:any, res:any) => {
     const color = await ColorModel.findById(req.params.colorID)
     if(!color){

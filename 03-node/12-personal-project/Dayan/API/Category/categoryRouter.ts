@@ -8,8 +8,8 @@ import { createCategory, getAllCategories, getSingleCategory, updateCategory, de
 
 categoryRouter
     .post("/create-category", isAdminLogin, isAdmin, createCategory)
-    .get("/get-all-categories", isAdminLogin, isAdmin, getAllCategories)
-    .get("/get-single-category/:categoryID", isAdminLogin, isAdmin, getSingleCategory)
+    .get("/get-all-categories", getAllCategories)
+    .get("/get-single-category/:categoryID", getSingleCategory)
     .put("/update-category/:categoryID", isAdminLogin, isAdmin, updateCategory)
     .delete("/delete-category/:categoryID", isAdminLogin, isAdmin, deleteCategory)
 
