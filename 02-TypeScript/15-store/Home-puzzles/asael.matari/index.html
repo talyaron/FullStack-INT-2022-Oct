@@ -4,24 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>form</title>
+    <title>register</title>
     <script src="./dist/control.js" defer></script>
     <script src="./dist/model.js" defer></script>
     <script src="./dist/view.js" defer></script>
-    <script src="./dist/index.js" defer></script>
-    <link rel="stylesheet" href="./dist/index.css"/>
+    <link rel="stylesheet" href="./dist/style.css" />
   </head>
   <body>
-    <form onsubmit="handleDetails(event)">
-        <input type="text" name="name" placeholder="name">
-        <input type="text" name="address" placeholder="address">
-        <input type="text" name="email" placeholder="email">
-        <input type="number" name="phone" placeholder="phone">
-        <input type="password" name="password" placeholder="password">
-        <input type="color" name="color"  oninput="handleChangerColor(event)" placeholder="color">
-        <input type="text" name="image" placeholder="Image URL">
-        <input type="submit"  >
+    <h1>Login...</h1>
+    <form onsubmit="handldetails(event)" class="form">
+      <input type="text" name="fullname" placeholder="full name" />
+      <input type="email" name="email" placeholder="Email" />
+      <input type="text" name="img" placeholder="Url img" />
+      <div>
+        <input
+          type="password"
+          name="password"
+          placeholder="password"
+          id="input"
+        />
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/2767/2767146.png"
+          id="img"
+        />
+      </div>
+      <input type="submit" />
     </form>
-    <div class="containerOfDetails" ></div>
+    <div class="container"></div>
   </body>
 </html>
