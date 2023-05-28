@@ -1,6 +1,6 @@
 const menuElement = document.querySelector('.menu');
 
-
+let allProducts = []
 
 async function retrieveAllProducts() {
 
@@ -13,6 +13,7 @@ async function retrieveAllProducts() {
     })
         .then((res) => res.json())
         .then((data) => {
+            allProducts = data;
             renderMeals(data)
         });
 
@@ -58,25 +59,25 @@ function renderMeals(allProducts): string {
 retrieveAllProducts()
 
 
-// function addToCart(uid: string) {
-//     let cart = {};
-//     const cartStr = localStorage.getItem('cart');
-//     if (cartStr != null) {
-//         cart = JSON.parse(cartStr);
-//     }
+function addToCart(uid: string) {
+    let cart = {};
+    const cartStr = localStorage.getItem('cart');
+    if (cartStr != null) {
+        cart = JSON.parse(cartStr);
+    }
 
 
-//     const meal = products.find(element => element.uid == uid);
-//     if (meal !== undefined) {
-//         if (meal.name in cart) {
-//             cart[meal.name]["quantity"] += 1;
-//         } else {
-//             cart[meal.name] = { "quantity": 1, "price": meal.price, "imgLink": meal.imgLink, "uid": meal.uid };
-//         }
+    const meal = allProducts.find(element => element.uid == uid);
+    if (meal !== undefined) {
+        if (meal.name in cart) {
+            cart[meal.name]["quantity"] += 1;
+        } else {
+            cart[meal.name] = { "quantity": 1, "price": meal.price, "imgLink": meal.imgLink, "uid": meal.uid };
+        }
 
-//         const cartData = JSON.stringify(cart);
-//         //todo - store in cookies
-//         localStorage.setItem('cart', cartData);
-//     }
+        const cartData = JSON.stringify(cart);
+        //todo - store in cookies
+        localStorage.setItem('cart', cartData);
+    }
 
-// }
+}
