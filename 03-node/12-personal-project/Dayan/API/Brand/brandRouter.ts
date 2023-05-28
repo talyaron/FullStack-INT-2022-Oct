@@ -8,8 +8,8 @@ import { createBrand, getAllBrands, getSingleBrand, updateBrand, deleteBrand } f
 
 brandRouter
     .post("/create-brand", isAdminLogin, isAdmin, createBrand)
-    .get("/get-all-brands", isAdminLogin, isAdmin, getAllBrands)
-    .get("/get-single-brand/:brandID", isAdminLogin, isAdmin, getSingleBrand)
+    .get("/get-all-brands", getAllBrands)
+    .get("/get-single-brand/:brandID", getSingleBrand)
     .put("/update-brand/:brandID", isAdminLogin, isAdmin, updateBrand)
     .delete("/delete-brand/:brandID", isAdminLogin, isAdmin, deleteBrand)
 

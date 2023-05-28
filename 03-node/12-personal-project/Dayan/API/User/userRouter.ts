@@ -6,7 +6,7 @@ import isUserLogin from "../../middlewares/isUserLogin";
 
 userRouter
     .post("/register",  registerUser)
-    .get("/login",  loginUser)
+    .post("/login",  loginUser)
     .get("/profile", isUserLogin,  getUserProfile)
     .put("/update-shippingAddress", isUserLogin, updateShippingAdress)
 

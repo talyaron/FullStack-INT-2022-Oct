@@ -68,15 +68,19 @@ export const loginUser = AsyncHandler(async (req:any, res:any) => {
 //-----Get user profile
 export const getUserProfile = AsyncHandler(async (req:any, res:any) => {
 
-    //הצגת הפרופיל ללא נתונים נבחרים, כגון סיסמא
-    const user = await UserModel.findById(req.userAuth._id).select('-password -createdAt -updatedAt')
+    /*
+        .select('-password -createdAt -updatedAt'):
+        הצגת הפרופיל ללא נתונים נברים, כגון סיסמא.
+        .populate("orders"):
+        הצגת מידע מלא על ההזמנות שביצע היוזר (ולא רק מספר מזהה של ההזמנות).
+    */
+    const user = await UserModel.findById(req.userAuth._id).select('-password -createdAt -updatedAt').populate("orders")
     if(!user){
         throw new Error("User not found")
     }else{
         res.status(200).json({
-            status: "success",
-            message:"User Profile fetched succesfully",
-            user,
+            message:"Welcome to the profile page",
+            user
         })
     }
 })
@@ -113,6 +117,5 @@ export const updateShippingAdress = AsyncHandler(async (req:any, res:any) => {
     })
 
 })
-
 //-------------------------------------------
 

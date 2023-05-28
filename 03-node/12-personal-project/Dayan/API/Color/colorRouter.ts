@@ -8,8 +8,8 @@ import { creatColor, getAllColors, getSingleColor, updateColor, deleteColor } fr
 
 colorRouter
     .post("/create-color", isAdminLogin, isAdmin, creatColor)
-    .get("/get-all-colors", isAdminLogin, isAdmin, getAllColors)
-    .get("/get-single-color/:colorID", isAdminLogin, isAdmin, getSingleColor)
+    .get("/get-all-colors", getAllColors)
+    .get("/get-single-color/:colorID", getSingleColor)
     .put("/update-color/:colorID", isAdminLogin, isAdmin, updateColor)
     .delete("/delete-color/:colorID", isAdminLogin, isAdmin, deleteColor)
 
