@@ -1,4 +1,5 @@
 
+import { promises } from 'dns';
 import ProductModel from '../products/productsModel';
 import {UsersProductModel} from './userModel'
 import UserModel from "./userModel";
@@ -21,6 +22,20 @@ export const getCartUser = async (req:any , res:any) =>{
         res.status(501).send({ok:false})
     }
 }
+export const deleteProductFromCart = async (req: any, res: any) => {
+    try {
+        const { uid } = req.body
+        if (!uid) throw new Error("no user Cookie")
+
+        const deleteProduct = await UsersProductModel.findByIdAndDelete(uid)
+        if (!deleteProduct) throw new Error("no product founded")
+        console.log("DELETE SUCCEED")
+        res.status(201).send({ ok: true, product:deleteProduct })
+    } catch (error) {
+        res.status(500).send({ok:false})
+        console.error(error)
+    }
+}
 export const createCartList = async (req: any, res: any) => {
     try {
         const { user } = req.cookies
@@ -34,7 +49,8 @@ export const createCartList = async (req: any, res: any) => {
         const getProduct = await ProductModel.findById(productId);
         if (!getProduct) throw new Error("no product")
         const newProductCart = await UsersProductModel.create({user:getUser, product:getProduct , size})
-        res.status(201).send({ ok: true, productCart: newProductCart })
+        res.status(201).send({ ok: true, productCart: newProductCart });
+
     } catch (error) {
         console.error(error)
     }

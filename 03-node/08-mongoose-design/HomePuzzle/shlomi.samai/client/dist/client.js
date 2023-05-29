@@ -24,7 +24,7 @@ function renderPlayers(players) {
         if (!players)
             throw new Error("could'nt find players array");
         var html = players.map(function (player) {
-            return "<div class=\"playerCard\">\n        <img src=\"" + player.src + "\" alt=\"\">\n        <p contenteditable oninput=\"handlePlayerNameUpdate(event, '" + player._id + "')\">" + player.name + "\n        <button onclick='handleDeletePlayer(\"" + player._id + "\")'>DELETE</button>\n        </div>";
+            return "<div class=\"playerCard\">\n        <img src=\"" + player.src + "\" alt=\"\">\n        <p contenteditable oninput=\"handlePlayerNameUpdate(event, '" + player._id + "')\">" + player.name + "</p>\n        <button onclick='handleDeletePlayer(\"" + player._id + "\")'>DELETE</button>\n        </div>";
         }).join("");
         var userElement = document.querySelector(".playersConteiner");
         if (!userElement)
@@ -46,7 +46,7 @@ function hendleAddPlayer(ev) {
             throw new Error("No src");
         var newPlayer = { name: name, url: url };
         //send to server
-        fetch("/api/add-players", {
+        fetch("/api/players/add-players", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -68,7 +68,7 @@ function hendleAddPlayer(ev) {
 function handleDeletePlayer(_id) {
     try {
         console.log(_id);
-        fetch("/api/delete-player", {
+        fetch("/API/Players/delete-player", {
             method: "DELETE",
             headers: {
                 Accept: "application/json",
@@ -92,7 +92,7 @@ function handlePlayerNameUpdate(ev, _id) {
     try {
         console.log(_id);
         var name = ev.target.textContent;
-        fetch("/api/update-player-name", {
+        fetch("/api/players/update-player-name", {
             method: "PATCH",
             headers: {
                 Accept: "application/json",

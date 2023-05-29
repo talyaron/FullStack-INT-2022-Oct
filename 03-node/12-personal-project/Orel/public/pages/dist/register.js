@@ -42,7 +42,7 @@ function handleSubmitRegister(ev) {
                 case 0:
                     _a.trys.push([0, 5, , 6]);
                     ev.preventDefault();
-                    if (!confirm("do you sure?")) return [3 /*break*/, 3];
+                    if (!confirm("are you sure?")) return [3 /*break*/, 3];
                     name = ev.target.elements.name.value;
                     email = ev.target.elements.email.value;
                     password = ev.target.elements.password.value;

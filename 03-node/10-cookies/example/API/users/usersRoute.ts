@@ -11,10 +11,12 @@ import {
   getUser
 } from "./usersControls";
 
+import {isAdmin,userDetails} from './userMiddlware'
+
 router
   .post("/add-user", addUser)
-  .put("/update-user", updateUser)
-  .get("/get-users", getUsers)
+  .put("/update-user", isAdmin, updateUser)
+  .get("/get-users",isAdmin, getUsers)
   .patch("/update-user-name", updateUserName)
   .delete("/delete-user", deleteUser)
   .patch('/update-user-type',updateUserType)
