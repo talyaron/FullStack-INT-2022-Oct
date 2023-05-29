@@ -1,0 +1,39 @@
+.post{
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+&__image{
+    
+    width: 25%;
+    height: 50%;
+    object-fit: contain;
+}
+
+&__text{
+    font-weight: normal;
+    color: gray;
+    padding: 10px;
+    &__strong{
+        color: black;
+        font:bold 11px arial;
+        font-size: 1rem;
+    }
+}
+
+&__header{
+    display: flex;
+    align-items: center;
+padding: 10px;
+
+    &__avatar{
+margin-right: 10px;
+    }
+
+
+}
+
+
+
+}
