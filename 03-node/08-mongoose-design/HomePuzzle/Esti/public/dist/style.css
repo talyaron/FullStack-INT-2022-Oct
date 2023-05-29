@@ -26,7 +26,7 @@ body {
   float: left;
   list-style: none;
   font-family: Tahoma;
-  margin-left: 50px;
+  margin-left: 140px;
 }
 .header__nav__li__a {
   border: 1px solid #21618C;
@@ -52,7 +52,7 @@ a:hover {
   margin-left: 10%;
 }
 
-button, input {
+button, input, .selected {
   color: #21618C;
   font-size: 40px;
   text-align: center;
@@ -68,7 +68,11 @@ button {
   width: 145px;
 }
 
-input {
+input, option {
   color: #21618C;
   border: 2px solid #21618C;
+}
+
+.inputTeacherStuedent {
+  color: #21618C;
 }

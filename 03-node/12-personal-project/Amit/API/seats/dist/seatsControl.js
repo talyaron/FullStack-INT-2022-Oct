@@ -76,6 +76,8 @@ exports.pickOneSeat = function (req, res) { return __awaiter(void 0, void 0, voi
                 movieSeat = _b.sent();
                 if (!movieSeat)
                     throw new Error("movie seat DB not found");
+                if (movieSeat.seatStatus === "taken")
+                    throw new Error("this seat is taken");
                 if (movieSeat.seatStatus === "free") {
                     movieSeat.seatStatus = "picked";
                 }

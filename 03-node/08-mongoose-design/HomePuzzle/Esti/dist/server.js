@@ -19,7 +19,7 @@ else {
     console.log("no founded uri MongoDB");
 }
 var app = express_1["default"]();
-var PORT = 3002;
+var PORT = 3000;
 app.use(express_1["default"].json());
 app.use(express_1["default"].static('./public'));
 app.use('/api/courses', coursesRoute_1["default"]);

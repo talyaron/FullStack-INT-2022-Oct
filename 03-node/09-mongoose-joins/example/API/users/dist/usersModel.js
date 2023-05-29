@@ -1,14 +1,14 @@
 "use strict";
 exports.__esModule = true;
-exports.UserSchema = exports.UserType = void 0;
+exports.UserSchema = void 0;
 var mongoose_1 = require("mongoose");
-//typescript
-var UserType;
-(function (UserType) {
-    UserType["STUDENT"] = "student";
-    UserType["TEACHER"] = "teacher";
-    UserType["ADMIN"] = "admin";
-})(UserType = exports.UserType || (exports.UserType = {}));
+UserType;
+{
+    STUDENT = "student",
+        TEACHER = "teacher",
+        ADMIN = "admin",
+    ;
+}
 exports.UserSchema = new mongoose_1.Schema({
     name: String,
     src: String,
