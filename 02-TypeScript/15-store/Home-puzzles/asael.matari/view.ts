@@ -4,3 +4,4 @@ img?.addEventListener("click",()=>{
     if(input)
     input.type= input.type==="password"?"text":"password"
 })
+const container:any=document.querySelector(".container")
