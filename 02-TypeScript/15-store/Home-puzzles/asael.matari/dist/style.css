@@ -8,14 +8,14 @@ h1 {
   color: black;
 }
 
-.form {
+form {
   display: flex;
   flex-direction: column;
   gap: 10px;
   justify-content: center;
   align-items: center;
 }
-.form div {
+form .passwordContainer {
   width: 177px;
   height: 21px;
   display: flex;
@@ -23,12 +23,12 @@ h1 {
   justify-content: space-between;
   border-radius: 10px solid black;
 }
-.form div #input {
+form .passwordContainer #input {
   border-radius: 0;
   outline: 0;
   width: 90%;
 }
-.form div img {
+form .passwordContainer img {
   width: 10%;
   cursor: pointer;
 }

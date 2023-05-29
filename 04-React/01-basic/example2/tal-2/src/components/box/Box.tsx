@@ -6,6 +6,7 @@ interface BoxProps {
 
 const Box: FC<BoxProps> = ({ text }) => {
   const [counter, setCounter] = useState(0);
+
   function handleClick() {
     setCounter((counter) => counter + 1);
   }
