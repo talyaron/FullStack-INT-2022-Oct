@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road of Glory - Admin Page</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <link rel="stylesheet" href="../style/dist/style.css">
+        <link rel="stylesheet" href="../style/dist/admin.css">
+    <script src="../src/dist/admin.js" defer></script>
+</head>
+
+<body onload="onLoad()">
+    <section class="container">
+        <button id="btnBackHome" onclick="handleClickBack()">
+            <i class="fa-solid fa-left-long"></i>
+            <span>Go Back</span>
+        </button>
+        <header class="container__header">
+            <div class="container__header__container-title">
+                <h3 class="container__header__title">Hello <span id="nameAdminFill">Admin</span></h3>
+                <p class="container__header__subtitle">Welcome to your Admin DashBoard</p>
+            </div>
+            <nav class="container__header__nav">
+                <ul class="container__header__navbar">
+                    <li class="container__header__list">
+                        <button onclick="handleClickCreateTowerBtn()">
+                            Create tower
+                        </button>
+                    </li>
+                    <li class="container__header__list">
+                        <button onclick="handleClickCreateEnemyBtn()">
+                            Create Enemy
+                        </button>
+                    </li>
+                    <li class="container__header__list">
+                        <button onclick="handleClickCreateUserBtn()">
+                            Create User
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main class="container__main">
+            <div class="container__main__container-top">
+                <div class="container__main__container-top__box">
+                    <div class="container__main__container-top__box__icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="container__main__container-top__box__stats">
+                        <p>Registered users</p>
+                        <h1 id="registeredUserFill">
+                            <img src="../images/buttons/loading.png" alt="" id="loadingIcon">
+                        </h1>
+                    </div>
+
+                </div>
+                <div class="container__main__container-top__box">
+                    <div class="container__main__container-top__box__icon">
+                        <i class="fa-solid fa-gamepad"></i>
+                    </div>
+                    <div class="container__main__container-top__box__stats">
+                        <p>Total games played</p>
+                        <h1 id="totalGamesPlayedFill">
+                            <img src="../images/buttons/loading.png" alt="" id="loadingIcon">
+                        </h1>
+                    </div>
+
+                </div>
+                <div class="container__main__container-top__box">
+                    <div class="container__main__container-top__box__icon">
+                        <i class="fa-solid fa-code-commit"></i>
+                    </div>
+                    <div class="container__main__container-top__box__stats">
+                        <p>VERSION (BETA)</p>
+                        <h1 id="versionFill">1</h1>
+                    </div>
+
+                </div>
+            </div>
+
+            
+            <div class="container__main__container-middle">
+                <!-- // Collapse Div By Click -->
+                    <div id="collapseFormRoot" class="collapse-container">
+
+
+                    </div>
+
+                <ul class="container__main__container-middle__userList">
+                    <h1>users lists</h1>
+                    <div id="rootUsersDetail"> 
+                        <img src="../images/buttons/loading.png" alt="" id="loadingIcon">
+                    </div>
+                </ul>
+
+                <ul class="container__main__container-middle__enemyList">
+                    <h1>enemy list</h1>
+                    <div id="rootEnemiesDetail"> 
+                        <img src="../images/buttons/loading.png" alt="" id="loadingIcon">
+                    </div>
+                </ul>
+
+
+                <ul class="container__main__container-middle__towerList">
+                    <h1>tower list</h1>
+                    <div id="rootTowersDetail"> 
+                        <img src="../images/buttons/loading.png" alt="" id="loadingIcon">
+                    </div>
+                </ul>
+                
+            </div>
+
+
+            </div>
+
+        </main>
+    </section>
+</body>
+
+</html>

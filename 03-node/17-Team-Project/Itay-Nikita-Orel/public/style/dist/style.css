@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Martian+Mono:wght@200;400;700&display=swap");
+body {
+  cursor: url("../../images/mouseIcon/normal.cur"), auto;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(180deg, rgba(7, 21, 10, 0) 0%, #07150a 100%), url("../../images/background1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #07150A;
+}
+
+:root {
+  --black: black;
+  --background-color:green;
+}
+
+* {
+  font-family: "Martian Mono", monospace;
+}

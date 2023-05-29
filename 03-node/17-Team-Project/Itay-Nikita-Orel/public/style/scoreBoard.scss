@@ -1,0 +1,146 @@
+:root {
+  --mousePointer : url("../../images/mouseIcon/altlink.cur") , pointer;
+}
+
+body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+}
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: white;
+}
+.titel{
+  text-align: center;
+  font-size: 3rem;
+  color: white;
+  background-color: #68c42e9a;
+  border: 1px solid white;
+  border-radius: 15px; 
+}
+
+.leaderboard {
+
+overflow-y: scroll;
+  min-height: 375px;
+  position: relative;
+  background: linear-gradient(45deg, #83c859af, #697a5e);
+  width: 35%;
+  height: 60%;
+  padding: 16px 24px;
+  box-shadow: 0 0 8px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  &::-webkit-scrollbar{
+    width: 10px;
+  }
+}
+.leaderboard .person {
+
+  list-style: none;
+  background-color: #2d3e50;
+  padding: 0 0 0 15%;
+  width: 85%;
+  margin-bottom: 2%;
+  position: relative;
+  border-radius: 10px;
+}
+.leaderboard .person .icon    {
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  position: absolute; 
+  overflow: hidden;
+  top:50%;
+  transform: translateY(-50%);
+  border: 8px solid  #2d3e50;
+  height: 95px;
+  width: 95px;
+  left:-15px;
+  background: #fff8dc;
+  margin: 0;
+border-radius: 50%;
+
+img{
+  box-sizing: border-box;
+
+  border: 1px solid white;
+object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+
+}
+.leaderboard .person .nickname {
+  margin: 0;
+  padding: 5px;
+  width: 100px;
+  font-size: 2rem;
+  line-height: 200%;
+  text-transform: capitalize;
+  color: #fff;
+  height: 100%;
+  // margin-left: 20%;
+}
+.leaderboard .person .score {
+  margin: 0;
+  display: grid;
+  place-items: center;
+  padding:0 5px;
+  position: absolute;
+  top: 0;
+  right: -15px;
+  font-size: 2em;
+  line-height: 150%;
+  height: 100%;
+  background: #dc3546;
+  color: #fff;
+  min-width: 3em;
+  border-radius: 0 25px 25px 0;
+  text-align: center;
+  z-index: 10;
+
+}
+.fa {
+  color: #dc3546;
+  cursor: var(--mousePointer);
+}
+.playericons {
+  width: 100%;
+  height: 100%;
+}
+
+#btn-home {
+  border: 2px solid #67c42e;
+  overflow: hidden;
+  cursor: var(--mousePointer);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  &:hover {
+    scale: 1.1;
+  }
+  &:active {
+    scale: 0.98;
+  }
+  img {
+    width: 80px;
+    object-fit: cover;
+  }
+}
