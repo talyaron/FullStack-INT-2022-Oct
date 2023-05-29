@@ -1,0 +1,371 @@
+:root {
+    --mousePointer : url("../../images/mouseIcon/altlink.cur") , pointer;
+  }
+
+html {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+  
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+.gameTitle {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 70px;
+    font-family:'Times New Roman', Times, serif;
+    color: white;
+    margin: 0;
+}
+
+a{
+    cursor: var(--mousePointer);
+}
+
+.mainContainer{
+    position:relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    width: auto;
+    height: auto;
+
+    .menuContainer{
+        display: none;
+        position: absolute;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        flex-direction: column;
+        background-image: url("../../images/UI/menuUi.png");
+        background-size:cover;
+
+        .menuDetails{
+            padding: -30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.426);
+
+            .resolutionContainer{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .submitBtnContainer{
+                padding:  10px;
+                position: relative;
+                display: flex;
+                text-align: center;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                z-index: 1;
+    
+                img {
+                    width: 150px;
+    
+                }
+    
+                h1 {
+        
+                    pointer-events: none;
+                    bottom: 14px;
+                    padding: auto;
+                    text-align: center;
+                    position: absolute;
+                    top: 15px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    color: white;
+                }
+        }
+        }
+    }
+
+    .towersOptionsContainer{
+        position: absolute;
+        background-color: #A0654D;
+        bottom: auto;
+        // right: auto;
+        left: -220px;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 4px 4px 4px;
+        border-radius: 20px 4px 20px 4px;
+        border: 1px solid black;
+        flex-direction: column;
+
+        h1 {
+            margin: 0;
+            color: white;
+            font-size: 20px;
+            border-bottom: 1px solid white;
+            margin-bottom: 4px;
+        }
+
+        .towers{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 30px;
+            
+            .tower{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 20px;
+                padding: 4px;
+                border-bottom: 1px solid rgb(184, 184, 184);
+                
+                .towerAttributes{
+                    p {
+                        margin: 0;
+                        padding-left: 4px;
+                        color: white;
+                    }
+                }
+                
+                img {
+                    width: 20%;
+                }
+
+            }
+
+            .tower:hover{
+                scale: 1.1;
+                background-color: rgb(184, 184, 184);
+            }
+        }
+    }
+
+    #bgImage{
+        position: absolute;
+        border-radius: 20px;
+        z-index: -1;
+    }
+
+    #replayBtn{
+        display: none;
+    }
+
+    #playerHealth{
+        position: absolute;
+        display: none;
+        align-items: center;
+        justify-content: flex-start;
+        top: 4px;
+        left: 8px;
+        width: 24px;
+        height: 24px;
+
+        img {
+            width: 32px;
+            height: 32px;
+        }
+    }
+    #playerCoinsBag{
+        position: absolute;
+        display: none;
+        align-items: center;
+        justify-content: flex-end;
+        top: 4px;
+        right: 8px;
+        width: auto;
+        height: 32px;
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #FCF1B2;
+            -webkit-text-stroke: 1px #D05322;
+        }
+
+        img {
+            width: 40px;
+            height: 40px;
+        }
+    }
+    #playerScore{
+        position: absolute;
+        display: none;
+        align-items: center;
+        justify-content: flex-start;
+        bottom: 4px;
+        left: 8px;
+        width: 56px;
+        height: 32px;
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #D05322;
+            -webkit-text-stroke: 1px #FCF1B2;
+        }
+
+    }
+    #wave{
+        position: absolute;
+        display: none;
+        align-items: center;
+        justify-content: flex-start;
+        bottom: 40px;
+        left: 8px;
+        height: 32px;
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #D05322;
+            -webkit-text-stroke: 1px #FCF1B2;
+        }
+
+    }
+    .uiIconsContainer{
+        position: absolute;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        bottom: 10px;
+        right: 10px;
+        gap: 10px;
+        z-index: 1;
+
+        .uiIcons {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 75px;
+            height: 75px;
+
+
+            .icon {
+                position: absolute;
+                color: white;
+            }
+
+            img {
+                border-radius: 20px;
+                width: 75px;
+                height: 75px;
+            }
+        }
+    }
+    
+    .overlayText {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        margin: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 20px;
+
+    }
+
+    #gameOver {
+        font-size: 100px;
+    }
+    #scene {
+        position: relative;
+        width: 1260px;
+        height: 720px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 20px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 20px;
+
+        #sceneTitle{
+            margin-bottom: 0;
+            border-bottom: 3px solid white;
+        }
+
+        p{
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+    }
+
+
+    canvas{
+        border-radius: 20px;
+        box-shadow: 10px ;
+    }
+
+
+    .playBtnContainer{
+            position: absolute;
+            bottom: 6px;
+            padding:  10px;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            z-index: 1;
+
+            img {
+                width: 150px;
+
+            }
+
+            h1 {
+    
+                pointer-events: none;
+                bottom: 14px;
+                font-size: 1.1rem;
+                text-align: center;
+                position: absolute;
+                top: 15px;
+                left: 50%;
+                transform: translateX(-50%);
+                color: white;
+            }
+    }
+
+}
+
+.navIcon:hover {
+    scale: 1.1;
+}
+.navIcon:active {
+    scale: 0.98;
+}
+
+// @media screen and (max-width: 1920px) and (max-height: 1080px) {
+//     body {
+//        zoom:60%   
+//        // or simply zoom: 50%
+//     }
+//  }

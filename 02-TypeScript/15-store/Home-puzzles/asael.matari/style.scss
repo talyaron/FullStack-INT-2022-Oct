@@ -6,13 +6,13 @@ h1{
     margin-top: 20vh;
     color: black;
 }
-.form{
+form{
     display: flex;
     flex-direction: column;
     gap: 10px;
     justify-content: center;
     align-items: center;
-    div{
+    .passwordContainer{
         width: 177px;
         height: 21px;
         display: flex;
@@ -24,12 +24,11 @@ h1{
         border-radius: 0;
         outline: 0;
         width: 90%;
-
         }
+        
         img{
             width: 10%;
             cursor: pointer;
         }
-
     }
 }

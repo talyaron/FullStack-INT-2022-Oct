@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../style/dist/style.css">
+    <link rel="stylesheet" href="../style/dist/index.css">
+    <link rel="stylesheet" href="../style/dist/navBarIcons.css">
+    <script src="../src/dist/index.js"></script>
+    <title>Road of Glory - Home</title>
+</head>
+<body onload="renderComponentsByRole()">
+    <div class="navBar">
+        <div id="navigationTabs" class="navIconsContainer leftNavIconsContainer">
+            <div class="scoreboardBtnContainer navIcon">
+                <h1>Scoreboard</h1>
+                <a href="./scoreBoard.html"><img id="scoreboardBtn" src="../images/buttons/20.png"></a>
+            </div>
+
+        </div>
+        <div class="navIconsContainer rightNavIconsContainer">
+            <div class="aboutUsBtnContainer navIcon">
+                <h1>About Us</h1>
+                <a href="./about.html"><img id="aboutUsBtn" src="../images/buttons/20.png"></a>
+            </div>
+
+        </div>
+    </div>
+    <div class="mainContainer">
+        <h1 class="gameTitle">Road Of Glory</h1>
+        <div class="playBtnContainer navIcon">
+            <a onclick="handleClickPlayBtn()">
+                <h1>Play!</h1>
+                <img id="playBtn" src="../images/buttons/20.png" alt="" srcset="">
+            </a>
+        </div>
+        <div class="storyContainer">
+            <div class="story">
+                <p>Once upon a time, there was a magical kingdom ruled by a wise king and queen. The kingdom was prosperous, and its people lived in peace and harmony. However, one day, a dark sorcerer named Zoltar came and attacked the kingdom with his army of monsters. The king and queen were taken by surprise, and their army was outnumbered and outmatched. The only hope for the kingdom was a brave knight named Sir Galahad, who was known for his bravery and cunning.</p>
+
+                <p>
+                    <br>Sir Galahad knew that the only way to defeat Zoltar's army was to build a tower defense system that could withstand the enemy's attacks. He quickly got to work, and with the help of the kingdom's engineers, he designed a system of walls, towers, and traps that could defend the kingdom's borders. They called it the "Road of Glory."
+                </p>
+
+
+                <p><br>The Road of Glory was a long and winding path that led from the kingdom's borders to the castle. The path was narrow, and the terrain was rough, which made it difficult for Zoltar's army to advance. Sir Galahad and his team built towers along the path that could shoot arrows and throw stones at the enemy. They also built traps that could slow down the enemy's advance, giving the archers more time to attack.</p>
+
+
+                <p><br>As Zoltar's army approached, the Road of Glory was put to the test. The first wave of monsters was easily repelled by the archers and traps. However, the second wave was stronger and more determined. They broke through the first line of defenses and started to advance towards the castle.</p>
+
+
+                <p><br>Your Story begins here!</p>
+
+        </div>
+            <audio id="player" volume="0.2" controls Autoplay loop>
+                <source src="../audio/Gruber - Merciful.mp3" type="audio/mp3">
+            </audio>
+        </div>
+    </div>
+    <footer>
+        <h1>Credits</h1>
+        <div class="creditsDiv">
+          <div>
+            <p>Background</p>
+            <p>Thanks to pngtree</p>
+            <a href="https://pngtree.com/freebackground/cartoon-game-cg-forest-landscape-scene-background_2448070.html">Background</a>
+          </div>
+          <div>
+            <p>Tileset</p>
+            <p>Thanks to Cypor</p>
+            <a href="https://cypor.itch.io/12x12-rpg-tileset">RPG-Tileset</a>
+          </div>
+          <div>
+            <p>Towers</p>
+            <p>Thanks to Foozle</p>
+            <a href="https://foozlecc.itch.io/">Towers</a>
+          </div>
+          <div>
+            <p>Enemies</p>
+            <p>Thanks to craftpix</p>
+            <a href="https://craftpix.net/freebies/free-golems-chibi-2d-game-sprites/">Golems</a>
+            <a href="https://craftpix.net/freebies/free-fallen-angel-chibi-2d-game-sprites/">Fallen Angels</a>
+          </div>
+        </div>
+    </footer>
+</body>
+</html>
