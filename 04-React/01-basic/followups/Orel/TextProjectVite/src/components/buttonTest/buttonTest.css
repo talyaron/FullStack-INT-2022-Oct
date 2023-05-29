@@ -1,0 +1,12 @@
+button {
+
+    background-color: aqua;
+    font-size: 1.4rem;
+    padding: 16px 20px ;
+    cursor: pointer;
+    
+}
+
+button:hover {
+    scale: 1.1;
+}
