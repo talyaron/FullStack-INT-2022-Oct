@@ -1,7 +1,7 @@
 const myBox: HTMLElement|null = document.querySelector("#myBox");
 if (myBox) {
   myBox.addEventListener("click", (event) => {
-    console.log(event);
+    // console.log(event);
   });
 
   myBox.addEventListener("mousemove", (event) => {
@@ -11,7 +11,7 @@ if (myBox) {
 
 const boxes: any = document.querySelectorAll(".box, .box2");
 
-// console.dir(boxes);
+console.dir(boxes);
 
 boxes.forEach((box) => {
   box.addEventListener("mousemove", (event) => {

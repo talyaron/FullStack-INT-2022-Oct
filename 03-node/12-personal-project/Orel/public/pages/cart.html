@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+    <!-- Link Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link css -->
+    <link rel="stylesheet" href="./dist/cart.css">
+    <script src="./dist/cart.js" defer></script>
+    <title>MY cart__details-container</title>
+</head>
+<body onload="getCartDetails()"> 
+    <div class="cart" id="cart">
+        <span id="goBackFromCart"> <a href="/products"><i class="fa-solid fa-arrow-left-long"></i></a></i></span>
+        <h1 class="cart__title">CART</h1>
+        <div class="cart__details-container">
+            <h2 class="cart__details-container__title">Your Shoes</h2>
+            <ul class="cart__details-container__lists">
+
+   
+            </ul>
+            <h2>TOTAL:<span class="sumPriceResult">455</span>$</h2>
+        </div>
+        <div class="cart__payment-container">
+            <h2 class="cart__payment-container__title">Pay Now</h2>
+                <h3>TOTAL:<span class="sumPriceResult">455</span>$</h3>
+                <img width="150px" src="../images/buynow.png" alt="butNow">
+        </div>
+    </div>
+</body>
+</html>

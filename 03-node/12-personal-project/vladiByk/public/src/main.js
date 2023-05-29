@@ -35,10 +35,7 @@ if (window.location.pathname.endsWith("/main")) {
         const boards = yield getUserBoards(currentUser.id);
         renderBoardsToMain(boards);
     }));
-    createBoardWindowBtn.addEventListener("click", () => {
-        newBoardWindow.style.display = "flex";
-        newBoardName.focus();
-    });
+    createBoardWindowBtn.addEventListener("click", () => (newBoardWindow.style.display = "flex"));
     cancelCreateBoardBtn.addEventListener("click", () => (newBoardWindow.style.display = "none"));
     boardImageBtn.addEventListener("click", () => {
         backgroundImageSelectionDiv.style.display = "grid";
@@ -65,19 +62,13 @@ if (window.location.pathname.endsWith("/main")) {
         }
     }));
     boardArea.addEventListener("click", (e) => __awaiter(void 0, void 0, void 0, function* () {
-        var _a, _b;
         const target = e.target;
         if (target.dataset.name) {
             const check = confirm("Are you sure you want to delete?");
             if (check) {
                 yield Board.deleteBoard(target.dataset.name);
-                const boardName = (_b = (_a = target.parentElement) === null || _a === void 0 ? void 0 : _a.firstElementChild) === null || _b === void 0 ? void 0 : _b.innerHTML;
-                if (target.parentElement)
-                    target.parentElement.remove();
-                const message = `"${boardName}" was deleted.`;
-                yield createNotification(message, currentUser.id);
-                // const boards = await getUserBoards(currentUser.id);
-                // renderBoardsToMain(boards);
+                const boards = yield getUserBoards(currentUser.id);
+                renderBoardsToMain(boards);
             }
         }
         if (target.classList.contains("boardClick")) {
@@ -156,22 +147,14 @@ if (window.location.pathname.endsWith("/board")) {
         }
     });
     trashCan.addEventListener("drop", () => __awaiter(void 0, void 0, void 0, function* () {
-        var _c;
         const confirmDelete = confirm("Are you sure you want to delete?");
         if (confirmDelete) {
             const element = document.querySelector(".isDragging");
-            const listName = (_c = element.querySelector("h2")) === null || _c === void 0 ? void 0 : _c.innerHTML;
+            const listId = element.id;
             element.remove();
-            if (element.classList.contains("boardContainer__main__list")) {
-                const listId = element.id;
-                const boardName = currentBoard.name;
-                const userId = currentUser.id;
-                yield fetch(`${listsAPI}/${listId}`, {
-                    method: "DELETE",
-                }).catch((error) => console.error(error));
-                const message = `"${listName}" deleted at board #${boardName}#`;
-                yield createNotification(message, userId);
-            }
+            yield fetch(`${listsAPI}/${listId}`, {
+                method: "DELETE",
+            }).catch((error) => console.error(error));
             currentBoard.update();
         }
     }));

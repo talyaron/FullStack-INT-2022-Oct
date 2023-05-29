@@ -4,35 +4,40 @@
 
 // 1. create a function that gets a video object and returns the price in shekels
 
-const whthp: Function = (obj: movie): number | false => {
+const whthp: Function = (obj: Movie): number | false => {
   try {
     if (!obj) throw Error("what the name of the movie");
-    console.log(obj.price);
-    console.log(`THE PRICE OF THE MOVIE ${obj.name} is ${obj.price}`);
+    console.log(`THE PRICE OF THE MOVIE ${obj.name} is ${obj.price} dollars`);
 
-    return obj.price;
+    return obj.price * 3.53;
   } catch (error) {
     console.error(error);
     return false;
   }
-};
-interface movie {
+}
+interface Movie {
   name: string;
   price: number;
   whoRented: string;
 }
-interface person {
+interface Person {
   name: string;
   whatRented: string;
 }
-const asael: person = { name: "asael", whatRented: "bambi" };
-const bambi: movie = { name: "bambi", price: 180, whoRented: asael.name };
+const users: Person[] = [
+  { name: "asael", whatRented: "bambi" },
+  { name: "lea", whatRented: "lord of the rings" }
+];
+const movies: Movie[] = [
+  { name: "bambi", price: 180, whoRented: "asael" },
+  { name: "lord of the rings", price: 200, whoRented: "" }
+];
 // whthp(bambi)
 
 // 2. create a function that gets a video and a person and returns the object of the video, with reference to the
 // person that took it.
 
-const moviERent: Function = (user: person, movie: movie): string | false => {
+const moviERent: Function = (user: Person, movie: Movie): string | false => {
   try {
     movie.whoRented = user.name;
     console.log(
@@ -47,8 +52,5 @@ const moviERent: Function = (user: person, movie: movie): string | false => {
 };
 // moviERent(asael, bambi);
 
-
-
 // 3. Blockbuster was busted. You are now a developer at Netflix. Think of a way to let a user to have many videos.
 //  And the video has a list of all the people that viewed it.
-

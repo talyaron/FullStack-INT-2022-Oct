@@ -95,6 +95,7 @@ export const updateUser = (req:any, res:any) => {
 
   export const updateUserType = async (req:any, res:any) => {
     try {
+      const user = req.user;
       const { userId, userType } = req.body;
   
       const userDB = await UserModel.findOneAndUpdate({_id:userId},{userType})
@@ -109,13 +110,11 @@ export const updateUser = (req:any, res:any) => {
 
   export const getUser = async (req:any, res:any)=>{
     try {
-      const {user} = req.cookies;
-     console.log(user)
-  
-      const userDB = await UserModel.findById(user)
+     
+  const user = req.user;
     
   
-      res.send({ ok: true,user:userDB });
+      res.send({ ok: true,user });
     } catch (error: any) {
       console.error(error);
       res.status(500).send({ error: error.message });

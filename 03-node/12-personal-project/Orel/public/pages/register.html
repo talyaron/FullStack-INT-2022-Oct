@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Link Google Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+        <!-- Link Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- Link css -->
+        <link rel="stylesheet" href="./dist/register.css">
+        <!-- link Js -->
+        <script src="./dist/register.js" defer></script>
+        <!-- Title -->
+    <title>ShoesHot:Login-Page</title>
+</head>
+<body>
+
+        <section class="login-container">
+
+       <h1>Create Account And Join To Out Family</h1>
+            <a class="login-container__logo"  href="/">ShoesHot </a>
+         
+                <form class="login-container__form" action="/login" method="post" onsubmit="handleSubmitRegister(event)">
+       
+                    <input type="text" placeholder="Enter Your Full Name" name="name">
+                    <input type="email" placeholder="Enter Your Email"  name="email">
+                        <input type="password" placeholder="Enter Your Password"  name="password">
+                        <input type="password" placeholder="confirm Password"  name="confirmPassword">
+                        <div id="InvalidMessageRoot" >Error</div>
+                        <button type="submit">REGISTER</button>
+                </form>
+                <footer class="login-container__footer">
+                    <span>you have member?</span>
+                    <span>
+                        <a href="/login">Login here</a>
+                    </span>
+                </footer>
+        </section>
+        
+
+</body>
+</html>

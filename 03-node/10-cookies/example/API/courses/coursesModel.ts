@@ -1,16 +1,15 @@
 import mongoose, { Schema } from "mongoose";
-import { TeacherSchema } from "../teachers/teachersModel";
 import { UserSchema } from "../users/usersModel";
 //schema
 
-export interface Course {
+export interface ICourse {
   // public uid: string = uuid();
   name: string;
 }
 
 export const CourseSchema = new Schema({
   name: String,
-  teacher:UserSchema,
+  teacher: UserSchema,
 });
 
 export const CourseStudentSchema = new Schema({

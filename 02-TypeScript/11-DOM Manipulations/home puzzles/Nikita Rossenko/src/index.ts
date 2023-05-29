@@ -65,4 +65,4 @@ function addProductsToDOM(arr:Array<product>){
     }
 }
 
-addProductsToDOM(products);
+// addProductsToDOM(products);

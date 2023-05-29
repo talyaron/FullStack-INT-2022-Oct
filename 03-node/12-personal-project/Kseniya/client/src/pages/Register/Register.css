@@ -1,0 +1,12 @@
+.registerWrapper{
+    text-align: center;
+    justify-content: center;
+}
+
+.singleField{
+    padding: 1rem 0 0 0; 
+}
+
+.registerButton{
+    padding: 2rem 0 0 0;
+}
