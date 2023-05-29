@@ -1,6 +1,7 @@
 "use strict";
 exports.__esModule = true;
 var express_1 = require("express");
+var userMiddlware_1 = require("./API/users/userMiddlware");
 var app = express_1["default"]();
 var mongoose_1 = require("mongoose");
 var dotenv = require("dotenv"); // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
@@ -9,6 +10,7 @@ var cookie_parser_1 = require("cookie-parser");
 var uri = process.env.MONGODB_URI;
 //to be able to get data from client add this line
 app.use(cookie_parser_1["default"]());
+app.use(userMiddlware_1.userDetails);
 if (uri) {
     mongoose_1["default"]
         .connect(uri)

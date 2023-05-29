@@ -1,4 +1,4 @@
-//delayed function, async
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,58 +35,60 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var _a;
-//callback
-(_a = document.querySelector("#root")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", cb);
-function cb(ev) {
-    console.log("clicked!");
-}
-//promise
-fetch("https://dog.ceo/api/breeds/image/random")
-    .then(function (responce) {
-    console.log(responce);
-    return responce.json();
-})
-    .then(function (data) { return console.log(data); });
-//async await
-function getDog(url) {
-    return __awaiter(this, void 0, Promise, function () {
-        var responce, data, error_1;
+exports.__esModule = true;
+exports.userDetails = exports.isAdmin = void 0;
+var usersModel_1 = require("./usersModel");
+var usersModel_2 = require("./usersModel");
+function isAdmin(req, res, next) {
+    return __awaiter(this, void 0, void 0, function () {
+        var user, userDB, userType, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    _a.trys.push([0, 3, , 4]);
-                    return [4 /*yield*/, fetch(url)];
+                    _a.trys.push([0, 2, , 3]);
+                    user = req.cookies.user;
+                    return [4 /*yield*/, usersModel_1["default"].findById(user)];
                 case 1:
-                    responce = _a.sent();
-                    return [4 /*yield*/, responce.json()];
+                    userDB = _a.sent();
+                    userType = userDB.userType;
+                    if (userType !== usersModel_2.UserType.ADMIN) {
+                        throw new Error("user is not allowed");
+                    }
+                    next();
+                    return [3 /*break*/, 3];
                 case 2:
-                    data = _a.sent();
-                    console.log(data);
-                    return [2 /*return*/, data];
-                case 3:
                     error_1 = _a.sent();
-                    return [2 /*return*/, undefined];
-                case 4: return [2 /*return*/];
+                    console.error(error_1);
+                    res.status(401).send({ error: error_1.message });
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
             }
         });
     });
 }
-function get2() {
+exports.isAdmin = isAdmin;
+function userDetails(req, res, next) {
     return __awaiter(this, void 0, void 0, function () {
-        var _a, data1, data2;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0: return [4 /*yield*/, Promise.all([
-                        getDog("https://dog.ceo/api/breed/Affenpinscher/images/random"),
-                        getDog("https://dog.ceo/api/breeds/image/random"),
-                    ])];
+        var user, userDB, error_2;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 2, , 3]);
+                    user = req.cookies.user;
+                    return [4 /*yield*/, usersModel_1["default"].findById(user)];
                 case 1:
-                    _a = _b.sent(), data1 = _a[0], data2 = _a[1];
-                    console.log(data1, data2);
-                    return [2 /*return*/];
+                    userDB = _a.sent();
+                    req.user = userDB;
+                    next();
+                    return [3 /*break*/, 3];
+                case 2:
+                    error_2 = _a.sent();
+                    console.error(error_2);
+                    res.status(401).send({ error: error_2.message });
+                    return [3 /*break*/, 3];
+                case 3: return [2 /*return*/];
             }
         });
     });
 }
-get2();
+exports.userDetails = userDetails;

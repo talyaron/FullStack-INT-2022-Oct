@@ -11,7 +11,7 @@
 
 # Level 2
 
-1. Crate a function that gets to numbers and returns the larger of the two
+1. Crate a function that gets two numbers and returns the larger of the two
 
 2. Create a function that gets the gender of the user and height of the user.
    The function returns the height of the user relative to his gender. For example, the user's height is 170cm, and the gender is male.
