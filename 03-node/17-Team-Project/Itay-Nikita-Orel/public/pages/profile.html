@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Road of Glory - Profile</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="../style/dist/profile.css" />
+    <link rel="stylesheet" href="../style/dist/navBarIcons.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="../src/dist/profile.js" defer></script>
+  </head>
+  <body onload="handleGetUser()">
+    <div class="navBar">
+      <div class="navIconsContainer">
+        <div class="homeBtnContainer navIcon">
+          <h1>Home</h1>
+          <a href="/"><img id="homeBtn" src="../images/buttons/20.png" /></a>
+        </div>
+      </div>
+    </div>
+    <div class="collapseContainerChooseProfileImage"></div>
+
+    <div class="card">
+      <p>Double click on the image to change!</פ>
+      <div class="profile-image" ondblclick="handleClickChangeIcon()">
+        <img src="" alt="" />
+      </div>
+      <div id="cardRoot" class="card-content"></div>
+      <div class="icons">
+        <a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
+        <a href="https://www.youtube.com/" class="fab fa-youtube"></a>
+        <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
+        <a href="https://twitter.com/" class="fab fa-twitter"></a>
+        <a href="https://www.whatsapp.com/" class="fab fa-whatsapp"></a>
+      </div>
+    </div>
+  </body>
+</html>

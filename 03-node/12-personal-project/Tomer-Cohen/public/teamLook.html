@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>teamLook</title>
+    <link rel="stylesheet" href="./dist/teamLookstyle.css" />
+    <script src="./dist/teamLook.js"></script>
+  </head>
+  <body onload="handleGetPlayers()">
+    <div class="football-field">
+      <div id="game">TEAMS FOR THE NEXT GAME</div>
+      <div class="border-line">
+        <div class="goal-line1"></div>
+        <div class="circle"></div>
+        <div class="midline"></div>
+        <div id="team-container">
+          <div id="team1" class="team">
+            <h2>Team 1</h2>
+            <div id="team1-positions" class="positions"></div>
+          </div>
+          <div class="box">
+            <div class="shadow"></div>
+            <div class="gravity">
+              <div class="ball"></div>
+            </div>
+          </div>
+          <div id="team2" class="team">
+            <h2>Team 2</h2>
+            <div id="team2-positions" class="positions"></div>
+          </div>
+        </div>
+        <div class="goal-line2"></div>
+      </div>
+    </div>
+
+    <a href="./timeManger.html" class="soccer-ball-button">Manage Teams</a>
+</body>
+</html>
+

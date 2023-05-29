@@ -1,0 +1,71 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  background: url("https://images.pexels.com/photos/41257/pexels-photo-41257.jpeg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.title {
+  color: #333;
+  font-size: 28px;
+  margin: 20px 0;
+  text-align: center;
+  text-shadow: 1px 1px #fff;
+}
+.title.soccer-theme {
+  font-family: "Roboto", sans-serif;
+}
+
+.form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+.form .label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333;
+}
+.form .input-field, .form .select-field {
+  display: block;
+  width: 85%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 16px;
+}
+.form .input-field:focus, .form .select-field:focus {
+  outline: none;
+  border-color: #ff9800;
+}
+.form .button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  background-color: #ff9800;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.form .button:hover {
+  background-color: #cc7a00;
+}
+
+.link {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  color: #2196f3;
+  text-decoration: none;
+}
+.link:hover {
+  text-decoration: underline;
+}

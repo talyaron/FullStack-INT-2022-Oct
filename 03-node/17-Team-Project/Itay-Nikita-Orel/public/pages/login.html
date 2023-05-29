@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+    <!-- Link css file -->
+    <link rel="stylesheet" href="../style/dist/style.css">
+    <link rel="stylesheet" href="../style/dist/login.css">
+    <link rel="stylesheet" href="../style/dist/navBarIcons.css">
+
+    <!-- Link Js link -->
+    <script src="../src/dist/login.js" defer></script>
+
+    <title>Road of Glory - Login</title>
+</head>
+
+<body onload="onLoad()">
+    <div class="navBar">
+        <div class="navIconsContainer">
+            <div class="homeBtnContainer navIcon">
+                <h1>Home</h1>
+                <a href="/"><img id="homeBtn" src="../images/buttons/20.png"></a>
+            </div>
+        </div>
+      </div>
+    <div class="container">
+        <button id="btn-play-pause" onclick="handleClickMusicBtn()"> 
+                <img src="../images/playPauseBtn.png" alt="" class="active">
+         </button>
+        <div class="container__container-form">
+            <form class="container__form" onsubmit="handleLogin(event)">
+                <h2 class="container__form__title">
+                    Login
+                </h2>
+                <div class="container__form__group">
+                    <label for="userName">Username</label>
+                    <input required type="text" id="userName" name="userName">
+                </div>
+
+                <div class="container__form__group">
+                    <label for="password">Password</label>
+                    <input required type="password" id="password" name="password">
+                </div>
+
+
+                <button type="submit">LOGIN</button>
+            </form>
+            <div class="forgotPasswordContainer">
+                <p>Forgot your password?</p>
+                <a href="/restorePassword.html" id="clickHere">click here</a>
+                <p>to reset.</p>
+            </div>
+
+            <footer class="container__footer">
+                <h3>Are you not a member yet? </h3>
+                <a href="/register.html">REGISTER NOW</a>
+            </footer>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.membersContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    .member{
+        color: white;
+        width: 440px;
+        height: 820px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #34566B;
+        border-radius: 20px;
+        padding: 10px;
+
+        p {
+            height: 210px;
+        }
+        
+        
+        img{
+            width: 100%;
+            border-radius: 40px;
+            object-fit: cover;
+
+        }
+
+        .social{
+            img {
+                border-radius: 10px;
+                width: 30px;
+            }
+        }
+
+    }
+}

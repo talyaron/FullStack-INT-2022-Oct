@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/dist/style.css">
+    <link rel="stylesheet" href="../style/dist/game.css">
+    <link rel="stylesheet" href="../style/dist/navBarIcons.css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <script src="../src/game/dist/canvas.js" defer></script>
+    <script src="../src/game/dist/pathWaypoints.js" defer></script>
+    <script src="../src/game/dist/placementTowers.js" defer></script>
+    <script src="../src/game/dist/game.js" defer></script>
+    <title>Road of Glory - Game</title>
+</head>
+<body>
+    <div class="navBar">
+        <div class="navIconsContainer">
+            
+            <div class="scoreboardBtnContainer navIcon">
+                <h1>Scoreboard</h1>
+                <a href="./scoreBoard.html"><img id="scoreboardBtn" src="../images/buttons/20.png"></a>
+            </div>
+        </div>
+        <div class="navIconsContainer rightNavIconsContainer">
+            <div class="backBtnContainer navIcon">
+                <h1>Back</h1>
+                <a href="/"><img id="backBtn" src="../images/buttons/20.png"></a>
+            </div>
+        </div>
+    </div>
+    <h1 class="gameTitle">Road Of Glory</h1>
+    <div class="mainContainer">
+        <div class="menuContainer">
+            <div class="menuDetails">
+                <h1>Menu</h1>
+                <div class="resolutionContainer">
+                    <p>Resolution</p>
+                        <select name="resolution" id="resolution">
+                            <option value="1.5">1260x720</option>
+                            <option value="1">840x480</option>
+                        </select>
+                    </div>
+                    <div type="Submit" id="" class="submitBtnContainer navIcon">
+                        <h1 id="submitBtnH1">Submit</h1>
+                        <img id="submitBtn" src="../images/buttons/20.png">
+                    </div>
+                </div>
+        </div>
+        <div class="towersOptionsContainer">
+            <h1>Towers List</h1>
+            <div class="towers">
+            </div>
+        </div>
+        <div id="scene">
+            <h1 id="sceneTitle">Guide</h1>
+            <p>Welcome to Road of Glory, prepare for battle!<br><br>
+            Your mission is to build towers which will defend the village.<br><br>
+            <br>✦ You'll start with 100 coins.<br><br>
+            ✦ You'll have to choose the tower you want to place.<br><br>
+            ✦ You can build your tower only on marked spots on the grass (Small rectangles).<br><br>
+            ✦ For each killed monster you'll receive a random amount of coins.<br><br>
+            ✦ Reach a highest score and compare it with others.<br><br>
+            ✦ Each wave the monsters will be stronger and faster.<br><br>
+            <!-- ✦ Each wave the enemies will be stronger, upgrade your tower for 50 coins!<br><br> -->
+            ✦ Survive 20 waves!!<br><br>
+            ✦ You have only 5 hearts, DON'T LOSE THEM!</p>
+            <div onclick="game()" class="playBtnContainer navIcon">
+                <h1 id="playBtnH1">Start!</h1>
+                <img id="playBtn" src="../images/buttons/20.png">
+            </div>
+        </div>
+        <div id="playerHealth">
+        </div>
+        <div id="playerCoinsBag">
+            <h1 id="playerCoins">999</h1>
+            <img src="../images/icons/32x32 coin bag.png">
+        </div>
+        <div id="wave">
+            <h1 >Wave:</h1>
+            <h1 id="waveNumber">1</h1>
+        </div>
+        <div id="playerScore">
+            <h1 >Score:</h1>
+            <h1 id="scoreAmount">999</h1>
+        </div>
+        <div class="uiIconsContainer">
+        </div>
+        <h1 class="overlayText" id="gameOver">GAME OVER</h1>
+        <div onclick="game(replay=true)" id="replayBtn" class="playBtnContainer navIcon">
+            <h1 id="playBtnH1">Replay!</h1>
+            <img id="playBtn" src="../images/buttons/20.png">
+        </div>
+        <canvas></canvas>
+    </div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+:root {
+    --mousePointer : url("../../images/mouseIcon/altlink.cur") , pointer;
+  }
+
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-direction: column;
+}
+div h1 ,a{
+cursor: var(--mousePointer);
+}
+
+.container{
+    position: relative;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+
+//containers
+
+
+ &__container-form{
+    min-height: 375px;
+    position: relative;
+    min-width: 500px;
+    background:linear-gradient(45deg , #83c859af ,#67c42e);
+    width: 40%;
+    height: 60%;
+    padding: 16px 24px ;
+    box-shadow: 0 0 8px ;
+    border-radius: 15px;
+
+    .userNotification{
+        color: red;
+    }
+
+
+
+ }
+ 
+ &__form{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+justify-content: center;
+text-align: center;
+align-items: center;
+
+    &__title{
+        margin-bottom: 20px;
+        flex-basis: 100%;
+        font-size: 1.4rem;
+        text-decoration: underline;
+     }
+     
+    &__group{
+flex-basis: 45%;
+        border-radius: 15px;
+            color: rgb(0, 0, 0);
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        padding: 5px 15px;
+        transition: all 0.4s ease-out;
+
+
+        &:hover{
+            label{
+                background-color: #237a00;
+            }
+        }
+        input , select {
+            border: none;
+            border-bottom: 2px solid black;
+            text-align: center;
+            outline: none;
+background-color: unset;
+            font-size: 1.1rem;
+            padding: 5px;
+            width: 100%;
+        
+        }
+
+        label{
+        
+
+            z-index: 999;
+border-radius: 15px 15px 0 0;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.4s ease-out;
+
+        }
+        label.confirmText{
+                font-size: 1rem;
+        }
+   
+
+     }
+     
+     button{
+        flex-basis: 51%;
+  cursor: var(--mousePointer);
+  margin: 10px;
+        color: rgb(100, 95, 95);
+        font-weight: 700;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.363);
+        box-shadow: inset 0 0 8px;
+        padding: 15px;
+        width: 150px;
+        transition: all ease-in 0.2s;
+        &:hover{
+            scale: 1.05;
+            color: rgb(0, 0, 0);
+            background-color: rgba(255, 255, 255, 0.616);
+
+        }
+    }
+
+  
+ }
+ &__footer{
+    font-size: 0.8rem;
+
+width: 100%;
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+
+    a{
+        text-decoration: none;
+        color: black;
+        font-weight: 700;
+        border-radius: 15px;
+        background-color: rgba(255, 255, 255, 0.363);
+        box-shadow: inset 0 0 8px;
+        padding:5px;
+
+        &:hover{
+            scale: 1.05;
+        }
+    }
+}
+
+}
+

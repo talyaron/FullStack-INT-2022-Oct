@@ -1,0 +1,369 @@
+@import url("https://fonts.googleapis.com/css2?family=Martian+Mono:wght@200;400;700&display=swap");
+:root {
+  --mousePointer: url("../../images/mouseIcon/altlink.cur") , pointer;
+}
+
+:root {
+  --color:rgb(0, 0, 0);
+  --blue:#2f5266;
+  --background-color-light: #528daf80;
+  --background-color-dark: #2f52669d;
+}
+
+body {
+  overflow-y: auto;
+  background-color: #07150A;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Martian Mono", monospace;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+#loadingIcon {
+  animation: infinite spin 0.5s;
+  width: 30px;
+}
+
+#btnBackHome {
+  cursor: var(--mousePointer);
+  color: #d1d1d1;
+  border: none;
+  background-color: unset;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.1rem;
+}
+#btnBackHome i {
+  font-size: 1.1rem;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  color: var(--color);
+}
+.container__header {
+  text-align: center;
+  padding: 6px;
+  width: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.container__header__title {
+  color: #1b1919;
+  font-size: 1.1rem;
+  padding-bottom: 3px;
+}
+.container__header__subtitle {
+  font-size: 0.8rem;
+  color: #e2e2e2;
+  background-color: rgba(0, 0, 0, 0.396);
+  border-radius: 10px;
+  width: auto;
+  padding: 2px 10px;
+}
+.container__header__nav {
+  min-width: 500px;
+  width: 80vw;
+  margin: auto;
+  margin-bottom: 10px;
+  margin-top: 5px;
+  border-radius: 20px;
+}
+.container__header__navbar {
+  display: flex;
+  justify-content: center;
+}
+.container__header__list {
+  padding: 10px;
+  list-style: none;
+  margin: 0 10px;
+}
+.container__header__list button {
+  cursor: var(--mousePointer);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 25px;
+  background-color: var(--blue);
+  border: none;
+  box-shadow: -5px 5px 15px rgba(26, 88, 124, 0.493), inset 0px 2px 15px rgba(64, 76, 83, 0.986);
+  min-width: 75px;
+  transition: all 0.2s ease;
+}
+.container__header__list button:hover {
+  box-shadow: -5px 10px 20px rgba(26, 88, 124, 0.493), inset 0px 2px 15px rgba(64, 76, 83, 0.986);
+  scale: 1.05;
+}
+.container__header__list button:active {
+  scale: 1;
+}
+.container__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container__main__container-top {
+  padding-bottom: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  padding: 10px 0;
+}
+.container__main__container-top__box {
+  flex-basis: calc(100%/3.5);
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  padding: 10px;
+  padding-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 90px;
+  background-color: #93a4ae71;
+  border-radius: 20px;
+}
+.container__main__container-top__box__icon {
+  box-shadow: -5px 10px 15px rgba(26, 88, 124, 0.493), inset 0px 2px 15px rgba(64, 76, 83, 0.986);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  height: 55px;
+  width: 55px;
+  background-color: #1a587c;
+}
+.container__main__container-top__box__icon i {
+  font-size: 2rem;
+  color: aliceblue;
+}
+.container__main__container-top__box__stats {
+  padding-left: 15px;
+}
+.container__main__container-top__box__stats h1 {
+  padding-top: 5px;
+}
+.container__main__container-middle {
+  padding: 10px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-width: 1600px;
+}
+.container__main__container-middle h1 {
+  background-color: var(--background-color-dark);
+  position: sticky;
+  top: 0;
+  left: 0;
+  color: #f3f1f1;
+  text-decoration: underline;
+  text-transform: capitalize;
+  padding: 15px;
+}
+.container__main__container-middle__userList, .container__main__container-middle__enemyList, .container__main__container-middle__towerList {
+  overflow: scroll;
+  min-height: 450px;
+  max-height: 500px;
+  min-width: 750px;
+  margin: 8px;
+  border-radius: 20px;
+  flex-basis: calc(100% / 3);
+  text-align: center;
+  background-color: var(--background-color-dark);
+}
+.container__main__container-middle__userList::-webkit-scrollbar, .container__main__container-middle__enemyList::-webkit-scrollbar, .container__main__container-middle__towerList::-webkit-scrollbar {
+  height: 3px;
+  width: 100%;
+  color: var(--blue);
+}
+.container__main__container-middle__list {
+  border-radius: 5px;
+  padding: 5px 0;
+  background-color: rgba(252, 252, 252, 0.39);
+  display: flex;
+  margin: 5px;
+}
+.container__main__container-middle__list #enemyImage {
+  width: 90px;
+  height: 90px;
+}
+.container__main__container-middle__list #towerImage {
+  width: 64px;
+  height: 106px;
+}
+.container__main__container-middle__list div {
+  width: 100%;
+  text-align: center;
+  padding-left: 15px;
+  border-left: 1px solid gray;
+  padding-right: 25px;
+}
+.container__main__container-middle__list div button {
+  cursor: var(--mousePointer);
+  padding: 10px;
+  font-family: inherit;
+  border: none;
+  background-color: unset;
+  outline: none;
+}
+.container__main__container-middle__list div button:hover {
+  scale: 1.09;
+}
+.container__main__container-middle__list div button i {
+  font-size: 1.4rem;
+}
+.container__main__container-middle__list div:nth-child(1) {
+  border: none;
+}
+.container__main__container-middle__list h5 {
+  font-size: 0.8rem;
+}
+.container__main__container-middle__list span {
+  font-size: 0.8rem;
+}
+.container__main__container-bottom {
+  min-height: 70px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+.container__main__container-bottom__box {
+  width: 100%;
+  height: 50px;
+}
+.container__main__container-bottom__box button {
+  background-color: var(--background-color-light);
+  cursor: var(--mousePointer);
+  width: 100%;
+  height: 100%;
+  transition: 0.2s ease all;
+}
+.container__main__container-bottom__box button h1 {
+  color: white;
+}
+.container__main__container-bottom__box button:hover {
+  background-color: var(--background-color-dark);
+}
+.container__main__container-bottom__box button:active {
+  scale: 0.99;
+}
+
+.collapse-container {
+  display: none;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  border-radius: 25px;
+  background-color: var(--blue);
+  z-index: 999;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+}
+.collapse-container.active {
+  display: flex;
+}
+.collapse-container__title {
+  padding: 15px;
+  color: #d4d4d4;
+  text-transform: uppercase;
+}
+.collapse-container #closeIcon {
+  cursor: var(--mousePointer);
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+.collapse-container #closeIcon i {
+  font-size: 1.6rem;
+}
+.collapse-container .adminNotification {
+  color: red;
+  background-color: black;
+}
+.collapse-container__form {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 16px;
+  width: 80%;
+  color: var(--color);
+}
+.collapse-container__form div {
+  width: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.collapse-container__form div label {
+  color: white;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+}
+.collapse-container__form div input, .collapse-container__form div select {
+  border: none;
+  outline: none;
+  font-size: medium;
+  padding: 5px;
+  margin: 7px;
+}
+.collapse-container__form div input:active, .collapse-container__form div select:active {
+  background-color: #0eeb8354;
+  color: white;
+}
+.collapse-container__form button {
+  flex-basis: 100%;
+  margin: 25px auto;
+  cursor: var(--mousePointer);
+  color: #050505;
+  padding: 5px 10px;
+  border-radius: 25px;
+  background-color: var(--background-color-light);
+  border: none;
+  box-shadow: -5px 5px 15px rgba(141, 141, 141, 0.493), inset 0px 2px 15px rgba(173, 173, 173, 0.986);
+  min-width: 75px;
+  transition: all 0.2s ease;
+}
+.collapse-container__form button:hover {
+  box-shadow: -5px 10px 20px rgba(26, 88, 124, 0.493), inset 0px 2px 15px rgba(64, 76, 83, 0.986);
+  scale: 1.05;
+}
+.collapse-container__form button:active {
+  scale: 1;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(720deg);
+  }
+}
+@media screen and (max-width: 1600px) {
+  .container__main__container-middle {
+    justify-content: center;
+  }
+}
