@@ -156,11 +156,12 @@ exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void
     });
 }); };
 exports.updateUserType = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, userId, userType, userDB, error_5;
+    var user, _a, userId, userType, userDB, error_5;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
+                user = req.user;
                 _a = req.body, userId = _a.userId, userType = _a.userType;
                 return [4 /*yield*/, usersModel_1["default"].findOneAndUpdate({ _id: userId }, { userType: userType })];
             case 1:
@@ -177,24 +178,16 @@ exports.updateUserType = function (req, res) { return __awaiter(void 0, void 0, 
     });
 }); };
 exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var user, userDB, error_6;
+    var user;
     return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                _a.trys.push([0, 2, , 3]);
-                user = req.cookies.user;
-                console.log(user);
-                return [4 /*yield*/, usersModel_1["default"].findById(user)];
-            case 1:
-                userDB = _a.sent();
-                res.send({ ok: true, user: userDB });
-                return [3 /*break*/, 3];
-            case 2:
-                error_6 = _a.sent();
-                console.error(error_6);
-                res.status(500).send({ error: error_6.message });
-                return [3 /*break*/, 3];
-            case 3: return [2 /*return*/];
+        try {
+            user = req.user;
+            res.send({ ok: true, user: user });
         }
+        catch (error) {
+            console.error(error);
+            res.status(500).send({ error: error.message });
+        }
+        return [2 /*return*/];
     });
 }); };

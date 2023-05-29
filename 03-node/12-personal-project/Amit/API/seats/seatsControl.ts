@@ -22,6 +22,8 @@ export const pickOneSeat = async (req:any, res:any) => {
     const movieSeat = await MovieSeatModel.findOne({movie, seat: seatDB})
     if(!movieSeat) throw new Error("movie seat DB not found")
 
+    if(movieSeat.seatStatus === "taken") throw new Error("this seat is taken")
+
     if(movieSeat.seatStatus === "free"){
       movieSeat.seatStatus = "picked"
     }else if(movieSeat.seatStatus === "picked"){

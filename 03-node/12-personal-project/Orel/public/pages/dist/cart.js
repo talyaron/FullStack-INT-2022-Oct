@@ -76,7 +76,7 @@ exports.getCartDetails = getCartDetails;
 function renderCartProducts(data) {
     try {
         var html = data.map(function (product) {
-            return "\n        <li class=\"cart__details-container__link\">\n        <div>\n            <h4>Name: </h4><span id=\"cartItemName\">" + product.product.name + "</span>\n        </div>\n        <div>\n            <h4>Detail: </h4><span id=\"cartItemDetail\">" + product.product.detail + "</span>\n        </div>\n        <div>\n            <h4>Size: </h4><span id=\"cartItemSize\">" + product.size + " Europe</span>\n        </div>\n        <div>\n            <h4>Price: </h4><span id=\"cartItemPrice\">" + product.product.price + "$</span>\n        </div>\n        <div class=\"container-edit-product-cart\">\n            <button>      <i class=\"fa-solid fa-trash-can\" onclick=\"handleClickRemoveFromTheCart('" + product.product._id + "')\"></i></button>\n        </div>\n    </li>\n        ";
+            return "\n        <li class=\"cart__details-container__link\">\n        <div>\n            <h4>Name: </h4><span id=\"cartItemName\">" + product.product.name + "</span>\n        </div>\n        <div>\n            <h4>Detail: </h4><span id=\"cartItemDetail\">" + product.product.detail + "</span>\n        </div>\n        <div>\n            <h4>Size: </h4><span id=\"cartItemSize\">" + product.size + " Europe</span>\n        </div>\n        <div>\n            <h4>Price: </h4><span id=\"cartItemPrice\">" + product.product.price + "$</span>\n        </div>\n        <div class=\"container-edit-product-cart\">\n            <button>      <i class=\"fa-solid fa-trash-can\" onclick=\"handleClickRemoveFromTheCart('" + product._id + "')\"></i></button>\n        </div>\n    </li>\n        ";
         }).join('');
         return html;
     }
@@ -95,4 +95,34 @@ function calTotalPrice(data) {
         console.error(error);
         return '';
     }
+}
+function handleClickRemoveFromTheCart(uid) {
+    return __awaiter(this, void 0, void 0, function () {
+        var dataJs, error_2;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    _a.trys.push([0, 3, , 4]);
+                    if (!confirm("Are You Sure?")) return [3 /*break*/, 2];
+                    return [4 /*yield*/, fetch('/api/users//delete-product-from-cart', {
+                            method: "DELETE",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ uid: uid })
+                        }).then(function (data) { return console.log(data); })["catch"](function (err) { return console.error(err); })];
+                case 1:
+                    dataJs = _a.sent();
+                    alert("DELETE SUCCEED");
+                    location.reload();
+                    _a.label = 2;
+                case 2: return [3 /*break*/, 4];
+                case 3:
+                    error_2 = _a.sent();
+                    console.error(error_2);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
+            }
+        });
+    });
 }

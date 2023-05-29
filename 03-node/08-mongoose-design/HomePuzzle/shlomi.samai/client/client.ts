@@ -44,7 +44,7 @@ function renderPlayers(players:soccerPlayer[]){
       const html=players.map(player=>{
         return `<div class="playerCard">
         <img src="${player.src}" alt="">
-        <p contenteditable oninput="handlePlayerNameUpdate(event, '${player._id}')">${player.name}
+        <p contenteditable oninput="handlePlayerNameUpdate(event, '${player._id}')">${player.name}</p>
         <button onclick='handleDeletePlayer("${player._id}")'>DELETE</button>
         </div>`;
       }).join("");
@@ -67,7 +67,7 @@ function hendleAddPlayer(ev){
         const newPlayer= {name, url}
 
         //send to server
-        fetch("/api/add-players",{
+        fetch("/api/players/add-players",{
             method:"POST",
             headers:{
                 Accept: "application/json",
@@ -91,7 +91,7 @@ function handleDeletePlayer(_id:string){
     try {
         console.log(_id);
     
-        fetch("/api/delete-player", {
+        fetch("/API/Players/delete-player", {
           method: "DELETE",
           headers: {
             Accept: "application/json",
@@ -117,7 +117,7 @@ function handlePlayerNameUpdate(ev: any, _id: string){
   try {
     console.log(_id);
     const name = ev.target.textContent;
-    fetch("/api/update-player-name", {
+    fetch("/api/players/update-player-name", {
       method: "PATCH",
       headers: {
         Accept: "application/json",

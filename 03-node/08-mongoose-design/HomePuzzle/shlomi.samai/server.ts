@@ -15,7 +15,7 @@ if (uri) {
     })
     .catch((err) => console.log(err));
 } else {
-  console.log("No URI to DB");
+  console.log("No URI to DB"); 
 }
 
 const app = express();
@@ -26,17 +26,23 @@ const PlayerSchema = new Schema({
   src: String,
 });
 
-const PlayerModel = mongoose.model("players", PlayerSchema);
-
+// const PlayerModel = mongoose.model("players", PlayerSchema);
+  
 //to be able to get data from client add this line
 app.use(express.json());
 
 //static file+ listen
-app.use(express.static("./client"));
+app.use(express.static("./client")); 
 
 import playersRouts from './API/Players/playersRouts'
-// app.use('/API/Players',playersRouts)
+app.use('/API/Players',playersRouts)
 
+import teamsRouts from './API/Teams/teamsRouts'
+app.use('/API/Teams',teamsRouts)
+
+import playersAndTeamsRouts from './API/playersAndTeams/playersAndTeamsRouts'
+app.use('/api/playersAndTeams', playersAndTeamsRouts)
+    
 app.listen(3000, () => {
   console.log("server listen on port 3000");
 });

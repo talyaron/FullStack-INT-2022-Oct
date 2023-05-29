@@ -1,7 +1,7 @@
 async function handleSubmitRegister(ev: any) {
     try {
         ev.preventDefault()
-        if (confirm("do you sure?")) {
+        if (confirm("are you sure?")) {
             const name = ev.target.elements.name.value
             const email = ev.target.elements.email.value
             const password = ev.target.elements.password.value

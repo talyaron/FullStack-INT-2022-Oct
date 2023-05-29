@@ -50,11 +50,13 @@ fetch("https://dog.ceo/api/breeds/image/random")
     .then(function (data) { return console.log(data); });
 //async await
 function getDog(url) {
-    return __awaiter(this, void 0, void 0, function () {
-        var responce, data;
+    return __awaiter(this, void 0, Promise, function () {
+        var responce, data, error_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, fetch(url)];
+                case 0:
+                    _a.trys.push([0, 3, , 4]);
+                    return [4 /*yield*/, fetch(url)];
                 case 1:
                     responce = _a.sent();
                     return [4 /*yield*/, responce.json()];
@@ -62,6 +64,10 @@ function getDog(url) {
                     data = _a.sent();
                     console.log(data);
                     return [2 /*return*/, data];
+                case 3:
+                    error_1 = _a.sent();
+                    return [2 /*return*/, undefined];
+                case 4: return [2 /*return*/];
             }
         });
     });
@@ -71,7 +77,10 @@ function get2() {
         var _a, data1, data2;
         return __generator(this, function (_b) {
             switch (_b.label) {
-                case 0: return [4 /*yield*/, Promise.all([getDog('https://dog.ceo/api/breed/Affenpinscher/images/random'), getDog('https://dog.ceo/api/breeds/image/random')])];
+                case 0: return [4 /*yield*/, Promise.all([
+                        getDog("https://dog.ceo/api/breed/Affenpinscher/images/random"),
+                        getDog("https://dog.ceo/api/breeds/image/random"),
+                    ])];
                 case 1:
                     _a = _b.sent(), data1 = _a[0], data2 = _a[1];
                     console.log(data1, data2);

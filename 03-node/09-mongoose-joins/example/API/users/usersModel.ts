@@ -8,7 +8,8 @@ interface User {
   src: string;
 }
 //typescript
-export enum UserType {
+export 
+ UserType {
   STUDENT = "student",
   TEACHER = "teacher",
   ADMIN = "admin",

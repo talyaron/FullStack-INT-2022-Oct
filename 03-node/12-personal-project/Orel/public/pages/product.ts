@@ -56,7 +56,7 @@ function renderCardsShoe(data: any): string {
                     <option value="45">45</option>
                     <option value="46">46</option>
                 </select>
-                <h4>price: <span id="pPrice">${product.price}</span></h4>
+                <h4><span id="pPrice">${product.price}$</span></h4>
                 <button onclick="handleAddProductToCart('${product._id}')">ADD CART</button>
             </form>
 </div>`

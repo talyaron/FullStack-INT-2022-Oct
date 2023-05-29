@@ -1,0 +1,23 @@
+.profileWrapper {
+  text-align: center;
+  width: 20rem;
+  margin: 4rem 0 0 4rem;
+  display: flex;
+}
+
+.profilePic {
+  width: 20rem;
+  border-radius: 60px;
+}
+
+.userName {
+  font-size: 2rem;
+}
+
+
+
+.recipesContainer{
+    text-align: start;
+    margin: 0 0 2rem 8rem;
+    font-size: 1.6rem;
+}

@@ -21,12 +21,17 @@ var PlayerSchema = new mongoose_1.Schema({
     name: String,
     src: String
 });
-var PlayerModel = mongoose_1["default"].model("players", PlayerSchema);
+// const PlayerModel = mongoose.model("players", PlayerSchema);
 //to be able to get data from client add this line
 app.use(express_1["default"].json());
 //static file+ listen
 app.use(express_1["default"].static("./client"));
-// app.use('/API/Players',playersRouts)
+var playersRouts_1 = require("./API/Players/playersRouts");
+app.use('/API/Players', playersRouts_1["default"]);
+var teamsRouts_1 = require("./API/Teams/teamsRouts");
+app.use('/API/Teams', teamsRouts_1["default"]);
+var playersAndTeamsRouts_1 = require("./API/playersAndTeams/playersAndTeamsRouts");
+app.use('/api/playersAndTeams', playersAndTeamsRouts_1["default"]);
 app.listen(3000, function () {
     console.log("server listen on port 3000");
 });
