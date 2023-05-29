@@ -1,4 +1,5 @@
 import mongoose, { Schema } from "mongoose";
+import {CartSchema}  from "../cart/CartModel";
 
 export interface User {
   name: string;
@@ -20,9 +21,15 @@ export const UserSchema = new Schema({
     type: String,
     enum: UserType,
     default: UserType.PUBLIC,
+    cart: CartSchema,
   },
 });
 
+export const getUserSchema = new Schema({
+  cart: CartSchema,
+})
+
 const UserModel = mongoose.model("users", UserSchema);
+export const getUser = mongoose.model("getUser", getUserSchema);
 
 export default UserModel;

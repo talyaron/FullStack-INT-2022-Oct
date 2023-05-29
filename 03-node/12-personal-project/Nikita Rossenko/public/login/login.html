@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="dist/login.js" defer></script>
+    <script src="../helpers/dist/helper.js" defer></script>
+    <script src="../" defer></script>
+    <link rel="stylesheet" href="../dist/style.css">
+    <link rel="stylesheet" href="./dist/login.css">
+    <link
+    rel="stylesheet"
+    href="https://www.w3schools.com/w3css/4/w3.css"
+    />
+    <title>Alternative Home - Login</title>
+</head>
+<body>
+    <div class="navBar">
+        <div class="navBar_container">
+            <div class="navBar_logo">
+                <img id="logo" src="./images/logo.png" />
+            </div>
+            <div class="navBar_links">
+                <div class="links">
+                    <a class="link" href="/">Home</a>
+                    <a
+                        class="link"
+                        onclick="checkLoggedInStore()"
+                        >Starship Store</a
+                    >
+                    <a class="link" href="/">Environment</a>
+                    <a class="link" href="/">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="videoContainer">
+        <div class="sentensesContainer">
+            <h1 class="sentensesSlide w3-animate-fading">
+                Welcome to the mission to Mars! We're thrilled to have you on board and can't wait to explore the Red Planet together.
+            </h1>
+            <h1 class="sentensesSlide w3-animate-fading">
+                We are thrilled to welcome you to the Mars mission, an exciting and groundbreaking journey that will take us to the forefront of space exploration.
+            </h1>
+            <h1 class="sentensesSlide w3-animate-fading">
+                As part of this team, you will play a crucial role in advancing our understanding of the universe and paving the way for future generations of space explorers.
+            </h1>
+            <h1 class="sentensesSlide w3-animate-fading">
+                Together, we will face incredible challenges and push the boundaries of what is possible, all in the pursuit of scientific discovery and the betterment of humankind. So let's buckle up, hold on tight, and get ready to make history!
+            </h1>
+        </div>
+        <div class="darken"></div>
+        <video src="../media/videos/mars-10217.mp4" autoplay loop muted></video>
+    </div>
+    <div class="login_register_container">
+        <h1>Login</h1>
+        <form onsubmit=handleLogin(event)>
+            <input class="input" required type="text" name="username" placeholder="Username">
+            <input class="input" required type="password" name="password" placeholder="Password">
+            <input type="submit" value="Login">
+        </form>
+        <a href="/register.html">Don't have a user? Register</a>
+    </div>
+</body>
+</html>

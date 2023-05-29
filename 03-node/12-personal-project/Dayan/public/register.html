@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | Join us</title>
+
+    <!--Icons-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+
+    <!--Style-->
+    <link href="./dist/register.css" rel="stylesheet">
+
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!--Script-->
+    <script src="./dist/signInUp.js" defer></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="container__forms">
+
+            <!--Registeration Form-->
+            <div class="container__forms__register">
+                <span class="container__forms__register__title">Register</span>
+                <form onsubmit="register(event)" class="container__forms__register__form" action="#">
+                    <div class="container__forms__register__form__input">
+                        <input type="text" name="fullname" placeholder="Enter Your Name" required>
+                        <i class="uil uil-user"></i>
+                    </div>
+                    <div class="container__forms__register__form__input">
+                        <input type="text" name="email" placeholder="Enter Your Email" required>
+                        <i class="uil uil-envelope-alt icon"></i>
+                    </div>
+                    <div class="container__forms__register__form__input">
+                        <input type="password" name="password" class="input-password" placeholder="Create Your Password" required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="container__forms__register__form__checkbox">
+                        <div class="container__forms__register__form__checkbox__content">
+                            <input type="checkbox" id="logCheck">
+                            <label for="logCheck">Remember me</label>
+                        </div>
+                    </div>
+
+                    <div class="container__forms__register__form__button">
+                        <input type="submit" value="register" required>
+                    </div>
+                </form>
+
+                <div class="container__forms__register__login-signup">
+                    <span class="container__forms__register__login-signup__text">Are you already a member?
+                        <a href="./signIn.html" class="container__forms__register__login-signup__link__signInNow">Login now</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

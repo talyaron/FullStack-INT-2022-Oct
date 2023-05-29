@@ -1,22 +1,37 @@
+enum CartStatus {
+  Open = "open",
+  Closed = "closed",
+}
+
+interface Cart {
+  userId: string;
+  productIds: string[];
+  _id: string;
+  status: CartStatus;
+}
+
 interface Product {
+  _id: string;
   src: string;
   price: string;
   name: string;
   description: string;
 }
 
-function renderCartItems(products: Product) {
+function renderCartItems(product: Product) {
   try {
     const html = `
-      <div class="shop-item">
-      <img class="shop-item-image" src="${products.src}">
-      <div class="shop-item-details">
-      <span class="shop-item-name">green nails</span>
-      </div>
-      <span class="shop-item-price">$12.99</span>
-      <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-      <button id="delete" class="btn delete btn-primary shop-item-button" type="button" onclick="handleDeleteProduct()">DELETE</button>
-      </div>
+    <div id="${product._id}" class="cart-row">
+    <div class="cart-item cart-column">
+        <img class="cart-item-image" src="${product.src}" height="100">
+        <span class="cart-item-title">${product.name}</span>
+    </div>
+    <span id="price" class="cart-price cart-column">${product.price}$</span>
+    <div class="cart-quantity cart-column">
+        <input class="cart-quantity-input" type="number" value="1">
+        <button class="btn btn-danger" type="button" onclick="removeItemsFromCart('${product._id}')">REMOVE</button>
+    </div>
+</div>
 `;
     const cartItemsRoot = document.querySelector("#cartItems");
     if (!cartItemsRoot) throw new Error("cartItemsRoot not found");
@@ -26,72 +41,132 @@ function renderCartItems(products: Product) {
   }
 }
 
-// function handleAddToFavourites(_id: string, products) {
-//   try {
-//     fetch(
-//       "/api/favourites/add-favourite?" +
-//         new URLSearchParams({ _id }).toString(),
-//       {
-//         method: "POST",
-//         headers: {
-//           Accept: "application/json",
-//           "Content-Type": "application/json",
-//         },
-//       }
-//     )
-//       .then(() => {
-//         const productId = document.getElementById(_id);
-//         if (!productId) {
-//           throw new Error("student delete form HTML");
-//         }
-//         productId.remove();
-//         return renderCartItems(products)
-//       })
+function handleGetCart() {
+  try {
+    const currentLocalStorageUser = localStorage.getItem("currentUser"); //cookies
+    if (!currentLocalStorageUser) {
+      window.location.href = "/login/index.html";
+      return;
+    }
+    const currentUser = JSON.parse(currentLocalStorageUser);
+    fetch(
+      "/api/cart/get-cart?" +
+        new URLSearchParams({ userId: currentUser._id }).toString(),
+      {
+        method: "get",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then(({ cart }) => {
+        GetCartItems(cart.productIds).then((products) => {
+          products.forEach((product) => {
+            renderCartItems(product);
+          });
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-//       .catch((error) => {
-//         console.error(error);
-//       });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
+function GetCartItems(productIds: string[]): any {
+  try {
+    return fetch(
+      "/api/collections/get-products-by-id?" +
+        new URLSearchParams({ productIds: productIds.join(",") }).toString(),
+      {
+        method: "get",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        return data.products;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-// function handleDeleteProduct(_id: string) {
-//   try {
-//     console.log(_id);
+function removeItemsFromCart(productId:string) {
+  try {
+    const currentLocalStorageUser = localStorage.getItem("currentUser"); //cookies
+    if (!currentLocalStorageUser) {
+      window.location.href = "/login/index.html";
+      return;
+    }
+    const currentUser = JSON.parse(currentLocalStorageUser);
+    return fetch(
+      "/api/cart/remove-item-from-cart?" +
+        new URLSearchParams({ userId: currentUser._id, productId  }).toString(),
+      {
+        method: "PATCH",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    )
+    .then((res) => res.json())
+    .then((data) => {
+      const product = document.getElementById(productId);
 
-//     fetch("/api/users/delete-user", {
-//       method: "DELETE",
-//       headers: {
-//         Accept: "application/json",
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ _id }),
-//     })
-//       .then((res) => res.json())
-//       .then(({ products }) => {
-//         renderProduct(products);
-//       })
-//       .catch((error) => {
-//         console.error(error);
-//       });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
+        if (!product) {
+          throw new Error("product delete form HTML");
+        }
+        product.remove();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  } catch (error) {
+    console.error(error);
+  }
+}
 
-// function addToFavourites(_id: Product) {
-//   try {
-//     fetch("/api/collections/add-favourites")
-//       .then((res) => res.json())
-//       .then(({ products }) => {
-//         console.log(products);
-//         if (!products) throw new Error("didnt find product");
-//         const html = products.map((products) => {
-//           return renderCartItems(products);
-//         });
-//       });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
+
+function handelPurchase() {
+    try {
+      const currentLocalStorageUser = localStorage.getItem("currentUser"); //cookies
+      if (!currentLocalStorageUser) {
+        window.location.href = "/login/index.html";
+        return;
+      }
+      const currentUser = JSON.parse(currentLocalStorageUser);
+    return fetch(
+      "/api/cart/add-purchase?" +
+        new URLSearchParams({ userId: currentUser._id }).toString(),
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      }
+    )
+    .then((res) => res.json())
+    .then((data) => {
+      alert("Thank you for purchasing the receipt that will be sent to your email, The products are on their way to you");
+      window.location.href = "/main/index.html";
+        
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  } catch (error) {
+    console.error(error);
+  }
+}

@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-image: url("https://img.freepik.com/free-photo/grunge-paint-background_1409-1337.jpg?w=2000");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.topNav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.topNav ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.topNav li {
+  margin-right: 10px;
+}
+
+.topNav li:last-child {
+  margin-right: 0;
+}
+
+.topNav a {
+  text-decoration: none;
+}
+
+.topNav button {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.topNav button:hover {
+  background-color: #ccc;
+}
+
+#productsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.storeItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 90%;
+  max-width: 700px;
+  margin: 20px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.394);
+}
+
+img {
+  width: 100px;
+  height: 80px;
+  margin-right: 10px;
+}
+
+.storeItem h2 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.storeItem p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.storeItem button {
+  width: 100%;
+  margin: 10px 0;
+}
+
+@media screen and (min-width: 768px) {
+  /* Tablets and desktop */
+  .topNav ul {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .topNav li {
+    margin-right: 20px;
+  }
+
+  .topNav button {
+    padding: 5px 20px;
+    font-size: 18px;
+  }
+
+  #productsContainer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 40px;
+  }
+
+  .storeItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 90%;
+    max-width: 700px;
+    margin: 20px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.394);
+  }
+
+  img {
+    width: 100px;
+    height: 80px;
+    margin-right: 10px;
+  }
+
+  .storeItem h2 {
+    font-size: 28px;
+    margin: 0 20px;
+  }
+
+  .storeItem p {
+    font-size: 20px;
+    margin: 10px 20px;
+  }
+}
