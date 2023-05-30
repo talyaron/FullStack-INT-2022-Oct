@@ -1,7 +1,7 @@
 
 
 import mongoose, { Schema } from "mongoose";
-import { UserSnakSchema } from "../users/userModel";
+import { UserSchema } from "../users/userModel";
 
 
 export interface Scores {
