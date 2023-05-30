@@ -1,0 +1,26 @@
+.nav {
+    background-color: #f2f2f2;
+    padding: 10px;
+  }
+  
+  .nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .nav li {
+    margin: 0 10px;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .nav a:hover {
+    color: #007bff;
+  }
+  

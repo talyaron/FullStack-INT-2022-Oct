@@ -1,15 +1,39 @@
-import './App.css'
-import Box from "./components/img"
+import './App.scss'
+import Posts from "./components/post/post";
+import Nav from './components/nav/nav';
 
-const img:Array<string>=["https://www.spieltimes.com/wp-content/uploads/2023/04/b7d4c3fa-7794-466f-a96a-ecf9a611d960.jpg","https://www.themarysue.com/wp-content/uploads/2023/04/luffy-gear-5-one-piece-vol-104.jpg"]
-
+const posts = [
+  {
+    img: "https://i.redd.it/qniaryxksqb81.png",
+    text: "luffy ",
+    authorName: "hello"
+  },
+  {
+    img: "https://wallpaperaccess.com/full/1480778.jpg",
+    text: "luffy gear 4",
+    authorName: "tomer"
+  },
+];
 function App() {
   return (
-      <div>
-      <h1> hello</h1>  
-      {img.map(img=><Box text={img}/>)}
+    <div>
+      <Nav />
+      <div className='haderName'>
+      <h1>Instagram</h1>
       </div>
-  )
+      <div className='mainPage'>
+      {posts.map((post, index) => (
+        <Posts
+          key={index}
+          img={post.img}
+          text={post.text}
+          authorName={post.authorName}
+        />
+      ))}
+      </div>
+    </div>
+  );
 }
+
 
 export default App
