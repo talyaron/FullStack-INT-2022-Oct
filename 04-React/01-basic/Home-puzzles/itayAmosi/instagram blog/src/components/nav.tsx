@@ -7,12 +7,12 @@ interface Nav {
 
 const Nav: FC<Nav> = ({ svg }) => {
   return (
-<div className="topNav">
-  hi:{ svg }
-</div>
-  ); 
-
-
-}
+    <div className="topNav">
+      <button className="topNav__btn">TopBtn</button>
+      <button className="topNav__btn">TopBtn</button>
+      <button className="topNav__btn">TopBtn</button>
+    </div>
+  );
+};
 
 export default Nav;

@@ -11,14 +11,14 @@ interface Post{
 
 
 
-const UserPost: FC<Post> = ({ username , imageUrl , text }) =>  {
+const Post: FC<Post> = ({ username , imageUrl , text }) =>  {
   return (
     <div className="post">
       <div className="post__header">
         <Avatar
           className="post__header__avatar"
           alt="Reut"
-          src="/static/images/avatar/1.jpg"
+          src=""
         />
         <h2>{username}</h2>
       </div>
@@ -34,4 +34,4 @@ const UserPost: FC<Post> = ({ username , imageUrl , text }) =>  {
   );
 }
 
-export default UserPost;
+export default Post;
