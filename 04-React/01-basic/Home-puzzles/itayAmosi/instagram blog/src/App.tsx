@@ -1,11 +1,26 @@
 import "./App.scss";
-import Post from "./components/post";
+// import { Post } from "./components/post";
+import UserPost from "./components/post";
+import Nav from "./components/nav";
+import { useState } from "react";
 
+const [UserPosts, setUserPosts] = useState([
+  {
+    username:"reut",
+    imageUrl:"https://images.unsplash.com/photo-1615963244664-5b845b2025ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80",
+    text:"test-1"
+  },
+   {
+    username:"itay",
+    imageUrl:"https://hinduifestival.com/wp-content/uploads/2022/08/Good-Morning-images-2-768x961.jpg",
+    text:"test-2"
+   }]);
 
 function App() {
   return (
     <div className="app">
       <div className="app__header">
+        <Nav svg="" />
         <svg
           aria-label="Instagram"
           className="app__headerImage"
@@ -24,9 +39,19 @@ function App() {
           ></path>
         </svg>
       </div>
-        <h1>instagram</h1>
-
-        <Post />
+      <h1>instagram</h1>
+      <div className="app__post">
+        {
+        UserPosts.map(UserPost=> (
+          <UserPost
+           username={UserPost.username}
+           imageUrl={UserPost.imageUrl}
+           text={UserPost.text}
+           />
+        ))
+        };
+        {/* <UserPost /> */}
+      </div>
     </div>
   );
 }
