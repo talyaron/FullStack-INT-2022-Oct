@@ -1,0 +1,39 @@
+.nav {
+    & {
+        padding: 5px 25px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        width: 100vw;
+
+
+    }
+
+    &__logo {
+        img {
+            width: 25px;
+        }
+    }
+
+    &__add-btn {
+        display: grid;
+        place-items: center;
+        width: 27px;
+        height: 27px;
+        cursor: pointer;
+        background: none;
+        border-radius: 50%;
+        border: 2px solid black;
+    
+
+        img {
+            width: 20px;
+
+        }
+
+        &:hover{
+          background: linear-gradient(180deg , #f5b203 , #ee02b2);
+        }
+    }
+}
