@@ -1,7 +1,14 @@
 import "./post.scss";
 import { Avatar } from "@mui/material";
 
-function post() {
+interface Post{
+  username: string
+  imageUrl:string;
+} 
+
+
+
+function post(post:Post) {
   return (
     <div className="post">
       <div className="post__header">
@@ -14,7 +21,7 @@ function post() {
       </div>
       <img
         className="post__image"
-        src="https://images.pexels.com/photos/2515420/pexels-photo-2515420.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        src="https://images.unsplash.com/photo-1615963244664-5b845b2025ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80"
         alt=""
       />
       <h4 className="post__text">

@@ -1,14 +1,13 @@
 .post{
-    padding: 50px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 10px;
+    max-width: 500px;
+    border: 1px solid black;
+    margin-bottom: 45px;
+
 &__image{
-    
-    width: 25%;
-    height: 50%;
+    width: 100%;
     object-fit: contain;
+    border-top: 3px solid gray;
+    border-bottom: 3px solid gray;
 }
 
 &__text{

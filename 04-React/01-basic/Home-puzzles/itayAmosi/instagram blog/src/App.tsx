@@ -1,7 +1,6 @@
 import "./App.scss";
 import Post from "./components/post";
 
-
 function App() {
   return (
     <div className="app">
@@ -24,9 +23,12 @@ function App() {
           ></path>
         </svg>
       </div>
-        <h1>instagram</h1>
+      <h1>instagram</h1>
+      <div className="app__post">
+      <Post  username="reut" imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkeyI81MJXip9ICNrN52Xa5bIjrnBp-3lJAg&usqp=CAU"/>
+      <Post username="itay" imageUrl="https://hinduifestival.com/wp-content/uploads/2022/08/Good-Morning-images-2-768x961.jpg"/>
 
-        <Post />
+      </div>
     </div>
   );
 }

@@ -3,7 +3,6 @@
 }
 .app{
 background-color: #fafafa;
-height: 100vh;
 
 &__header {
   background-color: white;
@@ -11,4 +10,13 @@ height: 100vh;
   padding: 20px;
   border-bottom: 1px solid rgba(103, 92, 92, 0.405);
 }
+
+&__post{
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+}
+
 }
