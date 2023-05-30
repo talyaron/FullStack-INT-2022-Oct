@@ -27,8 +27,6 @@ function App() {
         <h1>instagram</h1>
 
         <Post />
-        {/*post*/}
-        {/*post*/}
     </div>
   );
 }
