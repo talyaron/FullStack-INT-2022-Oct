@@ -1,7 +1,19 @@
 .topNav{
-    // padding: 50px;
+
     display: flex;
     align-items: center;
-    flex-direction: column;
-    // margin: 10px;
+    flex-direction: row-reverse;
+    float: right;
+    margin-right: 5%;
+    
+    
+    &__btn{
+        margin-right: 100px;
+        width: 100px;
+        height: 50px;
+        border-radius: 25% ;
+        background-color: rgba(43, 112, 160, 0.808);
+}
+
+
 }

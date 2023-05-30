@@ -29,11 +29,15 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: rgba(0, 0, 255, 0.139)
+
+
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 1em;
   line-height: 1.1;
+  text-align: center;
 }
 
 button {

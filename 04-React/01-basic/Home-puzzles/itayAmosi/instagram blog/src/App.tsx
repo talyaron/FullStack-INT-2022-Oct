@@ -1,20 +1,29 @@
 import "./App.scss";
 // import { Post } from "./components/post";
-import UserPost from "./components/post";
+import Post from "./components/post";
 import Nav from "./components/nav";
-import { useState } from "react";
+// import { useState } from "react";
 
-const [UserPosts, setUserPosts] = useState([
+const posts = [
   {
-    username:"reut",
-    imageUrl:"https://images.unsplash.com/photo-1615963244664-5b845b2025ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80",
-    text:"test-1"
+    username: "reut",
+    imageUrl:
+      "https://images.unsplash.com/photo-1615963244664-5b845b2025ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80",
+    text: "test-1",
   },
-   {
-    username:"itay",
-    imageUrl:"https://hinduifestival.com/wp-content/uploads/2022/08/Good-Morning-images-2-768x961.jpg",
-    text:"test-2"
-   }]);
+  {
+    username: "itay",
+    imageUrl:
+      "https://hinduifestival.com/wp-content/uploads/2022/08/Good-Morning-images-2-768x961.jpg",
+    text: "test-2",
+  },
+  {
+    username: "tal",
+    imageUrl:
+      "https://media.istockphoto.com/id/528476982/photo/sunrise-over-taj-mahal.jpg?s=612x612&w=0&k=20&c=D5MbutrXK1fDjI0T9a1wZWyRaiyzJEUwsxfahL_GlM4=",
+    text: "test-3",
+  },
+];
 
 function App() {
   return (
@@ -39,18 +48,23 @@ function App() {
           ></path>
         </svg>
       </div>
-      <h1>instagram</h1>
+      <span>instagram</span>
+      <div className="app__navRight">
+        <button className="app__navRight__btn">RightBtn</button>
+        <button className="app__navRight__btn">RightBtn</button>
+        <button className="app__navRight__btn">RightBtn</button>
+
+      </div>
+      <h1>my</h1>
       <div className="app__post">
-        {
-        UserPosts.map(UserPost=> (
-          <UserPost
-           username={UserPost.username}
-           imageUrl={UserPost.imageUrl}
-           text={UserPost.text}
-           />
-        ))
-        };
-        {/* <UserPost /> */}
+        {posts.map((post, index) => (
+          <Post
+            key={index}
+            username={post.username}
+            imageUrl={post.imageUrl}
+            text={post.text}
+          />
+        ))}
       </div>
     </div>
   );

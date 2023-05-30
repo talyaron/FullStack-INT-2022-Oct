@@ -1,22 +1,43 @@
 * {
   margin: 0;
 }
-.app{
-background-color: #fafafa;
+.app {
+  background-color: #fdfafa;
 
-&__header {
-  background-color: white;
-  object-fit: contain;
-  padding: 20px;
-  border-bottom: 1px solid rgba(103, 92, 92, 0.405);
-}
+  &__header {
+    width: 100%;
+    height: 5%;
+    background-color: rgb(255, 225, 255);
+    object-fit: contain;
+    padding: 20px;
+    border-bottom: 1px solid rgba(103, 92, 92, 0.405);
+    position: fixed;
+    z-index: 10;
+  }
 
-&__post{
+  &__post {
     padding: 50px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: 10px;
-}
+    margin: 25px;
+  }
 
+  &__navRight {
+    border-right: 1px solid rgba(103, 92, 92, 0.405);
+    background-color: rgb(255, 225, 255);
+    width: 10%;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    &__btn {
+      padding: 10%;
+      margin-top: 50%;
+      border-radius: 25%;
+      background-color: royalblue;
+    }
+  }
 }
