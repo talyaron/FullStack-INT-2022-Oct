@@ -1,6 +1,11 @@
 .nav {
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: 0;
     & {
-        padding: 5px 25px;
+        padding: 10px 17px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.082);
         display: flex;
         align-items: center;
         text-align: center;
@@ -11,29 +16,30 @@
     }
 
     &__logo {
+        height: 20px;
         img {
-            width: 25px;
+            width: 70px;
+
         }
     }
 
-    &__add-btn {
-        display: grid;
-        place-items: center;
+    &__heart-btn {
+
         width: 27px;
         height: 27px;
         cursor: pointer;
         background: none;
-        border-radius: 50%;
-        border: 2px solid black;
+border: none;
     
 
         img {
-            width: 20px;
-
+            width: 17px;
+            height: 17px;
+            &:hover{
+                scale: 1.05;
+            }
         }
 
-        &:hover{
-          background: linear-gradient(180deg , #f5b203 , #ee02b2);
-        }
+  
     }
 }

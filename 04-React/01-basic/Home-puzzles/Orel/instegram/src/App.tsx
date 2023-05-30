@@ -1,5 +1,5 @@
 import Navbar from './components/navbar/Navbar'
-import TextLinear from './components/TextLinear/TextLinear'
+// import TextLinear from './components/TextLinear/TextLinear'
 import { PostProps } from './components/post/Post'
 import Post from './components/post/Post'
 import './App.css'
@@ -68,14 +68,14 @@ const posts: PostProps[] = [
   }
 ];
 
-
+const users = '/images/users.png'
 
 
 function App() {
   return (
     <section>
       <Navbar />
-      <TextLinear text="Instagram" />
+       <img className='users' src={users} alt="" />
       <div className='container-posts'>
         {posts.map(post => <Post title={post.title} authorName={post.authorName} text={post.text} image={post.image}/>)}
       </div>

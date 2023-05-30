@@ -9,6 +9,8 @@
 }
 
 section{
+  margin-top: 50px;
+  position: relative;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -25,4 +27,11 @@ flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.users{
+  width: 100%;
+  max-width: 500px;
+  cursor: pointer;
+  object-fit: cover;
 }
