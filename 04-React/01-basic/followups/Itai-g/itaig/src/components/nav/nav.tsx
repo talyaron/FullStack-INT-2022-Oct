@@ -6,9 +6,9 @@ const Nav: React.FC = () => {
     return(
         <nav className='topnav'>
             <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Help</li>
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Help</a>
             </ul>
         </nav>
     )

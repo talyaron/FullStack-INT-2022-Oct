@@ -15,9 +15,9 @@ const App: React.FC = () => {
   return (
     <div>
       <Nav />
-      <h1>My App</h1>
-      {posts.map((post) => (
-        <Post title={post.title} content={post.content} author={post.author} />
+      <h1>My Blog App</h1>
+      {posts.map((post,index) => (
+        <Post title={post.title} content={post.content} author={post.author} key={index} />
       ))}
     </div>
   );
