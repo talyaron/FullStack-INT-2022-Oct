@@ -5,7 +5,6 @@ import NavRight from "./components/navRight";
 import Massage from "./components/massage";
 import { useState } from "react";
 
-
 const posts = [
   {
     username: "reut",
@@ -51,23 +50,26 @@ const rightNavButtons = [
   { name: "Exit" },
 ];
 
-
 function App() {
   const handleSelectButton = () => {
     setmassagesVisible(true);
-  }
+  };
   const handleSelectButtonFalse = () => {
     setmassagesVisible(false);
-  }
-const [massagesVisible, setmassagesVisible] = useState(false);
+  };
+  const [massagesVisible, setmassagesVisible] = useState(false);
 
   return (
     <div className="app">
       <div className="app__header">
         {topNavButtons.map((topNavButton, index) => (
-          <NavTop key={index} name={topNavButton.name} onSelectButton={handleSelectButton} />
-          ))}
-          {massagesVisible && <Massage  onClose={handleSelectButtonFalse}/>}
+          <NavTop
+            key={index}
+            name={topNavButton.name}
+            onSelectButton={handleSelectButton}
+          />
+        ))}
+        {massagesVisible && <Massage onClose={handleSelectButtonFalse} />}
         <svg
           aria-label="Instagram"
           className="app__headerImage"
@@ -89,14 +91,14 @@ const [massagesVisible, setmassagesVisible] = useState(false);
       <div className="app__navRight">
         {rightNavButtons.map((rightNavButton, index) => (
           <NavRight key={index} name={rightNavButton.name} />
-          ))}
+        ))}
       </div>
       <h1>my</h1>
       <div className="app__post">
         {posts.map((post, index) => (
           <Post
-          key={index}
-          username={post.username}
+            key={index}
+            username={post.username}
             imageUrl={post.imageUrl}
             text={post.text}
           />
