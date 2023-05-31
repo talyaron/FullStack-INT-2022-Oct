@@ -20,18 +20,74 @@ video {
 }
 
 .post {
-  width: 50%;
+  width: 40vw;
   height: 80vh;
-  border: 3px solid black;
+  //   border: 3px solid black;
+  box-shadow: 0 0 5px black;
+  border-radius: 10px;
   .header {
     display: flex;
     align-items: center;
     padding: 0.5rem;
-    gap: 2rem;
+    gap: 1rem;
+    h3 {
+      font-size: 0.9rem;
+      font-weight: 300;
+      font-family: Verdana, sans-serif;
+    }
     img {
       width: 3rem;
       height: 3rem;
       border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.493);
+    }
+  }
+  .icons {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    padding: 0.3rem 0.3rem;
+    .likeIcon {
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .likeIcon:hover {
+      transform: scale(1.1);
+    }
+    .likeIcon.active {
+      color: red;
+    }
+    .markIcon {
+      margin-left: auto;
+    }
+  }
+  .likes {
+    padding: 0.3rem;
+    font-size: 0.7rem;
+  }
+  .postText {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.3rem;
+    font-size: 0.7rem;
+  }
+  .comments {
+    padding: 0.3rem;
+    // overflow-y: auto;
+    height: 10vh;
+    ul {
+      font-size: 0.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      li {
+        display: flex;
+        .date{
+            margin-left: auto;
+        }
+      }
     }
   }
 }
