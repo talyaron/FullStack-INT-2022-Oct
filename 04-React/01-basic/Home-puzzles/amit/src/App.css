@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+body{
+  background-color: rgb(205, 183, 183);
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -39,4 +43,16 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.App-header {
+  height: 70vh;
+  width: 60vw;
+  border:0.1rem solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  background-color: black;
 }

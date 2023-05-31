@@ -3,11 +3,18 @@
     padding: 10px;
   }
   
-  .nav ul {
+  .navBar {
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+  }
+  .instagram-logo{
+    display: flex;
+    img{
+      width: 6rem;
+      height: 3rem;
+    }
   }
   
   .nav li {

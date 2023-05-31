@@ -1,0 +1,275 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Verdana, "Segoe UI", Tahoma, Geneva, sans-serif; }
+
+img,
+embed,
+object,
+video {
+  max-width: 100%;
+  max-height: 100%; }
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: url("https://wallpapercave.com/wp/wp1966217.jpg") no-repeat center/cover; }
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5vh; }
+  .container nav {
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem; }
+    .container nav .logoutButton {
+      font-size: 0.7rem;
+      color: white; }
+      .container nav .logoutButton:hover {
+        text-decoration: underline;
+        cursor: pointer; }
+    .container nav .profileLogo {
+      font-size: 5vh; }
+      .container nav .profileLogo:hover {
+        cursor: pointer;
+        text-shadow: 0 0 5px white; }
+  .container #personalDetailsRoot {
+    position: absolute;
+    margin: auto;
+    padding: 2rem;
+    display: none;
+    box-shadow: 0 0 100px 100px black;
+    background-color: black;
+    width: 40vw;
+    min-height: 80vh; }
+    .container #personalDetailsRoot .personalDetailsWrapper {
+      width: 100%;
+      height: 100%;
+      padding: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.28);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); }
+      .container #personalDetailsRoot .personalDetailsWrapper__buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 0.5rem; }
+        .container #personalDetailsRoot .personalDetailsWrapper__buttons i {
+          font-size: 1rem;
+          color: rgba(6, 39, 39, 0.808); }
+          .container #personalDetailsRoot .personalDetailsWrapper__buttons i:hover {
+            cursor: pointer;
+            scale: 1.15; }
+          .container #personalDetailsRoot .personalDetailsWrapper__buttons i:active {
+            color: blue; }
+      .container #personalDetailsRoot .personalDetailsWrapper__detailsBox {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.51); }
+        .container #personalDetailsRoot .personalDetailsWrapper__detailsBox__detail {
+          width: 100%;
+          height: 100%;
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(0px);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          font-weight: 700; }
+          .container #personalDetailsRoot .personalDetailsWrapper__detailsBox__detail div {
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(0px);
+            border: 1px solid rgba(14, 14, 14, 0.3);
+            text-align: center;
+            font-weight: 100;
+            padding: 0.5rem; }
+  .container .gameButtons {
+    width: 60vw;
+    display: flex;
+    justify-content: space-around; }
+    .container .gameButtons button {
+      font-size: 0.8rem;
+      background-color: gold;
+      box-shadow: 0px 0px 20px;
+      font-weight: 900;
+      border-radius: 0.5rem;
+      padding: 0.5rem; }
+      .container .gameButtons button:hover {
+        cursor: pointer;
+        box-shadow: none;
+        background-color: beige;
+        transition: 0.2s ease-out; }
+      .container .gameButtons button:active {
+        background-color: seagreen;
+        box-shadow: none; }
+  .container .middleImage {
+    height: 70vh;
+    aspect-ratio: 3/2;
+    background-image: url("https://www.johnadams.co.uk/wp-content/uploads/2021/01/Rummikub-Black-lifestyle.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 0.5rem solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem; }
+    .container .middleImage .createGameWindow,
+    .container .middleImage .savedGamesWindow {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      gap: 5vh;
+      height: 50vh;
+      width: 50vw;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      width: 100%;
+      height: 100%;
+      display: none; }
+      .container .middleImage .createGameWindow .game,
+      .container .middleImage .savedGamesWindow .game {
+        background-color: whitesmoke;
+        border-radius: 5px;
+        padding: 0.3rem 0.7rem;
+        font-size: 1.1;
+        font-weight: 300;
+        cursor: pointer; }
+      .container .middleImage .createGameWindow .game:hover,
+      .container .middleImage .savedGamesWindow .game:hover {
+        box-shadow: 0 0 5px white; }
+    .container .middleImage .savedGamesWindow {
+      padding: 1rem;
+      justify-content: start; }
+  .container #allUsersWrapperRoot {
+    position: absolute;
+    left: 0;
+    top: 15vh;
+    padding: 0.5rem; }
+  .container .allUsersWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center; }
+    .container .allUsersWrapper h1 {
+      margin: auto;
+      font-weight: 600;
+      text-transform: uppercase; }
+    .container .allUsersWrapper__filterBar {
+      display: flex;
+      flex-direction: row;
+      border: 0.1rem solid black;
+      background-color: grey; }
+      .container .allUsersWrapper__filterBar__searchBar {
+        width: 100%;
+        padding-left: 0.5rem; }
+      .container .allUsersWrapper__filterBar i {
+        font-size: 18px;
+        margin: 0.4rem; }
+        .container .allUsersWrapper__filterBar i:hover {
+          color: #ede4e4;
+          cursor: pointer; }
+    .container .allUsersWrapper__users {
+      height: 50vh;
+      overflow-y: scroll;
+      font-size: 1rem;
+      border: 0.1rem solid black;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.51);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(0px); }
+      .container .allUsersWrapper__users::-webkit-scrollbar {
+        width: 14px; }
+      .container .allUsersWrapper__users::-webkit-scrollbar-track {
+        background: transparent; }
+      .container .allUsersWrapper__users::-webkit-scrollbar-thumb {
+        background-color: transparent;
+        border-radius: 20px;
+        border: 3px solid black; }
+      .container .allUsersWrapper__users__user {
+        border-bottom: 0.1rem solid black;
+        padding: 0.4rem 0.4rem;
+        line-height: 2rem;
+        vertical-align: middle;
+        display: flex;
+        flex-direction: column; }
+        .container .allUsersWrapper__users__user h2 {
+          width: 22vw;
+          height: 3vh;
+          font-size: 20px;
+          font-weight: 500;
+          line-height: 24px;
+          display: flex;
+          justify-content: space-between;
+          margin: 0; }
+          .container .allUsersWrapper__users__user h2 i:hover {
+            cursor: pointer;
+            text-shadow: 0 0 5px white; }
+        .container .allUsersWrapper__users__user__details {
+          width: 22vw;
+          height: 34vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          font-size: 1rem;
+          text-align: left;
+          line-height: 1.5rem;
+          overflow: hidden;
+          transition: max-height 0.2s ease-out; }
+          .container .allUsersWrapper__users__user__details button {
+            margin: 0.5rem;
+            background-color: red;
+            box-shadow: 0px 0px 15px;
+            font-weight: 900;
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            font-size: 16px;
+            margin-bottom: 0.5rem; }
+            .container .allUsersWrapper__users__user__details button:hover {
+              cursor: pointer;
+              box-shadow: none;
+              background-color: black;
+              transition: 0.2s ease-out;
+              color: red; }
+          .container .allUsersWrapper__users__user__details__buttons {
+            width: 22vw;
+            height: 5vh;
+            display: flex;
+            justify-content: space-between; }
+            .container .allUsersWrapper__users__user__details__buttons i {
+              font-size: 26px;
+              margin: 0.4rem; }
+              .container .allUsersWrapper__users__user__details__buttons i:hover {
+                cursor: pointer;
+                scale: 1.1; }
+          .container .allUsersWrapper__users__user__details p {
+            font-weight: 900; }
+          .container .allUsersWrapper__users__user__details span {
+            font-weight: 200; }
+  .container #noResultsRoot {
+    background-color: red;
+    border: 0.1rem solid black;
+    width: 24.5vw;
+    height: auto;
+    align-self: center; }

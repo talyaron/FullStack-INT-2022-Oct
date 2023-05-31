@@ -1,0 +1,40 @@
+*{
+    margin:0;
+}
+
+.movie{
+    width: 16vw;
+    height: 50vh;
+    background-color: rgb(61, 59, 59);
+    border: 0.2rem solid white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.469);
+    margin: 4px;
+    color: white;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 2rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: scale 0.4s ease-in-out;
+    &:hover{scale: 1.05;}
+    h2{
+        font-size: 1.1rem;
+        text-transform: capitalize;
+    }
+    p {
+        color: black;
+        line-height: 1.5rem;
+        font-size: 1.5rem;
+        font-weight: 500;
+        text-transform: capitalize;
+        margin:0.4rem;
+    }
+    img{
+        width: 100%;
+        height: 80%;
+        align-self: center;
+    }
+}
