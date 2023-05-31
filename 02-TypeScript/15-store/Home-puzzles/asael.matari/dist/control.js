@@ -21,9 +21,24 @@ function render(users) {
         if (!arrayOfUsers)
             throw new Error("you don't insert a variable");
         var html = users.map(function (user) {
-            return "<div class=\"item\" style=\"background-color:" + user.color + "\">\n            <h3>" + user.fullName + "</h3>\n            <div>Email: " + user.email + " </div>\n            <div><img src=\" " + user.url + "\"></div>\n            <div>Password: " + user.password + "</div>\n            <div>Color: " + user.color + "</div>\n            <button onclick=\"handleDeleteItem('" + user.uid + "')\">Remove</button>\n          </div>\n          ";
+            return "<div class=\"item\" style=\"background-color:" + user.color + "\">\n            <h3>" + user.fullName + "</h3>\n            <div>Email: " + user.email + " </div>\n            <div><img src=\" " + user.url + "\"></div>\n            <div>Password: " + user.password + "</div>\n            <div>Color: " + user.color + "</div>\n            <button onclick=\"handleDeleteUser('" + user.uid + "')\">Remove</button>\n          </div>\n          ";
         }).join(" ");
         return html;
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function handleDeleteUser(uid) {
+    try {
+        console.log(uid);
+        var index = arrayOfUsers.findIndex(function (user) { return user.uid === uid; });
+        if (index === -1)
+            throw new Error("item not found");
+        arrayOfUsers.splice(index, 1);
+        if (!container)
+            throw new Error("container is undefined");
+        container.innerHTML = render(arrayOfUsers);
     }
     catch (error) {
         console.error(error);
