@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+  <link rel="icon" type="image/png" href="./img/pngwing.com.png" />
+  <link rel="stylesheet" href="./style/css/loginStyle.css">
+  <script src="https://kit.fontawesome.com/9655756982.js" crossorigin="anonymous"></script>
+  <script defer src="./src/loginPage/login.js"></script>
+</head>
+
+<body>
+    <div class="loginWrapper">
+      <h1>Login</h1>
+      <form class="form" action="/api/v1/users/userLogin" method="post">
+        <input name="email" id="checkEmail"  type="text" placeholder="Email" required/>
+        <input name="password" id="checkPassword" type="password" placeholder="Password"  minlength="8" required/>
+        <i id="showOrHidePassword" class="fa-solid fa-eye"></i>
+        <button type="submit" class="login__Button">Login</button>
+      </form>
+      <a class="signUp" href="/signUp">Don't have an account yet?</a>
+    </div>  
+
+</body>
+
+</html>

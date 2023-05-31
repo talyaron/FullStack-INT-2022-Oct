@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- link to style -->
+    <link rel="stylesheet" href="./style/css/button.css" />
+    <link rel="stylesheet" href="./style/css/profileStyle.css" />
+
+    <!-- link to fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/0d9e773bea.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- links to js -->
+    <script src="./src/profile/view.js" defer></script>
+    <script src="./src/profile/controller.js" defer></script>
+    <script src="./src/profile/index.js" defer></script>
+    <title>User's page</title>
+    <link rel="icon" type="image/png" href="./img/pngwing.com.png" />
+  </head>
+  <body onload="handleGetUserDetails()">
+    <div class="container">
+      <nav>
+        <div class="logoutButton" onclick="handleLogout()">logout</div>
+        <h1 id="headerRoot">Welcome to user profile page</h1>
+        <i
+          class="fa-regular fa-circle-user profileLogo"
+          onclick="collapsePersonalDetailsWrapper()"
+        ></i>
+      </nav>
+      <div id="personalDetailsRoot"></div>
+
+      <div class="gameButtons">
+        <button>join game</button>
+        <button id="createGameBtn">create game</button>
+        <button id="savedGamesBtn">saved games</button>
+      </div>
+
+      <div class="middleImage">
+        <div class="createGameWindow">
+          <a href="/game"><button class="buttonStyleOne">Local</button></a>
+          <button class="buttonStyleOne">Online</button>
+        </div>
+        <div class="savedGamesWindow"></div>
+      </div>
+
+      <div id="allUsersWrapperRoot"></div>
+    </div>
+  </body>
+</html>
