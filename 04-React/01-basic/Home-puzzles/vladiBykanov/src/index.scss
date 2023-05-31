@@ -12,7 +12,7 @@ video {
   max-height: 100%;
 }
 #root {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -21,10 +21,14 @@ video {
 
 .post {
   width: 40vw;
-  height: 80vh;
-  //   border: 3px solid black;
+  // height: 90vh;
+  min-height: 500px;
   box-shadow: 0 0 5px black;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.3rem;
   .header {
     display: flex;
     align-items: center;
@@ -42,13 +46,15 @@ video {
       border: 1px solid rgba(0, 0, 0, 0.493);
     }
   }
+  .image {
+    margin: 0 1rem;
+  }
   .icons {
     display: flex;
     justify-content: start;
     align-items: center;
     gap: 0.5rem;
     font-size: 1.2rem;
-    padding: 0.3rem 0.3rem;
     .likeIcon {
       cursor: pointer;
       transition: all 0.3s;
@@ -64,19 +70,18 @@ video {
     }
   }
   .likes {
-    padding: 0.3rem;
     font-size: 0.7rem;
   }
   .postText {
     display: flex;
     gap: 0.5rem;
-    padding: 0.3rem;
     font-size: 0.7rem;
   }
   .comments {
-    padding: 0.3rem;
     // overflow-y: auto;
-    height: 10vh;
+    // border: 1px solid rgba(0, 0, 0, 0.304);
+    // height: 10vh;
+    padding: 0.3rem 1rem;
     ul {
       font-size: 0.6rem;
       display: flex;
@@ -84,10 +89,23 @@ video {
       gap: 0.5rem;
       li {
         display: flex;
-        .date{
-            margin-left: auto;
+        .date {
+          margin-left: auto;
         }
       }
+    }
+  }
+  .comments::-webkit-scrollbar {
+    display: none;
+  }
+  .newCommentForm {
+    width: 100%;
+    input {
+      width: 100%;
+      padding: 0.3rem;
+      outline: 1px solid rgba(0, 0, 0, 0.353);
+      border-radius: 5px;
+      border: none;
     }
   }
 }

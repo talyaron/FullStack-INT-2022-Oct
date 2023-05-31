@@ -11,7 +11,7 @@ const Comments = ({ comments }: CommentsProps) => {
       <ul>
         {comments.slice(0, 3).map((comment) => (
           <li key={comment.id}>
-            <em>{comment.author}</em> - {comment.text}{" "}
+            {comment.author} - {comment.text}
             <p className="date">
               {comment.date.toUTCString().split("").splice(5, 11)}
             </p>

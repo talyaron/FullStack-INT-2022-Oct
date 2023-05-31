@@ -11,7 +11,7 @@ export class Comment {
   constructor(
     public id: number,
     public text: string,
-    public author: string,
+    public author: string = (Math.random() + 1).toString(36).substring(7),
     public date: Date = new Date()
   ) {}
 }
@@ -19,7 +19,7 @@ export class Comment {
 const Post = () => {
   const user = "vladb89";
   const [likes, setLikes] = useState<number>(23543);
-  const [newComment, setNewComment] = useState<string>("")
+  const [newComment, setNewComment] = useState<string>("");
   const [comments, setComments] = useState<Comment[]>([
     {
       id: 1,
@@ -49,19 +49,26 @@ const Post = () => {
 
   const handleNewComment = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if(!newComment) return
-    const comment = new Comment(comments.length + 1, newComment, )
+    if (!newComment) return;
+    const comment = new Comment(comments.length + 1, newComment);
+    const newComments = [comment, ...comments];
+    setComments(newComments);
+    setNewComment("");
   };
 
   return (
     <div className="post">
       <Header />
-      <img src="https://wallpapercave.com/wp/acWzCvX.jpg" alt="" />
+      <img className="image" src="https://wallpapercave.com/wp/acWzCvX.jpg" alt="" />
       <Icons setLikes={setLikes} />
       <Likes likes={likes} />
       <Text userName={user} />
       <Comments comments={comments} />
-      <NewComment handleNewComment={handleNewComment} />
+      <NewComment
+        newComment={newComment}
+        setNewComment={setNewComment}
+        handleNewComment={handleNewComment}
+      />
     </div>
   );
 };
