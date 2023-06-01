@@ -1,0 +1,91 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Verdana, "Segoe UI", Tahoma, Geneva, sans-serif; }
+
+img,
+embed,
+object,
+video {
+  max-width: 100%;
+  max-height: 100%; }
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: #e8e8e8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+.registerWrapper {
+  width: 50vw;
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.66);
+  box-shadow: 6px 0px 12px rgba(0, 0, 0, 0.12);
+  border-radius: 30px;
+  padding: 1rem 2rem; }
+  .registerWrapper form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0.5rem; }
+    .registerWrapper form h1 {
+      width: 100%;
+      font-family: "Roboto";
+      font-size: calc((4vh + 4vw) / 2);
+      color: #006336;
+      text-align: center; }
+    .registerWrapper form select {
+      width: 100%;
+      height: 5%;
+      margin-top: 10px;
+      border-radius: 0px;
+      border: none;
+      border-bottom: 2px solid #9292fe;
+      border-radius: 0px;
+      background: #edf2f7;
+      color: grey; }
+      .registerWrapper form select option {
+        border: 3px solid black;
+        font-size: 0.7rem; }
+    .registerWrapper form input {
+      padding: 0.3rem;
+      width: 100%;
+      height: 5%;
+      margin-top: 10px;
+      border-radius: 0px;
+      border: none;
+      border-bottom: 2px solid #9292fe;
+      border-radius: 0px;
+      background: #edf2f7; }
+    .registerWrapper form button {
+      width: 70%;
+      height: 10%;
+      margin-top: 1.5rem;
+      padding-bottom: 0.5rem;
+      padding-top: 0.5rem;
+      border: 1px solid #4a5568;
+      border-radius: 36px;
+      background: #5adb9d;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+      font-size: x-large;
+      color: white;
+      cursor: pointer; }
+      .registerWrapper form button:hover {
+        background: #48b681; }
+  .registerWrapper .signIn {
+    color: black;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    padding-top: 1rem;
+    padding-bottom: 2rem; }

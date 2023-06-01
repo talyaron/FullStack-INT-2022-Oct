@@ -1,11 +1,75 @@
 import "./App.scss";
 import Post from "./components/post";
+import NavTop from "./components/topNav";
+import NavRight from "./components/navRight";
+import Massage from "./components/massage";
+import { useState } from "react";
 
+const posts = [
+  {
+    username: "reut",
+    imageUrl:
+      "https://images.unsplash.com/photo-1615963244664-5b845b2025ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80",
+    text: "test-1",
+  },
+  {
+    username: "itay",
+    imageUrl:
+      "https://hinduifestival.com/wp-content/uploads/2022/08/Good-Morning-images-2-768x961.jpg",
+    text: "test-2",
+  },
+  {
+    username: "tal",
+    imageUrl:
+      "https://media.istockphoto.com/id/528476982/photo/sunrise-over-taj-mahal.jpg?s=612x612&w=0&k=20&c=D5MbutrXK1fDjI0T9a1wZWyRaiyzJEUwsxfahL_GlM4=",
+    text: "test-3",
+  },
+  {
+    username: "Moshe",
+    imageUrl:
+      "https://media.istockphoto.com/id/1093110112/photo/picturesque-morning-in-plitvice-national-park-colorful-spring-scene-of-green-forest-with-pure.jpg?s=612x612&w=0&k=20&c=lpQ1sQI49bYbTp9WQ_EfVltAqSP1DXg0Ia7APTjjxz4=",
+    text: "test-4",
+  },
+  {
+    username: "Aviel",
+    imageUrl:
+      "https://cdn.theatlantic.com/media/img/photo/2018/10/images-of-the-season-fall-is-in-the/f02_RTX6EJJJ-1/original.jpg",
+    text: "test-5",
+  },
+];
+const topNavButtons = [
+  { name: "Home" },
+  { name: "Profile" },
+  { name: "Favourites" },
+  { name: "Search" },
+];
+const rightNavButtons = [
+  { name: "Friends" },
+  { name: "Blocked" },
+  { name: "Likes" },
+  { name: "Exit" },
+];
 
 function App() {
+  const handleSelectButton = () => {
+    setmassagesVisible(true);
+  };
+  const handleSelectButtonFalse = () => {
+    setmassagesVisible(false);
+  };
+  const [massagesVisible, setmassagesVisible] = useState(false);
+
   return (
     <div className="app">
       <div className="app__header">
+        {topNavButtons.map((topNavButton, index) => (
+          <NavTop
+            key={index}
+            name={topNavButton.name}
+            onSelectButton={handleSelectButton}
+          />
+        ))}
+        {massagesVisible && <Massage onClose={handleSelectButtonFalse} />}
         <svg
           aria-label="Instagram"
           className="app__headerImage"
@@ -24,9 +88,22 @@ function App() {
           ></path>
         </svg>
       </div>
-        <h1>instagram</h1>
-
-        <Post />
+      <div className="app__navRight">
+        {rightNavButtons.map((rightNavButton, index) => (
+          <NavRight key={index} name={rightNavButton.name} />
+        ))}
+      </div>
+      <h1>my</h1>
+      <div className="app__post">
+        {posts.map((post, index) => (
+          <Post
+            key={index}
+            username={post.username}
+            imageUrl={post.imageUrl}
+            text={post.text}
+          />
+        ))}
+      </div>
     </div>
   );
 }

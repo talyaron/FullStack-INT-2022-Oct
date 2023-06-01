@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.userRouter = void 0;
+const express_1 = __importDefault(require("express"));
+const userRouter = express_1.default.Router();
+exports.userRouter = userRouter;
+const userController_1 = require("../controller/userController");
+const userMiddleware_1 = require("../middlewares/userMiddleware");
+userRouter.route("/").get(userController_1.getAllUsers).post(userController_1.createUser);
+userRouter.route("/getAllSimpleUsers").get(userController_1.getAllSimpleUsers);
+userRouter.route("/searchUser").post(userController_1.searchUser);
+userRouter.route("/getAllUsers").get(userController_1.getAllUsers);
+userRouter.route("/getUser").get(userController_1.getUser);
+userRouter.route("/deleteUser").delete(userMiddleware_1.isAdmin, userController_1.deleteUser);
+userRouter.route("/deleteAllUsers").delete(userMiddleware_1.isAdmin, userController_1.deleteAllUsers);
+userRouter.route("/updateUser").patch(userController_1.updateUser);
+userRouter.route("/updateUserByAdmin").patch(userMiddleware_1.isAdmin, userController_1.updateUserByAdmin);
+userRouter.route("/userLogin").post(userController_1.userLogin);
+userRouter.route("/userLogout").get(userController_1.userLogout);

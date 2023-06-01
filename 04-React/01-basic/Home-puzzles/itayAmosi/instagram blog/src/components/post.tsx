@@ -1,28 +1,37 @@
-import "./post.scss";
+import "../style/post.scss";
 import { Avatar } from "@mui/material";
+import { FC } from "react";
 
-function post() {
+
+interface Post{
+  username: string;
+  imageUrl:string;
+  text: string;
+} 
+
+
+
+const Post: FC<Post> = ({ username , imageUrl , text }) =>  {
   return (
     <div className="post">
       <div className="post__header">
         <Avatar
           className="post__header__avatar"
           alt="Reut"
-          src="/static/images/avatar/1.jpg"
+          src=""
         />
-        <h3>Username</h3>
+        <h2>{username}</h2>
       </div>
       <img
         className="post__image"
-        src="https://images.pexels.com/photos/2515420/pexels-photo-2515420.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        src={imageUrl}
         alt=""
       />
       <h4 className="post__text">
-        <strong className="post__text__strong">username:</strong>I uploaded a
-        picture for test
+        <strong className="post__text__strong">{username}:</strong>{text}
       </h4>
     </div>
   );
 }
 
-export default post;
+export default Post;
