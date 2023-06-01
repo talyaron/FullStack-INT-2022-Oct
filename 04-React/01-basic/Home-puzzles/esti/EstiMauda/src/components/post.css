@@ -1,0 +1,44 @@
+*{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.post{
+    background-color: rgb(159, 159, 189);
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px black;
+    margin: 4px;
+    color: white;
+
+}
+.imagePost{
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
+    
+}
+.imageLike {
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+}
+.image-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+  
+  .text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    color: black;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.8);
+    
+    /* background-color: rgba(0, 0, 0, 0.6); */
+    padding: 3px;
+    padding-left: 40px;
+    padding-bottom: 26px;
+    font-weight: bolder;
+  }

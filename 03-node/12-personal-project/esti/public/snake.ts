@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const value = urlParams.get('value');
       const playerName = document.querySelector(".playerName") as HTMLHeadElement
       playerName.innerText = `Welcome ${value}`
-      console.log(value)
+      console.log(JSON.stringify(value))
       namePlayer = value;
       
       popup.style.display = "none";
