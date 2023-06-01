@@ -1,5 +1,7 @@
 import "./App.css";
 import Box from "./components/box/Box";
+import Nav from "./components/nav/Nav";
+
 
 function App() {
 
@@ -9,12 +11,14 @@ function App() {
       <h1>React 3</h1>
       <p>Hi</p>
       <Box text="Hi" />
-      <Box text="Bye"/>
+      <Box text="Bye" />
       <Box text="whatsapp"/>
       <Box text="great!!"/>
+      <Nav img="dfhdfh.jpg" />
     </div>
     
   );
 }
+
 
 export default App;
