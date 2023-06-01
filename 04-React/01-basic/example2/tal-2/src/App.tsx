@@ -1,23 +1,24 @@
 import "./App.css";
 import Box from "./components/box/Box";
+import Nav from "./components/nav/Nav";
 
-const names: Array<string> = ["Davis", "Rivka", "Ruth", "Walla", "Walid"];
 
 function App() {
-  //JSX
+
+//JSX
   return (
     <div>
       <h1>React 3</h1>
       <p>Hi</p>
-      {/* <Box text="Hi" />
-      <Box text="Bye"/>
+      <Box text="Hi" />
+      <Box text="Bye" />
       <Box text="whatsapp"/>
-      <Box text="great!!"/> */}
-      {names.map((name) => (
-        <Box text={name} />
-      ))}
+      <Box text="great!!"/>
+      <Nav img="dfhdfh.jpg" />
     </div>
+    
   );
 }
+
 
 export default App;

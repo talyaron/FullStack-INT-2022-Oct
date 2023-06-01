@@ -1,20 +1,30 @@
+/* eslint-disable no-inner-declarations */
 import { FC, useState } from "react";
 import "./box.css";
+
 interface BoxProps {
   text: string;
 }
 
 const Box: FC<BoxProps> = ({ text }) => {
-  const [counter, setCounter] = useState(0);
+  try {
+    const [counter, setCounter] = useState<number>(42);
 
-  function handleClick() {
-    setCounter((counter) => counter + 1);
+    function handleClick() {
+      setCounter((counter) => counter + 1);
+    }
+
+    return (
+      <div className="box" onClick={handleClick}>
+        {text}: {counter}
+        <button>OK</button>
+        <img src="dgdfg" />
+      </div>
+    );
+  } catch (error) {
+    console.error(error);
+    return null;
   }
-  return (
-    <div className="box" onClick={handleClick}>
-      {text}: {counter}
-    </div>
-  );
 };
 
 export default Box;

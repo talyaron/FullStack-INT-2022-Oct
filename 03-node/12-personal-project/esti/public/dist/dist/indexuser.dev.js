@@ -1,12 +1,28 @@
 "use strict";
 
+exports.__esModule = true; // import { updateScore } from './../API/scores/scoreControl';
+// import { Scores } from '../API/scores/scoreModel';
+// import { User } from '../API/users/userModel';
 // tinymce.init({
 //   selector: '#myTextarea'
 // });
-function getTenHighScore() {
-  console.log("test");
+// import { url } from "inspector";
 
+var userScoreToGame = {
+  name: name,
+  id: id,
+  score: score
+};
+var queryString = window.location.search;
+var urlParams = new URLSearchParams(queryString);
+var value = urlParams.get('value');
+console.log(value);
+if (value) updatePlayerScore(value);
+;
+
+function getTenHighScore() {
   try {
+    console.log("getTenHighScore");
     fetch("/get-score").then(function (res) {
       return res.json();
     }).then(function (_a) {
@@ -15,7 +31,8 @@ function getTenHighScore() {
       try {
         if (!scores) throw new Error("didnt find scores");
         console.log(scores);
-        renderUsers(scores);
+        console.log("scores");
+        renderScores(scores);
       } catch (error) {
         console.error(error);
       }
@@ -25,26 +42,26 @@ function getTenHighScore() {
   }
 }
 
-function renderUsers(users) {
+function renderScores(scores) {
   try {
-    if (!users) throw new Error("No users");
+    if (!scores) throw new Error("No users");
     var html = "";
-    users.map(function (user) {
-      return renderUser(user);
+    scores.map(function (score) {
+      return renderScore(score);
     }).join(" ");
     html = "<div class=\"container\"><h1>Ten user with high score</h1><div class=\"container__form\">" + html + "</div></div>";
-    var usersElement = document.querySelector(".centered");
-    if (!usersElement) throw new Error("coundnt find users element on DOM");
-    usersElement.innerHTML = html;
+    var scoresElement = document.querySelector(".centered");
+    if (!scoresElement) throw new Error("coundnt find users element on DOM");
+    scoresElement.innerHTML = html;
   } catch (error) {
     console.error(error);
   }
 }
 
-function renderUser(user) {
+function renderScore(score) {
   try {
-    console.log(user);
-    return "\n    <p>" + score.name + " - " + score.socor + "</p>";
+    console.log(score);
+    return "\n    <p>" + score.userName + " - " + score.score + "</p>";
   } catch (error) {
     console.error(error);
     return null;
@@ -83,7 +100,8 @@ function hendelAddUser(ev) {
       name: name,
       password: password
     };
-    console.log(newUser); //send to server:
+    console.log(newUser);
+    console.log("newUser"); //send to server:
 
     fetch("/add-user", {
       method: "POST",
@@ -127,7 +145,19 @@ function handleLogin(ev) {
       return res.json();
     }).then(function (data) {
       console.log(data);
-      alert(data.error);
+
+      if (data.error) {
+        alert(data.error);
+      } else {
+        // getTenHighScore()
+        //  snakeGame(data.name, data._id)
+        userScoreToGame.name = data.user.name;
+        userScoreToGame.id = data.ueser._id;
+        userScoreToGame.score = 0;
+        console.log("userScoreToGame.");
+        console.log(userScoreToGame); //  snakeGame(data.name, data._id)
+        //  window.location.href = "login.html"
+      }
     })["catch"](function (error) {
       console.error(error);
     });
@@ -184,6 +214,48 @@ function handleUpdateUserType(ev, userId) {
       console.error(error);
     });
     ;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function renderUsers(users) {
+  console.log("renderUser");
+}
+
+function snakeGame(name, id) {
+  try {
+    if (!name || !id) throw new Error("no name or id from login"); // const urlData = `playerNAme: ${name} id: ${id}`
+
+    var urlData = name + "," + id;
+    var url = "snake.html?value=" + urlData;
+    console.log("url " + url);
+    window.location.href = url;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function updatePlayerScore(value) {
+  try {
+    console.log(value);
+    console.log("updatePlayerSorce"); //   const userType = ev.target.value;
+    //   console.log(userType)
+    //   fetch("/api/users/update-user-type", {
+    //     method: "PATCH",
+    //     headers: {
+    //       Accept: "application/json",
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({ userId, userType }),
+    //   })
+    //   .then((res) => res.json())
+    //     .then(({ users }) => {
+    //       renderUsers(users);
+    //     })
+    //     .catch((error) => {
+    //       console.error(error);
+    //     });;
   } catch (error) {
     console.error(error);
   }
