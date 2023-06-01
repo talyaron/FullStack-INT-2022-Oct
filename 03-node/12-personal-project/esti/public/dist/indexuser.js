@@ -1,10 +1,10 @@
-// import { updateScore } from './../API/scores/scoreControl';
-// import { Scores } from '../API/scores/scoreModel';
-// import { User } from '../API/users/userModel';
-// tinymce.init({
-//   selector: '#myTextarea'
-// });
-// import { url } from "inspector";
+"use strict";
+exports.__esModule = true;
+var userScoreplayer = {
+    name: '',
+    id: '',
+    score: -1
+};
 var queryString = window.location.search;
 var urlParams = new URLSearchParams(queryString);
 var value = urlParams.get('value');
@@ -118,13 +118,13 @@ function handleLogin(ev) {
     try {
         ev.preventDefault();
         console.log(ev.target.elements);
-        var name_1 = ev.target.elements.name.value;
+        var name = ev.target.elements.name.value;
         var password = ev.target.elements.password.value;
-        if (!name_1)
+        if (!name)
             throw new Error("No name");
         if (!password)
             throw new Error("No Password");
-        var newUser = { name: name_1, password: password };
+        var newUser = { name: name, password: password };
         fetch("/login", {
             method: "POST",
             headers: {
@@ -141,8 +141,13 @@ function handleLogin(ev) {
             }
             else {
                 // getTenHighScore()
-                //  snakeGame(data.name, data._id)
-                snakeGame(name_1);
+                userScoreplayer = {
+                    name: data.user.name,
+                    id: data.user._id,
+                    score: -1
+                };
+                console.log(userScoreplayer);
+                snakeGame(userScoreplayer);
                 //  window.location.href = "login.html"
             }
         })["catch"](function (error) {
@@ -204,13 +209,14 @@ function handleUpdateUserType(ev, userId) {
 function renderUsers(users) {
     console.log("renderUser");
 }
-function snakeGame(name) {
+function snakeGame(userScoreToGame) {
     try {
-        if (!name)
+        if (!userScoreToGame.name || !userScoreToGame.id)
             throw new Error("no name or id from login");
         // const urlData = `playerNAme: ${name} id: ${id}`
-        var urlData = "" + name;
-        var url = "snake.html?value=" + urlData;
+        // const urlData = `${userScoreToGame.name},${userScoreToGame.id},${userScoreToGame.score}`
+        var url = "snake.html?value=" + userScoreToGame;
+        console.log("url " + url);
         window.location.href = url;
     }
     catch (error) {

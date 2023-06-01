@@ -68,8 +68,8 @@ export const login = async (req: any, res: any) => {
     // console.log("token");
 
     res.cookie("user", userDB._id , { maxAge: 5000000, httpOnly: true });
-
-    res.status(201).send({ ok: true });
+    
+    res.status(201).send({ ok: true, user:userDB });
     
   } catch (error: any) {
     console.error(error);

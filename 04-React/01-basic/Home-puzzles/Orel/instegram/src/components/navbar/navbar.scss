@@ -1,0 +1,46 @@
+.nav {
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.863);
+    top: 0;
+    left: 0;
+    
+    & {
+        padding: 10px 17px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.082);
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        width: 100vw;
+
+
+    }
+
+    &__logo {
+        height: 20px;
+        img {
+            width: 100px;
+
+        }
+    }
+
+    &__heart-btn {
+
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+        background: none;
+border: none;
+    
+
+        img {
+            width: 17px;
+            height: 17px;
+            &:hover{
+                scale: 1.05;
+            }
+        }
+
+  
+    }
+}

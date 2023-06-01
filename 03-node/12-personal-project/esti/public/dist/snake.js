@@ -33,7 +33,7 @@ function createBoard() {
         var value = urlParams.get('value');
         var playerName = document.querySelector(".playerName");
         playerName.innerText = "Welcome " + value;
-        console.log(value);
+        console.log(JSON.stringify(value));
         namePlayer = value;
         popup.style.display = "none";
         var html = "";

@@ -8,16 +8,15 @@
     <script src="./dist/control.js" defer></script>
     <script src="./dist/model.js" defer></script>
     <script src="./dist/view.js" defer></script>
-    <script src="./dist/helpers.js"></script>
     <link rel="stylesheet" href="./dist/style.css" />
   </head>
   <body>
     <h1>Login...</h1>
-    <form  onsubmit="handlDetails(event)">
+    <form onsubmit="handldetails(event)" class="form">
       <input type="text" name="fullname" placeholder="full name" />
       <input type="email" name="email" placeholder="Email" />
-      <input type="text" name="Url" placeholder="Url img" />
-      <div class="passwordContainer">
+      <input type="text" name="img" placeholder="Url img" />
+      <div>
         <input
           type="password"
           name="password"
@@ -29,7 +28,6 @@
           id="img"
         />
       </div>
-      <input type="color" name="color" oninput="handlColor(event)">
       <input type="submit" />
     </form>
     <div class="container"></div>

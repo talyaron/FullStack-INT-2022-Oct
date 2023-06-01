@@ -1,3 +1,6 @@
+
+
+import { User } from '../API/users/userModel';
 // import { updateScore } from './../API/scores/scoreControl';
 // import { Scores } from '../API/scores/scoreModel';
 // import { User } from '../API/users/userModel';
@@ -7,6 +10,17 @@
 
 // import { url } from "inspector";
 
+interface UserScoreToGame {
+  name: string;
+  id: string;
+  score: number;
+} 
+ 
+let userScoreplayer: UserScoreToGame = {
+  name: '',
+  id: '',
+  score: -1
+}
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -153,14 +167,19 @@ function handleLogin(ev: any) {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
+        
 
           if(data.error){
              alert(data.error)
             }else{
                // getTenHighScore()
-               
-              //  snakeGame(data.name, data._id)
-               snakeGame(name)
+               userScoreplayer={
+                name: data.user.name, 
+                id: data.user._id,
+                score: -1
+               } 
+               console.log(userScoreplayer)
+               snakeGame(userScoreplayer)
                
               //  window.location.href = "login.html"
             }
@@ -228,12 +247,13 @@ function renderUsers(users: User){
     console.log("renderUser")
 }
 
-function snakeGame(name:string){
+function snakeGame(userScoreToGame: UserScoreToGame ){
   try {
-      if(!name) throw new Error ("no name or id from login")
+      if(!userScoreToGame.name || !userScoreToGame.id) throw new Error ("no name or id from login")
         // const urlData = `playerNAme: ${name} id: ${id}`
-        const urlData = `${name}`
-        const url = `snake.html?value=${urlData}`;
+        // const urlData = `${userScoreToGame.name},${userScoreToGame.id},${userScoreToGame.score}`
+        const url = `snake.html?value=${userScoreToGame}`;
+        console.log(`url ${url}`)
         window.location.href = url;
 
     } catch (error) {
