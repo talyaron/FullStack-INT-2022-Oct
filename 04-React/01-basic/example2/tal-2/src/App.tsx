@@ -12,7 +12,7 @@ function App() {
       <Box text="Bye"/>
       <Box text="whatsapp"/>
       <Box text="great!!"/>
-    </div>
+    </div>-
     
   );
 }
