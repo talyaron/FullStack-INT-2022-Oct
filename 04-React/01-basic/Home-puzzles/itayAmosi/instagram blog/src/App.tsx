@@ -55,7 +55,7 @@ function App() {
     setmassagesVisible(true);
   };
   const handleSelectButtonFalse = () => {
-    setmassagesVisible(false);
+    setmassagesVisible((massagesVisible) => !massagesVisible);
   };
   const [massagesVisible, setmassagesVisible] = useState(false);
 
@@ -69,7 +69,7 @@ function App() {
             onSelectButton={handleSelectButton}
           />
         ))}
-        {massagesVisible && <Massage onClose={handleSelectButtonFalse} />}
+        {massagesVisible && <Massage onClose={handleSelectButtonFalse}></Massage>}
         <svg
           aria-label="Instagram"
           className="app__headerImage"
