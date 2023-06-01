@@ -59,7 +59,7 @@ const Post = () => {
   return (
     <div className="post">
       <Header />
-      <img className="image" src="https://wallpapercave.com/wp/acWzCvX.jpg" alt="" />
+      <img className="post__image" src="https://wallpapercave.com/wp/acWzCvX.jpg" alt="" />
       <Icons setLikes={setLikes} />
       <Likes likes={likes} />
       <Text userName={user} />

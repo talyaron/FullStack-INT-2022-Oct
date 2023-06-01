@@ -20,7 +20,8 @@ video {
 }
 
 .post {
-  width: 40vw;
+  width: 40%;
+  max-width: 400px;
   // height: 90vh;
   min-height: 500px;
   box-shadow: 0 0 5px black;
@@ -29,7 +30,7 @@ video {
   flex-direction: column;
   justify-content: space-between;
   padding: 0.3rem;
-  .header {
+  &__header {
     display: flex;
     align-items: center;
     padding: 0.5rem;
@@ -46,10 +47,10 @@ video {
       border: 1px solid rgba(0, 0, 0, 0.493);
     }
   }
-  .image {
+  &__image {
     margin: 0 1rem;
   }
-  .icons {
+  &__icons {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -69,15 +70,15 @@ video {
       margin-left: auto;
     }
   }
-  .likes {
+  &__likes {
     font-size: 0.7rem;
   }
-  .postText {
+  &__text {
     display: flex;
     gap: 0.5rem;
     font-size: 0.7rem;
   }
-  .comments {
+  &__comments {
     // overflow-y: auto;
     // border: 1px solid rgba(0, 0, 0, 0.304);
     // height: 10vh;
@@ -95,10 +96,10 @@ video {
       }
     }
   }
-  .comments::-webkit-scrollbar {
+  &__comments::-webkit-scrollbar {
     display: none;
   }
-  .newCommentForm {
+  &__newCommentForm {
     width: 100%;
     input {
       width: 100%;

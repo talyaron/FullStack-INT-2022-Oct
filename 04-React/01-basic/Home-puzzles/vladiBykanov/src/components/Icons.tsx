@@ -28,7 +28,7 @@ const Icons = ({ setLikes }: IconsProps) => {
   };
 
   return (
-    <div className="icons">
+    <div className="post__icons">
       <AiFillHeart className="likeIcon" onClick={handleLike} />
       <BsChat />
       <BsSend />

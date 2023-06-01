@@ -6,9 +6,9 @@ type TextProps = {
 
 const Text = ({ userName }: TextProps) => {
   return (
-    <div className="postText">
+    <div className="post__text">
       <b>{userName}: </b>
-      <p><SiBytedance /> Art</p>
+      <p><SiBytedance /> Art is an expression of the mind</p>
     </div>
   );
 };
