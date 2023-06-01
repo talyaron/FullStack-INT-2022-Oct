@@ -14,8 +14,7 @@ function App() {
       <Box text="Bye" />
       <Box text="whatsapp"/>
       <Box text="great!!"/>
-      <Nav img="dfhdfh.jpg" />
-    </div>
+    </div>-
     
   );
 }
