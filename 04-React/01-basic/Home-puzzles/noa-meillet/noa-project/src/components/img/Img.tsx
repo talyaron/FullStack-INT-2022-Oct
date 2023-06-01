@@ -8,10 +8,12 @@ interface ImgProps{
 
 const Img:FC<ImgProps> = ({text}) => {
     return(
+        
         <div className="img">
             <img src={text} alt="instagram-img-post" />
             <Like/>
         </div>
+        
     )
 }
 export default Img;
