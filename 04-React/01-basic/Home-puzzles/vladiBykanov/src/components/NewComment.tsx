@@ -6,12 +6,17 @@ interface NewCommentProps {
   newComment: string;
 }
 
-const NewComment = ({ handleNewComment, newComment, setNewComment }: NewCommentProps) => {
+const NewComment = ({
+  handleNewComment,
+  newComment,
+  setNewComment,
+}: NewCommentProps) => {
   return (
-    <form className="newCommentForm" onSubmit={handleNewComment}>
+    <form className="post__newCommentForm" onSubmit={handleNewComment}>
       <label htmlFor="addComment">
         <input
           type="text"
+          name="addComment"
           placeholder="New comment..."
           className="newCommentInput"
           value={newComment}

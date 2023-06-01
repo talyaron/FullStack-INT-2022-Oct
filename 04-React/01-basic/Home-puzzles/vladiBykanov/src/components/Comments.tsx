@@ -7,7 +7,7 @@ interface CommentsProps {
 
 const Comments = ({ comments }: CommentsProps) => {
   return (
-    <div className="comments">
+    <div className="post__comments">
       <ul>
         {comments.slice(0, 3).map((comment) => (
           <li key={comment.id}>
