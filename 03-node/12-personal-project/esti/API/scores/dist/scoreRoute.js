@@ -2,9 +2,9 @@
 exports.__esModule = true;
 var express_1 = require("express");
 var router = express_1["default"].Router();
-var ScoreControl_1 = require("./ScoreControl");
+var scoreControl_1 = require("./scoreControl");
 router
-    .post("/add-Score", ScoreControl_1.addScore)
-    .put("/update-Score", ScoreControl_1.updateScore)
-    .get("/get-Scores", ScoreControl_1.getScores);
+    .post("/add-Score", scoreControl_1.addScore)
+    .put("/update-Score", scoreControl_1.updateScore)
+    .get("/get-Scores", scoreControl_1.getScores);
 exports["default"] = router;

@@ -1,16 +1,18 @@
 "use strict";
+// import { Users } from '../API/users/userModel';
+// import { Scores } from '../API/scores/scoreModel';
+// import { updateScore } from './../API/scores/scoreControl';
+// import { Scores } from '../API/scores/scoreModel';
+// import { User } from '../API/users/userModel';
+// tinymce.init({
+//   selector: '#myTextarea'
+// });
 exports.__esModule = true;
 var userScoreplayer = {
     name: '',
     id: '',
     score: -1
 };
-var queryString = window.location.search;
-var urlParams = new URLSearchParams(queryString);
-var value = urlParams.get('value');
-console.log(value);
-if (value)
-    updatePlayerScore(value);
 ;
 function getTenHighScore() {
     try {
@@ -64,23 +66,22 @@ function renderScore(score) {
         return null;
     }
 }
-function handleUserNameUpdate(ev, uid) {
-    try {
-        console.log(uid);
-        var name = ev.target.textContent;
-        fetch("/api/users/update-user-name", {
-            method: "PATCH",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ name: name, uid: uid })
-        });
-    }
-    catch (error) {
-        console.error(error);
-    }
-}
+// function handleUserNameUpdate(uid: string) {
+//   try {
+//     console.log(uid);
+//     // const name = ev.target.textContent;
+//     fetch("/api/users/update-user-name", {
+//       method: "PATCH",
+//       headers: {
+//         Accept: "application/json",
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({ name, uid }),
+//     });
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 function hendelAddUser(ev) {
     try {
         ev.preventDefault();
@@ -106,6 +107,18 @@ function hendelAddUser(ev) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
+            if (!data.error) {
+                // getTenHighScore()
+                userScoreplayer = {
+                    name: data.user.name,
+                    id: data.user._id,
+                    score: -1
+                };
+                console.log(userScoreplayer);
+                hendelAddScore(userScoreplayer.name, userScoreplayer.id);
+                // snakeGame(userScoreplayer)
+                //  window.location.href = "login.html"
+            }
         })["catch"](function (error) {
             console.error(error);
         });
@@ -181,7 +194,7 @@ function handleDeleteUser(_id) {
         console.error(error);
     }
 }
-function handleUpdateUserType(ev, userId) {
+function handleUpdateScore(ev, userId) {
     try {
         var userType = ev.target.value;
         console.log(userType);
@@ -213,37 +226,49 @@ function snakeGame(userScoreToGame) {
     try {
         if (!userScoreToGame.name || !userScoreToGame.id)
             throw new Error("no name or id from login");
-        // const urlData = `playerNAme: ${name} id: ${id}`
-        // const urlData = `${userScoreToGame.name},${userScoreToGame.id},${userScoreToGame.score}`
-        var url = "snake.html?value=" + userScoreToGame;
-        console.log("url " + url);
-        window.location.href = url;
+        var url_1 = "snake.html?value=" + userScoreToGame.name + ", " + userScoreToGame.id + ", -1";
+        console.log("url " + url_1);
+        window.location.href = url_1;
     }
     catch (error) {
         console.error(error);
     }
 }
-function updatePlayerScore(value) {
+function hendelAddScore(userName, userId) {
     try {
-        console.log(value);
-        console.log("updatePlayerSorce");
-        //   const userType = ev.target.value;
-        //   console.log(userType)
-        //   fetch("/api/users/update-user-type", {
-        //     method: "PATCH",
-        //     headers: {
-        //       Accept: "application/json",
-        //       "Content-Type": "application/json",
-        //     },
-        //     body: JSON.stringify({ userId, userType }),
-        //   })
-        //   .then((res) => res.json())
-        //     .then(({ users }) => {
-        //       renderUsers(users);
-        //     })
-        //     .catch((error) => {
-        //       console.error(error);
-        //     });;
+        if (!userName || !userId)
+            throw new Error("No user detail");
+        var score = 0;
+        var competitionPlace = 0;
+        var newScore = { userName: userName, userId: userId, score: score, competitionPlace: competitionPlace };
+        console.log(newScore);
+        console.log("newScore");
+        //send to server:
+        fetch("/add-score", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newScore)
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (data) {
+            console.log(data);
+            // if(!data.error){
+            //     // getTenHighScore()
+            //     userScoreplayer={
+            //      name: data.user.name, 
+            //      id: data.user._id,
+            //      score: -1
+            //     } 
+            //     console.log(userScoreplayer)
+            //     snakeGame(userScoreplayer)
+            //     window.location.href = "login.html"
+            //  }
+        })["catch"](function (error) {
+            console.error(error);
+        });
     }
     catch (error) {
         console.error(error);

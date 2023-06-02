@@ -19,7 +19,7 @@ var speed = 0.8;
 var intervalTime = 0;
 var interval = 0;
 var playerID = "";
-var namePlayer = "";
+var namePlayer = ["", "", ""];
 document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("keyup", control);
     createBoard();
@@ -32,9 +32,11 @@ function createBoard() {
         var urlParams = new URLSearchParams(queryString);
         var value = urlParams.get('value');
         var playerName = document.querySelector(".playerName");
-        playerName.innerText = "Welcome " + value;
+        if (!value)
+            throw new Error("No value from indexuser");
+        namePlayer = value.split(",");
+        playerName.innerText = "Welcome " + namePlayer[0];
         console.log(JSON.stringify(value));
-        namePlayer = value;
         popup.style.display = "none";
         var html = "";
         for (var i = 0; i < boardSize; i++) {
@@ -184,9 +186,9 @@ function replay() {
 }
 function finishGame() {
     try {
-        console.log("playername - " + namePlayer + " id");
-        var backString = "playerSorce:" + score + " playerName:" + namePlayer;
-        var url = "login.html?value=" + backString;
+        console.log("playername - " + namePlayer[1] + " id");
+        console.log("score - " + score);
+        var url = "index.html?value=" + namePlayer[0] + ", " + namePlayer[1] + ", " + score;
         window.location.href = url;
     }
     catch (error) {
