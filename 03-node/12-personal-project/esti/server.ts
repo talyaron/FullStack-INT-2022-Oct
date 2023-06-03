@@ -30,8 +30,8 @@ app.use(express.json());
 import usersRouter from './API/users/usersRoute';
 app.use('/', usersRouter);
 
-// import scoreRouter from './API/scores/scoreRoute';
-// app.use('/api/scores', scoreRouter);
+import scoreRouter from './API/scores/scoreRoute';
+app.use('/', scoreRouter);
 
 
 

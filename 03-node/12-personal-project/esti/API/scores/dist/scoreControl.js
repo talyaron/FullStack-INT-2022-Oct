@@ -1,4 +1,7 @@
 "use strict";
+// import { getScore } from './scoreControl';
+// import UserModel from "../users/userModel";
+// import ScoreModel from "./scoreModel";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -37,56 +40,39 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 exports.__esModule = true;
 exports.updateScore = exports.addScore = exports.getScores = void 0;
-// import { getScore } from './scoreControl';
-// import UserModel from "../users/userModel";
 var scoreModel_1 = require("./scoreModel");
 exports.getScores = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, score, competitionPlace, scoreDBArray, i, scoreDB, error, error_1;
+    var _a, name, score, competitionPlace;
     return __generator(this, function (_b) {
-        switch (_b.label) {
-            case 0:
-                _b.trys.push([0, 5, , 6]);
-                _a = req.body, name = _a.name, score = _a.score, competitionPlace = _a.competitionPlace;
-                console.log(name, score, competitionPlace);
-                scoreDBArray = [];
-                i = 1;
-                _b.label = 1;
-            case 1:
-                if (!(i < 10)) return [3 /*break*/, 4];
-                return [4 /*yield*/, scoreModel_1["default"].findOne({ i: i })];
-            case 2:
-                scoreDB = _b.sent();
-                console.log(scoreDB);
-                console.log("scoreDB");
-                _b.label = 3;
-            case 3:
-                i++;
-                return [3 /*break*/, 1];
-            case 4:
-                ;
-                if (!scoreDBArray)
-                    throw new Error("Username or password are inncorect");
-                if (!scoreDBArray) {
-                    error = {
-                        code: 1001,
-                        message: "No play user"
-                    };
-                    res.status(1001).send({ error: error });
-                }
-                ;
-                return [3 /*break*/, 6];
-            case 5:
-                error_1 = _b.sent();
-                console.error(error_1);
-                res.status(500).send({ error: error_1.message });
-                return [3 /*break*/, 6];
-            case 6: return [2 /*return*/];
-        }
-    });
-}); };
-exports.addScore = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
         try {
+            _a = req.body, name = _a.name, score = _a.score, competitionPlace = _a.competitionPlace;
+            // console.log( name, score, competitionPlace );
+            // let scoreDBArray = []
+            // for (let i = 1; i < 10; i++ ){
+            //     const scoreDB = await ScoreModel.findOne({ i });
+            //     console.log(scoreDB)
+            //     console.log("scoreDB")
+            //     // scoreDBArray.push(scoreDB)
+            //   };
+            // interface CustomError {
+            //   code: number;
+            //   message: string;
+            // }
+            // if (!scoreDBArray) throw new Error("Username or password are inncorect");
+            // if (!scoreDBArray){
+            //     // If an error occurs
+            //     const error: CustomError = {
+            //       code: 1001,
+            //       message: "No play user"
+            //     };
+            //     res.status(1001).send({ error });
+            //   };
+            //   if (!secret) throw new Error("Missing jwt secret");
+            //   
+            //   const token = jwt.encode({ userId: userDB._id, role: "public" }, secret);
+            //   console.log(token);
+            //   console.log("token");
+            //   res.cookie("user", userDB._id , { maxAge: 5000000, httpOnly: true });
             //   res.status(201).send({ ok: true });
         }
         catch (error) {
@@ -94,6 +80,40 @@ exports.addScore = function (req, res) { return __awaiter(void 0, void 0, void 0
             res.status(500).send({ error: error.message });
         }
         return [2 /*return*/];
+    });
+}); };
+// export const addScore = async (req: any, res: any) => {
+//   try {
+//   //   res.status(201).send({ ok: true });
+//   } catch (error: any) {
+//     console.error(error);
+//     res.status(500).send({ error: error.message });
+//   }
+// };
+exports.addScore = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, userName, userId, score, competitionPlace, userDB, error_1;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, userName = _a.userName, userId = _a.userId, score = _a.score, competitionPlace = _a.competitionPlace;
+                // console.log(name, password);
+                console.log(req.body);
+                return [4 /*yield*/, scoreModel_1.ScoreModel.create({ userName: userName, userId: userId, score: score, competitionPlace: competitionPlace })];
+            case 1:
+                userDB = _b.sent();
+                console.log(userDB);
+                // console.log(UserModel);
+                // console.log("userDB");
+                res.status(201).send({ ok: true, user: userDB });
+                return [3 /*break*/, 3];
+            case 2:
+                error_1 = _b.sent();
+                console.error(error_1);
+                res.status(500).send({ error: error_1.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
     });
 }); };
 exports.updateScore = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {

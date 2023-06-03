@@ -1,8 +1,9 @@
 import "./App.scss";
-// import { Post } from "./components/post";
 import Post from "./components/post";
-import Nav from "./components/nav";
-// import { useState } from "react";
+import NavTop from "./components/topNav";
+import NavRight from "./components/navRight";
+import Massage from "./components/massage";
+import { useState } from "react";
 
 const posts = [
   {
@@ -23,13 +24,52 @@ const posts = [
       "https://media.istockphoto.com/id/528476982/photo/sunrise-over-taj-mahal.jpg?s=612x612&w=0&k=20&c=D5MbutrXK1fDjI0T9a1wZWyRaiyzJEUwsxfahL_GlM4=",
     text: "test-3",
   },
+  {
+    username: "Moshe",
+    imageUrl:
+      "https://media.istockphoto.com/id/1093110112/photo/picturesque-morning-in-plitvice-national-park-colorful-spring-scene-of-green-forest-with-pure.jpg?s=612x612&w=0&k=20&c=lpQ1sQI49bYbTp9WQ_EfVltAqSP1DXg0Ia7APTjjxz4=",
+    text: "test-4",
+  },
+  {
+    username: "Aviel",
+    imageUrl:
+      "https://cdn.theatlantic.com/media/img/photo/2018/10/images-of-the-season-fall-is-in-the/f02_RTX6EJJJ-1/original.jpg",
+    text: "test-5",
+  },
+];
+const topNavButtons = [
+  { name: "Home" },
+  { name: "Profile" },
+  { name: "Favourites" },
+  { name: "Search" },
+];
+const rightNavButtons = [
+  { name: "Friends" },
+  { name: "Blocked" },
+  { name: "Likes" },
+  { name: "Exit" },
 ];
 
 function App() {
+  const handleSelectButton = () => {
+    setmassagesVisible(true);
+  };
+  const handleSelectButtonFalse = () => {
+    setmassagesVisible((massagesVisible) => !massagesVisible);
+  };
+  const [massagesVisible, setmassagesVisible] = useState(false);
+
   return (
     <div className="app">
       <div className="app__header">
-        <Nav svg="" />
+        {topNavButtons.map((topNavButton, index) => (
+          <NavTop
+            key={index}
+            name={topNavButton.name}
+            onSelectButton={handleSelectButton}
+          />
+        ))}
+        {massagesVisible && <Massage onClose={handleSelectButtonFalse}></Massage>}
         <svg
           aria-label="Instagram"
           className="app__headerImage"
@@ -48,12 +88,10 @@ function App() {
           ></path>
         </svg>
       </div>
-      <span>instagram</span>
       <div className="app__navRight">
-        <button className="app__navRight__btn">RightBtn</button>
-        <button className="app__navRight__btn">RightBtn</button>
-        <button className="app__navRight__btn">RightBtn</button>
-
+        {rightNavButtons.map((rightNavButton, index) => (
+          <NavRight key={index} name={rightNavButton.name} />
+        ))}
       </div>
       <h1>my</h1>
       <div className="app__post">

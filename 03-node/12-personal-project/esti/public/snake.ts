@@ -21,7 +21,7 @@ let speed = 0.8;
 let intervalTime = 0;
 let interval = 0;
 let playerID = "";
-let namePlayer: string | null = "";
+let namePlayer = ["", "", ""];
 
 document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("keyup", control);
@@ -36,9 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
       const urlParams = new URLSearchParams(queryString);
       const value = urlParams.get('value');
       const playerName = document.querySelector(".playerName") as HTMLHeadElement
-      playerName.innerText = `Welcome ${value}`
-      console.log(value)
-      namePlayer = value;
+      if(!value) throw new Error ("No value from indexuser")
+      
+      namePlayer = value.split(",");      
+      playerName.innerText = `Welcome ${namePlayer[0]}`
+      console.log(JSON.stringify(value))
+
       
       popup.style.display = "none";
       let html = ""
@@ -215,9 +218,10 @@ function replay() {
 
 function finishGame() {
   try{
-    console.log(`playername - ${namePlayer} id`)
-    const backString = `playerSorce:${score} playerName:${namePlayer}`
-    const url = `login.html?value=${backString}`;
+    console.log(`playername - ${namePlayer[1]} id`)
+    console.log(`score - ${score}`)
+
+    const url = `index.html?value=${namePlayer[0]}, ${namePlayer[1]}, ${score}`;
     window.location.href = url;
   } catch (error) {
     console.error(error)      
