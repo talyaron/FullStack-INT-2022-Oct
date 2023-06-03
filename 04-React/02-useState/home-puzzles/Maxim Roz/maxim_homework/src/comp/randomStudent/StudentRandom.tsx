@@ -1,4 +1,3 @@
-import React from 'react';
 import './studentRandom.scss';
 import { getRandomNumber } from '../randomStudent/randomUtils';
 
@@ -12,7 +11,20 @@ const studentTab = [
   { name: 'Shlomo', color: 'firebrick' },
   { name: 'Izabel', color: 'mediumslateblue' },
   { name: 'Noah', color: 'sandybrown' },
-  { name: 'David', color: 'aqua' },
+  { name: 'Emily', color: 'aqua' },
+
+];
+const colorTab = [
+  { color: 'red' },
+  { color: 'blue' },
+  { color: 'green' },
+  { color: 'darkviolet' },
+  { color: 'goldenrod' },
+  { color: 'hotpink' },
+  { color: 'firebrick' },
+  { color: 'mediumslateblue' },
+  { color: 'sandybrown' },
+  {  color: 'aqua' },
 
 ];
 
@@ -22,7 +34,7 @@ const StudentRandom = () => {
 
   return (
     <div>
-      <div className='randomStudent' style={{ background: randomStudent.color }}>
+      <div className='randomStudent' style={{ background: colorTab[getRandomNumber()].color }}>
         {randomStudent.name}
       </div>
     </div>

@@ -4,7 +4,7 @@ import StudentRandom from './comp/randomStudent/StudentRandom';
 import { getRandomNumber } from './comp/randomStudent/randomUtils';
 
 function App() {
-  const [generatedNumber, setGeneratedNumber] = useState<number>();
+  const [, setGeneratedNumber] = useState<number>();
 
   const handleClick = () => {
     const number = getRandomNumber();
