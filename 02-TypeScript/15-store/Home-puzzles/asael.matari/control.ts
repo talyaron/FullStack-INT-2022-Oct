@@ -1,31 +1,11 @@
-
- function handlDetails(ev:any){
-    try {
-        ev.preventDefault();
-
-    const fullName = ev.target.fullname.value;
-    const email=ev.target.email.value;
-    const url= ev.target.Url.value;
-    const password=ev.target.password.value;
-    const color=ev.target.color.value;
+const form=document.getElementsByClassName("form")
 
 
-    arrayOfUsers.push(new UserDetail(fullName,email,url,password,color))
-    console.log(container);
-    
-    if(!container)throw new Error("container variable is empty")
-    container.innerHTML= render(arrayOfUsers)
-    
-    
-    
-    
-    
-        
-    } catch (error) {
-        console.error(error);
-        
-    }
- }
+
+
+
+
+
 
  function render(users:UserDetail[]):string|undefined{
     try {
@@ -43,10 +23,6 @@
         }).join(" ");
         return html
 
-    } catch (error) {
-        console.error(error)
-    }
- }
 
     
 function handleDeleteUser(uid: string) {
