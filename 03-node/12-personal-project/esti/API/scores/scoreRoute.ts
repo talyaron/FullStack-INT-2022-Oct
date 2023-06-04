@@ -7,7 +7,7 @@ import {
   updateScore,
   getScores,
   
-} from "./ScoreControl";
+} from "./scoreControl";
 
 router
   .post("/add-Score", addScore)

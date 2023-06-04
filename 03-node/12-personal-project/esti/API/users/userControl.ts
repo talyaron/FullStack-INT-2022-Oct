@@ -31,7 +31,7 @@ export const addUser = async (req: any, res: any) => {
     console.log(UserModel);
     console.log("userDB");
 
-    res.status(201).send({ ok: true });
+    res.status(201).send({ ok: true, user:userDB });
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });
