@@ -20,9 +20,8 @@ function App() {
   return (
     <div className="container">
     <div>
-
-    <button onClick={handelColor}>add1</button>
-    <button onClick={handelPopUp}>{isOpen?"close":"open"}</button>
+    <button role="button" className='button-49' onClick={handelColor}>Color  + Name</button>
+    <button role="button" className='button-49' onClick={handelPopUp}>{isOpen?"close":"open"}</button>
     {isOpen?<PopUp />:null}
     </div>
 </div>
