@@ -1,0 +1,19 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container {
+//   margin-top: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.name{
+    width: 150px;
+    height: 150px;
+    color: red !important;
+}

@@ -7,14 +7,12 @@ import { UserSchema } from "../users/userModel";
 export interface Scores {
   userName: string,
   score: number,
-  winner: boolean,
   competitionPlace: number,
 };
 
 export const ScoreSchema = new Schema({
-  user: UserSnakSchema,
+  user: UserSchema,
   score: Number,
-  winner: Boolean,
   competitionPlace: Number,
 });
 

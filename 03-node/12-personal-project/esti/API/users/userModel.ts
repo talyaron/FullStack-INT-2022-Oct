@@ -5,7 +5,7 @@ import mongoose, { Schema } from "mongoose";
 
 export interface User {
   name: string;
-  password:string;
+  password?:string;
 }
 
 export enum UserType {

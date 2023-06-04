@@ -20,6 +20,7 @@ hr {
 }
 
 .container-post {
+
     width: 500px;
     display: flex;
     margin: 10px;
@@ -113,26 +114,26 @@ hr {
 }
 
 
-@media screen and (max-width:600px) {
-    .container-post {
-        width: 90vw;
+// @media screen and (max-width:600px) {
+//     .container-post {
+//         width: 90vw;
 
-        &__header {
-            width: inherit;
+//         &__header {
+//             width: inherit;
 
-        }
+//         }
 
     
 
-    &__main {
-        width: 90vw;
-        display: grid;
-        place-items: center;
-        img {
-            width: inherit;
-            height: 90vh;
+//     &__main {
+//         width: 90vw;
+//         display: grid;
+//         place-items: center;
+//         img {
+//             width: 390px;
+//             height: 390px;
             
             
-        }
-    }
-}}
+//         }
+//     }
+// }}
