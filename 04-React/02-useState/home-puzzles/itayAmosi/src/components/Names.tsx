@@ -1,13 +1,15 @@
-// import React from 'react'
+import React from 'react'
 
-// const Names = () => {
-//   return (
-//     const months = ["itay", "matan", "assaf", "tal", "tomer", "nikita", "vladi"];
-//     const random = Math.floor(Math.random() * months.length);
-//     <div>
-      
-//     </div>
-//   )
-// }
 
-// export default Names
+
+const Names = () => {
+    const names = ["itay", "matan", "assaf", "tal", "tomer", "nikita", "vladi", "itai"];
+    const random = Math.floor(Math.random() * names.length);
+  return (
+    <div>
+<h1>{names[random]}</h1>
+    </div>
+  )
+}
+
+export default Names
