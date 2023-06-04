@@ -11,11 +11,8 @@ const posts: FC<PostProps> = ({ text , img, authorName}) => {
     <>
     <div className="box">
       <div className="navbar">
-        <div className="avatar">
-          <img src="avatar-image-url" alt="Avatar" />
-        </div>
         <div>
-        <p>{authorName}</p>
+        <h1>Post By: {authorName}</h1>
         </div>
       </div>
       <img src={img} alt="" />
@@ -30,7 +27,7 @@ const posts: FC<PostProps> = ({ text , img, authorName}) => {
           <img src="https://cdn-icons-png.flaticon.com/512/2907/2907795.png" alt="" />
         </button>
       </div>
-      <h1>{text}</h1>
+      <p>{authorName}: {text}</p>
     </div>
   </>
   

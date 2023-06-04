@@ -1,3 +1,7 @@
+
+
+// import { Users } from '../API/users/userModel';
+// import { Scores } from '../API/scores/scoreModel';
 // import { updateScore } from './../API/scores/scoreControl';
 // import { Scores } from '../API/scores/scoreModel';
 // import { User } from '../API/users/userModel';
@@ -5,14 +9,20 @@
 //   selector: '#myTextarea'
 // });
 
-// import { url } from "inspector";
+import { url } from "inspector";
 
+interface UserScoreToGame {
+  name: string;
+  id: string;
+  score: number;
+} 
+ 
+let userScoreplayer: UserScoreToGame = {
+  name: '',
+  id: '',
+  score: -1
+}
 
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const value = urlParams.get('value');
-console.log(value)
-if(value) updatePlayerScore(value)
 
 interface User {
   name: string;
@@ -22,7 +32,6 @@ interface User {
  interface Scores {
   userName: string,
   score: number,
-  winner: boolean,
   competitionPlace: number,
 };
 
@@ -80,22 +89,22 @@ function renderScore(score: Scores) {
   }
 }
 
-function handleUserNameUpdate(ev: any, uid: string) {
-  try {
-    console.log(uid);
-    const name = ev.target.textContent;
-    fetch("/api/users/update-user-name", {
-      method: "PATCH",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, uid }),
-    });
-  } catch (error) {
-    console.error(error);
-  }
-}
+// function handleUserNameUpdate(uid: string) {
+//   try {
+//     console.log(uid);
+//     // const name = ev.target.textContent;
+//     fetch("/api/users/update-user-name", {
+//       method: "PATCH",
+//       headers: {
+//         Accept: "application/json",
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({ name, uid }),
+//     });
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 
 function hendelAddUser(ev: any) {
   try {
@@ -120,7 +129,21 @@ function hendelAddUser(ev: any) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        console.log(data)
+        if(!data.error){
+            // getTenHighScore()
+            userScoreplayer={
+             name: data.user.name, 
+             id: data.user._id,
+             score: -1
+            } 
+            console.log(userScoreplayer)
+            hendelAddScore(userScoreplayer.name, userScoreplayer.id )
+            // snakeGame(userScoreplayer)
+            
+           //  window.location.href = "login.html"
+         }
+
       })
       .catch((error) => {
         console.error(error);
@@ -153,14 +176,19 @@ function handleLogin(ev: any) {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
+        
 
           if(data.error){
              alert(data.error)
             }else{
                // getTenHighScore()
-               
-              //  snakeGame(data.name, data._id)
-               snakeGame(name)
+               userScoreplayer={
+                name: data.user.name, 
+                id: data.user._id,
+                score: -1
+               } 
+               console.log(userScoreplayer)
+               snakeGame(userScoreplayer)
                
               //  window.location.href = "login.html"
             }
@@ -199,7 +227,7 @@ function handleDeleteUser(_id: string) {
   }
 }
 
-function handleUpdateUserType(ev: any, userId: string) {
+function handleUpdateScore (ev: any, userId: string) {
   try {
     const userType = ev.target.value;
     console.log(userType)
@@ -228,12 +256,11 @@ function renderUsers(users: User){
     console.log("renderUser")
 }
 
-function snakeGame(name:string){
+function snakeGame(userScoreToGame: UserScoreToGame ){
   try {
-      if(!name) throw new Error ("no name or id from login")
-        // const urlData = `playerNAme: ${name} id: ${id}`
-        const urlData = `${name}`
-        const url = `snake.html?value=${urlData}`;
+      if(!userScoreToGame.name || !userScoreToGame.id) throw new Error ("no name or id from login")
+        const url = `snake.html?value=${userScoreToGame.name}, ${userScoreToGame.id}, -1`;
+        console.log(`url ${url}`)
         window.location.href = url;
 
     } catch (error) {
@@ -241,31 +268,46 @@ function snakeGame(name:string){
     }
   }
 
-
-function updatePlayerScore(value:string | void){
-  try {
-    console.log(value)
-    console.log("updatePlayerSorce")
-    //   const userType = ev.target.value;
-  //   console.log(userType)
-
-  //   fetch("/api/users/update-user-type", {
-  //     method: "PATCH",
-  //     headers: {
-  //       Accept: "application/json",
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ userId, userType }),
-  //   })
-  //   .then((res) => res.json())
-  //     .then(({ users }) => {
-  //       renderUsers(users);
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });;
-  } catch (error) {
-    console.error(error);
+  function hendelAddScore(userName:string, userId:string ) {
+    try {
+      if (!userName || !userId) throw new Error("No user detail");
+      const score = 0
+      const competitionPlace = 0
+      const newScore: any = { userName, userId, score, competitionPlace };
+      console.log(newScore)
+      console.log("newScore")
+      
+      //send to server:
+      fetch("/add-score", {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+                    "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newScore),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data)
+          // if(!data.error){
+          //     // getTenHighScore()
+          //     userScoreplayer={
+          //      name: data.user.name, 
+          //      id: data.user._id,
+          //      score: -1
+          //     } 
+          //     console.log(userScoreplayer)
+          //     snakeGame(userScoreplayer)
+              
+          //     window.location.href = "login.html"
+          //  }
+  
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    } catch (error) {
+      console.error(error);
+    }
   }
- 
-}
+  

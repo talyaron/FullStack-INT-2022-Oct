@@ -6,7 +6,10 @@ const Nav:FC= ()=>{
     return(
         <div>
         <div className="nav">
-      <ul>
+      <div className="navBar">
+        <div className="instagram-logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1280px-Instagram_logo.svg.png" alt="" />
+        </div>
         <li>
           <a href="#">Home</a>
         </li>
@@ -19,7 +22,7 @@ const Nav:FC= ()=>{
         <li>
           <a href="#">Contact</a>
         </li>
-      </ul>
+      </div>
     </div>
         </div>
     )

@@ -76,7 +76,7 @@ exports.addUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
                 console.log(userDB);
                 console.log(userModel_1["default"]);
                 console.log("userDB");
-                res.status(201).send({ ok: true });
+                res.status(201).send({ ok: true, user: userDB });
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _b.sent();
@@ -114,7 +114,7 @@ exports.login = function (req, res) { return __awaiter(void 0, void 0, void 0, f
                 // console.log(token);
                 // console.log("token");
                 res.cookie("user", userDB._id, { maxAge: 5000000, httpOnly: true });
-                res.status(201).send({ ok: true });
+                res.status(201).send({ ok: true, user: userDB });
                 return [3 /*break*/, 3];
             case 2:
                 error_3 = _b.sent();

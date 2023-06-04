@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="icon" type="image/png" href="./img/pngwing.com.png" />
+    <link rel="stylesheet" href="./style/css/registerStyle.css" />
+  </head>
+  <body>
+    <div class="registerWrapper">
+      <form id="registerForm" action="/api/v1/users" method="post">
+        <h1>Create an Account</h1>
+        <!-- <div class="iconsArea">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div> -->
+        <!-- <span>or use your email for registration</span> -->
+        <input
+          minlength="3"
+          type="text"
+          name="firstName"
+          placeholder="First Name"
+          required
+        />
+
+        <input
+          minlength="3"
+          type="text"
+          name="lastName"
+          placeholder="Last Name"
+          required
+        />
+
+        <input
+          minlength="5"
+          type="text"
+          name="userName"
+          placeholder="User Name"
+          required
+        />
+
+        <input
+          minlength="8"
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+
+        <input
+          minlength="8"
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          required
+        />
+
+        <input type="email" name="email" placeholder="Email" required />
+
+        <select name="gender" id="gender" required>
+          <option value="">Gender</option>
+          <option value="male">male</option>
+          <option value="female">female</option>
+          <option value="other">other</option>
+        </select>
+
+        <input type="text" name="adminToken" placeholder="admin token" />
+
+        <button type="submit">Register</button>
+        <a class="signIn" href="/signIn">Already have an account?</a>
+      </form>
+    </div>
+  </body>
+</html>

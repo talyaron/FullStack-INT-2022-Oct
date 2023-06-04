@@ -1,4 +1,4 @@
-import "./post.scss";
+import "../style/post.scss";
 import { Avatar } from "@mui/material";
 import { FC } from "react";
 
