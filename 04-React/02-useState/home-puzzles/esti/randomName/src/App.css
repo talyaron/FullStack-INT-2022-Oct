@@ -1,0 +1,25 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+/* .container {
+  display: flex;
+}
+
+  .studentName {
+     width: 80px;
+     height: 30px;
+     background-color: lightblue;
+     margin-right: 10px;
+     border: 2px solid black;
+     border-radius: 5px;
+     text-align: center;
+
+} */
+
