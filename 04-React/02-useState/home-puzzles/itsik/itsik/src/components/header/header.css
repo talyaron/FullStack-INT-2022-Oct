@@ -1,0 +1,10 @@
+.header {
+    color: rgb(235, 29, 29);
+    display: flex;
+    justify-content: center;
+    font-size: 26px;
+}
+
+.span{
+    color: goldenrod;
+}
