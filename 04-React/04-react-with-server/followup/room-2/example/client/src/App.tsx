@@ -2,9 +2,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
+interface Flower{
+  img:string;
+  name:string;
+}
+
 function App() {
   // const [count, setCount] = useState(0);
-  const [flowers, setFlowers] = useState([])
+  const [flowers, setFlowers] = useState<Array<Flower>>([])
   const [isTrue, setIsTrue] = useState(false)
   useEffect(() => {
     (async () => {
@@ -33,11 +38,11 @@ function App() {
       <div className="main-container">
 
         {flowers.map((flower , i )=> {
-          const { img, name } = flower
+          // const { img, name } = flower
           return (
             <div key={i} className="container-flowers">
-              <img src={img}  ></img>
-              <h2>{name}</h2>
+              <img src={flower.img}  ></img>
+              <h2>{flower.name}</h2>
             </div>
 
           )
