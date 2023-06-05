@@ -10,16 +10,30 @@ const app = express();
 //static file
 app.use(express.static('./client'));
 
-interface Flower{
+interface Prime{
     img:string;
-    name:string;
+    name?:string;
+    info?:string;
 }
 
-const flowers:Flower[] = []
+const primeMinisters:Prime[] = [
+  {img:"https://shorturl.at/dATU4", 
+   name:"Bibi",
+   info:""
+  },
+   {img:"https://shorturl.at/wTU19",
+    name:"Golda",
+    info:""
 
-app.get("/api/get-word",(req, res)=>{
-    res.send({ok:true})
-})
+  },
+  {img:"https://shorturl.at/mtOR5",
+   name:"Barak",
+   info:"",
+}
+
+]
+
+
 
 app.get("/api/get-flowers",(req, res)=>{
     res.send({ok:true})

@@ -13,6 +13,7 @@ app.use(express.static('./client'));
 interface Flower{
     img:string;
     name:string;
+    
 }
 
 const flowers:Flower[] = [

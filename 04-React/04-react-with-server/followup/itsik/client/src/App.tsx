@@ -7,7 +7,7 @@ function App() {
   const [isTrue,setIsTrue] = useState(false)
   useEffect(() => {
     (async () => {
-      const { data } = await axios.get("/api/get-word");
+      const { data } = await axios.get("/api/get-flowers");
      
       const {ok} = data;
       console.log(ok)
