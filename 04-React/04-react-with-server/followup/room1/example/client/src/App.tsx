@@ -2,34 +2,38 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-const fl = ["a", "b"];
-
-export interface Flower{
+interface Flower{
   img:string;
   name:string;
 }
 
 function App() {
   // const [count, setCount] = useState(0);
-  const [isTrue, setIsTrue] = useState(false);
+  const [isTrue, setIsTrue] = useState(false)
+  const [flowers, setFlowers] = useState([])
   useEffect(() => {
     (async () => {
       const { data } = await axios.get("/api/get-word");
-
+      const { flowers } = data
+      setFlowers(flowers)
       const { ok } = data;
-      console.log(ok);
+      console.log(ok)
       if (ok) {
-        setIsTrue(ok);
+        setIsTrue(ok)
       }
     })();
   }, []);
 
   return (
     <div>
-      {fl.map((f, i) => (
-        <div key={i}>{f}</div>
-      ))}
       <h1>Hello: {isTrue ? "Hi all" : "good?"}</h1>
+      {flowers.map((flower:Flower)=>{
+        return <div>
+          <span>{flower.name}</span>
+          <img src={flower.img}></img>
+        </div>
+      })
+      }
     </div>
   );
 }
