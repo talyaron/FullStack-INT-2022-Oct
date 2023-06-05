@@ -1,3 +1,5 @@
+import './wheel.scss'
+
 import { useState } from 'react';
 interface NamePrompt{
     names:Array<string>
