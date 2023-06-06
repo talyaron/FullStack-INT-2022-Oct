@@ -1,12 +1,13 @@
 "use strict";
 exports.__esModule = true;
 var mongoose_1 = require("mongoose");
-var myData = process.env.MD_MYD;
-if (myData) {
+require('dotenv').config();
+var uri = process.env.MONGODB_URI;
+if (uri) {
     mongoose_1["default"]
-        .connect(myData)
+        .connect(uri)
         .then(function () {
-        console.log("My Db Connected");
+        console.log("DB connected!");
     })["catch"](function (err) { return console.log(err); });
 }
 else {

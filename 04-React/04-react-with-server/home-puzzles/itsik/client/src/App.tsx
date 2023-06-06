@@ -1,45 +1,22 @@
 import axios from 'axios';
 import './App.css'
-import { useEffect ,useState } from 'react';
 
 
-export interface Ballons{
-   src:string;
-}
+export const ballons =
+[{src:"https://shorturl.at/bpFL5"},
+{src:"https://shorturl.at/dnOS0"}, 
+{src:"https://shorturl.at/oLSX5"}, 
+{src:"https://shorturl.at/ghsO3"},
+{src:"https://shorturl.at/aoEJ5"},
+{src:"https://shorturl.at/prwEI"},
+]
 
 function App() {
-  try {
-    const [isTrue, setIsTrue] = useState(false);
-    const [ballon, setBallon] = useState<Ballons[]>([]);
-    console.log(ballon)
-   
-    useEffect(() => {
-      (async () => {
-        const { data } = await axios.get("/api/ballons");
-  
-        const { ok, ballon } = data;
-        console.log(ok);
-        console.log(ballon.length)
-
-        if (ok && ballon.length > 0) {
-          setIsTrue(ok);
-          setBallon(ballon)
-        }
-      })();
-    }, []);
-
-
-
-    return (
-      <div>
-        
-      </div>
-    )
-  } catch (error) {
-    console.error(error)
-  }
- 
- 
+  return (
+    <div>
+      
+    </div>
+  )
 }
 
 export default App
