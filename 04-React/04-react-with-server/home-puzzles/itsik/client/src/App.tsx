@@ -30,21 +30,17 @@ function App() {
    
     (async ()=>{
       const {data} = await axios.get('/start-game');
+      const { ok } = data;
+      console.log(ok);
+      
 
-      const {message} = data;
-
-      setImg(message)
+     
 
     })()
 
   },[])
 
-  useEffect(()=>{
-   
-
-    console.log('update')
-  },[count])
-
+  
 
 
 
@@ -57,3 +53,6 @@ function App() {
 }
 
 export default App
+
+
+
