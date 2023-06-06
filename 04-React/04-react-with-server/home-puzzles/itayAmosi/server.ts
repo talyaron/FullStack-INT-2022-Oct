@@ -49,6 +49,11 @@ app.post("/api/add-user", async (req, res) => {
 
 
 
+import balloonsRouter from "./API/balloons/balloonsRouter";
+app.use('/api/balloons', balloonsRouter)
+
+
+
 //static file
 app.use(express.static("./balloons/public"));
 

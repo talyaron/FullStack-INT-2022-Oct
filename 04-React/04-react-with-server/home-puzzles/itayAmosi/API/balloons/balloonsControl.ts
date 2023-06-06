@@ -1,19 +1,19 @@
-import BallonModel from "./ballonModel";
+import BallonModel from "./balloonsModel";
 
 
 
-export const addBallons = async (req:any, res:any) =>{
-try {
-   const ballonSrc = req.body.ballonSrc
+// export const addBallons = async (req:any, res:any) =>{
+// try {
+//    const ballonSrc = req.body.ballonSrc
   
-   const ballDB = await BallonModel.create(ballonSrc.map((src: any) =>({src} )))
-   console.log(ballDB)
-   res.status(201).json(ballDB)
+//    const ballDB = await BallonModel.create(ballonSrc.map((src: any) =>({src} )))
+//    console.log(ballDB)
+//    res.status(201).json(ballDB)
 
 
-} catch (error:any) {
-   console.error(error) 
-}
+// } catch (error:any) {
+//    console.error(error) 
+// }
 
 
-}
+// }

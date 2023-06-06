@@ -2,15 +2,15 @@ import express from "express";
 const router = express.Router();
 
 import {
-    addBallons,
+    // addBallons,
 
 
 
-}from "./ballonControl"
+}from "./balloonsControl"
 
 
 
 router
-.post('/start-game', addBallons)
+// .post('/start-game', addBallons)
 
 export default router
