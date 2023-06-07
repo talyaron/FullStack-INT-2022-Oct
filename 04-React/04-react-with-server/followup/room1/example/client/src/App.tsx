@@ -10,7 +10,7 @@ interface Flower{
 function App() {
   // const [count, setCount] = useState(0);
   const [isTrue, setIsTrue] = useState(false)
-  const [flowers, setFlowers] = useState([])
+  const [flowers, setFlowers] = useState<Array<Flower>>([])
   useEffect(() => {
     (async () => {
       const { data } = await axios.get("/api/get-word");
