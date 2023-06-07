@@ -2,26 +2,34 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-function App() {
-  // const [count, setCount] = useState(0);
-  const [isTrue,setIsTrue] = useState(false)
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.get("/api/get-flowers");
-     
-      const {ok} = data;
-      console.log(ok)
-      if(ok){
-        setIsTrue(ok)
-      }
-    })();
-  }, []);
+interface Prime{
+  img:string;
+  name?:string;
+  info?:string;
+}
 
+
+function App() {
+
+  const [primeMinisters, setPrime] = useState<Array<Prime>>([])
+
+  const [isTrue, setIsTrue] = useState(false)
+
+
+    
   return (
-    <div>
-      <h1>Hello: {isTrue?"Hi all":"good?"}</h1>
+   
+   <div className="container">
+   <h1>"Israel Prime-Ministers"</h1>
+
+   <div key={i} className="img">
+    <img src={primeMinisters.img} alt="prime mister img"/>
+    <h2>{primeMinisters.name}</h2>
+    <p>{primeMinisters.info}</p>
     </div>
+    </div>
+
   );
 }
 
-export default App;
+export default App
