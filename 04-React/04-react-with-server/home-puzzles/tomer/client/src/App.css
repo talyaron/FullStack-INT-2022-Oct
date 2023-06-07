@@ -5,6 +5,45 @@
   text-align: center;
 }
 
+.main-container {
+  position: relative;
+  width: 80vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container-balloons {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  animation: riseUp 10s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes riseUp {
+  0% {
+    top: 100%;
+    opacity: 0;
+  }
+  20% {
+    top: 70%;
+    opacity: 1;
+  }
+  100% {
+    top: -30%;
+    opacity: 0;
+  }
+}
+
+.container-balloons img {
+  max-width: 100px;
+  display: block;
+  margin: 0 auto;
+}
+
+.container-balloons h1 {
+  text-align: center;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

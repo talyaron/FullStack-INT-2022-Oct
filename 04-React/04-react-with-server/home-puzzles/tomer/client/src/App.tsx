@@ -29,19 +29,31 @@ function App() {
     })()
   }, [])
   return (
-    <>
-      <h1>{isTrue ? "All Ballons": "NO BALLONS"}</h1> 
-      <div className='main-container'>
-        {ballons.map((ballon, i)=>{
-          return(
-            <div key={i} className='container-ballons'>
-              <img src={ballon.img}></img>
-              <h1>{ballon.name}</h1>
-            </div>
-          )
-        })}
-        </div> 
-    </>
+<>
+  <h1>{isTrue ? "All Balloons" : "NO BALLOONS"}</h1>
+  <div className='main-container'>
+    {ballons.map((ballon, i) => {
+      const randomTop = Math.floor(Math.random() * 70) + 20; // Random top position between 20% and 90%
+      const randomLeft = Math.floor(Math.random() * 80) + 10; // Random left position between 10% and 90%
+      const randomDelay = Math.random() * 3; // Random delay between 0 and 3 seconds
+
+      return (
+        <div
+          key={i}
+          className='container-balloons'
+          style={{
+            top: `${randomTop}%`,
+            left: `${randomLeft}%`,
+            animationDelay: `${randomDelay}s`,
+          }}
+        >
+          <img src={ballon.img} alt={ballon.name} />
+          {/* <h1>{ballon.name}</h1> */}
+        </div>
+      );
+    })}
+  </div>
+</>
   )
 }
 
