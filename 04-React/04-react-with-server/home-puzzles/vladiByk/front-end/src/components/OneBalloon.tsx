@@ -1,40 +1,68 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
-import { handleBalloonClick } from "../App";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import axios from "axios";
 
 interface OneBalloonProps {
   color: string;
   radius: number;
   id: string;
+  speed: number;
+  handleBalloonClick: (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => Promise<void>;
 }
 
-const root = document.querySelector("#root") as HTMLDivElement;
-const rootWidth = root.clientWidth;
-const randomX = () => Math.floor(Math.random() * rootWidth);
+const screenWidth = window.innerWidth;
+const screenHeight = window.innerHeight;
 
-const OneBalloon = ({ color, radius, id }: OneBalloonProps) => {
-  const [speed, setSpeed] = useState(10);
-  const xLocation = randomX();
-  const spawnLocation =
-    xLocation + radius < 0
-      ? xLocation + radius
-      : xLocation && xLocation + radius > rootWidth
-      ? xLocation - radius
-      : xLocation;
+const OneBalloon = ({
+  color,
+  radius,
+  id,
+  speed,
+  handleBalloonClick,
+}: OneBalloonProps) => {
+  const randomX = () => {
+    const locationX = Math.floor(Math.random() * screenWidth);
+    const spawnLocation =
+      locationX + radius < 0
+        ? locationX + radius
+        : locationX && locationX + radius > screenWidth
+        ? locationX - radius
+        : locationX;
+    return spawnLocation;
+  };
+
+  const animationControl = useAnimation();
+
+  const startAnimation = async () => {
+    animationControl.set({
+      x: randomX(),
+      y: screenHeight + randomX() * 2,
+      backgroundColor: color,
+      width: radius,
+    });
+    await animationControl.start({
+      y: -200,
+      transition: { type: "tween", duration: speed },
+    });
+  };
+
+  useEffect(() => {
+    startAnimation();
+  }, []);
+
+  const deleteBalloons = async () => {
+    await axios.delete("http://localhost:3000/api/v1/ballons/deleteAll");
+  };
 
   return (
     <motion.div
-      onClick={(e) => handleBalloonClick(e)}
+      onClick={handleBalloonClick}
       className="ballon"
       id={id}
-      initial={{
-        x: spawnLocation,
-        y: 500,
-        backgroundColor: color,
-        width: radius,
-      }}
-      animate={{ y: -200 }}
-      transition={{ duration: speed }}
+      animate={animationControl}
+      onAnimationComplete={deleteBalloons}
     ></motion.div>
   );
 };

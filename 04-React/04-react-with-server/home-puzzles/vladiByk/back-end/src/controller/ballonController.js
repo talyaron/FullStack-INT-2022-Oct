@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteBallon = exports.getBallon = exports.createBallon = exports.getAllBallons = void 0;
+exports.deleteAll = exports.deleteBallon = exports.getBallon = exports.createBallon = exports.getAllBallons = void 0;
 const BallonModel_1 = __importDefault(require("../model/BallonModel"));
 function getRandomColor() {
     var letters = "0123456789ABCDEF";
@@ -72,3 +72,15 @@ const deleteBallon = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
     }
 });
 exports.deleteBallon = deleteBallon;
+const deleteAll = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        console.log("deleted");
+        const ballons = yield BallonModel_1.default.deleteMany({});
+        res.status(200).json({ ballons });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send({ error: error.message });
+    }
+});
+exports.deleteAll = deleteAll;

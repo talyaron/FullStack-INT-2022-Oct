@@ -77,3 +77,19 @@ export const deleteBallon = async (
     res.status(500).send({ error: error.message });
   }
 };
+
+export const deleteAll = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    console.log("deleted");
+    const ballons = await Ballon.deleteMany({});
+
+    res.status(200).json({ ballons });
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+};
