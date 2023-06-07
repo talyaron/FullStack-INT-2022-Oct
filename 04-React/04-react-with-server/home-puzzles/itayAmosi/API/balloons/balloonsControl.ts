@@ -19,17 +19,3 @@ export const getBalloons = async (req: any, res: any) => {
   const balloonDB = await BallonModel.find({});
   res.send({ balloonDB });
 };
-
-// export const deletBalloon = async (req: any, res: any) => {
-//   try {
-//     const { _id } = req.body;
-
-//     const balloonDB = await BallonModel.findByIdAndDelete({
-//       _id,
-//     });
-//     res.send({ ok: true });
-//   } catch (error: any) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// };
