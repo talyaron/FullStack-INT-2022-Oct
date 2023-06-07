@@ -1,11 +1,11 @@
 import express from "express";
 const router = express.Router();
 
-import { creatBalloon, deletBalloon, getBalloons } from "./balloonsControl";
+import { creatBalloon, getBalloons } from "./balloonsControl";
 
 router
     .post("/creatBalloon", creatBalloon)
     .get("/get-balloons", getBalloons)
-    .delete("/delete-balloons", deletBalloon)
+    // .delete("/delete-balloon", deletBalloon)
 
 export default router;

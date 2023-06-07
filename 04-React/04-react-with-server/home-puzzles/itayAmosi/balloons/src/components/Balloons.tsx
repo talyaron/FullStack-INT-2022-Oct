@@ -14,28 +14,25 @@ interface Balloon {
     x: number;
     y: number;
   };
+  onClick: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => Promise<void>;
   delay: number;
 }
 
 const BalloonComponent: FC = () => {
   const [balloons, setBalloons] = useState<Balloon[]>([]);
-
   useEffect(() => {
     const fetchBalloons = async () => {
       try {
         const { data } = await axios.get("/api/balloons/get-balloons");
         const { balloonDB } = data;
-
-        // Add a random position and delay for each balloon rendering
         const modifiedBalloons = balloonDB.map((balloon: Balloon) => ({
           ...balloon,
           position: {
-            x: Math.floor(Math.random() * 1500), // Random x position within 0-500 range
-            y: Math.floor(Math.random() * 300) + 600, // Random y position within 600-900 range
+            x: Math.floor(Math.random() * 1500),
+            y: Math.floor(Math.random() * 300) + 600,
           },
-          delay: Math.floor(Math.random() * 2000) + 500, // Random delay between 500ms and 2500ms
+          delay: Math.floor(Math.random() * 2000) + 500,
         }));
-
         setBalloons(modifiedBalloons);
       } catch (error) {
         console.error("Error fetching balloons:", error);
@@ -52,12 +49,18 @@ const BalloonComponent: FC = () => {
       return updatedBalloons;
     });
   };
-
+  const handleBalloonClick = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    const target = e.target as HTMLDivElement;
+    target.remove();
+  };
   return (
     <div className="balloon-container">
       {balloons.map((balloon: Balloon, i: number) => (
         <div
           key={i}
+          onClick={handleBalloonClick}
           className="balloon-wrapper"
           style={{
             top: `${balloon.position.y}px`,
