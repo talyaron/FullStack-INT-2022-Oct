@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import axios from "axios";
+import { handleBalloonClick } from "../App";
 
-interface BalloonProps {
+interface OneBalloonProps {
   color: string;
   radius: number;
   id: string;
@@ -12,7 +12,7 @@ const root = document.querySelector("#root") as HTMLDivElement;
 const rootWidth = root.clientWidth;
 const randomX = () => Math.floor(Math.random() * rootWidth);
 
-const Balloon = ({ color, radius, id }: BalloonProps) => {
+const OneBalloon = ({ color, radius, id }: OneBalloonProps) => {
   const [speed, setSpeed] = useState(10);
   const xLocation = randomX();
   const spawnLocation =
@@ -21,17 +21,6 @@ const Balloon = ({ color, radius, id }: BalloonProps) => {
       : xLocation && xLocation + radius > rootWidth
       ? xLocation - radius
       : xLocation;
-
-  const handleBalloonClick = async (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    const target = e.target as HTMLDivElement;
-    console.log(target.id);
-    await axios.delete(
-      `http://localhost:3000/api/v1/ballons/${target.id}`
-    );
-    target.remove();
-  };
 
   return (
     <motion.div
@@ -50,4 +39,4 @@ const Balloon = ({ color, radius, id }: BalloonProps) => {
   );
 };
 
-export default Balloon;
+export default OneBalloon;
