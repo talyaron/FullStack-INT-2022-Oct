@@ -11,6 +11,7 @@ export interface BalloonInterface {
 function App() {
   const [ballons, setBallons] = useState<BalloonInterface[]>([]);
   const [isStarted, setIsStarted] = useState(false);
+  const [isFinished, setIsFinished] = useState(false);
   const [score, setScore] = useState(0);
   const [speed, setSpeed] = useState(7);
 
@@ -43,17 +44,26 @@ function App() {
   };
 
   const handleStartNewGame = async () => {
-    [...Array(20)].map(
+    [...Array(30)].map(
       async () => await axios.post("http://localhost:3000/api/v1/ballons")
     );
     const { data } = await axios.get("http://localhost:3000/api/v1/ballons");
     setBallons(data.ballons);
     setIsStarted((prev) => (prev = !prev));
+    setTimeout(() => {
+      setIsFinished(true);
+    }, speed * 900);
   };
+
+  useEffect(() => {
+    (async () => {
+      await axios.delete("http://localhost:3000/api/v1/ballons/deleteAll");
+    })();
+  }, [isFinished]);
 
   return (
     <>
-      {isStarted ? <div className="score">Score: {score}</div> : ""}
+      {isFinished ? <div className="score">Score: {score}</div> : ""}
       {isStarted ? (
         <Balloons
           ballons={ballons}

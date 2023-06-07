@@ -74,7 +74,6 @@ const deleteBallon = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
 exports.deleteBallon = deleteBallon;
 const deleteAll = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        console.log("deleted");
         const ballons = yield BallonModel_1.default.deleteMany({});
         res.status(200).json({ ballons });
     }

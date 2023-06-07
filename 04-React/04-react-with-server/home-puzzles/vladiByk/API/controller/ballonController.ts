@@ -84,7 +84,6 @@ export const deleteAll = async (
   next: NextFunction
 ) => {
   try {
-    console.log("deleted");
     const ballons = await Ballon.deleteMany({});
 
     res.status(200).json({ ballons });

@@ -52,17 +52,15 @@ const OneBalloon = ({
     startAnimation();
   }, []);
 
-  const deleteBalloons = async () => {
-    await axios.delete("http://localhost:3000/api/v1/ballons/deleteAll");
-  };
-
   return (
     <motion.div
-      onClick={handleBalloonClick}
+      onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        e.preventDefault();
+        handleBalloonClick(e);
+      }}
       className="ballon"
       id={id}
       animate={animationControl}
-      onAnimationComplete={deleteBalloons}
     ></motion.div>
   );
 };
