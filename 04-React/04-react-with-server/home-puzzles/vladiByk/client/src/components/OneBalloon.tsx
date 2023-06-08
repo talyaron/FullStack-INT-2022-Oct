@@ -1,6 +1,5 @@
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
-import axios from "axios";
 
 interface OneBalloonProps {
   color: string;
