@@ -8,22 +8,18 @@ function App() {
   const [count, setCount] = useState(0)
   const [balloons, setBalloons] = useState(0)
 
-  function getBalloons(){
+  async function getBalloons(){
     console.log("getting Balloons")
+
+    const balloonsDB = await axios.get("/get-balloons")
+    console.log(balloonsDB)
+
 
   }
 
-  useEffect(() => {
-    async () => {
-
-      const balloonsDB = await axios.get("/get-balloons")
-      console.log(balloonsDB)
-    }
-  },[])
-
   return (
     <>
-      <div className='balloonsCntainer'>
+      <div className='balloonsContainer'>
 
       </div>
       <button onClick={getBalloons} className='getBallonsBtn'>Get Ballons</button>
