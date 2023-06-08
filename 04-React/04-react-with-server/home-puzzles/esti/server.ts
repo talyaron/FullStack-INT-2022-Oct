@@ -3,7 +3,7 @@ import express from "express";
 const app = express();
 
 
-                         app.use(express.static('./client'));
+app.use(express.static('./client'));
 
 interface Balloons {
     img:string;
@@ -12,7 +12,6 @@ interface Balloons {
 const balloons: Balloons[] = [
     {
         img:"https://image.pngaaa.com/310/991310-small.png",
-
     },
     {
         img:"https://s.pngkit.com/png/small/8-80252_sweet-birthday-free-balloon-transparent-background-purple-balloon.png",
@@ -30,7 +29,6 @@ app.get("/api/get-word",(req, res)=>{
 })
 
 app.get("/api/get-balloons",(req, res)=>{
-
     res.send({balloons})
 })
 const PORT = 3000
