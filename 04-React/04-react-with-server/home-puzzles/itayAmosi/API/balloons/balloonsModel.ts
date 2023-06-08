@@ -1,20 +1,18 @@
-import mongoose, {Schema} from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
-interface PopUpBalloons{
-
-         name:string;
-         color:string; 
+interface PopUpBalloons {
+  _id: string;
+  name: string;
+  src: string;
 }
 
-
-const popUpBalloons:PopUpBalloons[] = [];
-
+const popUpBalloons: PopUpBalloons[] = [];
 
 export const BalloonSchema = new Schema({
-    src: String,
-})
- 
-const BallonModel = mongoose.model("balloons", BalloonSchema)
+  name: String,
+  src: String,
+});
 
+const BallonModel = mongoose.model("balloons", BalloonSchema);
 
-export default BallonModel
+export default BallonModel;

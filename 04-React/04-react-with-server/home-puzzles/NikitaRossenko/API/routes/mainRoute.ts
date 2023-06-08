@@ -4,4 +4,4 @@ import { getBalloons } from '../controllers/balloonController'
 const router = Router()
 
 
-router.get("/get-ballons", getBalloons)
+router.get("/get-balloons", getBalloons)
