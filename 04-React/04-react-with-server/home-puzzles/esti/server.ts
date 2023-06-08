@@ -11,17 +11,21 @@ interface Balloons {
 
 const balloons: Balloons[] = [
     {
-        img:"https://image.pngaaa.com/310/991310-small.png",
+        img:"https://e7.pngegg.com/pngimages/429/227/png-clipart-balloon-balloon-heart-balloon-thumbnail.png",
     },
     {
-        img:"https://s.pngkit.com/png/small/8-80252_sweet-birthday-free-balloon-transparent-background-purple-balloon.png",
+        img:"https://e7.pngegg.com/pngimages/960/385/png-clipart-balloon-gold-powder-balloon-balloon-gold-powder-balloon-thumbnail.png",
     },
     {
-        img:"https://s.pngkit.com/png/small/44-446923_green-balloon-png-image-transparent-background-green-balloon.png",
+        img:"https://e7.pngegg.com/pngimages/102/589/png-clipart-balloon-single-purple-balloon-purple-balloon-violet-photography-thumbnail.png",
     },
     {
-        img:"https://s.pngkit.com/png/small/118-1186105_red-balloon-png-transparent-background-red-balloon-png.png",
+        img:"https://e7.pngegg.com/pngimages/407/460/png-clipart-balloon-balloon-blue-balloon-thumbnail.png",
     },
+    {
+        img:"https://e7.pngegg.com/pngimages/220/707/png-clipart-yellow-balloon-illustration-yellow-balloon-font-yellow-balloon-orange-balloon-thumbnail.png",
+    },
+
     ]
 
 app.get("/api/get-word",(req, res)=>{
