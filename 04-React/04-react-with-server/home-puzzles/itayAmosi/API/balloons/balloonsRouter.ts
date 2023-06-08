@@ -1,16 +1,10 @@
 import express from "express";
 const router = express.Router();
 
-import {
-    // addBallons,
-
-
-
-}from "./balloonsControl"
-
-
+import { creatBalloon, getBalloons } from "./balloonsControl";
 
 router
-// .post('/start-game', addBallons)
+    .post("/creatBalloon", creatBalloon)
+    .get("/get-balloons", getBalloons)
 
-export default router
+export default router;
