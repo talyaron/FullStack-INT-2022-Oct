@@ -18,7 +18,7 @@ function App() {
   };
 
   const handleColor = () => {
-    setColor((color) => !color);
+    setColor(!color);
   };
 
   return (
@@ -27,11 +27,10 @@ function App() {
         <button onClick={handleRandomName}>{name ? 'Switch Name' : 'Generate Name'}</button>
         <button onClick={handleColor}>{color ? 'Remove Color' : 'Add Color'}</button>
         <button onClick={handlePopUp}>{isOpen ? 'Close' : 'Open'}</button>
-        {isOpen && <PopUp count={name} />}
+        {isOpen && <PopUp count={name} colorEnabled={color} />}
       </div>
     </div>
   );
 }
-
 
 export default App;
