@@ -8,17 +8,17 @@ interface PlayerProps{
 };
 
 const Player: FC<PlayerProps> = ({ setPlayers, players, player }) => {
-    const [ouchMessage, setOuchMessage] = useState('');
+    const [message, setMessage] = useState('');
     function handleClickPlayer(playerId: string) {
         try {
           const playerIndex = players.findIndex((player) => player._id === playerId);
           if (playerIndex === -1) throw new Error("Player not found");
           
           const newPlayers = [...players];
-          newPlayers[playerIndex].image1 = newPlayers[playerIndex].image2; // Update image1 with image2
+          newPlayers[playerIndex].image1 = newPlayers[playerIndex].image2; 
           
           setPlayers(newPlayers);
-          setOuchMessage('Ouch!'); // Set the message to display
+          setMessage('Ouch!'); 
         } catch (error) {
           console.error(error);
         }
@@ -33,8 +33,8 @@ const Player: FC<PlayerProps> = ({ setPlayers, players, player }) => {
           src={player.image1}
           alt="player"
         />
-         {ouchMessage && (
-        <div className="message">{ouchMessage}</div>
+         {message && (
+        <div className="message">{message}</div>
       )}
       </div>
     );
