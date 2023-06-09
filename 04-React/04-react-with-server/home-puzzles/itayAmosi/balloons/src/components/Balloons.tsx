@@ -20,27 +20,27 @@ interface Balloon {
 
 const BalloonComponent: FC = () => {
   const [balloons, setBalloons] = useState<Balloon[]>([]);
-  useEffect(() => {
-    const fetchBalloons = async () => {
-      try {
-        const { data } = await axios.get("/api/balloons/get-balloons");
-        const { balloonDB } = data;
-        const modifiedBalloons = balloonDB.map((balloon: Balloon) => ({
-          ...balloon,
-          position: {
-            x: Math.floor(Math.random() * 1500),
-            y: Math.floor(Math.random() * 300) + 600,
-          },
-          delay: Math.floor(Math.random() * 2000) + 500,
-        }));
-        setBalloons(modifiedBalloons);
-      } catch (error) {
-        console.error("Error fetching balloons:", error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchBalloons = async () => {
+  //     try {
+  //       const { data } = await axios.get("/api/balloons/get-balloons");
+  //       const { balloonDB } = data;
+  //       const modifiedBalloons = balloonDB.map((balloon: Balloon) => ({
+  //         ...balloon,
+  //         position: {
+  //           x: Math.floor(Math.random() * 1500),
+  //           y: Math.floor(Math.random() * 300) + 600,
+  //         },
+  //         delay: Math.floor(Math.random() * 2000) + 500,
+  //       }));
+  //       setBalloons(modifiedBalloons);
+  //     } catch (error) {
+  //       console.error("Error fetching balloons:", error);
+  //     }
+  //   };
 
-    fetchBalloons();
-  }, []);
+  //   fetchBalloons();
+  // }, []);
 
   const handleBalloonAnimationEnd = (index: number) => {
     setBalloons((prevBalloons) => {
