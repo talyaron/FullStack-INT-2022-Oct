@@ -1,0 +1,39 @@
+.navbar-container {
+    width: 100vw;
+    padding: 10px;
+
+    &__nav {
+        width: inherit;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    &__list {
+        border: 1px solid black;
+        overflow: hidden;
+        list-style: none;
+        border-radius: 15px;
+        &:nth-last-child(3){
+            overflow: hidden;
+            background-color: gold;
+        }
+        &:hover{
+            scale: 1.05;
+        }
+
+    }
+
+    &__btn {
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        background-color: unset;
+        font-size: 1.5rem;
+ 
+
+
+    }
+
+}
