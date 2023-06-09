@@ -1,0 +1,55 @@
+.stageWrapper {
+  background-color: #424242;
+  color: white;
+  margin-bottom: 2rem;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 0.5rem;
+
+  &__pic {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 20%;
+  }
+
+  &__host {
+    font-size: 1.3vw;
+    font-weight: bold;
+  }
+
+  &__desc {
+    font-size: 0.9rem;
+    color: rgb(160, 160, 160);
+  }
+
+  &__name {
+    font-size: 1.4vw;
+    font-weight: bold;
+    padding-top: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+}
+.stageHeader {
+  display: flex;
+  align-items: center;
+
+  &__nameDesc {
+    padding-left: 1rem;
+  }
+}
+
+.stageUsers {
+  display: flex;
+  &__wraprer {
+    display: flex;
+    align-items: center;
+    padding-bottom: 0.5rem;
+  }
+  &__img {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+  }
+}

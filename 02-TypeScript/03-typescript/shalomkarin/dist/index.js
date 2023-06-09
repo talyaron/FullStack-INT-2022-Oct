@@ -1,0 +1,12 @@
+console.log('This is the exercise we are doing');
+var firstname = "shalom";
+var secondname = "karin";
+console.log(firstname, secondname);
+var shalomage = 53;
+var karinage = 34;
+console.log("Shalom age is " + shalomage);
+console.log("karig age is " + karinage);
+var average = (shalomage + karinage) / 2;
+console.log("THe average age of Shalom & Karin is: " + average);
+var myscore = 100;
+console.log("Well done!! Your score is " + myscore);

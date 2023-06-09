@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Solitreo&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hide {
+  opacity: 0;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  background-color: #F8F4EA;
+  font-family: "Quicksand", sans-serif;
+}
+body i {
+  cursor: pointer;
+}
+body button,
+body .submit {
+  cursor: pointer;
+  padding: 2px 4px;
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+  border: 2px solid #E1D7C6;
+  transition: all ease 0.3s;
+  font-family: "Quicksand", sans-serif;
+}
+body button:hover,
+body .submit:hover {
+  padding: 2px 6px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+form > * {
+  width: 160px;
+  height: 30px;
+  padding: 5px;
+  margin: 3px 0;
+}
+
+.test {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 20px;
+}
+.main__card > * {
+  margin: 2px 0;
+}
+.main__card {
+  position: relative;
+  width: 250px;
+  height: 280px;
+  padding: 20px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 2px 0px #555454;
+  margin: 0 5px 20px 5px;
+  background-color: white;
+  padding-bottom: 5px;
+}
+.main__card__imgDiv {
+  display: grid;
+  place-items: center;
+}
+.main__card img {
+  width: 60%;
+  aspect-ratio: 1/1;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  padding: 20px;
+  background-color: #ECE8DD;
+  width: 138px;
+  position: absolute;
+  left: -50%;
+  top: 50px;
+  height: 100vh;
+  transition: all ease 0.3s;
+  z-index: 100;
+}
+
+.menuShow {
+  left: 0%;
+}
+
+.top {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: relative;
+  background-color: #ECE8DD;
+}
+.top h2 {
+  color: #579BB1;
+  font-family: "Solitreo", cursive;
+}
+.top__cart {
+  cursor: pointer;
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+.top__cart img {
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+.top__cart__items {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  bottom: -3px;
+  right: -3px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: none;
+  background-color: #579BB1;
+  color: white;
+  font-weight: bolder;
+  font-size: 12px;
+}
+.top__headline {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.top__hamburger > * {
+  width: 25px;
+  height: 3px;
+  border-radius: 10px;
+  border: none;
+  background-color: black;
+  transition: all ease 0.3s;
+  cursor: pointer;
+}
+.top__hamburger {
+  cursor: pointer;
+}
+.top__hamburger__mid {
+  margin: 4px 0;
+}
+
+.closeTop {
+  transform: translate(0, 6.5px) rotate(45deg);
+}
+
+.closeBottom {
+  transform: translate(0, -6.5px) rotate(-45deg);
+}
+
+.closeMid {
+  opacity: 0;
+}
+
+.cartMain {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 70%;
+  margin-top: 20px;
+  position: relative;
+}
+.cartMain__card {
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 2px 0px #555454;
+  margin: 0 5px 20px 5px;
+  background-color: white;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.cartMain__card__text > * {
+  margin: 0 2px;
+}
+.cartMain__card__text {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 50%;
+  height: 100%;
+  padding-left: 5px;
+}
+.cartMain__card__imgDiv {
+  border-right: 2px solid #E1D7C6;
+  width: 30%;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.cartMain__card__imgDiv img {
+  width: 50%;
+  max-width: 140px;
+  aspect-ratio: 1/1;
+}
+
+.checkout__totalPrice {
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.footer {
+  background-color: #ECE8DD;
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+}
+
+.--fa-inverse {
+  color: black;
+}

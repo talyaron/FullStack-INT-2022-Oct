@@ -1,0 +1,137 @@
+*{
+  margin: auto;
+  padding: 0;
+//   border-radius: 1px;
+// background-color: rgb(247, 208, 215);
+text-align: center;
+}
+
+body{
+  background-color:pink;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 40px;
+  
+  justify-content: center;
+  align-items: center;
+  
+  &__input {
+    justify-content: center;
+ 
+  padding: 9px;
+  font-size: xx-large;
+    margin-bottom: 10px;
+    background-color: whitesmoke;
+    
+    
+  
+  }
+
+  &__select {
+    // display: block;
+    margin-bottom: 10px;
+    background-color:whitesmoke;
+    width:410px;
+    font-size: xx-large;
+    margin-bottom: 10px;
+    
+    
+  }
+
+
+
+  &__submit {
+
+    
+    width: 60px;
+    // display: block;
+    background-color: lemonchiffon;
+    
+    
+  }
+}
+
+h2{
+  font-size: 30px;
+  text-decoration: underline;
+  margin-left: -10px;
+  padding: 50px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color:purple;
+}
+
+
+#itemsRoot{
+  display: grid;
+ gap: 30px;
+ grid-template-columns: repeat(5,1fr);
+ margin: 50px;
+
+  
+ 
+
+  .recipe-item{
+    
+    background-color: aliceblue;
+    // border: 1px solid black;
+    border-radius: 10px;
+    
+
+    .recipe-img{
+      
+      width: 200px;
+      height: 200px;
+      margin: auto;
+      margin-left: auto;
+    }
+    
+    .recipe-link {
+      // color: blue;
+      text-decoration: underline;
+    }
+  }
+  h1{
+    font-size: 30px;
+    color: black;
+    
+  }
+  p{
+    color: rgb(240, 88, 88);
+    text-align: center;
+  }
+}
+.form__submit {
+  background-color: blueviolet;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  width: 70px;
+
+  &:hover {
+    background-color: darkgreen;
+  }
+}
+
+button {
+  a {
+   
+    text-decoration: none;
+    color: black;
+    padding: 15px 50px;
+    background-color: palevioletred;
+    border-radius: 3px;
+    border: 2px solid black;
+    display: inline-block;
+
+    &:hover {
+      background-color: violet;
+    }
+  }
+}

@@ -1,2 +1,0 @@
-create 4 cubes underneath one another
-all of them should be in the middle

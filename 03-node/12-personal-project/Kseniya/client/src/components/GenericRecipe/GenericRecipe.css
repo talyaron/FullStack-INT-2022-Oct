@@ -1,0 +1,43 @@
+.cardWrapper {
+  padding: 2rem 0 0 8rem;
+  font-size: 1.3rem;
+}
+
+.cardContainer {
+  display: flex;
+}
+
+.rightSide{
+    padding: 0 0 0 5rem
+}
+
+.title{
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+
+.image {
+  height: 20rem;
+  padding-bottom: 1rem;
+}
+
+.likes{
+    display: flex;
+    align-items: center;
+}
+
+.like{
+    padding-right: 1rem;
+}
+
+.heart{
+    cursor: pointer;
+}
+
+.more{
+    display: flex;
+    align-items: center;
+    justify-content:end;
+    cursor: pointer;
+}
+

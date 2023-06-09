@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>register</title>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <link rel="stylesheet" href="./dist/style.css" />
+  </head>
+  <body>
+    <h1>Login...</h1>
+    <form onsubmit="handldetails(event)" class="form">
+      <input type="text" name="fullname" placeholder="full name" />
+      <input type="email" name="email" placeholder="Email" />
+      <input type="text" name="img" placeholder="Url img" />
+      <div>
+        <input
+          type="password"
+          name="password"
+          placeholder="password"
+          id="input"
+        />
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/2767/2767146.png"
+          id="img"
+        />
+      </div>
+      <input type="submit" />
+    </form>
+    <div class="container"></div>
+  </body>
+</html>

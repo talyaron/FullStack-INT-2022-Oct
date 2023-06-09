@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous' defer></script>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/helpers.js"defer></script>
+    <script src="./dist/model.js"defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/index.js"defer></script>
+    <link rel="stylesheet" href="./dist/style.css">
+</head>
+<body onbeforeunload="saveTolocalStorge()">
+    <div class="nutBar">
+        <a href="" class="userIcon" >User Icon</a>
+        <div class="siteName">Book Review Site</div>
+        <a href="" class="infoContact">Information & Contact</a>
+    </div>
+    <div class="wrap">
+        <div class="search">
+           <input type="text" class="searchTerm" placeholder="What are you looking for?">
+           <button type="submit" class="searchButton">
+             <i class="fa fa-search"></i>
+          </button>
+        </div>
+     </div>
+      <div id="bookContainer"></div>
+      
+    <div id="itemsRoot"></div>
+    <div class="addReview">
+        <button onclick="location.href=`./second.html`" class="button-64" role="button"><span class="text">ADD REVIEW</span></button>
+    </div>
+    </div>
+</body>
+</html>
+
+
+<a href="./second.html"></a>

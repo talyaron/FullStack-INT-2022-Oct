@@ -1,0 +1,42 @@
+
+.ball{
+background-color: navy;
+  border-radius: 100px;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  animation-name: bounce;
+  animation-duration: 6s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function:linear;
+}
+
+//PROPERTIES OF SOME ANIMATION
+@keyframes bounce {
+  //from position a
+25% {
+    background-color: pink;
+    top: 50px;
+    right: -20px;
+  }
+
+  50% {
+    background-color: rgb(34, 0, 255);
+    top: 0px;
+    right: -60px;
+  }
+  75% {
+    background-color: rgb(81, 22, 218);
+    top: 50px;
+    right: -100px;
+  }
+  100%{
+    background-color: rgb(1, 0, 0);
+    top: 0px;
+    right: -140px;
+  }
+
+  //to position b
+}
+

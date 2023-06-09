@@ -1,0 +1,1 @@
+const userInputContainer = document.querySelector('.userInputContainer');

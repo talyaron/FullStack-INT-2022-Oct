@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/0d9e773bea.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="icon" type="image/png" href="./img/pngwing.com.png" />
+    <link rel="stylesheet" href="./style/css/gameStyle.css" />
+    <link rel="stylesheet" href="./style/css/button.css" />
+    <script src="./src/gamePage/view.js" defer></script>
+    <script src="./src/gamePage/helpers.js" defer></script>
+    <script src="./src/gamePage/model/Tile.js" defer></script>
+    <script src="./src/gamePage/model/Deck.js" defer></script>
+    <script src="./src/gamePage/model/Player.js" defer></script>
+    <script src="./src/gamePage/model/Board.js" defer></script>
+    <script src="./src/gamePage/model/Game.js" defer></script>
+    <script src="./src/gamePage/controller/renderToPage.js" defer></script>
+    <script src="./src/gamePage/controller/moveTiles.js" defer></script>
+    <script src="./src/gamePage/controller/gameValidation.js" defer></script>
+    <script src="./src/gamePage/controller/controller.js" defer></script>
+    <script src="./src/gamePage/index.js" defer></script>
+    <title>Game Page</title>
+  </head>
+  <body onload="checkIfGameStarted()">
+    <form id="playerNamesForm">
+      <a href="/">Back</a>
+      <h1>Enter names of players</h1>
+      <input type="text" name="playerOne" placeholder="player one" required />
+      <input type="text" name="playerTwo" placeholder="player two" required />
+      <input type="text" name="playerThree" placeholder="player three" />
+      <input type="text" name="playerFour" placeholder="player four" />
+      <button class="buttonStyleOne" type="submit">Start</button>
+    </form>
+    <div class="wrapper">
+      <a href="/" class="">Exit</a>
+      <div class="playersInGameArea"></div>
+      <div class="activePlayerArea">
+      </div>
+      <div class="action">
+        <button class="buttonStyleTwo" id="sortByColorBtn">
+          <img src="./img/tileSvg/black-7.svg" alt="" />
+          <img src="./img/tileSvg/black-8.svg" alt="" />
+          <img src="./img/tileSvg/black-9.svg" alt="" />
+        </button>
+        <button class="buttonStyleTwo" id="sortByNumbersBtn">
+          <img src="./img/tileSvg/black-7.svg" alt="" />
+          <img src="./img/tileSvg/blue-7.svg" alt="" />
+          <img src="./img/tileSvg/red-7.svg" alt="" />
+        </button>
+        <button class="buttonStyleTwo" id="endTurnBtn">end turn</button>
+        <button class="buttonStyleTwo" id="resetTurnBtn">reset turn</button>
+      </div>
+      <div class="board"></div>
+    </div>
+  </body>
+</html>

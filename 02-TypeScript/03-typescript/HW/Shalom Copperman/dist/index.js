@@ -1,0 +1,12 @@
+var devname1 = 11;
+var devname2 = 232;
+var devname3 = 3432;
+var devname4 = 4768;
+var devname5 = 5454;
+var devname6 = 13234;
+var devname7 = 15456;
+var devname8 = 1767;
+var devname9 = 177;
+var devname10 = 13421;
+var devaverage = (devname1 + devname2 + devname3 + devname4 + devname5 + devname6 + devname7 + devname8 + devname9 + devname10) / 10;
+console.log("The average salary of a developer is " + devaverage);

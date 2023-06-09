@@ -1,0 +1,30 @@
+body {
+  background-color: beige;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  height: 100px;
+  width: 100px;
+  border: black solid 3px;
+  animation-name: myMove;
+  animation-duration: 2.5s;
+  animation-iteration-count: 2;
+}
+
+@keyframes myMove {
+  0% {
+    background-color: coral;
+    border-color: black;
+  }
+  50% {
+    background-color: black;
+    border-color: coral;
+  }
+  100% {
+    background-color: coral;
+    border-color: black;
+  }
+}

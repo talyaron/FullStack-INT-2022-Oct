@@ -1,0 +1,16 @@
+.wrapper {
+  display: grid;
+  margin: auto;
+  margin-top: 200px;
+  width: 300px;
+  height: 300px;
+}
+.wrapper #box {
+  background-color: blue;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+}
+.wrapper h1 {
+  margin-top: 120px;
+}

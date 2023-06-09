@@ -1,0 +1,431 @@
+body {
+  margin: 0;
+  display: flex;
+  position: relative;
+  background-color: rgb(55, 53, 53);
+}
+
+.serversColumn {
+  width: 7vw;
+  height: 100vh;
+  background-color: rgb(55, 53, 53);
+  border-radius: 0.5em;
+  font-size: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.serversColumn__server {
+  border-radius: 8em;
+  width: 8em;
+  height: 8em;
+  margin-top: 1em;
+  background-size: cover;
+}
+.serversColumn__server:hover {
+  border-radius: 0.7em;
+}
+.serversColumn__server--server1 {
+  background-image: url("https://media.decovry.com/media/catalog/product/cache/l/i/9df78eab33525d08d6e5fb8d27136e95/lib03-001_3_medium_.png");
+}
+.serversColumn__server--server2 {
+  background-image: url("https://s3.amazonaws.com/prod-media.gameinformer.com/styles/thumbnail/s3/legacy-images/Top%20Of%20The%20Table%20%E2%80%93%20Dixit/dixit610.jpg");
+}
+.serversColumn__server--server3 {
+  background-image: url("https://2.bp.blogspot.com/-v3cMCOfIHz8/UDvwokuInAI/AAAAAAAAA8Y/AxE5VjGNbJc/s1600/dixit+cards.jpeg");
+}
+.serversColumn__server--server4 {
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdTeJIAkTfNQYZlCBidk3cd0V7EexQ_5G6jc2liA2_TCW5dSED0OlWMDr4wj8fLWgeeIM&usqp=CAU");
+}
+.serversColumn__server--server5 {
+  background-image: url("https://i.pinimg.com/originals/f9/d0/90/f9d090447f94fe3c85635d0e87400077.jpg");
+}
+
+.mainMenu {
+  width: 20vw;
+  height: 100vh;
+  background-color: rgb(71, 71, 71);
+  color: rgb(184, 184, 184);
+  border-radius: 0.5em;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.mainMenu__topMenu {
+  width: 14em;
+  height: 44em;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+}
+.mainMenu__topMenu__findConversation {
+  width: 14em;
+  height: 2.5em;
+  border: none;
+  color: white;
+  background-color: rgb(57, 57, 57);
+  margin: 1em;
+}
+.mainMenu__topMenu__tabsMenu {
+  width: 13.3em;
+  height: 40em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mainMenu__topMenu__tabsMenu__tab {
+  background-color: rgb(71, 71, 71);
+  width: 14em;
+  height: 4em;
+  margin-top: 0.5em;
+  text-align: center;
+  color: white;
+  font-size: 0.8em;
+  font-weight: 700;
+  border: 0em solid rgb(0, 0, 0);
+  border-radius: 0.5em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.mainMenu__topMenu__tabsMenu__tab:hover {
+  background-color: rgb(84, 84, 84);
+}
+.mainMenu__topMenu__tabsMenu__tab--active {
+  background-color: rgb(80, 80, 80);
+  color: rgb(223, 223, 223);
+}
+.mainMenu__topMenu__directMessages {
+  width: 13.3em;
+  height: 20em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 0.5em;
+}
+.mainMenu__topMenu__directMessages__header {
+  width: 13.3em;
+  height: 2em;
+  font-weight: 900;
+  color: rgb(184, 184, 184);
+  margin: 0.5em;
+  text-align: center;
+  border-radius: 0.5em;
+}
+.mainMenu__topMenu__directMessages__friends {
+  width: 13em;
+  height: 20em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 0.5em;
+}
+.mainMenu__topMenu__directMessages__friends__friend {
+  background-color: rgb(71, 71, 71);
+  width: 8em;
+  height: 2em;
+  margin: 0.5em;
+  text-align: left;
+  line-height: 2em;
+  border-radius: 0.5em;
+}
+.mainMenu__topMenu__directMessages__friends__friend:hover {
+  background-color: rgb(109, 109, 109);
+  color: rgb(223, 223, 223);
+}
+.mainMenu__bottomMenu {
+  width: 14.3em;
+  height: 3em;
+  display: flex;
+  background-color: rgb(55, 54, 54);
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0.5em;
+  margin: 0;
+}
+.mainMenu__bottomMenu__profile {
+  width: 7em;
+  height: 2em;
+  display: flex;
+  background-color: rgb(55, 54, 54);
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 0.5em;
+  margin: 0;
+}
+.mainMenu__bottomMenu__profile__image {
+  width: 2em;
+  height: 2em;
+  background-image: url(https://www.moderncoinmart.com/media/catalog/product/cache/411235e682edf2440a722aacea7b69c1/2/0/2020-s2d-chibi-weasley-raw-obv.jpg);
+  background-size: cover;
+  border-radius: 2em;
+  margin: 0;
+}
+.mainMenu__bottomMenu__profile__data {
+  width: 4em;
+  height: 2em;
+  background-color: rgb(55, 54, 54);
+  border-radius: 0.5em;
+  margin: 0;
+  color: gray;
+}
+.mainMenu__bottomMenu__iconsWrapper {
+  width: 5.5em;
+  height: 2em;
+  display: flex;
+  background-color: rgb(55, 54, 54);
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.mainMenu__bottomMenu__iconsWrapper__icon {
+  color: gray;
+  margin: 0.5em;
+}
+
+.rightContainer {
+  width: 79vw;
+  height: 100vh;
+  background-color: rgb(80, 80, 80);
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+}
+.rightContainer__navBar {
+  width: 79vw;
+  height: 2.5em;
+  border-radius: 0.5em;
+  display: flex;
+  justify-content: space-between;
+}
+.rightContainer__navBar__activeTab {
+  width: 5em;
+  height: 1.5em;
+  border-radius: 0.5em;
+  color: white;
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-left: 1em;
+  margin-top: 0.2em;
+}
+.rightContainer__navBar__iconsWrapper {
+  width: 6em;
+  height: 2.5em;
+  border-radius: 0.5em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.rightContainer__navBar__iconsWrapper__icon {
+  color: rgb(174, 172, 172);
+  margin: 0.5em;
+}
+.rightContainer__main {
+  width: 76em;
+  height: 44em;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.rightContainer__main__liveStages {
+  width: 60em;
+  height: 44em;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.rightContainer__main__liveStages__header {
+  width: 15em;
+  height: 1.5em;
+  border-radius: 0.5em;
+  font-size: 1.5em;
+  font-weight: 900;
+  color: white;
+  margin-right: 13em;
+}
+.rightContainer__main__liveStages__liveStage {
+  width: 42em;
+  height: 11em;
+  background-color: rgb(71, 71, 71);
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.rightContainer__main__liveStages__liveStage__top {
+  width: 42em;
+  height: 3em;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.rightContainer__main__liveStages__liveStage__top__server {
+  width: 12em;
+  height: 1.5em;
+  border-radius: 0.5em;
+  color: white;
+  font-weight: 700;
+  font-size: 1em;
+}
+.rightContainer__main__liveStages__liveStage__top__listenersCounter {
+  width: 3em;
+  height: 1em;
+  background-color: rgb(42, 41, 41);
+  border-radius: 0.5em;
+  margin: 0.5em;
+  color: white;
+  font-size: 0.7em;
+  padding: 0.7em;
+  text-align: center;
+  vertical-align: middle;
+}
+.rightContainer__main__liveStages__liveStage__title {
+  width: 21em;
+  height: 3em;
+  font-weight: 700;
+  font-size: 2em;
+  color: white;
+  border-radius: 0.5em;
+}
+.rightContainer__main__liveStages__liveStage__speakers {
+  width: 30em;
+  height: 8em;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 1em;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker {
+  width: 8em;
+  height: 2em;
+  font-weight: 700;
+  font-size: 1em;
+  color: white;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0.3em;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker__image {
+  width: 2em;
+  height: 2em;
+  border-radius: 2em;
+  margin-right: 0.4em;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker__image--image1 {
+  background-image: url(https://iheartcraftythings.com/wp-content/uploads/2021/04/Harry-Potter-DRAWING-%E2%80%93-STEP-10.jpg);
+  background-size: cover;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker__image--image2 {
+  background-image: url(https://media.entertainmentearth.com/assets/images/1cf08c72d8e342a8b3ff4ff5a7d0e6bcxl.jpg);
+  background-size: cover;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker__image--image3 {
+  background-image: url(https://media.entertainmentearth.com/assets/images/7d25142cd2e54e5d812db1c4e10f6ec5xl.jpg);
+  background-size: cover;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker__image--image4 {
+  background-image: url(https://i.pinimg.com/originals/3b/51/d4/3b51d4a14122f723ef857b4a195c8b03.jpg);
+  background-size: cover;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker__image--image5 {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnVXnP0G7tOvgN3Iw7RZT_tdoh63gpnnYQiw&usqp=CAU);
+  background-size: cover;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker__image--image6 {
+  background-image: url(https://pop-figures.com/media/img/figurine/46-funko-pop-figure-the-hobbit-legolas-greenleaf.jpg);
+  background-size: cover;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker__image--image7 {
+  background-image: url(https://cashcow-cdn.azureedge.net/images/d5c3a970-9bab-42ec-b63f-f01a1938d2c8.jpg);
+  background-size: cover;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker__image--image8 {
+  background-image: url(data:image/jpeg;base64,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);
+  background-size: cover;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker__image--image9 {
+  background-image: url(https://assets.teenvogue.com/photos/5cc7017bd1b87b6cfcd4d405/1:1/pass/00-tout-maisie-williams.jpg);
+  background-size: cover;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker__image--image10 {
+  background-image: url(https://hips.hearstapps.com/hmg-prod/images/theory-1553634761.jpg?crop=0.501xw:1.00xh;0,0&resize=640:*);
+  background-size: cover;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker__image--image11 {
+  background-image: url(https://media.allure.com/photos/5ba532e30ac6c654eca1f789/4:3/w_1525,h_1143,c_limit/e31a1dd95b519c8063075bf3ebfc231d685e7cd34fb0985dfabe35ab063bdeb84011b71e4ae81ada3b2eb21920dc167c.jpg);
+  background-size: cover;
+}
+.rightContainer__main__liveStages__liveStage__speakers__speaker__image--image12 {
+  background-image: url(https://www.telegraph.co.uk/content/dam/tv/2016/05/13/97849975-GOTEmilia_Clarke_as_Daenerys_Targaryen-TV_trans_NvBQzQNjv4BqajCpFXsei0OXjDFGPZkcdMJTIQHYfRIrbi-iMJIzu0Y.jpg?imwidth=480);
+  background-size: cover;
+}
+.rightContainer__main__activitiesLog {
+  width: 14em;
+  height: 44em;
+  border-left: 0.5em solid rgb(154, 152, 152);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  font-weight: 700;
+  gap: 1em;
+}
+.rightContainer__main__activitiesLog__header {
+  width: 9em;
+  height: 2em;
+  border-radius: 0.5em;
+  text-align: left;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-left: 1.5em;
+}
+.rightContainer__main__activitiesLog__activity {
+  width: 10em;
+  height: 10em;
+  background-color: rgb(71, 71, 71);
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 1.5em;
+}
+.rightContainer__main__activitiesLog__activity__participants {
+  width: 7em;
+  height: 2.5em;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  line-height: 2em;
+}
+.rightContainer__main__activitiesLog__activity__participants--image1 {
+  background-image: url(https://deadline.com/wp-content/uploads/2022/01/Peacemaker-John-Cena.jpg?w=1000);
+  background-size: cover;
+  width: 2em;
+  height: 2em;
+  border-radius: 2em;
+}
+.rightContainer__main__activitiesLog__activity__title {
+  width: 9em;
+  height: 2em;
+  border-radius: 0.5em;
+  text-align: center;
+}

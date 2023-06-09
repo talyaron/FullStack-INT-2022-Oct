@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+    <link rel="stylesheet" href="./dist/style.css" />
+  </head>
+  <body>
+    <div class="tittle">
+      <h2>Noa Store</h2>
+    </div>
+    <div class="function">
+      <button onclick="getAllItemInType(clothesShopArr)">filter by type</button>
+      <button onclick="sortArrByPrice(clothesShopArr)">
+        order by the cheapest item
+      </button>
+      <button onclick="getTheCheapestItem(clothesShopArr)">
+        Show the cheapest item
+      </button>
+      <button onclick="showStore(clothesShopArr);">Refresh</button>
+    </div>
+    <div class="store"></div>
+  </body>
+</html>

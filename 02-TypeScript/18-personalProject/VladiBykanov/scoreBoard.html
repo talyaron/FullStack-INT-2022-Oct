@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Score Board</title>
+    <script src="./src/dist/view.js" defer></script>
+    <script src="./src/dist/helpers.js" defer></script>
+    <script src="./src/dist/controls.js" defer></script>
+    <script src="./src/dist/model.js" defer></script>
+    <script src="./src/dist/scoreBoard.js" defer></script>
+    <link rel="stylesheet" href="./src/dist/scoreBoard.css" />
+  </head>
+  <body>
+    <div class="scoreBoardWrapper">
+      <div class="buttonDiv">
+        <button class="newPlayerBtn">New Player</button>
+        <button class="backToStartingPageBtn">Choose Map</button>
+      </div>
+      <div class="tableDiv">
+        <ul>
+          <li class="scoreBoardWrapper__listTitle">
+            <h4>User Name</h4>
+            <ul class="userNames">
+            </ul>
+          </li>
+        </ul>
+        <ul>
+          <li class="scoreBoardWrapper__listTitle">
+            <h4>Highest Score</h4>
+            <ul class="userScore"></ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

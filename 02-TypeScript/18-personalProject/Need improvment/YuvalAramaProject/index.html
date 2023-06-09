@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+    <link rel="stylesheet" href="./dist/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <img class="logo" src="./photos/צילום מסך_20230201_201558.png" alt="">
+        <nav>
+            <img src="./photos/login.jpg" class="adminLoginBtn"/>
+                <form id="adminLoginForm" class="adminLoginForm hide">
+                    <input type="text" placeholder="Put Your Nickname" id="adminName" required><br>
+                    <input type="submit" value="Login">
+                </form>
+                <img src="./photos/add symbol.png" class="addTeamBtn hide"/>
+                    <form id="addTeamForm" class="adminNewTeamForm hide">
+                        <label>Add New Team</label><br>
+                        <input id="teamName" type="text" placeholder="Team Name" required>
+                        <input id="badgeImg" type="url" placeholder="Team Badge (url)" required>
+                        <input id="league" type="text" placeholder="League" required><br>
+                        <input id="discription" type="text" placeholder="Discription" required maxlength="200">
+                        <input type="submit" value="Add">
+                    </form>
+
+            <img class="logoutBtn hide" src="./photos/logout.png"/>        
+
+            <a href="./quiz.html"><img src="./photos/Quiz-Logo-PNG-HD.png"></a>
+        </nav>
+    </header>
+    <h1 class="welcomeMsg"></h1>
+    <div id="divContainer">
+       
+    </div>
+</body>
+</html>

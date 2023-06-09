@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    
+}
+body {
+    background-image: url('./pictures/dogs1.jpg') ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 0.8;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    width: 100%;
+   
+}
+.form_box{
+    width: 380px;
+    height: 550px;
+    margin: 6% auto;
+    padding: 5px;
+    color: #fff;
+    border: 1px solid #0079c2;
+    background:#f3f6f4;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px #71788d;
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+}
+.btn_box{
+    width: 220px;
+    margin: 15px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #1b1f2955;
+    border-radius: 30px;
+}
+.toggle_btn{
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+    transition: 0.3s;
+    font-weight: 600;
+}
+.toggle_btn:hover{
+    color: #fff;
+}
+#btn{
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    border-radius: 30px;
+    background: #1493ff;
+    transition: 0.5s;
+    font-weight: 600;
+}
+.welcome{
+    height: 100px;
+}
+#welcome_paw{
+    height: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.form_div{
+    width: 100%;
+    margin-top: 10px;
+    position: relative;
+    height: 48px;
+    margin-bottom: 1.5rem;
+}
+.input_group{
+    top: 180px;
+    position: absolute;
+    width: 280px;
+    transition: 0.5s;
+}
+.form_input{
+    font-size: 1rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    box-shadow: 0 0 20px 9px #1b1f2955;
+    border-radius: .5rem;
+    outline: none;
+    padding: 1rem;
+    background: transparent;
+    z-index: 1;
+    transition: 0.3s;
+}
+.form_label{
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    padding: 0 0.25rem;
+    background-color: transparent;
+    color: #000;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+.form_input:focus + .form_label{
+    top: -0.5rem;
+    left: 0.8rem;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 500;
+    z-index: 10;
+    background-color: #1493ff;
+    border-radius: 10px;
+    padding: 0 5px;
+}
+
+.form_input:focus{
+    border: 1.5px solid #1493ff;
+}
+.submit_btn{
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background-color: transparent;
+    box-shadow: 0 0 20px 9px #1b1f2955;
+    border: 0;
+    outline: none;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: 0.5s;
+    
+}
+.submit_btn:hover{
+    color: #fff;
+    background-color: #1493ff;
+}
+.checkbox{
+    margin: 20px 10px 30px 0;
+    box-shadow: 0 0 20px 5px #1b1f2955;
+    accent-color: #1493ff;
+    cursor: pointer;
+}
+span{
+    color: #000;
+    font-size: 12px;
+    bottom: 68px;
+    position: absolute;
+}
+
+#login{
+    left: 50px;
+}

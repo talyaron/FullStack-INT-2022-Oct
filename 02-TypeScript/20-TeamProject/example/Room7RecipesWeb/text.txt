@@ -1,0 +1,40 @@
+                                                            ReceptList: Design document
+
+///  Description:
+Recipes web storage
+
+
+///  PRD (product requirement Document)
+* Add new recipe
+* Favourite list 
+* Delete recipe from favourite list 
+* List of recipe
+* Sort
+* Search
+* Share
+* Rankings
+* Login and register
+* User list
+* Customer succes
+* Comments
+
+//  MVP (Minimum viable product)
+What will be the minimal set of features that the user would like to reuse the product?
+CRUD recipes
+List
+Login/register
+User List
+Accesability
+
+//  Entities
+Users
+Recipe
+
+
+//  Pages
+
+/  Use cases
+
+I want to print/display a recipe
+Create recipe
+

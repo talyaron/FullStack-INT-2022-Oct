@@ -1,0 +1,15 @@
+#dice {
+  width: 836px;
+  height: 836px;
+  border-radius: 15%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  margin-left: 19rem;
+}
+
+button {
+  height: 150px;
+  width: 350px;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--  Link Font google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700&display=swap" rel="stylesheet">
+    <!--  Link Font awesome ICONS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--  Link script files -->
+    <script src="./dist/saveLocalStorage.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/helper.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+
+    
+    <!--  Link css files -->
+    <link rel="stylesheet" href="./dist/index.css">
+    <link rel="stylesheet" href="./dist/login.css">
+    <title>Document</title>
+</head>
+<body onbeforeunload="dataFromStorage() ">
+    <section class="login-section">
+        <div class="icon">
+            <a href="./index.html">
+                <img src="./img/logo.png" width="100px" alt="icon-music-control">
+                <span class="logoTitle">
+                  PhotoList
+                </span>
+            </a>
+        </div>
+        <div class="line"></div>
+
+        <div class="login-screen">
+            <form onsubmit="handleSubmitLogIn(event)">
+                <h4>To continue, log in to ProList.</h4>
+                <div class="email">
+                    <label for="emailLogin">Email address or username</label>
+                    <input type="email" name="emailLogin" id="emailLogin" placeholder="Email address or username" >
+                    <p ><i class="fa-solid fa-triangle-exclamation"></i><span id="errorMsgEmailInputLOG" >Please enter your ProList username or email address.</span> </p>
+                </div>
+                <div class="password">
+                    <label for="passwordLogin">Password</label>
+                    <input type="password" name="passwordLogin" id="passwordLogin" placeholder="Password" >
+                    <p  ><i class="fa-solid fa-triangle-exclamation"></i><span id="errorMsgPasswordInputLOG">Please enter your password.</span> </p>
+                </div>
+                <div >
+                    <label for="checkboxRemember">Remember me</label>
+                    <input type="checkbox" id="checkboxRemember">
+                 </div>
+
+            <p id ="pNotLoginSucc"></p>
+                 <button type="submit" id="submitBtnLogin">LOG IN</button>
+            </form> 
+        </div>
+
+        <div class="line" style="width: 500px; margin: auto;" > </div>
+
+        <footer>
+            <h3>Don't have an account?</h3>
+            <a href="./signin.html">
+                <button>SIGN UP FOR PROLIST</button>
+            </a>
+        </footer>
+    </section>
+
+
+</body>
+</html>

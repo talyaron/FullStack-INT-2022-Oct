@@ -1,0 +1,28 @@
+@media only screen and (max-width: 430px) and (min-height: 800px){
+    html{
+        font-size: 13px;
+    }
+    .score{
+        color: black;
+        font-size: 2rem;
+    }
+}
+
+
+@media only screen and (max-width: 450px){
+    html{
+        font-size: 13px;
+    }
+    
+}
+
+@media only screen and (min-width: 800px){
+    html{
+        font-size: 20px;
+    }
+    
+    body{
+        width: 800px;
+        margin: 0 auto;
+    }
+}

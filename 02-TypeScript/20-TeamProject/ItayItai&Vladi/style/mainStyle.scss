@@ -1,0 +1,88 @@
+.mainpageContainer {
+  width: 100%;
+  height: 100%;
+  &__main {
+    height: calc(100vh - 3rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+    padding: 2rem 4rem;
+    overflow-y: auto;
+    background: url("../../img/darkSunrise.jpg") no-repeat center / cover;
+    h1 {
+      background: linear-gradient(
+        90deg,
+        rgba(237, 255, 0, 1) 0%,
+        rgba(255, 158, 0, 1) 69%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 1.7rem;
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+    }
+    &__boards {
+      margin-top: 1em;
+      height: auto;
+      width: 100%;
+      max-width: 1400px;
+      h3 {
+        display: inline;
+        color: #fff;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+      }
+      &__boardArea {
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 3rem;
+        margin-top: 3em;
+        .board {
+          box-shadow: 0 0 10px rgb(255, 255, 255);
+          border-radius: 10px;
+          aspect-ratio: 1/1;
+          cursor: pointer;
+          position: relative;
+          opacity: 0.8;
+          p {
+            color: #fff;
+            text-shadow: 0 0 10px black;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            font-family: monospace;
+          }
+          .removeBoard {
+            position: absolute;
+            right: 0;
+            bottom: -1rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            width: 60%;
+            height: 20%;
+          }
+          .removeBoard:hover {
+            background-color: rgb(255, 0, 0);
+            border: none;
+          }
+        }
+        .board:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &__main::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -1,0 +1,198 @@
+body {
+  margin: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(52, 50, 50);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+
+  .groups {
+    height: 100%;
+    width: 5vw;
+    background-color: rgb(52, 50, 50);
+    display: flex;
+    flex-direction: column;
+
+    &__appName {
+      font-size: 0.9rem;
+      color: rgb(155, 151, 151);
+      text-align: center;
+      padding-top: 10px;
+    }
+
+    hr {
+      width: 60px;
+      height: 0.3px;
+      border-width: 0;
+      background-color: rgb(155, 151, 151);
+    }
+
+    &__group {
+      height: 3.5rem;
+      width: 3.5rem;
+      border-radius: 50%;
+      background-color: #555657;
+      color: rgb(44, 177, 44);
+      font-size: 2rem;
+      margin: 0.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+      &--discord {
+        border-radius: 30%;
+      }
+    }
+  }
+}
+
+.home {
+  width: 20vw;
+  height: 100vh;
+  background-color: rgb(86, 82, 82);
+  margin-top: 20px;
+  border-top-left-radius: 10px;
+
+  input {
+    background-color: rgb(52, 50, 50);
+    border: none;
+    margin-left: 40px;
+    margin-top: 7px;
+    border-radius: 7px;
+    padding: 5px;
+  }
+
+  &__categories {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    padding: 0.5rem 3rem;
+    margin: 2rem 3rem;
+    color: rgb(163, 162, 159);
+    opacity: 80%;
+  }
+  &__categories:hover {
+    background-color: rgb(105, 107, 108);
+  }
+
+  h5 {
+    text-align: left;
+    margin-left: 20px;
+    color: rgb(199, 199, 199);
+  }
+
+  &__members {
+    display: flex;
+    flex-direction: column;
+    padding: 0.7rem;
+    gap: 1rem;
+    &__member {
+      color: rgb(233, 238, 238);
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
+      padding: 5px;
+
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 100px;
+        align-items: center;
+      }
+
+      .name {
+        padding: 10px;
+      }
+    }
+  }
+}
+
+.rightBlock {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(94, 98, 98);
+  margin-top: 20px;
+  color: rgb(222, 221, 221);
+
+  &__topNav {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 20px;
+  }
+
+  &__stages {
+    display: flex;
+    flex-direction: row;
+    &__stage {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &__title {
+        font-size: large;
+        margin-right: 15rem;
+        margin-left: 4rem;
+      }
+    }
+  }
+
+  .userContainer {
+    width: 30vw;
+    height: 20vh;
+    background-color: #3b3a3a;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: row;
+
+    img {
+      height: 40px;
+      width: 40px;
+      border-radius: 30%;
+      margin: 0.5rem;
+    }
+    &__name {
+      margin-top: 1rem;
+      font-size: medium;
+    }
+
+    &__headphones {
+      width: 70px;
+      position: relative;
+      left: 700px;
+      bottom: 110px;
+      border: 2px #18191b solid;
+      border-radius: 20%;
+      display: flex;
+      i {
+        margin-left: 5px;
+      }
+    }
+
+    &__caption {
+      margin-top: 4.5rem;
+      font-variant-position: initial;
+    }
+  }
+}
+
+// background-color: #555657;
+// height: 20px;
+// width: 40px;
+// border-radius: 30%;
+// font-size: small;
+// text-align: center;
+// margin-top: 0.8rem;
+// margin-right: 0.5rem;
+// align-items: center;
+
+// }

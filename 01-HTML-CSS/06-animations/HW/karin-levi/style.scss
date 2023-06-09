@@ -1,0 +1,77 @@
+body{
+    margin: 0%;
+}
+
+
+.wrapper{
+  width: 100vw;
+  height: 100vh;
+  background-color: azure;
+  display: flex;
+  justify-content:space-between;
+  align-items: flex-end;
+
+    &__balloon {
+      width:100px;
+      height: 200px;
+      // background:rgb(204, 12, 12);
+      border-radius:80%;
+      position:relative;
+
+      animation-name: flying;
+      animation-duration: 3s;
+      animation-fill-mode: forwards;
+      animation-iteration-count: infinite;
+     
+      img{
+        height: 100%;
+        width: 100%;
+      }
+  }
+
+  
+  #baloon1{
+    animation-timing-function: linear;
+  }
+
+  #baloon2{
+    animation-timing-function: ease;
+  }
+
+  #baloon3{
+    animation-timing-function: ease-in;
+  }
+  #baloon4{
+    animation-timing-function: ease-out;
+  }
+  #baloon5{
+    animation-timing-function: ease-in-out;
+  }
+  #baloon6{
+    animation-timing-function: ease-in;
+  }
+  #baloon7{
+    animation-timing-function: linear;
+  }
+  #baloon8{
+    animation-timing-function: ease-in-out;
+  }
+  #baloon9{
+    animation-timing-function: ease;
+  }
+  #baloon10{
+    animation-timing-function: ease-in-out;
+  }
+
+}
+
+
+@keyframes flying {
+
+    from {
+      bottom: 0px;
+    }
+    to{
+      bottom: 800px;
+    }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>app-n&n</title>
+    <link rel="stylesheet" href="./style/dist/newc.css">
+    <link rel="stylesheet" href="./style/dist/todo.css">
+    <link rel="stylesheet" href="./dist/app.css">
+    <script src="./dist/app.js"defer></script>
+   
+</head>
+<body dir="rtl">
+<h1 class="targ">welcome</h1>
+<nav>
+    <!-- box that show from nav -->
+    <div class="box" dir="ltr">
+        <!-- יצירת לקוח -->
+        <div id="newC" dir="rtl">
+            <form id="newCform">
+             <label for="">שם הלקוח:</label>
+             <input type="text">
+             <br>
+             <label for="">טלפון:</label>
+             <input type="tel" id="inCt">
+               <br>
+             <label for="">מייל:</label>
+             <input type="email">
+             <br>
+             <label for="">תאריך לידה:</label>
+             <input type="date">
+             <br>
+             <br>
+             <button>Add</button>
+             </form>
+        </div>
+        <!-- יומן -->
+        <div id="dairy">In Progress soon with you</div>
+        <!-- ניהול לקוח -->
+        <div id="clinet">In Progress very soon</div>
+        <!-- מלאי -->
+        <div id="mlay">In Progress, almost there</div>
+        <!-- ספקים -->
+        <div id="sapak">In Progress, one step from it </div>
+        <!-- משימות -->
+        <div id="todo">
+         <h1 class="mesi">משימות רצות</h1>
+            <div class="mesimot">
+              <input type="text" class="addMession">
+              <button id="btnadd">הוסף מטלה</button> 
+              <br>
+              <div class="pAdd"></div> 
+            </div>
+        </div>
+    </div>
+    <!-- navbar -->
+    
+<li id="a" onclick="renderNewCustomer()"><a href="#">יצירת לקוח</a></li>
+<li id="b" onclick="renderDairy()"><a href="#">יומן</a></li>
+<li id="c" onclick="renderCustomer()"><a href="#">ניהול לקוח</a></li>
+<li id="e" onclick="renderMlay()"><a href="#">מלאי</a></li>
+<li
+id="f" onclick="renderSapakim()"><a href="#">ספקים</a></li>
+<li
+id="h" onclick="renderTodolist()"><a href="#">משימות</a></li>
+</nav>
+</body>
+</html>

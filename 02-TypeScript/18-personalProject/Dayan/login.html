@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Style-->
+    <link rel="stylesheet" href="./public/dist/login.css">
+    <link rel="stylesheet" href="./public/dist/style.css">
+
+    <!--media Queries-->
+    <link rel="stylesheet" href="./public/dist/queries-Login.css">
+
+    <!--FontAwesome Icons CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Poppins:wght@400;700&family=Raleway&display=swap" 
+    rel="stylesheet">
+
+    <title>Login</title>
+</head>
+<body>
+    <!--Nav Bar-->
+    <nav>
+        <a href="#home" id="logo">YogaClinic</a>
+        <i class="fas fa-bars" id="ham-menu"></i>
+        <ul id="nav-bar">
+            <li>
+                <a href="./index.html">Back To Home</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!--Login-->
+    <div class="container">
+        <div class="img">
+            <img src="https://img.freepik.com/free-vector/profile-pic-concept-illustration_114360-837.jpg?w=740&t=st=1675437908~exp=1675438508~hmac=e492661765498671499f26243942270d16f0358796b12099be9bc3d0403c584c">
+        </div>
+        <div class="login-container">
+            <form onsubmit="handleSubmit(event)">
+                <img class="avatar" src="https://th.bing.com/th/id/OIP.-d1SSaMaj_BDlqh90zCWJwAAAA?pid=ImgDet&w=370&h=370&rs=1">
+                <h2>Welcome</h2>
+                <div class="input-div">
+                    <div class="i">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <h5>Username</h5>
+                        <input id="username" type="text" name="username">
+                    </div>
+                </div>
+                <div class="input-div">
+                    <div class="i">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div>
+                        <h5>Password</h5>
+                        <input id="password" type="password" name="password">
+                    </div>
+                </div>
+                <a href="#">Forgot Password?</a>
+                <input type="submit" class="btn" value="Sign In">
+            </form>
+        </div>
+    </div>
+
+
+    <!--Script-->
+    <script src="./public/dist/login.js"></script>
+
+    <!--Model-->
+    <script src="./public/dist/model.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,9 @@
+.tableWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  border: 0.5px solid rgb(209, 209, 209);
+  margin-top: 1rem;
+}

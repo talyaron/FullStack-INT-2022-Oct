@@ -1,0 +1,43 @@
+
+
+.storyUser-container{
+
+    padding: 10px;
+    cursor: pointer;
+    width:60px ;
+    &:hover{
+        scale: 1.05;
+    }
+
+
+    .circleUserStory-container{
+        width: inherit;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        border-radius: 50%;
+        background:linear-gradient(to right , #ffc014 , rgba(255, 0, 212, 0.867));
+    
+        &__image{
+            border: 3px solid white;
+            width:54px;
+            height: 54px;
+            border-radius: 50%;
+        }
+    
+        &__user-name{
+            width: inherit;
+            margin-top: 3px;
+            font-weight: 300;
+            font-size: 0.8rem;
+            color: rgb(85, 85, 85);
+        }
+    }
+    
+    
+}
+
+

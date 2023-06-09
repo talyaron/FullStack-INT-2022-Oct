@@ -1,0 +1,11 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 325px;
+  gap: 10px;
+}
+
+.box {
+  background-color: darkblue;
+  height: 150px;
+}

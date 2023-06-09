@@ -1,0 +1,17 @@
+body {
+  background-color: black;
+}
+
+.pic {
+  height: 100px;
+  width: 150px;
+}
+.pic img {
+  height: 100%;
+  width: 100%;
+}
+
+.btn {
+  height: 100px;
+  width: 150px;
+}

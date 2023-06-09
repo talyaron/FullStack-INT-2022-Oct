@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none;
+}
+
+.cursor {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+    z-index: 2;
+    transition: 0.3s transform ease;
+    transform-origin: 100% 100%;
+}
+
+
+body {
+    background-image: url(https://static.vecteezy.com/system/resources/thumbnails/003/386/371/original/windy-plain-near-the-jungle-and-rocks-free-video.jpg);
+    // background-image: url(https://img.freepik.com/premium-vector/empty-kitchen-interior-design-with-furniture_1308-77125.jpg?w=2000);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+}
+
+.container {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    display: grid;
+    justify-content: center;
+    gap: 3rem;
+
+    .startBtn {
+        outline: none;
+        cursor: none;
+        color: black;
+        border: 2px solid rgb(12, 234, 46);
+        padding: 15px 45px;
+        font-size: 1.1rem;
+        margin-top: 3em;
+        background: transparent;
+        position: relative;
+        height: 55px;
+        width: 350px;
+        text-align: center;
+        margin-left: 3em;
+    }
+    .timer {
+        outline: none;
+        cursor: none;
+        color: black;
+        border: 2px solid rgb(0, 0, 0);
+        padding: 15px 45px;
+        font-size: 1.1rem;
+        margin-top: 3em;
+        background: transparent;
+        position: relative;
+        height: 55px;
+        width: 350px;
+        text-align: center;
+        margin-left: 3em;
+        position: absolute;
+        right: 0;
+    }
+    .scoreboard {
+        outline: none;
+
+        cursor: none;
+        color: black;
+        border: 2px solid rgb(0, 0, 0);
+        padding: 15px 45px;
+        font-size: 1.1rem;
+        // background: transparent;
+        height: 55px;
+        width: 350px;
+        text-align: center;
+        margin-left: 3em;
+        display: none;
+    }
+    .endBtn {
+        outline: none;
+        cursor: none;
+        color: black;
+        border: 2px solid rgb(0, 0, 0);
+        padding: 15px 45px;
+        font-size: 1.1rem;
+        margin-top: 3em;
+        background: transparent;
+        position: absolute;
+        height: 55px;
+        width: 350px;
+        text-align: center;
+
+        a{
+            outline: none;
+            cursor: none;  
+        }
+    }
+
+    .bloodSpot {
+        position: absolute;
+        height: 50px;
+        z-index: 2;
+        transform: translate(-50%, -50%);
+    }
+    .mosquito{
+        height: 100px;
+    }
+    .bee{
+        width: 100px;
+        // height: 10px;
+
+    }
+    .img::selection {
+        background: transparent;
+    }
+
+}

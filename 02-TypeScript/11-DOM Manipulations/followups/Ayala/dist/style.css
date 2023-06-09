@@ -1,0 +1,14 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#btn {
+  width: 200px;
+  height: 50px;
+  border-radius: 5px;
+  border: black solid 1px;
+  cursor: pointer;
+}

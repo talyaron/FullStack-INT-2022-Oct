@@ -1,0 +1,39 @@
+body {
+    background-color: black;
+    color: green;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  h1 {
+    color: lime;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 100px;
+  }
+  
+  p {
+    margin: 30px;
+  }
+  
+  a {
+    color: green;
+  }
+  
+  code {
+    background-color: #222;
+    color: lime;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .code-snippet {
+    border: 2px solid lime;
+    padding: 20px;
+    margin: 50px;
+    background-color: #222;
+    border-radius: 10px;
+  }
+  

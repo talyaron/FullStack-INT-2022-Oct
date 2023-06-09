@@ -1,0 +1,89 @@
+body {
+  background: #d4d3d3;
+}
+
+.playerName {
+  font-size: 50px;
+  color: white;
+  font-family: Georgia;
+  text-align: center;
+}
+
+.grid {
+  width: 400px;
+  height: 400px;
+  border: 1px solid white;
+  background-color: red;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid div {
+  width: 20px;
+  height: 20px;
+  /*border:1px black solid;
+  box-sizing:border-box*/
+}
+
+.snake {
+  background: #2980B9;
+}
+
+.apple {
+  background: white;
+  border-radius: 20px;
+}
+
+.scoreDisplay {
+  text-align: center;
+  font-size: 20px;
+  color: #2980B9;
+  font-family: Georgia;
+}
+
+.displayMessage {
+  text-align: center;
+  font-size: 20px;
+  color: red;
+  font-family: Georgia;
+  animation-name: displayMessage;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: Infinite;
+}
+
+.popup {
+  align-items: center;
+  margin-left: 180px;
+  margin-top: 20px;
+  align-items: center;
+  background: #2980B9;
+  width: 70px;
+  height: 70px;
+  top: 70px;
+  left: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.playButton {
+  text-align: center;
+  font-size: 20px;
+  color: #2980B9;
+  font-family: Georgia;
+  margin: 3px;
+}
+
+@keyframes displayMessage {
+  0% {
+    color: red;
+  }
+  50% {
+    color: white;
+  }
+  100% {
+    color: red;
+  }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/style.css">
+    <script src="./dist/index.js" defer></script>
+</head>
+
+<body>
+    <form onsubmit="handleAddUser(event)">
+        <select name="teacherStudentSelect" required>
+            <option value="teacher">Teacher</option>
+            <option value="student">Student</option>
+        </select>
+        <input type="text" name="name" placeholder="User name" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">ADD</button>
+    </form>
+    <button onclick="handleGetUsers()">Get Users</button>
+    <div id="users"></div>
+    <a href="admin.html">Go admin</a>
+</body>
+
+</html>

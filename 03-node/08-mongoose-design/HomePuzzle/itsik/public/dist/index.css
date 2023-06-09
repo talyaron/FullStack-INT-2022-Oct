@@ -1,0 +1,39 @@
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #020024;
+  background: linear-gradient(90deg, #020024 0%, #090979 6%, #00d4ff 100%);
+}
+
+.orders {
+  text-align: center;
+  margin: 10px 0px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .register, .container .login {
+  font-size: 18px;
+  margin: 50px 10px;
+  text-align: center;
+  border: 3px solid pink;
+  height: 350px;
+  width: 200px;
+  padding: 10px 0px;
+  color: white;
+  gap: 20px;
+}
+.container .register .regbtn, .container .login .regbtn {
+  font-size: 20px;
+  margin: 10px 0px;
+  border-radius: 10px;
+  padding: 0px 5px;
+}

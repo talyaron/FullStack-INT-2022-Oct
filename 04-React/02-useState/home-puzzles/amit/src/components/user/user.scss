@@ -1,0 +1,15 @@
+.user{
+    font-weight: 800;
+    transform-origin: left center;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    span{
+        background-color: white;
+        border: 0.2rem solid black;
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        line-height: 280%;
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "commander": "^10.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
+    "sass": "^1.62.1",
+    "ts-node": "^10.9.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.7",
+    "@types/react-dom": "^18.2.4",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.9"
+  }
+}

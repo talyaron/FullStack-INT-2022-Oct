@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./dist/control.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/helpers.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+    <link rel="stylesheet" href="./dist/style.css">
+</head>
+
+<body>
+    <div class="form"></div>
+    <h1>Registration Form </h1>
+
+    <a href="./index.html">Registration</a>
+
+        <form id="registration-form" onsubmit="handleFormSubmit(event)">
+            <input type="text" name="name" placeholder="name of product" required>
+            <input type="city" name="city" placeholder="city">
+            <input type="email" name="email" placeholder="email" required>
+            <input type="phone" name="phone" placeholder="phone" required>
+            <input type="password" name="password" placeholder="password" required>
+            <input type="color" name="color" placeholder="color" required>
+
+            <input type="submit" value="Sign Up">
+        </form>
+
+
+
+</body>
+
+</html>

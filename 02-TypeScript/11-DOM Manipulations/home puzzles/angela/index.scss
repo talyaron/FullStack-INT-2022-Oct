@@ -1,0 +1,127 @@
+body{
+    margin: 0;
+}
+.header{
+    width: 100vw;
+    height: 6rem;
+    background-color: rgb(158, 158, 214);
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+
+    &__icon{
+        height: 70%;
+        color: white;
+        width: 10rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: x-large;
+        margin-left: 2rem;
+        font-family: 'Lobster', cursive;
+        
+        &--img{
+            height: 100%;
+            width: 50%;
+            margin-right: 1rem;
+
+            img{
+                height: 100%;
+                width: 100%;
+            }
+        }
+    }
+    &__searchBar{
+        height: 30%;
+        width: 60%;
+
+        input{
+            height: 100%;
+            width: 100%;
+            
+            padding-left: 2rem;
+           
+        }
+        i{
+            position: absolute;
+            bottom:2rem;
+            font-size: x-large;
+            margin-left: 0.5rem;
+        }
+    }
+
+    &__rightBar{
+        width: 20%;
+        height:40%;
+        display: flex;
+        margin-left: 3rem;
+        display: flex;
+        align-items: baseline;
+        color: white;
+        justify-content: space-around;
+        button{
+            background-color: navy;
+            color: white;
+            border-radius: 20%;
+            border: none;
+            height: 120%;
+            position: relative;
+            bottom: 0.2rem;
+            cursor: pointer;
+        }
+        i{
+            color: rgb(179, 0, 0);
+            margin-right: -0.5rem;
+            font-size: larger;
+            font-weight: bolder;
+        }
+        p{
+            border-right:1px solid grey ;
+        }
+
+        &--popup{
+            width: 50rem;
+            background-color: rgb(244, 212, 212);
+            border-radius: 20px;
+            position:absolute;
+            top: 0;
+            left: 45rem;
+            transform: translate(-50%,-50%) scale(0.1);
+            padding: 1rem 1rem 1rem 1rem;
+            visibility: hidden;
+            transition: transform 0.4s , top 0.4s;
+
+            input{
+                padding: 0.2rem;
+            }
+            span{
+                position: relative;
+                bottom:1.2rem;
+                right: 11rem;
+                padding:0.2rem;
+                pointer-events: none;
+                color: black;
+            }
+            h2{
+                margin-top:0;
+            } 
+            p{
+                border: none;
+            }
+            button{
+                width: 5rem;
+                height: 2rem;
+                border-radius: 10px;
+                font-size: larger;
+            }
+            }
+        } 
+    }
+
+
+.open-popup{
+    visibility: visible;
+    top: 12rem;
+    transform: translate(-50%,-50%) scale(1);
+}

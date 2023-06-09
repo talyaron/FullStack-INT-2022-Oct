@@ -1,0 +1,55 @@
+@media screen and (max-width: 800px) {
+  html {
+    font-size: 12px;
+  }
+  .mainpageContainer {
+    &__main {
+      &__boards {
+        &__boardArea {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 650px) {
+  html {
+    font-size: 10px;
+  }
+  .mainpageContainer {
+    &__main {
+      &__boards {
+        &__boardArea {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 550px) {
+  html {
+    font-size: 8px;
+  }
+}
+@media screen and (max-width: 440px) {
+  html {
+    font-size: 6px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .mainpageContainer {
+    &__main {
+      &__boards {
+        &__boardArea {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          .board {
+            width: 80%;
+          }
+        }
+      }
+    }
+  }
+}

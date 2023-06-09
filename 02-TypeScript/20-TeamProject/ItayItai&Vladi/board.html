@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board</title>
+    <link rel="icon" type="image/png" href="./img/kanban3.png" />
+    <script
+      src="https://kit.fontawesome.com/0d9e773bea.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <link rel="stylesheet" href="./style/dist/boardStyle.css" />
+    <link rel="stylesheet" href="./style/dist/button.css" />
+    <link rel="stylesheet" href="./style/dist/topNavBar.css" />
+    <link rel="stylesheet" href="./style/dist/profileWindow.css" />
+    <link rel="stylesheet" href="./style/dist/createBoardWindow.css" />
+    <link rel="stylesheet" href="./style/dist/trashStyle.css" />
+    <link rel="stylesheet" href="./style/dist/responsive.css" />
+    <link rel="stylesheet" href="./style/dist/notification.css" />
+    <script src="./src/dist/view.js" defer></script>
+    <script src="./src/dist/helpers.js" defer></script>
+    <script src="./src/dist/control.js" defer></script>
+    <script src="./src/dist/model.js" defer></script>
+    <script src="./src/dist/main.js" defer></script>
+    <script src="./src/dist/icons.js" defer></script>
+  </head>
+
+  <body>
+    <div class="boardContainer">
+      <nav class="topNav">
+        <div class="leftSideDiv">
+          <!-- <img src="./img/Logo.png" alt="" /> -->
+          <h1>Your "IVI" board</h1>
+          <input
+            placeholder="New List..."
+            id="newListInput"
+            type="text"
+            maxlength="20"
+            required
+          />
+          <button id="addListBtn">Add List+</button>
+        </div>
+        <div class="topNav__boardName">Board Name</div>
+        <div class="topNav__iconDiv">
+          <i class="fa-solid fa-file-pen editBoardIcon" title="Edit Board"></i>
+          <i
+            class="fa-solid fa-hand-point-left backToMainIcon"
+            title="Back To Main"
+          ></i>
+          <i
+            class="fa-solid fa-bell notificationsIcon"
+            title="Notifications"
+          ></i>
+          <i class="fa-solid fa-user profileIcon" title="Profile Info"></i>
+        </div>
+      </nav>
+      <div id="notificationBox"></div>
+      <main class="boardContainer__main">
+        <div class="trashDiv">
+          <i
+            title="Drag here to delete"
+            class="fa-solid fa-trash-can"
+            id="trash"
+            ondrop="drop(event)"
+            ondragover="allowDrop(event)"
+          ></i>
+        </div>
+        <div class="notifictionWindow">
+          <i
+            class="fa-solid fa-arrow-right-from-bracket exitNotifictionsPage"
+            title="Back To Page"
+          ></i>
+          <div class="notifications"></div>
+        </div>
+      </main>
+    </div>
+    <div class="profileWindow">
+      <i
+        class="fa-solid fa-arrow-right-from-bracket exitProfilePage"
+        title="Back To Page"
+      ></i>
+      <button class="signOutbtn">Sign out</button>
+      <div class="profile"></div>
+    </div>
+    <div class="editBoardWindow">
+      <h1>Edit Board</h1>
+      <label for="boardName">Name your board:</label>
+      <input type="text" name="boardName" id="updatedBoardName" />
+      <button id="updatedBoardImageBtn">Edit Background Image</button>
+      <img id="imageEditWindow" src="./img/Logo.png" alt="KanbanLogo" />
+      <div>
+        <button class="editBoardBtn">Edit</button>
+        <button class="cancelEditBoardBtn">CANCEL</button>
+      </div>
+      <div class="backgroundSelectionDiv">
+        <img class="backgroundImage" src="./img/blueBrickWall.jpg" alt="" />
+        <img class="backgroundImage" src="./img/bright-light.jpg" alt="" />
+        <img
+          class="backgroundImage"
+          src="./img/do-something-great.jpg"
+          alt=""
+        />
+        <img class="backgroundImage" src="./img/NASA.jpg" alt="" />
+        <img class="backgroundImage" src="./img/pink-sea.jpg" alt="" />
+        <img class="backgroundImage" src="./img/purple-flower.jpg" alt="" />
+        <img class="backgroundImage" src="./img/sea.jpg" alt="" />
+        <img class="backgroundImage" src="./img/wall-painting.jpg" alt="" />
+        <img
+          class="backgroundImage"
+          src="./img/passion-led-us-here.jpg"
+          alt=""
+        />
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starting Page</title>
+    <link rel="stylesheet" href="./src/dist/startPageStyle.css" />
+    <script src="./src/dist/view.js" defer></script>
+    <script src="./src/dist/helpers.js" defer></script>
+    <script src="./src/dist/controls.js" defer></script>
+    <script src="./src/dist/model.js" defer></script>
+    <script src="./src/dist/startPage.js" defer></script>
+    <script src="./src/dist/scoreBoard.js" defer></script>
+  </head>
+  <body>
+    <div class="welcomePageWrapper">
+      <div class="welcomePage">
+        <h1>Choose a map and start</h1>
+        <div class="welcomePage__choices">
+          <div class="welcomePage__choices__choice">
+            <img class="mapImg" id="mapOne" src="./img/mapOne.png" alt="" />
+          </div>
+          <div class="welcomePage__choices__choice">
+            <img class="mapImg" id="mapTwo" src="./img/mapTwo.png" alt="" />
+          </div>
+        </div>
+        <div class="btnDiv">
+          <button class="welcomePage__button">START</button>
+          <button class="welcomePage__button">SCOREBOARD</button>
+          <button class="welcomePage__button newPlayerBtn">SIGN OUT</button>
+        </div>
+      </div>
+      <div class="loginPage">
+        <h1>Login Page</h1>
+        <div class="inputDiv">
+          <label for="userName">User Name: </label>
+          <input type="text" name="userName" id="userName" />
+        </div>
+        <div class="inputDiv">
+          <label for="password">Password:</label>
+          <input type="text" name="password" id="password" />
+        </div>
+        <div class="buttonDiv">
+          <button>Login</button>
+          <button>Create New User</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

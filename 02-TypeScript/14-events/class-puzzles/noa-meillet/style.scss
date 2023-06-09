@@ -1,0 +1,19 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(3,1fr) ;
+    gap: 15px;
+    max-width: 75ch;
+    margin: auto;
+    
+    .box, .box2{
+        width: 200px;
+        height: 200px;
+        background-color: coral;
+    }
+    .box__little_box{
+        margin: 50px;
+        width: 100px;
+        height: 100px;
+        background-color:lightPink;
+    }
+}

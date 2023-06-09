@@ -1,0 +1,167 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    font-family: 'Itim', cursive;
+}
+html{
+    height: 100%;
+    width: 100%;
+}
+header{
+    background-color: #F6BF05;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#divContainer{
+    min-height: 100%;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    .teams{
+        border: 2px solid black;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 5px 0px 5px ;
+        padding: 25px;
+        height: 300px;
+        width: 200px;
+        border-radius: 10px;
+        img{
+            padding-top:10px ;
+            height: 150px;
+        }
+        h3{
+            padding: 20px;
+        }
+        .deleteTeam{
+            height: 25px;
+            position: absolute;
+            top: -3px;
+            left: 2px;
+        }
+    }
+    
+}
+
+.teams:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px 1px;
+    
+}
+
+
+a{
+    img{
+        margin-bottom: -120px;
+        height: 120px;
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        overflow: auto;
+    }
+}
+
+.hide{
+    display: none;
+}
+
+.btn{
+    box-shadow: 0 0 10px 2px;
+    background-color:#F6BF05;
+    border-radius: 10px;
+    padding: 10px;
+    position: absolute;
+    left: 50px;
+    top: 45px;
+}
+
+.btn:hover{
+    cursor: pointer;
+    box-shadow: 0 0 13px 4px;
+}
+
+.adminLoginForm{
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    width: 200px;
+    position: absolute;
+    top: 98px;
+    right: 10px;
+    border: solid 1px  black;
+    background-color: rgb(250, 244, 231);
+}
+
+.adminLoginBtn , .logoutBtn {
+    position: absolute;
+    right: 50px;
+    top: 45px;
+    height: 35px;
+}
+
+.addTeamBtn{
+    position: absolute;
+    left: 50px;
+    top: 45px;
+    height: 35px;
+}
+
+.adminNewTeamForm{
+    border-radius: 10px;
+    text-align: center;
+    padding: 8px;
+    width: 200px;
+    position: absolute;
+    top: 98px;
+    left: 10px;
+    border: solid 1px  black;
+    background-color: rgb(250, 244, 231);
+}
+
+
+.welcomeMsg{
+    text-align: center;
+    padding: 30px 0 0 0;
+}
+
+.adminLoginBtn:hover , .addTeamBtn:hover {
+    cursor: pointer;
+    box-shadow: 0 0 13px 4px;
+    border-radius: 100%;
+}
+
+.logoutBtn:hover{
+    cursor: pointer;
+
+}
+
+.favTeam{
+    margin: 20px;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid black;
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: repeat(3 , 1fr) ;
+    width:90% ;
+    height: 300px;
+    img{
+        float: left;
+        height: 250px;
+    }
+    p{
+        grid-column: span 2;
+    }
+}

@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ubuntu&display=swap');
+
+body{
+    scroll-behavior: smooth;
+    background-color: #F9F5E7;
+    font-family: 'Open Sans', sans-serif;
+
+    .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 20px;
+        background-color: #EDDBC7;
+        margin-bottom: 20px;
+
+        img {
+            width: 50px;
+            aspect-ratio: 1/1;
+        }
+
+        h1{
+            font-family: 'Open Sans', sans-serif;
+            width: 60%;
+        }
+
+        #i {
+            text-decoration: none;
+            cursor: pointer;
+            color: black;
+        }
+
+        #link_to_home_page {display: none;}
+    }
+
+    h1, h2{
+        margin: auto;
+        width: 80%;
+        text-align: center;
+    }
+
+    h2{
+        padding: 0 1%;
+        width: fit-content;
+        background-color: white;
+    }
+
+    hr{
+        width: 90%;
+        border: solid #A7727D 2px;
+        border-bottom: none;
+      }
+
+    .customer_details, .payment_form{
+        display: flex;
+        flex-direction: column;
+        width:50%;
+        margin: 2% auto;
+        gap: 10px;
+        font-size: medium;
+
+        .input, .restaurant_list {
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        .btn{
+            background: linear-gradient(to bottom right, #A7727D, #e13e5f);
+            border: 0;
+            border-radius: 12px;
+            color: white;
+            cursor: pointer;
+            display: inline-block;
+            font-size: large;
+            font-weight: 500;
+            line-height: 2.5;
+            text-align: center;
+            margin: 2% 0 2% 100%;
+            width: 4rem;
+            height: 50%;
+        }
+        
+        .btn:hover{
+            box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+
+        .btn:focus{
+          box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+        }
+        
+        .restaurant_list{
+            display: none;
+        }
+
+        .cardDetails{
+            display: grid;
+            grid-template-areas: 
+            "cardNumber cardNumber cardNumber cardNumber"
+            "cardEDate cardEDate cardCvv cardCvv"
+            "id id id id";;
+            margin: 0 auto;
+            gap: 10px;
+        }
+
+        #cardNumber {grid-area: cardNumber ;}
+        #cardEDate {
+            grid-area: cardEDate ;
+            width: 100%;
+        }
+        #cardCvv {
+            grid-area:cardCvv ;
+            width: 70%;
+        }
+        #id {grid-area:id ;}
+    }
+} 

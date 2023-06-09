@@ -1,0 +1,1 @@
+const ballsContainer:HTMLDivElement | null = document.querySelector('.ballsContainer');

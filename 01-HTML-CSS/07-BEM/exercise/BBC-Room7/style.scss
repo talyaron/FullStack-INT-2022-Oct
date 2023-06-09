@@ -1,0 +1,39 @@
+.grid{
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    height: 100vh;
+    &__main{
+        border: 2px solid white;
+        margin: 0 auto;
+        width: 80%;
+        height: 40%;
+        background-color: rgb(88, 88, 174);
+        &__title{
+            border: 2px solid black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1em;
+            height: 2rem;
+        }
+        &__articles{
+            border: 10px solid blueviolet;
+            display: flex;
+            flex-wrap: wrap;
+            height: 70%;
+            .subArticle--main{
+                border: 2px solid red;
+                width: 50%;
+                height: 100%;
+
+            }
+            .subArticle{
+                border: 2px solid red;
+                width: 100px;
+                height: 50px;
+                
+            }
+        }
+    }
+}

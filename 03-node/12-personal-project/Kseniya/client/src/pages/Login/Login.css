@@ -1,0 +1,18 @@
+.loginFieldsWrapper{
+    text-align: center;
+    padding: 2rem 0 2rem 0;
+}
+
+.field{
+    padding-bottom: 1rem;
+}
+
+.loginBtn{
+    padding: 1rem 0 2rem 0;
+}
+
+.registerLink{
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.3rem;
+}

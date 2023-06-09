@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="../src/dist/helper.js" defer></script>
+    <script src="../src/dist/model.js" defer></script>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/control.js" defer></script>
+    <title>my profile</title>
+</head>
+
+<body onload="renderRestaurants() , renderCustomerHeader()">
+    <div class="container-customer__cart">
+        <h1 >YOUR CART</h1>
+        <div class="container-customer__cartRoot-close" onclick="handleClickCloseCart()">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="" id="cartRoot">
+            
+        </div>
+        <div id="sumRoot" class="container-customer__cart__sum">sum: 0 shekels</div>
+        <button class="container-customer__cartRoot-submit" id="submitOrderBtn" onclick="handleSubmitOrder()">submit order</button>
+        
+   
+    </div>
+    <div class="cart" onclick="handleClickOpenCart()"><i class="fa-solid fa-cart-shopping"></i></div>
+
+    <div class="container-customer">
+        <div id="customerHeader" class="container-customer__title" >Customer Page</div> 
+        <input type="text" id="userInput" class="container-customer__searchBox" onkeyup="handleSearch()" placeholder="Search restaurants...">
+    
+        <div class="container-customer__result">
+            <div class="container-customer__restaurant-root" id="restaurantRoot">
+             
+            </div>
+            <div id="menuRoot" class="container-customer__menu"></div>
+            <div class="container-customer__result-root" id="noResultsRoot"></div>
+        </div>
+
+
+    </div>
+       
+
+</body>
+</html>

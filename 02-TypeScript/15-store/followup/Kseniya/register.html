@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store - register</title>
+    <script src="./dist/main.js" defer></script>
+  </head>
+  <body>
+    <div>WELCOME TO MY STORE</div>
+    <a href="./main.html">back to the store</a>
+    <div>register form</div>
+    <form onsubmit="createUser(event)">
+      <input type="email" name="email" placeholder="email" required />
+      <input type="text" name="firstName" placeholder="first name" required />
+      <input type="text" name="lastName" placeholder="last name" required />
+      <input type="text" name="password" placeholder="password" required />
+      <input type="number" name="age" placeholder="age" required />
+      <select name="genderCategory" required>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+      <input type="submit" value="register">
+    </form>
+  </body>
+</html>

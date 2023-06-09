@@ -1,0 +1,8 @@
+img {
+  padding: 15px;
+  width: 400px;
+  height: 300px;
+  margin-left: 25%;
+  display: grid;
+  flex-direction: column;
+}

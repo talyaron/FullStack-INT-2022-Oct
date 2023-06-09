@@ -1,0 +1,91 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: georgia;
+  background-color: azure;
+}
+
+h1, h2 {
+  text-align: center;
+  color: blue;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 80px;
+  overflow-x: hidden;
+  padding-top: 10px;
+}
+
+.container {
+  font-size: 20px;
+  color: blue;
+  left: 0;
+  border: 2px solid blue;
+}
+.container form {
+  margin-left: 10px;
+}
+.container label {
+  display: inline-block;
+  width: 120px;
+  text-align: left;
+}
+.container input {
+  text-align: left;
+  border: 3px solid #a79e9e;
+  height: 30px;
+  display: table-cell;
+  width: 60%;
+  margin: 10px 0px;
+}
+.container #pass {
+  background-image: url(https://cdn-icons-png.flaticon.com/128/2767/2767146.png);
+  background-position: right;
+  background-size: 20px;
+  background-repeat: no-repeat;
+}
+.container #colorDiv {
+  margin: 10px;
+}
+.container ץ .color {
+  width: 30px;
+}
+.container #image {
+  display: inline-block;
+  width: 200px;
+}
+.container button {
+  text-align: center;
+  align-items: center;
+  height: 50px;
+  width: 110px;
+  background-color: blue;
+  color: white;
+  font-size: 30px;
+  margin-left: 40%;
+}
+
+.detail {
+  right: 0;
+  border: 2px solid blue;
+  margin-left: 10px;
+}
+
+.userDiv {
+  color: blue;
+  font-size: 30px;
+  margin-left: 10px;
+}
+
+.creatDiv {
+  font-size: 30px;
+  text-align: center;
+}

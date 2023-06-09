@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tic tac toe Game</title>
+    <script src="./dist/view.js" defer></script>
+    <script src="./dist/model.js" defer></script>
+    <script src="./dist/controller.js" defer></script>
+    <script src="./dist/index.js" defer></script>
+    <link rel="stylesheet" href="./dist/index.css" />
+  </head>
+  <body>
+    <br /><br /><br /><br />
+    <h1>TIC TAC TOE</h1>
+    <p>
+      Game starts by just Tap on box<br />First Player starts as <b>Player X</b
+      ><br />And<br />Second Player as <b>Player 0</b>
+    </p>
+<button id="sign" onclick="getSign()"> press double for choosing X/O</button>
+    <div class="wrapper">
+    
+      <div class="box" id="0" onclick="renderSign(),winner()"></div>
+      <div class="box" id="1" onclick="renderSign(),winner() "></div>
+      <div class="box" id="2" onclick="renderSign(),winner()"></div>
+      <div class="box" id="3" onclick="renderSign(),winner()"></div>
+      <div class="box" id="4" onclick="renderSign(),winner()"></div>
+      <div class="box" id="5" onclick="renderSign(),winner()"></div>
+      <div class="box" id="6" onclick="renderSign(),winner()"></div>
+      <div class="box" id="7" onclick="renderSign(),winner()"></div>
+      <div class="box" id="8" onclick="renderSign(),winner()"></div>
+    </div>
+    <br />
+    <div id="restart"><button onclick="restart()">RESET</button></div>
+  </body>
+</html>

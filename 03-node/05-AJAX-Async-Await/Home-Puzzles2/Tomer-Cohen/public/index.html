@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./dist/index.js" defer></script>
+    <link rel="stylesheet" href="./dist/style.css">
+</head>
+<body onload="handleGetUsers()"> 
+    <div class="bar">
+      <img
+        class="bar__icon"
+        src="https://logos-download.com/wp-content/uploads/2016/06/BBC_logo_black_background.png"
+        alt=""
+      />
+      <img
+        class="bar__icon"
+        src="https://static.vecteezy.com/system/resources/thumbnails/007/033/146/small/profile-icon-login-head-icon-vector.jpg"
+        alt=""
+      />
+      <p class="bar__login"><span>sign in</span></p>
+      <a class="bar__subtext" href="#" class="button">Home</a>
+      <a class="bar__subtext" href="#" class="button">News</a>
+      <a class="bar__subtext" href="#" class="button">Sport</a>
+      <a class="bar__subtext" href="#" class="button">Reel</a>
+      <a class="bar__subtext" href="#" class="button">Worklife</a>
+      <a class="bar__subtext" href="#" class="button">Travel</a>
+      <form class="page__bar__search">
+        <label for="search"></label><br />
+        <input placeholder="search" type="text" class="search" name="search" />
+      </form>
+    </div>
+    <div class="page">
+      <div class="page__text">
+        <h1>welcome to BBC.com</h1>
+        <h2 class="date">Monday, 21 november</h2>
+      </div>
+      <div class="page__news">
+        <div id="articles"></div>
+
+    </div>
+  </body>
+</html>
