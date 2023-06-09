@@ -1,0 +1,12 @@
+body {
+  margin: 0px;
+}
+
+.nice__in-nice {
+  background-color: red;
+  height: 400px;
+  width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
