@@ -1,0 +1,33 @@
+
+  
+  .balloon-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .balloon-wrapper {
+    position: absolute;
+    animation-name: balloonAnimation;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes balloonAnimation {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-600%);
+
+    }
+  }
+  
+  .balloon-image {
+    width: 20%;
+    height: auto;
+    border-radius: 50%;
+  }

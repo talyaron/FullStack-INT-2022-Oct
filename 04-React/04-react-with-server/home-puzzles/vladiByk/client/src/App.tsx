@@ -18,9 +18,7 @@ function App() {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get(
-          "http://localhost:3000/api/v1/ballons"
-        );
+        const { data } = await axios.get("api/v1/ballons");
         setBallons(data.ballons);
         if (ballons.length === 0) {
         }
