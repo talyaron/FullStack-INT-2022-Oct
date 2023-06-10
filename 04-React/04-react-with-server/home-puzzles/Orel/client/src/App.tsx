@@ -1,12 +1,12 @@
 import './App.scss'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { IBalloon } from './components/Balloon/Balloon' // interface Ballon
+import Balloon, { IBalloon } from './components/Balloon/Balloon' // interface Ballon
 import Navbar from './components/Navbar/Navbar'
-import GameBoard from './components/GameBoard/GameBoard'
+// import GameBoard from './components/GameBoard/GameBoard'
 
 function App() {
-    const [balloons, setBalloons] = useState<Array<IBalloon> | []>([])
+  const [balloons, setBalloons] = useState<Array<IBalloon> | []>([])
   
 
   useEffect(() => {
@@ -25,7 +25,8 @@ function App() {
   return (
     <section className='main-container'>
       <Navbar />
-      <GameBoard />
+      <Balloon balloons={balloons} setBalloons={setBalloons} speed={10} /> 
+ 
     </section>
   )
 }
