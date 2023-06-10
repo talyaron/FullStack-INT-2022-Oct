@@ -3,13 +3,13 @@ import mongoose , {Schema} from "mongoose";
 export interface Balloon{
     name:string ,
     src:string,
-    hit:boolean
+    score?:number
 }
 
 export const BalloonSchema = new Schema({
     name:String, 
     src:String,
-    hit:Boolean
+    score:Number
 })
 
 
