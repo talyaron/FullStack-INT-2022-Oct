@@ -1,0 +1,38 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: antiquewhite;
+}
+
+#display,
+#displayAdmin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+#display .article,
+#displayAdmin .article {
+  margin-bottom: 20px;
+  padding: 5px;
+  width: 300px;
+  background-color: white;
+}
+#display .article h2,
+#displayAdmin .article h2 {
+  text-align: center;
+}
+#display .article > *,
+#displayAdmin .article > * {
+  margin: 5px 0px;
+}

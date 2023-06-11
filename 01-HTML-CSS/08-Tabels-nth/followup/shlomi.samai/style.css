@@ -8,7 +8,6 @@ body {
   height: 5vh;
   background-color: black;
   color: white;
-  position: -webkit-sticky;
   position: sticky;
 }
 

@@ -18,113 +18,9 @@ body {
   position: relative;
   top: 54%;
   left: 35%;
-  -webkit-animation-name: pacman;
-          animation-name: pacman;
-  -webkit-animation-duration: 20s;
-          animation-duration: 20s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-@-webkit-keyframes pacman {
-  0% {
-    top: 54%;
-    left: 35%;
-  }
-  5% {
-    top: 54%;
-    left: 46%;
-  }
-  10% {
-    top: 62%;
-    left: 46%;
-    transform: rotate(180deg);
-  }
-  15% {
-    top: 62%;
-    left: 38%;
-  }
-  25% {
-    top: 72%;
-    left: 38%;
-    transform: rotate(90deg);
-  }
-  30% {
-    top: 72%;
-    left: 16%;
-    transform: rotate(-90deg);
-  }
-  35% {
-    top: 44%;
-    left: 16%;
-    transform: rotate(180deg);
-    opacity: 1;
-  }
-  40% {
-    top: 44%;
-    left: 0;
-    opacity: 0;
-  }
-  50% {
-    top: 44%;
-    left: 70%;
-    opacity: 0;
-  }
-  55% {
-    top: 44%;
-    left: 65%;
-    opacity: 1;
-    transform: rotate(180deg);
-  }
-  60% {
-    top: 44%;
-    left: 53%;
-  }
-  70% {
-    left: 53%;
-    top: 25%;
-    transform: rotate(-90deg);
-  }
-  80% {
-    top: 25%;
-    left: 66%;
-    transform: rotate(0deg);
-  }
-  85% {
-    left: 65%;
-    top: 4%;
-    transform: rotate(-90deg);
-  }
-  90% {
-    top: 4%;
-    left: 38%;
-    transform: rotate(180deg);
-  }
-  95% {
-    left: 38%;
-    top: 15%;
-    transform: rotate(180deg);
-    opacity: 1;
-  }
-  96% {
-    left: 38%;
-    top: 15%;
-    opacity: 0;
-  }
-  97% {
-    left: 38%;
-    top: 15%;
-    opacity: 1;
-  }
-  98% {
-    left: 38%;
-    top: 15%;
-    opacity: 0;
-  }
-  100% {
-    left: 38%;
-    top: 15%;
-    opacity: 1;
-  }
+  animation-name: pacman;
+  animation-duration: 20s;
+  animation-fill-mode: forwards;
 }
 @keyframes pacman {
   0% {
@@ -236,24 +132,10 @@ body {
   position: relative;
   top: 0rem;
   text-align: center;
-  -webkit-animation-name: game-over;
-          animation-name: game-over;
-  -webkit-animation-duration: 20s;
-          animation-duration: 20s;
+  animation-name: game-over;
+  animation-duration: 20s;
   opacity: 0;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-@-webkit-keyframes game-over {
-  0% {
-    opacity: 0;
-  }
-  97% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  animation-fill-mode: forwards;
 }
 @keyframes game-over {
   0% {
@@ -293,62 +175,9 @@ body {
   font-size: 2rem;
   margin-right: 1rem;
   position: relative;
-  -webkit-animation-name: pink-ghost;
-          animation-name: pink-ghost;
-  -webkit-animation-duration: 20s;
-          animation-duration: 20s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-@-webkit-keyframes pink-ghost {
-  5% {
-    top: 0;
-    left: 1rem;
-  }
-  10% {
-    top: 0rem;
-    left: 3rem;
-  }
-  15% {
-    top: -2rem;
-    left: 3rem;
-  }
-  20% {
-    top: -3rem;
-    left: 6rem;
-  }
-  30% {
-    top: -3rem;
-    left: 12rem;
-  }
-  40% {
-    top: 0;
-    left: 12rem;
-  }
-  50% {
-    top: 0;
-    left: 18rem;
-  }
-  60% {
-    top: 15rem;
-    left: 18rem;
-  }
-  70% {
-    top: 15rem;
-    left: 28rem;
-  }
-  80% {
-    top: 18rem;
-    left: 28rem;
-  }
-  90% {
-    top: 18rem;
-    left: 0;
-  }
-  100% {
-    top: 16rem;
-    left: 0;
-  }
+  animation-name: pink-ghost;
+  animation-duration: 20s;
+  animation-fill-mode: forwards;
 }
 @keyframes pink-ghost {
   5% {
@@ -406,85 +235,10 @@ body {
   font-size: 2rem;
   margin-right: 1rem;
   position: relative;
-  -webkit-animation-name: orange-ghost;
-          animation-name: orange-ghost;
-  -webkit-animation-duration: 20s;
-          animation-duration: 20s;
-  -webkit-animation-delay: 25ms;
-          animation-delay: 25ms;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-@-webkit-keyframes orange-ghost {
-  5% {
-    top: -2rem;
-    left: 0;
-  }
-  10% {
-    top: -3rem;
-    left: -2rem;
-  }
-  15% {
-    top: -6rem;
-    left: -2rem;
-  }
-  20% {
-    top: -6rem;
-    left: -8rem;
-  }
-  25% {
-    top: -10rem;
-    left: -8rem;
-  }
-  35% {
-    top: -10rem;
-    left: -13rem;
-  }
-  45% {
-    top: -6rem;
-    left: -13rem;
-  }
-  55% {
-    top: -6rem;
-    left: -23rem;
-  }
-  65% {
-    left: -23rem;
-    top: -14rem;
-  }
-  75% {
-    top: -14rem;
-    left: -2rem;
-  }
-  85% {
-    left: -2rem;
-    top: -10rem;
-  }
-  95% {
-    left: 0;
-    top: -10rem;
-    opacity: 1;
-  }
-  96% {
-    top: -10rem;
-    left: 0.5rem;
-    opacity: 0;
-  }
-  97% {
-    top: -10rem;
-    left: 0.5rem;
-    opacity: 1;
-  }
-  98% {
-    top: -10rem;
-    left: 0.5rem;
-    opacity: 0;
-  }
-  100% {
-    top: -10rem;
-    left: 0.5rem;
-    opacity: 1;
-  }
+  animation-name: orange-ghost;
+  animation-duration: 20s;
+  animation-delay: 25ms;
+  animation-fill-mode: forwards;
 }
 @keyframes orange-ghost {
   5% {
@@ -561,66 +315,9 @@ body {
   color: rgb(255, 0, 0);
   font-size: 2rem;
   position: relative;
-  -webkit-animation-name: red-ghost;
-          animation-name: red-ghost;
-  -webkit-animation-duration: 20s;
-          animation-duration: 20s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-@-webkit-keyframes red-ghost {
-  5% {
-    top: 0;
-    right: 0;
-  }
-  10% {
-    top: 0;
-    right: 0rem;
-  }
-  15% {
-    top: 0;
-    right: 1rem;
-  }
-  20% {
-    top: 0;
-    right: 2rem;
-  }
-  25% {
-    top: -2.5rem;
-    right: 2rem;
-  }
-  30% {
-    top: -2.5rem;
-    right: 10rem;
-  }
-  40% {
-    top: 8rem;
-    right: 10rem;
-  }
-  50% {
-    top: 8rem;
-    right: 15rem;
-  }
-  60% {
-    top: 0.5rem;
-    right: 15rem;
-  }
-  70% {
-    top: 0.5rem;
-    right: 10rem;
-  }
-  80% {
-    top: 4.5rem;
-    right: 10rem;
-  }
-  90% {
-    top: 4.5rem;
-    right: -7.5rem;
-  }
-  100% {
-    top: 6rem;
-    right: -7.5rem;
-  }
+  animation-name: red-ghost;
+  animation-duration: 20s;
+  animation-fill-mode: forwards;
 }
 @keyframes red-ghost {
   5% {

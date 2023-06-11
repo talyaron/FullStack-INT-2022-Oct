@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ubuntu&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  background-image: url("https://ik.imagekit.io/awwybhhmo/satellite_images/japanese/beyondmenu/about_us/1.jpg?tr=w-2048");
+  background-color: #cccccc;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  background-color: rgb(34, 34, 34);
+  margin-bottom: 20px;
+}
+.top h1 {
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  margin: auto;
+}
+
+form {
+  margin-left: 150px;
+  background-color: rgb(34, 34, 34);
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  display: inline-block;
+  margin-top: 50px;
+  padding: 20px;
+  padding-right: 70px;
+  color: white;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+input[type=text],
+input[type=password] {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+}
+
+input[type=submit] {
+  background: rgb(131, 167, 82);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+}
+
+input[type=submit]:hover {
+  background-color: #3e8e41;
+}
+
+a {
+  color: white;
+}

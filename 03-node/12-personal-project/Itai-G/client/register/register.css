@@ -1,0 +1,99 @@
+body {
+  background-image: url("https://img.freepik.com/free-photo/grunge-paint-background_1409-1337.jpg?w=2000");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.mainContainer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.topNav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -250px;
+  padding: 10px;
+}
+
+.topNav ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.topNav li {
+  margin-right: 10px;
+}
+
+.topNav li:last-child {
+  margin-right: 0;
+}
+
+.topNav a {
+  text-decoration: none;
+}
+
+.topNav button {
+  background-color: #fff;
+  color: #333;
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.topNav button:hover {
+  background-color: #ccc;
+}
+
+form {
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type=text],
+input[type=email],
+input[type=password] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 20px;
+}
+
+button[type=submit] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+button[type=submit]:hover {
+  background-color: #fff;
+  color: #333;
+}

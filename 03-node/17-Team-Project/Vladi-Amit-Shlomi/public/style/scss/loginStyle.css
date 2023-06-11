@@ -1,0 +1,114 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Verdana, "Segoe UI", Tahoma, Geneva, sans-serif;
+}
+
+img,
+embed,
+object,
+video {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(232, 232, 232);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loginWrapper {
+  width: 30vw;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.66);
+  box-shadow: 6px 0px 12px rgba(0, 0, 0, 0.12);
+  border-radius: 30px;
+}
+.loginWrapper h1 {
+  padding: 1rem;
+  height: auto;
+  width: auto;
+  text-align: center;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.5em;
+  color: rgb(0, 99, 54);
+}
+.loginWrapper .form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  gap: 5px;
+  padding: 1rem 2rem;
+}
+.loginWrapper .form input {
+  padding: 0.3rem;
+  width: 100%;
+  height: 20%;
+  margin-top: 10px;
+  border: none;
+  border-bottom: 2px solid rgb(146, 146, 254);
+  border-radius: 0px;
+  background: rgb(237, 242, 247);
+  display: flex;
+  justify-content: space-around;
+}
+.loginWrapper .form .fa-eye-slash {
+  position: relative;
+  bottom: 17%;
+  left: 40%;
+  color: rgb(90, 219, 157);
+  font-size: medium;
+  cursor: pointer;
+}
+.loginWrapper .form .fa-eye-slash:hover {
+  color: rgb(74, 179, 128);
+}
+.loginWrapper .form .fa-eye {
+  position: relative;
+  bottom: 17%;
+  left: 40%;
+  color: rgb(90, 219, 157);
+  font-size: medium;
+  cursor: pointer;
+}
+.loginWrapper .form .fa-eye:hover {
+  color: rgb(72, 179, 127);
+}
+.loginWrapper .form button {
+  width: 70%;
+  height: auto;
+  margin-top: 1.5rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  border: 1px solid #4A5568;
+  border-radius: 36px;
+  background: rgb(90, 219, 157);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: x-large;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+.loginWrapper .form button:hover {
+  background: #48b681;
+}
+.loginWrapper .signUp {
+  color: black;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
