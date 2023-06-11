@@ -76,4 +76,18 @@ input[type="submit"] {
 .message {
   margin-top: 10px;
   font-weight: bold;
+  position: absolute;
+  animation: fadeOut 5s forwards;
+  border: 2px solid black ;
+  background-color: #4CAF50;
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      display: none;
+    }
+  }
 }
