@@ -1,0 +1,8 @@
+.table {
+  display: flex;
+  flex-direction: column;
+}
+.table img {
+  width: 200px;
+  height: 120px;
+}

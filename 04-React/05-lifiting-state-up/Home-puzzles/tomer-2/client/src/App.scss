@@ -1,0 +1,79 @@
+/* Center the container div */
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Style for the form inputs */
+input[type="text"] {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+/* Style for the submit button */
+input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Style for the wrapper div */
+.wrapper {
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Style for the player div */
+.player {
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+}
+
+.player-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 57px;
+  background: #525cda;
+  box-shadow:  14px 14px 18px #464eb9, -14px -14px 18px #5e6afb;
+}
+
+.player-img {
+  width: 200px; /* Adjust the size as needed */
+  height: 200px; /* Adjust the size as needed */
+  border-radius: 57px;
+  background: #525cda;
+  box-shadow:  14px 14px 18px #464eb9, -14px -14px 18px #5e6afb;
+
+}
+
+.message {
+  margin-top: 10px;
+  font-weight: bold;
+}

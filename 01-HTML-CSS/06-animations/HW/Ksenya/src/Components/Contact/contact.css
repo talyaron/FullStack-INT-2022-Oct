@@ -19,32 +19,15 @@
 }
 
 .cunstructionCar {
-  -webkit-animation-name: cunstructionCar;
-          animation-name: cunstructionCar;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-  -webkit-animation-direction: alternate;
-          animation-direction: alternate;
-  -webkit-animation-fill-mode: revert;
-          animation-fill-mode: revert;
+  animation-name: cunstructionCar;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-direction: alternate;
+  animation-fill-mode: revert;
   position: absolute;
   top: 116px;
   left: -2px;
-}
-
-@-webkit-keyframes cunstructionCar {
-  from {
-    margin-left: -10%;
-    width: 100%;
-  }
-  to {
-    margin-left: 10%;
-    width: 100%;
-  }
 }
 
 @keyframes cunstructionCar {

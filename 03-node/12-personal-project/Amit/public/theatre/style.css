@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+* button:hover {
+  scale: 1.05;
+  cursor: pointer;
+}
+* button:active {
+  background-color: blue;
+}
+
+body {
+  margin: auto;
+  background-color: white;
+}
+
+.screen {
+  width: 34rem;
+  height: 2rem;
+  background-color: maroon;
+  color: white;
+  font-weight: 900;
+  margin: auto;
+  margin-bottom: 5rem;
+  text-align: center;
+  line-height: 24px;
+}
+
+.seatsContainer {
+  margin: auto;
+  height: auto;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.seatsContainer__row {
+  height: 3.5rem;
+  width: 30rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.seatsContainer__row__seat {
+  height: 3rem;
+  width: 3rem;
+  border: 0.1rem solid black;
+  background-color: seagreen;
+}

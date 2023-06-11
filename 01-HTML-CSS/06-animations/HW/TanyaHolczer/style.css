@@ -7,22 +7,12 @@ body {
   display: inline-block;
   width: 120px;
   height: 145px;
-  background: hsl(215deg, 50%, 65%);
+  background: hsl(215, 50%, 65%);
   border-radius: 80%;
   box-shadow: inset -10px -10px 0 rgba(0, 0, 0, 0.07);
   margin: 20px 30px;
-  -webkit-animation: animate 5s forwards 1s ease-in-out infinite;
-          animation: animate 5s forwards 1s ease-in-out infinite;
+  animation: animate 5s forwards 1s ease-in-out infinite;
   position: relative;
-}
-
-@-webkit-keyframes animate {
-  from {
-    top: 100vh;
-  }
-  to {
-    top: -30vh;
-  }
 }
 
 @keyframes animate {
@@ -34,49 +24,44 @@ body {
   }
 }
 .balloon:nth-child(2) {
-  background: hsl(245deg, 40%, 65%);
-  -webkit-animation-duration: 3.5s;
-          animation-duration: 3.5s;
+  background: hsl(245, 40%, 65%);
+  animation-duration: 3.5s;
 }
 
 .balloon:nth-child(2):before {
-  color: hsl(245deg, 40%, 65%);
+  color: hsl(245, 40%, 65%);
 }
 
 .balloon:nth-child(3) {
-  background: hsl(139deg, 50%, 60%);
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
+  background: hsl(139, 50%, 60%);
+  animation-duration: 3s;
 }
 
 .balloon:nth-child(3):before {
-  color: hsl(139deg, 30%, 50%);
+  color: hsl(139, 30%, 50%);
 }
 
 .balloon:nth-child(4) {
-  background: hsl(59deg, 50%, 58%);
-  -webkit-animation-duration: 4.5s;
-          animation-duration: 4.5s;
+  background: hsl(59, 50%, 58%);
+  animation-duration: 4.5s;
 }
 
 .balloon:nth-child(4):before {
-  color: hsl(59deg, 30%, 52%);
+  color: hsl(59, 30%, 52%);
 }
 
 .balloon:nth-child(5) {
-  background: hsl(23deg, 55%, 57%);
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
+  background: hsl(23, 55%, 57%);
+  animation-duration: 5s;
 }
 
 .balloon:nth-child(5):before {
-  color: hsl(23deg, 44%, 46%);
+  color: hsl(23, 44%, 46%);
 }
 
 .balloon:nth-child(6) {
   background: rgb(201, 197, 130);
-  -webkit-animation-duration: 3.5s;
-          animation-duration: 3.5s;
+  animation-duration: 3.5s;
 }
 
 .balloon:nth-child(6):before {
@@ -85,38 +70,34 @@ body {
 
 .balloon:nth-child(7) {
   background: rgb(18, 57, 30);
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
+  animation-duration: 3s;
 }
 
 .balloon:nth-child(7):before {
-  color: hsl(139deg, 30%, 50%);
+  color: hsl(139, 30%, 50%);
 }
 
 .balloon:nth-child(8) {
-  background: hsl(59deg, 50%, 58%);
-  -webkit-animation-duration: 4.5s;
-          animation-duration: 4.5s;
+  background: hsl(59, 50%, 58%);
+  animation-duration: 4.5s;
 }
 
 .balloon:nth-child(8):before {
-  color: hsl(59deg, 30%, 52%);
+  color: hsl(59, 30%, 52%);
 }
 
 .balloon:nth-child(9) {
   background: rgb(58, 27, 193);
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
+  animation-duration: 5s;
 }
 
 .balloon:nth-child(9):before {
-  color: hsl(23deg, 44%, 46%);
+  color: hsl(23, 44%, 46%);
 }
 
 .balloon:nth-child(10) {
   background: rgb(130, 201, 184);
-  -webkit-animation-duration: 3.5s;
-          animation-duration: 3.5s;
+  animation-duration: 3.5s;
 }
 
 .balloon:nth-child(10):before {
@@ -125,8 +106,7 @@ body {
 
 .balloon:nth-child(11) {
   background: rgb(204, 102, 143);
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
+  animation-duration: 3s;
 }
 
 .balloon:nth-child(11):before {
@@ -134,19 +114,17 @@ body {
 }
 
 .balloon:nth-child(12) {
-  background: hsl(59deg, 50%, 58%);
-  -webkit-animation-duration: 4.5s;
-          animation-duration: 4.5s;
+  background: hsl(59, 50%, 58%);
+  animation-duration: 4.5s;
 }
 
 .balloon:nth-child(12):before {
-  color: hsl(59deg, 30%, 52%);
+  color: hsl(59, 30%, 52%);
 }
 
 .balloon:nth-child(13) {
   background: rgb(85, 206, 101);
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
+  animation-duration: 5s;
 }
 
 .balloon:nth-child(13):before {

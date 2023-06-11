@@ -23,12 +23,14 @@ function App() {
     async function getBalloons() {
       try {
         const { data } = await axios.get("/api/balloons/get-balloons");
-      
+
         const { balloons } = data;
         if (!balloons) throw new Error("no balloons");
-        console.log(balloons)
-        const newBalloons = balloons.map((balloon:Balloon) => {return {...balloon, score:0}});
-        console.log(newBalloons)
+        console.log(balloons);
+        const newBalloons = balloons.map((balloon: Balloon) => {
+          return { ...balloon, score: 0 };
+        });
+        console.log(newBalloons);
         setBalloons(newBalloons);
       } catch (error) {
         console.error(error);
@@ -46,8 +48,6 @@ function App() {
     console.log(data);
   }
 
-  
-
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -57,7 +57,11 @@ function App() {
       <h2>{sumScore(balloons)}</h2>
       <div className="wrapper">
         {balloons.map((balloon) => (
-         <BalloonComp setBalloons={setBalloons} balloons={balloons} balloon={balloon} />
+          <BalloonComp
+            setBalloons={setBalloons}
+            balloons={balloons}
+            balloon={balloon}
+          />
         ))}
       </div>
     </div>

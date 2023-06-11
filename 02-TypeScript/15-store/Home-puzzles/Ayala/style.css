@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  width: 80%;
+  padding: 30px;
+  font-size: 20px;
+  background-color: rgb(246, 235, 199);
+}
+
+body {
+  box-sizing: border-box;
+  border: 2px solid black;
+  width: 50%;
+  height: 80%;
+  margin: auto;
+  padding: 30px;
+}
+body input {
+  background-color: white;
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: flex;
+  display: inline-block;
+  border: 5px solid rgb(138, 108, 165);
+  box-sizing: border-box;
+  font-size: 14px;
+}
+body h1 {
+  font-size: xx-large;
+}

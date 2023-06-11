@@ -4,6 +4,7 @@ interface PopUpBalloons {
   _id: string;
   name: string;
   src: string;
+  score: number;
 }
 
 const popUpBalloons: PopUpBalloons[] = [];
@@ -11,6 +12,7 @@ const popUpBalloons: PopUpBalloons[] = [];
 export const BalloonSchema = new Schema({
   name: String,
   src: String,
+  score: Number,
 });
 
 const BallonModel = mongoose.model("balloons", BalloonSchema);

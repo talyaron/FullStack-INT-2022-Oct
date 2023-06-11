@@ -35,27 +35,15 @@ header h1 {
   height: 150px;
   margin-left: 0.875rem;
   background: rgb(146, 8, 8);
-  -webkit-animation: bar-loading 1s infinite alternate;
-          animation: bar-loading 1s infinite alternate;
+  animation: bar-loading 1s infinite alternate;
 }
 
 .loader:nth-child(2) {
-  -webkit-animation-delay: -0.2s;
-          animation-delay: -0.2s;
+  animation-delay: -0.2s;
 }
 
 .loader:nth-child(3) {
-  -webkit-animation-delay: -0.4s;
-          animation-delay: -0.4s;
-}
-
-@-webkit-keyframes bar-loading {
-  0% {
-    transform: scaleY(0.5);
-  }
-  100% {
-    transform: scaleY(1);
-  }
+  animation-delay: -0.4s;
 }
 
 @keyframes bar-loading {
@@ -90,16 +78,8 @@ footer {
   font-size: 20px;
   color: #fff;
   text-transform: uppercase;
-  -webkit-animation: flip 2s infinite;
-          animation: flip 2s infinite;
-  -webkit-animation-delay: calc(0.2s * var(--i));
-          animation-delay: calc(0.2s * var(--i));
-}
-
-@-webkit-keyframes flip {
-  0%, 80% {
-    transform: rotateY(360deg);
-  }
+  animation: flip 2s infinite;
+  animation-delay: calc(0.2s * var(--i));
 }
 
 @keyframes flip {

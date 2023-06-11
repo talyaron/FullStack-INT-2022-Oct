@@ -1,0 +1,56 @@
+body {
+  background-color: #E9DCBE;
+}
+body .nav_bar {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+body .nav_bar img {
+  width: 15%;
+  padding: 5px;
+}
+body .nav_bar h2 {
+  color: #343434;
+  text-align: center;
+}
+body .form {
+  height: 330px;
+  width: 250px;
+  background-color: #F3F3F3;
+  border-radius: 10px;
+  border: 1.5px solid #8E8B82;
+  padding: 4%;
+  margin: auto;
+  margin-top: 2%;
+}
+body .form h3, body .form h4, body .form lable {
+  margin: 5% 15%;
+  text-align: center;
+}
+body .form h1 {
+  margin: 30% auto;
+  width: 80%;
+  text-align: center;
+}
+body .form .input {
+  margin: 4% 15%;
+}
+body .form #log_in_btn, body .form #sign_in_btn {
+  color: #F3F3F3;
+  background-color: #72b1a0;
+  margin: 3% 40%;
+}
+body .form #btn_new_user_login {
+  color: #F3F3F3;
+  background-color: #72b1a0;
+  margin: 5% 40%;
+}
+body #add_user button, body #add_user img {
+  width: 40px;
+  border: none;
+  border-radius: 100%;
+  margin-left: 36%;
+}

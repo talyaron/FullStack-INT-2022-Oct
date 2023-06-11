@@ -1,0 +1,45 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+  position: relative;
+  padding: 0 25%;
+}
+body h1 {
+  width: 70%;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0 15%;
+  text-align: center;
+}
+body button {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  background-color: moccasin;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin: 0 30%;
+  width: 40%;
+}
+body button:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+@media (min-width: 768px) {
+  body button {
+    padding: 0.25em 0.75em;
+  }
+}
+body img {
+  width: 60%;
+  margin: 5% 20%;
+}

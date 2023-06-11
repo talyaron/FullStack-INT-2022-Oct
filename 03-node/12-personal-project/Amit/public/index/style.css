@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+* button:hover {
+  scale: 1.05;
+  cursor: pointer;
+}
+* button:active {
+  background-color: blue;
+}
+
+body {
+  margin: auto;
+  background-color: black;
+}

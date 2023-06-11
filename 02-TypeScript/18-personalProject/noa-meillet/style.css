@@ -1,0 +1,43 @@
+body {
+  background-color: #E9DCBE;
+  color: #343434;
+}
+body img {
+  width: 8%;
+  margin: 5px 0 0 5px;
+}
+body .nav_bar {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+body .nav_bar img {
+  width: 15%;
+  padding: 5px;
+}
+body .nav_bar h2 {
+  color: #343434;
+  text-align: center;
+}
+body .club_cards {
+  width: 70%;
+  margin: auto;
+}
+body .club_cards h2 {
+  text-align: center;
+}
+body .club_cards__store {
+  margin-top: 4%;
+  padding: 5px;
+  background-color: #F3F3F3;
+  border-radius: 10px;
+  border: 1.5px solid #8E8B82;
+}
+body .club_cards__store h3 {
+  font-style: oblique;
+  text-align: center;
+  width: 80%;
+  margin: 5px auto;
+}
