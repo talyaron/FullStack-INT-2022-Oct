@@ -25,37 +25,37 @@ if (uri) {
 
 
 
-app.post("/api/add-user", async (req, res) => {
-  try {
-   const {username, password} = req.body;
-   console.log(username, password)
+// app.post("/api/add-user", async (req, res) => {
+//   try {
+//    const {username, password} = req.body;
+//    console.log(username, password)
    
-   //register
-    const salt = bcrypt.genSaltSync(10);
-    const hash = bcrypt.hashSync(password, salt);
+//    //register
+//     const salt = bcrypt.genSaltSync(10);
+//     const hash = bcrypt.hashSync(password, salt);
 
-    console.log(hash);
+//     console.log(hash);
 
-    //login
-    const isOriginalPasssword = bcrypt.compareSync(password, hash); // true
-    console.log("is it the user password? password:",isOriginalPasssword)
+//     //login
+//     const isOriginalPasssword = bcrypt.compareSync(password, hash); // true
+//     console.log("is it the user password? password:",isOriginalPasssword)
 
-    res.status(201).send({ ok: true, login:isOriginalPasssword });
-  } catch (error: any) {
-    console.error(error);
-    res.status(500).send({ error: error.message });
-  }
-});
-
-
-
-// import balloonsRouter from "./API/balloons/balloonsRouter";
-// app.use('/api/balloons', balloonsRouter)
+//     res.status(201).send({ ok: true, login:isOriginalPasssword });
+//   } catch (error: any) {
+//     console.error(error);
+//     res.status(500).send({ error: error.message });
+//   }
+// });
 
 
 
-// //static file
-// app.use(express.static("./balloons/public"));
+import playersRouter from "./API/players/playersRouter";
+app.use('/api/players', playersRouter)
+
+
+
+//static file
+app.use(express.static("./client"));
 
 app.listen(3000, () => {
   console.log("server listen on port 3000");

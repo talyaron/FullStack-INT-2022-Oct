@@ -1,0 +1,12 @@
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    img, h1 {
+        margin-bottom: 20px;
+        height: 250px;
+        width: 250px;
+        margin: 15px;
+      }
+    }
