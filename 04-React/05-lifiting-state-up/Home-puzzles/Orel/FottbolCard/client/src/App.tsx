@@ -1,13 +1,14 @@
-
-import './App.css'
-
+import Navbar from './components/Navbar/Navbar'
+import Card from './components/Card/Card'
+import './App.scss'
 function App() {
-
-
   return (
-    <div className="w-screen h-screen bg-red-300">
-asd
+<section className='main-container'>
+    <Navbar/>
+    <div className='main-container__game-board'>
+    <Card/>
     </div>
+</section>
   )
 }
 
