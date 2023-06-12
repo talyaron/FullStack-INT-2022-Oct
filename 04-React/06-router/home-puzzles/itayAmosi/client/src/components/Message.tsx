@@ -1,12 +1,12 @@
-import "../style/message.scss"
+// import "../style/message.scss"
 
-const Message = () => {
+// const Message = () => {
 
-  return (
-    <div className="messagePopUp">
-      <h1>Uoch!!!!</h1>
-    </div>
-  );
-};
+//   return (
+//     <div className="messagePopUp">
+//       <h1>Uoch!!!!</h1>
+//     </div>
+//   );
+// };
 
-export default Message;
+// export default Message;

@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-interface Player {
+interface Project {
   _id: string;
   name: string;
   src1: string;
@@ -8,15 +8,15 @@ interface Player {
   score: number;
 }
 
-const players: Player[] = [];
+const projects: Project[] = [];
 
-export const PlayerSchema = new Schema({
+export const ProjectSchema = new Schema({
   name: String,
   src1: String,
   src2: String,
   score: Number,
 });
 
-const PlayerModel = mongoose.model("players", PlayerSchema);
+const ProjectModel = mongoose.model("Projects", ProjectSchema);
 
-export default PlayerModel;
+export default ProjectModel;

@@ -49,14 +49,14 @@ if (uri) {
 
 
 
-import playersRouter from "./API/players/playersRouter";
-app.use('/api/players', playersRouter)
+import projectRouter from "./API/project/projectRouter";
+app.use('/api/players', projectRouter)
 
 
 
 //static file
 app.use(express.static("./client"));
 
-app.listen(3000, () => {
-  console.log("server listen on port 3000");
+app.listen(4000, () => {
+  console.log("server listen on port 4000");
 });
