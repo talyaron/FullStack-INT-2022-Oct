@@ -1,0 +1,12 @@
+.popUp {
+  z-index: -1;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.512);
+  justify-content: center;
+  align-items: center;
+  margin-top: 30%;
+}

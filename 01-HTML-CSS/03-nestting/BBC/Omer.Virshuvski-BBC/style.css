@@ -36,9 +36,6 @@ body > * {
 .header__menu input::-moz-placeholder {
   color: white;
 }
-.header__menu input:-ms-input-placeholder {
-  color: white;
-}
 .header__menu input::placeholder {
   color: white;
 }

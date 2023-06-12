@@ -1,0 +1,27 @@
+body {
+  background-color: antiquewhite;
+  color: red;
+}
+
+.userCard {
+  margin-bottom: 50px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.397);
+}
+.userCard img {
+  width: 100%;
+}
+.userCard #btn {
+  display: block;
+  background-color: #0354ab;
+  border: none;
+  padding: 5px;
+  font-size: 17px;
+  color: #ececec;
+  padding: 12px 25px;
+  margin: 0 auto;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}

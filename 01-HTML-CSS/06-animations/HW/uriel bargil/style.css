@@ -23,16 +23,11 @@ body {
   background-position: center;
   background-size: 30%;
   position: relative;
-  -webkit-animation-name: baloon1;
-          animation-name: baloon1;
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-name: baloon1;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
 }
 .screen .baloon2 {
   width: 130px;
@@ -41,12 +36,9 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 30%;
-  -webkit-animation-name: baloon2;
-          animation-name: baloon2;
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-name: baloon2;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
   position: relative;
 }
 .screen .baloon3 {
@@ -57,16 +49,11 @@ body {
   background-position: center;
   background-size: 30%;
   position: relative;
-  -webkit-animation-name: baloon3;
-          animation-name: baloon3;
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-name: baloon3;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
 }
 .screen .baloon4 {
   width: 130px;
@@ -76,16 +63,11 @@ body {
   background-position: center;
   background-size: 30%;
   position: relative;
-  -webkit-animation-name: baloon4;
-          animation-name: baloon4;
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-name: baloon4;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
 }
 .screen .baloon5 {
   width: 190px;
@@ -95,16 +77,11 @@ body {
   background-position: center;
   background-size: 30%;
   position: relative;
-  -webkit-animation-name: baloon5;
-          animation-name: baloon5;
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-name: baloon5;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
 }
 .screen .baloon6 {
   width: 190px;
@@ -114,16 +91,11 @@ body {
   background-position: center;
   background-size: 30%;
   position: relative;
-  -webkit-animation-name: baloon6;
-          animation-name: baloon6;
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-name: baloon6;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
 }
 .screen .baloon7 {
   width: 190px;
@@ -133,16 +105,11 @@ body {
   background-position: center;
   background-size: 30%;
   position: relative;
-  -webkit-animation-name: baloon7;
-          animation-name: baloon7;
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-name: baloon7;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
 }
 .screen .baloon8 {
   width: 190px;
@@ -152,16 +119,11 @@ body {
   background-position: center;
   background-size: 30%;
   position: relative;
-  -webkit-animation-name: baloon8;
-          animation-name: baloon8;
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-name: baloon8;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
 }
 .screen .baloon9 {
   width: 190px;
@@ -171,16 +133,11 @@ body {
   background-position: center;
   background-size: 30%;
   position: relative;
-  -webkit-animation-name: baloon9;
-          animation-name: baloon9;
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-name: baloon9;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
 }
 .screen .baloon10 {
   width: 190px;
@@ -190,56 +147,14 @@ body {
   background-position: center;
   background-size: 30%;
   position: relative;
-  -webkit-animation-name: baloon10;
-          animation-name: baloon10;
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes baloon1 {
-  0% {
-    top: 300px;
-    left: 300px;
-  }
-  25% {
-    top: 250px;
-    left: 350px;
-  }
-  50% {
-    top: 200px;
-    left: 300px;
-  }
-  100% {
-    top: 150px;
-    left: 350px;
-  }
+  animation-name: baloon10;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
 }
 
 @keyframes baloon1 {
-  0% {
-    top: 300px;
-    left: 300px;
-  }
-  25% {
-    top: 250px;
-    left: 350px;
-  }
-  50% {
-    top: 200px;
-    left: 300px;
-  }
-  100% {
-    top: 150px;
-    left: 350px;
-  }
-}
-@-webkit-keyframes baloon2 {
   0% {
     top: 300px;
     left: 300px;
@@ -275,24 +190,6 @@ body {
     left: 350px;
   }
 }
-@-webkit-keyframes baloon3 {
-  0% {
-    top: 300px;
-    left: 300px;
-  }
-  25% {
-    top: 200px;
-    left: 350px;
-  }
-  50% {
-    top: 100px;
-    left: 300px;
-  }
-  100% {
-    top: 50px;
-    left: 350px;
-  }
-}
 @keyframes baloon3 {
   0% {
     top: 300px;
@@ -311,43 +208,7 @@ body {
     left: 350px;
   }
 }
-@-webkit-keyframes baloon4 {
-  0% {
-    top: 300px;
-    left: 300px;
-  }
-  25% {
-    top: 250px;
-    left: 350px;
-  }
-  50% {
-    top: 200px;
-    left: 300px;
-  }
-  100% {
-    top: 150px;
-    left: 350px;
-  }
-}
 @keyframes baloon4 {
-  0% {
-    top: 300px;
-    left: 300px;
-  }
-  25% {
-    top: 250px;
-    left: 350px;
-  }
-  50% {
-    top: 200px;
-    left: 300px;
-  }
-  100% {
-    top: 150px;
-    left: 350px;
-  }
-}
-@-webkit-keyframes baloon5 {
   0% {
     top: 300px;
     left: 300px;
@@ -383,43 +244,7 @@ body {
     left: 350px;
   }
 }
-@-webkit-keyframes baloon6 {
-  0% {
-    top: 300px;
-    left: 300px;
-  }
-  25% {
-    top: 250px;
-    left: 350px;
-  }
-  50% {
-    top: 200px;
-    left: 300px;
-  }
-  100% {
-    top: 150px;
-    left: 350px;
-  }
-}
 @keyframes baloon6 {
-  0% {
-    top: 300px;
-    left: 300px;
-  }
-  25% {
-    top: 250px;
-    left: 350px;
-  }
-  50% {
-    top: 200px;
-    left: 300px;
-  }
-  100% {
-    top: 150px;
-    left: 350px;
-  }
-}
-@-webkit-keyframes baloon7 {
   0% {
     top: 300px;
     left: 300px;
@@ -455,24 +280,6 @@ body {
     left: 350px;
   }
 }
-@-webkit-keyframes baloon8 {
-  0% {
-    top: 300px;
-    left: 300px;
-  }
-  25% {
-    top: 250px;
-    left: 350px;
-  }
-  50% {
-    top: 200px;
-    left: 300px;
-  }
-  100% {
-    top: 150px;
-    left: 350px;
-  }
-}
 @keyframes baloon8 {
   0% {
     top: 300px;
@@ -491,43 +298,7 @@ body {
     left: 350px;
   }
 }
-@-webkit-keyframes baloon9 {
-  0% {
-    top: 300px;
-    left: 300px;
-  }
-  25% {
-    top: 250px;
-    left: 350px;
-  }
-  50% {
-    top: 200px;
-    left: 300px;
-  }
-  100% {
-    top: 150px;
-    left: 350px;
-  }
-}
 @keyframes baloon9 {
-  0% {
-    top: 300px;
-    left: 300px;
-  }
-  25% {
-    top: 250px;
-    left: 350px;
-  }
-  50% {
-    top: 200px;
-    left: 300px;
-  }
-  100% {
-    top: 150px;
-    left: 350px;
-  }
-}
-@-webkit-keyframes baloon10 {
   0% {
     top: 300px;
     left: 300px;

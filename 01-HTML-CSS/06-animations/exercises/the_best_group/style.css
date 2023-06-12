@@ -14,43 +14,12 @@ body {
 }
 
 .battery_filler {
-  -webkit-animation-name: filling;
-          animation-name: filling;
-  -webkit-animation-duration: 4s;
-          animation-duration: 4s;
+  animation-name: filling;
+  animation-duration: 4s;
   z-index: 1;
   position: relative;
   background-color: aquamarine;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-}
-
-@-webkit-keyframes filling {
-  0% {
-    background-color: red;
-    width: 30vh;
-    height: 10vh;
-  }
-  25% {
-    background-color: yellow;
-    width: 30vh;
-    height: 20vh;
-  }
-  50% {
-    background-color: green;
-    width: 30vh;
-    height: 30vh;
-  }
-  75% {
-    background-color: rgb(0, 56, 0);
-    width: 30vh;
-    height: 40vh;
-  }
-  100% {
-    background-color: black;
-    width: 30vh;
-    height: 40vh;
-  }
+  animation-iteration-count: infinite;
 }
 
 @keyframes filling {

@@ -42,20 +42,8 @@ body {
 }
 .header .submenu {
   display: none;
-  -webkit-animation: popout 0.3s ease-in-out forwards;
-          animation: popout 0.3s ease-in-out forwards;
+  animation: popout 0.3s ease-in-out forwards;
   transform-origin: top center;
-}
-@-webkit-keyframes popout {
-  0% {
-    transform: scale(0);
-  }
-  80% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 @keyframes popout {
   0% {
@@ -90,7 +78,6 @@ body {
   font-size: 20px;
 }
 .header .insubmenu hr {
-  width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
 }

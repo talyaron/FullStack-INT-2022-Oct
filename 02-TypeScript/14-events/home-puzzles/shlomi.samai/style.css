@@ -19,7 +19,7 @@
 .box5 {
   height: 100px;
   width: 200px;
-  background-color: hsl(0deg, 100%, 50%);
+  background-color: hsl(0, 100%, 50%);
 }
 
 .wrapper {

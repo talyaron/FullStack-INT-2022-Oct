@@ -4,10 +4,16 @@ import axios from "axios";
 import BalloonComponent from "./components/Balloons";
 
 export interface BalloonComponent{
+splice(balloonIndex: number, arg1: number): unknown;
 name: string;
 src: string;
 score: number;
 _id: string;
+}
+function sumScore(balloons: BalloonComponent[]) {
+  return balloons.reduce((acc, curr) => {
+    return acc + curr.score;
+  }, 0);
 }
 
 function App() {
@@ -32,17 +38,33 @@ useEffect(() => {
   fetchBalloons();
 }, []);
 
-  return (
-    <div className="continer">
-          <h3>PopUpBalloons</h3>
-    <h4>Rules: <span>One click = change color ||
-        Click = blow up the balloon</span></h4>
+async function handleSubmit(e:any){
+  e.preventDefault();
+  console.log(e.target);
+  const image = e.target.image.value;
+  console.log(image);
+  const { data } = await axios.post("/api/balloons/add-balloon", { image });
+  console.log(data);
+}
 
+return (
+  <div>
+    <form onSubmit={handleSubmit}>
+      <input type="text" name="image" placeholder="balloon image url" />
+      <input type="submit" value="ADD" />
+    </form>
+    <h2>{sumScore(balloons)}</h2>
     <div className="wrapper">
-      {/* <BalloonComponent /> */}
+      {balloons.map((balloon) => (
+        <BalloonComponent
+          setBalloons={setBalloons}
+          balloons={balloons}
+          balloon={balloon}
+        />
+      ))}
     </div>
-    </div>
-  );
+  </div>
+);
 }
 
 export default App;

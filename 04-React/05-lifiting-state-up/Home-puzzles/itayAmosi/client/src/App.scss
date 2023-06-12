@@ -1,0 +1,87 @@
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("https://img.freepik.com/premium-photo/close-up-football-action-scene-with-competing-soccer-players-stadium_207634-5551.jpg?w=2000");
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  background-color: #fdfefe;
+  font-family: "Cambria";
+  font-size: 18px;
+}
+
+.navigation-container {
+  max-width: 100%;
+  margin: 0;
+  padding: 50px;
+}
+
+.navigation-menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #000;
+  padding-block: 15px;
+}
+
+.navigation-menu a {
+  text-decoration: none;
+  color: #fdfefe;
+}
+
+.site-identity-logo:hover {
+  color: #fe2e64;
+}
+
+.navigation-menu__labels {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.navigation-menu__labels > li > a:hover {
+  color: #fe2e64;
+}
+
+#toggleMenu,
+.navigation-menu label {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .main-menu {
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 1;
+  }
+
+  .navigation-menu label {
+    display: inline-flex;
+    align-items: flex-start;
+    cursor: pointer;
+    color: #fdfefe;
+  }
+
+  .navigation-menu__labels {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+    padding: 20px;
+  }
+
+  #toggleMenu:checked ~ .main-menu {
+    max-height: 75%;
+  }
+}

@@ -22,7 +22,6 @@
   color: black;
   background-color: white;
   border: 2px solid black;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   width: 30px;
@@ -135,20 +134,8 @@
 }
 
 .submenu {
-  -webkit-animation: growOut 300ms ease-in-out forwards;
-          animation: growOut 300ms ease-in-out forwards;
+  animation: growOut 300ms ease-in-out forwards;
   transform-origin: top center;
-}
-@-webkit-keyframes growOut {
-  0% {
-    transform: scale(0);
-  }
-  80% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 @keyframes growOut {
   0% {
@@ -184,9 +171,6 @@
   color: #fff;
 }
 .SearchBBC input::-moz-placeholder {
-  color: #fff;
-}
-.SearchBBC input:-ms-input-placeholder {
   color: #fff;
 }
 .SearchBBC input::placeholder {
@@ -422,7 +406,6 @@
 }
 
 .News-container__box1 img {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   height: 230px;
@@ -435,7 +418,6 @@
 }
 
 .News-container__box2 img {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   height: 230px;
@@ -448,7 +430,6 @@
 }
 
 .News-container__box3 img {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   height: 230px;
@@ -497,16 +478,8 @@
 .footerbox h3 {
   color: white;
   text-transform: uppercase;
-  -webkit-animation: flip 3s infinite;
-          animation: flip 3s infinite;
-  -webkit-animation-delay: calc(0.4s * var(--i));
-          animation-delay: calc(0.4s * var(--i));
-}
-
-@-webkit-keyframes flip {
-  100%, 80% {
-    transform: rotateY(360deg);
-  }
+  animation: flip 3s infinite;
+  animation-delay: calc(0.4s * var(--i));
 }
 
 @keyframes flip {

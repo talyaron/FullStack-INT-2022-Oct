@@ -22,14 +22,10 @@
   position: relative;
   top: 20%;
   left: 50%;
-  -webkit-animation-name: bounce;
-          animation-name: bounce;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-name: bounce;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
 }
 .court .keeper {
   width: 100px;
@@ -38,27 +34,11 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  -webkit-animation-name: example;
-          animation-name: example;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
+  animation-name: example;
+  animation-duration: 2s;
   position: relative;
   left: -10%;
   top: 0;
-}
-
-@-webkit-keyframes bounce {
-  0% {
-    top: 20%;
-    left: 50%;
-  }
-  50% {
-    top: -20%;
-  }
-  100% {
-    top: -20%;
-    left: -25%;
-  }
 }
 
 @keyframes bounce {
@@ -72,16 +52,6 @@
   100% {
     top: -20%;
     left: -25%;
-  }
-}
-@-webkit-keyframes example {
-  0% {
-    left: -10%;
-    top: 0;
-  }
-  100% {
-    left: -10%;
-    top: -10%;
   }
 }
 @keyframes example {
