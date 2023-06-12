@@ -17,20 +17,7 @@ body {
   overflow: hidden;
   background: linear-gradient(-75deg, #2a2c2c, #040a09, #2a2929, #010901);
   background-size: 400% 400%;
-  -webkit-animation: gradient 15s ease infinite;
-          animation: gradient 15s ease infinite;
-}
-
-@-webkit-keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  animation: gradient 15s ease infinite;
 }
 
 @keyframes gradient {

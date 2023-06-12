@@ -1,0 +1,289 @@
+:root {
+  --background-color: silver;
+  --main-color: black;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  min-height: 600px;
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+}
+
+.app-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background-color);
+}
+.app-container__header {
+  padding: 10px 20px;
+  width: inherit;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.app-container__header__iconUser {
+  cursor: pointer;
+  padding: 2px 20px;
+  border: 1px solid black;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.app-container__header__iconUser:hover {
+  color: var(--background-color);
+  background-color: var(--main-color);
+}
+.app-container__header__navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.app-container__header__navbar__list {
+  list-style: none;
+  margin: 10px;
+}
+.app-container__header__navbar__list:hover {
+  color: var(--background-color);
+  background-color: var(--main-color);
+}
+.app-container__header__navbar__link {
+  border: none;
+  outline: none;
+  background-color: inherit;
+  padding: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--main-color);
+  transition: 0.2s all ease;
+}
+.app-container__header__navbar__link:hover {
+  scale: 1.09;
+  color: var(--background-color);
+}
+.app-container__header__collapseMenu-btn {
+  display: none;
+}
+.app-container__main {
+  width: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.app-container__main__form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-top: 20px;
+}
+.app-container__main__form h3 {
+  font-size: 1.4rem;
+  padding: 16px;
+  text-decoration: underline;
+}
+.app-container__main__form label {
+  font-size: 1.4rem;
+  color: white;
+}
+.app-container__main__form input, .app-container__main__form select {
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  margin: 2px;
+  padding: 10px 20px;
+}
+.app-container__main__form button {
+  cursor: pointer;
+  font-weight: 600;
+  width: 50%;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 10px;
+  padding: 10px;
+}
+.app-container__main__form button:active {
+  scale: 0.9;
+}
+.app-container__main__form div {
+  display: flex;
+  width: 100%;
+}
+.app-container__main__form div input {
+  width: 50%;
+}
+.app-container__footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: inherit;
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+}
+
+#collapseMenuBtn {
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: none;
+}
+#collapseMenuBtn:hover {
+  scale: 1.1;
+}
+
+#rootContainerGradeChange {
+  z-index: 999;
+  display: none;
+  position: absolute;
+  top: 74px;
+  border-radius: 15px;
+  background-color: rgb(114, 114, 114);
+  width: 70vw;
+  height: 350px;
+}
+#rootContainerGradeChange.active {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+#rootContainerGradeChange #btnExit {
+  width: 100%;
+  top: 0;
+  right: 0;
+  position: absolute;
+}
+#rootContainerGradeChange #btnExit i {
+  position: absolute;
+  font-size: 1.4rem;
+  right: 12px;
+  cursor: pointer;
+  top: 12px;
+  transition: 0.3s ease all;
+}
+#rootContainerGradeChange #btnExit i:hover {
+  transform: rotate(360deg);
+}
+
+#rootGradesContainer {
+  position: relative;
+  max-height: 60vh;
+  overflow-y: scroll;
+}
+#rootGradesContainer::-webkit-scrollbar {
+  width: 0;
+}
+#rootGradesContainer ul {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+#rootGradesContainer ul li {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid rgba(0, 0, 0, 0.48);
+  width: 150px;
+  list-style: none;
+  margin: 0 10px;
+}
+#rootGradesContainer .buttonsEditRemove {
+  width: 150px;
+  display: flex;
+  justify-content: space-around;
+}
+#rootGradesContainer .buttonsEditRemove i {
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+#rootGradesContainer .buttonsEditRemove i:hover {
+  scale: 1.09;
+}
+#rootGradesContainer .buttonsEditRemove i:active {
+  scale: 0.9;
+}
+#rootGradesContainer .header-grades-top-list {
+  position: sticky;
+  background-color: var(--background-color);
+  top: 0;
+  left: 0;
+  color: rgba(94, 8, 255, 0.994);
+  border-bottom: 1px solid rgb(147, 96, 96);
+  margin: 0;
+  padding: 0;
+}
+#rootGradesContainer .header-grades-top-list li {
+  font-weight: 700;
+  min-width: 150px;
+}
+#rootGradesContainer .header-grades-footer-list {
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding-top: 50px;
+  font-size: 2rem;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  color: rgba(8, 37, 255, 0.994);
+  border-top: 1px solid rgb(147, 96, 96);
+}
+#rootGradesContainer .header-grades-footer-list li {
+  width: inherit;
+  margin: auto;
+}
+
+@media screen and (max-width: 900px) {
+  #rootContainerGradeChange {
+    top: 120px;
+    width: 80vw;
+  }
+  .app-container__header {
+    width: 100vw;
+    justify-content: space-between;
+    padding-bottom: 55px;
+    margin-bottom: 20px;
+  }
+  .app-container__header__navbar {
+    display: flex;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.236);
+    position: absolute;
+    top: 55px;
+    left: 0;
+  }
+  .app-container__header__navbar.active {
+    display: none;
+  }
+  #collapseMenuBtn {
+    display: block;
+  }
+}
+@media screen and (max-width: 700px) {
+  .app-container__header__navbar {
+    font-size: 0.9rem;
+  }
+  .app-container__header__navbar__list {
+    padding: 5px;
+    margin: 5px 0;
+  }
+}

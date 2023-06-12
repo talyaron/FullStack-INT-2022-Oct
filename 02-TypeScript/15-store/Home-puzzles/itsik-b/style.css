@@ -25,9 +25,6 @@ body input {
 body ::-moz-placeholder {
   font-size: 15px;
 }
-body :-ms-input-placeholder {
-  font-size: 15px;
-}
 body ::placeholder {
   font-size: 15px;
 }

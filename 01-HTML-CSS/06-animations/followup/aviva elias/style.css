@@ -7,25 +7,10 @@ body {
   width: 200px;
   height: 200px;
   position: relative;
-  -webkit-animation-name: example;
-          animation-name: example;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s;
-}
-
-@-webkit-keyframes example {
-  from {
-    top: 0;
-    background-color: yellow;
-  }
-  to {
-    top: 200px;
-    background-color: blue;
-  }
+  animation-name: example;
+  animation-duration: 3s;
+  animation-fill-mode: both;
+  animation-delay: 2s;
 }
 
 @keyframes example {

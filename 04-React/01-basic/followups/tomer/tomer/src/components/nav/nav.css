@@ -1,0 +1,33 @@
+.nav {
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.navBar {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.instagram-logo {
+  display: flex;
+}
+.instagram-logo img {
+  width: 6rem;
+  height: 3rem;
+}
+
+.nav li {
+  margin: 0 10px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  color: #007bff;
+}

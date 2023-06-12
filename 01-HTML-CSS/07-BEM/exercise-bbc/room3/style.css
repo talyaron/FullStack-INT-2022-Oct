@@ -8,7 +8,6 @@
 
 .header {
   display: flex;
-  position: -webkit-sticky;
   position: sticky;
   width: 100vw;
   height: 50px;

@@ -1,0 +1,255 @@
+/* Variables */
+:root {
+  --blue: #3a82ee;
+  --white: rgb(255, 255, 255);
+  --grey: #888;
+  --dark: #313154;
+  --red: #ff5b57;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* End of Variables */
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.box {
+  gap: 40px;
+  width: 100%;
+  padding: 0 16px;
+  margin-top: 70px;
+}
+
+.header {
+  width: 100%;
+  margin: 0%;
+  padding: 0;
+  min-height: 80px;
+  background: var(--white);
+  position: fixed;
+  top: 0;
+}
+.header__container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80px;
+  width: 100%;
+}
+.header__container__logo {
+  position: absolute;
+  left: 320px;
+  height: 80px;
+}
+.header__container__a {
+  color: var(--blue);
+  text-decoration: none;
+  padding: 31px;
+}
+.header__container__a:hover {
+  color: var(--white);
+  background: var(--blue);
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#containerBox {
+  top: 5px;
+}
+
+.boxMain {
+  min-height: 300px;
+  position: relative;
+  top: 40px;
+}
+.boxMain__container {
+  display: flex;
+  margin: auto;
+  max-width: 1200px;
+  justify-content: space-between;
+  max-height: 300px;
+  min-height: inherit;
+  padding: 32px;
+  color: var(--blue);
+  left: 50%;
+  cursor: pointer;
+}
+.boxMain__container__boxes {
+  width: 352px;
+  height: 236px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 5px;
+  text-align: center;
+  padding: 16px;
+  box-shadow: 9px 8px 15px 8px var(--dark);
+  box-shadow: 9px 8px 15px 8px var(--dark);
+  z-index: 99;
+}
+.boxMain__container__boxes__img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.apartmentsPage {
+  margin-left: 80px;
+  display: grid;
+  grid-template-rows: 90%;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(2, 300px);
+  row-gap: 100px;
+  -moz-column-gap: 300px;
+       column-gap: 300px;
+}
+
+.roommatePage {
+  margin-left: 80px;
+  display: grid;
+  grid-template-rows: 90%;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(2, 300px);
+  row-gap: 100px;
+  -moz-column-gap: 300px;
+       column-gap: 300px;
+}
+
+p {
+  margin: 0;
+}
+
+.halfBlue {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+}
+
+.btnDiv {
+  display: flex;
+  margin: 70px;
+}
+.btnDiv__btn {
+  height: 50px;
+  width: 500px;
+  margin: auto;
+  border: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  background-color: var(--blue);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.roommatePgaeBtn, .apartmentPgaeBtn {
+  margin-top: 560px;
+}
+.roommatePgaeBtn__next, .roommatePgaeBtn__next, .apartmentPgaeBtn__next, .apartmentPgaeBtn__next {
+  margin-right: 300px;
+}
+.roommatePgaeBtn__back, .roommatePgaeBtn__back, .apartmentPgaeBtn__back, .apartmentPgaeBtn__back {
+  margin-left: 300px;
+}
+
+.profilBtn {
+  border: 2px var(--blue) solid;
+  padding: 5px;
+}
+
+.detail {
+  width: 1400px;
+  position: absolute;
+  top: 20%;
+  left: 35%;
+  transform: tranlate(-50%, -50%);
+  text-align: left;
+  padding: 0 30px 30px;
+  font-size: 30px;
+  min-height: 700px;
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  gap: 1rem;
+  z-index: 99;
+  opacity: 1;
+}
+.detail__box {
+  max-width: 1300px;
+  max-height: 10px;
+  min-height: inherit;
+  padding: 32px;
+  color: var(--dark);
+  width: 500px;
+  float: left;
+  align-items: center;
+  width: 50%;
+  text-align: left;
+  padding-left: 84px;
+  box-shadow: 9px 8px 15px 8px var(--blue);
+  box-shadow: 9px 8px 15px 8px var(--blue);
+  opacity: 1;
+  z-index: 99;
+  opacity: 100%;
+  background: var(--white);
+}
+.detail__box__containerBtn {
+  position: absolute;
+  display: inline-block;
+  justify-content: space-between;
+}
+.detail__box__containerBtn__btn {
+  border: none;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  background-color: var(--blue);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.detail__box__img {
+  align-items: center;
+  width: 150px;
+  height: 150px;
+}
+
+#details {
+  opacity: 1;
+  opacity: 100%;
+}
+
+.apartmentImage {
+  align-items: center;
+  width: 500px;
+  height: 500px;
+}
+
+.log-reg {
+  display: flex;
+  position: absolute;
+  left: 30px;
+}
+
+.button-link {
+  color: var(--blue);
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+}

@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+}
+
+.card {
+  height: 50%;
+  width: 50%;
+}
+.card__card_img {
+  height: 50%;
+  width: 100%;
+}
+.card h4 {
+  background-color: rgb(115, 115, 230);
+  border: solid 2px rgb(149, 35, 6);
+}
+.card p {
+  background-color: aqua;
+  border: solid 2px green;
+}
