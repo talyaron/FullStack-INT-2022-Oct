@@ -1,0 +1,77 @@
+*{
+  text-transform: capitalize;
+}
+
+body{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: seagreen;
+}
+
+.garden{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  background-image: url("https://img.freepik.com/free-vector/blank-nature-park-landscape-daytime-scene-with-many-clouds-sky_1308-56960.jpg?w=1380&t=st=1686320099~exp=1686320699~hmac=2255f8e969dc953a8144d215ee70a513eab7995a5a1d338c212f1e158c977017");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
+  .controlersWrapper{
+    width: 25%;
+    height: 40%;
+    position: relative;
+    bottom:45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  
+    h1{
+      text-align: center;
+    }
+    h2{
+      text-align: center;
+    }
+    button{
+      margin: .5rem;
+      border: 0.1rem solid black;
+      transition: 0.4s ease-in;
+      &:hover{scale: 1.05;} 
+    }
+  }
+  &__holesContainer{
+    width: 80%;
+    height: 15%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around ;
+    &__holeAndMoleWrapper{
+      position: relative;
+      top: 0;
+      right: 0;
+      width: 25%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      &__hole{
+        width:100%;
+        height: 100%;
+        position: relative;
+        top: 0;
+        right: 0;
+        background-image: url("https://cdn.pixabay.com/photo/2014/12/21/23/57/pile-576448_1280.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+}
+
