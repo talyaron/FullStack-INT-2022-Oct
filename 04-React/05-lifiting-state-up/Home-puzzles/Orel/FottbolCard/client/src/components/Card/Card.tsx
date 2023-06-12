@@ -2,6 +2,16 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Alert from '../Alert/Alert'
 import './Card.scss'
+import {z} from "zod";
+
+
+export const IPlayerZodSchema = z.object({
+    name: z.string(),
+    srcHappy: z.string(),
+    srcAngry: z.string(),
+    speed: z.number(),
+    clicked: z.boolean(),
+  });
 
 export interface IPlayer {
     name: string,
@@ -28,7 +38,11 @@ const Card = () => {
             try {
                 const { data } = await axios.get('/api/players/get-players')
                 if (!data) throw new Error("no found players data API")
-                const { players } = data
+                const { players } = data;
+                console.log(players)
+
+                IPlayerZodSchema.array().parse(players);
+
                 setPlayers(players)
                 const randomIndex = Math.floor(Math.random() * players.length)
                 setPlayer(players[randomIndex])
