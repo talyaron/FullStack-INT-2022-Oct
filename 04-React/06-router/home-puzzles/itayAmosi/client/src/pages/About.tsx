@@ -1,11 +1,11 @@
+import NavBar from "../components/NavBar";
 import "../style/about.scss";
 
 const About = () => {
   return (
     <>
+  <NavBar />
       <div id="resume">
-        <div className="fill-blue">CAREER</div>
-
         <div className="left-column">
           <div className="substrate">
             <h2>My Profile</h2>
@@ -122,7 +122,7 @@ const About = () => {
 
         <div className="floatlimit"></div>
       </div>
-    </>
+</>
   );
 };
 
