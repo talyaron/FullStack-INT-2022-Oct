@@ -18,6 +18,7 @@ const Card = () => {
     const [players, setPlayers] = useState<IPlayer[] | []>([])
     const [player, setPlayer] = useState<IPlayer | null>(null)
     const [position, setPosition] = useState<object>({ newStylePosition })
+    const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
     const [display, setDisplay] = useState<object>({ display: "none" })
 
     //useEffect
@@ -59,10 +60,23 @@ const Card = () => {
 
 
     function startMoving() {
-        setInterval(() => {
-            setPosition({ top: newPosition()[0], left: newPosition()[1] })
-        }, 1000)
-    }
+            const id = setInterval(() => {
+                setPosition({ top: newPosition()[0], left: newPosition()[1] });
+                console.log("moving")
+              }, 1500);
+              setIntervalId(id);
+
+   
+      }
+    
+    //   function stopMoving() {
+    //     if (intervalId) {
+    //       clearInterval(intervalId);
+    //       setIntervalId(null);
+    //     }
+    //   }
+     
+
 
     // handler functions
     function handleClickCard(id: string) {
