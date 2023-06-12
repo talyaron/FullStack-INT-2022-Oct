@@ -11,16 +11,21 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement:<ErrorPage />
+    errorElement: <ErrorPage />,
   },
   {
     path: "/wow",
     element: <Second />,
   },
   {
-    path:"/profile/:userId",
-    element:<Profile />
-  }
+    path: "/profile/:userId",
+    element: <Profile />,
+    children: [ //Outlet
+      { path: "about", element: <h1>About me</h1> },
+      { path: "contact", element: <h1>This is my contact address...</h1> },
+      { path: "testemonails", element: <h1>We are the best!!!!</h1> },
+    ],
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+
+.button{
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.507);
+  background-color: rgba(0, 128, 128, 0.472);
+}
