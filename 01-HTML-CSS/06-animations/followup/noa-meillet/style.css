@@ -5,36 +5,11 @@
   background-color: orange;
   border: 3px solid black;
   border-radius: 100%;
-  -webkit-animation-name: bounce;
-          animation-name: bounce;
+  animation-name: bounce;
   position: relative;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-iteration-count: 5;
-          animation-iteration-count: 5;
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
-}
-
-@-webkit-keyframes bounce {
-  0% {
-    top: 0;
-  }
-  20% {
-    top: 50px;
-  }
-  40% {
-    top: 20px;
-  }
-  60% {
-    top: 50px;
-  }
-  80% {
-    top: 0;
-  }
-  100% {
-    top: 0;
-  }
+  animation-duration: 2s;
+  animation-iteration-count: 5;
+  animation-delay: 1.5s;
 }
 
 @keyframes bounce {

@@ -49,9 +49,10 @@ h1, a {
   text-align: center;
 }
 
-body {
+.wrraper {
   background-image: url(https://atthebuzzerpodcast.files.wordpress.com/2022/11/gamemosaic.png?w=1920&h=768&crop=1);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  height: 900px;
 }

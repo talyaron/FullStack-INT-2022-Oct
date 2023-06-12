@@ -1,0 +1,78 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto;
+}
+form input,
+form textarea,
+form select {
+  margin: 10px 0;
+}
+
+.item {
+  color: white;
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #ccc;
+}
+.item .title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.item .description {
+  margin-bottom: 10px;
+}
+.item .actions {
+  display: flex;
+  justify-content: space-between;
+}
+.item .actions button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #fff;
+  cursor: pointer;
+}
+.item .actions button:hover {
+  background: #ccc;
+}
+
+.open {
+  color: red;
+  margin-left: 40%;
+  width: 300px;
+  height: 300px;
+  background-color: lightseagreen;
+  background-image: url(https://mumlatzim.me/wp-content/uploads/2022/12/Q.jpg);
+  background-size: 300px;
+}
+.open .set {
+  margin-left: 40%;
+  background-color: black;
+  display: inline-block;
+}
+
+.store {
+  background-color: aqua;
+  display: inline-block;
+  margin-left: 40%;
+}
+.store h1 {
+  margin-left: 40%;
+}
+
+.userImg {
+  border-radius: 20px;
+  box-shadow: 0 0 10px black;
+  height: 20vw;
+  transition: all 0.4s linear;
+}
+
+.userImg:hover {
+  cursor: pointer;
+}

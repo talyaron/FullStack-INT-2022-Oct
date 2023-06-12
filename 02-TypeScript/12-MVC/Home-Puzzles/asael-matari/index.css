@@ -1,0 +1,84 @@
+body {
+  margin: 0%;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#id_input {
+  display: none;
+  background-color: aqua;
+  border-radius: 30%;
+  margin-left: 50%;
+}
+
+.container-of-resaurents {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  align-items: center;
+  align-content: center;
+  overflow: auto;
+}
+.container-of-resaurents .container {
+  width: 100%;
+  height: 200px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  display: flex;
+  overflow: auto;
+}
+.container-of-resaurents .container h1 {
+  position: sticky;
+  top: 2vh;
+  right: 4vw;
+  background-color: aqua;
+  margin-top: 0%;
+  width: 10vw;
+  height: 2vh;
+  font: 1em sans-serif;
+}
+.container-of-resaurents .container .slide {
+  background-color: aqua;
+  border-radius: 15px;
+  color: rgba(17, 1, 1, 0.987);
+  height: 10vh;
+  position: sticky;
+  top: 5vh;
+  left: 10px;
+}
+.container-of-resaurents .container .slide:hover {
+  background-color: rgb(4, 126, 126);
+  cursor: pointer;
+}
+.container-of-resaurents .container img {
+  width: 20vw;
+  height: 100%;
+}
+
+.bottom_menu {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  margin-top: 90px;
+  width: 99%;
+  margin-top: 60vh;
+  height: 10vh;
+  text-align: center;
+  align-items: center;
+  background-color: rgba(22, 224, 231, 0.423);
+  padding: 4px;
+}
+.bottom_menu div :hover {
+  border-radius: 50px;
+  cursor: pointer;
+}
+.bottom_menu img {
+  width: 8vw;
+  height: 8vh;
+  border-radius: 10px;
+  transition: border-radius 0.7s;
+}
+.bottom_menu p {
+  margin: 0;
+}

@@ -16,14 +16,10 @@ img {
   width: 40px;
   position: relative;
   margin-top: 550px;
-  -webkit-animation-name: float;
-          animation-name: float;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-name: float;
+  animation-duration: 3s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
 }
 
 /*.pink{
@@ -36,68 +32,43 @@ animation-timing-function: linear;
 
 }*/
 .pink {
-  -webkit-animation-timing-function: cubic-bezier(0.41, 0.19, 0, 0.58);
-          animation-timing-function: cubic-bezier(0.41, 0.19, 0, 0.58);
-  -webkit-animation-duration: 3;
-          animation-duration: 3;
+  animation-timing-function: cubic-bezier(0.41, 0.19, 0, 0.58);
+  animation-duration: 8;
 }
 
 .lightblue {
-  -webkit-animation-timing-function: ease-in;
-          animation-timing-function: ease-in;
-  -webkit-animation-duration: 9;
-          animation-duration: 9;
+  animation-timing-function: ease-in;
+  animation-duration: 1;
 }
 
 .green {
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  -webkit-animation-duration: 10;
-          animation-duration: 10;
+  animation-timing-function: ease-in-out;
+  animation-duration: 1;
 }
 
 .golden {
-  -webkit-animation-timing-function: cubic-bezier(0.18, 0.34, 0.29, 0.87);
-          animation-timing-function: cubic-bezier(0.18, 0.34, 0.29, 0.87);
-  -webkit-animation-duration: 8;
-          animation-duration: 8;
+  animation-timing-function: cubic-bezier(0.18, 0.34, 0.29, 0.87);
+  animation-duration: 2;
 }
 
 .black {
-  -webkit-animation-timing-function: cubic-bezier(0.13, 0.88, 0.29, 1.03);
-          animation-timing-function: cubic-bezier(0.13, 0.88, 0.29, 1.03);
-  -webkit-animation-duration: 6;
-          animation-duration: 6;
+  animation-timing-function: cubic-bezier(0.13, 0.88, 0.29, 1.03);
+  animation-duration: 1;
 }
 
 .rubi {
-  -webkit-animation-timing-function: ease-in;
-          animation-timing-function: ease-in;
-  -webkit-animation-duration: 10;
-          animation-duration: 10;
+  animation-timing-function: ease-in;
+  animation-duration: 5;
 }
 
 .purple {
-  -webkit-animation-timing-function: ease-in;
-          animation-timing-function: ease-in;
-  -webkit-animation-duration: 3;
-          animation-duration: 3;
+  animation-timing-function: ease-in;
+  animation-duration: 5;
 }
 
 .turkiz {
-  -webkit-animation-timing-function: ease-in;
-          animation-timing-function: ease-in;
-  -webkit-animation-duration: 6;
-          animation-duration: 6;
-}
-
-@-webkit-keyframes float {
-  from {
-    bottom: 0px;
-  }
-  to {
-    bottom: 600px;
-  }
+  animation-timing-function: ease-in;
+  animation-duration: 9;
 }
 
 @keyframes float {

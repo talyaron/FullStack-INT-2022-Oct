@@ -218,14 +218,10 @@ body {
   top: 45%;
   left: 48.5%;
   z-index: 10;
-  -webkit-animation-name: pacmove;
-          animation-name: pacmove;
-  -webkit-animation-duration: 15s;
-          animation-duration: 15s;
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation-name: pacmove;
+  animation-duration: 15s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 .pacman__eye {
   position: absolute;
@@ -243,149 +239,9 @@ body {
   height: 100%;
   -webkit-clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
           clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
-  -webkit-animation-name: eat;
-          animation-name: eat;
-  -webkit-animation-duration: 0.2s;
-          animation-duration: 0.2s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-}
-@-webkit-keyframes pacmove {
-  0% {
-    top: 45%;
-    left: 48.5%;
-  }
-  5% {
-    top: 35%;
-    left: 48.5%;
-  }
-  6% {
-    transform: rotate(0);
-  }
-  10% {
-    top: 35%;
-    left: 67.4%;
-  }
-  11% {
-    transform: rotate(90deg);
-  }
-  15% {
-    top: 50%;
-    left: 67.4%;
-  }
-  16% {
-    transform: rotate(0);
-  }
-  20% {
-    top: 50%;
-    left: 98%;
-    opacity: 1;
-  }
-  21% {
-    opacity: 0;
-    top: 50%;
-    left: 0%;
-  }
-  22% {
-    top: 50%;
-    left: 1%;
-    opacity: 1;
-  }
-  27% {
-    top: 50%;
-    left: 16.5%;
-  }
-  32% {
-    transform: rotate(90deg);
-  }
-  37% {
-    top: 84.8%;
-    left: 16.5%;
-  }
-  38% {
-    transform: rotate(0);
-  }
-  45% {
-    top: 85%;
-    left: 24.4%;
-  }
-  46% {
-    transform: rotate(90deg);
-  }
-  50% {
-    top: 93.7%;
-    left: 24.4%;
-  }
-  51% {
-    transform: rotate(180deg);
-  }
-  55% {
-    top: 93.7%;
-    left: 3%;
-  }
-  56% {
-    transform: rotate(270deg);
-  }
-  60% {
-    top: 67%;
-    left: 3%;
-  }
-  61% {
-    transform: rotate(360deg);
-  }
-  65% {
-    top: 67%;
-    left: 16.5%;
-  }
-  66% {
-    transform: rotate(270deg);
-  }
-  75% {
-    top: 3%;
-    left: 16%;
-  }
-  76% {
-    transform: rotate(180deg);
-  }
-  80% {
-    top: 3%;
-    left: 3%;
-  }
-  81% {
-    transform: rotate(90deg);
-  }
-  85% {
-    top: 30%;
-    left: 3%;
-  }
-  86% {
-    transform: rotate(0);
-  }
-  90% {
-    top: 30%;
-    left: 35%;
-  }
-  91% {
-    transform: rotate(90deg);
-  }
-  95% {
-    top: 35%;
-    left: 35%;
-  }
-  96% {
-    transform: rotate(0);
-  }
-  98% {
-    top: 35%;
-    left: 48%;
-  }
-  99% {
-    transform: rotate(90deg);
-  }
-  100% {
-    top: 45%;
-    left: 48.5%;
-  }
+  animation-name: eat;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
 }
 @keyframes pacmove {
   0% {
@@ -524,28 +380,6 @@ body {
     left: 48.5%;
   }
 }
-@-webkit-keyframes eat {
-  0% {
-    -webkit-clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
-            clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
-  }
-  25% {
-    -webkit-clip-path: polygon(100% 60%, 44% 48%, 100% 40%);
-            clip-path: polygon(100% 60%, 44% 48%, 100% 40%);
-  }
-  50% {
-    -webkit-clip-path: polygon(100% 50%, 44% 48%, 100% 50%);
-            clip-path: polygon(100% 50%, 44% 48%, 100% 50%);
-  }
-  75% {
-    -webkit-clip-path: polygon(100% 59%, 44% 48%, 100% 35%);
-            clip-path: polygon(100% 59%, 44% 48%, 100% 35%);
-  }
-  100% {
-    -webkit-clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
-            clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
-  }
-}
 @keyframes eat {
   0% {
     -webkit-clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
@@ -578,12 +412,9 @@ body {
   color: red;
   top: 3%;
   left: 10%;
-  -webkit-animation-name: eaten-apple;
-          animation-name: eaten-apple;
-  -webkit-animation-duration: 11.5s;
-          animation-duration: 11.5s;
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
+  animation-name: eaten-apple;
+  animation-duration: 11.5s;
+  animation-iteration-count: 1;
   opacity: 0;
 }
 
@@ -591,12 +422,9 @@ body {
   color: blue;
   top: 93.5%;
   left: 10%;
-  -webkit-animation-name: eaten-apple;
-          animation-name: eaten-apple;
-  -webkit-animation-duration: 7.8s;
-          animation-duration: 7.8s;
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
+  animation-name: eaten-apple;
+  animation-duration: 7.8s;
+  animation-iteration-count: 1;
   opacity: 0;
 }
 
@@ -604,12 +432,9 @@ body {
   color: green;
   top: 50%;
   left: 10%;
-  -webkit-animation-name: eaten-apple;
-          animation-name: eaten-apple;
-  -webkit-animation-duration: 3.5s;
-          animation-duration: 3.5s;
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
+  animation-name: eaten-apple;
+  animation-duration: 3.5s;
+  animation-iteration-count: 1;
   opacity: 0;
 }
 
@@ -617,25 +442,10 @@ body {
   color: darkgoldenrod;
   top: 40%;
   left: 67.7%;
-  -webkit-animation-name: eaten-apple;
-          animation-name: eaten-apple;
-  -webkit-animation-duration: 1.7s;
-          animation-duration: 1.7s;
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
+  animation-name: eaten-apple;
+  animation-duration: 1.7s;
+  animation-iteration-count: 1;
   opacity: 0;
-}
-
-@-webkit-keyframes eaten-apple {
-  0% {
-    opacity: 1;
-  }
-  99% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 
 @keyframes eaten-apple {

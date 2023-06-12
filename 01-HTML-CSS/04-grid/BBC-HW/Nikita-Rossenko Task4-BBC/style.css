@@ -98,10 +98,8 @@ a:hover::after {
   font-size: 30px;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
-  -webkit-animation: bbc;
-          animation: bbc;
-  -webkit-animation-duration: 4s;
-          animation-duration: 4s;
+  animation: bbc;
+  animation-duration: 4s;
 }
 .bbc_nav_container__main__sign_in_container {
   color: white;

@@ -4,39 +4,11 @@
   width: 100px;
   height: 100px;
   position: relative;
-  -webkit-animation-name: bounce;
-          animation-name: bounce;
-  -webkit-animation-duration: 6s;
-          animation-duration: 6s;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-}
-
-@-webkit-keyframes bounce {
-  25% {
-    background-color: pink;
-    top: 50px;
-    right: -20px;
-  }
-  50% {
-    background-color: rgb(34, 0, 255);
-    top: 0px;
-    right: -60px;
-  }
-  75% {
-    background-color: rgb(81, 22, 218);
-    top: 50px;
-    right: -100px;
-  }
-  100% {
-    background-color: rgb(1, 0, 0);
-    top: 0px;
-    right: -140px;
-  }
+  animation-name: bounce;
+  animation-duration: 6s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 @keyframes bounce {

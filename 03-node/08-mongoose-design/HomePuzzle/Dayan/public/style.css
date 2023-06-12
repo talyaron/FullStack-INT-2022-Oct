@@ -1,0 +1,19 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: tomato;
+  padding: 5px;
+}
+
+h1 {
+  color: bisque;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+}

@@ -1,0 +1,116 @@
+body {
+  background-color: #333;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 500px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+  text-shadow: 2px 2px #000;
+  margin-bottom: 40px;
+}
+
+.form {
+  display: block;
+  text-align: center;
+}
+
+form {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+input[type=text] {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  background-color: #555;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #9B59B6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.displayedText {
+  font-size: 20px;
+  font-weight: bold;
+  color: #9B59B6;
+  text-align: center;
+}
+
+.footer {
+  background: #000;
+  padding: 30px 0px;
+  margin-top: 350px;
+  font-family: "Play", sans-serif;
+  text-align: center;
+}
+
+.footer .row {
+  width: 100%;
+  justify-content: center;
+  padding: 0.6% 0%;
+  color: gray;
+  font-size: 0.8em;
+}
+
+.footer .row a {
+  text-decoration: none;
+  color: gray;
+  transition: 0.5s;
+}
+
+.footer .row a:hover {
+  color: #fff;
+}
+
+.footer .row ul {
+  width: 100%;
+}
+
+.footer .row ul li {
+  display: inline-block;
+  justify-content: center;
+  margin: 20px 30px;
+  margin-right: 115px;
+}
+
+.footer .row a i {
+  font-size: 2em;
+  margin: 0% 1%;
+}
+
+@media (max-width: 720px) {
+  .footer {
+    text-align: left;
+    padding: 5%;
+  }
+  .footer .row ul li {
+    display: block;
+    margin: 10px 0px;
+    text-align: left;
+  }
+  .footer .row a i {
+    margin: 0% 3%;
+  }
+}
