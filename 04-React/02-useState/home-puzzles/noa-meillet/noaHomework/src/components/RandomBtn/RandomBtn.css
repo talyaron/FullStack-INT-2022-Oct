@@ -1,0 +1,16 @@
+.students {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.students .student-btn {
+  width: 90px;
+  height: 60px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+}

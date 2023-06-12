@@ -1,0 +1,192 @@
+body {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-family: Verdana, sans-serif;
+  background-color: #251424 !important;
+}
+
+.addStarshipContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.472);
+}
+.addStarshipContainer .addStarshipSubContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 400px;
+  background-color: white;
+  border-radius: 20px;
+}
+.addStarshipContainer .addStarshipSubContainer form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+.addStarshipContainer .addStarshipSubContainer form .input {
+  all: unset;
+  height: 40px;
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.spaceshipBtn {
+  all: unset;
+  font-size: 20px;
+  cursor: pointer;
+  border: 1px solid #67E9DE;
+  background-color: black;
+  padding: 4px;
+  border-radius: 10px;
+  margin-bottom: 4px;
+}
+
+.spaceshipBtn:hover {
+  background-color: #6C57A1;
+}
+
+.main_container {
+  width: 1200px;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.main_container .video_container:hover .enterShop {
+  display: block;
+}
+.main_container .video_container {
+  width: 1024px;
+  height: 576px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main_container .video_container #spaceshipShopEntrance {
+  border-radius: 50px;
+}
+.main_container .video_container .enterShop {
+  display: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  color: #203047;
+  font-size: 100px;
+  font-weight: bold;
+  -webkit-text-stroke: 2px #9AFCFF;
+  transition: 0.5s;
+  animation-name: flicker;
+  animation-duration: 1s;
+  animation-delay: -2s;
+  animation-iteration-count: infinite;
+}
+.main_container h1 {
+  color: white;
+}
+
+.spaceshipsContainer {
+  height: auto;
+  width: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.spaceshipsContainer .spaceshipCard {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  width: 500px;
+  height: 400px;
+  padding: 10px;
+  border-radius: 20px;
+}
+.spaceshipsContainer .spaceshipName {
+  margin: 0;
+  color: white;
+}
+.spaceshipsContainer .spaceshipVideo {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.sliderContainer {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 20px;
+}
+.sliderContainer #myCarousel {
+  border-radius: 20px;
+}
+.sliderContainer #myCarousel .carousel-control {
+  border-radius: 20px;
+}
+.sliderContainer #myCarousel .carousel-inner {
+  border-radius: 20px;
+}
+.sliderContainer #myCarousel .carousel-inner .item {
+  border-radius: 20px;
+}
+.sliderContainer #myCarousel .carousel-inner .item .carousel-caption .spaceshipBtn {
+  margin-bottom: 10px;
+}
+.sliderContainer h2 {
+  color: white;
+}
+.sliderContainer #myCarousel {
+  width: 1000px;
+}
+
+.backgroundAnimation {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: -1;
+}
+
+.backgroundSides {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+@keyframes flicker {
+  0% {
+    -webkit-text-stroke: 2px #e3feff;
+    font-size: 100px;
+  }
+  50% {
+    -webkit-text-stroke: 4px #b8fcff;
+    font-size: 120px;
+  }
+  100% {
+    -webkit-text-stroke: 5px #9AFCFF;
+    font-size: 100px;
+  }
+}

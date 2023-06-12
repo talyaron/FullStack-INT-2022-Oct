@@ -2,11 +2,12 @@ import BallonModel from "./balloonsModel";
 
 export const creatBalloon = async (req: any, res: any) => {
   try {
-    const { name, src } = req.body;
+    const { name, src, score } = req.body;
 
     const balloonDB = await BallonModel.create({
       name,
       src,
+      score,
     });
     res.send({ balloonDB });
   } catch (error: any) {

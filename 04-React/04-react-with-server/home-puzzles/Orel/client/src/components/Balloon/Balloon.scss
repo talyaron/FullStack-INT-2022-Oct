@@ -1,0 +1,27 @@
+.balloon-container{
+  
+    animation: balloonAnimation linear;
+    animation-duration: 2s;
+    bottom:-30%;
+    position: absolute;
+    cursor: pointer;
+    overflow: hidden;
+    width: 200px;
+    background-color: unset;
+
+&__balloon{
+
+    width: inherit;
+    object-fit: contain;
+    
+}
+}
+
+@keyframes balloonAnimation {
+    from {
+      bottom: -20%;
+    }
+    to {
+      bottom: 100%;
+    }
+  }

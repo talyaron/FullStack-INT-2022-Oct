@@ -23,20 +23,7 @@ body {
   left: 2.5em;
   z-index: 1;
   display: block;
-  -webkit-animation: bite 0.4s linear infinite, slide_right_1 1s linear 1, turn_downwards_1 0.1s linear 0.9s 1, slide_down_1 5s linear 0.9s 1, slide_right_2 1s linear 5.9s 1, turn_downwards_2 0.1s linear 6.9s 1, slide_down_2 1s linear 6.9s, slide_right_3 1s linear 7.9s 1, disappear 4s linear 8.3s 1;
-          animation: bite 0.4s linear infinite, slide_right_1 1s linear 1, turn_downwards_1 0.1s linear 0.9s 1, slide_down_1 5s linear 0.9s 1, slide_right_2 1s linear 5.9s 1, turn_downwards_2 0.1s linear 6.9s 1, slide_down_2 1s linear 6.9s, slide_right_3 1s linear 7.9s 1, disappear 4s linear 8.3s 1;
-}
-
-@-webkit-keyframes bite {
-  0% {
-    background-image: linear-gradient(220deg, transparent 50%, yellow 50%), linear-gradient(140deg, yellow 50%, transparent 50%);
-  }
-  50% {
-    background-image: linear-gradient(200deg, transparent 50%, yellow 50%), linear-gradient(160deg, yellow 50%, transparent 50%);
-  }
-  100% {
-    background-image: linear-gradient(180deg, transparent 50%, yellow 50%), linear-gradient(180deg, yellow 50%, transparent 50%);
-  }
+  animation: bite 0.4s linear infinite, slide_right_1 1s linear 1, turn_downwards_1 0.1s linear 0.9s 1, slide_down_1 5s linear 0.9s 1, slide_right_2 1s linear 5.9s 1, turn_downwards_2 0.1s linear 6.9s 1, slide_down_2 1s linear 6.9s, slide_right_3 1s linear 7.9s 1, disappear 4s linear 8.3s 1;
 }
 
 @keyframes bite {
@@ -48,20 +35,6 @@ body {
   }
   100% {
     background-image: linear-gradient(180deg, transparent 50%, yellow 50%), linear-gradient(180deg, yellow 50%, transparent 50%);
-  }
-}
-@-webkit-keyframes slide_right_1 {
-  0% {
-    top: 2.5em;
-    left: 2.5em;
-  }
-  99% {
-    top: 2.5em;
-    left: 9.7em;
-  }
-  100% {
-    top: 2.5em;
-    left: 9.7em;
   }
 }
 @keyframes slide_right_1 {
@@ -78,30 +51,9 @@ body {
     left: 9.7em;
   }
 }
-@-webkit-keyframes turn_downwards_1 {
-  100% {
-    transform: rotate(90deg);
-  }
-}
 @keyframes turn_downwards_1 {
   100% {
     transform: rotate(90deg);
-  }
-}
-@-webkit-keyframes slide_down_1 {
-  0% {
-    top: 2.5em;
-    left: 9.7em;
-    transform: rotate(90deg);
-  }
-  99% {
-    top: 31em;
-    left: 9.7em;
-    transform: rotate(90deg);
-  }
-  100% {
-    top: 31em;
-    left: 9.7em;
   }
 }
 @keyframes slide_down_1 {
@@ -120,20 +72,6 @@ body {
     left: 9.7em;
   }
 }
-@-webkit-keyframes slide_right_2 {
-  0% {
-    top: 31em;
-    left: 9.7em;
-  }
-  99% {
-    top: 31em;
-    left: 19em;
-  }
-  100% {
-    top: 31em;
-    left: 19em;
-  }
-}
 @keyframes slide_right_2 {
   0% {
     top: 31em;
@@ -148,30 +86,9 @@ body {
     left: 19em;
   }
 }
-@-webkit-keyframes turn_downwards_2 {
-  100% {
-    transform: rotate(90deg);
-  }
-}
 @keyframes turn_downwards_2 {
   100% {
     transform: rotate(90deg);
-  }
-}
-@-webkit-keyframes slide_down_2 {
-  0% {
-    top: 31em;
-    left: 19em;
-    transform: rotate(90deg);
-  }
-  99% {
-    top: 35.7em;
-    left: 19em;
-    transform: rotate(90deg);
-  }
-  100% {
-    top: 35.7em;
-    left: 19em;
   }
 }
 @keyframes slide_down_2 {
@@ -190,20 +107,6 @@ body {
     left: 19em;
   }
 }
-@-webkit-keyframes slide_right_3 {
-  0% {
-    top: 35.7em;
-    left: 19em;
-  }
-  99% {
-    top: 35.7em;
-    left: 32em;
-  }
-  100% {
-    top: 35.7em;
-    left: 32em;
-  }
-}
 @keyframes slide_right_3 {
   0% {
     top: 35.7em;
@@ -216,28 +119,6 @@ body {
   100% {
     top: 35.7em;
     left: 32em;
-  }
-}
-@-webkit-keyframes disappear {
-  0% {
-    top: 35.7em;
-    left: 25em;
-    opacity: 1;
-  }
-  30% {
-    top: 35.7em;
-    left: 25em;
-    opacity: 0.5;
-  }
-  60% {
-    top: 35.7em;
-    left: 25em;
-    opacity: 0;
-  }
-  100% {
-    top: 35.7em;
-    left: 25em;
-    opacity: 0;
   }
 }
 @keyframes disappear {
@@ -272,23 +153,7 @@ body {
   position: relative;
   z-index: 1;
   display: block;
-  -webkit-animation: ghost_1 1.5s linear infinite;
-          animation: ghost_1 1.5s linear infinite;
-}
-
-@-webkit-keyframes ghost_1 {
-  0% {
-    top: 33.7em;
-    left: 32em;
-  }
-  50% {
-    top: 33.7em;
-    left: 25em;
-  }
-  100% {
-    top: 33.7em;
-    left: 32em;
-  }
+  animation: ghost_1 1.5s linear infinite;
 }
 
 @keyframes ghost_1 {
@@ -317,35 +182,7 @@ body {
   left: 19em;
   z-index: 1;
   display: block;
-  -webkit-animation: ghost_2 10s linear 1;
-          animation: ghost_2 10s linear 1;
-}
-
-@-webkit-keyframes ghost_2 {
-  0% {
-    bottom: 1.5em;
-    left: 19em;
-  }
-  15% {
-    bottom: 1.5em;
-    left: 9.5em;
-  }
-  65% {
-    bottom: -27em;
-    left: 9.5em;
-  }
-  80% {
-    bottom: -27em;
-    left: 19em;
-  }
-  85% {
-    bottom: -30em;
-    left: 19em;
-  }
-  100% {
-    bottom: -30em;
-    left: 19em;
-  }
+  animation: ghost_2 10s linear 1;
 }
 
 @keyframes ghost_2 {
@@ -397,159 +234,104 @@ body {
   opacity: 0;
 }
 .food_array .gone_1 {
-  -webkit-animation: eat 0s linear 0.1s 1;
-          animation: eat 0s linear 0.1s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 0.1s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_2 {
-  -webkit-animation: eat 0s linear 0.4s 1;
-          animation: eat 0s linear 0.4s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 0.4s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_3 {
-  -webkit-animation: eat 0s linear 0.6s 1;
-          animation: eat 0s linear 0.6s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 0.6s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_4 {
-  -webkit-animation: eat 0s linear 1s 1;
-          animation: eat 0s linear 1s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 1s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_5 {
-  -webkit-animation: eat 0s linear 1.4s 1;
-          animation: eat 0s linear 1.4s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 1.4s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_6 {
-  -webkit-animation: eat 0s linear 1.8s 1;
-          animation: eat 0s linear 1.8s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 1.8s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_7 {
-  -webkit-animation: eat 0s linear 2.2s 1;
-          animation: eat 0s linear 2.2s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 2.2s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_8 {
-  -webkit-animation: eat 0s linear 2.6s 1;
-          animation: eat 0s linear 2.6s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 2.6s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_9 {
-  -webkit-animation: eat 0s linear 3s 1;
-          animation: eat 0s linear 3s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 3s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_10 {
-  -webkit-animation: eat 0s linear 3.4s 1;
-          animation: eat 0s linear 3.4s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 3.4s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_11 {
-  -webkit-animation: eat 0s linear 3.8s 1;
-          animation: eat 0s linear 3.8s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 3.8s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_12 {
-  -webkit-animation: eat 0s linear 4.2s 1;
-          animation: eat 0s linear 4.2s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 4.2s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_13 {
-  -webkit-animation: eat 0s linear 4.6s 1;
-          animation: eat 0s linear 4.6s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 4.6s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_14 {
-  -webkit-animation: eat 0s linear 5s 1;
-          animation: eat 0s linear 5s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 5s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_15 {
-  -webkit-animation: eat 0s linear 5.4s 1;
-          animation: eat 0s linear 5.4s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 5.4s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_16 {
-  -webkit-animation: eat 0s linear 6s 1;
-          animation: eat 0s linear 6s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 6s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_17 {
-  -webkit-animation: eat 0s linear 6.2s 1;
-          animation: eat 0s linear 6.2s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 6.2s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_18 {
-  -webkit-animation: eat 0s linear 6.4s 1;
-          animation: eat 0s linear 6.4s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 6.4s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_19 {
-  -webkit-animation: eat 0s linear 6.6s 1;
-          animation: eat 0s linear 6.6s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 6.6s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_20 {
-  -webkit-animation: eat 0s linear 6.8s 1;
-          animation: eat 0s linear 6.8s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 6.8s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_21 {
-  -webkit-animation: eat 0s linear 7.4s 1;
-          animation: eat 0s linear 7.4s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 7.4s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_22 {
-  -webkit-animation: eat 0s linear 7.8s 1;
-          animation: eat 0s linear 7.8s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 7.8s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_23 {
-  -webkit-animation: eat 0s linear 8s 1;
-          animation: eat 0s linear 8s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 8s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_24 {
-  -webkit-animation: eat 0s linear 8.2s 1;
-          animation: eat 0s linear 8.2s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: eat 0s linear 8.2s 1;
+  animation-fill-mode: forwards;
 }
 .food_array .gone_25 {
-  -webkit-animation: eat 0s linear 8.4s 1;
-          animation: eat 0s linear 8.4s 1;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-@-webkit-keyframes eat {
-  100% {
-    opacity: 0;
-  }
+  animation: eat 0s linear 8.4s 1;
+  animation-fill-mode: forwards;
 }
 @keyframes eat {
   100% {
@@ -563,24 +345,11 @@ body {
   width: 42em;
   height: 20em;
   opacity: 0;
-  -webkit-animation: game_over 20s linear 10s 1;
-          animation: game_over 20s linear 10s 1;
+  animation: game_over 20s linear 10s 1;
   position: relative;
   top: -45em;
   left: 1.5em;
   z-index: 1;
-}
-
-@-webkit-keyframes game_over {
-  0% {
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 @keyframes game_over {

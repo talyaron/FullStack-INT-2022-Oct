@@ -36,15 +36,6 @@ body {
   /* Firefox */
 }
 
-:-ms-input-placeholder {
-  color: rgb(21, 97, 0);
-  font-weight: bold;
-  font-size: large;
-  height: 200px;
-  padding-left: 10px;
-  /* Firefox */
-}
-
 ::placeholder {
   color: rgb(21, 97, 0);
   font-weight: bold;

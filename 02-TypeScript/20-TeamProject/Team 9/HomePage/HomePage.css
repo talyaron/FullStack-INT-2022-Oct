@@ -1,0 +1,572 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 3px;
+  background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #d2d2d2;
+}
+
+.navbar {
+  position: absolute;
+  background-image: linear-gradient(to left, #868f96 0%, #000000 100%);
+  height: 8vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 19px;
+}
+.navbar__loginOut {
+  background-color: rgb(234, 234, 234);
+  color: rgb(0, 0, 0);
+  padding: 2px 2px 2px 2px;
+  width: 6rem;
+  height: 2rem;
+  position: absolute;
+  right: 1rem;
+  top: 1.1rem;
+  border-radius: 10px;
+  font-family: "Tilt Warp", cursive;
+}
+.navbar__loginOut:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.sideBar {
+  position: absolute;
+  height: 100vh;
+  background-image: linear-gradient(to right, #000000 0%, #000000 100%);
+  width: 90px;
+  font-family: "Tilt Warp", cursive;
+}
+.sideBar .sideBar__logo {
+  position: absolute;
+  top: 28px;
+  left: 15px;
+  color: rgb(255, 255, 255);
+  display: none;
+}
+.sideBar .sideBar__logo__icon {
+  pointer-events: none;
+}
+.sideBar__hamburger {
+  font-size: x-large;
+  margin-top: 25px;
+  margin-left: 25px;
+  color: white;
+  padding: 2px 2px 2px 2px;
+}
+.sideBar__hamburger:hover {
+  cursor: pointer;
+}
+.sideBar__inputImg {
+  position: absolute;
+  margin-top: 40px;
+  height: 80px;
+  border-radius: 0%;
+  left: -80px;
+  opacity: 0;
+}
+.sideBar__inputImg:hover {
+  position: absolute;
+  margin-top: 40px;
+  height: 80px;
+  border-radius: 0%;
+  left: -80px;
+  opacity: 0;
+  cursor: pointer;
+}
+.sideBar__user__imageIcon {
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+  font-size: 11px;
+  position: absolute;
+  left: 56px;
+  top: 125px;
+}
+.sideBar__profile {
+  margin-top: 60px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 100%;
+  width: 60px;
+  height: 60px;
+  margin-left: 10px;
+  box-shadow: 2px 2px 2px rgba(234, 225, 225, 0);
+}
+.sideBar__profile:hover {
+  cursor: pointer;
+  filter: opacity(60%);
+  border: 3px solid rgb(255, 255, 255);
+}
+.sideBar__profile__details {
+  position: relative;
+  color: white;
+  margin-left: 28px;
+  top: -25px;
+}
+.sideBar__possibility {
+  margin-top: 20px;
+  margin-left: 12px;
+  list-style: none;
+}
+.sideBar__possibility li {
+  margin-top: 80px;
+  border-radius: 20%;
+  background-color: rgb(2, 2, 2);
+  color: rgb(255, 255, 255);
+  margin-right: 20px;
+  margin-left: 10px;
+}
+.sideBar__possibility li a {
+  opacity: 0;
+}
+.sideBar__possibility li:hover {
+  position: relative;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+.sideBar__possibility li:hover a {
+  text-decoration: none;
+  position: absolute;
+  margin-left: 20px;
+  font-size: xx-large;
+  left: 40px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+.sideBar .liIncome:hover {
+  background-color: black;
+  color: white;
+  position: relative;
+}
+.sideBar .liIncome:hover a {
+  position: absolute;
+  transition: transform ease-in 0.2s;
+  padding-top: 4px;
+  top: -5px;
+  box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+  opacity: 1;
+}
+.sideBar .liExpenses:hover {
+  background-color: black;
+  color: white;
+}
+.sideBar .liExpenses:hover a {
+  position: absolute;
+  transition: transform ease-in 0.2s;
+  padding-top: 4px;
+  top: -8px;
+  box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+  opacity: 1;
+}
+.sideBar .liGraph:hover {
+  background-color: black;
+  color: white;
+}
+.sideBar .liGraph:hover a {
+  position: absolute;
+  transition: transform ease-in 0.2s;
+  padding-top: 4px;
+  top: -8px;
+  background-color: whitesmoke;
+  color: rgb(0, 0, 0);
+  opacity: 1;
+  box-shadow: 0 0.5rem 0.8rem rgba(0, 0, 0, 0.2);
+}
+.sideBar i {
+  padding: 3px 5px 3px 4px;
+  color: white;
+  font-size: 38px;
+}
+.sideBar i:hover {
+  transition: transform ease-in 0.2s;
+  border-radius: 10%;
+  color: black;
+  background-color: white;
+}
+.sideBar a {
+  text-decoration: none;
+  font-weight: bold;
+  position: absolute;
+  left: 80px;
+  border-radius: 0.4rem;
+  margin-bottom: 50px;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 6px 10px 6px;
+  color: rgb(6, 6, 6);
+  opacity: 0;
+}
+.sideBar .sideBar__logo__icon {
+  font-size: larger;
+}
+
+.monthAndYear {
+  font-family: "Fredoka One", cursive;
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
+  position: absolute;
+  top: 12vh;
+  left: 40vw;
+  font-size: 30px;
+}
+
+.calculationsContainer {
+  position: absolute;
+  top: 10rem;
+  left: 260px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 2px solid rgb(0, 0, 0);
+  box-shadow: rgb(44, 62, 80) 0px 0px 15px 0px inset;
+  background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
+  border-radius: 10%;
+  height: 75vh;
+  width: 70vw;
+}
+.calculationsContainer__currentSalary {
+  position: absolute;
+  top: 5vh;
+  left: 45%;
+}
+.calculationsContainer__currentSalary .calculationsContainer__currentSalary__p {
+  position: relative;
+  top: -2vh;
+  font-size: xx-large;
+  color: rgb(255, 255, 255);
+}
+.calculationsContainer__incom {
+  position: relative;
+  color: white;
+  font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  height: 7vh;
+  margin-top: 20px;
+  margin-right: 5vw;
+  margin-left: 5vw;
+  border: 2px solid black;
+  background-color: rgb(34, 176, 129);
+}
+.calculationsContainer__incom--incomes {
+  position: absolute;
+  top: 1vh;
+  left: 2vw;
+  font-size: x-large;
+}
+.calculationsContainer__incom__amountOfRevenue {
+  position: absolute;
+  right: 7vh;
+  top: 1vh;
+  font-size: x-large;
+  color: white;
+}
+.calculationsContainer__expnse {
+  position: relative;
+  height: 7vh;
+  background-color: rgb(229, 97, 97);
+  margin-right: 5vw;
+  margin-left: 5vw;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: columns;
+  justify-content: space-between;
+  color: white;
+  font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.calculationsContainer__expnse--expenses {
+  position: absolute;
+  top: 1vh;
+  left: 2vw;
+  font-size: x-large;
+}
+.calculationsContainer__expnse__amountOfExpenses {
+  position: absolute;
+  right: 7vh;
+  top: 1vh;
+  font-size: x-large;
+  color: white;
+}
+.calculationsContainer__expnse .calculationsContainer__expnse__percentage {
+  position: absolute;
+  padding-left: 0.5%;
+  right: 1vh;
+  top: 22%;
+  width: 40px;
+  height: 20px;
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+  background-color: rgba(255, 201, 201, 0.9);
+  border: none;
+  box-shadow: rgb(255, 255, 255) 0px 0px 15px 0px inset;
+}
+.calculationsContainer__TypesOfIncom {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: rgb(255, 255, 255);
+  height: 10rem;
+  width: 15rem;
+  align-self: self-start;
+  position: relative;
+  left: 7%;
+  border: 2px solid rgb(64, 217, 97);
+  color: white;
+  font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  box-shadow: rgb(44, 62, 80) 0px 0px 15px 0px inset;
+}
+.calculationsContainer__TypesOfIncom .calculationsContainer__TypesOfIncomes {
+  position: absolute;
+  left: 1vw;
+  top: 0.5vh;
+  font-size: x-large;
+  color: rgb(34, 176, 129);
+}
+.calculationsContainer__TypesOfIncom .calculationsContainer__TypesIncomes {
+  color: rgb(34, 62, 53);
+  width: 90%;
+  margin-left: 10px;
+  height: 20px;
+  position: relative;
+  top: 5vh;
+  border-top: 2px solid rgb(23, 203, 86);
+}
+.calculationsContainer__TypesOfIncom .calculationsContainer__TypesIncomes .RemoveIncome {
+  position: absolute;
+  top: 2px;
+  right: 1px;
+  font-size: medium;
+  color: rgb(82, 247, 151);
+}
+.calculationsContainer__TypesOfIncom :hover .RemoveIncome {
+  cursor: pointer;
+  position: absolute;
+  top: 2px;
+  right: 5%;
+  transform: translate(2s);
+  font-size: large;
+  color: rgb(4, 154, 67);
+}
+.calculationsContainer__TypesOfExpense {
+  font-weight: bold;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  overflow-y: scroll;
+  background-color: rgb(255, 255, 255);
+  height: 10rem;
+  width: 15rem;
+  position: absolute;
+  right: 5vw;
+  top: 45vh;
+  border: 2px solid rgb(255, 40, 40);
+  box-shadow: rgb(44, 62, 80) 0px 0px 15px 0px inset;
+}
+.calculationsContainer__TypesOfExpense .calculationsContainer__TypesOfExpenses {
+  position: absolute;
+  left: 1vw;
+  top: 0.5vh;
+  font-size: x-large;
+  color: rgb(229, 97, 97);
+}
+.calculationsContainer__TypesOfExpense .calculationsContainer__TypesExpense {
+  position: relative;
+  color: rgb(34, 62, 53);
+  width: 90%;
+  margin-left: 10px;
+  height: 20px;
+  top: 5vh;
+  border-top: 2px solid rgb(255, 81, 81);
+}
+.calculationsContainer__TypesOfExpense .calculationsContainer__TypesExpense .Percentage {
+  color: rgb(250, 88, 88);
+  position: absolute;
+  right: 10%;
+  font-style: normal;
+  font-weight: normal;
+}
+.calculationsContainer__TypesOfExpense .calculationsContainer__TypesExpense .RemoveExpnse {
+  position: absolute;
+  top: 2px;
+  right: 1px;
+  font-size: medium;
+  color: rgb(253, 119, 119);
+}
+.calculationsContainer__TypesOfExpense :hover .Percentage {
+  color: rgb(250, 88, 88);
+  position: absolute;
+  right: 20%;
+  cursor: pointer;
+}
+.calculationsContainer__TypesOfExpense :hover .RemoveExpnse {
+  cursor: pointer;
+  position: absolute;
+  right: 5%;
+  transform: translate(2s);
+  font-size: large;
+  color: rgb(255, 0, 0);
+}
+
+.income__container {
+  position: absolute;
+  background-color: rgba(4, 4, 4, 0.8);
+  border-radius: 10%;
+  width: 400px;
+  height: 400px;
+  margin-right: 5vw;
+  top: 30vh;
+  left: 40vw;
+  right: 40vw;
+  border: 2px solid;
+  display: none;
+}
+.income__container .income__container__titel {
+  position: absolute;
+  color: aquamarine;
+  position: absolute;
+  top: 6vh;
+  margin-left: 12%;
+}
+.income__container .income__container__income {
+  position: absolute;
+  top: 10vh;
+  margin-left: 12%;
+  margin-right: 12%;
+  font-size: x-large;
+  border-radius: 0%;
+}
+.income__container .income__container__typeIncome {
+  position: absolute;
+  top: 20vh;
+  margin-left: 12%;
+  margin-right: 12%;
+  font-size: x-large;
+  border-radius: 0%;
+  border: none;
+}
+.income__container .income__container__selectTypeIncom {
+  position: absolute;
+  top: 30vh;
+  width: 76%;
+  margin-left: 12%;
+  font-size: x-large;
+  border: none;
+}
+.income__container .income__container__buttonAdd {
+  position: absolute;
+  top: 40vh;
+  background-color: aquamarine;
+  width: 100px;
+  height: 40px;
+  margin-left: 35%;
+  border-radius: 10px;
+  font-size: large;
+  font-family: "Tilt Warp", cursive;
+}
+.income__container .income__container__buttonAdd:hover {
+  background-color: rgb(72, 248, 189);
+}
+
+.expense__container {
+  position: absolute;
+  background-color: rgba(4, 4, 4, 0.8);
+  border-radius: 10%;
+  width: 400px;
+  height: 400px;
+  margin-right: 5vw;
+  top: 30vh;
+  left: 40vw;
+  right: 40vw;
+  border: 2px solid;
+  display: none;
+}
+.expense__container .expense__container__titel {
+  position: absolute;
+  color: rgb(255, 127, 127);
+  position: absolute;
+  top: 6vh;
+  margin-left: 12%;
+}
+.expense__container .expense__container__expense {
+  position: absolute;
+  top: 10vh;
+  margin-left: 12%;
+  margin-right: 12%;
+  font-size: x-large;
+  border-radius: 0%;
+}
+.expense__container .expense__container__typeExpense {
+  position: absolute;
+  top: 20vh;
+  margin-left: 12%;
+  margin-right: 12%;
+  font-size: x-large;
+  border-radius: 0%;
+  border: none;
+}
+.expense__container .expense__container__selectTypeExpense {
+  position: absolute;
+  top: 30vh;
+  width: 76%;
+  margin-left: 12%;
+  font-size: x-large;
+  border: none;
+}
+.expense__container .expense__container__buttonAdd {
+  position: absolute;
+  top: 40vh;
+  background-color: rgb(251, 91, 91);
+  width: 100px;
+  height: 40px;
+  margin-left: 35%;
+  border-radius: 10px;
+  font-size: large;
+  font-family: "Tilt Warp", cursive;
+}
+.expense__container .expense__container__buttonAdd:hover {
+  background-color: rgb(255, 33, 33);
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(-45deg, #3f3f3f, #4f4f4f, #737474, #3d3b3b);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

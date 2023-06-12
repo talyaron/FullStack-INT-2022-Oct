@@ -1,0 +1,40 @@
+.box {
+  border: 2px solid #dbdbdb;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 40rem;
+}
+
+.box img {
+  width: 40rem;
+  height: 30rem;
+}
+
+.box h1 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.box p {
+  color: #ffffff;
+}
+
+.navbar {
+  background-color: rgb(28, 28, 30);
+  width: 100%;
+  height: 3rem;
+}
+
+.navbar p {
+  margin-left: 2rem;
+  font-weight: bold;
+}
+
+.like-button img,
+.comment-button img,
+.share-button img {
+  width: 24px;
+  height: 24px;
+}

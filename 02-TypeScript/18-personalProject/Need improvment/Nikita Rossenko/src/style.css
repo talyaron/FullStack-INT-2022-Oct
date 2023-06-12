@@ -1,0 +1,496 @@
+* {
+  color: black;
+}
+
+html {
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: space-between;
+  background-color: #10171B;
+}
+
+.imageContainer {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  z-index: -1;
+  background-image: url("../images/movie-theater.jpg");
+}
+
+.loginAndRegisterContainer {
+  background-color: white;
+  width: 30%;
+  min-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.loginAndRegisterContainer h1 {
+  position: absolute;
+  top: 20px;
+  font-size: 60px;
+}
+.loginAndRegisterContainer .main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 450px;
+  border: 3px;
+  gap: 20px;
+  left: 100px;
+}
+.loginAndRegisterContainer .main h2 {
+  padding: 0;
+  margin: 0;
+  font-size: 50px;
+}
+.loginAndRegisterContainer .main a {
+  all: unset;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.loginAndRegisterContainer .main form {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+.loginAndRegisterContainer .main form input {
+  height: 40px;
+  width: 260px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.loginAndRegisterContainer .main form #regitserPopMessage {
+  position: absolute;
+  bottom: 130px;
+  padding: 0;
+  margin: 0;
+  color: red;
+}
+.loginAndRegisterContainer .main form #loginPopMessage {
+  position: absolute;
+  bottom: 165px;
+  padding: 0;
+  margin: 0;
+  color: red;
+}
+.loginAndRegisterContainer .main form #submitBtn {
+  box-shadow: none;
+  width: 150px;
+  height: 45px;
+  transition: 500ms;
+  backface-visibility: hidden;
+  margin-top: 10px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  background: linear-gradient(180deg, #f9f9f9 0%, #e0e0e0 100%);
+  border-radius: 50px;
+  padding: 4px 22px 5px 22px;
+  color: black;
+  font-size: 18px;
+  border: 1px solid #7F594A;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+.loginAndRegisterContainer .main form #submitBtn:hover {
+  background: #B4AAA1;
+  border: 1px solid white;
+}
+
+.navBar {
+  width: 100%;
+  height: 60px;
+  background-color: #31211F;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  z-index: 1;
+}
+.navBar__icons {
+  width: 100%;
+  width: 1546px;
+  height: 60px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+}
+.navBar__icons__menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 100%;
+}
+.navBar__icons__menu__container {
+  display: none;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  position: absolute;
+  left: -10px;
+  top: 60px;
+  background-color: #31211F;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  gap: 20px;
+}
+.navBar__icons__menu:hover .navBar__icons__menu__container {
+  display: flex;
+}
+.navBar__icons h1 {
+  font-size: 30px;
+  color: white;
+  margin-left: 20px;
+}
+.navBar__icons button {
+  box-shadow: none;
+  width: 80px;
+  height: 30px;
+  transition: 500ms;
+  backface-visibility: hidden;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  background: linear-gradient(180deg, #f9f9f9 0%, #e0e0e0 100%);
+  border-radius: 10px;
+  color: black;
+  font-size: 14px;
+  border: 1px solid #7F594A;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+.navBar__icons button:hover {
+  background: #B4AAA1;
+  border: 1px solid white;
+}
+.navBar__icons #addNewMovie {
+  width: 150px;
+}
+
+.moviesContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), #10171b), url("../images/movie-theater.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 60px;
+  overflow-y: auto;
+}
+.moviesContainer .username {
+  margin-top: 100px;
+  color: white;
+  width: auto;
+  height: 100px;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(34, 47, 56, 0.537254902);
+}
+.moviesContainer .username p {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+  font-size: 30px;
+}
+.moviesContainer .main {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.moviesContainer .main__moviesContainer {
+  position: relative;
+  width: 1546px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.moviesContainer .main__moviesContainer__movie {
+  position: relative;
+  width: 300px;
+  height: 373px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.moviesContainer .main__moviesContainer__movie__details {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.moviesContainer .main__moviesContainer__movie__details button {
+  box-shadow: none;
+  width: 120px;
+  height: 45px;
+  transition: 500ms;
+  backface-visibility: hidden;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  background: linear-gradient(180deg, #f9f9f9 0%, #e0e0e0 100%);
+  border-radius: 10px;
+  color: black;
+  font-size: 18px;
+  border: 1px solid #7F594A;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+.moviesContainer .main__moviesContainer__movie__details button:hover {
+  transition: 500ms;
+  background: #B4AAA1;
+  border: 1px solid white;
+}
+.moviesContainer .main__moviesContainer__movie__details h1 {
+  margin-left: 10px;
+  color: white;
+}
+.moviesContainer .main__moviesContainer__movie__details p {
+  margin-left: 10px;
+  color: white;
+}
+.moviesContainer .main__moviesContainer__movie img {
+  width: 100%;
+  height: 100%;
+}
+.moviesContainer .main__moviesContainer__movie:hover .main__moviesContainer__movie__details {
+  display: flex;
+}
+.moviesContainer .footer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  background-color: #31211F;
+  z-index: 1;
+}
+.moviesContainer .footer p {
+  margin-left: 20px;
+  color: rgb(178, 170, 170);
+}
+
+@media only screen and (max-width: 1540px) {
+  .navBar__icons {
+    max-width: 1250px;
+  }
+}
+@media only screen and (max-width: 1225px) {
+  .navBar__icons {
+    max-width: 935px;
+  }
+}
+@media only screen and (max-width: 936px) {
+  .navBar__icons {
+    max-width: 625px;
+  }
+}
+.SeatsContainer {
+  perspective: 1000px;
+  width: 600px;
+  height: 400px;
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0px 0px 30px 0px rgb(0, 0, 0);
+  /* Selects the second row f*/
+}
+.SeatsContainer__seat {
+  background-color: #7f594a;
+  height: 36px;
+  width: 45px;
+  margin: 9px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+.SeatsContainer__seat:hover {
+  background-color: rgb(162, 162, 162);
+}
+.SeatsContainer__seat.selected {
+  background-color: #2ecc71;
+}
+.SeatsContainer__seat.occupied {
+  background-color: #fff;
+}
+.SeatsContainer__seat:nth-of-type(2) {
+  margin-right: 54px;
+}
+.SeatsContainer__seat:nth-last-of-type(2) {
+  margin-left: 54px;
+}
+.SeatsContainer__seat:not(.occupied) {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.SeatsContainer__row {
+  display: flex;
+}
+.SeatsContainer__screen {
+  background-color: #fff;
+  height: 70px;
+  width: 94%;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  transform: rotateX(-45deg);
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+}
+
+.showcase .SeatsContainer__seat:not(.occupied) {
+  cursor: default;
+  transform: scale(1);
+}
+
+.showcase {
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 30px 0px rgb(0, 0, 0);
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.showcase li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.showcase li small {
+  margin-left: 2px;
+  color: white;
+}
+
+p.text {
+  margin: 5px 0;
+}
+
+p.text span {
+  color: #6feaf6;
+}
+
+.movieShowcase {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+.movieShowcase img {
+  max-width: 500px;
+  max-height: 721px;
+}
+.movieShowcase h1 {
+  color: white;
+}
+.movieShowcase p {
+  width: 480px;
+  color: white;
+  font-size: 20px;
+}
+
+.addNewMovieContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.addNewMovieContainer .closeAddMovie {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+.addNewMovieContainer__info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 500px;
+  height: auto;
+  background-color: #7f594a;
+  border-radius: 20px;
+  box-shadow: 0px 0px 30px 0px rgba(255, 255, 255, 0.774);
+  z-index: 4;
+}
+.addNewMovieContainer__info h1 {
+  color: white;
+}
+.addNewMovieContainer__info form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
+  height: 300px;
+  flex-direction: column;
+  gap: 30px;
+}
+.addNewMovieContainer__info form input, .addNewMovieContainer__info form select {
+  height: 40px;
+  width: 260px;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+.addNewMovieContainer__info form #addMovie {
+  width: 100px;
+}

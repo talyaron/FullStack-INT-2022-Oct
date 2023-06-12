@@ -1,0 +1,214 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  color: white;
+  box-sizing: border-box;
+}
+
+.container-courier {
+  overflow-x: hidden;
+  background-image: url("./../img/backgorud.jpg");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  font-size: 10px;
+  color: black;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+.container-courier .header {
+  color: #fff;
+  text-align: center;
+  padding: 10px 20px;
+}
+.container-courier .header__navbar {
+  margin: 15px;
+}
+.container-courier .header__list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.container-courier .header__link {
+  font-size: 1.4rem;
+  list-style: none;
+}
+.container-courier .header__link:hover {
+  scale: 1.1;
+  text-decoration: underline;
+}
+.container-courier .header__link a {
+  text-decoration: none;
+}
+.container-courier .main {
+  color: black;
+}
+.container-courier .main__drop {
+  color: #333;
+  overflow-y: hidden;
+  overflow: scroll;
+  background-color: rgba(24, 23, 23, 0.664);
+  width: 100vw;
+  display: flex;
+  gap: 5px;
+}
+.container-courier .main__drop-card {
+  min-width: 250px;
+  border: 1px solid black;
+  padding: 10px 20px;
+  width: 500px;
+}
+.container-courier .main__drop-card span {
+  background-color: black;
+  width: 100%;
+  display: block;
+  font-size: 1.1rem;
+}
+.container-courier .main__drop-card h1 {
+  color: #ffffff;
+  margin: 5px;
+  font-size: 1.5em;
+}
+.container-courier .main__order-title {
+  color: black;
+  text-align: center;
+  padding: 10px 20px;
+}
+.container-courier .main__order {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100vw;
+}
+.container-courier .main__active {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 250px;
+  min-width: 100vw;
+}
+.container-courier .main__card {
+  color: aliceblue;
+  font-size: 0.8em;
+  position: relative;
+  background: linear-gradient(45deg, rgba(12, 12, 12, 0.466), rgb(187, 179, 179));
+  text-transform: capitalize;
+  padding: 10px 20px;
+  border: 2px solid black;
+  margin: 30px;
+  width: 350px;
+}
+.container-courier .main__card span {
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  font-size: 1.1em;
+  width: 100%;
+  padding: 2px 4px;
+  display: block;
+  background-color: rgb(0, 0, 0);
+}
+.container-courier .main__card h1 {
+  font-weight: 500;
+  font-size: 1.5em;
+  margin: 5px;
+}
+.container-courier .main__card h3 {
+  margin: 3px;
+  font-size: 1.5em;
+}
+.container-courier .main__card h4 {
+  font-size: 1.5rem;
+}
+.container-courier .main__card button {
+  position: absolute;
+  bottom: -20px;
+  right: -15px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 15px;
+  font-weight: 700;
+  color: black;
+  text-transform: uppercase;
+  padding: 10px 15px;
+}
+.container-courier .main__card button:hover {
+  scale: 1.069;
+}
+.container-courier .main__card button:active {
+  scale: 0.99;
+}
+.container-courier .main__order-container {
+  position: relative;
+}
+.container-courier .main__order-container i {
+  transform: translateY(-50%);
+  top: 50%;
+  right: 15px;
+  position: absolute;
+}
+.container-courier .main__active-container {
+  justify-content: center;
+  position: relative;
+}
+.container-courier .main__active-container i {
+  transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  right: 15px;
+}
+.container-courier .main__drop-container {
+  position: relative;
+}
+.container-courier .main__order-title {
+  position: relative;
+  background-color: rgba(194, 130, 35, 0.8980392157);
+  height: 40px;
+}
+.container-courier .main__order-title i {
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  right: 25px;
+}
+.container-courier .main__active-title {
+  position: relative;
+  background-color: rgba(42, 143, 38, 0.7607843137);
+  height: 40px;
+}
+.container-courier .main__active-title i {
+  transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  right: 25px;
+}
+.container-courier .main__drop-title {
+  position: relative;
+  background-color: rgba(233, 87, 29, 0.7607843137);
+  height: 40px;
+}
+.container-courier .main__drop-title i {
+  transform: translateY(-50%);
+  top: 50%;
+  right: 25px;
+  position: absolute;
+}
+
+.pick-up-btn,
+.finish-btn {
+  background-color: #333;
+  border: none;
+  padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
