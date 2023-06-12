@@ -1,5 +1,5 @@
 import { FC, SetStateAction, useState } from "react";
-import { Player } from "../App";
+import { Player } from "../pages/Players";
 import "../style/player.scss";
 import Message from "./Message";
 
@@ -10,27 +10,30 @@ interface PlayerProps {
 }
 
 const Player: FC<PlayerProps> = ({ setPlayers, players, player }) => {
-  const [message, setMessage] = useState("");
-  
+  const [isOpen, setIsOpen] = useState(false)
+  const handelPopUp =()=>{
+    setIsOpen((isOpen)=>!isOpen);
+  }
   function handleClickPlayer(playerId: string) {
     const playerIndex = players.findIndex(
-      (player: Player) => player._id === playerId
+      (player: Player) => player._id === playerId,
+      handelPopUp()
     );
     if (playerIndex === -1) return;
     const newPlayers = [...players];
     newPlayers[playerIndex].pop++;
     newPlayers[playerIndex].src1 = newPlayers[playerIndex].src2;
     setPlayers(newPlayers);
-    setMessage("Uoch");
+
   }
 
   return (
-    <div>
+    <div className="Container-cards">
       <div className="card">
         <h1>{player.name}</h1>
-        <img onClick={() => handleClickPlayer(player._id)} src={player.src1} />
-        {Message() && <div className="messagePopUp">{message}</div>}
+        <img  onClick={() => handleClickPlayer(player._id)} src={player.src1} />
       </div>
+        {isOpen? <Message />:null}
     </div>
   );
 };
