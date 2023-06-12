@@ -12,15 +12,15 @@ const FootballPlayer: FC<FootballPlayerProps> = ({ setFootballPlayers, footballP
 
   function handleClickFootballPlayer(footballPlayerId: string) {
     try {
-      const bootballPlayerIndex = footballPlayers.findIndex(
+      const footballPlayerIndex = footballPlayers.findIndex(
         (footballPlayer) => footballPlayer._id === footballPlayerId
       );
-      if (bootballPlayerIndex === -1) throw new Error("bootballPlayer not found");
+      if (footballPlayerIndex === -1) throw new Error("footballPlayer not found");
       const newFootballPlayers = [...footballPlayers];
 
       console.log(newFootballPlayers)
 
-      //   newBootballPlayers.splice(bootballPlayerIndex, 1);
+     
       setFootballPlayers(newFootballPlayers);
     } catch (error) {
       console.error(error);
@@ -31,7 +31,7 @@ const FootballPlayer: FC<FootballPlayerProps> = ({ setFootballPlayers, footballP
     <div>
       <img
         onClick={() => handleClickFootballPlayer(footballPlayer._id)}
-        className="bootballPlayer"
+        className="footballPlayer"
         key={footballPlayer._id}
         src={footballPlayer.image}
         alt="footballPlayer"
