@@ -1,16 +1,15 @@
 .Container-Form{
-    // height: 100vh;
-    // width: 100vw;
-    // background-color: #32c537;
+
 }
 
 
 .form {
-    position: relative;
+    position: fixed;
     z-index: 1;
-    background: #41df11;
+    background-color: rgb(146, 137, 145);
     max-width: 360px;
-    margin: 1% auto 100px;
+    left: 30%;
+    top: 15%;
     padding: 45px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -31,7 +30,7 @@
     font-family: "Roboto", sans-serif;
     text-transform: uppercase;
     outline: 0;
-    background: #c55432;
+    background: #327ec5;
     width: 100%;
     border: 0;
     padding: 15px;

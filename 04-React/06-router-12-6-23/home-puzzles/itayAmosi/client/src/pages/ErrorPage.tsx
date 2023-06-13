@@ -1,10 +1,7 @@
-import { Link, useRouteError } from "react-router-dom";
+import { Link,  } from "react-router-dom";
 import "../style/errorPage.scss"
 
 export default function ErrorPage() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const error:any = useRouteError();
-  console.error(error);
 
   return (
 <div className="bl_wrapper">
