@@ -5,11 +5,11 @@ const Projects = () => {
 
   return (
     <div className="projectsPage">
-      {projects.map((project) => {
+      {projects.map((project, i) => {
         const img: string = new URL(`${project.image}`, import.meta.url).href;
 
         return (
-          <div className="project">
+          <div key={i} className="project">
             <h4>{project.name}</h4>
             <a
               href={project.url}

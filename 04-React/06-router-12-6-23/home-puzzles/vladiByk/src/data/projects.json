@@ -1,7 +1,7 @@
 {
     "projects":[
         {
-            "name": "Kanban IVI",
+            "name": "Kanban-IVI",
             "image": "../images/KanbanIVI.png",
             "url": "https://kanbanivi-fullstack.onrender.com/"
         },
