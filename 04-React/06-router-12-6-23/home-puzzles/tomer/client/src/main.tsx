@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Form from './pages/Form.tsx';
 import About from './pages/About.tsx';
+import Project from './comp/Project/Project.tsx';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,9 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element: <About />,
+    children: [ 
+      { path: '/about/project/:projectId', element: <Project setPlayers={undefined} projects={[]} project={undefined} /> }
+    ],
     errorElement: <ErrorPage />,
   },
   {
@@ -27,12 +31,7 @@ const router = createBrowserRouter([
     element: <Form />,
     errorElement: <ErrorPage />,
   },
-  // {
-  //   path: '/profile',
-  //   element: <Profile />,
-  //   errorElement: <ErrorPage />,
 
-  // },
 
 ]);
 
