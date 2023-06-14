@@ -9,6 +9,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Form from './pages/Form.tsx';
+import About from './pages/About.tsx';
 
 const router = createBrowserRouter([
   {
@@ -16,11 +17,11 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <ErrorPage />,
   },
-  // {
-  //   path: "/about",
-  //   element: <About />,
-  //   errorElement: <ErrorPage />,
-  // },
+  {
+    path: "/about",
+    element: <About />,
+    errorElement: <ErrorPage />,
+  },
   {
     path: '/form',
     element: <Form />,
