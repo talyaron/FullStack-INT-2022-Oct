@@ -9,7 +9,7 @@ const Admin = () => {
 <NavBar />
       <aside>
         <header>
-          <div>
+          <div className="profile">
             <img
               className="profile-picture"
               src="https://imgtr.ee/images/2023/06/13/Qj1oL.jpg"

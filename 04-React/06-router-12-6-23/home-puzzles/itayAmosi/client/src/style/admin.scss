@@ -6,16 +6,18 @@ aside {
   top: 0% !important;
   position: fixed;
   width: 25%;
-  margin: 0;
   header {
+    margin: 0 !important;
     box-sizing: border-box;
     background-color: darkblue;
-    height: 80px;
+    height: 100px;
     padding: 0 15px;
+    width: 100%;
     img,
     p {
       display: inline-block;
       vertical-align: middle;
+
     }
     img {
       border-radius: 50%;
@@ -32,9 +34,13 @@ aside {
       transform: translateY(-50%);
     }
   }
+  .profile{
+
+  }
   .profile-picture {
     height: 25%;
     width: 15%;
+    right: 10% !important;
   }
 }
 
