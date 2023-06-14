@@ -6,7 +6,7 @@ body {
   background-color: darkslategrey;
 }
 
-.register-form {
+.login-form {
   height: 30vw;
   width: 30vw;
   position: relative;
@@ -22,20 +22,20 @@ body {
   background-color: #bdd7d7;
   padding: 0.5rem;
 }
-.register-form h1 {
+.login-form h1 {
   text-transform: capitalize;
   margin: auto;
   font-weight: 900;
   color: #023a27;
 }
-.register-form input {
+.login-form input {
   margin: 1rem;
   width: 50%;
   height: 10%;
   margin: auto;
   font-size: 1rem;
 }
-.register-form button {
+.login-form button {
   margin: 1rem;
   width: 50%;
   height: 10%;
