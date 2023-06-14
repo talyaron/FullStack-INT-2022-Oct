@@ -8,6 +8,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Form from './pages/Form.tsx';
 
 const router = createBrowserRouter([
   {
@@ -20,11 +21,11 @@ const router = createBrowserRouter([
   //   element: <About />,
   //   errorElement: <ErrorPage />,
   // },
-  // {
-  //   path: '/form',
-  //   element: <Form />,
-  //   errorElement: <ErrorPage />,
-  // },
+  {
+    path: '/form',
+    element: <Form />,
+    errorElement: <ErrorPage />,
+  },
   // {
   //   path: '/profile',
   //   element: <Profile />,
