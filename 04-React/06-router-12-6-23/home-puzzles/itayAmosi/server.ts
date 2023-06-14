@@ -50,7 +50,11 @@ if (uri) {
 
 
 import projectRouter from "./API/project/projectRouter";
-app.use('/api/players', projectRouter)
+app.use('/api/project', projectRouter)
+
+
+import userRouter from "./API/user/userRouter";
+app.use('/api/user', userRouter)
 
 
 

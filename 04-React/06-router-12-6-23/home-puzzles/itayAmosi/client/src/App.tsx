@@ -6,6 +6,7 @@ function App() {
   return (
 <>
   <NavBar />
+<div className="appBox">
 <header>
     <h1>My Projects</h1>
     <h2>[ Portfolio Gallery ]</h2>
@@ -88,7 +89,7 @@ function App() {
 	</div>
 
 </section>
-
+</div>
 
 </>
   );

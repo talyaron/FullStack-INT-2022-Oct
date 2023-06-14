@@ -1,0 +1,26 @@
+
+topNav {
+    background-color: #f2f2f2;
+    padding: 10px;
+  }
+  
+  .topNav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .topNav ul a {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .topNav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .topNav ul li a:hover {
+    color: #ff0000;
+  }
