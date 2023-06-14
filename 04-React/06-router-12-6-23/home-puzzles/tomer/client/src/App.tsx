@@ -34,7 +34,6 @@ return (
   <NavBar />
   <div className="homepage">
     <div className="navbar">
-      {/* Navbar component */}
     </div>
     <div className="content">
       <h1 className="title">Welcome to My Projects</h1>
@@ -42,7 +41,6 @@ return (
       <div className="projects-container">
         <div className="project-card">
           <div className="project-image">
-            {/* Image for Memory Game */}
           </div>
           <div className="project-details">
             <h2>Memory Game</h2>
@@ -58,7 +56,6 @@ return (
         </div>
         <div className="project-card">
           <div className="project-image">
-            {/* Image for Social Media */}
           </div>
           <div className="project-details">
             <h2>Social Media</h2>
@@ -74,7 +71,6 @@ return (
         </div>
         <div className="project-card">
           <div className="project-image">
-            {/* Image for Soccer Match Website */}
           </div>
           <div className="project-details">
             <h2>Soccer Match Finder</h2>

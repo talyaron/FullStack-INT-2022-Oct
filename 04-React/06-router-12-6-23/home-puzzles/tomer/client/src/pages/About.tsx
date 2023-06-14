@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../style/AboutStyle.scss'
 import ProjectProps from '../comp/Project/Project'
@@ -21,12 +21,7 @@ const About = () => {
     }
   };
 
-  const projectLinks = [
-    // Customize the links for your projects
-    'https://example.com/project1',
-    'https://example.com/project2',
-    'https://example.com/project3',
-  ];
+
 
   return (
     <>
