@@ -69,6 +69,7 @@ video {
     margin-bottom: 3vh;
   }
   p {
+    width: 70%;
     text-align: justify;
     font-size: 1.2rem;
     line-height: 2rem;
@@ -119,8 +120,6 @@ video {
 .contactPage {
   width: 100%;
   height: 100%;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
   .formContainer {
     height: 100%;
     width: 100%;
@@ -137,11 +136,16 @@ video {
       h3 {
         margin: auto;
       }
+      label{
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
       input {
+        width: 100%;
         padding: 0.3rem;
         outline: none;
-        // border-radius: 5px;
-        border: 1px;
+        border: none;
         background-color: inherit;
         border-bottom: 1px solid black;
       }
@@ -167,6 +171,10 @@ video {
           height: 5rem;
           width: 100%;
           resize: none;
+          padding: 0.5rem;
+          outline: none;
+          border: none;
+          border-radius: 5px;
         }
       }
     }

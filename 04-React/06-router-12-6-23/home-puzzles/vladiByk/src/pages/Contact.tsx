@@ -1,4 +1,3 @@
-
 import { ImInstagram, ImLinkedin, ImTwitter } from "react-icons/im";
 const Contact = () => {
   return (
@@ -19,8 +18,11 @@ const Contact = () => {
             <input id="phoneNumber" type="number" placeholder="054-61234567" />
           </label>
           <label htmlFor="textArea" className="textArea">
-            Your message:
-            <textarea id="textArea"  placeholder="Let's get a coffee sometime. I got a project idea we can work on together..." />
+            Leave a message:
+            <textarea
+              id="textArea"
+              placeholder="Let's get a coffee sometime. I got a project idea we can work on together..."
+            />
           </label>
           <input type="submit" value="Send" />
         </form>
