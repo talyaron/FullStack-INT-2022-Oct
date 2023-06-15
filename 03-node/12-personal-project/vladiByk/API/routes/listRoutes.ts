@@ -8,6 +8,8 @@ import {
   updateList,
 } from "../controller/listController";
 
+
+//יש כאן הכרזה כפולה ומיותרת
 listRouter.route("/").get(getAllLists).post(createList);
 
 listRouter

@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios';
+import { BalloonComp } from './components/balloon/Balloon';
 import './App.css'
 
 function App() {
   interface Balloon {
-    width:number,
-    height:number,
+    width:string,
+    height:string,
     color:string
 }
   const [index, setIndex] = useState(0);
@@ -25,7 +26,7 @@ function App() {
       }
       
     })()
-  }, [])
+  }, [setBalloon])
 
   
   
@@ -45,7 +46,7 @@ function App() {
       <button onClick={click}>Get</button>
       <h1>{index}</h1>
       <h1>{balloon? balloon.color:"Empty"}</h1>
-      <h2>{isData? "True":"False"}</h2>
+      {isData? <BalloonComp width={balloons[index].width} height={balloons[index].height} color={balloons[index].color} />:"Empty"}
     </div>
   )
 }

@@ -25,9 +25,6 @@ function handleSeatsPicking(_rowNumber: string, _seatNumber: string) {
                         console.error(error)
                     })
             })
-
-
-
     } catch (error) {
         console.error(error)
     }
@@ -75,6 +72,7 @@ async function handleAddOrder() {
             .then((data) => {
                 console.log(data)
                 renderTakenSeats(movieSeats)
+                renderOrder(data)
             })
             .catch((error) => {
                 console.error(error)
