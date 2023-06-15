@@ -1,0 +1,46 @@
+body {
+  height: 45vw;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-color: darkslategrey;
+}
+
+.register-form {
+  height: 30vw;
+  width: 30vw;
+  position: relative;
+  bottom: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  vertical-align: middle;
+  border: 0.5rem solid seagreen;
+  margin: auto;
+  margin-top: 15%;
+  border-radius: 5%;
+  background-color: #bdd7d7;
+  padding: 0.5rem;
+}
+.register-form h1 {
+  text-transform: capitalize;
+  margin: auto;
+  font-weight: 900;
+  color: #023a27;
+}
+.register-form input {
+  margin: 1rem;
+  width: 50%;
+  height: 10%;
+  margin: auto;
+  font-size: 1rem;
+}
+.register-form button {
+  margin: 1rem;
+  width: 50%;
+  height: 10%;
+  margin: auto;
+  border: 0.2rem solid seagreen;
+  background-color: #8db7a9;
+  font-weight: 700;
+}

@@ -1,0 +1,126 @@
+.bl_wrapper {
+  margin: 10px auto;
+  max-width: 60vw;
+}
+
+#svg_tramp {
+  display: block;
+  height: 90vh;
+  margin: -30px auto 0;
+}
+
+.btn_home {
+  position: relative;
+  display: block;
+  width: 120px;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #be6440;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.2s all;
+  z-index: 3;
+}
+
+.btn_home:hover,
+.btn_home:focus {
+  transition: 0.2s all;
+  color: #fff;
+  background-color: #f00;
+}
+
+.text_forgiveness {
+  font-size: 20px;
+  font-family: "Permanent Marker", cursive;
+  stroke: #525250;
+  stroke-miterlimit: 10;
+}
+.st2 {
+  fill: #be6440;
+}
+
+.st4 {
+  fill: #4a687d;
+}
+
+.st6 {
+  fill: #b0b0b0;
+}
+
+.st7 {
+  fill: #ecba9d;
+}
+
+.st10 {
+  fill: #a34426;
+}
+
+.st13 {
+  fill: #eceaea;
+}
+
+.st15 {
+  fill: #384f64;
+}
+
+.st24 {
+  fill: #a74929;
+}
+
+.st25 {
+  fill: #903820;
+}
+
+.st34 {
+  fill: #545454;
+}
+
+.st35 {
+  fill: #8d361f;
+}
+
+.st38 {
+  fill: #ccd0d3;
+}
+
+.st39 {
+  fill: #cacfd1;
+}
+
+.st40 {
+  fill: #caced1;
+}
+
+.st43 {
+  fill: #b8c0c4;
+}
+
+.st44 {
+  fill: #b9c0c5;
+}
+
+.st49 {
+  fill: #b9c0c4;
+}
+
+.st55 {
+  fill: #b8c0c3;
+}
+
+.st60 {
+  fill: #2e3192;
+}
+
+.st61 {
+  fill: none;
+  stroke: #c1bfc0;
+  stroke-miterlimit: 10;
+}
+
+.st62 {
+  fill: #525250;
+}

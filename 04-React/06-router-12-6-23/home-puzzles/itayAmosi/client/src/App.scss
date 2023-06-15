@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  overflow: auto;
+  background-image: url("https://www.shutterstock.com/image-photo/old-brick-black-color-wall-260nw-1605128917.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  background-color: #fdfefe;
+  font-family: "Cambria";
+  font-size: 18px;
+}
+.appBox{
+  margin-top: -100px;
+  gap: 10rem;
+}
+
+a {
+  color: #fff;
+}
+.row {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0;
+  clear: both;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
+
+  %col {
+    float: left;
+    margin: 0 0.8771929824561403%;
+    overflow: hidden;
+  }
+}
+// HEADER
+header {
+  background-color: #84b4b1;
+  color: #fff;
+  text-align: center;
+  // padding: 30px 0 120px;
+  width: 1100px;
+  margin-left: 21%;
+
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 65px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    line-height: 0.8;
+    padding-top: 50px;
+    font-family: "Montserrat", sans-serif;
+  }
+  span {
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    font-size: 25px;
+    line-height: 1;
+  }
+  p {
+    padding-top: 30px;
+  }
+}
+// PROJECTS
+.gallery {
+  padding: 40px 0 300px;
+  position: relative;
+  overflow: hidden;
+
+  ul {
+    padding-top: 50px;
+    position: relative;
+  }
+  li {
+    @extend %col;
+    margin-bottom: 20px;
+    width: 23.24561403508772%;
+    position: relative;
+  }
+  a {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+  }
+
+  &:before {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 40%;
+    left: 50%;
+    margin: -14px 0 0 -16px;
+    content: "";
+    opacity: 0;
+    z-index: 1;
+  }
+
+  &:hover:before {
+    top: 50%;
+    opacity: 1;
+  }
+  &:after {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+
+    content: "";
+    opacity: 0;
+  }
+
+  &:hover:after {
+    opacity: 1;
+  }
+}
+
+.port{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	padding-top: 100px;
+	background-color: #fafafa;
+	// z-index: 103;
+	visibility: hidden;
+	// -webkit-transform: translateY(-100%);
+	// transform: translateY(-100%);
+	border-bottom: 1px solid #d0d0d0;
+	// transition:(all, 0.5s, ease-in-out);
+
+	img{
+		width: 50%;
+  }
+	.description{
+		float: left;
+		width: 50%;
+		max-height: 100%;
+		padding: 0 40px 40px;
+		overflow: auto;
+  }
+	h1{
+		font-size: 35px;
+		line-height: 2.3;
+		padding: 0;
+  }
+.close{
+	width: 21px;
+	height: 21px;
+	position: absolute;
+	right: 10px;
+	top: -121px;
+	opacity: 1;
+	// z-index: 1004;
+
+	.item_open {
+		opacity: 1;
+		top: 0px;
+
+  }
+
+}
+}
