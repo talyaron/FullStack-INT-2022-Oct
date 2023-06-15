@@ -11,16 +11,19 @@ export const IPlayerZodSchema = z.object({
     srcAngry: z.string(),
     speed: z.number(),
     clicked: z.boolean(),
+    _id:z.string()
   });
 
-export interface IPlayer {
-    name: string,
-    srcHappy: string,
-    srcAngry: string,
-    speed: string,
-    clicked: boolean,
-    _id: string
-}
+
+  export type IPlayer = z.infer<typeof IPlayerZodSchema>
+// export interface IPlayer {
+//     name: string,
+//     srcHappy: string,
+//     srcAngry: string,
+//     speed: string,
+//     clicked: boolean,
+//     _id: string
+// }
 
 const Card = () => {
     //useState

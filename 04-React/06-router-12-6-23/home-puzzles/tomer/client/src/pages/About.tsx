@@ -12,22 +12,28 @@ interface Project {
 }
 
 const About = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-
-  useEffect(() => {
-    getProjects();
-  }, []);
-
-  const getProjects = async () => {
-    try {
-      const response = await axios.get("/api/projects/get-projects");
-      const projectDB = response.data.project;
-      setProjects(projectDB);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  return (
+    const [projects, setProjects] = useState<Project[]>([]);
+    const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  
+    useEffect(() => {
+      getProjects();
+    }, []);
+  
+    const getProjects = async () => {
+      try {
+        const response = await axios.get("/api/projects/get-projects");
+        const projectDB = response.data.project;
+        setProjects(projectDB);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    const handleProjectClick = (project: Project) => {
+      setSelectedProject(project);
+    };
+    
+    return (
     <>
       <NavBar />
       <div className="about-me">
@@ -77,17 +83,28 @@ const About = () => {
             <Link
               to={`/about/project/${project._id}`}
               key={project._id}
-              className="project-link"
+              className={`project-link${selectedProject === project ? ' selected' : ''}`}
+              onClick={() => handleProjectClick(project)}
             >
               <ProjectProps
                 project={project}
-                setPlayers={undefined}
+                setProject={undefined}
                 projects={[]}
               />
             </Link>
           ))}
         </div>
       </div>
+
+      {selectedProject && (
+        <div className="selected-project">
+          <ProjectProps
+            project={selectedProject}
+            setProject={undefined}
+            projects={[]}
+          />
+        </div>
+      )}
     </>
   );
 };
