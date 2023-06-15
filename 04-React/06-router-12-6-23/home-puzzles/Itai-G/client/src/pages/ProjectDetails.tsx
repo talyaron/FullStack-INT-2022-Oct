@@ -12,15 +12,17 @@ interface Project {
 }
 
 const ProjectDetails: React.FC = () => {
-  const { _id } = useParams<{ _id: string }>(); 
+  const { _id } = useParams();
+  console.log("_id:",_id) 
   const [project, setProject] = useState<Project | null>(null);
 
   useEffect(() => {
     const getProjectDetails = async () => {
       try {
-        const response = await axios.get(`/api/project/get-project/${id}`);
-        const { data } = response;
-        setProject(data);
+        // console.log(_id)
+        // const response = await axios.get(`/api/project/get-Projects-By-Id?projectId=${_id}`);
+        // const { data } = response;
+        // setProject(data);
       } catch (error: any) {
         console.error(error);
       }

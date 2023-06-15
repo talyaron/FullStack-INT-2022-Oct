@@ -35,7 +35,7 @@ const Projects: React.FC = () => {
         <h2>Projects</h2>
         {projects.map((project) => (
           <div key={project._id}>
-            <Link to={`/projects/project/${project._id}`}>
+            <Link to={`/projects/${project._id}`}>
               <h3>{project.name}</h3>
             </Link>
             <img src={project.img} alt="" />
