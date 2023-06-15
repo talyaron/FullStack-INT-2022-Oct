@@ -14,13 +14,13 @@ export async function addProject (req: any, res: any) {
     }
   }
   
-//   export async function getPlayers(req: any, res: any) {
-//     try {
-//       const playersDB = await PlayerModel.find({});
-//       console.log(playersDB)
-//       res.send({ ok: true, players: playersDB });
-//     } catch (error: any) {
-//       console.error(error);
-//       res.status(500).send({ ok: false, error });
-//     }
-//   }
+  export async function getProjects (req: any, res: any){
+    try {
+        const projectDB = await ProjectModel.find({});
+
+        res.send({ ok: true, Project: projectDB });
+    } catch (error:any) {
+        console.error("cant get projects");
+      res.status(500).send({ ok: false, error });
+    }
+}
