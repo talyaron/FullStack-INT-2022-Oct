@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './about.scss';
 
-
-const About: React.FC = () =>{
-    return(
-        <div>
-            <h1>Hi my name is Itai Gelberg and i am a fullStack dev starting his first protfolio site!</h1>
-            <Link to='/'>GO to main page</Link>
-        </div>
-    )
-}
+const About: React.FC = () => {
+  return (
+    <div className="aboutContainer">
+      <h1 className="heading">Hi, I'm Itai Gelberg</h1>
+      <p className="description">
+        I am a Full Stack Developer passionate about creating web applications and building meaningful projects. This is my first portfolio site where I showcase my skills and projects.
+      </p>
+      <Link to="/" className="link">Go to Main Page</Link>
+    </div>
+  );
+};
 
 export default About;

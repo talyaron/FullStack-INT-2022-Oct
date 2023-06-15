@@ -39,3 +39,23 @@
 .read-the-docs {
   color: #888;
 }
+
+.home-container {
+  text-align: center;
+  padding: 20px;
+  height: 350px;
+  width: 350px;
+  box-sizing: border-box;
+
+}
+
+.home-container h2 {
+  font-size: 24px;
+  color: green;
+}
+
+.home-container p {
+  font-size: 16px;
+  color: green;
+  line-height: 1.5;
+}

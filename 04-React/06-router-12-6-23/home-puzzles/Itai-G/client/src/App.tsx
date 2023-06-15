@@ -1,4 +1,3 @@
-import "./App.css";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
@@ -6,6 +5,7 @@ import About from "./pages/About";
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import ErrorPage from "./pages/ErrorPage";
+import './App.css'; // Import the CSS file
 
 const App: React.FC = () => {
   return (
@@ -23,7 +23,15 @@ const App: React.FC = () => {
 };
 
 const Home: React.FC = () => {
-  return <h2>Welcome to the Home Page</h2>;
+  return (
+    <div className="home-container"> {/* Add the class name */}
+      <h2>Welcome to the Home Page</h2>
+      <p>About Me:</p>
+      <p>
+        Hi, my name is Itai and I'm learning to be a full-stack developer. I'm passionate about creating innovative web applications and exploring new technologies. Through my journey, I aim to acquire a strong foundation in both frontend and backend development and become proficient in building robust and scalable applications.
+      </p>
+    </div>
+  );
 };
 
 export default App;
