@@ -1,9 +1,6 @@
 * {
   box-sizing: border-box;
 }
-* button {
-  background-color: yellow;
-}
 * button:hover {
   scale: 1.05;
   cursor: pointer;
@@ -17,122 +14,65 @@ body {
   background-color: seagreen;
 }
 
-.header {
-  margin: auto;
-  height: 2rem;
-  width: 8rem;
-  text-align: center;
-  font-size: 2rem;
-  position: sticky;
+.container {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
 }
 
-.studentsContainer {
-  margin: auto;
-  margin-top: 0.8rem;
-  height: auto;
-  width: 30rem;
-  position: relative;
+* {
+  margin: 0;
 }
-.studentsContainer h2 {
-  text-align: center;
-  font-size: 3rem;
-}
-.studentsContainer__refreshBtn {
-  position: relative;
-  top: -4.2rem;
-  right: -26rem;
-}
-.studentsContainer form {
+
+.moviesWrapper {
+  width: 80vw;
+  height: 60vh;
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: auto;
+}
+
+.movie {
+  width: 16vw;
+  height: 50vh;
+  background-color: #3d3b3b;
+  border: 0.2rem solid white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.469);
+  margin: 4px;
+  color: white;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  height: 2rem;
-  width: 20rem;
-  margin: auto;
+  margin: 2rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: scale 0.4s ease-in-out;
 }
-.studentsContainer__studentCard {
-  border: 0.1rem solid black;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.movie:hover {
+  scale: 1.05;
+  cursor: pointer;
 }
-.studentsContainer__studentCard__name {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.movie h2 {
   height: auto;
-  width: 29.5rem;
-}
-.studentsContainer__studentCard__name p {
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0;
-  line-height: 2rem;
-}
-.studentsContainer__studentCard__courses {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: auto;
-  width: 29.5rem;
-  background-color: salmon;
-}
-.studentsContainer__studentCard__courses p {
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0;
-  line-height: 2rem;
-}
-.studentsContainer__studentCard__courses form {
-  margin: auto;
-}
-.studentsContainer__studentCard__courses__course {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: auto;
-  width: 29.5rem;
+  font-size: 1.1rem;
+  text-transform: capitalize;
+  text-align: center;
   margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  background-color: blue;
 }
-.studentsContainer__studentCard__courses__course p {
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0;
-  line-height: 2rem;
+.movie p {
+  color: #bcbcb9;
+  line-height: 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin: 0.4rem;
 }
-.studentsContainer__studentCard__courses__course__name {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: auto;
-  width: 29.5rem;
-}
-.studentsContainer__studentCard__courses__course__name p {
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0;
-  line-height: 2rem;
-}
-.studentsContainer__studentCard__courses__course__grades {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: auto;
-  width: 29.5rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  background-color: blue;
-}
-.studentsContainer__studentCard__courses__course__grades__grade {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: auto;
-  width: 29.5rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  background-color: blue;
+.movie img {
+  width: 100%;
+  height: 70%;
+  align-self: center;
 }
