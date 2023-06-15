@@ -1,42 +1,43 @@
 .projectCard {
-    height: 500px;
-    width: 500px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    img{
-        width: 300px;
-        height: 200px;
-        object-fit: contain;
-      }
-  }
+  height: 400px;
+  width: 400px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(164, 98, 98, 0.1);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  .projectCard h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .projectCard p {
-    font-size: 1.2rem;
-    color: #777;
-  }
-  
-  .projectCard button {
-    border: none;
-    background-color: #646cff;
-    color: #fff;
-    padding: 0.8rem 1.5rem;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .projectCard button:hover {
-    background-color: #535bf2;
-  }
+.projectCard img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.projectCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.projectCard p {
+  font-size: 1.2rem;
+  color: #777;
+}
+
+.projectCard button {
+  border: none;
+  background-color: #646cff;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.projectCard button:hover {
+  background-color: #535bf2;
+}

@@ -24,3 +24,17 @@ export async function getProjects (req:any,res:any){
       res.status(500).send({ ok: false, error });
     }
 }
+
+export async function getProjectsById (req:any,res:any){
+    try {
+        const {projectId} = req.query;
+        console.log(req.query);
+        if(!projectId) throw new Error("no project id!")
+        const projectDB = await ProjectModel.findById(projectId);
+        res.send(projectDB)
+        
+    } catch (error:any) {
+        console.error(error);
+      res.status(500).send({ ok: false, error });
+    }
+}
