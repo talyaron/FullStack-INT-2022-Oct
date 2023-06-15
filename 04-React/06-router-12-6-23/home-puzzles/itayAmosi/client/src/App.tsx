@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./App.scss";
 import NavBar from "./components/NavBar";
 
@@ -15,48 +16,27 @@ function App() {
 <section className="gallery">
 	<div className="row">
 		<ul>
-			<a href="#" className="close"></a>
 			<li>
-				<a href="#item02">
-					<img src="https://cdn.dribbble.com/users/545884/screenshots/3981307/lorena2.png" alt="" />
-				</a>
+				<Link to={"/About"}>
+					<img src="https://i.ibb.co/bFB0rJs/Screenshot-2023-06-15-195008.png" alt="" />
+				</Link>
 			</li>
 
 			<li>
-				<a href="#item02">
-					<img src="https://cdn.dribbble.com/users/545884/screenshots/3892302/contact.png" alt="" />
-				</a>
+			<Link to={"/"}>
+					<img src="" alt="" />
+				</Link>
 			</li>
 
 			<li>
-				<a href="#item02">
-					<img src="https://cdn.dribbble.com/users/545884/screenshots/4154721/dive--001.png" alt="" />
-				</a>
+			<Link to={"/"}>
+					<img src="" alt="" />
+				</Link>
 			</li>
 			<li>
-				<a className="image" href="#item01">
-					<img src="https://cdn.dribbble.com/users/545884/screenshots/4356121/darko--dr.jpg" alt="" />
-				</a>
-			</li>
-			<li>
-				<a className="image" href="#item02">
-					<img src="https://cdn.dribbble.com/users/545884/screenshots/3695553/news.png" alt="" />
-				</a>
-			</li>
-			<li>
-				<a className="image" href="#item01">
-					<img src="https://cdn.dribbble.com/users/545884/screenshots/4360101/liberosis_--_12.png" alt="" />
-				</a>
-			</li>
-			<li>
-				<a className="image" href="#item01">
-					<img src="https://cdn.dribbble.com/users/545884/screenshots/3148799/technical-book.jpg" alt="" />
-				</a>
-			</li>
-			<li>
-				<a className="image" href="#item01">
-					<img src="https://cdn.dribbble.com/users/545884/screenshots/2883479/cover.jpg" alt="" />
-				</a>
+			<Link to={"/"}>
+					<img src="" alt="" />
+				</Link>
 			</li>
 		</ul>
 	</div>
@@ -70,7 +50,7 @@ function App() {
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
 			</div>
 
-				<img src="https://cdn.dribbble.com/users/545884/screenshots/3981307/lorena2.png" alt="" />
+				<img src="" alt="" />
 			</div>
 		</div>
 
@@ -83,7 +63,7 @@ function App() {
 				<h1>Item 02</h1>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
 			</div>
-			<img src="https://cdn.dribbble.com/users/545884/screenshots/2883479/cover.jpg" alt="" />
+			<img src="" alt="" />
 		</div>
 
 	</div>
