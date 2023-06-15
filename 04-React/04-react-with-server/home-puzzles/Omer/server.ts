@@ -6,15 +6,15 @@ const app = express();
 app.use(express.static('./client'));
 
 interface Balloon {
-    width:number,
-    height:number,
+    width:string,
+    height:string,
     color:string
 }
 
-const balloon1:Balloon = {width: 10, height:10, color:"blue"}
-const balloon2:Balloon = {width: 6, height:10, color:"red"}
-const balloon3:Balloon = {width: 8, height:10, color:"green"}
-const balloon4:Balloon = {width: 12, height:10, color:"yellow"}
+const balloon1:Balloon = {width: '30', height:'40', color:"blue"}
+const balloon2:Balloon = {width: '20', height:'50', color:"red"}
+const balloon3:Balloon = {width: '10', height:'30', color:"green"}
+const balloon4:Balloon = {width: '25', height:'60', color:"yellow"}
 
 const balloons = [balloon1,balloon2,balloon3,balloon4]
 
@@ -27,6 +27,6 @@ app.get("/api/get-balloons", (req,res) => {
 })
 
 
-app.listen(3000, () => {
-  console.log("server listen on port 3000");
+app.listen(2000, () => {
+  console.log("server listen on port 2000");
 });

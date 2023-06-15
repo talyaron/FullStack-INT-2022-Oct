@@ -13,7 +13,7 @@
 
 body{
     margin: auto;
-    background-color: white;
+    background-color: rgb(226, 216, 204);
 }
 
 .screen{
@@ -46,7 +46,39 @@ body{
             height: 3rem;
             width: 3rem;
             border: 0.1rem solid black;
-            background-color: seagreen;    
+            background-color: seagreen;
+            border-radius: 15%;
         }
+    }
+}
+
+.order{
+    width: 25%;
+    height: auto;
+    background-color: rgb(54, 50, 50);
+    color: white;
+    border: 0.2rem solid royalblue;
+    padding: 1rem;
+    text-align: center;
+    display: none;
+}
+
+h1{
+    text-align: center;
+    text-transform: capitalize;
+}
+
+button{
+    background-color: gold;
+    padding: 0.5rem;
+    border: 0.2rem solid black;
+    width: 10rem;
+    height: 3rem;
+    font-size: 1rem;
+    text-transform: capitalize;
+    line-height: 1rem;
+    font-weight: 800;
+    &:hover{
+        background-color: white;
     }
 }

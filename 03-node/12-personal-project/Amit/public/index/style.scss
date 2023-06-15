@@ -13,6 +13,70 @@
 
 body{
     margin: auto;
-    background-color: black;
+    background-color: seagreen;
 }
 
+.container{
+    width:90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+*{
+    margin:0;
+}
+
+.moviesWrapper{
+    width:80vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: auto;
+}
+
+
+
+.movie{
+    width: 16vw;
+    height: 50vh;
+    background-color: rgb(61, 59, 59);
+    border: 0.2rem solid white;
+    border-radius: 10px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.469);
+    margin: 4px;
+    color: white;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 2rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: scale 0.4s ease-in-out;
+    &:hover{
+        scale: 1.05;
+        cursor: pointer;
+    }
+    h2{
+        height: auto;
+        font-size: 1.1rem;
+        text-transform: capitalize;
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+    p {
+        color:rgb(188, 188, 185);
+        line-height: 1.5rem;
+        font-size: 1rem;
+        font-weight: 500;
+        text-transform: capitalize;
+        margin:0.4rem;
+    }
+    img{
+        width: 100%;
+        height: 70%;
+        align-self: center;
+    }
+}

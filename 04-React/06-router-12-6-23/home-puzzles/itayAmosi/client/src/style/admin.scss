@@ -1,0 +1,62 @@
+aside {
+  left: 80% !important;
+  background-color: rgb(146, 137, 145);
+  display: inline-block;
+  height: 100vh;
+  top: 0% !important;
+  position: fixed;
+  width: 25%;
+  header {
+    margin: 0 !important;
+    box-sizing: border-box;
+    background-color: darkblue;
+    height: 100px;
+    padding: 0 15px;
+    width: 100%;
+    img,
+    p {
+      display: inline-block;
+      vertical-align: middle;
+
+    }
+    img {
+      border-radius: 50%;
+    }
+    p {
+      font-size: 13px;
+      color: white;
+      margin-left: 10px;
+      text-transform: uppercase;
+    }
+    > div {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  .profile{
+
+  }
+  .profile-picture {
+    height: 25%;
+    width: 15%;
+    right: 10% !important;
+  }
+}
+
+.side-navigation {
+  font-size: 30px;
+  font-family: "Times New Roman", Times, serif;
+  a {
+    color: rgb(231, 27, 27);
+    display: block;
+    padding: 15px 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  i.fa {
+    color: grey;
+    font-size: 20px;
+    margin-right: 20px;
+  }
+}

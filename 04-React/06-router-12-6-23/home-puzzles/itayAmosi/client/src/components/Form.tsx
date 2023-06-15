@@ -1,6 +1,5 @@
 import axios from 'axios';
 import "../style/form.scss"
-import NavBar from '../components/NavBar';
 
 const Form = () => {
     async function handleSubmit(e: any) {
@@ -16,9 +15,10 @@ const Form = () => {
 
   return (
     <>
-    <NavBar />
     <div className='Container-Form'>
             <form className="form" onSubmit={handleSubmit}>
+      <h1>Add Project</h1>
+      <br />
         <input type="text" name="name" placeholder="Project name" />
         <input type="text" name="src1" placeholder="Project url-1" />
         <input type="text" name="src2" placeholder="Project url-2" />
