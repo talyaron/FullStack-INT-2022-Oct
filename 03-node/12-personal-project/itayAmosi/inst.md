@@ -22,7 +22,7 @@ https://github.com/talyaron/FullStack-INT-2022-Oct/tree/main/03-node/12-personal
 
 ססמאות למונגו + קוד סודי:
 
-MONGODB_URI = mongodb+srv://itayz1e:SsvxcoUIN6XLBvNo@cluster0.svpeuww.mongodb.net/nails
+MONGODB_URI =mongodb+srv://itayz1e:8JGHME6n958zOgEJ@cluster0.a0k8fcg.mongodb.net/nails
 
 JWT_SECRET =mnvhjufaiwkdsskd
 
