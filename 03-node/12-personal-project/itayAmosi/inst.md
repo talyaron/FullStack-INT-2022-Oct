@@ -19,6 +19,8 @@ public: true
 https://github.com/talyaron/FullStack-INT-2022-Oct/tree/main/03-node/12-personal-project/itayAmosi
 
 
+PATH-URL: http://localhost:3000/login/index.html
+
 
 ססמאות למונגו + קוד סודי:
 
