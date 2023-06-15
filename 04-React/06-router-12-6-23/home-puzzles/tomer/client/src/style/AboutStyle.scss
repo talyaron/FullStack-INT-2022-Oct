@@ -9,7 +9,6 @@
   font-size: 24px;
   margin-bottom: 10px;
   animation: rainbow 5s linear infinite; /* Add animation to the heading */
-
 }
 
 .details {
@@ -18,7 +17,7 @@
 }
 
 .highlight {
-    animation: rainbow 5s linear infinite; /* Add animation to the heading */
+  animation: rainbow 5s linear infinite; /* Add animation to the heading */
 }
 
 .projects {
@@ -38,12 +37,17 @@
   cursor: pointer;
   width: 250px;
 }
-
+.selected-project{
+    align-items: center;
+    justify-content: center;
+}
 .project-container:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
+.project-link:visited {
+  color: inherit;
+}
 .project-img {
   width: 100%;
   height: auto;
