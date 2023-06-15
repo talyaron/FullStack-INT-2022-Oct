@@ -3,7 +3,7 @@ import { FC, SetStateAction } from "react";
 import { Project } from "../../App";
 
 interface ProjectProps {
-  setPlayers: SetStateAction<any>;
+  setProject: SetStateAction<any>;
   projects: Project[];
   project: Project | undefined;
 }

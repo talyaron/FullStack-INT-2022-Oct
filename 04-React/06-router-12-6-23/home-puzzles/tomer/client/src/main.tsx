@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       {
         path: "/about/project/:projectId",
         element: (
-          <Project setPlayers={undefined} projects={[]} project={undefined} />
+          <Project setProject={undefined} projects={[]} project={undefined} />
         ),
       },
     ],
