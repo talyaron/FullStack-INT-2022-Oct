@@ -1,0 +1,108 @@
+$primary-color: #2d6fca;
+$secondary-color: #e8edf3;
+$tertiary-color: #f9b325;
+$background-color: #f5f5f5;
+$font-primary: 'Roboto', sans-serif;
+
+.register{
+background-image: url("https://images.pexels.com/photos/41257/pexels-photo-41257.jpeg");
+background-size: cover;
+background-position: center;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+font-family: $font-primary;
+padding: 50px;
+}
+.title {
+  color: $primary-color;
+  font-size: 3rem;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+#register-form {
+  background-color: $secondary-color;
+  border-radius: 5px;
+  padding: 40px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 1.5rem;
+  color: $primary-color;
+  margin-bottom: 10px;
+  display: block;
+}
+
+input {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.2rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+#username-input {
+  background-color: $tertiary-color;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+
+#password-input {
+  background-color: $tertiary-color;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+
+#email-input {
+  background-color: $tertiary-color;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.register-btn {
+  background-color: $primary-color;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-top: 20px;
+}
+
+.register-btn:hover {
+  background-color: darken($primary-color, 10%);
+}
+
+.login-link {
+    font-size: 1.2rem;
+    color: $tertiary-color;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s ease-in-out;
+  }
+  
+  .login-link:hover {
+    border-bottom: 2px solid $tertiary-color;
+  }
+
+
+
