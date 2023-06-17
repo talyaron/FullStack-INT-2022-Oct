@@ -1,17 +1,17 @@
 
 
 import mongoose, { Schema } from "mongoose";
-import { UserSchema } from "../users/userModel";
+// import { UserSchema } from "../users/userModel";
 
 
 export interface Scores {
-  userName: string,
+  userId: string,
   score: number,
   competitionPlace: number,
 };
 
 export const ScoreSchema = new Schema({
-  user: UserSchema,
+  userId: String,
   score: Number,
   competitionPlace: Number,
 });

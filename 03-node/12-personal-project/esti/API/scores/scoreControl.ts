@@ -1,9 +1,5 @@
-// import { getScore } from './scoreControl';
-// import UserModel from "../users/userModel";
-// import ScoreModel from "./scoreModel";
 
 import { ScoreModel } from './scoreModel';
-import { UserModel } from '../users/userModel';
 
 export const getScores = async (req: any, res: any) => {
     try {
@@ -59,20 +55,19 @@ export const getScores = async (req: any, res: any) => {
   // };
   export const addScore = async (req: any, res: any) => {
     try {
-  
-      const { userName, userId, score, competitionPlace } = req.body;
+      const { userId, score, competitionPlace } = req.body;
       // console.log(name, password);
       
       console.log(req.body);
              
       // add users to DB;
-      const userDB = await ScoreModel.create({ userName, userId, score, competitionPlace });
+      const scoreDB = await ScoreModel.create({ userId, score, competitionPlace });
   
-      console.log(userDB);
+      console.log(scoreDB);
       // console.log(UserModel);
       // console.log("userDB");
   
-      res.status(201).send({ ok: true, user:userDB });
+      res.status(201).send({ ok: true, score:scoreDB });
     } catch (error: any) {
       console.error(error);
       res.status(500).send({ error: error.message });
@@ -80,23 +75,82 @@ export const getScores = async (req: any, res: any) => {
   };
   
 
-
-
-
-
-
-
-
-
-
-
-
   export const updateScore = async (req: any, res: any) => {
+
     try {
-    //   res.status(201).send({ ok: true });
+      // const user = req.user;
+      console.log(req.body)
+      const { scoreUserId, score } = req.body;
+      console.log(scoreUserId)
+      console.log(score)
+  
+      const scoreDB = await ScoreModel.findOneAndUpdate({userId:scoreUserId},{score})
+      
+      
+      if(!scoreDB) throw new Error ("no scoreDB")
+  
+      res.send({ ok: true,scoreDB });
     } catch (error: any) {
       console.error(error);
       res.status(500).send({ error: error.message });
-      
     }
   };
+
+
+  //     const {userId , score , competitionPlace} = req.body 
+  //     if(!userId) throw new Error("no  user id")
+      
+  
+  //     // const userDB =  await ScoreModel.findOne({_ID:userId} );
+  //     // console.log(userDB);
+  //     // if(!userDB) throw new Error("no found userId")
+  //     const scoreDB = await ScoreModel.findByIdAndUpdate({_id:userId},{score}},
+         
+    
+    
+  //     res.status(201).send({ok:true , score:updateScore})
+
+    
+  //     //   res.status(201).send({ ok: true });
+  //   } catch (error: any) {
+  //     console.error(error);
+  //     res.status(500).send({ error: error.message });
+      
+  //   }
+  // };
+
+
+// ++++++++++++++++++++++++++++++++++
+  //-----Update product (By Admin)
+// export const updateProduct = AsyncHandler(async (req:any, res:any) => {
+//   const { name, description, sizes, colors, price, totalQty} = req.body
+
+//   //If name exists
+//   const productFound = await ProductModel.findOne({ name })
+//   if(productFound){
+//       throw new Error("The product already exists")
+//   }
+
+//   //update
+//   const product = await ProductModel.findByIdAndUpdate(
+//       req.params.productID,
+//       {
+//           name,
+//           description,
+//           sizes,
+//           colors,
+//           price,
+//           totalQty
+//       },
+//       {
+//           new: true
+//       }
+//   )
+
+//   res.status(200).json({
+//       status: "success",
+//       message:"The product has been successfully updated",
+//       product
+//   })
+// })
+// //-------------------------------------------

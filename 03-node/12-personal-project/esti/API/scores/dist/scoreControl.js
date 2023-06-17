@@ -1,7 +1,4 @@
 "use strict";
-// import { getScore } from './scoreControl';
-// import UserModel from "../users/userModel";
-// import ScoreModel from "./scoreModel";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -91,21 +88,21 @@ exports.getScores = function (req, res) { return __awaiter(void 0, void 0, void 
 //   }
 // };
 exports.addScore = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, userName, userId, score, competitionPlace, userDB, error_1;
+    var _a, userId, score, competitionPlace, scoreDB, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                _a = req.body, userName = _a.userName, userId = _a.userId, score = _a.score, competitionPlace = _a.competitionPlace;
+                _a = req.body, userId = _a.userId, score = _a.score, competitionPlace = _a.competitionPlace;
                 // console.log(name, password);
                 console.log(req.body);
-                return [4 /*yield*/, scoreModel_1.ScoreModel.create({ userName: userName, userId: userId, score: score, competitionPlace: competitionPlace })];
+                return [4 /*yield*/, scoreModel_1.ScoreModel.create({ userId: userId, score: score, competitionPlace: competitionPlace })];
             case 1:
-                userDB = _b.sent();
-                console.log(userDB);
+                scoreDB = _b.sent();
+                console.log(scoreDB);
                 // console.log(UserModel);
                 // console.log("userDB");
-                res.status(201).send({ ok: true, user: userDB });
+                res.status(201).send({ ok: true, score: scoreDB });
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _b.sent();
@@ -117,14 +114,73 @@ exports.addScore = function (req, res) { return __awaiter(void 0, void 0, void 0
     });
 }); };
 exports.updateScore = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        try {
-            //   res.status(201).send({ ok: true });
+    var _a, scoreUserId, score, scoreDB, error_2;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                // const user = req.user;
+                console.log(req.body);
+                _a = req.body, scoreUserId = _a.scoreUserId, score = _a.score;
+                console.log(scoreUserId);
+                console.log(score);
+                return [4 /*yield*/, scoreModel_1.ScoreModel.findOneAndUpdate({ userId: scoreUserId }, { score: score })];
+            case 1:
+                scoreDB = _b.sent();
+                if (!scoreDB)
+                    throw new Error("no scoreDB");
+                res.send({ ok: true, scoreDB: scoreDB });
+                return [3 /*break*/, 3];
+            case 2:
+                error_2 = _b.sent();
+                console.error(error_2);
+                res.status(500).send({ error: error_2.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
-        catch (error) {
-            console.error(error);
-            res.status(500).send({ error: error.message });
-        }
-        return [2 /*return*/];
     });
 }); };
+//     const {userId , score , competitionPlace} = req.body 
+//     if(!userId) throw new Error("no  user id")
+//     // const userDB =  await ScoreModel.findOne({_ID:userId} );
+//     // console.log(userDB);
+//     // if(!userDB) throw new Error("no found userId")
+//     const scoreDB = await ScoreModel.findByIdAndUpdate({_id:userId},{score}},
+//     res.status(201).send({ok:true , score:updateScore})
+//     //   res.status(201).send({ ok: true });
+//   } catch (error: any) {
+//     console.error(error);
+//     res.status(500).send({ error: error.message });
+//   }
+// };
+// ++++++++++++++++++++++++++++++++++
+//-----Update product (By Admin)
+// export const updateProduct = AsyncHandler(async (req:any, res:any) => {
+//   const { name, description, sizes, colors, price, totalQty} = req.body
+//   //If name exists
+//   const productFound = await ProductModel.findOne({ name })
+//   if(productFound){
+//       throw new Error("The product already exists")
+//   }
+//   //update
+//   const product = await ProductModel.findByIdAndUpdate(
+//       req.params.productID,
+//       {
+//           name,
+//           description,
+//           sizes,
+//           colors,
+//           price,
+//           totalQty
+//       },
+//       {
+//           new: true
+//       }
+//   )
+//   res.status(200).json({
+//       status: "success",
+//       message:"The product has been successfully updated",
+//       product
+//   })
+// })
+// //-------------------------------------------

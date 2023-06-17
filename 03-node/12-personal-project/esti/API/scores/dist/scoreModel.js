@@ -2,10 +2,9 @@
 exports.__esModule = true;
 exports.ScoreModel = exports.ScoreSchema = void 0;
 var mongoose_1 = require("mongoose");
-var userModel_1 = require("../users/userModel");
 ;
 exports.ScoreSchema = new mongoose_1.Schema({
-    user: userModel_1.UserSchema,
+    userId: String,
     score: Number,
     competitionPlace: Number
 });
