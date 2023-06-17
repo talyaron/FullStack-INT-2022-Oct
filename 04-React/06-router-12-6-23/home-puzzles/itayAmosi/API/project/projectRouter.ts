@@ -1,10 +1,10 @@
 import express from "express";
 const router = express.Router();
 
-import { addProject } from "./projectControl";
+import { addProject, getProjects } from "./projectControl";
 
 router
     .post("/add-project", addProject)
-    // .get("/get-players", getPlayers)
+    .get("/get-projects", getProjects)
 
 export default router;

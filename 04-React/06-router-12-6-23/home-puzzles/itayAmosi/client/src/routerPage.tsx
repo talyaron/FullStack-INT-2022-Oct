@@ -16,6 +16,28 @@ export const router = ([
   <Route path="/login" element={<Login />}/>,
   <Route path="/admin" element={<Admin />}/>,
   <Route path="*" element={<ErrorPage />}/>,
-
 </Routes>
 ]);
+
+
+
+// export const Router = ()=>(
+//   <Routes>
+//     <Route path={"/"} element={<App />}/>
+//     <Route path="/about" element={<About />}/>
+//     <Route path="/contact" element={<Contact />}/>
+//     <Route path="*" element={<ErrorPage />}/>
+//     <Route path="/projects" element={<Projects />}/>
+//     <Route path="/projects/:_id" element={<ProjectDetails />}/>
+//   </Routes>
+//   );
+  
+
+
+// ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+//   <React.StrictMode>
+//   <BrowserRouter>
+//   <Router />
+//   </BrowserRouter>
+// </React.StrictMode>
+// );

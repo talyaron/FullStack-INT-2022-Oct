@@ -1,28 +1,47 @@
 import axios from "axios";
 import "../style/register-login.scss";
 import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [isTrue, setIsTrue] = useState(false);
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get("/api/user/get-user");
 
-    const [isTrue, setIsTrue] = useState(false);
-    useEffect(() => {
-      (async () => {
-        const { data } = await axios.get("/api/user/get-user");
-  
-        const { userDB } = data;
-        if (userDB) {
-          setIsTrue(userDB);
-          console.log(userDB);
-        }
-      })();
-    }, []);
+      const { userDB } = data;
+      if (userDB) {
+        setIsTrue(userDB);
+      }
+    })();
+  }, []);
 
+  async function handleLogin(ev: any) {
+    try {
+      ev.preventDefault();
+      const username = ev.target.elements.username.value;
+      const password = ev.target.elements.password.value;
+      if (!username) throw new Error("No name");
+      if (!password) throw new Error("No Password");
+      const loginUser: any = { username, password };
+
+      const { data } = await axios.get("/api/user/get-user");
+      const { ok } = data;
+if(ok){
+
+  navigate("/");
+}
+    } catch (error) {
+      console.error(error);
+    }
+  }
   return (
     <>
       <div className="box">
         <div className="container">
           <div className="title">Login</div>
-          <form>
+          <form onSubmit={handleLogin}>
             <div className="user_details">
               <div className="input_pox">
                 <span className="datails">Username</span>
@@ -46,6 +65,7 @@ const Login = () => {
             <div className="button">
               <input type="submit" value="Login" />
             </div>
+            <p>Not yet registered:<Link  className="datails" style={{color:"red"}} to={"/register"}> register</Link></p>
           </form>
         </div>
       </div>
