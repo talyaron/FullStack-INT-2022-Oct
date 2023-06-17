@@ -7,6 +7,7 @@ interface Project {
   src2: string;
   src3: string;
   src4: string;
+  description:string;
 }
 
 const projects: Project[] = [];
@@ -17,6 +18,7 @@ export const ProjectSchema = new Schema<Project>({
   src2: String,
   src3: String,
   src4: String,
+  description:String,
 });
 
 const ProjectModel = mongoose.model("Projects", ProjectSchema);

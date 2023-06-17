@@ -9,7 +9,7 @@ const Login = () => {
   useEffect(() => {
     (async () => {
       const { data } = await axios.get("/api/user/get-user");
-
+      console.log(data);
       const { userDB } = data;
       if (userDB) {
         setIsTrue(userDB);
@@ -28,10 +28,9 @@ const Login = () => {
 
       const { data } = await axios.get("/api/user/get-user");
       const { ok } = data;
-if(ok){
-
-  navigate("/");
-}
+      if (ok) {
+        navigate("/");
+      }
     } catch (error) {
       console.error(error);
     }
@@ -65,7 +64,17 @@ if(ok){
             <div className="button">
               <input type="submit" value="Login" />
             </div>
-            <p>Not yet registered:<Link  className="datails" style={{color:"red"}} to={"/register"}> register</Link></p>
+            <p>
+              Not yet registered:
+              <Link
+                className="datails"
+                style={{ color: "red" }}
+                to={"/register"}
+              >
+                {" "}
+                register
+              </Link>
+            </p>
           </form>
         </div>
       </div>

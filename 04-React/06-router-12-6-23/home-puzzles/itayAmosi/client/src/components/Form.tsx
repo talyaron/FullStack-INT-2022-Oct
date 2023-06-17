@@ -9,7 +9,8 @@ const Form = () => {
         const src2 = e.target.src2.value;
         const src3 = e.target.src3.value;
         const src4 = e.target.src4.value;
-        const { data } = await axios.post("/api/project/add-project", { name, src1, src2, src3, src4 });
+        const description = e.target.description.value;
+        const { data } = await axios.post("/api/project/add-project", { name, src1, src2, src3, src4, description });
         console.log(data);
       }
 
@@ -24,6 +25,7 @@ const Form = () => {
         <input type="text" name="src2" placeholder="Project url-2" />
         <input type="text" name="src3" placeholder="Project url-3" />
         <input type="text" name="src4" placeholder="Project url-4" />
+        <input type="text" name="description" placeholder="Project description" />
         <button type="submit">create</button>
       </form>
     </div>
