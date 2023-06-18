@@ -9,31 +9,7 @@ import Contact from './pages/Contact.tsx';
 import Projects from './pages/Projects.tsx';
 import ProjectDetails from './pages/ProjectDetails.tsx';
 
-// const router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <App />,
-//   },
-//   {
-//     path: '/projects',
-//     element: <Projects />,
-//     children: [
-//       { path: 'project/:_id', element: <ProjectDetails/> },
-//     ],
-//   },
-//   {
-//     path: '/about',
-//     element: <About />,
-//   },
-//   {
-//     path: '/contact',
-//     element: <Contact />,
-//   },
-//   {
-//     path: '*',
-//     element: <ErrorPage />,
-//   },
-// ]);
+
 export const Router = ()=>(
   <Routes>
     <Route path={"/"} element={<App />}/>

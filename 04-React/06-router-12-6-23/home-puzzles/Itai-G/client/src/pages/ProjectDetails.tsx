@@ -19,10 +19,10 @@ const ProjectDetails: React.FC = () => {
   useEffect(() => {
     const getProjectDetails = async () => {
       try {
-        // console.log(_id)
-        // const response = await axios.get(`/api/project/get-Projects-By-Id?projectId=${_id}`);
-        // const { data } = response;
-        // setProject(data);
+        console.log(_id)
+        const response = await axios.get(`/api/project/get-Projects-By-Id?projectId=${_id}`);
+        const { data } = response;
+        setProject(data);
       } catch (error: any) {
         console.error(error);
       }
