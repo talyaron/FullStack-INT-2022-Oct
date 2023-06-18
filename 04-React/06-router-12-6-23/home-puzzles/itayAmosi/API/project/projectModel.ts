@@ -5,16 +5,20 @@ interface Project {
   name: string;
   src1: string;
   src2: string;
-  score: number;
+  src3: string;
+  src4: string;
+  description:string;
 }
 
 const projects: Project[] = [];
 
-export const ProjectSchema = new Schema({
+export const ProjectSchema = new Schema<Project>({
   name: String,
   src1: String,
   src2: String,
-  score: Number,
+  src3: String,
+  src4: String,
+  description:String,
 });
 
 const ProjectModel = mongoose.model("Projects", ProjectSchema);

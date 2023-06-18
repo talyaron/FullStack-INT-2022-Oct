@@ -9,7 +9,7 @@
 //   selector: '#myTextarea'
 // });
 
-import { url } from "inspector";
+// import { url } from "inspector";
 
 interface UserScoreToGame {
   name: string;
@@ -36,75 +36,6 @@ interface User {
 };
 
 
-function getTenHighScore() {
-  try {
-    console.log("getTenHighScore");
-    fetch("/get-score")
-      .then((res) => res.json())
-      .then(({ scores }) => {
-        try {
-          if (!scores) throw new Error("didnt find scores");
-          console.log(scores);
-          console.log("scores");
-          renderScores(scores);
-        } catch (error) {
-          console.error(error);
-        }
-      });
-
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-function renderScores(scores: Array<Scores>) {
-  try {
-    if (!scores) throw new Error("No users");
-
-    let html = ""
-    scores.map((score) => {
-        return renderScore(score);
-      })
-      .join(" ");
-    html = `<div class="container"><h1>Ten user with high score</h1><div class="container__form">${html}</div></div>`  
-    const scoresElement = document.querySelector(".centered");
-    if (!scoresElement) throw new Error("coundnt find users element on DOM");
-
-    scoresElement.innerHTML = html;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-function renderScore(score: Scores) {
-  try {
-    console.log(score);
-
-    return `
-    <p>${score.userName} - ${score.score}</p>`
-
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-}
-
-// function handleUserNameUpdate(uid: string) {
-//   try {
-//     console.log(uid);
-//     // const name = ev.target.textContent;
-//     fetch("/api/users/update-user-name", {
-//       method: "PATCH",
-//       headers: {
-//         Accept: "application/json",
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ name, uid }),
-//     });
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
 
 function hendelAddUser(ev: any) {
   try {
@@ -138,8 +69,8 @@ function hendelAddUser(ev: any) {
              score: -1
             } 
             console.log(userScoreplayer)
-            hendelAddScore(userScoreplayer.name, userScoreplayer.id )
-            // snakeGame(userScoreplayer)
+            AddScore(userScoreplayer.name, userScoreplayer.id )
+            snakeGame(userScoreplayer)
             
            //  window.location.href = "login.html"
          }
@@ -189,7 +120,6 @@ function handleLogin(ev: any) {
                } 
                console.log(userScoreplayer)
                snakeGame(userScoreplayer)
-               
               //  window.location.href = "login.html"
             }
         })
@@ -217,7 +147,7 @@ function handleDeleteUser(_id: string) {
     })
       .then((res) => res.json())
       .then(({ users }) => {
-        renderUsers(users);
+        // renderUsers(users);
       })
       .catch((error) => {
         console.error(error);
@@ -225,35 +155,6 @@ function handleDeleteUser(_id: string) {
   } catch (error) {
     console.error(error);
   }
-}
-
-function handleUpdateScore (ev: any, userId: string) {
-  try {
-    const userType = ev.target.value;
-    console.log(userType)
-
-    fetch("/api/users/update-user-type", {
-      method: "PATCH",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userId, userType }),
-    })
-    .then((res) => res.json())
-      .then(({ users }) => {
-        renderUsers(users);
-      })
-      .catch((error) => {
-        console.error(error);
-      });;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-function renderUsers(users: User){
-    console.log("renderUser")
 }
 
 function snakeGame(userScoreToGame: UserScoreToGame ){
@@ -268,12 +169,12 @@ function snakeGame(userScoreToGame: UserScoreToGame ){
     }
   }
 
-  function hendelAddScore(userName:string, userId:string ) {
+  function AddScore(playerName:string, userId:string ) {
     try {
-      if (!userName || !userId) throw new Error("No user detail");
+      if (!playerName || !userId) throw new Error("No user detail");
       const score = 0
       const competitionPlace = 0
-      const newScore: any = { userName, userId, score, competitionPlace };
+      const newScore: any = { userId, playerName, score, competitionPlace };
       console.log(newScore)
       console.log("newScore")
       

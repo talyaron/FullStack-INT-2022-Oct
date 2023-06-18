@@ -6,7 +6,7 @@ import NavBar from "../components/NavBar";
 const Admin = () => {
   return (
     <>
-<NavBar />
+      <NavBar />
       <aside>
         <header>
           <div className="profile">
@@ -22,33 +22,25 @@ const Admin = () => {
             <p className="active">
               <Link to={"/"}>
                 {" "}
-                <a>
-                  <i className="fa fa-dashboard"></i>Home
-                </a>
+                <i className="fa fa-dashboard"></i>Home
               </Link>
             </p>
             <p>
-            <Link to={"/"}>
+              <Link to={"/"}>
                 {" "}
-                <a>
-                  <i className="fa fa-dashboard"></i>Projects
-                </a>
+                <i className="fa fa-dashboard"></i>Projects
               </Link>
             </p>
             <p>
-            <Link to={"/"}>
+              <Link to={"/"}>
                 {" "}
-                <a>
-                  <i className="fa fa-dashboard"></i>Comments
-                </a>
+                <i className="fa fa-dashboard"></i>Comments
               </Link>
             </p>
             <p>
-            <Link to={"/"}>
+              <Link to={"/"}>
                 {" "}
-                <a>
-                  <i className="fa fa-dashboard"></i>Users
-                </a>
+                <i className="fa fa-dashboard"></i>Users
               </Link>
             </p>
           </ul>

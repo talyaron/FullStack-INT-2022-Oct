@@ -1,9 +1,9 @@
 import axios from "axios";
 import "../style/register-login.scss";
-import ErrorPage from "./ErrorPage";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const register = () => {
+  const navigate = useNavigate();
   async function handleRegistation(e: any) {
     e.preventDefault();
     const name = e.target.name.value;
@@ -26,9 +26,13 @@ const register = () => {
         cpassword,
         gender,
       });
+      const { ok } = data;
+      if (ok) {
+        navigate("/login")
+        
+      }
     }
     console.log(gender);
-    // console.log(data);
   }
 
   return (
@@ -123,6 +127,7 @@ const register = () => {
             <div className="button">
                 <input type="submit" value="Register" />
             </div>
+          <p>Already registered: <Link  className="datails" style={{color:"red"}} to={"/login"}>Login</Link></p>
           </form>
         </div>
       </div>
