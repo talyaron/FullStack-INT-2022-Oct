@@ -39,70 +39,21 @@ exports.__esModule = true;
 exports.updateScore = exports.addScore = exports.getScores = void 0;
 var scoreModel_1 = require("./scoreModel");
 exports.getScores = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, name, score, competitionPlace;
-    return __generator(this, function (_b) {
-        try {
-            _a = req.body, name = _a.name, score = _a.score, competitionPlace = _a.competitionPlace;
-            // console.log( name, score, competitionPlace );
-            // let scoreDBArray = []
-            // for (let i = 1; i < 10; i++ ){
-            //     const scoreDB = await ScoreModel.findOne({ i });
-            //     console.log(scoreDB)
-            //     console.log("scoreDB")
-            //     // scoreDBArray.push(scoreDB)
-            //   };
-            // interface CustomError {
-            //   code: number;
-            //   message: string;
-            // }
-            // if (!scoreDBArray) throw new Error("Username or password are inncorect");
-            // if (!scoreDBArray){
-            //     // If an error occurs
-            //     const error: CustomError = {
-            //       code: 1001,
-            //       message: "No play user"
-            //     };
-            //     res.status(1001).send({ error });
-            //   };
-            //   if (!secret) throw new Error("Missing jwt secret");
-            //   
-            //   const token = jwt.encode({ userId: userDB._id, role: "public" }, secret);
-            //   console.log(token);
-            //   console.log("token");
-            //   res.cookie("user", userDB._id , { maxAge: 5000000, httpOnly: true });
-            //   res.status(201).send({ ok: true });
-        }
-        catch (error) {
-            console.error(error);
-            res.status(500).send({ error: error.message });
-        }
-        return [2 /*return*/];
-    });
-}); };
-// export const addScore = async (req: any, res: any) => {
-//   try {
-//   //   res.status(201).send({ ok: true });
-//   } catch (error: any) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// };
-exports.addScore = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, userId, score, competitionPlace, scoreDB, error_1;
+    var _a, name, score, competitionPlace, scoreDB, error_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                _a = req.body, userId = _a.userId, score = _a.score, competitionPlace = _a.competitionPlace;
-                // console.log(name, password);
                 console.log(req.body);
-                return [4 /*yield*/, scoreModel_1.ScoreModel.create({ userId: userId, score: score, competitionPlace: competitionPlace })];
+                _a = req.body, name = _a.name, score = _a.score, competitionPlace = _a.competitionPlace;
+                console.log(name, score, competitionPlace);
+                return [4 /*yield*/, scoreModel_1.ScoreModel.find()];
             case 1:
                 scoreDB = _b.sent();
+                if (!scoreDB)
+                    throw new Error("no scoreDB from get");
                 console.log(scoreDB);
-                // console.log(UserModel);
-                // console.log("userDB");
-                res.status(201).send({ ok: true, score: scoreDB });
+                res.status(201).send({ ok: true, scoreDB: scoreDB });
                 return [3 /*break*/, 3];
             case 2:
                 error_1 = _b.sent();
@@ -113,23 +64,22 @@ exports.addScore = function (req, res) { return __awaiter(void 0, void 0, void 0
         }
     });
 }); };
-exports.updateScore = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, scoreUserId, score, scoreDB, error_2;
+exports.addScore = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, userId, playerName, score, competitionPlace, scoreDB, error_2;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                // const user = req.user;
+                _a = req.body, userId = _a.userId, playerName = _a.playerName, score = _a.score, competitionPlace = _a.competitionPlace;
+                // console.log(name, password);
                 console.log(req.body);
-                _a = req.body, scoreUserId = _a.scoreUserId, score = _a.score;
-                console.log(scoreUserId);
-                console.log(score);
-                return [4 /*yield*/, scoreModel_1.ScoreModel.findOneAndUpdate({ userId: scoreUserId }, { score: score })];
+                return [4 /*yield*/, scoreModel_1.ScoreModel.create({ userId: userId, playerName: playerName, score: score, competitionPlace: competitionPlace })];
             case 1:
                 scoreDB = _b.sent();
-                if (!scoreDB)
-                    throw new Error("no scoreDB");
-                res.send({ ok: true, scoreDB: scoreDB });
+                console.log(scoreDB);
+                // console.log(UserModel);
+                // console.log("userDB");
+                res.status(201).send({ ok: true, score: scoreDB });
                 return [3 /*break*/, 3];
             case 2:
                 error_2 = _b.sent();
@@ -140,47 +90,32 @@ exports.updateScore = function (req, res) { return __awaiter(void 0, void 0, voi
         }
     });
 }); };
-//     const {userId , score , competitionPlace} = req.body 
-//     if(!userId) throw new Error("no  user id")
-//     // const userDB =  await ScoreModel.findOne({_ID:userId} );
-//     // console.log(userDB);
-//     // if(!userDB) throw new Error("no found userId")
-//     const scoreDB = await ScoreModel.findByIdAndUpdate({_id:userId},{score}},
-//     res.status(201).send({ok:true , score:updateScore})
-//     //   res.status(201).send({ ok: true });
-//   } catch (error: any) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// };
-// ++++++++++++++++++++++++++++++++++
-//-----Update product (By Admin)
-// export const updateProduct = AsyncHandler(async (req:any, res:any) => {
-//   const { name, description, sizes, colors, price, totalQty} = req.body
-//   //If name exists
-//   const productFound = await ProductModel.findOne({ name })
-//   if(productFound){
-//       throw new Error("The product already exists")
-//   }
-//   //update
-//   const product = await ProductModel.findByIdAndUpdate(
-//       req.params.productID,
-//       {
-//           name,
-//           description,
-//           sizes,
-//           colors,
-//           price,
-//           totalQty
-//       },
-//       {
-//           new: true
-//       }
-//   )
-//   res.status(200).json({
-//       status: "success",
-//       message:"The product has been successfully updated",
-//       product
-//   })
-// })
-// //-------------------------------------------
+exports.updateScore = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, userId, score, scoreDB, error_3;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                // const user = req.user;
+                console.log(req.body);
+                _a = req.body, userId = _a.userId, score = _a.score;
+                userId = userId.trim();
+                console.log(userId);
+                console.log(score);
+                return [4 /*yield*/, scoreModel_1.ScoreModel.findOneAndUpdate({ userId: userId }, { score: score })];
+            case 1:
+                scoreDB = _b.sent();
+                console.log(scoreDB);
+                if (!scoreDB)
+                    throw new Error("no scoreDB");
+                res.send({ ok: true, scoreDB: scoreDB });
+                return [3 /*break*/, 3];
+            case 2:
+                error_3 = _b.sent();
+                console.error(error_3);
+                res.status(500).send({ error: error_3.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };

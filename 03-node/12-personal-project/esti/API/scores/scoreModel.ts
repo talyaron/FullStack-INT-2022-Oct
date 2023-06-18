@@ -6,12 +6,14 @@ import mongoose, { Schema } from "mongoose";
 
 export interface Scores {
   userId: string,
+  playerName: string,
   score: number,
   competitionPlace: number,
 };
 
 export const ScoreSchema = new Schema({
   userId: String,
+  playerName:String,
   score: Number,
   competitionPlace: Number,
 });
