@@ -5,7 +5,7 @@ import About from "./pages/About";
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import ErrorPage from "./pages/ErrorPage";
-import './App.css'; // Import the CSS file
+import './App.css'; 
 
 const App: React.FC = () => {
   return (
