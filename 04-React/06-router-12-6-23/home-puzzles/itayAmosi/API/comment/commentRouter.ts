@@ -1,11 +1,10 @@
-// import express from "express";
-// const router = express.Router();
+import express from "express";
+const router = express.Router();
 
-// import { addProject, getProjectById, getProjects } from "./projectControl";
+import { addComment } from "./commentControl";
 
-// router
-//   .post("/add-project", addProject)
+router
+  .post("/add-comment", addComment)
 //   .get("/get-projects", getProjects)
-//   .get("/get-project-by-id", getProjectById);
 
-// export default router;
+export default router;

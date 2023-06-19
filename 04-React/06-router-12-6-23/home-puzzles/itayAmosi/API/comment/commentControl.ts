@@ -1,18 +1,20 @@
-// import ProjectModel from "./projectModel";
+import ProjectModel from "../project/projectModel";
+import CommentModel from "./commentModel";
 
 
 
-// export async function addProject (req: any, res: any) {
-//     try {
-//       const { name, src1, src2, src3, src4, description } = req.body;
-      
-//       const projectDB = await ProjectModel.create({ name, src1, src2, src3, src4, description });
-//       res.send({ ok: true, Project: projectDB });
-//     } catch (error:any) {
-//       console.error(error);
-//       res.status(500).send({ ok: false, error });
-//     }
-//   }
+export async function addComment (req: any, res: any) {
+    try {
+      const { comment , projectId } = req.body;
+      const projectDB = await ProjectModel.findById(projectId);
+
+      const commentDB = await CommentModel.create({ comment, projectId });
+      res.send({ ok: true, Comment: commentDB });
+    } catch (error:any) {
+      console.error(error);
+      res.status(500).send({ ok: false, error });
+    }
+  }
   
 //   export async function getProjects (req: any, res: any){
 //     try {

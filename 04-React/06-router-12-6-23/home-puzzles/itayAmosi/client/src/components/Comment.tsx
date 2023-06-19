@@ -4,8 +4,8 @@ import "../style/comment.scss";
 const Comment = () => {
   async function handleAddCommet(e: any) {
     e.preventDefault();
-    const commet = e.target.commet.value;
-    const { data } = await axios.post("/api/project/add-project", { commet });
+    const comment = e.target.comment.value;
+    const { data } = await axios.post("/api/comment/add-comment", { comment });
     console.log(data);
   }
 
@@ -13,16 +13,15 @@ const Comment = () => {
     <div className="commentContainer">
       <form className="commet" onSubmit={handleAddCommet}>
         <p className="text">
-          <textarea
-            name="text"
+          <input
+            type="text"
+            name="comment"
             className="validate[required,length[6,300]] feedback-input"
-            id="comment"
             placeholder="Comment"
-          ></textarea>
+          ></input>
         </p>
-
         <div className="submit">
-          <input type="submit" name="commet" value="SEND" id="button-blue" />
+          <input type="submit" value="SEND" id="button-blue" />
           <div className="ease"></div>
         </div>
       </form>

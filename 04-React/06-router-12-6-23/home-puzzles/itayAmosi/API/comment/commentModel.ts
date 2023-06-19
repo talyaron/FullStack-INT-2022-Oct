@@ -1,23 +1,15 @@
-// import mongoose, { Schema, Document } from "mongoose";
+import mongoose, { Schema, Document } from "mongoose";
 
-// interface Project extends Document {
-//   name: string;
-//   src1: string;
-//   src2: string;
-//   src3: string;
-//   src4: string;
-//   description: string;
-// }
+interface Comment extends Document {
+  comment: string;
+  projectId: string;
+}
 
-// const ProjectSchema = new Schema<Project>({
-//   name: String,
-//   src1: String,
-//   src2: String,
-//   src3: String,
-//   src4: String,
-//   description: String,
-// });
+const CommentSchema = new Schema<Comment>({
+  comment: String,
+  projectId: String,
+});
 
-// const ProjectModel = mongoose.model<Project>("Project", ProjectSchema);
+const CommentModel = mongoose.model<Comment>("Comment", CommentSchema);
 
-// export default ProjectModel;
+export default CommentModel;
