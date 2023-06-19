@@ -2,7 +2,7 @@ import "../style/comment.scss";
 
 const Comment = () => {
   return (
-    <>
+    <div className="commentContainer">
       <form className="form1" id="form1">
         <p className="text">
           <textarea
@@ -18,7 +18,7 @@ const Comment = () => {
           <div className="ease"></div>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 
