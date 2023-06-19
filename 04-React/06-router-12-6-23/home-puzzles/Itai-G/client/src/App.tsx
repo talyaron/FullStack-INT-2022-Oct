@@ -5,7 +5,9 @@ import About from "./pages/About";
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import ErrorPage from "./pages/ErrorPage";
+
 import './App.css'; 
+import FeedbackForm from "./pages/Feedback";
 
 const App: React.FC = () => {
   return (
@@ -16,6 +18,7 @@ const App: React.FC = () => {
         <Route path="/projects" element={<Projects />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/feedback" element={<FeedbackForm />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
@@ -24,7 +27,7 @@ const App: React.FC = () => {
 
 const Home: React.FC = () => {
   return (
-    <div className="home-container"> {/* Add the class name */}
+    <div className="home-container"> 
       <h2>Welcome to the Home Page</h2>
       <p>About Me:</p>
       <p>

@@ -9,6 +9,7 @@ const Navbar: React.FC = () =>{
             <Link to="/projects">Projects</Link>
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
+            <Link to="/feedback">Feedback</Link>
         </ul>
       </nav>
     );
