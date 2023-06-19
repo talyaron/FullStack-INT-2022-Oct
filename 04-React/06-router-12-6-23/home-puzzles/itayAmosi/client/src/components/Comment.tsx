@@ -1,9 +1,17 @@
+import axios from "axios";
 import "../style/comment.scss";
 
 const Comment = () => {
+  async function handleAddCommet(e: any) {
+    e.preventDefault();
+    const commet = e.target.commet.value;
+    const { data } = await axios.post("/api/project/add-project", { commet });
+    console.log(data);
+  }
+
   return (
     <div className="commentContainer">
-      <form className="form1" id="form1">
+      <form className="commet" onSubmit={handleAddCommet}>
         <p className="text">
           <textarea
             name="text"
@@ -14,7 +22,7 @@ const Comment = () => {
         </p>
 
         <div className="submit">
-          <input type="submit" value="SEND" id="button-blue" />
+          <input type="submit" name="commet" value="SEND" id="button-blue" />
           <div className="ease"></div>
         </div>
       </form>
