@@ -89,8 +89,12 @@ img {
 }
 
 .storeItem button {
-  width: 100%;
+  width: 40%;
   margin: 10px 0;
+}
+
+input{
+  width: 20%;
 }
 
 @media screen and (min-width: 768px) {
@@ -145,3 +149,4 @@ img {
     margin: 10px 20px;
   }
 }
+
