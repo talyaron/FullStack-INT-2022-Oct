@@ -19,6 +19,7 @@ body {
   padding: 10px;
 }
 
+// You should use scss .topNav{ ul...} instead of .topNav ul
 .topNav ul {
   display: flex;
   list-style-type: none;
