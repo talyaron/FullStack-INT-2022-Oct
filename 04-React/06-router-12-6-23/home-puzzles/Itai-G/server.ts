@@ -25,6 +25,9 @@ if (uri) {
 
 import projectRouter from "./API/project/projectRoute";
 app.use("/api/project", projectRouter)
+
+import feedBackRouter from "./API/feedback/feedbackRoute";
+app.use("/api/feedback", feedBackRouter)
  
 
 

@@ -4,7 +4,7 @@ import './contact.scss';
 
 const Contact: React.FC = () => {
   return (
-    <div className="contactContainer">
+    <div className="contact-container">
       <h2>My Contact Info</h2>
       <p>Email: gelberg4322@gmail.com</p>
       <p>Phone Number: +972544803423</p>

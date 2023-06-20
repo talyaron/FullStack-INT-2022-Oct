@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 
@@ -36,7 +36,6 @@ const ProjectComp:FC<Project> = () => {
               <h3>{project.name}</h3>
             </Link>
             <img src={project.img} alt="" />
-            <p>{project.description}</p>
           </div>
           </div>
         ))}

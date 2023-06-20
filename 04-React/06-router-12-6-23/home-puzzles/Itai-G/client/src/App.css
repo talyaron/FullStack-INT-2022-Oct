@@ -1,4 +1,4 @@
-body {
+.body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
@@ -38,13 +38,14 @@ body {
 .home-container {
   text-align: center;
   padding: 20px;
-  height: 300px;
+  height: auto;
   width: 600px;
   box-sizing: border-box;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(164, 98, 98, 0.1);
   margin: 0 auto;
+  margin-bottom: 40px;
 }
 
 .home-container h2 {
@@ -57,4 +58,42 @@ body {
   font-size: 16px;
   color: green;
   line-height: 1.5;
+}
+
+.feedback-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.feedback-box {
+  flex: 1;
+  background-color: lightblue;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.feedback {
+  margin-bottom: 10px;
+}
+
+.feedback p {
+  margin: 0;
+}
+
+.feedback p:first-child {
+  font-weight: bold;
+}
+
+.feedback p:last-child {
+  font-style: italic;
+}
+
+.feedback-slide {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.feedback-slide.fade-in {
+  opacity: 1;
 }
