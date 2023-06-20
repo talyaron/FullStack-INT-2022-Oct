@@ -1,0 +1,39 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.gallery__item,
+img {
+    margin: 10px;
+  left: 50px;
+  height: 500px;
+  width: 70%;
+}
+    .masking {
+        padding: 0.5rem 5ch;
+        background-color: lightgray;
+        background-image: 
+          linear-gradient(#d8d8d8, #d8d8d8 4px, transparent 4px, transparent 8px), /* 左の切り口 */
+          linear-gradient(#d8d8d8, #d8d8d8 4px, transparent 4px, transparent 8px), /* 右の切り口 */
+          linear-gradient(
+              45deg,
+              white 0%,
+              white 25%,
+              lighten(#4b7cb6, 30%) 0,
+              lighten(#4b7cb6, 30%) 50%,
+              white 0,
+              white 75%,
+              lighten(#4b7cb6, 30%) 0,
+              lighten(#4b7cb6, 30%) 100%
+            ) /* テープ */;
+        background-repeat: repeat;
+        filter: drop-shadow(0 0 7px rgba(0, 0, 0, 0.2));
+        background-size: 3px 8px, 3px 8px, 30px 30px;
+        background-position: left bottom, right bottom, left top;
+        background-repeat: repeat-y, repeat-y, repeat;
+      }
+      

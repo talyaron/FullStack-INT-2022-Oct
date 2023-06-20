@@ -6,7 +6,8 @@ import randNumb, { uid } from './functions/heleprs'
 import { Link } from 'react-router-dom'
 
 function App() {
-  const [count, setCount] = useState(0) 
+  const [count, setCount] = useState(0);
+ 
 
   return (
     <>

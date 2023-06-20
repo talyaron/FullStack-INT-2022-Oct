@@ -26,7 +26,7 @@ body {
   margin: 0;
   display: flex;
   min-height: 100vh;
-  background: url("https://img.freepik.com/premium-photo/top-view-dark-stylish-workplace-with-smartphone-office-supplies_67155-2963.jpg") no-repeat;
+  background: url("https://img.freepik.com/free-vector/creative-geometric-design-space_53876-89787.jpg") no-repeat;
   background-size: cover;
 }
 
@@ -50,10 +50,11 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-
+h2{
+  color: white;
+}
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
     background-color: #ffffff;
   }
   a:hover {
@@ -62,22 +63,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-.home-container {
-  text-align: center;
-  padding: 20px;
-  height: 350px;
-  width: 350px;
-  box-sizing: border-box;
-}
-
-.home-container h2 {
-  font-size: 24px;
-  color: green;
-}
-
-.home-container p {
-  font-size: 16px;
-  color: green;
-  line-height: 1.5;
 }

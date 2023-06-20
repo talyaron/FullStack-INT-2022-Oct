@@ -5,6 +5,7 @@ var mongoose_1 = require("mongoose");
 ;
 exports.ScoreSchema = new mongoose_1.Schema({
     userId: String,
+    playerName: String,
     score: Number,
     competitionPlace: Number
 });

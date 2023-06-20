@@ -8,32 +8,9 @@ import About from './pages/About.tsx';
 import Contact from './pages/Contact.tsx';
 import Projects from './pages/Projects.tsx';
 import ProjectDetails from './pages/ProjectDetails.tsx';
+import FeedbackForm from './pages/Feedback.tsx';
 
-// const router = createBrowserRouter([
-//   {
-//     path: '/',
-//     element: <App />,
-//   },
-//   {
-//     path: '/projects',
-//     element: <Projects />,
-//     children: [
-//       { path: 'project/:_id', element: <ProjectDetails/> },
-//     ],
-//   },
-//   {
-//     path: '/about',
-//     element: <About />,
-//   },
-//   {
-//     path: '/contact',
-//     element: <Contact />,
-//   },
-//   {
-//     path: '*',
-//     element: <ErrorPage />,
-//   },
-// ]);
+
 export const Router = ()=>(
   <Routes>
     <Route path={"/"} element={<App />}/>
@@ -42,6 +19,7 @@ export const Router = ()=>(
     <Route path="*" element={<ErrorPage />}/>
     <Route path="/projects" element={<Projects />}/>
     <Route path="/projects/:_id" element={<ProjectDetails />}/>
+    <Route path="/feedback" element={<FeedbackForm />}/>
   </Routes>
   );
   

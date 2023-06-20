@@ -32,45 +32,20 @@ function App() {
   return (
     <>
       <NavBar />
+      <h1 className="text">
+        Hello and welcome to my portfolio site! Here you can see the various
+        projects I have worked on recently, both individually and in a team.
+        Through these projects, I gained experience building and programming in
+        languages such as HTML, SCSS, TypeScript and REACT. Additionally, I
+        learned how to use MongoDB, a popular NoSQL database. Thank you for
+        visiting my site and I hope you enjoy browsing my work. I have prepared
+        for you a selection of projects that you can watch and in addition you
+        can comment your personal opinion!
+      </h1>
+      <h2 className="textLINK">Let's get started:
+        <Link to={"/projects"}>projects</Link>
 
-      <div className="appBox">
-        <header>
-          <h1>My Projects</h1>
-          <h2>[ Portfolio Gallery ]</h2>
-        </header>
-
-        <section className="gallery">
-          <div className="row">
-            <ul>
-              <li>
-                <Link to={"/About"}>
-                  <img
-                    src="https://i.ibb.co/bFB0rJs/Screenshot-2023-06-15-195008.png"
-                    alt=""
-                  />
-                </Link>
-              </li>
-
-              <li>
-                <Link to={"/"}>
-                  <img src="" alt="" />
-                </Link>
-              </li>
-
-              <li>
-                <Link to={"/"}>
-                  <img src="" alt="" />
-                </Link>
-              </li>
-              <li>
-                <Link to={"/"}>
-                  <img src="" alt="" />
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </section>
-      </div>
+      </h2>
     </>
   );
 }
