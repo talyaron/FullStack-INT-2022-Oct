@@ -26,16 +26,16 @@ export const PlayerSchema = new Schema({
 })
 
 export const defenderPlayers= new Schema({
-    PositionType: {type:PositionType.DEFENDER},
+    PositionType: {type:PositionType},
 })
 export const attackerPlayers = new Schema({
-  PositionType:{type:PositionType.ATTACKER}
+  PositionType:{type:PositionType}
 })
 export const midfilderPlayers = new Schema({
-  PositionType:{type:PositionType.MIDFIELDER}
+  PositionType:{type:PositionType}
 })
 export const goalkeeperPlayers = new Schema({
-  PositionType:{type:PositionType.GOALKEEPER}
+  PositionType:{type:PositionType}
 })
 
 export const defenderPlayersModel = mongoose.model('defenderPlayers',defenderPlayers)

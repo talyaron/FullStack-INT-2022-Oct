@@ -20,16 +20,16 @@ exports.PlayerSchema = new mongoose_1.Schema({
     }
 });
 exports.defenderPlayers = new mongoose_1.Schema({
-    PositionType: { type: PositionType.DEFENDER }
+    PositionType: { type: PositionType }
 });
 exports.attackerPlayers = new mongoose_1.Schema({
-    PositionType: { type: PositionType.ATTACKER }
+    PositionType: { type: PositionType }
 });
 exports.midfilderPlayers = new mongoose_1.Schema({
-    PositionType: { type: PositionType.MIDFIELDER }
+    PositionType: { type: PositionType }
 });
 exports.goalkeeperPlayers = new mongoose_1.Schema({
-    PositionType: { type: PositionType.GOALKEEPER }
+    PositionType: { type: PositionType }
 });
 exports.defenderPlayersModel = mongoose_1["default"].model('defenderPlayers', exports.defenderPlayers);
 exports.attackerPlayersModel = mongoose_1["default"].model('attackerPlayers', exports.attackerPlayers);
