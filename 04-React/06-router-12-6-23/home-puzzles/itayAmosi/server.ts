@@ -1,10 +1,12 @@
 import express from "express";
 import bcrypt from 'bcryptjs';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 
 import * as dotenv from "dotenv";
 dotenv.config();
+app.use(cookieParser());
 app.use(express.json());
 
 
@@ -66,3 +68,4 @@ app.use(express.static("./client"));
 app.listen(4000, () => {
   console.log("server listen on port 4000");
 });
+

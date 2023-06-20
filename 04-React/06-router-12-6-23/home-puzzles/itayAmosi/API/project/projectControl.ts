@@ -17,7 +17,6 @@ export async function addProject (req: any, res: any) {
   export async function getProjects (req: any, res: any){
     try {
         const projectDB = await ProjectModel.find({});
-        
         res.send({ ok: true, projectDB });
     } catch (error:any) {
         console.error("cant get projects");
@@ -27,7 +26,6 @@ export async function addProject (req: any, res: any) {
   export async function getProjectById (req: any, res: any){
     try {
       const {projectId} = req.query;
-      console.log(projectId);
       if(!projectId) throw new Error("no project id!")
       const projectDB = await ProjectModel.findById(projectId);
 

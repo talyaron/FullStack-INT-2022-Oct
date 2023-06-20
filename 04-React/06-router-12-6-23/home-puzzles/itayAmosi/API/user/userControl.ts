@@ -15,16 +15,7 @@ export async function addUser (req: any, res: any) {
     if (arr.some((ele) => !regex.test(ele))) {
      throw new  Error("Please check your input(Only English characters allowed)")
     }
-
-    const salt = bcrypt.genSaltSync(10);
-    const passHash = bcrypt.hashSync(password, salt);
-    const existUser = await UserModel.findOne({
-      $or: [{ username }, { email }],
-    });
-
-    if (existUser) throw new Error("User already exist");
       const userDB = await UserModel.create({ name, username, email, phone, password, cpassword, gender });
-      console.log(userDB);
 
       res.send({ ok: true, user: userDB });
     } catch (error:any) {
@@ -39,10 +30,10 @@ export const login = async (req: any, res: any) => {
     const JWT_SECRET="sdsdgffdgdfasSFDFBDF"
     const secret = process.env.JWT_SECRET;
 
-    const { userName, password } = req.body;
-
-    const userDB = await UserModel.findOne({ userName });
-
+    const { username, password } = req.body;
+console.log(username, password);
+    const userDB = await UserModel.findOne({ username });
+console.log(userDB);
     if (!userDB) {
       res.status(401).send({
         error: "username or password are inncorect",
@@ -52,9 +43,9 @@ export const login = async (req: any, res: any) => {
     // if (!bcrypt.compareSync(password, userDB.password))
     //   throw new Error("wrong username or password");
 
-    if (!secret) throw new Error("Server Error");
-    const token = jwt.encode({ userId: userDB._id }, secret);
-    res.cookie("currentUser", token, {
+    // if (!secret) throw new Error("Server Error");
+    // const token = jwt.encode({ userId: userDB._id }, secret);
+    res.cookie("currentUser", JSON.stringify( {userId: userDB._id }), {
       maxAge: 999 * 999 * 999,
       httpOnly: true,
     });

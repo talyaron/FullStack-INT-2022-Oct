@@ -3,20 +3,9 @@ import "../style/register-login.scss";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Login = () => {
+ const  Login = () =>  {
   const navigate = useNavigate();
   const [isTrue, setIsTrue] = useState(false);
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.get("/api/user/get-user");
-      console.log(data);
-      const { userDB } = data;
-      if (userDB) {
-        setIsTrue(userDB);
-      }
-    })();
-  }, []);
-
   async function handleLogin(ev: any) {
     try {
       ev.preventDefault();
@@ -26,13 +15,14 @@ const Login = () => {
       if (!password) throw new Error("No Password");
       const loginUser: any = { username, password };
 
-      const { data } = await axios.get("/api/user/get-user");
+      const { data } = await axios.post("/api/user/get-user", loginUser);
+      console.log(data);
       const { ok } = data;
       if (ok) {
         navigate("/");
       }
-    } catch (error) {
-      console.error(error);
+    } catch (error: any) {
+      console.error(error.message);
     }
   }
   return (

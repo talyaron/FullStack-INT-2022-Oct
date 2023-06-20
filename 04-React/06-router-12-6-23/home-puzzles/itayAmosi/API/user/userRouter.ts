@@ -5,6 +5,6 @@ import { addUser, login } from "./userControl";
 
 router
     .post("/add-user", addUser)
-    .get("/get-user", login)
+    .post("/get-user", login)
 
 export default router;

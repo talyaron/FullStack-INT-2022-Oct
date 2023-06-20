@@ -1,15 +1,20 @@
-import ProjectModel from "../project/projectModel";
 import CommentModel from "./commentModel";
+import jwt from "jwt-simple";
+import ProjectModel from "../project/projectModel";
 
 
 
 export async function addComment (req: any, res: any) {
     try {
-      const { comment , projectId } = req.body;
-      const projectDB = await ProjectModel.findById(projectId);
+      const { comment } = req.body;
+      const { currentUser } = req.cookies;
 
-      const commentDB = await CommentModel.create({ comment, projectId });
-      res.send({ ok: true, Comment: commentDB });
+  console.log(currentUser);
+
+  
+      const commentDB = await CommentModel.create({ userId: currentUser, comment });
+
+      res.send({ ok: true, commentDB });
     } catch (error:any) {
       console.error(error);
       res.status(500).send({ ok: false, error });

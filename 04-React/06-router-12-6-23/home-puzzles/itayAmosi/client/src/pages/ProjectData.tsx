@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Outlet, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Comment from "../components/Comment";
 import "../style/projectData.scss";
@@ -32,7 +32,6 @@ const ProjectData = () => {
     getProjectDetails();
   }, [_id]);
     useEffect(()=>{
-  console.log(project);
   },[project]);
 
   if (!project) {
