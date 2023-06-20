@@ -1,6 +1,6 @@
 import React from 'react';
 import * as ReactDOM from 'react-dom/client';
-import { BrowserRouter, createBrowserRouter, Route, RouterProvider, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App.tsx';
 import './index.css';
 import ErrorPage from './pages/ErrorPage.tsx';
@@ -16,8 +16,8 @@ export const Router = ()=>(
     <Route path={"/"} element={<App />}/>
     <Route path="/about" element={<About />}/>
     <Route path="/contact" element={<Contact />}/>
-    <Route path="*" element={<ErrorPage />}/>
     <Route path="/projects" element={<Projects />}/>
+    <Route path="*" element={<ErrorPage />}/>
     <Route path="/projects/:_id" element={<ProjectDetails />}/>
     <Route path="/feedback" element={<FeedbackForm />}/>
   </Routes>

@@ -1,28 +1,67 @@
-.contactContainer {
-    width: 400px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(164, 98, 98, 0.1);
-  }
-  
-  .contactContainer h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-  }
-  
-  .contactContainer p {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 0.5rem;
-  }
-  
-  .contactContainer a {
-    color: #646cff;
-    text-decoration: none;
-  }
-  
-  .contactContainer a:hover {
-    text-decoration: underline;
-  }
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-field[type="textarea"] {
+  height: 150px;
+}
+
+.submit-btn {
+  border: none;
+  background-color: #646cff;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #535bf2;
+}
+
+.contact-container {
+  text-align: center;
+  padding: 20px;
+  height: 300px;
+  width: 600px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(164, 98, 98, 0.1);
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.contact-container h2 {
+  font-size: 24px;
+  color: green;
+  margin-bottom: 1rem;
+}
+
+.contact-container p {
+  font-size: 16px;
+  color: green;
+  line-height: 1.5;
+}

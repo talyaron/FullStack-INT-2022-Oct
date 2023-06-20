@@ -1,20 +1,31 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import axios from 'axios';
 import Navbar from '../components/navbar/Navbar';
-import "./feedback.scss"
+import './feedback.scss';
 
 const FeedbackForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
 
-    console.log('Submitting feedback:', { name, email, message });
+    try {
+      const response = await axios.post('/api/feedback/add-feedback', {
+        name,
+        email,
+        message,
+      });
 
-    setName('');
-    setEmail('');
-    setMessage('');
+      console.log('feedBack submitted:', response.data);
+      
+      setName('');
+      setEmail('');
+      setMessage('');
+    } catch (error) {
+      console.error('Failed to submit feedback:', error);
+    }
   };
 
   return (
