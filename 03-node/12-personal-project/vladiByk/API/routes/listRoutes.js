@@ -8,6 +8,7 @@ const express_1 = __importDefault(require("express"));
 const listRouter = express_1.default.Router();
 exports.listRouter = listRouter;
 const listController_1 = require("../controller/listController");
+//יש כאן הכרזה כפולה ומיותרת
 listRouter.route("/").get(listController_1.getAllLists).post(listController_1.createList);
 listRouter
     .route("/:id")
