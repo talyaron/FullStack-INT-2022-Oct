@@ -1,0 +1,102 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: wheat;
+  height: 100vh;
+}
+
+nav {
+  height: 10%;
+}
+
+ul {
+  background-color: wheat;
+  list-style: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.mainPageContainer {
+  height: 100%;
+  margin-top: 20%;
+  text-align: center;
+}
+.mainPageContainer p {
+  margin-top: 20%;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.linksContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.linkSquare {
+  width: 30%;
+  margin-top: 20%;
+  box-shadow: 0 0 10px black;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+}
+
+.linkImg {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.linkTitle {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.linkSquare:hover {
+  transform: scale(1.05);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.githubLink {
+  position: absolute;
+  margin-top: 43%;
+  margin-left: 40%;
+  background-color: black;
+  color: white;
+  padding: 2%;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.githubLink:hover {
+  background-color: white;
+  color: black;
+}
+
+.gitLinkBtn {
+  margin-top: 35%;
+  margin-left: 40%;
+  position: fixed;
+  border-radius: 10%;
+}

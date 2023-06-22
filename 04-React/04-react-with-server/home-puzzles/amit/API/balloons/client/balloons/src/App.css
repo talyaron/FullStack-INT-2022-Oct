@@ -1,0 +1,85 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+body{
+  margin:0;
+  display: flex;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  background-image: url("https://images5.alphacoders.com/131/1316339.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container{
+  width: 80vw;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.buttonsWrapper{
+  width: 75%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: auto;
+}
+
+
+button{
+  width: auto;
+  height: auto;
+  margin: 0.5rem;
+  /* background-color: red; */
+  box-shadow: 0px 0px 15px;
+  font-weight: 900;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 16px;
+  margin: auto;
+  text-transform: capitalize;
+}
+button:hover {
+  cursor: pointer;
+  box-shadow: none;
+  background-color: gold;
+  transition: 0.2s ease-out;
+  color: red;
+}
+
+h2{
+  color: white;
+  text-transform: capitalize;
+  margin:auto;
+}
+h1{
+  color: white;
+  padding-bottom: 2rem;
+  text-transform: capitalize;
+  margin: auto;
+}
+
+button:hover {
+  cursor: pointer;
+  box-shadow: none;
+  background-color: black;
+  transition: 0.2s ease-out;
+  color: red;
+}
+
+
+.frame{
+  width: 80vw;
+  height: 80vh;
+  margin: auto;
+  position: relative;
+  top:1%;
+}
+

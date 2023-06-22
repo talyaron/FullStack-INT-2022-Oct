@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  overflow: auto;
+  background-image: url("https://www.shutterstock.com/image-photo/old-brick-black-color-wall-260nw-1605128917.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  background-color: #fdfefe;
+  font-family: "Cambria";
+  font-size: 18px;
+}
+.appBox {
+  margin-top: -100px;
+  gap: 10rem;
+}
+
+.text {
+  background-color: rgba(0, 0, 0, 0.651);
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  color: #00c1fc;
+  letter-spacing: 8px;
+  font-family: "Damion", cursive;
+  text-shadow: 0.025em 0.025em 0 #c7408f, 0.019em 0.08em 0 #cac115,
+    0.05em 0.05em 0 #14c42b, 0.07em 0.01em 0 #1142c9;
+}
+.textLINK {
+  background-color: rgba(0, 0, 0, 0.651);
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  color: #00fc7e;
+  letter-spacing: 8px;
+  font-family: "Damion", cursive;
+  text-shadow: 0.025em 0.025em 0 #c7408f, 0.019em 0.08em 0 #cac115,
+    0.05em 0.05em 0 #14c42b, 0.07em 0.01em 0 #1142c9;
+}

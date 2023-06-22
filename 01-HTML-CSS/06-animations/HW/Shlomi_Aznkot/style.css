@@ -14,8 +14,7 @@ body {
   bottom: 5vh;
   left: 2.5vw;
   right: 2.5vw;
-  -webkit-animation-name: game_over;
-          animation-name: game_over;
+  animation-name: game_over;
   margin-left: 25%;
   margin-top: 2%;
 }
@@ -25,12 +24,9 @@ body {
   border: solid 1px rgb(0, 0, 0);
 }
 .pak_man__1 {
-  -webkit-animation-name: mov_1;
-          animation-name: mov_1;
-  -webkit-animation-duration: 2.5s;
-          animation-duration: 2.5s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-name: mov_1;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
   position: absolute;
   top: 5px;
   left: 5px;
@@ -39,12 +35,9 @@ body {
   border-radius: 25%;
 }
 .pak_man__2 {
-  -webkit-animation-name: mov_2;
-          animation-name: mov_2;
-  -webkit-animation-duration: 2.5s;
-          animation-duration: 2.5s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-name: mov_2;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
   position: absolute;
   top: 280px;
   left: 3px;
@@ -53,12 +46,9 @@ body {
   border-radius: 25%;
 }
 .pak_man__3 {
-  -webkit-animation-name: mov_3;
-          animation-name: mov_3;
-  -webkit-animation-duration: 2.5s;
-          animation-duration: 2.5s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-name: mov_3;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
   position: absolute;
   top: 280px;
   left: 382px;
@@ -67,14 +57,10 @@ body {
   border-radius: 25%;
 }
 .pak_man__4 {
-  -webkit-animation-name: mov_4;
-          animation-name: mov_4;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-direction: alternate;
-          animation-direction: alternate;
+  animation-name: mov_4;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
   position: absolute;
   top: 22px;
   left: 282px;
@@ -83,14 +69,10 @@ body {
   border-radius: 25%;
 }
 .pak_man__5 {
-  -webkit-animation-name: mov_5;
-          animation-name: mov_5;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-direction: alternate;
-          animation-direction: alternate;
+  animation-name: mov_5;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
   position: absolute;
   top: 142px;
   left: 183px;
@@ -99,14 +81,10 @@ body {
   border-radius: 25%;
 }
 .pak_man__6 {
-  -webkit-animation-name: mov_6;
-          animation-name: mov_6;
-  -webkit-animation-duration: 2.5s;
-          animation-duration: 2.5s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-direction: alternate;
-          animation-direction: alternate;
+  animation-name: mov_6;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
   position: absolute;
   top: 141px;
   left: 62px;
@@ -115,12 +93,9 @@ body {
   border-radius: 25%;
 }
 .pak_man__7 {
-  -webkit-animation-name: mov_7;
-          animation-name: mov_7;
-  -webkit-animation-duration: 2.5s;
-          animation-duration: 2.5s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-name: mov_7;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
   position: absolute;
   top: 262px;
   left: 65px;
@@ -129,12 +104,9 @@ body {
   border-radius: 25%;
 }
 .pak_man__8 {
-  -webkit-animation-name: mov_8;
-          animation-name: mov_8;
-  -webkit-animation-duration: 2.5s;
-          animation-duration: 2.5s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-name: mov_8;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
   position: absolute;
   top: 5px;
   left: 381px;
@@ -143,12 +115,9 @@ body {
   border-radius: 25%;
 }
 .pak_man__9 {
-  -webkit-animation-name: mov_9;
-          animation-name: mov_9;
-  -webkit-animation-duration: 2s;
-          animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-name: mov_9;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
   position: absolute;
   top: 21px;
   left: 66px;
@@ -159,22 +128,16 @@ body {
 
 .game_over {
   position: relative;
-  -webkit-animation-name: game_over_1;
-          animation-name: game_over_1;
-  -webkit-animation-duration: 10s;
-          animation-duration: 10s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
+  animation-name: game_over_1;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
   margin-left: 25%;
 }
 .game_over__t {
   font-size: 30px;
-  -webkit-animation-name: game_over_2;
-          animation-name: game_over_2;
-  -webkit-animation-duration: 8s;
-          animation-duration: 8s;
-  -webkit-animation-iteration-count: 1;
-          animation-iteration-count: 1;
+  animation-name: game_over_2;
+  animation-duration: 8s;
+  animation-iteration-count: 1;
   position: absolute;
   top: 45vh;
   left: 15vw;
@@ -190,19 +153,6 @@ body {
   border: solid rgb(255, 0, 0) 5px;
 }
 
-@-webkit-keyframes game_over_2 {
-  0% {
-    opacity: 0%;
-    font-size: 10px;
-    transform: rotateZ(0deg);
-  }
-  100% {
-    opacity: 100%;
-    font-size: 30px;
-    transform: rotateZ(360deg);
-  }
-}
-
 @keyframes game_over_2 {
   0% {
     opacity: 0%;
@@ -213,28 +163,6 @@ body {
     opacity: 100%;
     font-size: 30px;
     transform: rotateZ(360deg);
-  }
-}
-@-webkit-keyframes mov_1 {
-  0% {
-    top: 5px;
-    left: 5px;
-  }
-  20% {
-    top: 18px;
-    left: 5px;
-  }
-  40% {
-    top: 18px;
-    left: 20px;
-  }
-  80% {
-    top: 5px;
-    left: 20px;
-  }
-  100% {
-    top: 5px;
-    left: 5px;
   }
 }
 @keyframes mov_1 {
@@ -259,28 +187,6 @@ body {
     left: 5px;
   }
 }
-@-webkit-keyframes mov_2 {
-  0% {
-    top: 280px;
-    left: 3px;
-  }
-  20% {
-    top: 280px;
-    left: 21px;
-  }
-  40% {
-    top: 264px;
-    left: 21px;
-  }
-  80% {
-    top: 264px;
-    left: 3px;
-  }
-  100% {
-    top: 280px;
-    left: 3px;
-  }
-}
 @keyframes mov_2 {
   0% {
     top: 280px;
@@ -301,28 +207,6 @@ body {
   100% {
     top: 280px;
     left: 3px;
-  }
-}
-@-webkit-keyframes mov_3 {
-  0% {
-    top: 280px;
-    left: 382px;
-  }
-  20% {
-    top: 280px;
-    left: 366px;
-  }
-  40% {
-    top: 264px;
-    left: 366px;
-  }
-  80% {
-    top: 267px;
-    left: 382px;
-  }
-  100% {
-    top: 280px;
-    left: 382px;
   }
 }
 @keyframes mov_3 {
@@ -347,28 +231,6 @@ body {
     left: 382px;
   }
 }
-@-webkit-keyframes mov_8 {
-  0% {
-    top: 5px;
-    left: 381px;
-  }
-  20% {
-    top: 20px;
-    left: 381px;
-  }
-  40% {
-    top: 20px;
-    left: 366px;
-  }
-  80% {
-    top: 5px;
-    left: 366px;
-  }
-  100% {
-    top: 5px;
-    left: 381px;
-  }
-}
 @keyframes mov_8 {
   0% {
     top: 5px;
@@ -389,38 +251,6 @@ body {
   100% {
     top: 5px;
     left: 381px;
-  }
-}
-@-webkit-keyframes mov_9 {
-  14% {
-    top: 21px;
-    left: 66px;
-  }
-  28% {
-    top: 21px;
-    left: 82px;
-  }
-  42% {
-    top: 21px;
-    left: 102;
-  }
-  56% {
-    top: 21px;
-    left: 122px;
-  }
-  70% {
-    top: 21px;
-    left: 142px;
-  }
-  84% {
-    opacity: 70%;
-    top: 21px;
-    left: 162px;
-  }
-  100% {
-    opacity: 0%;
-    top: 21px;
-    left: 182px;
   }
 }
 @keyframes mov_9 {
@@ -455,30 +285,6 @@ body {
     left: 182px;
   }
 }
-@-webkit-keyframes mov_4 {
-  0% {
-    top: 22px;
-    left: 282px;
-  }
-  20% {
-    top: 22px;
-    left: 262px;
-  }
-  40% {
-    top: 22px;
-    left: 242px;
-  }
-  80% {
-    opacity: 80%;
-    top: 22px;
-    left: 222px;
-  }
-  100% {
-    opacity: 0%;
-    top: 22px;
-    left: 202px;
-  }
-}
 @keyframes mov_4 {
   0% {
     top: 22px;
@@ -501,48 +307,6 @@ body {
     opacity: 0%;
     top: 22px;
     left: 202px;
-  }
-}
-@-webkit-keyframes mov_6 {
-  0% {
-    top: 141px;
-    left: 62px;
-  }
-  20% {
-    top: 121px;
-    left: 62px;
-  }
-  30% {
-    top: 101px;
-    left: 62px;
-  }
-  40% {
-    top: 101px;
-    left: 42px;
-  }
-  50% {
-    top: 101px;
-    left: 22px;
-  }
-  60% {
-    top: 81px;
-    left: 22px;
-  }
-  70% {
-    top: 61px;
-    left: 22px;
-  }
-  80% {
-    top: 61px;
-    left: 42px;
-  }
-  90% {
-    top: 61px;
-    left: 62px;
-  }
-  100% {
-    top: 41px;
-    left: 62px;
   }
 }
 @keyframes mov_6 {
@@ -587,48 +351,6 @@ body {
     left: 62px;
   }
 }
-@-webkit-keyframes mov_5 {
-  0% {
-    top: 142px;
-    left: 183px;
-  }
-  10% {
-    top: 142px;
-    left: 163px;
-  }
-  20% {
-    top: 142px;
-    left: 143px;
-  }
-  30% {
-    top: 142px;
-    left: 123px;
-  }
-  40% {
-    top: 162px;
-    left: 123px;
-  }
-  50% {
-    top: 182px;
-    left: 123px;
-  }
-  60% {
-    top: 182px;
-    left: 103px;
-  }
-  70% {
-    top: 202px;
-    left: 103px;
-  }
-  85% {
-    top: 222px;
-    left: 103px;
-  }
-  100% {
-    top: 242px;
-    left: 103px;
-  }
-}
 @keyframes mov_5 {
   0% {
     top: 142px;
@@ -669,44 +391,6 @@ body {
   100% {
     top: 242px;
     left: 103px;
-  }
-}
-@-webkit-keyframes mov_7 {
-  0% {
-    top: 262px;
-    left: 65px;
-  }
-  13% {
-    top: 262px;
-    left: 85px;
-  }
-  26% {
-    top: 262px;
-    left: 105px;
-  }
-  39% {
-    top: 242px;
-    left: 105px;
-  }
-  52% {
-    top: 222px;
-    left: 105px;
-  }
-  65% {
-    top: 202px;
-    left: 105px;
-  }
-  78% {
-    top: 182px;
-    left: 105px;
-  }
-  91% {
-    top: 162px;
-    left: 105px;
-  }
-  100% {
-    top: 162px;
-    left: 125px;
   }
 }
 @keyframes mov_7 {
@@ -788,22 +472,12 @@ html, body {
   border-radius: 50%;
   background-image: linear-gradient(#fcdf11, #ff623f, #fe2085 50%);
   box-shadow: 0 0 160px 80px var(--glow-color);
-  -webkit-animation: 2s ease infinite alternate retrobg-sun-glow-anim;
-          animation: 2s ease infinite alternate retrobg-sun-glow-anim;
+  animation: 2s ease infinite alternate retrobg-sun-glow-anim;
 }
 
 .retrobg-shutdown #retrobg-sun {
   background-image: linear-gradient(#000, #000 40%);
   --glow-color: #000;
-}
-
-@-webkit-keyframes retrobg-sun-glow-anim {
-  from {
-    box-shadow: 0 0 160px 80px var(--glow-color);
-  }
-  to {
-    box-shadow: 0 0 200px 95px var(--glow-color);
-  }
 }
 
 @keyframes retrobg-sun-glow-anim {
@@ -926,22 +600,11 @@ html, body {
   width: 100%;
   height: 100%;
   transform-origin: top center;
-  -webkit-animation: 0.35s linear infinite retrobg-lines-anim;
-          animation: 0.35s linear infinite retrobg-lines-anim;
+  animation: 0.35s linear infinite retrobg-lines-anim;
 }
 
 .retrobg-shutdown #retrobg-lines {
-  -webkit-animation-duration: 5s;
-          animation-duration: 5s;
-}
-
-@-webkit-keyframes retrobg-lines-anim {
-  from {
-    transform: rotateX(84deg) translateY(0);
-  }
-  to {
-    transform: rotateX(84deg) translateY(100px);
-  }
+  animation-duration: 5s;
 }
 
 @keyframes retrobg-lines-anim {

@@ -4,11 +4,18 @@
   font-family: "Itim", cursive;
 }
 
+body {
+  background-color: aliceblue;
+}
+
 .navbar {
   display: flex;
   width: 100%;
   height: 80px;
   background-color: rgb(195, 230, 226);
+}
+.navbar a {
+  text-decoration: none;
 }
 .navbar .navbarIcon {
   width: 100px;
@@ -29,38 +36,33 @@
   height: 40px;
 }
 
-.addForm {
-  text-align: center;
+.intro {
+  display: inline-block;
 }
-.addForm #form {
-  display: none;
-  color: rgb(222, 233, 237);
-  width: 100%;
-  align-items: center;
-  flex-direction: column;
-  background-color: rgb(48, 107, 130);
-}
-.addForm #form datalist {
+.intro .aboutUs {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  -ms-writing-mode: tb-lr;
-      writing-mode: vertical-lr;
-  width: 130px;
 }
-
-.addItemForm {
-  text-align: center;
+.intro img {
+  padding: 2rem;
+  height: 300px;
 }
-.addItemForm #itemForm {
-  display: none;
-  color: rgb(222, 233, 237);
-  width: 100%;
-  align-items: center;
-  background-color: rgb(48, 107, 130);
-  flex-direction: column;
+.intro span {
+  font-size: 30px;
 }
-.addItemForm #itemForm #itemImg {
-  width: 15px;
-  height: 15px;
-}/*# sourceMappingURL=style.css.map */
+.intro p {
+  font-size: 20px;
+  align-self: center;
+}
+.intro .header2 {
+  padding: 5rem 0 5rem 0;
+  display: flex;
+}
+.intro .header2 img {
+  padding-left: 7rem;
+}
+.intro .header3 {
+  display: flex;
+}
+.intro .header3 img {
+  padding-left: 7rem;
+}

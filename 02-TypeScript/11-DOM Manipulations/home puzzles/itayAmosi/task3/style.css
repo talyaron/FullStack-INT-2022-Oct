@@ -23,35 +23,8 @@ body {
   display: inline;
   background-color: rgb(241, 5, 190);
   border: px1;
-  -webkit-animation-name: pop-outin;
-          animation-name: pop-outin;
-  -webkit-animation: 2s anim-popoutin ease infinite;
-          animation: 2s anim-popoutin ease infinite;
-}
-@-webkit-keyframes anim-popoutin {
-  0% {
-    color: black;
-    transform: scale(0);
-    opacity: 0;
-    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  }
-  25% {
-    color: rgb(8, 187, 8);
-    transform: scale(2);
-    opacity: 1;
-    text-shadow: 3px 10px 5px rgba(0, 0, 0, 0.5);
-  }
-  50% {
-    color: black;
-    transform: scale(1);
-    opacity: 1;
-    text-shadow: 1px 0 0 rgba(0, 0, 0, 0);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-    text-shadow: 1px 0 0 rgba(0, 0, 0, 0);
-  }
+  animation-name: pop-outin;
+  animation: 2s anim-popoutin ease infinite;
 }
 @keyframes anim-popoutin {
   0% {

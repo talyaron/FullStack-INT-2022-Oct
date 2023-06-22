@@ -1,3 +1,5 @@
+// import { Scores } from './../API/scores/scoreModel';
+;
 var grid = document.querySelector(".grid");
 var popup = document.querySelector(".popup");
 var playAgain = document.querySelector(".playAgain");
@@ -18,7 +20,7 @@ var score = 0;
 var speed = 0.8;
 var intervalTime = 0;
 var interval = 0;
-var playerID = "";
+var userId = "";
 var namePlayer = ["", "", ""];
 document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("keyup", control);
@@ -28,6 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // built 100 div for snake
 function createBoard() {
     try {
+        getScores();
         var queryString = window.location.search;
         var urlParams = new URLSearchParams(queryString);
         var value = urlParams.get('value');
@@ -173,7 +176,7 @@ function control(event) {
         console.error(error);
     }
 }
-function replay() {
+function hendelReplay() {
     try {
         grid.innerHTML = "";
         createBoard();
@@ -184,12 +187,111 @@ function replay() {
         console.error(error);
     }
 }
-function finishGame() {
+function hendelFinishGame() {
     try {
         console.log("playername - " + namePlayer[1] + " id");
         console.log("score - " + score);
-        var url = "index.html?value=" + namePlayer[0] + ", " + namePlayer[1] + ", " + score;
-        window.location.href = url;
+        updateScore();
+        // const url = `index.html?value=${namePlayer[0]}, ${namePlayer[1]}, ${score}`;
+        // window.location.href = url;
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function updateScore() {
+    try {
+        var userId_1 = namePlayer[1];
+        console.log(userId_1);
+        fetch("/update-score", {
+            method: "PATCH",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ userId: userId_1, score: score })
+        })
+            .then(function (res) { return res.json(); })
+            .then(function (_a) {
+            var scores = _a.scores;
+            getScores();
+        })["catch"](function (error) {
+            console.error(error);
+        });
+        ;
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function getScores() {
+    try {
+        fetch("/get-scores", {
+            method: "GET",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json"
+            }
+        })
+            .then(function (res) {
+            console.log("this is res" + res);
+            return res.json();
+        })
+            .then(function (_a) {
+            var scoreDB = _a.scoreDB;
+            try {
+                if (!scoreDB)
+                    throw new Error("dodnt find scores");
+                console.log(scoreDB);
+                console.log("scores");
+                renderScores(scoreDB);
+            }
+            catch (error) {
+                console.error(error);
+            }
+        });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function renderScores(scores) {
+    try {
+        if (!scores)
+            throw new Error("No users");
+        scores.sort(function (a, b) { return b.score - a.score; });
+        console.log(scores);
+        var html = scores.map(function (score) {
+            // console.log(score)
+            if (score.score > 0)
+                return renderScore(score);
+        })
+            .join(" ");
+        var htmlDiv = "<div class=\"container\"><h1>Palyer</h1>" + html + "</div>";
+        console.log(htmlDiv);
+        var scoresElement = document.querySelector(".centered");
+        if (!scoresElement)
+            throw new Error("coundnt find users element on DOM");
+        scoresElement.innerHTML = htmlDiv;
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function renderScore(score) {
+    try {
+        console.log(score);
+        console.log("score");
+        // const userNAme = getUserName(score.userId)
+        return "<div> " + score.playerName + " = " + score.score + "</div>";
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function hendelGoBack() {
+    try {
+        window.location.href = 'login.html';
     }
     catch (error) {
         console.error(error);

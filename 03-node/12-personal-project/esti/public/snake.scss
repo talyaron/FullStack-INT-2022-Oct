@@ -1,5 +1,6 @@
 body {
     background: rgb(212, 211, 211);
+    color: white;
   }
   .playerName{
     font-size: 50px;
@@ -75,6 +76,9 @@ body {
     align-items: center;
   }
 
+  .container {
+    color: white;
+  }
   .playButton{
     text-align: center;
     font-size: 20px;

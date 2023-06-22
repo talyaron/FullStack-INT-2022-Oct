@@ -1,0 +1,89 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border-spacing: 0;
+}
+
+html {
+  font-family: Georgia, sans-serif;
+  background-color: #ebf2f5;
+  height: 100%;
+}
+
+h1 {
+  color: #358ec9;
+  font-size: 35px;
+  letter-spacing: 1px;
+  margin: 30px 0px 10px 0px;
+  text-align: center;
+}
+
+h2 {
+  color: #358ec9;
+  font-size: 25px;
+  letter-spacing: 1px;
+  margin: 10px 0px 3px 0px;
+  text-align: center;
+}
+
+.sodoku {
+  margin: auto;
+  width: 50%;
+}
+.sodoku__box {
+  width: 450px;
+  height: 450px;
+  margin-left: 400px;
+}
+.sodoku__box__input {
+  text-align: center;
+  font-size: 30px;
+  width: 50px;
+  height: 50px;
+  background: #808080;
+  border: 1px black solid;
+}
+.sodoku__box__inputWhite {
+  background: #d3d3d3;
+}
+.sodoku__box__empty-el {
+  color: #4848d4;
+}
+
+.btnDiv {
+  display: inline-block;
+  align-items: center;
+  margin-left: 520px;
+  margin-top: 5px;
+}
+.btnDiv__btn {
+  background: #358ec9;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  padding: 10px 23px;
+  text-align: center;
+  font-size: 15px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.pass {
+  background-image: url(https://cdn-icons-png.flaticon.com/128/2767/2767146.png);
+  background-position: right;
+  background-size: 20px;
+  background-repeat: no-repeat;
+}
+
+form {
+  font-size: 30px;
+  text-align: center;
+}
+
+input {
+  border-radius: 2px black solid;
+  padding: 6px;
+  border-radius: 3px;
+  font-family: georgia;
+}

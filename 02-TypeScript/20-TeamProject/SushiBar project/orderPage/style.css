@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ubuntu&display=swap");
+html {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  background-color: #F9F5E7;
+  font-family: "Open Sans", sans-serif;
+}
+body h1,
+body h2,
+body h3 {
+  font-family: "Ubuntu", sans-serif;
+}
+body .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  background-color: #EDDBC7;
+  margin-bottom: 20px;
+}
+body .top img {
+  width: 50px;
+  aspect-ratio: 1/1;
+}
+body .top i {
+  cursor: pointer;
+}
+body .top h1 {
+  font-family: "Open Sans", sans-serif;
+}
+body .orders {
+  margin: auto;
+  width: 700px;
+  height: 1000px;
+  border-radius: 20px;
+}
+body .orders__products {
+  margin: auto;
+  height: 150px;
+  width: 100%;
+  border: solid 2px black;
+  border-radius: 20px;
+  display: flex;
+}
+body .orders__products__img {
+  width: 500px;
+  height: 100%;
+}
+body .orders__products__img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+body .orders__products__name {
+  width: 500px;
+  height: 100%;
+  font-size: x-large;
+  font-weight: bolder;
+  padding-top: 50px;
+  margin-left: 15px;
+}
+body .orders__products__price {
+  width: 15%;
+  height: 100%;
+  font-size: x-large;
+  font-weight: bolder;
+  padding-top: 50px;
+  margin-left: 15px;
+}
+body .orders__products__quantity {
+  width: 20%;
+  height: 20%;
+  font-size: x-large;
+  font-weight: bolder;
+  margin-top: 50px;
+  background-color: white;
+  text-align: center;
+}
+body .orders__products__wrapperBtn {
+  width: 50%;
+  height: 100%;
+  padding-right: 70px;
+  padding-top: 20px;
+}
+body .orders__products__wrapperBtn__btnAdd {
+  background: linear-gradient(to bottom right, #A7727D, #e13e5f);
+  border: 0;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  text-align: center;
+  margin: 2% 40%;
+  width: 25%;
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5), -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5), 0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
+}
+body .orders__products__wrapperBtn__btnRemove {
+  background: linear-gradient(to bottom right, #A7727D, #e13e5f);
+  border: 0;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  text-align: center;
+  margin: 2% 40%;
+  width: 25%;
+  box-shadow: 0 0 0.25rem rgba(0, 0, 0, 0.5), -0.125rem -0.125rem 1rem rgba(239, 71, 101, 0.5), 0.125rem 0.125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+.pay {
+  width: 500px;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 1000px;
+}
+.pay__totalSum {
+  width: 100px;
+  height: 40px;
+  border: 1px solid green;
+  background-color: white;
+  border-radius: 12px;
+}
+.pay button {
+  background: linear-gradient(to bottom right, #A7727D, #e13e5f);
+  border: 0;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  text-align: center;
+  width: 30%;
+}

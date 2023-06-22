@@ -1,0 +1,21 @@
+
+.main-container{
+
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+   background-image:url("/images/background.png");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+
+   &__game-board{
+    position: absolute;
+    top: 82px;
+width: 100vw;
+height: calc(100vh - 82px);
+ 
+}
+
+}

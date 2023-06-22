@@ -11,7 +11,9 @@ import {
 
 router
   .post("/add-Score", addScore)
-  .put("/update-Score", updateScore)
+  // .put("/update-Score", updateScore)
+  .patch("/update-Score", updateScore)
   .get("/get-Scores", getScores)
 
 export default router;
+

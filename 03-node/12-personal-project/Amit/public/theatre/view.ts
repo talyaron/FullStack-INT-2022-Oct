@@ -1,6 +1,5 @@
 function renderSeats(movieSeats) {
   try {
-    console.log(movieSeats)
     movieSeats.map((movieSeat) => {
       const seatRoot: HTMLDivElement | null = document.querySelector(`#root0${movieSeat.seat.rowNumber}-0${movieSeat.seat.seatNumber}`)
       if (!seatRoot) throw new Error("seatRoot not found")
@@ -53,6 +52,29 @@ function renderTakenSeats(movieSeats) {
       if (!seatRoot) throw new Error("seatRoot not found")
       seatRoot.style.backgroundColor = "grey"
     })
+
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+function renderOrder(data: any) {
+  try {
+    const newOrderRoot:HTMLDivElement | null = document.querySelector("#newOrderRoot")
+    if (!newOrderRoot) throw new Error("newOrderRoot not found on DOM")
+
+    newOrderRoot.style.display = "flex"
+
+    const html = data.orderDB.seatsInMovie.map((_seat) =>  {
+      return `<div>
+        <span><u>row number</u>: ${_seat.seat.rowNumber} </span>
+        <span><u>seat number</u>: ${_seat.seat.seatNumber}</span>
+      </div>`
+    }).join(" ")
+
+    newOrderRoot.innerHTML = html;
+    console.log("html", html)
+
 
   } catch (error) {
     console.error(error)

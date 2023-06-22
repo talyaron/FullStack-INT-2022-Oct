@@ -1,6 +1,5 @@
 function renderSeats(movieSeats) {
     try {
-        console.log(movieSeats);
         movieSeats.map(function (movieSeat) {
             var seatRoot = document.querySelector("#root0" + movieSeat.seat.rowNumber + "-0" + movieSeat.seat.seatNumber);
             if (!seatRoot)
@@ -55,6 +54,22 @@ function renderTakenSeats(movieSeats) {
                 throw new Error("seatRoot not found");
             seatRoot.style.backgroundColor = "grey";
         });
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
+function renderOrder(data) {
+    try {
+        var newOrderRoot = document.querySelector("#newOrderRoot");
+        if (!newOrderRoot)
+            throw new Error("newOrderRoot not found on DOM");
+        newOrderRoot.style.display = "flex";
+        var html = data.orderDB.seatsInMovie.map(function (_seat) {
+            return "<div>\n        <span><u>row number</u>: " + _seat.seat.rowNumber + " </span>\n        <span><u>seat number</u>: " + _seat.seat.seatNumber + "</span>\n      </div>";
+        }).join(" ");
+        newOrderRoot.innerHTML = html;
+        console.log("html", html);
     }
     catch (error) {
         console.error(error);

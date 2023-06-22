@@ -22,12 +22,9 @@ body {
 }
 
 .zoom {
-  -webkit-animation-name: zoom;
-          animation-name: zoom;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-  -webkit-animation-duration: 10.1s;
-          animation-duration: 10.1s;
+  animation-name: zoom;
+  animation-timing-function: linear;
+  animation-duration: 10.1s;
 }
 
 .container {
@@ -44,7 +41,6 @@ body {
   font-weight: 900;
   padding-left: 14vw;
   padding-right: 14vw;
-  position: -webkit-sticky;
   position: sticky;
   top: 0rem;
   z-index: 10;
@@ -109,15 +105,12 @@ body {
   top: 1rem;
   left: 2rem;
   padding: 1rem;
-  -webkit-animation: slide 10s linear 1;
-          animation: slide 10s linear 1;
+  animation: slide 10s linear 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  -webkit-animation-name: textSlide;
-          animation-name: textSlide;
-  -webkit-animation-duration: 10s;
-          animation-duration: 10s;
+  animation-name: textSlide;
+  animation-duration: 10s;
 }
 .container .main__video__data__headline {
   width: 32rem;
@@ -232,26 +225,9 @@ body {
   color: rgb(239, 235, 235);
 }
 
-@-webkit-keyframes zoom {
-  100% {
-    background-size: 112%;
-  }
-}
-
 @keyframes zoom {
   100% {
     background-size: 112%;
-  }
-}
-@-webkit-keyframes textSlide {
-  0% {
-    left: 12rem;
-  }
-  3% {
-    left: 2rem;
-  }
-  100% {
-    left: 2rem;
   }
 }
 @keyframes textSlide {

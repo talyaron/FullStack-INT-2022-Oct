@@ -1,0 +1,20 @@
+.Container-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+.card {
+  display: flex;
+  margin-bottom: 20px;
+  background-color: antiquewhite;
+
+  
+  img,
+  h1 {
+    margin-bottom: 20px;
+    height: 250px;
+    width: 250px;
+    margin: 15px;
+  }
+}
+}

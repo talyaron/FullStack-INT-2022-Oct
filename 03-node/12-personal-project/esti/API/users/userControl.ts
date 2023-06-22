@@ -86,20 +86,25 @@ export const updateUser = (req: any, res: any) => {
   }
 };
 
-export const updateUserName = (req: any, res: any) => {
-  try {
-    // const { name, uid } = req.body;
-    // if (!name) throw new Error("No name in data");
-    // if (!uid) throw new Error("No uid in data");
-    // const user = users.find((user) => user.uid === uid);
-    // if (!user) throw new Error("No user in array");
-    // user.name = name;
-    // res.send({ ok: true });
-  } catch (error: any) {
-    console.error(error);
-    res.status(500).send({ error: error.message });
-  }
-};
+// export const getUserName = async (req: any, res: any) => {
+//   try {
+//     console.log(req.body)
+//     let { userId } = req.body
+//      userId = userId.trim();
+//       console.log(userId)
+
+  
+//       const userDB = await UserModel.findOne({userId:userId})
+//       console.log(userDB)
+      
+//      if(!userDB) throw new Error ("no scoreDB")
+  
+//       res.send({ ok: true,userDB });
+//   } catch (error: any) {
+//     console.error(error);
+//     res.status(500).send({ error: error.message });
+//   }
+// };
 
 export const deleteUser = async (req: any, res: any) => {
   try {
@@ -109,22 +114,6 @@ export const deleteUser = async (req: any, res: any) => {
     const users = await UserModel.find({});
 
     res.send({ ok: true, users });
-  } catch (error: any) {
-    console.error(error);
-    res.status(500).send({ error: error.message });
-  }
-};
-
-export const updateUserType = async (req: any, res: any) => {
-  try {
-    const { userId, userType } = req.body;
-
-    const userDB = await UserModel.findOneAndUpdate(
-      { _id: userId },
-      { userType }
-    );
-
-    res.send({ ok: true, userDB });
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });
@@ -152,3 +141,4 @@ export const getUser = async (req: any, res: any) => {
     res.status(500).send({ error: error.message });
   }
 };
+
