@@ -9,10 +9,13 @@
   background-color: orange;
   border: 3px solid black;
   border-radius: 100%;
-  animation-name: bounce;
+  -webkit-animation-name: bounce;
+          animation-name: bounce;
   position: relative;
-  animation-duration: 2s;
-  animation-iteration-count: 5;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: 5;
+          animation-iteration-count: 5;
 }
 
 .wrapper2 {
@@ -27,10 +30,25 @@
   background-color: orange;
   border: 3px solid black;
   border-radius: 100%;
-  animation-name: bounce;
+  -webkit-animation-name: bounce;
+          animation-name: bounce;
   position: relative;
-  animation-duration: 2s;
-  animation-iteration-count: 5;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: 5;
+          animation-iteration-count: 5;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: 50px;
+  }
+  100% {
+    top: 0;
+  }
 }
 
 @keyframes bounce {

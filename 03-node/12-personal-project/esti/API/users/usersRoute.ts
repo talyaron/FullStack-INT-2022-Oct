@@ -7,20 +7,20 @@ import {
   addUser,
   updateUser,
   getUsers,
-  // updateUserName,
+  updateUserName,
   deleteUser,
+  updateUserType,
   login,
-  getUser,
-  // getUserName,
-
+  getUser
 } from "./userControl";
 
 router
   .post("/add-user", addUser)
   .put("/update-user", updateUser)
   .get("/get-users", getUsers)
-  // .get("/get-user-name", getUserName)
+  .patch("/update-user-name", updateUserName)
   .delete("/delete-user", deleteUser)
+  .patch('/update-user-type',updateUserType)
   .post('/login',login)
   .get('/get-user',getUser);
 

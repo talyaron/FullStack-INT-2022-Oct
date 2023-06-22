@@ -19,6 +19,7 @@
 }
 .wrapper__userViewer__userProfile {
   width: 100vw;
+  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   display: flex;

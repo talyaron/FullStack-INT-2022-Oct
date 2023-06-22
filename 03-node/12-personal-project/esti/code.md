@@ -1,1 +1,0 @@
-MONGODB_URI = mongodb+srv://StMauda:9kmsvLiwljhbk29h@cluster0.pezu4dg.mongodb.net/snak;

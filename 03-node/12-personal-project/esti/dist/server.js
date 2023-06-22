@@ -25,7 +25,7 @@ var usersRoute_1 = require("./API/users/usersRoute");
 app.use('/', usersRoute_1["default"]);
 var scoreRoute_1 = require("./API/scores/scoreRoute");
 app.use('/', scoreRoute_1["default"]);
-var PORT = 3200;
+var PORT = 3100;
 app.listen(PORT, function () {
     console.log("server listen on port " + PORT);
 });

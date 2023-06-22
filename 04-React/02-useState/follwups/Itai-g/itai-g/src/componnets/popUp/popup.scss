@@ -1,4 +1,10 @@
 .popUp {
+  z-index: -1;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  // min-width: 300px;
+  // min-height: 200px;
   background-color: teal;
   border-radius: 10px;
   color: white;

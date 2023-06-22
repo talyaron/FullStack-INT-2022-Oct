@@ -1,4 +1,4 @@
-import MovieModel, { MovieSeatModel } from "../movies/moviesModel"
+import { MovieSeatModel } from "../movies/moviesModel"
 import SeatModel from "./seatsModel"
 
 
@@ -16,14 +16,8 @@ export const pickOneSeat = async (req:any, res:any) => {
   try {
     const { seat, movie } = req.body
 
-    console.log("movie", movie)
-
-    const movies = await MovieModel.find({})
-    console.log("movies", movies)
-
     const seatDB = await SeatModel.findOne({rowNumber:seat.rowNumber, seatNumber: seat.seatNumber})
     if(!seatDB) throw new Error("seat DB not found")
-    console.log("seatDB", seatDB)
     
     const movieSeat = await MovieSeatModel.findOne({movie, seat: seatDB})
     if(!movieSeat) throw new Error("movie seat DB not found")

@@ -69,6 +69,9 @@ nav .right input {
 nav .right input::-moz-placeholder {
   text-align: center;
 }
+nav .right input:-ms-input-placeholder {
+  text-align: center;
+}
 nav .right input::placeholder {
   text-align: center;
 }

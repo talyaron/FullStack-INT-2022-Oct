@@ -20,11 +20,16 @@ body {
   border-right-color: transparent;
   border-radius: 30px;
   position: relative;
-  animation-name: slide;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: none;
-  animation-duration: 6s;
-  animation-iteration-count: infinite;
+  -webkit-animation-name: slide;
+          animation-name: slide;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: none;
+          animation-fill-mode: none;
+  -webkit-animation-duration: 6s;
+          animation-duration: 6s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 .container__ghost {
   position: relative;
@@ -35,15 +40,68 @@ body {
   border-top-left-radius: 100px;
   transform: translate(0px, 10px);
   top: 0px;
-  animation-name: bounce;
-  animation-fill-mode: forwards;
-  animation-timing-function: ease;
-  animation-fill-mode: none;
-  animation-duration: 12s;
-  animation-iteration-count: infinite;
+  -webkit-animation-name: bounce;
+          animation-name: bounce;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-fill-mode: none;
+          animation-fill-mode: none;
+  -webkit-animation-duration: 12s;
+          animation-duration: 12s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 .container__logo img {
   bottom: -199px;
+}
+
+@-webkit-keyframes slide {
+  0% {
+    top: 60px;
+    left: 30px;
+  }
+  15% {
+    top: 80px;
+    left: 40px;
+  }
+  25% {
+    top: 80px;
+    left: 70px;
+  }
+  35% {
+    top: 80px;
+    left: 90px;
+  }
+  45% {
+    top: 80px;
+    left: 120px;
+  }
+  55% {
+    top: 270px;
+    left: 120px;
+  }
+  65% {
+    top: 270px;
+    left: 200px;
+  }
+  75% {
+    top: 200px;
+    left: 200px;
+  }
+  85% {
+    top: 200px;
+    left: 400px;
+  }
+  95% {
+    top: 260px;
+    left: 400px;
+  }
+  100% {
+    top: 260px;
+    left: 622px;
+  }
 }
 
 @keyframes slide {
@@ -90,6 +148,52 @@ body {
   100% {
     top: 260px;
     left: 622px;
+  }
+}
+@-webkit-keyframes bounce {
+  0% {
+    top: 0px;
+    left: 20px;
+  }
+  15% {
+    top: 20px;
+    left: 88px;
+  }
+  25% {
+    top: 20px;
+    left: 95px;
+  }
+  35% {
+    top: 80px;
+    left: 90px;
+  }
+  45% {
+    top: 200px;
+    left: 90px;
+  }
+  55% {
+    top: 320px;
+    left: 90px;
+  }
+  65% {
+    top: 70px;
+    left: 100px;
+  }
+  75% {
+    top: 80px;
+    left: 520px;
+  }
+  85% {
+    top: 20px;
+    left: 520px;
+  }
+  95% {
+    top: 20px;
+    left: 287px;
+  }
+  100% {
+    top: 80px;
+    left: 288px;
   }
 }
 @keyframes bounce {

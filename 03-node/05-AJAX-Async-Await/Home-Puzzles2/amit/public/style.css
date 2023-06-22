@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 :root {
   font-size: 16px;
 }
@@ -20,13 +16,6 @@ body {
   margin: 0;
 }
 
-p, h1, img {
-  cursor: pointer;
-}
-p:hover, h1:hover, img:hover {
-  text-decoration: underline;
-}
-
 .container {
   height: 100vh;
   width: 100vw;
@@ -41,13 +30,14 @@ p:hover, h1:hover, img:hover {
   font-weight: 900;
   padding-left: 14vw;
   padding-right: 14vw;
+  position: -webkit-sticky;
   position: sticky;
   top: 0rem;
   z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  box-sizing: border-box;
 }
 .container .navBar__topics {
   width: 40vw;
@@ -58,7 +48,7 @@ p:hover, h1:hover, img:hover {
 .container .navBar__topics__logo {
   height: 0.8rem;
   background-image: url(https://cdn.nba.com/logos/leagues/logo-nba.svg);
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   width: 1.5rem;
 }
@@ -77,202 +67,213 @@ p:hover, h1:hover, img:hover {
   width: auto;
   font-size: 0.5rem;
   text-align: center;
-  cursor: pointer;
-}
-.container .navBar__sales__topic__login {
-  height: 0rem;
-  width: 4rem;
-  flex-direction: column;
-  display: none;
-  position: absolute;
-  top: 2rem;
-  left: 57rem;
-}
-.container .navBar__sales__topic__login.active {
-  display: flex;
-}
-.container .addArticleForm {
-  color: seagreen;
-  border: 0.1rem solid black;
-  display: none;
-  margin: auto;
-  width: 28rem;
-  height: 5rem;
-  margin-bottom: 1rem;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.397);
-  border-radius: 5px;
-}
-.container .addArticleForm input {
-  height: 1.5rem;
-}
-.container .addArticleForm.active {
-  display: flex;
-  flex-direction: column;
 }
 .container .main {
-  width: 44rem;
   height: 18rem;
-  display: flex;
-  flex-direction: row;
-  margin: auto;
-  color: black;
+  width: 36rem;
+  border: 0.2rem solid rgb(0, 0, 0);
+  border-radius: 0.5rem;
+  position: relative;
+  top: 5rem;
+  left: 10rem;
+  display: block;
+  line-height: 1.5rem;
 }
-.container .main__latestArticle {
-  width: 25rem;
+.container .main__article {
   height: 18rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: auto;
-}
-.container .main__latestArticle__image {
-  width: 25rem;
-  height: 13rem;
-  border-radius: 5px;
+  width: 36rem;
+  position: relative;
+  top: 0rem;
+  background-size: 100%;
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-.container .main__latestArticle h1 {
-  width: 25rem;
-  height: auto;
-  margin: 0;
-  padding: 0rem;
-  font-size: 25px;
-  line-height: 1rem;
-}
-.container .main__latestArticle p {
-  width: 25rem;
-  height: 2rem;
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-}
-.container .main__latestArticle__edit {
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: inherit;
-  display: none;
-}
-.container .main__latestArticle__edit :hover {
-  scale: 1.1;
-}
-.container .main__latestArticle__edit.active {
   display: block;
 }
-.container .main__latestArticle__edit i {
-  color: red;
-  font-size: 1.7rem;
-}
-.container .main__latestArticle__save {
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: inherit;
+.container .main__article__data {
+  height: 11.5rem;
+  width: 11rem;
   position: relative;
-  left: 22.5rem;
-  top: -1rem;
-  display: none;
-}
-.container .main__latestArticle__save :hover {
-  scale: 1.1;
-}
-.container .main__latestArticle__save.active {
-  display: block;
-}
-.container .main__latestArticle__save i {
-  color: seagreen;
-  font-size: 1.7rem;
-}
-.container .main__sideArticles {
-  width: 18rem;
-  height: 17rem;
+  top: 1rem;
+  left: 2rem;
+  padding: 1rem;
+  -webkit-animation: slide 10s linear 1;
+          animation: slide 10s linear 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: auto;
-  gap: 10px;
-  padding: 0;
-  margin: 0;
 }
-.container .main__sideArticles__article {
-  width: 17rem;
-  height: 5rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 0;
-  margin: 0;
-  gap: 10px;
-}
-.container .main__sideArticles__article__image {
-  width: 8rem;
-  height: 5rem;
-  margin: 0;
-  padding: 0;
-  border-radius: 5px;
-}
-.container .main__sideArticles__article__details {
-  width: 18rem;
-  height: 7rem;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-}
-.container .main__sideArticles__article__details h1 {
-  font-size: 14px;
+.container .main__article__data__headline {
+  width: 32rem;
   font-weight: 900;
+  font-size: 2rem;
+  line-height: 2.5rem;
 }
-.container .main__sideArticles__article__details p {
-  font-size: 10px;
-  line-height: 16px;
+.container .main__article__data__personal {
+  font-weight: 300;
+  font-size: 0.7rem;
+  line-height: 1.5rem;
 }
-.container .main__sideArticles__article__edit {
-  cursor: pointer;
+.container .main__article__data__link {
+  width: 10rem;
+  height: 2rem;
+  background-color: rgb(255, 230, 0);
+  border-radius: 0.5rem;
+  font-weight: 900;
+  font-size: 0.6rem;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  box-shadow: 0rem 0rem 0.2rem 0.2rem rgb(97, 97, 97);
+}
+.container .main__article__data__link:hover {
+  background-color: white;
+  box-shadow: none;
+  transition: 0.5s;
+}
+.container .main__article__data__link:active {
+  background-color: rgb(74, 10, 251);
+}
+.container .main__article--luka {
+  background-image: linear-gradient(to bottom left, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 70%), url(https://images2.minutemediacdn.com/image/upload/c_crop,w_4450,h_2503,x_0,y_0/c_fill,w_720,ar_16:9,f_auto,q_auto,g_auto/images/ImagnImages/mmsport/83/01g36jr6g8a7eg799nfd.jpg);
+  -webkit-animation: zoom 10s linear 1;
+          animation: zoom 10s linear 1;
+}
+.container .main__article--ja {
+  background-image: linear-gradient(to bottom left, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 77%), url(https://phantom-marca.unidadeditorial.es/efd58352dab3d164ff6026e8db04f427/resize/1320/f/jpg/assets/multimedia/imagenes/2022/04/27/16510298219309.jpg);
   position: relative;
-  left: 17rem;
-  top: 1rem;
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: inherit;
+  top: -18rem;
+  -webkit-animation: zoom 10.1s linear 10s 1, appear 10.1s linear 10s 1;
+          animation: zoom 10.1s linear 10s 1, appear 10.1s linear 10s 1;
+  visibility: hidden;
+}
+.container .main__article--ja__data {
+  -webkit-animation: slide 10.1s linear 10s 1;
+          animation: slide 10.1s linear 10s 1;
+}
+.container .main__article--giannis {
+  background-image: linear-gradient(to bottom left, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 77%), url(https://s.yimg.com/ny/api/res/1.2/IOgkshHrdNg6IXEOF0VnEQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTM2MA--/https://s.yimg.com/os/creatr-uploaded-images/2022-11/35f8b8b0-6474-11ed-bf49-1f9adc2c172d);
   position: relative;
-  left: 17rem;
-  top: 1rem;
-  display: none;
+  top: -36rem;
+  -webkit-animation: zoom 10.1s linear 20s 1, appear 10.1s linear 20s 1;
+          animation: zoom 10.1s linear 20s 1, appear 10.1s linear 20s 1;
+  visibility: hidden;
 }
-.container .main__sideArticles__article__edit :hover {
-  scale: 1.1;
+.container .main__article--giannis__data {
+  -webkit-animation: slide 10.1s linear 20s 1;
+          animation: slide 10.1s linear 20s 1;
 }
-.container .main__sideArticles__article__edit.active {
-  display: block;
-}
-.container .main__sideArticles__article__edit i {
-  color: red;
-  font-size: 1.7rem;
-}
-.container .main__sideArticles__article__save {
-  cursor: pointer;
+.container .main__article--deni {
+  background-image: linear-gradient(to bottom left, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 77%), url(https://www.nbcsports.com/sites/rsnunited/files/article/hero/Avdija_Deni_USATSI_18057589.jpg);
   position: relative;
-  left: 17rem;
-  top: 1rem;
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: inherit;
-  display: none;
+  top: -54rem;
+  -webkit-animation: zoom 10.1s linear 30s 1, appear 10.1s linear 30s 1;
+          animation: zoom 10.1s linear 30s 1, appear 10.1s linear 30s 1;
+  visibility: hidden;
 }
-.container .main__sideArticles__article__save :hover {
-  scale: 1.1;
+.container .main__article--deni__data {
+  -webkit-animation: slide 10.1s linear 30s infinite;
+          animation: slide 10.1s linear 30s infinite;
 }
-.container .main__sideArticles__article__save.active {
-  display: block;
+.container .main__playersBar {
+  width: 34rem;
+  height: 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  bottom: 57.5rem;
+  left: 2rem;
 }
-.container .main__sideArticles__article__save i {
-  color: seagreen;
-  font-size: 1.7rem;
+.container .main__playersBar__player {
+  width: auto;
+  height: auto;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.container .main__playersBar__player__lapseBar {
+  width: 5rem;
+  height: 0.1rem;
+  background-color: gray;
+  border-radius: 0.1rem;
+}
+.container .main__playersBar__player__lapseBar__progress {
+  height: 0.1rem;
+  width: 0%;
+  background-color: white;
+  border-radius: 0.1rem;
+}
+.container .main__playersBar__player__lapseBar__progress--luka {
+  -webkit-animation: lapse 10.1s linear 0s 1;
+          animation: lapse 10.1s linear 0s 1;
+}
+.container .main__playersBar__player__lapseBar__progress--ja {
+  -webkit-animation: lapse 10.1s linear 10s 1;
+          animation: lapse 10.1s linear 10s 1;
+}
+.container .main__playersBar__player__lapseBar__progress--giannis {
+  -webkit-animation: lapse 10.1s linear 20s 1;
+          animation: lapse 10.1s linear 20s 1;
+}
+.container .main__playersBar__player__lapseBar__progress--deni {
+  -webkit-animation: lapse 10.1s linear 30s 1;
+          animation: lapse 10.1s linear 30s 1;
+}
+
+@-webkit-keyframes appear {
+  100% {
+    visibility: visible;
+  }
+}
+
+@keyframes appear {
+  100% {
+    visibility: visible;
+  }
+}
+@-webkit-keyframes zoom {
+  90% {
+    background-size: 110%;
+  }
+  100% {
+    background-size: 111%;
+  }
+}
+@keyframes zoom {
+  90% {
+    background-size: 110%;
+  }
+  100% {
+    background-size: 111%;
+  }
+}
+@-webkit-keyframes slide {
+  0% {
+    left: 12rem;
+  }
+  3% {
+    left: 2rem;
+  }
+  100% {
+    left: 2rem;
+  }
+}
+@keyframes slide {
+  0% {
+    left: 12rem;
+  }
+  3% {
+    left: 2rem;
+  }
+  100% {
+    left: 2rem;
+  }
+}
+@-webkit-keyframes lapse {
+  100% {
+    width: 100%;
+  }
+}
+@keyframes lapse {
+  100% {
+    width: 100%;
+  }
 }

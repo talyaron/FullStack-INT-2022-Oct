@@ -68,6 +68,7 @@ section .users-container table {
   border-collapse: collapse;
 }
 section .users-container table thead {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   left: 0;

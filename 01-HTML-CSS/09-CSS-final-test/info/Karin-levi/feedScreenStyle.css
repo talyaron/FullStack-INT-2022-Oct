@@ -193,9 +193,12 @@
   justify-content: space-around;
   padding-top: 10px;
   background-color: rgb(226, 54, 54);
-  animation-name: bubble;
-  animation-duration: 6s;
-  animation-iteration-count: infinite;
+  -webkit-animation-name: bubble;
+          animation-name: bubble;
+  -webkit-animation-duration: 6s;
+          animation-duration: 6s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
   position: absolute;
   font-size: 10px;
   top: 66%;
@@ -281,6 +284,18 @@
   width: 35px;
   font-size: 30px;
   color: rgba(141, 138, 138, 0.854);
+}
+
+@-webkit-keyframes bubble {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes bubble {

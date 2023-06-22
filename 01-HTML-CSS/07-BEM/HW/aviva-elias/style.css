@@ -231,8 +231,10 @@ body {
   left: 500px;
 }
 .watsapp-screen__user-chats__chats__p-box {
+  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   background-color: white;

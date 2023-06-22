@@ -9,10 +9,39 @@ body {
   border-radius: 50%;
   position: relative;
   left: 2rem;
-  animation-name: circle;
-  animation-duration: 2s;
-  animation-delay: 20ms;
-  animation-timing-function: ease-in-out;
+  -webkit-animation-name: circle;
+          animation-name: circle;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 20ms;
+          animation-delay: 20ms;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+@-webkit-keyframes circle {
+  0% {
+    top: 0rem;
+    left: 3rem;
+  }
+  25% {
+    top: 0;
+    left: 10rem;
+    background-color: blue;
+  }
+  50% {
+    top: 10rem;
+    left: 10rem;
+    background-color: pink;
+  }
+  75% {
+    top: 10rem;
+    left: 3rem;
+    background-color: black;
+  }
+  100% {
+    top: 0;
+    left: 3rem;
+  }
 }
 @keyframes circle {
   0% {
@@ -47,11 +76,41 @@ body {
   border-radius: 50%;
   position: relative;
   top: -2rem;
-  animation-name: two;
-  animation-duration: 2s;
-  animation-delay: 20ms;
-  animation-timing-function: ease-in-out;
-  animation-delay: 200ms;
+  -webkit-animation-name: two;
+          animation-name: two;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-delay: 20ms;
+          animation-delay: 20ms;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
+}
+@-webkit-keyframes two {
+  0% {
+    top: -2rem;
+    left: 0rem;
+  }
+  25% {
+    top: -2rem;
+    left: 10rem;
+    background-color: rgb(157, 255, 36);
+  }
+  50% {
+    top: 10rem;
+    left: 10rem;
+    background-color: rgb(19, 15, 48);
+  }
+  75% {
+    top: 10rem;
+    left: 0rem;
+    background-color: rgb(174, 20, 20);
+  }
+  100% {
+    top: -2rem;
+    left: 0rem;
+  }
 }
 @keyframes two {
   0% {

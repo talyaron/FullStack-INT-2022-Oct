@@ -24,8 +24,10 @@ body {
   position: relative;
   margin-top: 43%;
   margin-left: 48%;
-  animation-name: movement;
-  animation-duration: 8s;
+  -webkit-animation-name: movement;
+          animation-name: movement;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
 }
 .container__pacman__eye {
   position: absolute;
@@ -37,9 +39,12 @@ body {
   background: black;
 }
 .container__pacman__mouth {
-  animation-name: eat;
-  animation-duration: 0.7s;
-  animation-iteration-count: infinite;
+  -webkit-animation-name: eat;
+          animation-name: eat;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
   background: black;
   position: absolute;
   width: 100%;
@@ -55,17 +60,22 @@ body {
   border-radius: 50%;
   top: 40%;
   left: 70px;
-  animation-name: food;
-  animation-duration: 0.7s;
-  animation-iteration-count: infinite;
+  -webkit-animation-name: food;
+          animation-name: food;
+  -webkit-animation-duration: 0.7s;
+          animation-duration: 0.7s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 .container .container__colors__aqua {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  animation-name: aqua_dot;
+  -webkit-animation-name: aqua_dot;
+          animation-name: aqua_dot;
   background-color: black;
-  animation-duration: 4s;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
   position: absolute;
   right: 655px;
   top: 265px;
@@ -74,9 +84,11 @@ body {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  animation-name: green_dot;
+  -webkit-animation-name: green_dot;
+          animation-name: green_dot;
   background-color: black;
-  animation-duration: 4s;
+  -webkit-animation-duration: 4s;
+          animation-duration: 4s;
   position: absolute;
   right: 580px;
   top: 455px;
@@ -85,9 +97,11 @@ body {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  animation-name: red_dot;
+  -webkit-animation-name: red_dot;
+          animation-name: red_dot;
   background-color: black;
-  animation-duration: 5s;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
   position: absolute;
   right: 950px;
   top: 130px;
@@ -96,12 +110,36 @@ body {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  animation-name: yellow_dot;
+  -webkit-animation-name: yellow_dot;
+          animation-name: yellow_dot;
   background-color: black;
-  animation-duration: 11s;
+  -webkit-animation-duration: 11s;
+          animation-duration: 11s;
   position: absolute;
   right: 650px;
   top: 195px;
+}
+@-webkit-keyframes eat {
+  0% {
+    -webkit-clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+            clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  }
+  25% {
+    -webkit-clip-path: polygon(100% 60%, 44% 48%, 100% 40%);
+            clip-path: polygon(100% 60%, 44% 48%, 100% 40%);
+  }
+  50% {
+    -webkit-clip-path: polygon(100% 50%, 44% 48%, 100% 50%);
+            clip-path: polygon(100% 50%, 44% 48%, 100% 50%);
+  }
+  75% {
+    -webkit-clip-path: polygon(100% 59%, 44% 48%, 100% 35%);
+            clip-path: polygon(100% 59%, 44% 48%, 100% 35%);
+  }
+  100% {
+    -webkit-clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+            clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
+  }
 }
 @keyframes eat {
   0% {
@@ -125,6 +163,16 @@ body {
             clip-path: polygon(100% 74%, 44% 48%, 100% 21%);
   }
 }
+@-webkit-keyframes food {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+}
 @keyframes food {
   0% {
     transform: translateX(0);
@@ -133,6 +181,94 @@ body {
   100% {
     transform: translateX(-50px);
     opacity: 0;
+  }
+}
+@-webkit-keyframes movement {
+  0% {
+    background-color: yellow;
+    left: 0px;
+    top: 0px;
+  }
+  4.5% {
+    background-color: yellow;
+    left: 0px;
+    top: -60px;
+  }
+  9% {
+    background-color: aqua;
+    left: 110px;
+    top: -60px;
+  }
+  13.5% {
+    background-color: aqua;
+    left: 110px;
+    top: 133px;
+  }
+  27% {
+    left: 190px;
+    top: 133px;
+  }
+  31.5% {
+    left: 190px;
+    top: 5px;
+  }
+  36% {
+    left: 350px;
+    top: 5px;
+  }
+  40.5% {
+    left: -350px;
+    top: 5px;
+    background-color: green;
+  }
+  45% {
+    left: -185px;
+    top: 5px;
+  }
+  49.5% {
+    left: -185px;
+    top: -275px;
+  }
+  54% {
+    left: -310px;
+    top: -275px;
+  }
+  58.5% {
+    left: -310px;
+    top: -275px;
+  }
+  63% {
+    left: -310px;
+    top: -190px;
+    background-color: red;
+  }
+  67.5% {
+    left: 110px;
+    top: -190px;
+  }
+  72% {
+    left: 110px;
+    top: -125px;
+  }
+  76.5% {
+    left: 35px;
+    top: -125px;
+  }
+  81% {
+    left: 35px;
+    top: -60px;
+  }
+  85.5% {
+    left: 0px;
+    top: -60px;
+  }
+  90% {
+    left: 0px;
+    top: -60px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
   }
 }
 @keyframes movement {
@@ -223,6 +359,23 @@ body {
     top: 0px;
   }
 }
+@-webkit-keyframes aqua_dot {
+  0% {
+    background-color: aqua;
+  }
+  10% {
+    background-color: aqua;
+  }
+  25% {
+    background-color: black;
+  }
+  50% {
+    background-color: black;
+  }
+  100% {
+    background-color: black;
+  }
+}
 @keyframes aqua_dot {
   0% {
     background-color: aqua;
@@ -234,6 +387,26 @@ body {
     background-color: black;
   }
   50% {
+    background-color: black;
+  }
+  100% {
+    background-color: black;
+  }
+}
+@-webkit-keyframes green_dot {
+  0% {
+    background-color: green;
+  }
+  10% {
+    background-color: green;
+  }
+  25% {
+    background-color: green;
+  }
+  50% {
+    background-color: green;
+  }
+  75% {
     background-color: black;
   }
   100% {
@@ -260,6 +433,29 @@ body {
     background-color: black;
   }
 }
+@-webkit-keyframes red_dot {
+  0% {
+    background-color: red;
+  }
+  10% {
+    background-color: red;
+  }
+  25% {
+    background-color: red;
+  }
+  50% {
+    background-color: red;
+  }
+  75% {
+    background-color: red;
+  }
+  80% {
+    background-color: red;
+  }
+  100% {
+    background-color: black;
+  }
+}
 @keyframes red_dot {
   0% {
     background-color: red;
@@ -278,6 +474,26 @@ body {
   }
   80% {
     background-color: red;
+  }
+  100% {
+    background-color: black;
+  }
+}
+@-webkit-keyframes yellow_dot {
+  0% {
+    background-color: yellow;
+  }
+  10% {
+    background-color: yellow;
+  }
+  25% {
+    background-color: yellow;
+  }
+  50% {
+    background-color: yellow;
+  }
+  75% {
+    background-color: black;
   }
   100% {
     background-color: black;

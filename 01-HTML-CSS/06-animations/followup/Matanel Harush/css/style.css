@@ -4,7 +4,8 @@ div {
   margin-top: 180px;
   transform-origin: 200% center;
   position: relative;
-  animation: rotate 3s linear infinite;
+  -webkit-animation: rotate 3s linear infinite;
+          animation: rotate 3s linear infinite;
 }
 
 div:before {
@@ -15,6 +16,12 @@ div:before {
   border-radius: 50px;
   background: rgb(124, 16, 16);
   animation: rotate 3s linear reverse infinite;
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    transform: rotate(-360deg);
+  }
 }
 
 @keyframes rotate {

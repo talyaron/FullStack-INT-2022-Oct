@@ -84,6 +84,9 @@ body {
 .home__search input::-moz-placeholder {
   text-align: center;
 }
+.home__search input:-ms-input-placeholder {
+  text-align: center;
+}
 .home__search input::placeholder {
   text-align: center;
 }

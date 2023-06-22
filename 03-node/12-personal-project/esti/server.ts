@@ -35,7 +35,7 @@ app.use('/', scoreRouter);
 
 
 
-const PORT = 3200
+const PORT = 3100
 app.listen(PORT, () => {
   console.log(`server listen on port ${PORT}`);
 });

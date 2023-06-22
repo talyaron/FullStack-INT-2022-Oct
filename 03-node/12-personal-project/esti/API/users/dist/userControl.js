@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.getUser = exports.deleteUser = exports.updateUser = exports.login = exports.addUser = exports.getUsers = void 0;
+exports.getUser = exports.updateUserType = exports.deleteUser = exports.updateUserName = exports.updateUser = exports.login = exports.addUser = exports.getUsers = void 0;
 // import { getUser } from './userControl';
 var userModel_1 = require("./userModel");
 var jwt_simple_1 = require("jwt-simple");
@@ -133,21 +133,21 @@ exports.updateUser = function (req, res) {
         res.status(500).send({ error: error.message });
     }
 };
-// export const getUserName = async (req: any, res: any) => {
-//   try {
-//     console.log(req.body)
-//     let { userId } = req.body
-//      userId = userId.trim();
-//       console.log(userId)
-//       const userDB = await UserModel.findOne({userId:userId})
-//       console.log(userDB)
-//      if(!userDB) throw new Error ("no scoreDB")
-//       res.send({ ok: true,userDB });
-//   } catch (error: any) {
-//     console.error(error);
-//     res.status(500).send({ error: error.message });
-//   }
-// };
+exports.updateUserName = function (req, res) {
+    try {
+        // const { name, uid } = req.body;
+        // if (!name) throw new Error("No name in data");
+        // if (!uid) throw new Error("No uid in data");
+        // const user = users.find((user) => user.uid === uid);
+        // if (!user) throw new Error("No user in array");
+        // user.name = name;
+        // res.send({ ok: true });
+    }
+    catch (error) {
+        console.error(error);
+        res.status(500).send({ error: error.message });
+    }
+};
 exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _id, deleteUser_1, users, error_4;
     return __generator(this, function (_a) {
@@ -172,8 +172,29 @@ exports.deleteUser = function (req, res) { return __awaiter(void 0, void 0, void
         }
     });
 }); };
+exports.updateUserType = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, userId, userType, userDB, error_5;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                _a = req.body, userId = _a.userId, userType = _a.userType;
+                return [4 /*yield*/, userModel_1["default"].findOneAndUpdate({ _id: userId }, { userType: userType })];
+            case 1:
+                userDB = _b.sent();
+                res.send({ ok: true, userDB: userDB });
+                return [3 /*break*/, 3];
+            case 2:
+                error_5 = _b.sent();
+                console.error(error_5);
+                res.status(500).send({ error: error_5.message });
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
+        }
+    });
+}); };
 exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var user, decoded, userId, role, userDB, error_5;
+    var user, decoded, userId, role, userDB, error_6;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -193,9 +214,9 @@ exports.getUser = function (req, res) { return __awaiter(void 0, void 0, void 0,
                 res.send({ ok: true, user: userDB });
                 return [3 /*break*/, 3];
             case 2:
-                error_5 = _a.sent();
-                console.error(error_5);
-                res.status(500).send({ error: error_5.message });
+                error_6 = _a.sent();
+                console.error(error_6);
+                res.status(500).send({ error: error_6.message });
                 return [3 /*break*/, 3];
             case 3: return [2 /*return*/];
         }

@@ -118,7 +118,6 @@ function handleAddOrder() {
                         .then(function (data) {
                         console.log(data);
                         renderTakenSeats(movieSeats_1);
-                        renderOrder(data);
                     })["catch"](function (error) {
                         console.error(error);
                     });

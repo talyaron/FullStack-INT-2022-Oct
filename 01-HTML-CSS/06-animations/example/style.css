@@ -4,11 +4,34 @@
   width: 100px;
   height: 100px;
   position: relative;
-  animation-name: bounce;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  -webkit-animation-name: bounce;
+          animation-name: bounce;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    background-color: pink;
+    top: 0px;
+    right: 0px;
+  }
+  50% {
+    background-color: rgb(34, 0, 255);
+    top: 100px;
+    right: -10px;
+  }
+  100% {
+    background-color: rgb(81, 22, 218);
+    top: 0px;
+    right: 0px;
+  }
 }
 
 @keyframes bounce {

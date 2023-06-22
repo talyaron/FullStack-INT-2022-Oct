@@ -19,8 +19,21 @@
   height: 100px;
   border-radius: 100%;
   background-color: aqua;
-  animation-name: ball;
-  animation-duration: 2s;
+  -webkit-animation-name: ball;
+          animation-name: ball;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+}
+@-webkit-keyframes ball {
+  0% {
+    background-color: green;
+  }
+  50% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: grey;
+  }
 }
 @keyframes ball {
   0% {

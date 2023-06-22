@@ -2,6 +2,7 @@ body {
   /* Prevent the user selecting text in the example */
   -webkit-user-select: none;
      -moz-user-select: none;
+      -ms-user-select: none;
           user-select: none;
 }
 

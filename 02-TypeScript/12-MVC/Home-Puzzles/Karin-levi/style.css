@@ -126,7 +126,8 @@
   color: white;
   -webkit-text-decoration: underline 2px;
           text-decoration: underline 2px;
-  text-decoration-color: white;
+  -webkit-text-decoration-color: white;
+          text-decoration-color: white;
 }
 .wrapper__callsList {
   width: 100%;

@@ -30,10 +30,14 @@ p {
   background-size: 2vw, 2vh;
   background-repeat: no-repeat;
   position: absolute;
-  animation-name: player_movement;
-  animation-duration: 10s;
-  animation-fill-mode: forwards;
-  animation-timing-function: linear;
+  -webkit-animation-name: player_movement;
+          animation-name: player_movement;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
 }
 
 .im_going_fucking_insane1 {
@@ -43,10 +47,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 1100ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 1100ms;
+          animation-delay: 1100ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -57,10 +65,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 2500ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 2500ms;
+          animation-delay: 2500ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -71,10 +83,14 @@ p {
   height: 0.7vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 2700ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 2700ms;
+          animation-delay: 2700ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -85,10 +101,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 2600ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 2600ms;
+          animation-delay: 2600ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -99,10 +119,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 2800ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 2800ms;
+          animation-delay: 2800ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -113,10 +137,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 3000ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 3000ms;
+          animation-delay: 3000ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -127,10 +155,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 3100ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 3100ms;
+          animation-delay: 3100ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -141,10 +173,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 3200ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 3200ms;
+          animation-delay: 3200ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -155,10 +191,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 3300ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 3300ms;
+          animation-delay: 3300ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -169,10 +209,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 3400ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 3400ms;
+          animation-delay: 3400ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -183,10 +227,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 3500ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 3500ms;
+          animation-delay: 3500ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -197,10 +245,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 3600ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 3600ms;
+          animation-delay: 3600ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -211,10 +263,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 3700ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 3700ms;
+          animation-delay: 3700ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -225,10 +281,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 3800ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 3800ms;
+          animation-delay: 3800ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -239,10 +299,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 3900ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 3900ms;
+          animation-delay: 3900ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -253,10 +317,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 4100ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 4100ms;
+          animation-delay: 4100ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -267,10 +335,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 4250ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 4250ms;
+          animation-delay: 4250ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -281,10 +353,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 4400ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 4400ms;
+          animation-delay: 4400ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -295,10 +371,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 4600ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 4600ms;
+          animation-delay: 4600ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -309,10 +389,14 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 4700ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 4700ms;
+          animation-delay: 4700ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
 }
 
@@ -323,11 +407,24 @@ p {
   height: 0.6vh;
   width: 0.35vw;
   background-color: #febeb4;
-  animation-delay: 4800ms;
-  animation-name: fade;
-  animation-duration: 0ms;
-  animation-fill-mode: forwards;
+  -webkit-animation-delay: 4800ms;
+          animation-delay: 4800ms;
+  -webkit-animation-name: fade;
+          animation-name: fade;
+  -webkit-animation-duration: 0ms;
+          animation-duration: 0ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   z-index: -1;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 100;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes fade {
@@ -346,11 +443,16 @@ p {
   position: absolute;
   top: 35.4vh;
   left: 49vw;
-  animation-name: ghost;
-  animation-delay: 0.5s;
-  animation-duration: 10s;
-  animation-fill-mode: forwards;
-  animation-timing-function: linear;
+  -webkit-animation-name: ghost;
+          animation-name: ghost;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
 }
 
 .ghost2 {
@@ -359,10 +461,14 @@ p {
   height: 5vh;
   background-size: 2vw, 2vh;
   position: absolute;
-  animation-iteration-count: infinite;
-  animation-name: ghost2;
-  animation-duration: 1s;
-  animation-delay: 0ms;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-name: ghost2;
+          animation-name: ghost2;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 0ms;
+          animation-delay: 0ms;
   left: 46vw;
 }
 
@@ -372,10 +478,14 @@ p {
   height: 5vh;
   background-size: 2vw, 2vh;
   position: absolute;
-  animation-iteration-count: infinite;
-  animation-name: ghost2;
-  animation-duration: 1s;
-  animation-delay: 0ms;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-name: ghost2;
+          animation-name: ghost2;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 0ms;
+          animation-delay: 0ms;
   left: 51.6vw;
 }
 
@@ -385,11 +495,27 @@ p {
   height: 5vh;
   background-size: 2vw, 2vh;
   position: absolute;
-  animation-iteration-count: infinite;
-  animation-name: ghost2;
-  animation-duration: 1s;
-  animation-delay: 0ms;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-name: ghost2;
+          animation-name: ghost2;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-delay: 0ms;
+          animation-delay: 0ms;
   left: 48.8vw;
+}
+
+@-webkit-keyframes ghost2 {
+  0% {
+    top: 43.6vh;
+  }
+  50% {
+    top: 42.6vh;
+  }
+  100% {
+    top: 43.6vh;
+  }
 }
 
 @keyframes ghost2 {
@@ -401,6 +527,83 @@ p {
   }
   100% {
     top: 43.6vh;
+  }
+}
+@-webkit-keyframes ghost {
+  0% {
+    top: 35.4vh;
+    left: 49vw;
+  }
+  5% {
+    top: 35.4vh;
+    left: 43.4vw;
+    rotate: 0deg;
+  }
+  6% {
+    rotate: 90deg;
+  }
+  8% {
+    rotate: 90deg;
+    top: 43.6vh;
+    left: 43.4vw;
+  }
+  9% {
+    rotate: 0deg;
+  }
+  16% {
+    left: 33vw;
+    opacity: 100;
+  }
+  17% {
+    opacity: 0;
+    left: 33vw;
+  }
+  18% {
+    opacity: 0;
+    left: 66vw;
+  }
+  19% {
+    opacity: 100;
+  }
+  24% {
+    left: 58.8vw;
+    rotate: 0deg;
+    top: 43.6vh;
+  }
+  25% {
+    rotate: 90deg;
+    top: 43.6vh;
+  }
+  30% {
+    left: 58.8vw;
+    top: 28.6vh;
+    rotate: 90deg;
+  }
+  31% {
+    rotate: 180deg;
+    left: 58.8vw;
+  }
+  35% {
+    left: 64.2vw;
+    rotate: 180deg;
+  }
+  38% {
+    left: 64.7vw;
+    rotate: 90deg;
+    top: 28.6vh;
+  }
+  44% {
+    opacity: 100;
+    top: 11vh;
+    left: 64.7vw;
+  }
+  50% {
+    opacity: 0;
+    left: 64.2vw;
+  }
+  100% {
+    opacity: 0;
+    rotate: 90deg;
   }
 }
 @keyframes ghost {
@@ -478,6 +681,80 @@ p {
   100% {
     opacity: 0;
     rotate: 90deg;
+  }
+}
+@-webkit-keyframes player_movement {
+  0% {
+    top: 51.4vh;
+    left: 50vw;
+  }
+  5% {
+    top: 51.4vh;
+    left: 43.4vw;
+    rotate: 0deg;
+  }
+  6% {
+    rotate: 90deg;
+  }
+  8% {
+    rotate: 90deg;
+    top: 43.6vh;
+    left: 43.4vw;
+  }
+  9% {
+    rotate: 0deg;
+  }
+  16% {
+    left: 33vw;
+    opacity: 100;
+  }
+  17% {
+    opacity: 0;
+    left: 33vw;
+  }
+  18% {
+    opacity: 0;
+    left: 66vw;
+  }
+  19% {
+    opacity: 100;
+  }
+  24% {
+    left: 58.4vw;
+    rotate: 0deg;
+    top: 43.6vh;
+  }
+  25% {
+    rotate: 90deg;
+    top: 43.6vh;
+  }
+  40% {
+    left: 58.4vw;
+    top: 9.3vh;
+    rotate: 90deg;
+  }
+  41% {
+    rotate: 180deg;
+    left: 58.4vw;
+  }
+  47% {
+    left: 64.2vw;
+    top: 9.3vh;
+    rotate: 180deg;
+  }
+  48% {
+    rotate: 270deg;
+    top: 10.3vh;
+  }
+  49% {
+    opacity: 100;
+    top: 11vh;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 @keyframes player_movement {

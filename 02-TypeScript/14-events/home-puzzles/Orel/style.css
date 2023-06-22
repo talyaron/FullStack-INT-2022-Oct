@@ -118,6 +118,9 @@ section.starting-game .form-player-name input {
 section.starting-game ::-moz-placeholder {
   font-size: 1.5rem;
 }
+section.starting-game :-ms-input-placeholder {
+  font-size: 1.5rem;
+}
 section.starting-game ::placeholder {
   font-size: 1.5rem;
 }

@@ -10,7 +10,7 @@ function handleRegister(ev: any) {
       if (!password) throw new Error("No Password");
       if (!phoneNumber) throw new Error("No tel");
       const newUser: any = { name, email, password, phoneNumber };
-      window.location.href = "/login";
+      window.location.href = "/login/index.html";
       fetch("/api/users/register", {
         method: "POST",
         headers: {

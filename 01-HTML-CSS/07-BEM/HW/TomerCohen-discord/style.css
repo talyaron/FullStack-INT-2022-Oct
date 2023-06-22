@@ -155,6 +155,7 @@ body {
 
 .me {
   margin-top: 290px;
+  position: -webkit-sticky;
   position: sticky;
   display: flex;
   color: black;
@@ -181,6 +182,7 @@ body {
 .navBar {
   margin-left: 380px;
   display: flex;
+  position: -webkit-sticky;
   position: sticky;
   width: 1415px;
   background-color: #36393f;

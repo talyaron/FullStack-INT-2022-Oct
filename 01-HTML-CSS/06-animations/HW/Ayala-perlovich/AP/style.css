@@ -16,13 +16,17 @@ body {
 .wrapper__img1 {
   margin: 10px;
   /*       סוג האנימציה    */
-  animation-name: img;
+  -webkit-animation-name: img;
+          animation-name: img;
   /*  כמה זמן להריץ אץ האנימציה  */
-  animation-iteration-count: 2;
+  -webkit-animation-iteration-count: 2;
+          animation-iteration-count: 2;
   -webkit-animation-duration: 2s;
   /*       סוג אפקט מעבר  */
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   position: relative;
   width: 300px;
   height: 300px;
@@ -31,10 +35,13 @@ body {
 }
 .wrapper__img2 {
   margin: 10px;
-  animation-name: img;
-  animation-iteration-count: 2;
+  -webkit-animation-name: img;
+          animation-name: img;
+  -webkit-animation-iteration-count: 2;
+          animation-iteration-count: 2;
   -webkit-animation-duration: 2s;
-  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
   border-radius: 100px;
   position: relative;
   width: 300px;
@@ -43,11 +50,15 @@ body {
 }
 .wrapper__img3 {
   margin: 10px;
-  animation-name: img;
-  animation-duration: 5s;
-  animation-iteration-count: 2;
+  -webkit-animation-name: img;
+          animation-name: img;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-iteration-count: 2;
+          animation-iteration-count: 2;
   -webkit-animation-duration: 2s;
-  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
   border-radius: 100px;
   position: relative;
   width: 300px;
@@ -57,10 +68,13 @@ body {
 .wrapper__img4 {
   margin: 10px;
   animation-duration: 2s;
-  animation-iteration-count: 2;
+  -webkit-animation-iteration-count: 2;
+          animation-iteration-count: 2;
   -webkit-animation-duration: 2s;
-  animation-name: img;
-  animation-timing-function: ease-in-out;
+  -webkit-animation-name: img;
+          animation-name: img;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
   border-radius: 100px;
   position: relative;
   width: 300px;
@@ -69,16 +83,39 @@ body {
 }
 .wrapper__img5 {
   margin: 10px;
-  animation-name: bimg;
-  animation-duration: 5s;
-  animation-iteration-count: 2;
+  -webkit-animation-name: bimg;
+          animation-name: bimg;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-iteration-count: 2;
+          animation-iteration-count: 2;
   -webkit-animation-duration: 2s;
-  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
   border-radius: 100px;
   position: relative;
   width: 300px;
   height: 300px;
-  animation-name: img;
+  -webkit-animation-name: img;
+          animation-name: img;
+}
+
+@-webkit-keyframes img {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: 180px;
+  }
+  100% {
+    top: 0px;
+  }
+  80% {
+    top: 100px;
+  }
+  100% {
+    top: 0px;
+  }
 }
 
 @keyframes img {
@@ -108,25 +145,33 @@ body {
 .wrapper2__round1 {
   margin: 10px;
   /*       סוג האנימציה    */
-  animation-name: ball;
+  -webkit-animation-name: ball;
+          animation-name: ball;
   /*  כמה זמן להריץ אץ האנימציה  */
-  animation-duration: 10s;
-  animation-duration: 3s;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
   /*       סוג אפקט מעבר  */
-  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
   border-radius: 100px;
   position: relative;
   animation-name: ball;
   width: 300px;
   height: 300px;
   animation-name: ball;
-  animation-duration: 5s;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
 }
 .wrapper2__round2 {
   margin: 10px;
-  animation-name: ball;
-  animation-duration: 5s;
-  animation-timing-function: ease-in-out;
+  -webkit-animation-name: ball;
+          animation-name: ball;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
   border-radius: 100px;
   position: relative;
   width: 300px;
@@ -136,35 +181,46 @@ body {
 }
 .wrapper2__round3 {
   margin: 10px;
-  animation-name: ball;
-  animation-duration: 5s;
-  animation-timing-function: ease-in-out;
+  -webkit-animation-name: ball;
+          animation-name: ball;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
   border-radius: 100px;
   position: relative;
   width: 300px;
   height: 300px;
   animation-name: ball;
   animation-duration: 5s;
-  animation-duration: 1s;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
   animation-duration: 5s;
 }
 .wrapper2__round4 {
   margin: 10px;
-  animation-duration: 2s;
-  animation-name: ball;
-  animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-name: ball;
+          animation-name: ball;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
   border-radius: 100px;
   position: relative;
   width: 300px;
   height: 300px;
   animation-name: ball;
-  animation-duration: 5s;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
 }
 .wrapper2__round5 {
   margin: 10px;
-  animation-name: ball;
-  animation-duration: 5s;
-  animation-timing-function: ease-in-out;
+  -webkit-animation-name: ball;
+          animation-name: ball;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
   border-radius: 100px;
   position: relative;
   width: 300px;
@@ -176,9 +232,12 @@ body {
 }
 .wrapper2__round6 {
   margin: 10px;
-  animation-name: ball;
-  animation-duration: 5s;
-  animation-timing-function: ease-in-out;
+  -webkit-animation-name: ball;
+          animation-name: ball;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
   border-radius: 100px;
   position: relative;
   width: 300px;
@@ -190,9 +249,12 @@ body {
 }
 .wrapper2__round7 {
   margin: 10px;
-  animation-name: ball;
-  animation-duration: 5s;
-  animation-timing-function: ease-in-out;
+  -webkit-animation-name: ball;
+          animation-name: ball;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
   border-radius: 100px;
   position: relative;
   width: 300px;
@@ -201,6 +263,34 @@ body {
   animation-duration: 5s;
   -webkit-animation-duration: 100s;
   will-change: transform;
+}
+
+@-webkit-keyframes ball {
+  0% {
+    background-color: white;
+    left: 0px;
+    righttop: 10px;
+  }
+  25% {
+    background-color: white;
+    bottom: 200px;
+    top: 0px;
+  }
+  50% {
+    background-color: white;
+    left: 200px;
+    top: 200px;
+  }
+  75% {
+    background-color: white;
+    left: 0px;
+    top: 200px;
+  }
+  100% {
+    background-color: white;
+    right: 0px;
+    top: 0px;
+  }
 }
 
 @keyframes ball {

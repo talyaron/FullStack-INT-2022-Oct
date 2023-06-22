@@ -9,6 +9,7 @@ body {
 .tittle h2 {
   color: azure;
   margin: auto;
+  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
@@ -19,6 +20,7 @@ body {
   justify-content: space-around;
 }
 .function button {
+  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   margin-top: 5px;

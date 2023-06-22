@@ -27,7 +27,7 @@ function App() {
   console.log(colorIndex);
   return (
     <div style={{ backgroundColor: colors[colorIndex] }}>
-      <h1>change color</h1>
+      <h1>sadasdasdsa</h1>
       <button onClick={handleChangeColor}>change-color</button>
       <button onClick={handleShowPopup}>{showPopup ? "Close" : "Open"}</button>
       {showPopup ? <PopUp /> : null}

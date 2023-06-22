@@ -2,6 +2,15 @@
   margin: 0%;
 }
 
+@-webkit-keyframes first_animation {
+  from {
+    background-color: blue;
+  }
+  to {
+    background-color: red;
+  }
+}
+
 @keyframes first_animation {
   from {
     background-color: blue;
@@ -15,10 +24,22 @@
   border-radius: 100px;
   width: 100px;
   height: 100px;
-  animation-name: bounce;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
+  -webkit-animation-name: bounce;
+          animation-name: bounce;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
   position: relative;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    left: 100px;
+  }
+  50% {
+    left: 100px;
+  }
 }
 
 @keyframes bounce {

@@ -40,10 +40,14 @@ body {
   width: 200px;
   height: 200px;
   position: relative;
-  animation-name: high;
-  animation-duration: 5s;
-  animation-fill-mode: both;
-  animation-iteration-count: infinite;
+  -webkit-animation-name: high;
+          animation-name: high;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 .wrapper__ballon img {
   height: 100%;
@@ -51,13 +55,25 @@ body {
   border-radius: 100%;
 }
 .wrapper #ball1 {
-  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
 }
 .wrapper #ball2 {
-  animation-timing-function: ease;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
 }
 .wrapper #ball3 {
-  animation-timing-function: ease-in;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+}
+
+@-webkit-keyframes high {
+  from {
+    bottom: 0px;
+  }
+  to {
+    bottom: 700px;
+  }
 }
 
 @keyframes high {

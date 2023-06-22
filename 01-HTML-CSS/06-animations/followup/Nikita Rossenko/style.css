@@ -12,21 +12,46 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  animation-name: animation1;
-  animation-duration: 3s;
+  -webkit-animation-name: animation1;
+          animation-name: animation1;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
   position: absolute;
-  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 .container__circle2 img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  animation-name: animation2;
-  animation-duration: 3s;
+  -webkit-animation-name: animation2;
+          animation-name: animation2;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
   position: absolute;
-  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
   opacity: 0%;
-  animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+@-webkit-keyframes animation1 {
+  0% {
+    top: 100px;
+    left: 0px;
+    opacity: 100%;
+  }
+  50% {
+    top: 25px;
+    left: 50px;
+    opacity: 0%;
+  }
+  100% {
+    top: 100px;
+    left: 0px;
+    opacity: 0%;
+  }
 }
 
 @keyframes animation1 {
@@ -43,6 +68,23 @@ body {
   100% {
     top: 100px;
     left: 0px;
+    opacity: 0%;
+  }
+}
+@-webkit-keyframes animation2 {
+  0% {
+    top: 25px;
+    left: 50px;
+    opacity: 0%;
+  }
+  50% {
+    top: 100px;
+    left: 100px;
+    opacity: 100%;
+  }
+  100% {
+    top: 100px;
+    left: 100px;
     opacity: 0%;
   }
 }

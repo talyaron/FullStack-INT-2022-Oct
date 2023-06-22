@@ -1,17 +1,15 @@
-* {
-  box-sizing: border-box;
+* {box-sizing:border-box}
+body{
+    margin: 0;
+    background-color: black;
 }
 
-body {
-  margin: 0;
-  background-color: black;
-}
+h1{
+    margin: auto;
+    text-align: center;
+    padding: 2rem;
+    color: white;
 
-h1 {
-  margin: auto;
-  text-align: center;
-  padding: 2rem;
-  color: white;
 }
 
 /* Slideshow container */
@@ -39,9 +37,7 @@ h1 {
   font-size: 18px;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 /* Position the "next button" to the right */
@@ -52,7 +48,7 @@ h1 {
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0,0,0,0.8);
 }
 
 /* Caption text */
@@ -67,9 +63,11 @@ h1 {
   background-color: black;
   border-right: 0.5rem solid rgb(255, 255, 255);
   border-left: 0.5rem solid rgb(255, 255, 255);
+  
+
 }
 
-/* Number text (1/8 etc) */
+/* Number text (1/3 etc) */
 .numbertext {
   color: #f2f2f2;
   font-size: 12px;
@@ -99,53 +97,119 @@ h1 {
   animation-name: fade;
   animation-duration: 1.5s;
 }
+
+
+.image-1{
+    border: 0.5rem solid rgb(255, 255, 255);
+    width: 62.5rem;
+    height: 40rem;
+    background-color: rgb(42, 41, 40);
+    background-image: url("./images/img1.jpg");
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+}
+
+.image-2{
+    border: 0.5rem solid rgb(255, 255, 255);
+    width: 62.5rem;
+    height: 40rem;
+    background-color: rgb(42, 41, 40);
+    background-image: url("./images/img2.jpg");
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+}
+
+.image-3{
+    border: 0.5rem solid rgb(255, 255, 255);
+    width: 62.5rem;
+    height: 40rem;
+    background-color: rgb(42, 41, 40);
+    background-image: url("./images/img3.jpg");
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+}
+
+.image-4{
+    border: 0.5rem solid rgb(255, 255, 255);
+    width: 62.5rem;
+    height: 40rem;
+    background-color: rgb(42, 41, 40);
+    background-image: url("./images/img4.jpg");
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+}
+
+.image-5{
+    border: 0.5rem solid rgb(255, 255, 255);
+    width: 62.5rem;
+    height: 40rem;
+    background-color: rgb(42, 41, 40);
+    background-image: url("./images/img5.jpg");
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+}
+
+.image-6{
+    border: 0.5rem solid rgb(255, 255, 255);
+    width: 62.5rem;
+    height: 40rem;
+    background-color: rgb(42, 41, 40);
+    background-image: url("./images/img6.jpg");
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+}
+
+.image-7{
+    border: 0.5rem solid rgb(255, 255, 255);
+    width: 62.5rem;
+    height: 40rem;
+    background-color: rgb(42, 41, 40);
+    background-image: url("./images/img7.jpg");
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+}
+
+.image-8{
+    border: 0.5rem solid rgb(255, 255, 255);
+    width: 62.5rem;
+    height: 40rem;
+    background-color: rgb(42, 41, 40);
+    background-image: url("./images/img8.jpg");
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+}
+
+.image-9{
+    border: 0.5rem solid rgb(255, 255, 255);
+    width: 62.5rem;
+    height: 40rem;
+    background-color: rgb(42, 41, 40);
+    background-image: url("./images/img9.jpg");
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+}
+
+.image-10{
+    border: 0.5rem solid rgb(255, 255, 255);
+    width: 62.5rem;
+    height: 40rem;
+    background-color: rgb(42, 41, 40);
+    background-image: url("./images/img10.jpg");
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center;
+}
+
 @keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.slideImage {
-  border: 0.5rem solid rgb(255, 255, 255);
-  width: 62.5rem;
-  height: 40rem;
-  background-color: rgb(42, 41, 40);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-
-.image-1 {
-  background-image: url("/images/img1.jpg");
-}
-
-.image-2 {
-  background-image: url("/images/img2.jpg");
-}
-
-.image-3 {
-  background-image: url("/images/img3.jpg");
-}
-
-.image-4 {
-  background-image: url("/images/img4.jpg");
-}
-
-.image-5 {
-  background-image: url("/images/img5.jpg");
-}
-
-.image-6 {
-  background-image: url("/images/img6.jpg");
-}
-
-.image-7 {
-  background-image: url("/images/img7.jpg");
-}
-
-.image-8 {
-  background-image: url("/images/img8.jpg");
+  from {opacity: .4}
+  to {opacity: 1}
 }

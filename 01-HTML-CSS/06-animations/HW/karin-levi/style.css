@@ -15,44 +15,67 @@ body {
   height: 200px;
   border-radius: 80%;
   position: relative;
-  animation-name: flying;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: infinite;
+  -webkit-animation-name: flying;
+          animation-name: flying;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
 .wrapper__balloon img {
   height: 100%;
   width: 100%;
 }
 .wrapper #baloon1 {
-  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
 }
 .wrapper #baloon2 {
-  animation-timing-function: ease;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
 }
 .wrapper #baloon3 {
-  animation-timing-function: ease-in;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
 }
 .wrapper #baloon4 {
-  animation-timing-function: ease-out;
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
 }
 .wrapper #baloon5 {
-  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
 }
 .wrapper #baloon6 {
-  animation-timing-function: ease-in;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
 }
 .wrapper #baloon7 {
-  animation-timing-function: linear;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
 }
 .wrapper #baloon8 {
-  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
 }
 .wrapper #baloon9 {
-  animation-timing-function: ease;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
 }
 .wrapper #baloon10 {
-  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes flying {
+  from {
+    bottom: 0px;
+  }
+  to {
+    bottom: 800px;
+  }
 }
 
 @keyframes flying {

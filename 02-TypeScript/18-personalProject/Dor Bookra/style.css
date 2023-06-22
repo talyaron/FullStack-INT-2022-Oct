@@ -44,7 +44,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+      writing-mode: vertical-lr;
   width: 130px;
 }
 
@@ -62,35 +63,4 @@
 .addItemForm #itemForm #itemImg {
   width: 15px;
   height: 15px;
-}
-
-.intro {
-  display: block;
-}
-.intro .aboutUs {
-  display: flex;
-}
-.intro img {
-  padding: 2rem;
-  height: 300px;
-}
-.intro span {
-  font-size: 30px;
-}
-.intro p {
-  font-size: 20px;
-  align-self: center;
-}
-.intro .header2 {
-  padding: 5rem 0 5rem 0;
-  display: flex;
-}
-.intro .header2 img {
-  padding-left: 7rem;
-}
-.intro .header3 {
-  display: flex;
-}
-.intro .header3 img {
-  padding-left: 7rem;
-}
+}/*# sourceMappingURL=style.css.map */

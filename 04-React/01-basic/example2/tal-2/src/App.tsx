@@ -1,21 +1,23 @@
 import "./App.css";
 import Box from "./components/box/Box";
+import Nav from "./components/nav/Nav";
 
-const words = ["h1", "bye", "go"];
 
 function App() {
-  //JSX
+
+//JSX
   return (
     <div>
       <h1>React 3</h1>
       <p>Hi</p>
-      {words.map((word, i) => (
-        <div key={`id-${i}`}>
-          <Box text={word} />
-        </div>
-      ))}
-    </div>
+      <Box text="Hi" />
+      <Box text="Bye" />
+      <Box text="whatsapp"/>
+      <Box text="great!!"/>
+    </div>-
+    
   );
 }
+
 
 export default App;

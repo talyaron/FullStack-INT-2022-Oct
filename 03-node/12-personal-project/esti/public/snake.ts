@@ -1,14 +1,4 @@
 
-
-// import { Scores } from './../API/scores/scoreModel';
-
-interface Scores {
-  userName: string,
-  userId: string,
-  score: number,
-  competitionPlace: number,
-};
-
 const grid = document.querySelector(".grid") as HTMLElement;
 const popup = document.querySelector(".popup")  as HTMLElement;
 const playAgain = document.querySelector(".playAgain") as HTMLElement;
@@ -30,7 +20,7 @@ let score = 0;
 let speed = 0.8;
 let intervalTime = 0;
 let interval = 0;
-let userId = "";
+let playerID = "";
 let namePlayer = ["", "", ""];
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -42,13 +32,11 @@ document.addEventListener("DOMContentLoaded", function () {
 // built 100 div for snake
   function createBoard() {
     try{
-      getScores()
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
       const value = urlParams.get('value');
       const playerName = document.querySelector(".playerName") as HTMLHeadElement
       if(!value) throw new Error ("No value from indexuser")
-
       
       namePlayer = value.split(",");      
       playerName.innerText = `Welcome ${namePlayer[0]}`
@@ -216,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
-function hendelReplay() {
+function replay() {
   try{
     grid.innerHTML = "";
     createBoard();
@@ -228,116 +216,15 @@ function hendelReplay() {
 
 }
 
-function hendelFinishGame() {
+function finishGame() {
   try{
     console.log(`playername - ${namePlayer[1]} id`)
     console.log(`score - ${score}`)
-    updateScore ()
-    // const url = `index.html?value=${namePlayer[0]}, ${namePlayer[1]}, ${score}`;
-    // window.location.href = url;
+
+    const url = `index.html?value=${namePlayer[0]}, ${namePlayer[1]}, ${score}`;
+    window.location.href = url;
   } catch (error) {
     console.error(error)      
   }
 
-}
-
-
-
-
-function updateScore () {
-  try {
-    const userId = namePlayer[1]
-    console.log(userId)
-    fetch("/update-score", {
-      method: "PATCH",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ userId, score }),
-    })
-    .then((res) => res.json())
-      .then(({ scores }) => {
-        getScores();
-      })
-      .catch((error) => {
-        console.error(error);
-      });;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-
-function getScores() {
-  try {
-  
-    fetch("/get-scores", {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-                                                                                                     },
-    })
-      .then((res) => {
-        console.log("this is res" + res);
-        return res.json();
-      })
-      .then(({ scoreDB }) => {
-        try {
-          if (!scoreDB) throw new Error("dodnt find scores");
-          console.log(scoreDB);
-          console.log("scores");
-          renderScores(scoreDB);
-        } catch (error) {
-          console.error(error);
-        }
-      });
-
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-function renderScores(scores: Array<Scores>) {
-  try {
-    if (!scores) throw new Error("No users");
-    scores.sort((a, b) => b.score - a.score);
-    console.log(scores)
-    let html = 
-        scores.map((score) => {
-        // console.log(score)
-        if(score.score > 0) return renderScore(score);
-      })
-      .join(" ");
-
-      const htmlDiv = `<div class="container"><h1>Palyer</h1>${html}</div>`  
-      console.log(htmlDiv)
-    const scoresElement = document.querySelector(".centered") as HTMLElement;
-    if (!scoresElement) throw new Error("coundnt find users element on DOM");
-
-    scoresElement.innerHTML = htmlDiv;
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-function  renderScore(score){
-  try {
-    console.log(score)
-    console.log("score")
-    // const userNAme = getUserName(score.userId)
-    return `<div> ${score.playerName} = ${score.score}</div>`
-      } catch (error) {
-    console.error(error);
-  } 
-}
-
-
-function hendelGoBack(){
-  try{
-      window.location.href = 'login.html';
-    } catch (error) {
-    console.error(error)      
-  }
 }

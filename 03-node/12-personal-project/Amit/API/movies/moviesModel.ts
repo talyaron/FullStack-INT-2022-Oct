@@ -4,9 +4,6 @@ import { SeatSchema } from "../seats/seatsModel";
 
 export interface Movie{
     name: string;
-    genre: string;
-    img: string;
-    minutes: number;
 }
 
 export const MovieSchema = new Schema({
