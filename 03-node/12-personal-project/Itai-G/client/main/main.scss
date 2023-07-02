@@ -19,7 +19,6 @@ body {
   padding: 10px;
 }
 
-// You should use scss .topNav{ ul...} instead of .topNav ul
 .topNav ul {
   display: flex;
   list-style-type: none;
@@ -90,12 +89,8 @@ img {
 }
 
 .storeItem button {
-  width: 40%;
+  width: 100%;
   margin: 10px 0;
-}
-
-input{
-  width: 20%;
 }
 
 @media screen and (min-width: 768px) {
@@ -150,4 +145,3 @@ img {
     margin: 10px 20px;
   }
 }
-

@@ -15,21 +15,21 @@ exports.PlayerSchema = new mongoose_1.Schema({
     position: { require: true, type: String },
     positionType: {
         type: String,
-        "enum": Object.values(PositionType),
+        "enum": PositionType,
         "default": PositionType.SUBSTITUTE
     }
 });
 exports.defenderPlayers = new mongoose_1.Schema({
-    positionType: { type: String, "enum": Object.values(PositionType) }
+    PositionType: { type: PositionType.DEFENDER }
 });
 exports.attackerPlayers = new mongoose_1.Schema({
-    positionType: { type: String, "enum": Object.values(PositionType) }
+    PositionType: { type: PositionType.ATTACKER }
 });
 exports.midfilderPlayers = new mongoose_1.Schema({
-    positionType: { type: String, "enum": Object.values(PositionType) }
+    PositionType: { type: PositionType.MIDFIELDER }
 });
 exports.goalkeeperPlayers = new mongoose_1.Schema({
-    positionType: { type: String, "enum": Object.values(PositionType) }
+    PositionType: { type: PositionType.GOALKEEPER }
 });
 exports.defenderPlayersModel = mongoose_1["default"].model('defenderPlayers', exports.defenderPlayers);
 exports.attackerPlayersModel = mongoose_1["default"].model('attackerPlayers', exports.attackerPlayers);

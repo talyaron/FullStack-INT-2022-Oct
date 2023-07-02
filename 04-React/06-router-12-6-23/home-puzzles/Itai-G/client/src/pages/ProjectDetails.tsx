@@ -22,7 +22,6 @@ const ProjectDetails: React.FC = () => {
         console.log(_id)
         const response = await axios.get(`/api/project/get-Projects-By-Id?projectId=${_id}`);
         const { data } = response;
-        console.log(data)
         setProject(data);
       } catch (error: any) {
         console.error(error);
@@ -42,7 +41,7 @@ const ProjectDetails: React.FC = () => {
       <div className="projectCard">
         <h2>Project Details</h2>
         <h3>{project.name}</h3>
-        <img src={project.img} alt="{project.name}" />
+        <img src={project.img} alt="" />
         <p>{project.description}</p>
       </div>
     </div>

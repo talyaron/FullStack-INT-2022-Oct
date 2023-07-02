@@ -5,12 +5,12 @@ const Profile = () => {
   const { userId } = useParams();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    (async () => {
-      const { data } = await axios.get(`/api/users/get-user?userId=${userId}`);
-      console.log(data)
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const { data } = await axios.get(`/api/users/get-user?userId=${userId}`);
+  //     console.log(data)
+  //   })();
+  // }, []);
 
   useEffect(() => {
     //data arrives

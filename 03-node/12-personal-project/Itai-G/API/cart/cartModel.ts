@@ -14,7 +14,7 @@ export enum CartStatus{
 
 }
 
-//Tal: better to have not just products ids, but the whole product object, becaues you would wont to show the product in the UI
+
 export const CartSchema = new Schema({
   userId: String,
   productIds:{required:true, type:[String],default:[]},

@@ -8,7 +8,6 @@ import About from './pages/About.tsx';
 import Contact from './pages/Contact.tsx';
 import Projects from './pages/Projects.tsx';
 import ProjectDetails from './pages/ProjectDetails.tsx';
-import FeedbackForm from './pages/Feedback.tsx';
 
 
 export const Router = ()=>(
@@ -19,7 +18,6 @@ export const Router = ()=>(
     <Route path="*" element={<ErrorPage />}/>
     <Route path="/projects" element={<Projects />}/>
     <Route path="/projects/:_id" element={<ProjectDetails />}/>
-    <Route path="/feedback" element={<FeedbackForm />}/>
   </Routes>
   );
   

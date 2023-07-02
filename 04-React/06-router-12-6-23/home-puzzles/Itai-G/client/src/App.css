@@ -1,10 +1,3 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-}
-
 #root {
   margin: 0 auto;
   padding: 2rem;
@@ -17,11 +10,9 @@ body {
   will-change: filter;
   transition: filter 300ms;
 }
-
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
-
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -35,22 +26,32 @@ body {
   }
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
 .home-container {
   text-align: center;
   padding: 20px;
-  height: 300px;
-  width: 600px;
+  height: 350px;
+  width: 350px;
   box-sizing: border-box;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(164, 98, 98, 0.1);
-  margin: 0 auto;
+
 }
 
 .home-container h2 {
   font-size: 24px;
   color: green;
-  margin-bottom: 1rem;
 }
 
 .home-container p {

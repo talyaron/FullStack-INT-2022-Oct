@@ -20,7 +20,6 @@ function handleAddUser(ev) {
             .then(function (res) { return res.json(); })
             .then(function (data) {
             console.log(data);
-            window.location.href = "./index.html";
         })["catch"](function (error) {
             console.error(error);
         });

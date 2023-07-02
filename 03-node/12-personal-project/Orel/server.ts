@@ -8,12 +8,11 @@ import routerProduct from './API/products/productsRouters'
 
 dotenv.config()
 const app = express()
-const PORT = process.env.PORT || 3002
+const PORT = process.env.PORT
 const uri = process.env.MONGODB_URI
 app.use(cookieParser());
 app.use(express.json())
 app.use(express.static("public"))
-console.log(uri)
 
     if(uri){
         mongoose.connect(uri).then(()=>{

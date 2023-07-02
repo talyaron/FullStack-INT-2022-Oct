@@ -1,54 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Link Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Link Google Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
-    <!-- Link Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Link css -->
-    <link rel="stylesheet" href="./dist/login.css">
-    <!-- link Js -->
-    <script src="./dist/login.js" defer></script>
-    <!-- Title -->
+        <!-- Link Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- Link css -->
+        <link rel="stylesheet" href="./dist/login.css">
+        <!-- link Js -->
+        <script src="./dist/login.js" defer></script>
+        <!-- Title -->
     <title>ShoesHot:Login-Page</title>
 </head>
-
 <body>
 
-    <section class="login-container">
+        <section class="login-container">
 
-
-        <h1>Welcome Back</h1>
-        <a class="login-container__logo" href="/">ShoesHot </a>
-
-        <form class="login-container__form" onsubmit="handleSubmitLogin(event)">
-
-            <input type="text" placeholder="Enter Your Email" id="EmailInput" name="email" type="email">
-            <input type="text" placeholder="Enter Your Password" id="PasswordInput" name="password" type="password">
-            <div id="InvalidMessageRoot">Error</div>
-            <button type="submit">LOGIN</button>
-        </form>
-        <footer class="login-container__footer">
-            <span>Not a member yet?</span>
-            <span>
-                <a href="/register">Register now</a>
-            </span>
-        </footer>
-    </section>
-
+       
+          <h1>Welcome Back</h1>
+            <a class="login-container__logo"  href="/">ShoesHot </a>
+         
+                <form class="login-container__form" onsubmit="handleSubmitLogin(event)">
+       
+                        <input type="text" placeholder="Enter Your Email" id="EmailInput" name="email">
+                        <input type="text" placeholder="Enter Your Password" id="PasswordInput" name="password">
+                        <div id="InvalidMessageRoot">Error</div>
+                        <button type="submit">LOGIN</button>
+                </form>
+                <footer class="login-container__footer">
+                    <span>Not a member yet?</span>
+                    <span>
+                        <a href="/register">Register now</a>
+                    </span>
+                </footer>
+        </section>
+        
 
 </body>
-
 </html>

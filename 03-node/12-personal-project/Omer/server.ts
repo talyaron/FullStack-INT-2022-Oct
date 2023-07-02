@@ -33,7 +33,7 @@ app.use("/api/product", Productrouter);
 
 import UserProducttrouter from "./API/user-product/user-productRoutes";
 app.use("/api/user-product", UserProducttrouter)
-const port = process.env.PORT || 3010;
-app.listen(port, () => {
-  console.log(`server listen on port ${port}`);
+
+app.listen(3000, () => {
+  console.log("server listen on port 3000");
 });

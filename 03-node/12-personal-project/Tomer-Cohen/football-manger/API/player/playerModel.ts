@@ -16,32 +16,27 @@ export enum PositionType {
 }
 
 export const PlayerSchema = new Schema({
-  userName: { require: true, type: String },
-  position: { require: true, type: String },
-  positionType: {
+  userName: {require: true, type:String},
+  position: {require : true, type:String},
+  positionType:{
     type: String,
-    enum: Object.values(PositionType),
+    enum: PositionType,
     default: PositionType.SUBSTITUTE
   },
-});
+})
 
-
-export const defenderPlayers = new Schema({
-  positionType: { type: String, enum: Object.values(PositionType) },
-});
-
+export const defenderPlayers= new Schema({
+    PositionType: {type:PositionType.DEFENDER},
+})
 export const attackerPlayers = new Schema({
-  positionType: { type: String, enum: Object.values(PositionType) },
-});
-
+  PositionType:{type:PositionType.ATTACKER}
+})
 export const midfilderPlayers = new Schema({
-  positionType: { type: String, enum: Object.values(PositionType) },
-});
-
+  PositionType:{type:PositionType.MIDFIELDER}
+})
 export const goalkeeperPlayers = new Schema({
-  positionType: { type: String, enum: Object.values(PositionType) },
-});
-
+  PositionType:{type:PositionType.GOALKEEPER}
+})
 
 export const defenderPlayersModel = mongoose.model('defenderPlayers',defenderPlayers)
 

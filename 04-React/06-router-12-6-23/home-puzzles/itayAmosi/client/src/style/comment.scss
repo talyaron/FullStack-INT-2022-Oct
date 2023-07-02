@@ -1,4 +1,4 @@
-.commet {
+.form1 {
     margin-left: 150px;
   height: auto;
   width: 80vw !important;
@@ -12,13 +12,13 @@
   text-align: center;
 }
 
-#commet-main {
+#form-main {
   width: 100%;
   float: left;
   padding-top: 0px;
 }
 
-#commet-div {
+#form-div {
   background-color: rgba(233, 7, 7, 0.4);
   padding-left: 35px;
   padding-right: 35px;
@@ -130,7 +130,7 @@ textarea:focus {
 }
 
 @media only screen and (max-width: 580px) {
-  #commet-div {
+  #form-div {
     left: 3%;
     margin-right: 3%;
     width: 88%;
@@ -138,9 +138,4 @@ textarea:focus {
     padding-left: 3%;
     padding-right: 3%;
   }
-}
-
-.commentContainer{
-
-  margin-top: 20px;
 }

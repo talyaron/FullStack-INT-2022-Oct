@@ -2,7 +2,7 @@ import axios from 'axios';
 import "../style/form.scss"
 
 const Form = () => {
-    async function handleAddProject(e: any) {
+    async function handleSubmit(e: any) {
         e.preventDefault();
         const name = e.target.name.value;
         const src1 = e.target.src1.value;
@@ -17,7 +17,7 @@ const Form = () => {
   return (
     <>
     <div className='Container-Form'>
-            <form className="form" onSubmit={handleAddProject}>
+            <form className="form" onSubmit={handleSubmit}>
       <h1>Add Project</h1>
       <br />
         <input type="text" name="name" placeholder="Project name" />

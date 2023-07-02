@@ -57,8 +57,6 @@ import userRouter from "./API/user/userRouter";
 app.use('/api/user', userRouter)
 
 
-import commentRouter from "./API/comment/commentRouter";
-app.use('/api/comment', commentRouter)
 
 //static file
 app.use(express.static("./client"));

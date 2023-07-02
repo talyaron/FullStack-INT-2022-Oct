@@ -1,15 +1,16 @@
-function handleAddUser(ev) {
-    ev.preventDefault();
+"use strict";
+exports.__esModule = true;
+function handelAddUser(ev) {
     try {
         var name = ev.target.elements.name.value;
         var password = ev.target.elements.password.value;
         var email = ev.target.elements.email.value;
         if (!name)
-            throw new Error("No name!");
+            throw new Error("no name!");
         if (!password)
-            throw new Error("No password!");
+            throw new Error("no password!!!");
         if (!email)
-            throw new Error("No email!");
+            throw new Error("no email!");
         var newUser = { name: name, password: password, email: email };
         fetch("/api/users/add-user", {
             method: "POST",
@@ -20,18 +21,10 @@ function handleAddUser(ev) {
             body: JSON.stringify(newUser)
         })
             .then(function (res) {
-            if (res.ok) {
-                console.log("User registered successfully!");
-                window.location.href = "http://localhost:3000/login/login.html";
-            }
-            else {
-                throw new Error("Failed to register user");
-            }
-        })["catch"](function (error) {
-            console.error("Could not complete the registration:", error);
+            // console.log(data);
         });
     }
     catch (error) {
-        console.error("Could not complete the add user:", error);
+        console.error("coudlds complete the add user");
     }
 }

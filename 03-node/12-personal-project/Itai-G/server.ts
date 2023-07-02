@@ -36,9 +36,7 @@ import CartRouter from './API/cart/cartRoute';
 app.use('/api/cart', CartRouter);
 
 
-app.get("/", (req, res) => {
-  res.redirect("http://localhost:3000/main/main.html"); 
-});
+
 
 app.listen(3000, () => {
   console.log("server listen on port 3000");

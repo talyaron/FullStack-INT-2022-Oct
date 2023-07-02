@@ -19,7 +19,7 @@ if (uri) {mongoose.connect(uri).then(() => {
 }
 
 import playerRouter from "./API/playerRouter"
-app.use("/API",playerRouter)
+app.use("/API",playerRouter)  
 
 //static file
 app.use(express.static("./shlomi.samai/src"));

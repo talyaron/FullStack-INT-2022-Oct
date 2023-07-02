@@ -26,7 +26,6 @@ function handleAddUser(ev: any) {
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
-          window.location.href = "./index.html";
         })
         .catch((error) => {
           console.error(error);

@@ -7,6 +7,6 @@ const router = Router();
 router
 .post("/add-project",addProject)
 .get("/get-projects",getProjects)
-.get("/get-Projects-By-Id",getProjectsById)
+.get("get-Projects-By-Id",getProjectsById)
 
 export default router
