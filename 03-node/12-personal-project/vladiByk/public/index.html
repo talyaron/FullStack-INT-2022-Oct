@@ -10,9 +10,9 @@
       crossorigin="anonymous"
     ></script>
     <link rel="icon" type="image/png" href="./img/kanban3.png" />
-    <link rel="stylesheet" href="./style/dist/button.css" />
-    <link rel="stylesheet" href="./style/dist/entryPage.css" />
-    <link rel="stylesheet" href="./style/dist/responsive.css" />
+    <link rel="stylesheet" href="./style/css/button.css" />
+    <link rel="stylesheet" href="./style/css/entryPage.css" />
+    <link rel="stylesheet" href="./style/css/responsive.css" />
     <script src="./src/helpers.js" defer></script>
     <script src="./src/control.js" defer></script>
     <script src="./src/view.js" defer></script>
@@ -83,7 +83,7 @@
       </div>
       <!-- --------------New Container-------------- -->
       <div class="signInContainer">
-        <form id="signInForm" action="/api/v1/users/login" method="post">
+        <form id="signInForm" onsubmit="handleLogin(event)">
           <h1>Sign in</h1>
           <!-- <div class="iconsArea">
             <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>

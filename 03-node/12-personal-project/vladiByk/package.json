@@ -4,11 +4,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "rimraf dist && npx tsc",
+    "build": "npx tsc && node-sass --output-style -o public/style/css public/style",
     "prestart": "npm run build",
     "start": "node ./API/server/server.js",
     "predev": "npm run build",
-    "dev": "concurrently \"npx tsc -w\"  \"nodemon ./API/server/server.js\""
+    "dev": "concurrently \"npx tsc -w\" \"node-sass -w --output-style -o public/style/css public/style\" \"nodemon ./API/server/server.js\"",
+    "node-sass": "node-sass -w --output-style -o public/style/css public/style"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +19,7 @@
     "express": "^4.18.2",
     "jwt-simple": "^0.5.6",
     "mongoose": "^7.0.3",
+    "node-sass": "^8.0.0",
     "tsconfig": "^7.0.0",
     "typescript": "^4.8.3"
   },

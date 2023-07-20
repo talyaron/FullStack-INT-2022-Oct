@@ -78,7 +78,7 @@ body {
           i {
             margin-top: 0.5rem;
             margin-left: auto;
-            margin-bottom: .5rem;
+            margin-bottom: 0.5rem;
           }
           i:hover {
             cursor: pointer;
@@ -177,6 +177,6 @@ body {
 }
 
 .isDragging {
-  scale: .9;
+  scale: 0.9;
   background: rgba(50, 50, 50, 0.37);
 }

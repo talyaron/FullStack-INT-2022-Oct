@@ -7,6 +7,7 @@ import { config } from "../config/config";
 import { userRouter } from "../routes/userRoutes";
 import { boardRouter } from "../routes/boardRoutes";
 import { listRouter } from "../routes/listRoutes";
+import { notificationRouter } from "../routes/notificationRoute";
 
 StartServer();
 
@@ -28,6 +29,7 @@ async function StartServer() {
   app.use("/api/v1/users", userRouter);
   app.use("/api/v1/boards", boardRouter);
   app.use("/api/v1/lists", listRouter);
+  app.use("/api/v1/notifications", notificationRouter);
 
   app.get("/main", async (req: Request, res: Response, next: NextFunction) => {
     res.sendFile(path.join(__dirname, "../../public", "main.html"));
