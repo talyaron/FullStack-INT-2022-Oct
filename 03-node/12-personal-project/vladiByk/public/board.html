@@ -5,19 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kanban Board</title>
-    <link rel="icon" type="image/png" href="./img/kanban3.png" />
+    <!-- <link rel="icon" type="image/png" href="./img/kanban3.png" /> -->
     <script
       src="https://kit.fontawesome.com/0d9e773bea.js"
       crossorigin="anonymous"
       defer
     ></script>
-    <link rel="stylesheet" href="./style/dist/boardStyle.css" />
-    <link rel="stylesheet" href="./style/dist/button.css" />
-    <link rel="stylesheet" href="./style/dist/topNavBar.css" />
-    <link rel="stylesheet" href="./style/dist/profileWindow.css" />
-    <link rel="stylesheet" href="./style/dist/createBoardWindow.css" />
-    <link rel="stylesheet" href="./style/dist/trashStyle.css" />
-    <link rel="stylesheet" href="./style/dist/responsive.css" />
+    <link rel="stylesheet" href="./style/css/boardStyle.css" />
+    <link rel="stylesheet" href="./style/css/notifications.css" />
+    <link rel="stylesheet" href="./style/css/button.css" />
+    <link rel="stylesheet" href="./style/css/topNavBar.css" />
+    <link rel="stylesheet" href="./style/css/profileWindow.css" />
+    <link rel="stylesheet" href="./style/css/createBoardWindow.css" />
+    <link rel="stylesheet" href="./style/css/responsive.css" />
     <script src="./src/view.js" defer></script>
     <script src="./src/helpers.js" defer></script>
     <script src="./src/control.js" defer></script>
@@ -30,7 +30,7 @@
     <div class="boardContainer">
       <nav class="topNav">
         <div class="leftSideDiv">
-          <img src="./img/Logo.png" alt="" />
+          <img src="https://cdn6.f-cdn.com/contestentries/1233379/27157935/5a61d7ce7af38_thumb900.jpg" alt="" />
           <input
             placeholder="New List..."
             id="newListInput"
@@ -47,10 +47,10 @@
             class="fa-solid fa-hand-point-left backToMainIcon"
             title="Back To Main"
           ></i>
-          <!-- <i
-            class="fa-solid fa-bell notificationsIcon"
-            title="Notifications"
-          ></i> -->
+          <i class="fa-solid fa-bell notificationsIcon" title="Notifications"
+            ><div class="notificationDiv">
+            </div></i
+          >
           <i class="fa-solid fa-user profileIcon" title="Profile Info"></i>
         </div>
       </nav>
@@ -81,7 +81,7 @@
       <label for="boardName">Name your board:</label>
       <input type="text" name="boardName" id="updatedBoardName" />
       <button id="updatedBoardImageBtn">Edit Background Image</button>
-      <img id="imageEditWindow" src="./img/Logo.png" alt="KanbanLogo" />
+      <img id="imageEditWindow" src="https://cdn6.f-cdn.com/contestentries/1233379/27157935/5a61d7ce7af38_thumb900.jpg" alt="KanbanLogo" />
       <div>
         <button class="editBoardBtn">Edit</button>
         <button class="cancelEditBoardBtn">CANCEL</button>

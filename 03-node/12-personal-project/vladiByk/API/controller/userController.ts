@@ -1,6 +1,7 @@
 import { NextFunction, Response, Request } from "express";
-import User from "../model/UserModel";
+import User, { UserInterface } from "../model/UserModel";
 import jwt from "jwt-simple";
+import { error } from "console";
 const secret = process.env.JWT_SECRET;
 
 export const getAllUsers = async (
@@ -76,11 +77,9 @@ export const login = async (
   try {
     const { userName, password } = req.body;
 
-    //User Authentication....
-
     const findUser = await User.findOne({ userName, password });
 
-    if (!findUser) throw new Error("User not found on get user function");
+    if (!findUser) return res.status(404).json({ message: "User not found" });
 
     if (!secret) throw new Error("Missing jwt secret");
 
@@ -90,7 +89,8 @@ export const login = async (
       maxAge: 60 * 60 * 1000, //1 hours
       httpOnly: true,
     });
-    res.redirect("/main");
+    // res.redirect("/main");
+    res.status(200).json({ findUser });
   } catch (error: any) {
     console.error(error);
     res.status(500).send({ error: error.message });
@@ -126,7 +126,7 @@ export const deleteUser = async (
   next: NextFunction
 ) => {
   try {
-    const { id: userId } = req.params;
+    const { userId } = req.params;
     const user = await User.deleteOne({ _id: userId });
     const users = await User.find({});
 
@@ -143,7 +143,7 @@ export const updateUser = async (
   next: NextFunction
 ) => {
   try {
-    const { id: userId } = req.params;
+    const { userId } = req.params;
     const data = req.body;
     const users = await User.find({});
     const user = await User.findById({ _id: userId });
@@ -155,3 +155,24 @@ export const updateUser = async (
   }
 };
 
+export const getNotifications = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const { userId } = req.params;
+
+    const user: UserInterface | null = await User.findById(userId).populate(
+      "notifications"
+    );
+    if (!user) throw new Error("User not found at get notifications route.");
+
+    const notifications = user.notifications.map((x) => x.message);
+
+    res.status(201).json({ notifications });
+  } catch (error: any) {
+    console.error(error);
+    res.status(500).send({ error: error.message });
+  }
+};

@@ -1,3 +1,31 @@
+async function handleLogin(e: Event) {
+  try {
+    e.preventDefault();
+    const userName = signInForm.userName.value;
+    const password = signInForm.password.value;
+
+    const user = await fetch(`${usersAPI}/login`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userName, password }),
+    })
+      .then((res) => res.json())
+      .then(({ findUser }) => findUser)
+      .catch((error) => console.error(error));
+
+    if (!user) {
+      alert("User doesn't exist in database. Please check your input.");
+    } else {
+      location.href = "/main";
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 async function handleRecovery(e: Event) {
   try {
     e.preventDefault();
@@ -93,7 +121,8 @@ async function createBoard(
       return alert("There is already a board with that name");
     }
 
-    const newBoard = await fetch(`${boardsAPI}`, {
+    //create board
+    await fetch(`${boardsAPI}`, {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -101,6 +130,10 @@ async function createBoard(
       },
       body: JSON.stringify({ boardName, imageSrc, userId }),
     }).catch((error) => console.error(error));
+
+    //create notification
+    const message = `"${boardName}" is created.`;
+    await createNotification(message, userId);
 
     location.href = "/board";
   } catch (error) {
@@ -271,4 +304,13 @@ function renderBoardInBoardPage() {
   } catch (error) {
     console.error(error);
   }
+}
+
+function renderNotifications(list: string[]) {
+  const ulEl = document.createElement("ul") as HTMLUListElement;
+  ulEl.innerHTML = list
+    .reverse()
+    .map((el) => `<li>${el}</li>`)
+    .join("");
+  return ulEl;
 }

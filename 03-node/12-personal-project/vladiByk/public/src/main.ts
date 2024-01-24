@@ -27,10 +27,10 @@ if (window.location.pathname.endsWith("/main")) {
     renderBoardsToMain(boards);
   });
 
-  createBoardWindowBtn.addEventListener(
-    "click",
-    () => (newBoardWindow.style.display = "flex")
-  );
+  createBoardWindowBtn.addEventListener("click", () => {
+    newBoardWindow.style.display = "flex";
+    newBoardName.focus();
+  });
 
   cancelCreateBoardBtn.addEventListener(
     "click",
@@ -83,8 +83,12 @@ if (window.location.pathname.endsWith("/main")) {
       const check = confirm("Are you sure you want to delete?");
       if (check) {
         await Board.deleteBoard(target.dataset.name);
-        const boards = await getUserBoards(currentUser.id);
-        renderBoardsToMain(boards);
+        const boardName = target.parentElement?.firstElementChild?.innerHTML;
+        if (target.parentElement) target.parentElement.remove();
+        const message = `"${boardName}" was deleted.`;
+        await createNotification(message, currentUser.id);
+        // const boards = await getUserBoards(currentUser.id);
+        // renderBoardsToMain(boards);
       }
     }
 
@@ -180,6 +184,7 @@ if (window.location.pathname.endsWith("/board")) {
   boardContainer.addEventListener("keyup", () => {
     currentBoard.update();
   });
+
   newListInput.addEventListener("keyup", (event) => {
     if (event.key === "Enter") {
       List.createList(newListInput.value, currentBoard.id);
@@ -190,11 +195,23 @@ if (window.location.pathname.endsWith("/board")) {
     const confirmDelete = confirm("Are you sure you want to delete?");
     if (confirmDelete) {
       const element = document.querySelector(".isDragging") as HTMLDivElement;
-      const listId = element.id;
+      const listName = element.querySelector("h2")?.innerHTML;
+
       element.remove();
-      await fetch(`${listsAPI}/${listId}`, {
-        method: "DELETE",
-      }).catch((error) => console.error(error));
+
+      if (element.classList.contains("boardContainer__main__list")) {
+        const listId = element.id;
+        const boardName = currentBoard.name;
+        const userId = currentUser.id;
+
+        await fetch(`${listsAPI}/${listId}`, {
+          method: "DELETE",
+        }).catch((error) => console.error(error));
+
+        const message = `"${listName}" deleted at board #${boardName}#`;
+        await createNotification(message, userId);
+      }
+
       currentBoard.update();
     }
   });

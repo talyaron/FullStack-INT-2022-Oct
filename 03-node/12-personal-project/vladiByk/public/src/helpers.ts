@@ -76,3 +76,14 @@ async function removeCookie(api: string) {
     console.error(error);
   }
 }
+
+async function createNotification(message: string, userId: string) {
+  await fetch(`${notificationsAPI}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ message, userId }),
+  });
+}

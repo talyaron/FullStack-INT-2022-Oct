@@ -6,6 +6,7 @@ interface UserTemplate {
   password: string;
   email: string;
   boardList: [BoardTemplate];
+  notifications: [NotificationInterface];
   _id: string;
 }
 
@@ -66,7 +67,6 @@ class Board {
   static async setCurrentBoard(boardId: string) {
     await fetch(`${boardsAPI}/${boardId}`, {
       method: "POST",
-      body: JSON.stringify({ boardId }),
     }).catch((error) => console.error(error));
   }
 
@@ -75,14 +75,18 @@ class Board {
       .then((res) => res.json())
       .then(({ board }) => board)
       .catch((error) => console.error(error));
-    const boardLists: ListTemplate[] = await fetch(`${listsAPI}/${board._id}`)
+
+    const boardLists: ListTemplate[] = await fetch(
+      `${boardsAPI}/getlists/${board._id}`
+    )
       .then((res) => res.json())
-      .then(({ lists }) => lists)
+      .then(({ board }) => board.listArray)
       .catch((error) => console.error(error));
 
     const listArrayNew = boardLists.map(
       (list) => new List(list.listName, list.cardsArray, list._id)
     );
+
     currentBoard = new Board(
       board.boardName,
       board.imageSrc,
@@ -92,8 +96,14 @@ class Board {
   }
 
   static async deleteBoard(boardId: string) {
+    const userId = currentUser.id;
     await fetch(`${boardsAPI}/${boardId}`, {
       method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ userId }),
     })
       .then((res) => res.json())
       .then(({ boards }) => boards)
@@ -102,7 +112,6 @@ class Board {
 
   async update() {
     this.listArray = [];
-    const boardId = this.id;
 
     const listElements = boardContainer.querySelectorAll(
       ".boardContainer__main__list"
@@ -114,7 +123,7 @@ class Board {
 
       list
         .querySelectorAll("p")
-        .forEach((card) => cardsArray.push(card.innerHTML));
+        .forEach((card) => cardsArray.unshift(card.innerHTML));
 
       const newList = new List(listName, cardsArray, _id);
 
@@ -126,12 +135,28 @@ class Board {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ listName, cardsArray, boardId }),
+        body: JSON.stringify({ listName, cardsArray }),
       })
         .then((res) => res.json())
         .then(({ list }) => list)
         .catch((error) => console.error(error));
     });
+
+    const listArrayID = this.listArray.map((list) => list.id);
+
+    //update board on DB
+    await fetch(`${boardsAPI}/${this.id}`, {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        boardName: this.name,
+        imageSrc: this.imageSrc,
+        listArray: listArrayID,
+      }),
+    }).catch((error) => console.error(error));
   }
 
   async edit(
@@ -153,6 +178,7 @@ class Board {
     });
 
     this.listArray.forEach(async (list) => {
+      const userId = currentUser.id;
       await fetch(`${listsAPI}/${list.id}`, {
         method: "PATCH",
         headers: {
@@ -162,7 +188,6 @@ class Board {
         body: JSON.stringify({
           listName: list.name,
           cardsArray: list.cards,
-          boardId,
         }),
       });
     });
@@ -190,6 +215,7 @@ class List {
 
   static async createList(listName: string, boardId: string) {
     if (newListInput.value == "") return;
+    const userId = currentUser.id;
 
     const createdList: ListTemplate = await fetch(`${listsAPI}`, {
       method: "POST",
@@ -206,6 +232,9 @@ class List {
     const newList = new List(listName, [], createdList._id);
     boardContainer.insertBefore(newList.createListElement(), trashCanDiv);
     newListInput.value = "";
+
+    const message = `"${listName}" List is created at board #${currentBoard.name}#`;
+    await createNotification(message, userId);
   }
 
   createListElement() {
@@ -237,51 +266,7 @@ class List {
   }
 }
 
-// ---------------------- pre made users ---------------------- //
-const preMadeUserList: User[] = [
-  new User(
-    "Vladislav",
-    "Bykanov",
-    "male",
-    "vladb89",
-    "12345678",
-    "vladi@gmail.com"
-  ),
-  new User("Itai", "Gelberg", "male", "itaiG", "87654321", "itaiGel@gmail.com"),
-  new User(
-    "Itay",
-    "Amosi",
-    "male",
-    "itayz1e",
-    "144322144",
-    "itayAmosi@gmail.com"
-  ),
-];
-
-const preMadeBoardList: Board[] = [
-  new Board("Golden Board", "./img/NASA.jpg"),
-  new Board("Cyan Board", "./img/pink-sea.jpg"),
-  new Board("Magenta Board", "./img/purple-flower.jpg"),
-  new Board("Salmon Board", "./img/sea.jpg"),
-  new Board("SlateBlue Board", "./img/wall-painting.jpg"),
-];
-
-const preMadeListList = [
-  new List("To Do", ["buy chocolate", "write a song", "go for a jog"]),
-  new List("Design", ["Design html page", "Create logo"]),
-  new List("Backlog", ["Register", "Accessibility", "CRUD Lists", "Login"]),
-  new List("Finish", [
-    "open repo",
-    "Create Main Page",
-    "Create Login Page",
-    "Create Sign Up page",
-  ]),
-];
-
-if (!localStorage.getItem("signedUpUsers")) {
-  preMadeBoardList[0].listArray.push(...preMadeListList);
-  preMadeUserList[0].boardList.push(...preMadeBoardList);
-  preMadeUserList[1].boardList.push(...preMadeBoardList);
-  preMadeUserList[2].boardList.push(...preMadeBoardList);
-  localStorage.setItem("signedUpUsers", JSON.stringify(preMadeUserList));
+interface NotificationInterface {
+  message: string;
+  _id: string;
 }
